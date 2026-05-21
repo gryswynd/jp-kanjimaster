@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+
+/* Rikizo — Home Screen Redesign
+   ------------------------------------------------
+   Editorial-meets-dojo aesthetic. Washi paper base,
+   sumi ink type, vermilion accents. Three modes
+   ("quiet" / "dojo" / "play") toggle accent usage
+   and density. */
+
+:root {
+  --washi: oklch(0.97 0.008 80);
+  --washi-2: oklch(0.94 0.012 75);
+  --washi-3: oklch(0.90 0.015 75);
+  --ink: oklch(0.22 0.012 60);
+  --ink-2: oklch(0.38 0.012 60);
+  --ink-3: oklch(0.55 0.012 60);
+  --hairline: oklch(0.22 0.012 60 / 0.12);
+  --hairline-2: oklch(0.22 0.012 60 / 0.06);
+
+  --vermilion: oklch(0.60 0.18 30);
+  --vermilion-ink: oklch(0.52 0.18 30);
+  --moss: oklch(0.58 0.09 140);
+  --indigo: oklch(0.42 0.08 250);
+  --gold: oklch(0.78 0.10 85);
+
+  --font-ui: "Schibsted Grotesk", "Work Sans", system-ui, sans-serif;
+  --font-jp: "Noto Sans JP", system-ui, sans-serif;
+  --font-jp-display: "Noto Serif JP", "Shippori Mincho", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-ui);
+  background: oklch(0.93 0.01 70);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px 80px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+* { box-sizing: border-box; }
+
+button { font-family: inherit; }
+
+/* Paper texture — subtle noise via radial gradients */
+.paper-bg {
+  background:
+    radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+    radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+    var(--washi);
+  position: relative;
+}
+.paper-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 2px, oklch(0.2 0.01 60 / 0.012) 2px 3px),
+    repeating-linear-gradient(90deg, transparent 0 2px, oklch(0.2 0.01 60 / 0.012) 2px 3px);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+
+/* Pixel art should stay crisp */
+.pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+/* Hanko (red seal) — the signature accent shape */
+.hanko {
+  font-family: var(--font-jp-display);
+  font-weight: 700;
+  color: #fff;
+  background: var(--vermilion);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  letter-spacing: 0;
+  line-height: 1;
+  box-shadow: 0 2px 0 oklch(0.45 0.18 30 / 0.4);
+  position: relative;
+}
+.hanko::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid oklch(1 0 0 / 0.35);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Furigana */
+ruby { ruby-position: over; }
+rt {
+  font-size: 0.5em;
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0;
+}
+
+.jp-serif { font-family: var(--font-jp-display); }
+.jp-sans  { font-family: var(--font-jp); }
+.mono     { font-family: var(--font-mono); letter-spacing: 0; }
+
+/* Scrollbar hiding inside the phone */
+.noscroll::-webkit-scrollbar { display: none; }
+.noscroll { scrollbar-width: none; }
+
+/* Grammar module additions */
+@keyframes glossFadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Dojo hanabi celebration */
+@keyframes hanabiPop {
+  0%   { opacity: 0; transform: scale(0.5); }
+  20%  { opacity: 1; transform: scale(1.2); }
+  50%  { opacity: 1; transform: scale(1); }
+  80%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.1); }
+}
+
+/* Tweak panel (floating) */
+.tweaks-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  background: var(--washi);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.06);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  min-width: 240px;
+}
+.tweaks-panel h4 {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tweaks-panel .row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.tweaks-panel .row:last-child { margin-bottom: 0; }
+.tweaks-panel .chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tweaks-panel .chip.active {
+  background: var(--ink);
+  color: var(--washi);
+  border-color: var(--ink);
+}
+.tweaks-panel .chip:hover:not(.active) { background: var(--hairline-2); }
+.tweaks-panel .label {
+  font-size: 11px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
