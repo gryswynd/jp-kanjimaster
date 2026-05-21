@@ -40,24 +40,28 @@ window.StoryModule = (function() {
       style.id = styleId;
       style.textContent = `
         .jp-story-container {
-          font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-          background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
-          border-radius: 12px;
+          font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+          background:
+            radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+            radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+            oklch(0.97 0.008 80);
           overflow: hidden;
-          max-width: 900px;
+          width: 100%;
           margin: 0 auto;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
           position: relative;
-          min-height: 600px;
+          min-height: 100vh; min-height: 100dvh;
+          color: oklch(0.22 0.012 60);
         }
         .jp-story-header {
-          background: rgba(0,0,0,0.5);
-          padding: 15px 20px;
+          background: oklch(0.22 0.012 60);
+          padding: max(28px,env(safe-area-inset-top)) 18px 14px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
           gap: 10px;
+          position: sticky; top: 0; z-index: 10;
+          border-bottom: 1px solid oklch(1 0 0 / 0.1);
         }
         .jp-story-title {
           color: white;
@@ -90,47 +94,45 @@ window.StoryModule = (function() {
           cursor: not-allowed;
         }
         .jp-story-content {
-          background: white;
-          padding: 40px;
-          margin: 20px;
-          border-radius: 8px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-          max-height: calc(100vh - 200px);
+          background: oklch(0.97 0.008 80);
+          padding: 24px 18px 40px;
+          margin: 0;
+          border-radius: 0;
           overflow-y: auto;
         }
         .jp-story-content h1 {
-          color: #D97706;
+          color: #9A7B1F;
           font-size: 2rem;
           margin-top: 0;
           margin-bottom: 0.5rem;
           font-weight: 700;
         }
         .jp-story-content h2 {
-          color: #B45309;
+          color: #6E5A18;
           font-size: 1.4rem;
           margin-top: 0;
           margin-bottom: 2rem;
           font-weight: 600;
         }
         .jp-story-content h3 {
-          color: #D97706;
+          color: #9A7B1F;
           font-size: 1.2rem;
           margin-top: 2rem;
           margin-bottom: 1rem;
           font-weight: 600;
-          border-bottom: 2px solid #D97706;
+          border-bottom: 2px solid #9A7B1F;
           padding-bottom: 0.5rem;
         }
         .jp-story-content hr {
           border: none;
-          border-top: 2px solid #e0e0e0;
+          border-top: 2px solid oklch(0.22 0.012 60 / 0.12);
           margin: 2rem 0;
         }
         .jp-story-content p {
           font-size: 1.1rem;
           line-height: 2;
           margin-bottom: 1rem;
-          color: #333;
+          color: oklch(0.22 0.012 60);
           font-family: 'Noto Sans JP', sans-serif;
         }
         .jp-story-content ul, .jp-story-content ol {
@@ -140,25 +142,25 @@ window.StoryModule = (function() {
         }
         .jp-story-content li {
           margin-bottom: 0.5rem;
-          color: #333;
+          color: oklch(0.22 0.012 60);
         }
         .jp-story-content strong {
-          color: #D97706;
+          color: #9A7B1F;
           font-weight: 700;
         }
         .jp-story-content em {
-          color: #B45309;
+          color: #6E5A18;
           font-style: italic;
         }
         .jp-story-content code {
-          background: #f5f5f5;
+          background: #EFE9DD;
           padding: 2px 6px;
           border-radius: 3px;
           font-family: monospace;
           font-size: 0.9em;
         }
         .jp-story-content pre {
-          background: #f5f5f5;
+          background: #EFE9DD;
           padding: 15px;
           border-radius: 6px;
           overflow-x: auto;
@@ -169,7 +171,7 @@ window.StoryModule = (function() {
           padding: 0;
         }
         .jp-term {
-          color: #4e54c8;
+          color: #C2410C;
           font-weight: 700;
           cursor: pointer;
           border-bottom: 2px solid rgba(78,84,200,0.2);
@@ -178,21 +180,21 @@ window.StoryModule = (function() {
         }
         @media (hover: hover) {
           .jp-term:hover {
-            background: rgba(78,84,200,0.08);
-            border-bottom-color: #4e54c8;
+            background: oklch(0.60 0.18 30 / 0.10);
+            border-bottom-color: #C2410C;
           }
         }
         .jp-story-loading {
           text-align: center;
           padding: 60px 20px;
-          color: white;
+          color: oklch(0.55 0.012 60);
         }
         .jp-story-loading-spinner {
           display: inline-block;
           width: 40px;
           height: 40px;
-          border: 4px solid rgba(255,255,255,0.3);
-          border-top-color: white;
+          border: 4px solid oklch(0.22 0.012 60 / 0.15);
+          border-top-color: oklch(0.60 0.18 30);
           border-radius: 50%;
           animation: spin 1s linear infinite;
           margin-bottom: 20px;
@@ -201,11 +203,12 @@ window.StoryModule = (function() {
           to { transform: rotate(360deg); }
         }
         .jp-story-error {
-          background: #ff5252;
-          color: white;
+          background: oklch(0.97 0.008 80);
+          border: 1px solid oklch(0.60 0.18 30 / 0.4);
+          color: oklch(0.52 0.18 30);
           padding: 20px;
-          margin: 20px;
-          border-radius: 8px;
+          margin: 18px;
+          border-radius: 14px;
           text-align: center;
         }
         .jp-story-selector {
@@ -216,7 +219,7 @@ window.StoryModule = (function() {
           box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .jp-story-selector h2 {
-          color: #D97706;
+          color: #9A7B1F;
           font-size: 1.3rem;
           font-weight: 700;
           margin: 0 0 5px 0;
@@ -237,7 +240,7 @@ window.StoryModule = (function() {
           gap: 12px;
         }
         .jp-story-level-card {
-          background: linear-gradient(135deg, #FFFBEB 0%, #FDE68A 100%);
+          background: oklch(0.94 0.012 75);
           border-radius: 12px;
           padding: 28px 16px;
           cursor: pointer;
@@ -249,18 +252,18 @@ window.StoryModule = (function() {
           .jp-story-level-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-color: #D97706;
+            border-color: #9A7B1F;
           }
         }
         .jp-story-level-name {
           font-size: 1.4rem;
           font-weight: 900;
-          color: #D97706;
+          color: #9A7B1F;
           margin-bottom: 6px;
         }
         .jp-story-level-count {
           font-size: 0.85rem;
-          color: #B45309;
+          color: #6E5A18;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.05em;
@@ -268,7 +271,7 @@ window.StoryModule = (function() {
         .jp-story-level-back-btn {
           background: transparent;
           border: none;
-          color: #D97706;
+          color: #9A7B1F;
           font-weight: 700;
           cursor: pointer;
           padding: 0 0 12px 0;
@@ -278,7 +281,7 @@ window.StoryModule = (function() {
         }
         @media (hover: hover) { .jp-story-level-back-btn:hover { text-decoration: underline; } }
         .jp-story-card {
-          background: linear-gradient(135deg, #FFFBEB 0%, #FDE68A 100%);
+          background: oklch(0.94 0.012 75);
           border-radius: 12px;
           padding: 24px 16px;
           cursor: pointer;
@@ -290,12 +293,12 @@ window.StoryModule = (function() {
           .jp-story-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border-color: #D97706;
+            border-color: #9A7B1F;
           }
         }
         .jp-story-level-badge {
           display: inline-block;
-          background: #D97706;
+          background: #9A7B1F;
           color: white;
           font-size: 0.7rem;
           font-weight: 700;
@@ -307,7 +310,7 @@ window.StoryModule = (function() {
         .jp-story-card-jp {
           font-size: 1.3rem;
           font-weight: 700;
-          color: #333;
+          color: oklch(0.22 0.012 60);
           margin-bottom: 6px;
           font-family: 'Noto Sans JP', sans-serif;
         }
@@ -317,7 +320,7 @@ window.StoryModule = (function() {
           margin-bottom: 16px;
         }
         .jp-story-card-read-btn {
-          background: #D97706;
+          background: #9A7B1F;
           color: white;
           border: none;
           padding: 8px 20px;
@@ -424,7 +427,7 @@ window.StoryModule = (function() {
       }
 
       const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js';
+      script.src = (window.getAssetUrl ? window.getAssetUrl(config, 'vendor/marked.min.js') : 'vendor/marked.min.js');
       script.onload = () => {
         if (window.marked) {
           marked.setOptions({
