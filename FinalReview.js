@@ -58,50 +58,61 @@ window.FinalReviewModule = (function () {
     s.id = 'jp-final-review-styles';
     s.textContent = `
       #jp-fr-root {
-        --fr-primary: #E91E63;
-        --fr-primary-dark: #C2185B;
-        --fr-gold: #FFD700;
-        --fr-bg: #FFF8E1;
-        --fr-card: #FFFFFF;
-        --fr-text: #2f3542;
-        --fr-text-sub: #747d8c;
-        font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-        max-width: 800px;
+        --fr-primary: oklch(0.60 0.18 30);
+        --fr-primary-dark: oklch(0.52 0.18 30);
+        --fr-gold: oklch(0.78 0.10 85);
+        --fr-bg: oklch(0.97 0.008 80);
+        --fr-card: oklch(0.97 0.008 80);
+        --fr-text: oklch(0.22 0.012 60);
+        --fr-text-sub: oklch(0.55 0.012 60);
+        --ink: oklch(0.22 0.012 60); --washi: oklch(0.97 0.008 80);
+        --hairline: oklch(0.22 0.012 60 / 0.12);
+        --font-jp-display: "Noto Serif JP","Shippori Mincho",serif;
+        font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+        width: 100%;
         margin: 0 auto;
         color: var(--fr-text);
+        display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh;
+        background:
+          radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+          radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+          oklch(0.97 0.008 80);
       }
       .fr-header {
-        background: linear-gradient(135deg, #E91E63, #9C27B0);
-        color: white;
-        padding: 20px 24px;
-        border-radius: 16px 16px 0 0;
+        background: var(--ink);
+        color: var(--washi);
+        padding: max(28px,env(safe-area-inset-top)) 18px 14px;
+        border-radius: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky; top: 0; z-index: 10;
+        border-bottom: 1px solid oklch(1 0 0 / 0.1);
       }
-      .fr-header h2 { margin: 0; font-size: 1.3rem; font-weight: 900; }
+      .fr-header h2 { margin: 0; font-size: 17px; font-weight: 600; font-family: var(--font-jp-display); }
       .fr-header-score {
-        background: rgba(255,255,255,0.2);
+        background: oklch(1 0 0 / 0.12);
         padding: 6px 14px;
-        border-radius: 20px;
+        border-radius: 999px;
         font-weight: 700;
         font-size: 0.95rem;
       }
       .fr-progress-track {
-        height: 6px;
-        background: #eee;
+        height: 4px;
+        background: var(--hairline);
         position: relative;
       }
       .fr-progress-bar {
         height: 100%;
-        background: linear-gradient(90deg, #E91E63, #FFD700);
+        background: var(--fr-primary);
         transition: width 0.5s ease;
         border-radius: 0 3px 3px 0;
       }
       .fr-body {
-        background: var(--fr-bg);
-        padding: 24px;
-        border-radius: 0 0 16px 16px;
+        background: transparent;
+        padding: 22px 18px 40px;
+        border-radius: 0;
+        flex: 1;
         min-height: 400px;
       }
       .fr-section-title {
@@ -129,9 +140,9 @@ window.FinalReviewModule = (function () {
       }
       .fr-btn:active { transform: scale(0.96); }
       .fr-btn-primary {
-        background: linear-gradient(135deg, #E91E63, #9C27B0);
+        background: oklch(0.22 0.012 60);
         color: white;
-        box-shadow: 0 4px 15px rgba(233,30,99,0.3);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.18);
       }
       .fr-btn-secondary {
         background: white;
@@ -176,16 +187,16 @@ window.FinalReviewModule = (function () {
         padding: 14px;
         border-radius: 12px;
         background: #f8f9fa;
-        border: 2px solid #e9ecef;
+        border: 2px solid #EBE5D8;
         font-size: 1.1rem;
         cursor: pointer;
         transition: all 0.2s;
         font-family: inherit;
         font-weight: 600;
       }
-      @media (hover: hover) { .fr-speed-choice:hover { border-color: var(--fr-primary); background: #fff0f3; } }
-      .fr-speed-choice.correct { background: #d4edda; border-color: #28a745; color: #155724; }
-      .fr-speed-choice.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+      @media (hover: hover) { .fr-speed-choice:hover { border-color: var(--fr-primary); background: #F3E3DC; } }
+      .fr-speed-choice.correct { background: #DDE7D6; border-color: #5E8C5F; color: #38513A; }
+      .fr-speed-choice.wrong { background: #F1DCD4; border-color: #C2410C; color: #721c24; }
       .fr-speed-streak {
         position: absolute;
         top: 12px;
@@ -216,7 +227,7 @@ window.FinalReviewModule = (function () {
         color: var(--fr-text-sub);
         margin-bottom: 12px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #E5DFD2;
         font-size: 0.9rem;
       }
       .fr-conv-line {
@@ -245,7 +256,7 @@ window.FinalReviewModule = (function () {
 
       /* ── Clickable term spans (shared with Lesson/Review) ── */
       .jp-term {
-        color: #4e54c8;
+        color: #C2410C;
         font-weight: 700;
         cursor: pointer;
         margin-right: 1px;
@@ -255,7 +266,7 @@ window.FinalReviewModule = (function () {
       @media (hover: hover) {
         .jp-term:hover {
           background: rgba(78,84,200,0.05);
-          border-bottom-color: #4e54c8;
+          border-bottom-color: #C2410C;
         }
       }
 
@@ -314,7 +325,7 @@ window.FinalReviewModule = (function () {
         padding: 14px 18px;
         border-radius: 12px;
         background: white;
-        border: 2px solid #e9ecef;
+        border: 2px solid #EBE5D8;
         font-size: 1rem;
         cursor: pointer;
         transition: all 0.2s;
@@ -322,13 +333,13 @@ window.FinalReviewModule = (function () {
         text-align: left;
       }
       @media (hover: hover) { .fr-choice:hover { border-color: var(--fr-primary); } }
-      .fr-choice.correct { background: #d4edda; border-color: #28a745; }
-      .fr-choice.wrong { background: #f8d7da; border-color: #dc3545; }
+      .fr-choice.correct { background: #DDE7D6; border-color: #5E8C5F; }
+      .fr-choice.wrong { background: #F1DCD4; border-color: #C2410C; }
       .fr-choice.locked { pointer-events: none; }
       .fr-explanation {
         margin-top: 12px;
         padding: 12px 16px;
-        background: #f0f0f0;
+        background: #EDE7DA;
         border-radius: 10px;
         font-size: 0.9rem;
         color: #555;
@@ -347,7 +358,7 @@ window.FinalReviewModule = (function () {
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background: #e0e0e0;
+        background: #E2DCCF;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -357,8 +368,8 @@ window.FinalReviewModule = (function () {
         transition: all 0.3s;
       }
       .fr-relay-dot.active { background: var(--fr-primary); transform: scale(1.2); }
-      .fr-relay-dot.done { background: #28a745; }
-      .fr-relay-dot.failed { background: #dc3545; }
+      .fr-relay-dot.done { background: #5E8C5F; }
+      .fr-relay-dot.failed { background: #C2410C; }
       .fr-scramble-box {
         min-height: 50px;
         background: white;
@@ -372,12 +383,12 @@ window.FinalReviewModule = (function () {
         margin-bottom: 12px;
         transition: border-color 0.3s;
       }
-      .fr-scramble-box.correct { border-color: #28a745; background: #f0fff0; }
-      .fr-scramble-box.wrong { border-color: #dc3545; }
+      .fr-scramble-box.correct { border-color: #5E8C5F; background: #E8EFE4; }
+      .fr-scramble-box.wrong { border-color: #C2410C; }
       .fr-chip {
         padding: 8px 16px;
         border-radius: 10px;
-        background: #f0f0f0;
+        background: #EDE7DA;
         cursor: pointer;
         font-size: 1.05rem;
         font-weight: 600;
@@ -386,7 +397,7 @@ window.FinalReviewModule = (function () {
         font-family: inherit;
         border: 2px solid transparent;
       }
-      @media (hover: hover) { .fr-chip:hover { background: #e0e0e0; } }
+      @media (hover: hover) { .fr-chip:hover { background: #E2DCCF; } }
       .fr-chip.used { opacity: 0.3; pointer-events: none; }
       .fr-chip.in-box {
         background: white;
@@ -394,7 +405,7 @@ window.FinalReviewModule = (function () {
       }
       .fr-chip.fr-chip-correct {
         background: rgba(46,213,115,0.12) !important;
-        border-color: #2ed573 !important;
+        border-color: #5E8C5F !important;
         color: #1a8a45 !important;
       }
       .fr-chip.fr-chip-misplaced {
@@ -454,7 +465,7 @@ window.FinalReviewModule = (function () {
         transition: transform 0.3s, background 0.3s;
         user-select: none;
         position: relative;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, #2A2622, #2A2622);
         color: white;
       }
       .fr-match-card.flipped {
@@ -464,14 +475,14 @@ window.FinalReviewModule = (function () {
         transform: rotateY(0deg);
       }
       .fr-match-card.matched {
-        background: #d4edda;
-        border: 2px solid #28a745;
-        color: #155724;
+        background: #DDE7D6;
+        border: 2px solid #5E8C5F;
+        color: #38513A;
         pointer-events: none;
       }
       .fr-match-card.wrong-flip {
-        background: #f8d7da;
-        border: 2px solid #dc3545;
+        background: #F1DCD4;
+        border: 2px solid #C2410C;
       }
       .fr-match-card .fr-card-back {
         font-size: 1.5rem;
@@ -495,7 +506,7 @@ window.FinalReviewModule = (function () {
         padding: 10px 18px;
         border-radius: 12px;
         background: white;
-        border: 2px solid #e0e0e0;
+        border: 2px solid #E2DCCF;
         font-size: 1.05rem;
         font-weight: 600;
         cursor: pointer;
@@ -503,7 +514,7 @@ window.FinalReviewModule = (function () {
         font-family: inherit;
       }
       @media (hover: hover) { .fr-cat-word:hover { border-color: var(--fr-primary); } }
-      .fr-cat-word.selected { border-color: var(--fr-primary); background: #fff0f3; }
+      .fr-cat-word.selected { border-color: var(--fr-primary); background: #F3E3DC; }
       .fr-cat-word.placed { opacity: 0.3; pointer-events: none; }
       .fr-cat-slots {
         display: grid;
@@ -516,7 +527,7 @@ window.FinalReviewModule = (function () {
         border-radius: 12px;
         padding: 14px;
         text-align: center;
-        border: 2px solid #e9ecef;
+        border: 2px solid #EBE5D8;
         min-height: 120px;
       }
       .fr-cat-group-title {
@@ -524,16 +535,16 @@ window.FinalReviewModule = (function () {
         font-size: 0.9rem;
         margin-bottom: 8px;
         padding-bottom: 6px;
-        border-bottom: 2px solid #eee;
+        border-bottom: 2px solid #E5DFD2;
       }
-      .fr-cat-group.correct { border-color: #28a745; background: #f0fff0; }
-      .fr-cat-group.wrong { border-color: #dc3545; background: #fff0f0; }
+      .fr-cat-group.correct { border-color: #5E8C5F; background: #E8EFE4; }
+      .fr-cat-group.wrong { border-color: #C2410C; background: #F3E3DC; }
       .fr-cat-placed-word {
         display: inline-block;
         padding: 4px 10px;
         margin: 3px;
         border-radius: 8px;
-        background: #f0f0f0;
+        background: #EDE7DA;
         font-size: 0.9rem;
       }
 
@@ -572,7 +583,7 @@ window.FinalReviewModule = (function () {
         animation: frStamp 0.3s ease;
       }
       .fr-bingo-cell.free {
-        background: #fff0f3;
+        background: #F3E3DC;
         border-color: var(--fr-primary);
         pointer-events: none;
       }
@@ -583,7 +594,7 @@ window.FinalReviewModule = (function () {
         opacity: 0.85;
       }
       .fr-bingo-cell.bingo-line {
-        box-shadow: 0 0 0 3px var(--fr-gold), 0 0 15px rgba(255,215,0,0.5);
+        box-shadow: 0 0 0 3px var(--fr-gold), 0 0 15px oklch(0.78 0.10 85 / 0.5);
       }
       .fr-bingo-call {
         text-align: center;
@@ -667,7 +678,7 @@ window.FinalReviewModule = (function () {
       .fr-final-pct {
         font-size: 4.5rem;
         font-weight: 900;
-        background: linear-gradient(135deg, #E91E63, #FFD700);
+        background: linear-gradient(135deg, #C2410C, #C9A24A);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -685,7 +696,7 @@ window.FinalReviewModule = (function () {
         gap: 6px;
         padding: 6px 10px;
         background: #263238;
-        border-bottom: 2px solid #FFD700;
+        border-bottom: 2px solid #C9A24A;
         font-size: 0.75rem;
         overflow-x: auto;
       }
@@ -702,17 +713,17 @@ window.FinalReviewModule = (function () {
       }
       @media (hover: hover) { .fr-teacher-bar button:hover { background: #607D8B; } }
       .fr-teacher-bar button.active {
-        background: #FFD700;
+        background: #C9A24A;
         color: #263238;
       }
       .fr-teacher-bar .fr-tb-label {
-        color: #FFD700;
+        color: #C9A24A;
         font-weight: 700;
         margin-right: 4px;
         white-space: nowrap;
       }
       .fr-header.teacher-active {
-        border-bottom: 2px solid #FFD700;
+        border-bottom: 2px solid #C9A24A;
       }
 
       /* ── Rikizo Gift Box Sequence ── */
@@ -737,11 +748,11 @@ window.FinalReviewModule = (function () {
       @media (hover: hover) { .fr-gift-box:hover { transform: scale(1.08); } }
       .fr-gift-box-body {
         width: 120px; height: 100px;
-        background: linear-gradient(135deg, #E91E63, #C2185B);
+        background: linear-gradient(135deg, #C2410C, #9A3412);
         border-radius: 8px;
         position: relative;
         margin: 0 auto;
-        box-shadow: 0 8px 24px rgba(233,30,99,0.3);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
       }
       .fr-gift-box-body::before {
         content: '';
@@ -750,11 +761,11 @@ window.FinalReviewModule = (function () {
         left: 50%;
         width: 20px;
         margin-left: -10px;
-        background: #FFD700;
+        background: #C9A24A;
       }
       .fr-gift-lid {
         width: 136px; height: 30px;
-        background: linear-gradient(135deg, #E91E63, #AD1457);
+        background: linear-gradient(135deg, #C2410C, #AD1457);
         border-radius: 6px;
         margin: 0 auto 0;
         position: relative;
@@ -767,7 +778,7 @@ window.FinalReviewModule = (function () {
         left: 50%;
         width: 20px;
         margin-left: -10px;
-        background: #FFD700;
+        background: #C9A24A;
       }
       .fr-gift-lid.open {
         transform: translateY(-40px) rotate(-25deg) translateX(-30px);
@@ -1395,7 +1406,7 @@ window.FinalReviewModule = (function () {
         const choices = shuffle(item.choices.slice());
         qDiv.innerHTML = `
           <div style="text-align:center;margin-bottom:8px;">
-            <span style="display:inline-block;padding:4px 14px;border-radius:20px;background:${item.color || '#E91E63'};color:white;font-weight:700;font-size:0.85rem;">${item.category}</span>
+            <span style="display:inline-block;padding:4px 14px;border-radius:20px;background:${item.color || '#C2410C'};color:white;font-weight:700;font-size:0.85rem;">${item.category}</span>
           </div>
           <div style="font-weight:700;font-size:1.1rem;text-align:center;margin-bottom:12px;">${item.q}</div>
           <div class="fr-choices" id="fr-roul-choices">
@@ -1624,7 +1635,7 @@ window.FinalReviewModule = (function () {
           const star = pts === 2 ? '⭐⭐' : pts === 1 ? '⭐' : '';
           const ptLabel = pts === 1 ? 'point' : 'points';
           const explainDiv = el('fr-scr-explain');
-          explainDiv.innerHTML = `<div style="color:var(--fr-success,#2ed573);font-weight:700;margin-bottom:6px;">Correct! 🎉 <span style="font-size:0.85rem;">${star} +${pts} ${ptLabel}</span></div>${item.explanation || ''}`;
+          explainDiv.innerHTML = `<div style="color:var(--fr-success,#5E8C5F);font-weight:700;margin-bottom:6px;">Correct! 🎉 <span style="font-size:0.85rem;">${star} +${pts} ${ptLabel}</span></div>${item.explanation || ''}`;
           explainDiv.classList.add('show');
           idx++;
           // Manual proceed
@@ -2082,10 +2093,10 @@ window.FinalReviewModule = (function () {
 
     let rank, rankColor;
     if (pct >= 100) { rank = '\u795E\uFF01 Godlike!'; rankColor = '#8B5CF6'; }
-    else if (pct >= 90) { rank = '\u5929\u624D\uFF01 Genius!'; rankColor = '#E91E63'; }
+    else if (pct >= 90) { rank = '\u5929\u624D\uFF01 Genius!'; rankColor = '#C2410C'; }
     else if (pct >= 80) { rank = '\u3059\u3070\u3089\u3057\u3044\uFF01 Wonderful!'; rankColor = '#00BCD4'; }
     else if (pct >= 70) { rank = '\u3055\u3059\u304C\uFF01 Impressive!'; rankColor = '#FF6B35'; }
-    else if (pct >= 60) { rank = '\u3044\u3044\u306D\uFF01 Nice!'; rankColor = '#FFD700'; }
+    else if (pct >= 60) { rank = '\u3044\u3044\u306D\uFF01 Nice!'; rankColor = '#C9A24A'; }
     else { rank = '\u9811\u5F35\u308C\uFF01 Keep Going!'; rankColor = '#747d8c'; }
 
     // Save score
@@ -2108,9 +2119,9 @@ window.FinalReviewModule = (function () {
           <div class="fr-gift-lid" id="fr-gift-lid">
             <div class="fr-gift-bow">
               <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="14" cy="16" r="10" fill="none" stroke="#FFD700" stroke-width="3"/>
-                <circle cx="26" cy="16" r="10" fill="none" stroke="#FFD700" stroke-width="3"/>
-                <path d="M14 26 L20 36 L26 26" fill="#FFD700"/>
+                <circle cx="14" cy="16" r="10" fill="none" stroke="#C9A24A" stroke-width="3"/>
+                <circle cx="26" cy="16" r="10" fill="none" stroke="#C9A24A" stroke-width="3"/>
+                <path d="M14 26 L20 36 L26 26" fill="#C9A24A"/>
               </svg>
             </div>
           </div>
@@ -2143,7 +2154,7 @@ window.FinalReviewModule = (function () {
       const boxRect = giftBox.getBoundingClientRect();
       const boxCenterX = boxRect.left - sceneRect.left + boxRect.width / 2;
       const boxCenterY = boxRect.top - sceneRect.top + boxRect.height / 2;
-      const sparkleColors = ['#FFD700', '#E91E63', '#00BCD4', '#8B5CF6', '#FF6B35', '#4CAF50'];
+      const sparkleColors = ['#C9A24A', '#C2410C', '#00BCD4', '#8B5CF6', '#FF6B35', '#4CAF50'];
       for (let i = 0; i < 12; i++) {
         const spark = document.createElement('div');
         spark.className = 'fr-sparkle';
@@ -2260,14 +2271,14 @@ window.FinalReviewModule = (function () {
     if (isN5Final && pct >= 75 && !alreadyUnlocked) {
       n4SectionHtml = `
         <div id="fr-n4-gateway" style="margin:20px auto;max-width:380px;padding:20px 24px;
-          background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;
+          background:linear-gradient(135deg,#2A2622,#2A2622);border-radius:16px;
           color:white;text-align:center;box-shadow:0 8px 24px rgba(102,126,234,0.35);">
           <div style="font-size:1.6rem;margin-bottom:6px;">🎓</div>
           <div style="font-size:1rem;font-weight:800;margin-bottom:6px;">N5 Complete!</div>
           <div style="font-size:0.85rem;opacity:0.9;margin-bottom:16px;line-height:1.4;">
             You've mastered all of N5 Japanese.<br>Ready to continue to N4?
           </div>
-          <button id="fr-unlock-n4-btn" style="background:white;color:#667eea;font-weight:900;
+          <button id="fr-unlock-n4-btn" style="background:white;color:#2A2622;font-weight:900;
             font-size:0.95rem;padding:12px 28px;border:none;border-radius:10px;cursor:pointer;
             box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:transform 0.1s;">
             🔓 Unlock N4 Content
@@ -2293,7 +2304,7 @@ window.FinalReviewModule = (function () {
             const secPct = s.possible > 0 ? Math.round((s.earned / s.possible) * 100) : 100;
             return '<div style="display:flex;justify-content:space-between;max-width:350px;margin:4px auto;font-size:0.9rem;">' +
               '<span>' + secName + '</span>' +
-              '<span style="font-weight:700;color:' + (secPct >= 80 ? '#28a745' : secPct >= 60 ? '#FFD700' : '#dc3545') + ';">' + s.earned + '/' + s.possible + '</span>' +
+              '<span style="font-weight:700;color:' + (secPct >= 80 ? '#5E8C5F' : secPct >= 60 ? '#C9A24A' : '#C2410C') + ';">' + s.earned + '/' + s.possible + '</span>' +
             '</div>';
           }).join('')}
         </div>
