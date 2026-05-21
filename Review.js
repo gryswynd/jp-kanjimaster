@@ -117,7 +117,7 @@
         this.renderLevelPickerView(byLevel);
       } catch (err) {
         document.getElementById('jp-stage').innerHTML = `
-          <div style="text-align:center; color:#d63031; padding:20px;">
+          <div style="text-align:center; color:#C2410C; padding:20px;">
             <h3>Error</h3><p>${err.message}</p>
             <button class="jp-btn jp-btn-main" id="jp-err-back">Back to Menu</button>
           </div>`;
@@ -415,7 +415,7 @@
         console.error('[Review] Error stack:', e.stack);
         const stage = this.el('jp-stage');
         if (stage) {
-          stage.innerHTML = `<div style="text-align:center;color:#d63031;padding:20px;">Unable to load test resources.<br><small>${e.message}</small><br><br><button class="jp-btn" onclick="location.reload()" style="background:#4e54c8;color:white;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;">Reload Page</button></div>`;
+          stage.innerHTML = `<div style="text-align:center;color:#C2410C;padding:20px;">Unable to load test resources.<br><small>${e.message}</small><br><br><button class="jp-btn" onclick="location.reload()" style="background:#C2410C;color:white;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;">Reload Page</button></div>`;
         } else {
           console.error('[Review] Cannot display error: jp-stage element not found!');
           alert('Error loading review: ' + e.message);
@@ -429,23 +429,26 @@
         style.id = 'jp-review-styles';
         style.innerHTML = `
             /* CSS Variables */
-            :root {
-                --jp-primary: #4e54c8;
-                --jp-success: #00b894;
-                --jp-error: #d63031;
-            }
-
-            /* Main Container */
             #jp-test-wrapper {
-                max-width: 600px;
+                --jp-primary: oklch(0.60 0.18 30);
+                --jp-success: oklch(0.58 0.09 140);
+                --jp-error: oklch(0.52 0.18 30);
+                --washi: oklch(0.97 0.008 80); --washi-2: oklch(0.94 0.012 75);
+                --ink: oklch(0.22 0.012 60); --ink-2: oklch(0.38 0.012 60); --ink-3: oklch(0.55 0.012 60);
+                --hairline: oklch(0.22 0.012 60 / 0.12);
+                --font-jp-display: "Noto Serif JP","Shippori Mincho",serif;
+                width: 100%;
                 margin: 0 auto;
-                padding: 20px;
-                font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+                padding: 0;
+                font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+                color: var(--ink);
             }
             #jp-test-embed {
-                background: white;
-                border-radius: 16px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                background:
+                  radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+                  radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+                  oklch(0.97 0.008 80);
+                min-height: 100vh; min-height: 100dvh;
                 overflow: hidden;
             }
 
@@ -454,10 +457,13 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 20px 25px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
+                padding: max(28px,env(safe-area-inset-top)) 18px 14px;
+                background: var(--ink);
+                color: var(--washi);
+                position: sticky; top: 0; z-index: 10;
+                border-bottom: 1px solid oklch(1 0 0 / 0.1);
             }
+            .jp-title { font-family: var(--font-jp-display); }
             .jp-title { font-size: 1.1rem; font-weight: 900; }
             .jp-badge {
                 background: rgba(255,255,255,0.2);
@@ -469,13 +475,13 @@
 
             /* Progress Bar */
             .jp-progress-track {
-                height: 6px;
-                background: #e8e8e8;
+                height: 4px;
+                background: var(--hairline);
                 position: relative;
             }
             .jp-progress-fill {
                 height: 100%;
-                background: linear-gradient(90deg, #00b894, #00cec9);
+                background: var(--jp-primary);
                 width: 0%;
                 transition: width 0.3s ease;
             }
@@ -489,24 +495,26 @@
 
             /* Buttons */
             .jp-btn {
-                background: #f1f2f6;
-                border: none;
-                padding: 15px 30px;
-                border-radius: 12px;
-                font-weight: 700;
+                background: var(--washi);
+                border: 1px solid var(--hairline);
+                padding: 14px 28px;
+                border-radius: 999px;
+                font-weight: 600;
                 font-size: 1rem;
                 cursor: pointer;
                 transition: all 0.2s;
                 font-family: inherit;
+                color: var(--ink);
                 margin: 5px;
             }
-            @media (hover: hover) { .jp-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); } }
+            @media (hover: hover) { .jp-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.10); } }
             .jp-btn:active { transform: scale(0.98); }
             .jp-btn-main {
-                background: var(--jp-primary);
-                color: white;
-                padding: 18px 40px;
-                font-size: 1.1rem;
+                background: var(--ink);
+                color: var(--washi);
+                border: none;
+                padding: 16px 40px;
+                font-size: 1.05rem;
             }
             .jp-btn.correct { background: var(--jp-success) !important; color: white; }
             .jp-btn.wrong { background: var(--jp-error) !important; color: white; }
@@ -528,7 +536,7 @@
                 line-height: 1.6;
             }
             .jp-highlight {
-                background: rgba(78,84,200,0.1);
+                background: oklch(0.60 0.18 30 / 0.12);
                 padding: 2px 6px;
                 border-radius: 4px;
                 color: var(--jp-primary);
@@ -536,7 +544,7 @@
 
             /* Passage / Conversation */
             .jp-passage {
-                background: #f8f9fa;
+                background: #F1ECE2;
                 padding: 20px;
                 border-radius: 12px;
                 margin: 20px 0;
@@ -564,8 +572,8 @@
                 border-radius: 12px;
                 animation: jpFadeIn 0.3s;
             }
-            .jp-feedback.correct { background: rgba(0,184,148,0.1); border: 2px solid var(--jp-success); }
-            .jp-feedback.wrong { background: rgba(214,48,49,0.1); border: 2px solid var(--jp-error); }
+            .jp-feedback.correct { background: oklch(0.58 0.09 140 / 0.12); border: 2px solid var(--jp-success); }
+            .jp-feedback.wrong { background: oklch(0.60 0.18 30 / 0.12); border: 2px solid var(--jp-error); }
 
             /* Scramble */
             .jp-scramble-box {
@@ -579,14 +587,14 @@
                 gap: 5px;
                 align-items: center;
             }
-            .jp-scramble-box.correct { border-color: var(--jp-success); background: rgba(0,184,148,0.05); }
-            .jp-scramble-box.wrong { border-color: var(--jp-error); background: rgba(214,48,49,0.05); }
+            .jp-scramble-box.correct { border-color: var(--jp-success); background: oklch(0.58 0.09 140 / 0.06); }
+            .jp-scramble-box.wrong { border-color: var(--jp-error); background: oklch(0.60 0.18 30 / 0.06); }
             .jp-chip-pool { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
             .jp-chip {
                 background: white;
                 padding: 10px 16px;
                 border-radius: 8px;
-                border: 2px solid #e8e8e8;
+                border: 2px solid #E2DCCF;
                 cursor: pointer;
                 transition: all 0.2s;
                 font-weight: 600;
@@ -616,7 +624,7 @@
                 margin-left: 10px;
                 padding: 2px 8px;
                 border-radius: 6px;
-                background: rgba(0,184,148,0.12);
+                background: oklch(0.58 0.09 140 / 0.14);
                 color: var(--jp-success);
             }
 
@@ -624,9 +632,9 @@
             .jp-in-chip { padding: 8px 14px; }
 
             /* Scramble color feedback */
-            .jp-chip-correct   { background: rgba(46,213,115,0.12) !important; border-color: #2ed573 !important; color: #1a8a45 !important; }
-            .jp-chip-misplaced { background: rgba(255,165,2,0.12)  !important; border-color: #ffa502 !important; color: #7d5200 !important; }
-            .jp-chip-wrong     { background: rgba(255,71,87,0.12)  !important; border-color: #ff4757 !important; color: #c0392b !important; }
+            .jp-chip-correct   { background: oklch(0.58 0.09 140 / 0.14) !important; border-color: #5E8C5F !important; color: #3A5A3C !important; }
+            .jp-chip-misplaced { background: oklch(0.72 0.11 70 / 0.16)  !important; border-color: #C7902F !important; color: #7d5200 !important; }
+            .jp-chip-wrong     { background: oklch(0.60 0.18 30 / 0.14)  !important; border-color: #C2410C !important; color: #9A3412 !important; }
 
             /* Interaction Area */
             #jp-interaction {
@@ -637,8 +645,8 @@
             }
 
             /* Term Styling */
-            .jp-term { color: #4e54c8; font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid rgba(78,84,200,0.1); transition: 0.2s; }
-            @media (hover: hover) { .jp-term:hover { background: rgba(78,84,200,0.05); border-bottom-color: #4e54c8; } }
+            .jp-term { color: #C2410C; font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid oklch(0.60 0.18 30 / 0.12); transition: 0.2s; }
+            @media (hover: hover) { .jp-term:hover { background: oklch(0.60 0.18 30 / 0.06); border-bottom-color: #C2410C; } }
 
             /* Animations */
             @keyframes jpFadeIn {
@@ -692,7 +700,7 @@
                 box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s;
                 border: 1px solid rgba(0,0,0,0.02); text-align: center;
             }
-            @media (hover: hover) { .jp-review-level-card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(78,84,200,0.15); border-color: var(--jp-primary); } }
+            @media (hover: hover) { .jp-review-level-card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--jp-primary); } }
             .jp-review-level-name { font-weight: 900; font-size: 1.4rem; color: var(--jp-primary); margin-bottom: 6px; }
             .jp-review-level-count { font-size: 0.85rem; color: #a4b0be; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
             .jp-review-level-back-btn { background: transparent; border: none; color: var(--jp-primary); font-weight: 700; cursor: pointer; padding: 0 0 12px 0; font-size: 0.9rem; display: block; font-family: inherit; }
@@ -706,7 +714,7 @@
                 border: 1px solid rgba(0,0,0,0.02); text-align: left;
                 display: flex; justify-content: space-between; align-items: center;
             }
-            @media (hover: hover) { .jp-review-menu-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(78,84,200,0.15); border-color: var(--jp-primary); } }
+            @media (hover: hover) { .jp-review-menu-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: var(--jp-primary); } }
             .jp-review-menu-id { font-weight: 900; color: var(--jp-primary); font-size: 1.1rem; min-width: 50px; flex-shrink: 0; }
             .jp-review-menu-title { font-size: 0.85rem; color: #a4b0be; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; flex: 1; text-align: center; }
             .jp-review-menu-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -715,7 +723,7 @@
             .jp-review-menu-stamp img { width: 100%; height: 100%; object-fit: contain; opacity: 0.85; }
             @keyframes jpRevStampPop { 0% { transform: scale(2) rotate(0deg); opacity: 0; } 60% { transform: scale(0.9); } 100% { transform: scale(1); opacity: 0.85; } }
             .jp-review-menu-stamp img { animation: jpRevStampPop 0.3s ease; }
-            .jp-review-menu-badge { font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 20px; background: #f1f2f6; color: #999; }
+            .jp-review-menu-badge { font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 20px; background: #EBE5D8; color: #999; }
 
             /* Teacher Mode */
             .jp-teacher-bar { display:flex; flex-wrap:wrap; gap:6px; align-items:center; padding:8px 16px; background:#1e1e2e; border-bottom:2px solid #e94560; }
@@ -957,7 +965,7 @@
                     const note = document.createElement('div');
                     note.style.marginTop = "10px";
                     note.style.fontSize = "0.85rem";
-                    note.style.color = "#d63031";
+                    note.style.color = "#C2410C";
                     note.innerHTML = `<strong>Study Alert:</strong> Related terms have been flagged for review. 🚩`;
                     fb.appendChild(note);
                 }
