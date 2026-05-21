@@ -58,48 +58,57 @@ window.GrammarModule = {
       style.id = 'jp-grammar-style';
       style.textContent = `
         #jp-grammar-app-root {
-          --gr-primary: #16A34A;
-          --gr-primary-dark: #15803D;
-          --gr-bg: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-          --text-main: #2f3542; --text-sub: #747d8c;
-          font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-          background: var(--gr-bg); color: var(--text-main);
+          --gr-primary: #5E8C5F;
+          --gr-primary-dark: #4A7A4C;
+          --washi: oklch(0.97 0.008 80); --washi-2: oklch(0.94 0.012 75); --washi-3: oklch(0.90 0.015 75);
+          --ink: oklch(0.22 0.012 60); --ink-2: oklch(0.38 0.012 60); --ink-3: oklch(0.55 0.012 60);
+          --hairline: oklch(0.22 0.012 60 / 0.12); --hairline-2: oklch(0.22 0.012 60 / 0.06);
+          --vermilion: oklch(0.60 0.18 30); --moss: oklch(0.58 0.09 140);
+          --indigo: oklch(0.42 0.08 250); --gold: oklch(0.78 0.10 85);
+          --font-jp-display: "Noto Serif JP","Shippori Mincho",serif;
+          --font-mono: "JetBrains Mono",ui-monospace,Menlo,monospace;
+          --text-main: oklch(0.22 0.012 60); --text-sub: oklch(0.55 0.012 60);
+          font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+          color: var(--text-main);
+          background:
+            radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+            radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+            var(--washi);
           display: flex; flex-direction: column;
-          width: 100%; max-width: 600px; margin: 0 auto;
-          height: 800px; border-radius: 20px;
-          border: 1px solid rgba(0,0,0,0.05); overflow: hidden; position: relative;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+          width: 100%; min-height: 100vh; min-height: 100dvh; position: relative;
         }
         #jp-grammar-app-root * { box-sizing: border-box; }
 
         .gr-header {
-          background: linear-gradient(135deg, #16A34A, #15803D);
-          padding: 1.2rem; color: white; border-bottom: none;
+          background: var(--washi);
+          padding: max(28px,env(safe-area-inset-top)) 18px 14px; color: var(--ink);
+          border-bottom: 1px solid var(--hairline);
           display: flex; align-items: center; justify-content: space-between;
-          box-shadow: 0 4px 15px rgba(22,163,74,0.35); z-index: 10;
+          position: sticky; top: 0; z-index: 10;
         }
-        .gr-title { font-weight: 900; font-size: 1.1rem; color: white; }
-        .gr-progress-container { height: 6px; width: 100%; background: rgba(0,0,0,0.1); }
-        .gr-progress-bar { height: 100%; background: #2ed573; width: 0%; transition: width 0.3s ease; }
-        .gr-body { padding: 1.5rem; flex: 1; overflow-y: auto; background: transparent; display: flex; flex-direction: column; }
+        .gr-title { font-weight: 600; font-size: 17px; color: var(--ink); font-family: var(--font-jp-display); }
+        .gr-progress-container { height: 4px; width: 100%; background: var(--hairline); }
+        .gr-progress-bar { height: 100%; background: var(--vermilion); width: 0%; transition: width 0.3s ease; }
+        .gr-body { padding: 22px 18px; flex: 1; overflow-y: auto; background: transparent; display: flex; flex-direction: column; }
         .gr-footer {
-          padding: 15px 20px; background: white; border-top: 1px solid rgba(0,0,0,0.05);
+          padding: 12px 16px calc(14px + env(safe-area-inset-bottom)); background: var(--washi); border-top: 1px solid var(--hairline);
           display: flex; gap: 10px; justify-content: space-between;
-          box-shadow: 0 -5px 15px rgba(0,0,0,0.03); z-index: 10;
+          position: sticky; bottom: 0; z-index: 10;
         }
         .gr-nav-btn {
-          padding: 12px 24px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer;
-          font-size: 0.95rem; transition: transform 0.1s;
+          padding: 12px 24px; border-radius: 999px; border: none; font-weight: 600; cursor: pointer;
+          font-size: 14px; transition: transform 0.1s;
         }
         .gr-nav-btn:active { transform: scale(0.96); }
-        .gr-nav-btn.prev { background: #f1f2f6; color: #747d8c; }
-        .gr-nav-btn.next { background: linear-gradient(135deg, #16A34A, #15803D); color: #fff; box-shadow: 0 4px 10px rgba(22,163,74,0.3); }
+        .gr-nav-btn.prev { background: transparent; color: var(--ink-2); border: 1px solid var(--hairline); }
+        .gr-nav-btn.next { flex: 1; background: var(--ink); color: var(--washi); }
         .gr-nav-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-        .gr-exit-btn { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
-        .gr-back-btn { background: transparent; color: rgba(255,255,255,0.8); border: none; cursor: pointer; font-weight: bold; font-size: 0.9rem; margin-right: 10px; }
-        @media (hover: hover) { .gr-back-btn:hover { color: white; } }
+        .gr-exit-btn { background: transparent; border: 1px solid var(--hairline); color: var(--ink-2); padding: 6px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.8rem; }
+        .gr-back-btn { background: transparent; color: var(--ink-2); border: 1px solid var(--hairline); border-radius: 999px; padding: 6px 12px; cursor: pointer; font-weight: 600; font-size: 0.85rem; margin-right: 10px; }
+        @media (hover: hover) { .gr-back-btn:hover { color: var(--ink); } }
+        .jp-settings-gear { background: transparent; border: 1px solid var(--hairline); color: var(--ink-2); width: 32px; height: 32px; border-radius: 999px; cursor: pointer; }
 
-        .gr-card { background: #F0FDF4; border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid rgba(22,163,74,0.08); }
+        .gr-card { background: #F3EEE4; border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid oklch(0.22 0.012 60 / 0.12); }
         .gr-card-white { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.02); }
 
         /* Menu */
@@ -110,31 +119,31 @@ window.GrammarModule = {
           border: 1px solid rgba(0,0,0,0.02); text-align: left;
           display: flex; justify-content: space-between; align-items: center;
         }
-        @media (hover: hover) { .gr-menu-item:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(22,163,74,0.15); border-color: var(--gr-primary); } }
+        @media (hover: hover) { .gr-menu-item:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); border-color: var(--gr-primary); } }
         .gr-menu-item.locked { opacity: 0.55; cursor: default; }
         @media (hover: hover) { .gr-menu-item.locked:hover { transform: none; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: transparent; } }
         .gr-menu-icon { font-size: 1.5rem; margin-right: 12px; }
-        .gr-menu-id { font-weight: 900; color: #16A34A; font-size: 1rem; }
+        .gr-menu-id { font-weight: 900; color: #5E8C5F; font-size: 1rem; }
         .gr-menu-name { font-size: 0.8rem; color: #a4b0be; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .gr-menu-badge { font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 20px; }
-        .gr-menu-badge.lock { background: #f1f2f6; color: #999; }
-        .gr-menu-level-header { font-size: 1.1rem; font-weight: 900; color: #16A34A; padding: 8px 0 4px; letter-spacing: 1px; }
+        .gr-menu-badge.lock { background: #EDE7DA; color: #999; }
+        .gr-menu-level-header { font-size: 1.1rem; font-weight: 900; color: #5E8C5F; padding: 8px 0 4px; letter-spacing: 1px; }
         .gr-menu-stamp { width: 38px; height: 38px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
         .gr-menu-stamp img { width: 100%; height: 100%; object-fit: contain; opacity: 0.85; }
         @keyframes grStampPop { 0% { transform: scale(2) rotate(0deg); opacity: 0; } 60% { transform: scale(0.9); } 100% { transform: scale(1); opacity: 0.85; } }
         .gr-menu-stamp img { animation: grStampPop 0.3s ease; }
         .gr-menu-right { display: flex; align-items: center; gap: 8px; }
-        .gr-menu-score { font-size: 0.75rem; font-weight: 700; color: #16A34A; }
+        .gr-menu-score { font-size: 0.75rem; font-weight: 700; color: #5E8C5F; }
 
         /* Intro section */
         .gr-intro-card { text-align: center; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .gr-intro-icon { font-size: 3.5rem; margin-bottom: 10px; }
         .gr-intro-title { font-size: 1.4rem; font-weight: 900; color: #2f3542; margin-bottom: 12px; }
         .gr-intro-summary { font-size: 1rem; color: #555; margin-bottom: 16px; line-height: 1.6; }
-        .gr-why-box { background: #DCFCE7; border-left: 4px solid #16A34A; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; text-align: left; width: 100%; font-size: 0.9rem; color: #555; }
+        .gr-why-box { background: #ECE7D8; border-left: 4px solid #5E8C5F; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; text-align: left; width: 100%; font-size: 0.9rem; color: #555; }
         .gr-learn-list { text-align: left; width: 100%; }
         .gr-learn-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; font-size: 0.9rem; color: #444; }
-        .gr-learn-check { color: #16A34A; font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+        .gr-learn-check { color: #5E8C5F; font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
 
         /* Pattern formula */
         .gr-formula { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
@@ -153,7 +162,7 @@ window.GrammarModule = {
         .gr-notes-toggle { font-size: 0.8rem; color: #888; cursor: pointer; margin-bottom: 8px; border: none; background: none; text-decoration: underline; padding: 0; }
         .gr-notes-list { list-style: none; padding: 0; margin: 0 0 12px; }
         .gr-notes-list li { font-size: 0.82rem; color: #666; padding: 4px 0 4px 16px; position: relative; }
-        .gr-notes-list li::before { content: "•"; position: absolute; left: 0; color: #16A34A; }
+        .gr-notes-list li::before { content: "•"; position: absolute; left: 0; color: #5E8C5F; }
 
         /* Examples */
         .gr-example-card { background: white; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; border: 1px solid rgba(0,0,0,0.06); }
@@ -162,7 +171,7 @@ window.GrammarModule = {
         .gr-breakdown-toggle { font-size: 0.75rem; color: #aaa; cursor: pointer; border: none; background: none; padding: 0; text-decoration: underline; }
         .gr-breakdown-text { font-size: 0.8rem; color: #888; margin-top: 4px; font-style: italic; }
         .gr-tts-btn { font-size: 0.8rem; background: none; border: 1px solid #ddd; border-radius: 6px; padding: 3px 8px; cursor: pointer; color: #888; margin-top: 4px; }
-        @media (hover: hover) { .gr-tts-btn:hover { background: #f8f9fa; } }
+        @media (hover: hover) { .gr-tts-btn:hover { background: #F3EEE4; } }
 
         /* Part spans */
         .gr-part { border-radius: 3px; padding: 1px 3px; cursor: default; position: relative; font-family: 'Noto Sans JP', sans-serif; }
@@ -178,15 +187,15 @@ window.GrammarModule = {
         /* Table */
         .gr-table-wrap { overflow-x: auto; margin-bottom: 12px; }
         .gr-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-        .gr-table th { background: #DCFCE7; color: #16A34A; font-weight: 700; padding: 10px 12px; text-align: left; border-bottom: 2px solid #16A34A; white-space: nowrap; }
-        .gr-table td { padding: 9px 12px; border-bottom: 1px solid #f1f2f6; vertical-align: top; font-family: 'Noto Sans JP', sans-serif; }
+        .gr-table th { background: #ECE7D8; color: #5E8C5F; font-weight: 700; padding: 10px 12px; text-align: left; border-bottom: 2px solid #5E8C5F; white-space: nowrap; }
+        .gr-table td { padding: 9px 12px; border-bottom: 1px solid #EDE7DA; vertical-align: top; font-family: 'Noto Sans JP', sans-serif; }
         .gr-table tr:last-child td { border-bottom: none; }
-        @media (hover: hover) { .gr-table tr:hover td { background: #F0FDF4; } }
+        @media (hover: hover) { .gr-table tr:hover td { background: #F3EEE4; } }
         .gr-table-label { font-family: 'Poppins', sans-serif; font-weight: 600; color: #555; white-space: nowrap; }
         .gr-table-meaning { font-family: 'Poppins', sans-serif; color: #888; font-style: italic; }
         .gr-cell-stem { background: rgba(0,184,148,0.2); border-radius: 2px; }
         .gr-cell-ending { background: rgba(214,48,49,0.2); border-radius: 2px; }
-        .gr-notes-box { background: #f8f9fa; border-radius: 8px; padding: 12px 14px; margin-top: 10px; font-size: 0.82rem; color: #666; }
+        .gr-notes-box { background: #F3EEE4; border-radius: 8px; padding: 12px 14px; margin-top: 10px; font-size: 0.82rem; color: #666; }
         .gr-notes-box li { margin-bottom: 4px; }
 
         /* Comparison */
@@ -200,55 +209,55 @@ window.GrammarModule = {
 
         /* Annotated examples */
         .gr-ae-card { background: white; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; border: 1px solid rgba(0,0,0,0.06); }
-        .gr-ae-context { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; background: #DCFCE7; color: #16A34A; margin-bottom: 8px; }
+        .gr-ae-context { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; background: #ECE7D8; color: #5E8C5F; margin-bottom: 8px; }
         .gr-ae-note { font-size: 0.8rem; color: #888; margin-top: 6px; font-style: italic; }
 
         /* Drills (shared with lesson style) */
         .gr-drill-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.02); }
         .gr-drill-q { font-size: 1.05rem; line-height: 1.6; font-family: 'Noto Sans JP', sans-serif; font-weight: bold; margin-bottom: 15px; color: #2f3542; }
         .gr-mcq-opt { display: block; width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; background: #fff; border: 2px solid #eee; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: #2f3542; transition: 0.2s; }
-        @media (hover: hover) { .gr-mcq-opt:hover { border-color: #16A34A; background: #F0FDF4; } }
-        .gr-mcq-opt.correct { background: #d4edda; border-color: #c3e6cb; color: #155724; }
-        .gr-mcq-opt.wrong { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
-        .gr-explanation { font-size: 0.82rem; color: #666; margin-top: 8px; padding: 8px 12px; background: #f8f9fa; border-radius: 8px; display: none; }
+        @media (hover: hover) { .gr-mcq-opt:hover { border-color: #5E8C5F; background: #F3EEE4; } }
+        .gr-mcq-opt.correct { background: #DDE7D6; border-color: #C2D2BD; color: #38513A; }
+        .gr-mcq-opt.wrong { background: #F1DCD4; border-color: #E2BCAE; color: #7A3322; }
+        .gr-explanation { font-size: 0.82rem; color: #666; margin-top: 8px; padding: 8px 12px; background: #F3EEE4; border-radius: 8px; display: none; }
         .gr-explanation.visible { display: block; }
 
         /* Interactive drills */
         .gr-score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
         .gr-score-text { font-size: 0.85rem; font-weight: 700; color: #555; white-space: nowrap; }
-        .gr-score-bar-wrap { flex: 1; height: 8px; background: #f1f2f6; border-radius: 4px; overflow: hidden; }
-        .gr-score-bar-fill { height: 100%; background: linear-gradient(90deg, #16A34A, #15803D); border-radius: 4px; transition: width 0.4s ease; }
+        .gr-score-bar-wrap { flex: 1; height: 8px; background: #EDE7DA; border-radius: 4px; overflow: hidden; }
+        .gr-score-bar-fill { height: 100%; background: linear-gradient(90deg, #5E8C5F, #4A7A4C); border-radius: 4px; transition: width 0.4s ease; }
 
         .gr-drill-item { text-align: center; }
         .gr-verb-display { font-size: 2rem; font-weight: 900; font-family: 'Noto Sans JP', sans-serif; color: #2f3542; margin-bottom: 6px; }
         .gr-verb-reading { font-size: 0.9rem; color: #888; margin-bottom: 10px; }
         .gr-verb-type-badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 10px; }
         .gr-type-ru { background: #d1ecf1; color: #0c5460; }
-        .gr-type-u { background: #d4edda; color: #155724; }
+        .gr-type-u { background: #DDE7D6; color: #38513A; }
         .gr-type-irr { background: #fff3cd; color: #856404; }
         .gr-type-iadj { background: #fce4ec; color: #880e4f; }
         .gr-type-naadj { background: #e8eaf6; color: #283593; }
         .gr-type-copula { background: #f3e5f5; color: #6a1b9a; }
-        .gr-transform-arrow { font-size: 1.5rem; color: #16A34A; margin: 10px 0; }
-        .gr-target-label { font-size: 0.85rem; font-weight: 700; color: #16A34A; background: #DCFCE7; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 16px; }
+        .gr-transform-arrow { font-size: 1.5rem; color: #5E8C5F; margin: 10px 0; }
+        .gr-target-label { font-size: 0.85rem; font-weight: 700; color: #5E8C5F; background: #ECE7D8; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 16px; }
         .gr-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
         .gr-choice-chip {
           padding: 12px 10px; border-radius: 12px; border: 2px solid #eee; background: white;
           cursor: pointer; font-family: 'Noto Sans JP', sans-serif; font-size: 1rem; font-weight: 600;
           text-align: center; transition: 0.18s; color: #2f3542;
         }
-        @media (hover: hover) { .gr-choice-chip:hover { border-color: #16A34A; background: #F0FDF4; } }
-        .gr-choice-chip.correct { background: #d4edda; border-color: #c3e6cb; color: #155724; }
-        .gr-choice-chip.wrong { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
-        .gr-hint-text { font-size: 0.82rem; color: #666; margin-top: 10px; padding: 8px 12px; background: #f8f9fa; border-radius: 8px; }
-        .gr-next-btn { display: block; margin: 14px auto 0; padding: 10px 28px; border-radius: 20px; border: none; background: #16A34A; color: white; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.18s; }
-        @media (hover: hover) { .gr-next-btn:hover { background: #15803d; } }
+        @media (hover: hover) { .gr-choice-chip:hover { border-color: #5E8C5F; background: #F3EEE4; } }
+        .gr-choice-chip.correct { background: #DDE7D6; border-color: #C2D2BD; color: #38513A; }
+        .gr-choice-chip.wrong { background: #F1DCD4; border-color: #E2BCAE; color: #7A3322; }
+        .gr-hint-text { font-size: 0.82rem; color: #666; margin-top: 10px; padding: 8px 12px; background: #F3EEE4; border-radius: 8px; }
+        .gr-next-btn { display: block; margin: 14px auto 0; padding: 10px 28px; border-radius: 20px; border: none; background: #5E8C5F; color: white; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.18s; }
+        @media (hover: hover) { .gr-next-btn:hover { background: #4A7A4C; } }
 
         /* Fill slot */
         .gr-slot-sentence { font-size: 1.2rem; font-family: 'Noto Sans JP', sans-serif; line-height: 2; text-align: center; margin: 16px 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px; }
         .gr-slot-blank { display: inline-block; min-width: 50px; height: 36px; border: 2px solid #FDCB6E; border-radius: 8px; padding: 4px 12px; text-align: center; background: #FFFDE7; font-size: 1.1rem; font-weight: 700; color: #333; transition: 0.2s; vertical-align: middle; line-height: 26px; }
-        .gr-slot-blank.filled-correct { border-color: #00B894; background: #d4edda; color: #155724; }
-        .gr-slot-blank.filled-wrong { border-color: #D63031; background: #f8d7da; color: #721c24; }
+        .gr-slot-blank.filled-correct { border-color: #00B894; background: #DDE7D6; color: #38513A; }
+        .gr-slot-blank.filled-wrong { border-color: #D63031; background: #F1DCD4; color: #7A3322; }
         .gr-slot-choices { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 8px; }
         .gr-slot-chip { padding: 8px 18px; border-radius: 20px; border: 2px solid #eee; background: white; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; font-size: 1rem; font-weight: 700; transition: 0.18s; }
         @media (hover: hover) { .gr-slot-chip:hover { border-color: #FDCB6E; background: #FFFDE7; } }
@@ -262,25 +271,25 @@ window.GrammarModule = {
         .gr-pm-sentence { font-size: 1.05rem; font-family: 'Noto Sans JP', sans-serif; margin-bottom: 8px; }
         .gr-pm-buttons { display: flex; gap: 8px; }
         .gr-pm-btn { flex: 1; padding: 8px; border-radius: 8px; border: 2px solid #eee; background: white; cursor: pointer; font-weight: 700; font-size: 1rem; }
-        .gr-pm-btn.correct-choice { background: #d4edda; border-color: #00B894; color: #155724; }
-        .gr-pm-btn.wrong-choice { background: #f8d7da; border-color: #D63031; color: #721c24; }
-        .gr-pm-explanation { font-size: 0.8rem; color: #666; margin-top: 8px; padding: 6px 10px; background: #f8f9fa; border-radius: 6px; }
+        .gr-pm-btn.correct-choice { background: #DDE7D6; border-color: #00B894; color: #38513A; }
+        .gr-pm-btn.wrong-choice { background: #F1DCD4; border-color: #D63031; color: #7A3322; }
+        .gr-pm-explanation { font-size: 0.8rem; color: #666; margin-top: 8px; padding: 6px 10px; background: #F3EEE4; border-radius: 6px; }
 
         /* Sentence transform */
         .gr-st-from { background: white; border-radius: 10px; padding: 14px; border: 2px solid #eee; margin-bottom: 10px; }
-        .gr-st-to { background: #F0FDF4; border-radius: 10px; padding: 14px; border: 2px dashed #16A34A; min-height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-        .gr-st-label { font-size: 0.72rem; font-weight: 700; color: #16A34A; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .gr-st-to { background: #F3EEE4; border-radius: 10px; padding: 14px; border: 2px dashed #5E8C5F; min-height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+        .gr-st-label { font-size: 0.72rem; font-weight: 700; color: #5E8C5F; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
         .gr-st-sentence { font-size: 1.05rem; font-family: 'Noto Sans JP', sans-serif; color: #2f3542; }
-        .gr-st-arrow { text-align: center; font-size: 1.5rem; color: #16A34A; margin: 6px 0; }
+        .gr-st-arrow { text-align: center; font-size: 1.5rem; color: #5E8C5F; margin: 6px 0; }
 
         /* Conversation (grammar context) */
-        .gr-conv-toggle { font-size: 0.75rem; font-weight: 700; color: #747d8c; background: #fff; border: 2px solid #f1f2f6; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 20px; width: 100%; }
+        .gr-conv-toggle { font-size: 0.75rem; font-weight: 700; color: #747d8c; background: #fff; border: 2px solid #EDE7DA; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 20px; width: 100%; }
         .gr-conv-row { display: flex; gap: 12px; margin-bottom: 20px; align-items: flex-start; }
-        .gr-speaker-bubble { background: #DCFCE7; color: #16A34A; font-weight: 900; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Noto Sans JP', sans-serif; font-size: 0.75rem; }
+        .gr-speaker-bubble { background: #ECE7D8; color: #5E8C5F; font-weight: 900; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Noto Sans JP', sans-serif; font-size: 0.75rem; }
         .gr-jp { font-size: 1.15rem; line-height: 1.6; font-family: 'Noto Sans JP', sans-serif; color: #2f3542; }
         .gr-en { font-size: 0.9rem; color: #747d8c; margin-top: 6px; }
-        .gr-term { color: #16A34A; font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid rgba(22,163,74,0.2); transition: 0.2s; }
-        @media (hover: hover) { .gr-term:hover { background: rgba(22,163,74,0.06); border-bottom-color: #16A34A; } }
+        .gr-term { color: #5E8C5F; font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid oklch(0.22 0.012 60 / 0.18); transition: 0.2s; }
+        @media (hover: hover) { .gr-term:hover { background: oklch(0.22 0.012 60 / 0.06); border-bottom-color: #5E8C5F; } }
 
         /* Clickable term spans generated by processText() */
         .jp-term { color: #4e54c8; font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid rgba(78,84,200,0.1); transition: 0.2s; }
@@ -294,12 +303,12 @@ window.GrammarModule = {
         .gr-rule-explanation p:last-child { margin-bottom: 0; }
         .gr-rule-explanation ul, .gr-rule-explanation ol { margin: 4px 0 8px 18px; padding: 0; }
         .gr-rule-explanation li { margin-bottom: 3px; }
-        .gr-rule-explanation strong { color: #16A34A; }
+        .gr-rule-explanation strong { color: #5E8C5F; }
         .gr-rule-explanation del { color: #D63031; text-decoration: line-through; opacity: 0.8; }
         .gr-md-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.82rem; }
-        .gr-md-table th { background: #DCFCE7; color: #15803D; font-weight: 700; padding: 6px 10px; border: 1px solid #BBF7D0; text-align: left; }
+        .gr-md-table th { background: #ECE7D8; color: #4A7A4C; font-weight: 700; padding: 6px 10px; border: 1px solid #DED7C6; text-align: left; }
         .gr-md-table td { padding: 6px 10px; border: 1px solid #e2e8f0; }
-        .gr-md-table tr:nth-child(even) td { background: #F0FDF4; }
+        .gr-md-table tr:nth-child(even) td { background: #F3EEE4; }
 
         /* Summary / celebration */
         .jp-hanabi-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; overflow: hidden; }
@@ -707,7 +716,7 @@ window.GrammarModule = {
           const pct = items.length > 0 ? Math.round(correct / items.length * 100) : 100;
           progressSet('grammar_' + grammarId + '_conj_score', pct);
           sectionScores[stepIdx] = { title: sec.title, type: sec.type, correct: correct, total: items.length };
-          itemDiv.innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:1.4rem;font-weight:900;color:#16A34A;">' + pct + '%</div><div style="color:#888;margin-top:8px;">Conjugation complete!</div></div>';
+          itemDiv.innerHTML = '<div style="text-align:center;padding:20px;"><div style="font-size:1.4rem;font-weight:900;color:#5E8C5F;">' + pct + '%</div><div style="color:#888;margin-top:8px;">Conjugation complete!</div></div>';
           if (onComplete) onComplete();
           return;
         }
@@ -861,7 +870,7 @@ window.GrammarModule = {
         if (idx >= items.length) {
           const pct = items.length > 0 ? Math.round(correct / items.length * 100) : 100;
           sectionScores[stepIdx] = { title: sec.title, type: sec.type, correct: correct, total: items.length };
-          itemDiv.innerHTML = '<div style="text-align:center;padding:16px;"><div style="font-size:1.4rem;font-weight:900;color:#16A34A;">' + pct + '%</div><div style="color:#888;margin-top:8px;">Transform practice complete!</div></div>';
+          itemDiv.innerHTML = '<div style="text-align:center;padding:16px;"><div style="font-size:1.4rem;font-weight:900;color:#5E8C5F;">' + pct + '%</div><div style="color:#888;margin-top:8px;">Transform practice complete!</div></div>';
           if (onComplete) onComplete();
           return;
         }
@@ -889,7 +898,7 @@ window.GrammarModule = {
             if (ch === item.answer) {
               btn.classList.add('correct');
               if (!solved) { correct++; answered++; solved = true; }
-              toBox.innerHTML = '<div style="text-align:center;"><div class="gr-st-label" style="color:#00B894;">' + esc(item.targetLabel) + '</div><div class="gr-st-sentence" style="color:#155724;">' + esc(item.answer) + '</div></div>';
+              toBox.innerHTML = '<div style="text-align:center;"><div class="gr-st-label" style="color:#00B894;">' + esc(item.targetLabel) + '</div><div class="gr-st-sentence" style="color:#38513A;">' + esc(item.answer) + '</div></div>';
               const tts2 = el('button', 'gr-tts-btn', '🔊'); tts2.onclick = () => speakText(item.answer); toBox.appendChild(tts2);
               scoreText.textContent = answered + ' / ' + items.length;
               barFill.style.width = (answered / items.length * 100) + '%';
@@ -947,7 +956,7 @@ window.GrammarModule = {
         if (idx >= items.length) {
           const pct = items.length > 0 ? Math.round(correct / items.length * 100) : 100;
           sectionScores[stepIdx] = { title: sec.title, type: sec.type, correct: correct, total: items.length };
-          itemDiv.innerHTML = '<div style="text-align:center;padding:16px;"><div style="font-size:1.4rem;font-weight:900;color:#16A34A;">' + pct + '%</div><div style="color:#888;margin-top:8px;">Fill-slot practice complete!</div></div>';
+          itemDiv.innerHTML = '<div style="text-align:center;padding:16px;"><div style="font-size:1.4rem;font-weight:900;color:#5E8C5F;">' + pct + '%</div><div style="color:#888;margin-top:8px;">Fill-slot practice complete!</div></div>';
           if (onComplete) onComplete();
           return;
         }
@@ -986,7 +995,7 @@ window.GrammarModule = {
               answered++;
               blank.classList.add('filled-wrong');
               chipsRow.querySelectorAll('.gr-slot-chip').forEach(c => {
-                if (c.textContent === item.answer) { c.style.borderColor = '#00B894'; c.style.background = '#d4edda'; }
+                if (c.textContent === item.answer) { c.style.borderColor = '#00B894'; c.style.background = '#DDE7D6'; }
               });
             }
             expEl.style.display = 'block';
@@ -1154,7 +1163,7 @@ window.GrammarModule = {
             <div style="font-size:0.75rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;text-align:center;">Breakdown</div>
             ${breakdownEntries.map(e => {
               const ePct = Math.round(e.correct / e.total * 100);
-              const barColor = ePct >= 80 ? '#16A34A' : ePct >= 50 ? '#F59E0B' : '#EF4444';
+              const barColor = ePct >= 80 ? '#5E8C5F' : ePct >= 50 ? '#F59E0B' : '#EF4444';
               const label = e.title || e.type;
               return `<div style="margin-bottom:10px;">
                 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px;">
@@ -1180,7 +1189,7 @@ window.GrammarModule = {
           <div style="margin-top:18px;border-top:1px solid #f0f0f0;padding-top:14px;">
             <div style="font-size:0.75rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">🔓 Unlocked</div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-              ${newItems.map(item => `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:6px 12px;font-size:0.85rem;font-weight:700;color:#15803d;">${item.icon} ${item.label}</div>`).join('')}
+              ${newItems.map(item => `<div style="background:#F3EEE4;border:1px solid #DED7C6;border-radius:10px;padding:6px 12px;font-size:0.85rem;font-weight:700;color:#4A7A4C;">${item.icon} ${item.label}</div>`).join('')}
             </div>
           </div>` : '';
 
@@ -1191,7 +1200,7 @@ window.GrammarModule = {
             <div style="font-size:0.8rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Drill Score</div>
             <div style="font-size:3rem;font-weight:900;color:${rank.colors[0]};line-height:1.1;">${rank.msg}</div>
             <div style="font-size:1rem;color:#747d8c;font-weight:600;margin:6px 0 14px;">${rank.sub}</div>
-            <div style="font-size:2.2rem;font-weight:900;color:#16A34A;">${pct}%</div>
+            <div style="font-size:2.2rem;font-weight:900;color:#5E8C5F;">${pct}%</div>
             <div style="font-size:0.9rem;color:#888;margin-top:4px;">${combinedCorrect} / ${combinedTotal} correct</div>
             ${breakdownHtml}
             ` : ''}
