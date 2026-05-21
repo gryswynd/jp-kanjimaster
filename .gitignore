@@ -1,2 +1,9 @@
 .DS_Store
 **/.DS_Store
+
+# Node / Capacitor
+node_modules/
+# Build output (regenerate with: npm run build:www)
+www/
+# Native iOS project (generated on the Mac via: npx cap add ios)
+/ios/

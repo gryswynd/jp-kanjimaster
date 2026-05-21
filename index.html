@@ -22,9 +22,9 @@
                                  then the requested feature module.
   ============================================================ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Self-hosted Latin display fonts (offline). Japanese text falls back to the
+     system font (Hiragino on iOS/macOS). Regenerate with scripts/vendor-fonts.mjs. -->
+<link href="app/shared/fonts.css" rel="stylesheet">
 
 <style>
 :root {
@@ -313,6 +313,17 @@ window.JPApp = {
       this._manifest = null;
     }
     this.renderMenu();
+    this._nativeBoot();
+  },
+
+  // --- NATIVE (Capacitor) boot tweaks: no-op in a plain browser ---
+  _nativeBoot: function() {
+    var Cap = window.Capacitor;
+    if (!Cap || !Cap.isNativePlatform || !Cap.isNativePlatform()) return;
+    var P = Cap.Plugins || {};
+    try { P.StatusBar && P.StatusBar.setStyle({ style: 'LIGHT' }); } catch (e) {}
+    try { P.StatusBar && P.StatusBar.setBackgroundColor && P.StatusBar.setBackgroundColor({ color: '#272320' }); } catch (e) {}
+    try { P.SplashScreen && P.SplashScreen.hide(); } catch (e) {}
   },
 
   // =====================================================================

@@ -29,7 +29,7 @@ window.StoryModule = (function() {
       const link = document.createElement('link');
       link.id = 'jp-fonts';
       link.rel = 'stylesheet';
-      link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap';
+      link.href = 'app/shared/fonts.css';
       document.head.appendChild(link);
     }
 

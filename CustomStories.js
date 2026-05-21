@@ -31,7 +31,7 @@ window.CustomStoriesModule = (function() {
       const link = document.createElement('link');
       link.id = 'jp-fonts';
       link.rel = 'stylesheet';
-      link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap';
+      link.href = 'app/shared/fonts.css';
       document.head.appendChild(link);
     }
 
@@ -285,7 +285,7 @@ window.CustomStoriesModule = (function() {
     return new Promise((resolve, reject) => {
       if (window.marked) { resolve(); return; }
       const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js';
+      script.src = (window.getAssetUrl && window.JPApp) ? window.getAssetUrl(window.JPApp.config, 'vendor/marked.min.js') : 'vendor/marked.min.js';
       script.onload = () => {
         if (window.marked) { marked.setOptions({ gfm: true, breaks: true }); resolve(); }
         else reject(new Error('marked not available'));
