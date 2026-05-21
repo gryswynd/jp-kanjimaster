@@ -58,6 +58,12 @@
      * @returns {string} full URL
      */
     getUrl: function (config, relativePath) {
+      // Phone-app mode: serve every file from the app's own origin (relative
+      // URLs) instead of the GitHub raw CDN. Set config.assetMode === 'local'.
+      if (config && config.assetMode === 'local') {
+        var localBase = config.codeBase || '';
+        return relativePath ? localBase + relativePath : (localBase || '.');
+      }
       // >>> To switch from GitHub raw to a CDN, change this single line <<<
       var base = 'https://raw.githubusercontent.com/' +
                  config.owner + '/' + config.repo + '/' + config.branch;
