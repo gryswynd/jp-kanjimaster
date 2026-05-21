@@ -1,0 +1,211 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.19",
+  "lesson": "N4.19",
+  "level": "N4",
+  "title": "A Day with a Map",
+  "titleJp": "地図と 一日",
+  "emoji": "🗺️",
+  "theme": "Write about Rikizo's journey using a map to explore a new area, getting lost and asking for help, visiting the library, and discovering the history of the town.",
+  "prompts": [
+    {
+      "prompt": "Open your composition by describing how Rikizo decided to explore a new area today. He looked at a map and found the names of interesting places. Use 地図 and 地名.",
+      "targets": [
+        { "id": "v_chizu", "count": 1 },
+        { "id": "v_chimei", "count": 1 }
+      ],
+      "model": "今日、りきぞは 地図を 見て、いろいろな 地名を 読みました。おもしろい 地名が たくさん あって、りきぞは 歩いて 行きたいと おもいました。",
+      "vocabPool": [
+        "v_chizu", "v_chimei", "v_chijou", "v_chika", "v_iku", "v_kuru",
+        "v_miru", "v_yomu", "v_aru", "v_hon", "v_machi", "v_mainichi",
+        "v_ima", "p_wa", "p_wo", "p_de", "p_ni", "p_ga", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe the area Rikizo explored. Was it above ground or underground? Write about what was on the surface and what was below. Use 地上 and 地下.",
+      "targets": [
+        { "id": "v_chijou", "count": 1 },
+        { "id": "v_chika", "count": 1 }
+      ],
+      "model": "りきぞは 地上の 道を 歩きました。地下には 電車の 駅が ありました。地上は 明るくて、いい 天気でした。",
+      "vocabPool": [
+        "v_chijou", "v_chika", "v_eki", "v_michi", "v_ue", "v_shita",
+        "v_aru", "v_iku", "v_aruku", "v_chikaishitsu", "v_kuru",
+        "v_soto", "v_naka", "p_wa", "p_ni", "p_ga", "p_de", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about the moment Rikizo got lost. He did not understand the map well and did not know where he was. Use 問題 to describe the situation.",
+      "targets": [
+        { "id": "v_mondai", "count": 1 }
+      ],
+      "model": "りきぞは 道が 分からなく なりました。地図が むずかしくて、問題が 出てきました。どこに いるのか、全然 分かりませんでした。",
+      "vocabPool": [
+        "v_mondai", "v_chizu", "v_michi", "v_wakaru", "v_iku", "v_kuru",
+        "v_doko", "v_nani", "v_zenzen", "v_mada", "v_ima",
+        "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_ka", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Rikizo asked someone nearby for help. He asked a question about the map, and the person gave a clear explanation. Use 質問 and 説明.",
+      "targets": [
+        { "id": "v_shitsumon", "count": 1 },
+        { "id": "v_setsumei", "count": 1 }
+      ],
+      "model": "りきぞは 近くの 人に 質問しました。その 人は 親切で、ゆっくり 説明して くれました。説明を 聞いて、道が 分かりました。",
+      "vocabPool": [
+        "v_shitsumon", "v_setsumei", "v_mondai", "v_chizu", "v_kiku",
+        "v_hanasu", "v_wakaru", "v_iku", "v_michi", "v_morau", "v_kureru",
+        "v_ageru", "v_hito", "v_shinsetsu",
+        "p_wa", "p_ni", "p_wo", "p_ga", "p_de", "p_kara_because", "g_desu"
+      ]
+    },
+    {
+      "prompt": "After getting directions, Rikizo arrived at the library. Write about what the library was like and what he found there. Use 図書館.",
+      "targets": [
+        { "id": "v_toshokan", "count": 1 }
+      ],
+      "model": "りきぞは 図書館に 着きました。図書館は 大きくて、本が たくさん ありました。とても いい 図書館でした。",
+      "vocabPool": [
+        "v_toshokan", "v_hon", "v_yomu", "v_kaku", "v_aru", "v_iku",
+        "v_tsuku", "v_miru", "v_naka", "v_ookii",
+        "p_wa", "p_ni", "p_ga", "p_de", "p_mo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "At the library, Rikizo found a novel and a theory book. He thought the novel looked interesting. Use 小説 and 学説 to write about what he found.",
+      "targets": [
+        { "id": "v_shousetsu", "count": 1 },
+        { "id": "v_gakusetsu", "count": 1 }
+      ],
+      "model": "図書館の 中に 小説と 学説の 本が ありました。小説は おもしろそうでした。学説の 本は むずかしそうでしたが、読んで みたいと おもいました。",
+      "vocabPool": [
+        "v_shousetsu", "v_gakusetsu", "v_mondai", "v_toshokan", "v_hon",
+        "v_yomu", "v_miru", "v_aru", "v_omoshiroi", "v_tanoshii",
+        "v_morau", "p_wa", "p_ga", "p_ni", "p_to", "p_de", "p_mo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Rikizo read about the town's water quality and history. One theory was that the town's water quality was very good. Use 水質 to write about what he learned.",
+      "targets": [
+        { "id": "v_suishitsu", "count": 1 }
+      ],
+      "model": "ある 学説に よると、この 町の 水質は とても よいそうです。水質が よいので、人が 多く 住んでいると 書いて ありました。",
+      "vocabPool": [
+        "v_suishitsu", "v_gakusetsu", "v_machi", "v_mizu", "v_yomu",
+        "v_kaku", "v_aru", "v_iru", "v_ooi", "v_benkyou",
+        "p_wa", "p_ga", "p_ni", "p_no", "p_de", "p_kara_because", "g_desu"
+      ]
+    },
+    {
+      "prompt": "After reading, Rikizo thought about himself. The novel was plain and simple, but he found it meaningful. Use 地味 and 自問 to write about his reflection.",
+      "targets": [
+        { "id": "v_jimi", "count": 1 },
+        { "id": "v_jimon", "count": 1 }
+      ],
+      "model": "小説の 人は 地味でしたが、とても 大切なことを たくさん 話していました。りきぞは 自問しました。自分は どんな 人に なりたいのか。",
+      "vocabPool": [
+        "v_jimi", "v_jimon", "v_shousetsu", "v_jibun", "v_naru", "v_iru",
+        "v_omoshiroi", "v_taisetsu", "v_wakaru", "v_suru", "v_hito",
+        "p_wa", "p_ga", "p_ni", "p_no", "p_mo", "p_to", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Close your composition by writing about what Rikizo felt after his day of exploring and reading. What will he do next? Use 地図 or 図書館 to connect back to the day's journey.",
+      "targets": [
+        { "id": "v_toshokan", "count": 1 }
+      ],
+      "model": "図書館を 出たあと、りきぞは 地図を 見ました。今日は たくさん 歩いて、たくさん 学びました。また 図書館に 来たいと おもいました。",
+      "vocabPool": [
+        "v_toshokan", "v_chizu", "v_iku", "v_kuru", "v_aru", "v_miru",
+        "v_benkyou", "v_suru", "v_aruku", "v_manabu", "v_tanoshii",
+        "v_ato", "v_mata", "p_wa", "p_ni", "p_de", "p_ga", "p_mo", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ni", "p_de", "p_mo", "p_to",
+    "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya",
+    "p_node", "p_nagara",
+    "p_yori", "p_hodo",
+    "p_dake", "p_shika",
+    "p_kedo", "p_ga_but", "p_kara_because",
+    "p_noni", "p_shi", "p_demo_but",
+    "p_sou_da_hearsay",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["図書館は 大きいです", "問題です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["地図は 大切でした", "質問は むずかしかったです"]
+    },
+    {
+      "pattern": "[noun] + ではありません",
+      "meaning": "is not (polite formal)",
+      "examples": ["問題では ありません", "地味では ありません"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["おもしろいです", "むずかしいです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["おもしろかったです", "むずかしかったです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜くないです",
+      "meaning": "is not [adj] (polite negative)",
+      "examples": ["おもしろくないです", "むずかしくないです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜そうです",
+      "meaning": "looks / seems [adj]",
+      "examples": ["おもしろそうです", "むずかしそうです"]
+    },
+    {
+      "pattern": "[な-adj] + な + [noun]",
+      "meaning": "[na-adj] [noun] (attributive)",
+      "examples": ["地味な 人", "地味な 小説"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["質問します", "説明します", "図書館に 行きます"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["地図を 見ました", "図書館に 着きました"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing [verb] (progressive)",
+      "examples": ["勉強しています", "歩いています"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["小説を 読みたいです", "図書館に 行きたいです"]
+    },
+    {
+      "pattern": "[verb]〜てくれました",
+      "meaning": "[someone] did [verb] for me",
+      "examples": ["説明して くれました", "地図を 見せて くれました"]
+    },
+    {
+      "pattern": "[verb]〜できます",
+      "meaning": "can [verb] (potential)",
+      "examples": ["質問できます", "説明できます"]
+    }
+  ]
+}

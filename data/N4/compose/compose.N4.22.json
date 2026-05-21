@@ -1,0 +1,170 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.22",
+  "lesson": "N4.22",
+  "level": "N4",
+  "title": "Writing in Japanese",
+  "titleJp": "日本語で 書く",
+  "emoji": "✍️",
+  "theme": "Rikizo practises writing kanji, looks up meanings, asks his teacher for an opinion, gets some paper, and decides to write a letter to his mother — discovering that even his surname in kanji is a challenge.",
+  "prompts": [
+    {
+      "prompt": "Introduce the scene. Write that today Rikizo is studying kanji.",
+      "targets": [
+        { "id": "v_kanji", "count": 1 }
+      ],
+      "model": "りきぞは 今日、漢字を 勉強して います。",
+      "vocabPool": [
+        "v_kyou", "v_kanji", "v_benkyou", "v_suru", "v_iru",
+        "p_wa", "p_wo", "p_ni", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that Rikizo is looking at the meaning of the kanji.",
+      "targets": [
+        { "id": "v_imi", "count": 1 }
+      ],
+      "model": "漢字の 意味を 見て います。",
+      "vocabPool": [
+        "v_kanji", "v_imi", "v_miru", "v_iru",
+        "p_no", "p_wo", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that Rikizo asked his teacher for an opinion about studying kanji.",
+      "targets": [
+        { "id": "v_iken", "count": 1 }
+      ],
+      "model": "先生に 漢字の 勉強の 意見を 聞きました。",
+      "vocabPool": [
+        "v_sensei", "v_kanji", "v_benkyou", "v_iken", "v_kiku",
+        "p_ni", "p_no", "p_wo", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that the teacher gave Rikizo some paper.",
+      "targets": [
+        { "id": "v_kami", "count": 1 }
+      ],
+      "model": "先生が りきぞに 紙を くれました。",
+      "vocabPool": [
+        "v_sensei", "v_kami", "v_kureru",
+        "p_ga", "p_ni", "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that Rikizo wants to write a letter to his mother, and that he also wants to write kanji on it.",
+      "targets": [
+        { "id": "v_tegami", "count": 1 },
+        { "id": "v_kanji", "count": 1 }
+      ],
+      "model": "お母さんに 手紙を 書きたいです。漢字も 書きたいです。",
+      "vocabPool": [
+        "v_okaasan", "v_tegami", "v_kaku", "v_kanji",
+        "p_ni", "p_wo", "p_mo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write that Rikizo is not sure how to write his surname in kanji.",
+      "targets": [
+        { "id": "v_myouji", "count": 1 }
+      ],
+      "model": "名字を どう 漢字で 書くか、わかりません。",
+      "vocabPool": [
+        "v_myouji", "v_dou", "v_kanji", "v_kaku", "v_wakaru",
+        "p_wo", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that the teacher said it is okay to write in romaji.",
+      "targets": [
+        { "id": "v_romaji", "count": 1 }
+      ],
+      "model": "先生は「ローマ字で 書いても いいですよ」と 言いました。",
+      "vocabPool": [
+        "v_sensei", "v_romaji", "v_kaku", "v_ii", "v_iu",
+        "p_wa", "p_de", "p_mo", "p_yo", "p_to_quote", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write that unexpectedly, the letter looks very nice.",
+      "targets": [
+        { "id": "v_igai", "count": 1 }
+      ],
+      "model": "意外に、とても きれいに 書けました。",
+      "vocabPool": [
+        "v_igai", "v_totemo", "v_kirei", "v_kaku",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write how Rikizo feels about kanji — that it is difficult but interesting.",
+      "targets": [
+        { "id": "v_imi", "count": 1 }
+      ],
+      "model": "漢字は 意味が たくさん あって むずかしいですが、おもしろいです。",
+      "vocabPool": [
+        "v_kanji", "v_imi", "v_takusan", "v_aru", "v_muzukashii", "v_omoshiroi",
+        "p_wa", "p_ga", "p_ga_but", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_to_quote", "p_kara", "p_kara_because", "p_made", "p_goro",
+    "p_ka", "p_yo", "p_ne", "p_dewa", "p_ja", "p_ya",
+    "p_ga_but", "p_kedo", "p_demo_but", "p_shi",
+    "p_node", "p_nagara", "p_yori", "p_hodo", "p_kurai",
+    "p_dake", "p_shika", "p_bakari", "p_demo", "p_noni",
+    "p_e",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-stem] ます / ました / ません / ませんでした",
+      "meaning": "polite present / past / negative / past negative",
+      "examples": ["書きます", "書きました", "書きません", "書きませんでした"]
+    },
+    {
+      "pattern": "[verb て-form] も いいですか",
+      "meaning": "is it okay to do ~? (permission)",
+      "examples": ["ローマ字で 書いても いいですか", "紙を つかっても いいですか"]
+    },
+    {
+      "pattern": "[verb て-form] は いけません",
+      "meaning": "must not do ~ (prohibition)",
+      "examples": ["中で 話しては いけません", "ここで 食べては いけません"]
+    },
+    {
+      "pattern": "[verb て-form] ください",
+      "meaning": "please do ~",
+      "examples": ["ていねいに 書いて ください", "意見を 言って ください"]
+    },
+    {
+      "pattern": "[verb て-form] います",
+      "meaning": "is / are doing ~ (progressive or ongoing state)",
+      "examples": ["漢字を 勉強して います", "手紙を 書いて います"]
+    },
+    {
+      "pattern": "[verb て-form] から",
+      "meaning": "after doing ~ (sequential action)",
+      "examples": ["書いてから 出します", "見てから きめます"]
+    },
+    {
+      "pattern": "[verb] たり [verb] たり します",
+      "meaning": "do things like ~ and ~ (listing representative actions)",
+      "examples": ["漢字を 書いたり、意味を 見たり します"]
+    },
+    {
+      "pattern": "[verb plain_desire_tai] + です",
+      "meaning": "I want to ~",
+      "examples": ["手紙を 書きたいです", "漢字を おぼえたいです"]
+    },
+    {
+      "pattern": "[い-adj]: 〜かった / 〜かったです",
+      "meaning": "past tense adjective (plain / polite)",
+      "examples": ["むずかしかったです", "よかったです"]
+    }
+  ]
+}

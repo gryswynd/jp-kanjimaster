@@ -1,0 +1,1615 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G30",
+  "type": "grammar",
+  "title": "Advanced Verb Usages — てみる / ておく / てしまう / すぎる / とする",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.34",
+    "focus": "Express trying something out (てみる), doing something in advance or leaving a state (ておく), completing or accidentally doing something (てしまう), excessive degree (すぎる), and attempting/assuming (とする). Supplementary connectors: かどうか (whether or not) and について (about/regarding).",
+    "estimatedMinutes": 30,
+    "particles": [
+      "てみる",
+      "ておく",
+      "てしまう",
+      "〜すぎる",
+      "〜とする",
+      "かどうか",
+      "について"
+    ],
+    "grammarForms": [
+      "te_form",
+      "plain_volitional",
+      "sugiru_form",
+      "polite_sugiru_form",
+      "sugiru_past",
+      "polite_sugiru_past"
+    ],
+    "icon": "🧩"
+  },
+  "targetVocab": [
+    "v_miru",
+    "v_oku",
+    "v_shimau",
+    "v_suru",
+    "p_kadouka",
+    "p_ni_tsuite"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Advanced Verb Usages — てみる / ておく / てしまう / すぎる / とする",
+      "icon": "🧩",
+      "summary": "Japanese attaches auxiliary verbs to the て-form to add rich nuances: てみる means 'try doing and see'; ておく means 'do in advance' or 'leave a state as is'; てしまう expresses completing something fully — or accidentally, with regret. すぎる adds 'too much / excessively' to verbs and adjectives. Finally, とする expresses attempting to do something (often interrupted) or treating something as an assumption.",
+      "whyItMatters": "These five patterns appear constantly in natural Japanese speech and writing. They transform simple verbs into expressions of experimentation, preparation, regret, excess, and intention. Mastering them unlocks a much wider emotional and nuanced range — you move from just saying 'I ate' to 'I tried eating it', 'I accidentally ate it all', or 'I ate too much'.",
+      "youWillLearn": [
+        "てみる — try doing something to see what happens (食べてみる: try eating it)",
+        "ておく — do something in advance or leave a resultant state in place (買っておく: buy it ahead of time)",
+        "てしまう — complete fully or do by accident with regret (食べてしまった: ate it all / accidentally ate it); casual form ちゃった/じゃった in notes",
+        "すぎる — excessive degree applied to verbs AND adjectives (食べすぎる: eat too much; 高すぎる: too expensive; 静かすぎる: too quiet)",
+        "とする — attempt/be on the verge of doing (出かけようとした: tried to go out) vs treating something as an assumption (先生だとすると: assuming they're a teacher…)",
+        "Supplementary connectors: かどうか (whether or not) and について (about/regarding)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_temiru",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "TRY",
+          "color": "connector",
+          "text": "みる"
+        }
+      ],
+      "meaning": "try doing ~ (and see what happens)",
+      "explanation": "てみる attaches 見る as an auxiliary to the て-form of any verb. It expresses the idea of trying something out to see what the result is. The nuance is experimental — the speaker does not know the outcome and wants to find out. It is often used when trying food, suggesting someone attempt something, or describing a first experience.",
+      "notes": [
+        "Formation: conjugate the main verb to its て-form, then add みる (the auxiliary 見る written in hiragana OR kanji depending on how you write it in context). Example: 食べる → 食べて + みる = 食べてみる (try eating it).",
+        "Past tense: てみた (plain) / てみました (polite). 食べてみた = I tried eating it. 食べてみましたか = Did you try eating it?",
+        "In jp fields, write the auxiliary as 見る (kanji) so the text processor can recognize v_miru: 食べて見ます, 食べて見た.",
+        "Contrast with とする: てみる = actually try and see the result; とする = attempt/be on the verge of (often interrupted before completion).",
+        "てみる can be used for suggestions: やってみてください (please try doing it) or やってみたらどう？ (why don't you try?)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "この 料理を",
+              "role": "object",
+              "gloss": "this dish (を — object)"
+            },
+            {
+              "text": "食べて",
+              "role": "predicate",
+              "gloss": "eat (て-form of 食べる)"
+            },
+            {
+              "text": "みた。",
+              "role": "connector",
+              "gloss": "tried (tried eating it to see)"
+            }
+          ],
+          "en": "I tried eating this dish (to see how it was).",
+          "breakdown": "食べる (ichidan) → te-form 食べて + みた (plain past of 見る as auxiliary) = tried eating. The speaker sampled the dish to find out what it was like."
+        },
+        {
+          "parts": [
+            {
+              "text": "日本語で",
+              "role": "modifier",
+              "gloss": "in Japanese (で — means/manner)"
+            },
+            {
+              "text": "話して",
+              "role": "predicate",
+              "gloss": "speak (te-form of 話す)"
+            },
+            {
+              "text": "みましょう。",
+              "role": "connector",
+              "gloss": "let's try (みましょう — polite volitional of みる as auxiliary)"
+            }
+          ],
+          "en": "Let's try speaking in Japanese!",
+          "breakdown": "話す (godan) → te-form 話して + みましょう (polite volitional of 見る) = let's try speaking. A common classroom or practice suggestion."
+        },
+        {
+          "parts": [
+            {
+              "text": "その 店に",
+              "role": "modifier",
+              "gloss": "at that shop (に — direction/target)"
+            },
+            {
+              "text": "行って",
+              "role": "predicate",
+              "gloss": "go (te-form of 行く)"
+            },
+            {
+              "text": "みても",
+              "role": "connector",
+              "gloss": "even if (we) try going (て-form of みる + も)"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "good / okay (い-adjective)"
+            },
+            {
+              "text": "ですよ。",
+              "role": "predicate",
+              "gloss": "you know (polite copula + yo)"
+            }
+          ],
+          "en": "It's fine to try going to that shop, you know.",
+          "breakdown": "行く → te-form 行って + みても (te-form of みる + も = 'even if try') + いいです = 'it's okay to try.' てもいい (permission) combines naturally with てみる."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_teoku",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "IN ADVANCE / LEAVE",
+          "color": "connector",
+          "text": "おく"
+        }
+      ],
+      "meaning": "do ~ in advance / leave ~ in a state",
+      "explanation": "ておく attaches おく (置く, 'to place') as an auxiliary to the て-form. It has two closely related uses: (1) doing something in advance to prepare for a future situation — buying things early, reserving seats, studying before a test; and (2) leaving a resultant state in place intentionally — leaving the window open, keeping things as they are.",
+      "notes": [
+        "Formation: [verb て-form] + おく. Example: 買う → 買って + おく = 買っておく (buy in advance). 開ける → 開けて + おく = 開けておく (leave open).",
+        "Polite form: 〜ておきます. Past: 〜ておいた (plain) / 〜ておきました (polite). Note the て-form of おく itself: おいて (used in sequences).",
+        "The auxiliary おく is always written in hiragana — 置 is not in the taught kanji set.",
+        "Advance use: 明日のために 勉強しておきました (I studied in advance for tomorrow).",
+        "Leave-as-is use: 窓を 開けておいた (I left the window open — intentionally, for a purpose). The key nuance: the state is left because it serves a purpose."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "旅行の 前に",
+              "role": "time",
+              "gloss": "before the trip (旅行 + の + 前に)"
+            },
+            {
+              "text": "切符を",
+              "role": "object",
+              "gloss": "ticket (を — object)"
+            },
+            {
+              "text": "買って",
+              "role": "predicate",
+              "gloss": "buy (te-form of 買う)"
+            },
+            {
+              "text": "おきました。",
+              "role": "connector",
+              "gloss": "did in advance (おく — auxiliary, polite past)"
+            }
+          ],
+          "en": "I bought the ticket in advance before the trip.",
+          "breakdown": "買う (godan う-row) → te-form 買って + おきました (polite past of おく) = bought ahead of time for future use."
+        },
+        {
+          "parts": [
+            {
+              "text": "窓を",
+              "role": "object",
+              "gloss": "window (を — object)"
+            },
+            {
+              "text": "開けて",
+              "role": "predicate",
+              "gloss": "open (te-form of 開ける)"
+            },
+            {
+              "text": "おいて",
+              "role": "connector",
+              "gloss": "left in state (te-form of おく as auxiliary)"
+            },
+            {
+              "text": "ください。",
+              "role": "predicate",
+              "gloss": "please (request form)"
+            }
+          ],
+          "en": "Please leave the window open.",
+          "breakdown": "開ける (ichidan) → te-form 開けて + おいて (te-form of おく) + ください = 'please leave it open.' The state is intentionally maintained."
+        },
+        {
+          "parts": [
+            {
+              "text": "テストの ために",
+              "role": "modifier",
+              "gloss": "in order to / for the test (ために — purpose)"
+            },
+            {
+              "text": "漢字を",
+              "role": "object",
+              "gloss": "kanji (を — object)"
+            },
+            {
+              "text": "覚えて",
+              "role": "predicate",
+              "gloss": "memorize (te-form of 覚える)"
+            },
+            {
+              "text": "おこう。",
+              "role": "connector",
+              "gloss": "let's do in advance (おく → plain volitional おこう)"
+            }
+          ],
+          "en": "Let's memorize the kanji in advance for the test.",
+          "breakdown": "覚える (ichidan) → te-form 覚えて + おこう (plain volitional of おく) = let's prepare by memorizing. The volitional of おく (おこう) expresses the speaker's intention to prepare."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_teshimau",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "COMPLETE / REGRET",
+          "color": "verb",
+          "text": "しまう"
+        }
+      ],
+      "meaning": "end up doing ~ / do ~ completely / accidentally do ~ (often with regret)",
+      "explanation": "てしまう attaches しまう as an auxiliary to the て-form. It carries two related nuances: (1) completion — something was done fully, to its end (all of it was eaten, the whole task is done); and (2) accident or regret — something undesirable happened, often unintentionally. In casual spoken Japanese, てしまう contracts to ちゃう (after て) and でしまう contracts to じゃう (after で).",
+      "notes": [
+        "Formation: [verb て-form] + しまう. Example: 食べる → 食べて + しまう = 食べてしまう (eat it all / accidentally eat it). 飲む → 飲んで + しまう = 飲んでしまう.",
+        "Polite past: 食べてしまいました. Plain past: 食べてしまった.",
+        "Casual contractions (spoken only — NOT used in tagged jp fields): てしまった → ちゃった. でしまった → じゃった. Example: 食べちゃった (I accidentally ate it!). 飲んじゃった (I drank it all!).",
+        "Completion nuance (neutral or positive): レポートを 書いてしまった (I finished writing the report — all done!).",
+        "Regret/accident nuance: 財布を 忘れてしまいました (I accidentally forgot my wallet — ugh). The speaker did not intend this outcome.",
+        "In polite content and jp-tagged fields, always write the full form: てしまいました / てしまった. Never write ちゃった in jp fields that require term tagging."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "ケーキを",
+              "role": "object",
+              "gloss": "cake (を — object)"
+            },
+            {
+              "text": "全部",
+              "role": "adverb",
+              "gloss": "all of it / everything"
+            },
+            {
+              "text": "食べて",
+              "role": "predicate",
+              "gloss": "eat (te-form of 食べる)"
+            },
+            {
+              "text": "しまった。",
+              "role": "connector",
+              "gloss": "ended up doing (しまう — auxiliary, plain past; completion / slight regret)"
+            }
+          ],
+          "en": "I ended up eating all the cake. (I ate the whole thing!)",
+          "breakdown": "食べる (ichidan) → te-form 食べて + しまった (plain past of しまう) = accidentally/completely ate. The speaker may feel a little guilty — it was all gone."
+        },
+        {
+          "parts": [
+            {
+              "text": "大切な 書類を",
+              "role": "object",
+              "gloss": "important documents (大切な = important, な-adj attributive; 書類 = documents; を)"
+            },
+            {
+              "text": "なくして",
+              "role": "predicate",
+              "gloss": "lose (te-form of なくす)"
+            },
+            {
+              "text": "しまいました。",
+              "role": "connector",
+              "gloss": "accidentally did (しまう — auxiliary, polite past; strong regret)"
+            }
+          ],
+          "en": "I accidentally lost the important documents.",
+          "breakdown": "なくす (godan) → te-form なくして + しまいました (polite past of しまう) = lost them by accident, with clear regret. The polite form is appropriate when reporting a mishap to someone else."
+        },
+        {
+          "parts": [
+            {
+              "text": "宿題を",
+              "role": "object",
+              "gloss": "homework (を — object)"
+            },
+            {
+              "text": "もう",
+              "role": "adverb",
+              "gloss": "already"
+            },
+            {
+              "text": "やって",
+              "role": "predicate",
+              "gloss": "do (te-form of やる)"
+            },
+            {
+              "text": "しまいました。",
+              "role": "connector",
+              "gloss": "finished completely (しまう — auxiliary, polite past; completion — positive sense)"
+            }
+          ],
+          "en": "I've already finished my homework (all done).",
+          "breakdown": "やる (godan) → te-form やって + しまいました = finished completely. Here the completion sense is positive — the speaker is relieved or proud the task is done."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_sugiru",
+      "pattern": [
+        {
+          "label": "VERB / ADJ STEM",
+          "color": "predicate",
+          "text": "[stem]"
+        },
+        {
+          "label": "TOO MUCH",
+          "color": "verb",
+          "text": "すぎる"
+        }
+      ],
+      "meaning": "too much ~ / excessively ~ (verbs, い-adjectives, and な-adjectives)",
+      "explanation": "すぎる attaches to verb masu-stems and adjective stems to express that something is excessive or more than desirable. This pattern was introduced in G15. Here we expand it to cover verbs, い-adjectives, and な-adjectives all in one place, and reinforce the full range of forms including past tense and polite forms.",
+      "notes": [
+        "Verb formation: masu-stem + すぎる. 食べる → 食べ(ます) → 食べすぎる (eat too much). 飲む → 飲み(ます) → 飲みすぎる (drink too much).",
+        "い-adjective formation: remove い, add すぎる. 高い → 高すぎる (too expensive). 難しい → 難しすぎる (too difficult).",
+        "な-adjective formation: stem (no な) + すぎる. 静か → 静かすぎる (too quiet). 複雑 → 複雑すぎる (too complicated).",
+        "Polite form: 〜すぎます. Past plain: 〜すぎた. Past polite: 〜すぎました.",
+        "すぎる itself is a RU-verb, so it conjugates: すぎる → すぎます → すぎた → すぎました.",
+        "Special case: いい (good) → よすぎる (too good / too nice). NOT いすぎる — the adjective changes its base."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "昨日、",
+              "role": "time",
+              "gloss": "yesterday"
+            },
+            {
+              "text": "飲み",
+              "role": "predicate",
+              "gloss": "drink (masu-stem of 飲む)"
+            },
+            {
+              "text": "すぎました。",
+              "role": "predicate",
+              "gloss": "too much (すぎる — excessive, polite past)"
+            }
+          ],
+          "en": "I drank too much yesterday.",
+          "breakdown": "飲む (godan) → masu-stem 飲み + すぎました (polite past of すぎる) = drank excessively. Common complaint after a party or celebration."
+        },
+        {
+          "parts": [
+            {
+              "text": "この 店の 料理は",
+              "role": "topic",
+              "gloss": "this shop's food (この + 店 + の + 料理 + は — topic)"
+            },
+            {
+              "text": "高",
+              "role": "modifier",
+              "gloss": "expensive (高い → stem 高)"
+            },
+            {
+              "text": "すぎます。",
+              "role": "predicate",
+              "gloss": "too much (すぎる — excessive, polite present)"
+            }
+          ],
+          "en": "The food at this restaurant is too expensive.",
+          "breakdown": "高い (い-adj) → remove い → 高 + すぎます (polite present of すぎる) = too expensive. A common reaction when looking at a menu."
+        },
+        {
+          "parts": [
+            {
+              "text": "その 部屋は",
+              "role": "topic",
+              "gloss": "that room (その + 部屋 + は — topic)"
+            },
+            {
+              "text": "静か",
+              "role": "modifier",
+              "gloss": "quiet (な-adjective stem 静か)"
+            },
+            {
+              "text": "すぎて、",
+              "role": "predicate",
+              "gloss": "too quiet (すぎる + て = te-form, connecting to next clause)"
+            },
+            {
+              "text": "集中 できません。",
+              "role": "predicate",
+              "gloss": "cannot concentrate (集中 + できません — potential negative)"
+            }
+          ],
+          "en": "That room is too quiet, so I can't concentrate.",
+          "breakdown": "静か (な-adj) + すぎて (te-form of すぎる, connecting clauses) + 集中できません (cannot concentrate). The te-form of すぎる links to the result clause."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_tosuru",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[volitional]"
+        },
+        {
+          "label": "QUOTE",
+          "color": "connector",
+          "text": "と"
+        },
+        {
+          "label": "DO / ASSUME",
+          "color": "verb",
+          "text": "する"
+        }
+      ],
+      "meaning": "attempt to ~ / be on the verge of ~ / assume/treat as ~ (two uses)",
+      "explanation": "とする has two main uses. (1) Attempt/verge: plain volitional form + とする expresses that someone tried or was about to do something — often interrupted or just barely attempted. (2) Assumption/hypothesis: だ/plain form + とする expresses treating something as a hypothetical or stated assumption ('let's say / assuming that…'). The pattern としたとき (just as one was about to) is a useful compound phrase for Use 1.",
+      "notes": [
+        "Use 1 — attempt/verge: [verb plain volitional] + とする. 出かけようとした = tried to go out (but something stopped them). 起きようとしたとき = just as I was about to get up.",
+        "Use 2 — assumption: [noun/adjective] + だとする(と). 先生だとすると = assuming they are a teacher... 雨だとしたら = assuming it rains...",
+        "Contrast with てみる: てみる = actually tries and sees the result; とする = attempts or is on the verge, often without completion.",
+        "Plain volitional forms review: RU-verb → 〜よう (食べる → 食べよう); U-verb → 〜おう (行く → 行こう, 話す → 話そう); する → しよう; くる → こよう.",
+        "とする is common in narrative descriptions: 逃げようとしたが、つかまえられた (tried to escape but was caught).",
+        "The te-form としたとき (just as ~ was about to) pairs naturally with 〜たら / 〜とき conditionals."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "出かけ",
+              "role": "predicate",
+              "gloss": "go out (masu-stem of 出かける)"
+            },
+            {
+              "text": "ようと",
+              "role": "connector",
+              "gloss": "volitional + と (attempt marker — was about to go out)"
+            },
+            {
+              "text": "した",
+              "role": "predicate",
+              "gloss": "did (plain past of する — completed the attempt pattern)"
+            },
+            {
+              "text": "とき、",
+              "role": "time",
+              "gloss": "when / at that moment (時 — time noun)"
+            },
+            {
+              "text": "電話が",
+              "role": "subject",
+              "gloss": "phone call (が — subject marker)"
+            },
+            {
+              "text": "来た。",
+              "role": "predicate",
+              "gloss": "came (plain past of くる)"
+            }
+          ],
+          "en": "Just as I was about to go out, a phone call came.",
+          "breakdown": "出かける (ichidan) → plain volitional 出かけよう + と + した (plain past of する) + とき = 'just as (I) was about to go out.' The phone call interrupted the attempt."
+        },
+        {
+          "parts": [
+            {
+              "text": "ドアを",
+              "role": "object",
+              "gloss": "door (を — object)"
+            },
+            {
+              "text": "開け",
+              "role": "predicate",
+              "gloss": "open (masu-stem of 開ける)"
+            },
+            {
+              "text": "ようと",
+              "role": "connector",
+              "gloss": "volitional + と (attempt marker)"
+            },
+            {
+              "text": "した",
+              "role": "predicate",
+              "gloss": "tried (plain past of する)"
+            },
+            {
+              "text": "が、",
+              "role": "connector",
+              "gloss": "but (が — clause connector)"
+            },
+            {
+              "text": "鍵が",
+              "role": "subject",
+              "gloss": "key/lock (が — subject)"
+            },
+            {
+              "text": "かかっていた。",
+              "role": "predicate",
+              "gloss": "was locked (かかる te-form + いた — resultant state)"
+            }
+          ],
+          "en": "I tried to open the door, but it was locked.",
+          "breakdown": "開ける (ichidan) → volitional 開けよう + と + した (tried) + が (but) + かかっていた (resultant state: was locked). とする vividly shows the attempt was blocked."
+        },
+        {
+          "parts": [
+            {
+              "text": "この 人が",
+              "role": "subject",
+              "gloss": "this person (が — subject)"
+            },
+            {
+              "text": "先生 だと",
+              "role": "predicate",
+              "gloss": "is a teacher + と (assumption marker: だ + と)"
+            },
+            {
+              "text": "すると、",
+              "role": "predicate",
+              "gloss": "assuming (すると — te-form of とする, expressing hypothesis)"
+            },
+            {
+              "text": "どこで",
+              "role": "adverb",
+              "gloss": "where (どこ + で)"
+            },
+            {
+              "text": "働いて",
+              "role": "predicate",
+              "gloss": "work (te-form of 働く)"
+            },
+            {
+              "text": "いる",
+              "role": "predicate",
+              "gloss": "is (working) (plain form of いる — progressive)"
+            },
+            {
+              "text": "んでしょうか。",
+              "role": "predicate",
+              "gloss": "I wonder (んです + でしょうか — explanatory + conjecture question)"
+            }
+          ],
+          "en": "Assuming this person is a teacher, I wonder where they work.",
+          "breakdown": "先生 + だと + すると = 'assuming they are a teacher.' This is the hypothesis use of とする — treating something as a stated condition to reason from."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "id": "comp_temiru_tosuru",
+      "title": "てみる vs とする — Two Kinds of 'Trying'",
+      "items": [
+        {
+          "label": "てみる — try and see",
+          "color": "predicate",
+          "points": [
+            "Actually performs the action and observes the result",
+            "The action IS completed (or at least attempted to completion)",
+            "Nuance: experimental curiosity — 'let me see what happens'",
+            "Example cues: tasting food, testing an idea, suggesting someone try something"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "この 料理を",
+                "role": "object",
+                "gloss": "this dish (を)"
+              },
+              {
+                "text": "食べて",
+                "role": "predicate",
+                "gloss": "eat (te-form)"
+              },
+              {
+                "text": "みました。",
+                "role": "connector",
+                "gloss": "tried (みる — auxiliary, polite past)"
+              }
+            ],
+            "en": "I tried eating this dish (to see how it was)."
+          }
+        },
+        {
+          "label": "とする — attempt / verge on",
+          "color": "verb",
+          "points": [
+            "Attempts the action but is often interrupted or does not complete it",
+            "The action often FAILS or is blocked by something",
+            "Nuance: on the verge, about to — 'was just about to when…'",
+            "Example cues: narratives of interruption, near-misses, hypotheticals"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "この 料理を",
+                "role": "object",
+                "gloss": "this dish (を)"
+              },
+              {
+                "text": "食べ",
+                "role": "predicate",
+                "gloss": "eat (masu-stem of 食べる)"
+              },
+              {
+                "text": "ようと",
+                "role": "connector",
+                "gloss": "volitional + と (attempt)"
+              },
+              {
+                "text": "した。",
+                "role": "predicate",
+                "gloss": "tried (plain past of する)"
+              }
+            ],
+            "en": "I tried to eat this dish (was about to eat it — but something happened)."
+          }
+        }
+      ],
+      "tip": "A quick test: 'Did the action actually happen?' → てみる (yes, it happened — and here's what I found out). 'Was the action interrupted or blocked?' → とする (almost happened but didn't quite make it)."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_connectors",
+      "pattern": [
+        {
+          "label": "CLAUSE",
+          "color": "predicate",
+          "text": "[plain form]"
+        },
+        {
+          "label": "WHETHER OR NOT",
+          "color": "connector",
+          "text": "かどうか"
+        }
+      ],
+      "meaning": "かどうか — 'whether or not'; について — 'about / regarding'",
+      "explanation": "This section covers two supplementary connectors that appear frequently in academic and everyday speech. かどうか embeds an indirect yes/no question: 行くかどうかわからない (I don't know whether I'll go or not). について is a compound postposition meaning 'about' or 'regarding': 日本語について話す (talk about the Japanese language).",
+      "notes": [
+        "かどうか formation: [plain-form clause] + かどうか + main predicate. The かどうか clause acts like a noun phrase: 行くかどうか = 'whether (I) will go or not.'",
+        "Common predicates after かどうか: わからない / わかりません (don't know), 知らない / 知りません (don't know), 決める (decide), 考える (think about), 聞く (ask about).",
+        "かどうか vs か: both embed questions, but か alone tends to follow wh-questions (何を買うか = what to buy), while かどうか is specifically yes/no embedded questions (buying or not buying).",
+        "について formation: [noun] + について + main predicate. The について phrase acts as an adjunct modifier.",
+        "Contrast: について is for the TOPIC/SUBJECT of discussion (speaking ABOUT X); に関して (N3+) is more formal for the same meaning.",
+        "について can appear before verbs like 話す, 考える, 書く, 読む, 質問する, and 調べる.",
+        "Example pair: この 問題についての 説明 (an explanation regarding this problem) — の between について and noun creates an attributive phrase."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "明日、",
+              "role": "time",
+              "gloss": "tomorrow"
+            },
+            {
+              "text": "パーティーに",
+              "role": "modifier",
+              "gloss": "to the party (に — direction/target)"
+            },
+            {
+              "text": "行く",
+              "role": "predicate",
+              "gloss": "go (plain form of 行く)"
+            },
+            {
+              "text": "かどうか、",
+              "role": "connector",
+              "gloss": "whether or not (かどうか — yes/no embedded question)"
+            },
+            {
+              "text": "まだ",
+              "role": "adverb",
+              "gloss": "not yet / still"
+            },
+            {
+              "text": "決めて",
+              "role": "predicate",
+              "gloss": "decide (te-form of 決める)"
+            },
+            {
+              "text": "いません。",
+              "role": "predicate",
+              "gloss": "haven't (ていません — negative progressive, polite)"
+            }
+          ],
+          "en": "I haven't decided yet whether or not I'll go to the party tomorrow.",
+          "breakdown": "行く (plain form) + かどうか (whether or not) + まだ決めていません (haven't decided yet). The かどうか clause acts as the object of 決める."
+        },
+        {
+          "parts": [
+            {
+              "text": "日本語の 歴史に",
+              "role": "topic",
+              "gloss": "the history of Japanese (日本語 + の + 歴史 + に)"
+            },
+            {
+              "text": "ついて",
+              "role": "connector",
+              "gloss": "about / regarding (〜について — compound postposition)"
+            },
+            {
+              "text": "もっと",
+              "role": "adverb",
+              "gloss": "more"
+            },
+            {
+              "text": "知りたい",
+              "role": "predicate",
+              "gloss": "want to know (知る → plain desire 知りたい)"
+            },
+            {
+              "text": "です。",
+              "role": "predicate",
+              "gloss": "is (polite copula)"
+            }
+          ],
+          "en": "I want to know more about the history of the Japanese language.",
+          "breakdown": "日本語の歴史 (history of Japanese) + について (about/regarding) + もっと知りたいです (want to know more). について follows the noun phrase being discussed."
+        },
+        {
+          "parts": [
+            {
+              "text": "この 薬が",
+              "role": "subject",
+              "gloss": "this medicine (が — subject)"
+            },
+            {
+              "text": "体に",
+              "role": "modifier",
+              "gloss": "for the body (に — indirect object/target)"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "good (い-adjective attributive)"
+            },
+            {
+              "text": "かどうか",
+              "role": "connector",
+              "gloss": "whether or not (かどうか)"
+            },
+            {
+              "text": "わかりません。",
+              "role": "predicate",
+              "gloss": "I don't know (polite negative of わかる)"
+            }
+          ],
+          "en": "I don't know whether or not this medicine is good for the body.",
+          "breakdown": "この薬が体にいい (medicine is good for the body) + かどうか (whether or not) + わかりません (don't know). Note: かどうか follows the plain form / plain adjective of the embedded clause."
+        }
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "id": "annotated_1",
+      "title": "All Patterns in Daily Contexts",
+      "examples": [
+        {
+          "context": "てみる — trying something new",
+          "parts": [
+            {
+              "text": "新しい",
+              "role": "modifier",
+              "gloss": "new (い-adjective, attributive)"
+            },
+            {
+              "text": "レストランに",
+              "role": "modifier",
+              "gloss": "to the new restaurant (に — direction)"
+            },
+            {
+              "text": "行って",
+              "role": "predicate",
+              "gloss": "go (te-form of 行く)"
+            },
+            {
+              "text": "みましょうか。",
+              "role": "connector",
+              "gloss": "shall we try going? (みる → polite volitional みましょう + か)"
+            }
+          ],
+          "en": "Shall we try going to the new restaurant?",
+          "note": "てみる as a suggestion: 行ってみましょうか = 'shall we try going?' The speaker is curious and proposes an experiment."
+        },
+        {
+          "context": "ておく — preparation in advance",
+          "parts": [
+            {
+              "text": "会議の 前に",
+              "role": "time",
+              "gloss": "before the meeting (会議 + の + 前に)"
+            },
+            {
+              "text": "資料を",
+              "role": "object",
+              "gloss": "documents/materials (を — object)"
+            },
+            {
+              "text": "読んで",
+              "role": "predicate",
+              "gloss": "read (te-form of 読む)"
+            },
+            {
+              "text": "おきます。",
+              "role": "connector",
+              "gloss": "will do in advance (おく — auxiliary, polite present)"
+            }
+          ],
+          "en": "I'll read the materials in advance before the meeting.",
+          "note": "ておく expresses deliberate preparation. The speaker is acting now to be ready for something in the future."
+        },
+        {
+          "context": "てしまう — completion with regret",
+          "parts": [
+            {
+              "text": "また",
+              "role": "adverb",
+              "gloss": "again"
+            },
+            {
+              "text": "寝坊して",
+              "role": "predicate",
+              "gloss": "oversleep (te-form of 寝坊する — sleep in)"
+            },
+            {
+              "text": "しまいました…",
+              "role": "connector",
+              "gloss": "ended up doing (しまう — auxiliary, polite past; regret)"
+            }
+          ],
+          "en": "I overslept again… (I can't believe I did it again.)",
+          "note": "てしまいました with 寝坊する conveys regret and self-reproach. The speaker didn't intend to oversleep."
+        },
+        {
+          "context": "すぎる — excessive degree",
+          "parts": [
+            {
+              "text": "この バッグは",
+              "role": "topic",
+              "gloss": "this bag (この + バッグ + は — topic)"
+            },
+            {
+              "text": "軽",
+              "role": "modifier",
+              "gloss": "light (軽い → stem 軽)"
+            },
+            {
+              "text": "すぎて",
+              "role": "predicate",
+              "gloss": "too light (すぎる te-form — connecting clause)"
+            },
+            {
+              "text": "心配 です。",
+              "role": "predicate",
+              "gloss": "I'm worried (心配 + です — na-adjective predicate)"
+            }
+          ],
+          "en": "This bag is too light, so I'm worried (about what's inside).",
+          "note": "すぎて connects to the result clause: too light → worried. The て-form of すぎる is すぎて."
+        },
+        {
+          "context": "とする — attempt (interrupted)",
+          "parts": [
+            {
+              "text": "逃げ",
+              "role": "predicate",
+              "gloss": "run away (masu-stem of 逃げる)"
+            },
+            {
+              "text": "ようと",
+              "role": "connector",
+              "gloss": "volitional + と (attempt marker)"
+            },
+            {
+              "text": "した",
+              "role": "predicate",
+              "gloss": "tried (plain past of する)"
+            },
+            {
+              "text": "が、",
+              "role": "connector",
+              "gloss": "but (が — clause connector)"
+            },
+            {
+              "text": "間に合わなかった。",
+              "role": "predicate",
+              "gloss": "didn't make it in time (間に合う → plain past negative)"
+            }
+          ],
+          "en": "I tried to escape, but didn't make it in time.",
+          "note": "逃げようとしたが = 'tried to escape but…' — とする shows the attempt was blocked or failed. Often paired with が/けど (but)."
+        },
+        {
+          "context": "かどうか — embedded yes/no question",
+          "parts": [
+            {
+              "text": "彼が",
+              "role": "subject",
+              "gloss": "he (が — subject)"
+            },
+            {
+              "text": "来る",
+              "role": "predicate",
+              "gloss": "come (plain form of くる)"
+            },
+            {
+              "text": "かどうか、",
+              "role": "connector",
+              "gloss": "whether or not (かどうか)"
+            },
+            {
+              "text": "知って",
+              "role": "predicate",
+              "gloss": "know (te-form of 知る)"
+            },
+            {
+              "text": "いますか。",
+              "role": "predicate",
+              "gloss": "do you know? (ていますか — polite progressive question)"
+            }
+          ],
+          "en": "Do you know whether or not he is coming?",
+          "note": "かどうか embeds the yes/no question 'will he come or not' as a noun clause. Natural in both polite and plain speech."
+        },
+        {
+          "context": "について — topic/subject of discussion",
+          "parts": [
+            {
+              "text": "環境 問題に",
+              "role": "topic",
+              "gloss": "environmental issues (環境 + 問題 + に)"
+            },
+            {
+              "text": "ついて",
+              "role": "connector",
+              "gloss": "about / regarding (〜について)"
+            },
+            {
+              "text": "話し合いたい",
+              "role": "predicate",
+              "gloss": "want to discuss (話し合う → plain desire 話し合いたい)"
+            },
+            {
+              "text": "と",
+              "role": "connector",
+              "gloss": "quotation marker (と — thought/intention content)"
+            },
+            {
+              "text": "思います。",
+              "role": "predicate",
+              "gloss": "I think (思う → polite present)"
+            }
+          ],
+          "en": "I think I would like to discuss environmental issues.",
+          "note": "について marks the topic being discussed (environmental issues). と思います provides the 'I think' framing — a natural combination in formal settings."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Cooking Together",
+      "context": "やまもと先生 and りきぞ are preparing food together at a cooking event. Polite register. This conversation reinforces: てみる (try eating), ておく (prepare in advance), てしまう (regret), すぎる (too much), と思う (G27), てから (G19), そうだ hearsay (G22), passive (G28/G29).",
+      "lines": [
+        {
+          "spk": "やまもと",
+          "jp": "今日は いっしょに 料理を 作りましょうね。楽しいですよ！",
+          "en": "Let's cook together today! It'll be fun!",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_issho",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_volitional_mashou"
+            },
+            "p_ne",
+            {
+              "id": "v_tanoshii",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ええ！この 料理、食べて 見てもいいですか。",
+          "en": "Yes! Is it okay if I try eating this?",
+          "terms": [
+            "p_ee",
+            "v_kono",
+            "v_ryouri",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまもと",
+          "jp": "もちろんです。作って から 少し 待った 方が いい と 思いますよ。",
+          "en": "Of course. I think it's better to wait a bit after making it.",
+          "terms": [
+            "v_mochiron",
+            "g_desu",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_sukoshi",
+            {
+              "id": "v_matsu",
+              "form": "plain_past"
+            },
+            "v_hou",
+            "p_ga",
+            "v_ii",
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ありがとうございます。野菜を 買って おきましたが、多いですか。",
+          "en": "Thank you. I bought vegetables in advance — is it too many?",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_yasai",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_oku",
+              "form": "polite_mashita"
+            },
+            "p_ga_but",
+            {
+              "id": "v_ooi",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまもと",
+          "jp": "だいじょうぶですよ。でも、野菜を 入れすぎた と 思います。",
+          "en": "It'll be fine. But I think I put in too many vegetables.",
+          "terms": [
+            {
+              "id": "v_daijoubu",
+              "form": "polite_adj"
+            },
+            "p_yo",
+            "p_demo_but",
+            "v_yasai",
+            "p_wo",
+            {
+              "id": "v_ireru",
+              "form": "sugiru_past"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "少し 食べて しまいました！少し 強いですが、おいしいですよ！",
+          "en": "I went ahead and ate a little! It's a bit strong, but it's delicious!",
+          "terms": [
+            "v_sukoshi",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_shimau",
+              "form": "polite_mashita"
+            },
+            "v_sukoshi",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "やまもと",
+          "jp": "よかったですよ。上手に なって きましたね。つぎは 魚の 料理について 教えますね。",
+          "en": "That's great! You've been getting more and more skilled. Next, I'll teach you about fish dishes, okay.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "polite_past_adj"
+            },
+            "p_yo",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ne",
+            "v_tsugi",
+            "p_wa",
+            "v_sakana",
+            "p_no",
+            "v_ryouri",
+            "p_ni_tsuite",
+            {
+              "id": "v_oshieru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "魚の 料理が むずかしかったら、また 教えて ください。それも して 見ます！",
+          "en": "If fish cooking is difficult, please teach me again. I'll try that too!",
+          "terms": [
+            "v_sakana",
+            "p_no",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_muzukashii",
+              "form": "conditional_tara"
+            },
+            "v_mata",
+            {
+              "id": "v_oshieru",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_sore",
+            "p_mo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: What Happened? (Casual)",
+      "context": "りきぞ and his friend けん are talking casually after class. Plain register throughout. Reinforces: てしまった (regret), とする (attempt), かどうか (whether or not), と思う (G27), causative-passive (G29).",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "りきぞ、 気持ち 悪そう だ けど、 だいじょうぶ？",
+          "en": "Rikizo, you look sick — you okay?",
+          "terms": [
+            "char_rikizo",
+            "v_kimochi",
+            {
+              "id": "v_warui",
+              "form": "appearance_sou_stem"
+            },
+            "g_da",
+            "p_kedo",
+            "v_daijoubu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "きのう、食べすぎた から、先生に 話させられたんだ。",
+          "en": "Yesterday I ate too much, so I was made to talk to the teacher.",
+          "terms": [
+            "v_kinou",
+            {
+              "id": "v_taberu",
+              "form": "sugiru_past"
+            },
+            "p_kara_because",
+            "v_sensei",
+            "p_ni",
+            {
+              "id": "v_hanasu",
+              "form": "plain_causative_passive_past"
+            },
+            "p_nda"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "先生に 話させられたの？それは 悪かった ね。",
+          "en": "You were made to talk to the teacher? That was rough.",
+          "terms": [
+            "v_sensei",
+            "p_ni",
+            {
+              "id": "v_hanasu",
+              "form": "plain_causative_passive_past"
+            },
+            "p_no_question",
+            "v_sore",
+            "p_wa",
+            {
+              "id": "v_warui",
+              "form": "plain_past_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そう。 帰ろうと したが、 帰らなかった んだ。",
+          "en": "Yeah. I tried to go home, but I didn't end up going.",
+          "terms": [
+            "v_sou",
+            {
+              "id": "v_kaeru",
+              "form": "plain_volitional"
+            },
+            "p_to_quote",
+            {
+              "id": "v_suru",
+              "form": "plain_past"
+            },
+            "p_ga_but",
+            {
+              "id": "v_kaeru",
+              "form": "plain_past_negative"
+            },
+            "p_nda"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そうか。 明日 テストが ある かどうか、 知って いる？",
+          "en": "Oh, is that so. Do you know whether there's a test tomorrow?",
+          "terms": [
+            "v_sou",
+            "p_ka",
+            "v_ashita",
+            "v_tesuto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "plain_form"
+            },
+            "p_kadouka",
+            {
+              "id": "v_shiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "分からない。 見て おく よ。 早く 休んだ 方が いい ね。",
+          "en": "I don't know. I'll check in advance. I should probably rest early.",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "plain_negative"
+            },
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_oku",
+              "form": "plain_form"
+            },
+            "p_yo",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_yasumu",
+              "form": "plain_past"
+            },
+            "v_hou",
+            "p_ga",
+            "v_ii",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "だいじょうぶ だ よ。 勉強 は 大切 だ と 思う から、 また して 見ようよ！",
+          "en": "You'll be fine! I think studying is important, so let's give it another try!",
+          "terms": [
+            "v_daijoubu",
+            "g_da",
+            "p_yo",
+            "v_benkyou",
+            "p_wa",
+            "v_taisetsu",
+            "g_da",
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "plain_form"
+            },
+            "p_kara_because",
+            "v_mata",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "plain_volitional"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "sentenceTransform",
+      "title": "Sentence Transform Drill",
+      "instructions": "Transform the given sentence using the target pattern. Choose the correct transformed form from the four choices.",
+      "manualProgression": true,
+      "id": "transform_1",
+      "items": [
+        {
+          "given": "この 料理を 食べる。",
+          "givenReading": "この りょうりを たべる。",
+          "targetLabel": "Try eating (てみる)",
+          "answer": "この 料理を 食べて みます。",
+          "answerReading": "この りょうりを たべて みます。",
+          "hint": "Attach てみる to the て-form of 食べる. Use polite form for みる.",
+          "choices": [
+            "この 料理を 食べて みます。",
+            "この 料理を 食べて おきます。",
+            "この 料理を 食べて しまいます。",
+            "この 料理を 食べようと します。"
+          ]
+        },
+        {
+          "given": "旅行の 前に 本を 読む。",
+          "givenReading": "りょこうの まえに ほんを よむ。",
+          "targetLabel": "Do in advance (ておく)",
+          "answer": "旅行の 前に 本を 読んで おきます。",
+          "answerReading": "りょこうの まえに ほんを よんで おきます。",
+          "hint": "Attach ておく to the て-form of 読む. 読む → 読んで + おきます.",
+          "choices": [
+            "旅行の 前に 本を 読んで おきます。",
+            "旅行の 前に 本を 読んで みます。",
+            "旅行の 前に 本を 読んで しまいます。",
+            "旅行の 前に 本を 読もうと します。"
+          ]
+        },
+        {
+          "given": "ぜんぶ 食べてしまった。 (Make it polite past)",
+          "givenReading": "ぜんぶ たべてしまった。",
+          "targetLabel": "てしまう — polite past",
+          "answer": "ぜんぶ 食べて しまいました。",
+          "answerReading": "ぜんぶ たべて しまいました。",
+          "hint": "しまう → polite past = しまいました. 食べて + しまいました = 食べてしまいました.",
+          "choices": [
+            "ぜんぶ 食べて しまいました。",
+            "ぜんぶ 食べて おきました。",
+            "ぜんぶ 食べて みました。",
+            "ぜんぶ 食べて いました。"
+          ]
+        },
+        {
+          "given": "この 映画は おもしろい。(Too much — excessive)",
+          "givenReading": "この えいがは おもしろい。",
+          "targetLabel": "すぎる — excessive degree",
+          "answer": "この 映画は おもしろ すぎます。",
+          "answerReading": "この えいがは おもしろ すぎます。",
+          "hint": "Remove い from おもしろい, add すぎます. おもしろ + すぎます = おもしろすぎます.",
+          "choices": [
+            "この 映画は おもしろ すぎます。",
+            "この 映画は おもしろくて すぎます。",
+            "この 映画は おもしろい すぎます。",
+            "この 映画は おもしろさ すぎます。"
+          ]
+        },
+        {
+          "given": "ドアを 開ける。(Was about to — attempt)",
+          "givenReading": "ドアを あける。",
+          "targetLabel": "とする — attempt/verge",
+          "answer": "ドアを 開けようと した。",
+          "answerReading": "ドアを あけようと した。",
+          "hint": "開ける (ichidan) → volitional 開けよう + と + した (plain past of する) = was about to open.",
+          "choices": [
+            "ドアを 開けようと した。",
+            "ドアを 開けると した。",
+            "ドアを 開けて みた。",
+            "ドアを 開けて おいた。"
+          ]
+        },
+        {
+          "given": "けんが 来る。 / わかりません。 (Embed as 'whether or not')",
+          "givenReading": "けんが くる。 / わかりません。",
+          "targetLabel": "かどうか — whether or not",
+          "answer": "けんが 来る かどうか、 わかりません。",
+          "answerReading": "けんが くる かどうか、 わかりません。",
+          "hint": "Plain form + かどうか + main clause. けんが来る (plain form) + かどうか + わかりません.",
+          "choices": [
+            "けんが 来る かどうか、 わかりません。",
+            "けんが 来ない かどうか、 わかりません。",
+            "けんが 来るか、 わかりません。",
+            "けんが 来たら かどうか、 わかりません。"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Mixed MCQ Capstone Drill",
+      "instructions": "Choose the best answer for each question based on the grammar patterns in this lesson.",
+      "id": "drill_1",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "You want to say 'I tried eating the new dish.' Which is correct?",
+          "choices": [
+            "新しい 料理を 食べて みました。",
+            "新しい 料理を 食べて おきました。",
+            "新しい 料理を 食べて しまいました。",
+            "新しい 料理を 食べようと しました。"
+          ],
+          "answer": "新しい 料理を 食べて みました。",
+          "explanation": "<b>食べてみました</b> = tried eating (てみる — experimental try). <b>ておきました</b> = did in advance. <b>てしまいました</b> = accidentally/fully ate. <b>食べようとしました</b> = attempted but often implies interruption."
+        },
+        {
+          "kind": "mcq",
+          "q": "You finished your report completely and are relieved it's done. Which form fits best?",
+          "choices": [
+            "レポートを 書いて しまいました。",
+            "レポートを 書いて みました。",
+            "レポートを 書いて おきました。",
+            "レポートを 書こうと しました。"
+          ],
+          "answer": "レポートを 書いて しまいました。",
+          "explanation": "<b>書いてしまいました</b> = finished writing completely (てしまう — completion, often with relief or regret). Here it expresses completion. <b>書いてみました</b> = tried writing. <b>書いておきました</b> = wrote in advance (for a purpose). <b>書こうとした</b> = attempted to write (suggests interruption)."
+        },
+        {
+          "kind": "mcq",
+          "q": "You're preparing for a trip tomorrow. You want to say 'I'll read the books in advance.' Which fits?",
+          "choices": [
+            "本を 読んで おきます。",
+            "本を 読んで みます。",
+            "本を 読んで しまいます。",
+            "本を 読もうと します。"
+          ],
+          "answer": "本を 読んで おきます。",
+          "explanation": "<b>読んでおきます</b> = will read in advance (ておく — do ahead of time for future readiness). This is the classic ておく context: deliberate preparation."
+        },
+        {
+          "kind": "mcq",
+          "q": "How do you say 'too expensive' using すぎる?",
+          "choices": [
+            "高 すぎます",
+            "高い すぎます",
+            "高く すぎます",
+            "高さ すぎます"
+          ],
+          "answer": "高 すぎます",
+          "explanation": "For い-adjectives: remove the い and add すぎます. <b>高い → 高 + すぎます = 高すぎます</b>. Never attach すぎる to the full form 高い or the adverbial 高く."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly uses とする to express 'I tried to go out but the phone rang'?",
+          "choices": [
+            "出かけようと したら、電話が 来た。",
+            "出かけて みたら、電話が 来た。",
+            "出かけて おいたら、電話が 来た。",
+            "出かけて しまったら、電話が 来た。"
+          ],
+          "answer": "出かけようと したら、電話が 来た。",
+          "explanation": "<b>出かけようとしたら</b> = just as I was about to go out (volitional 出かけよう + と + したら). This is とする expressing an attempt that was interrupted. <b>てみたら</b> = tried and found out. <b>ておいたら</b> = did in advance. <b>てしまったら</b> = completely did / accidentally did."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which statement about かどうか is correct?",
+          "choices": [
+            "かどうか can follow both plain present (〜する) and plain past (〜した)",
+            "かどうか can only follow plain present form (〜する), not plain past",
+            "かどうか turns the embedded clause into a direct question",
+            "かどうか must be followed by a question-form predicate like 〜ますか"
+          ],
+          "answer": "かどうか can follow both plain present (〜する) and plain past (〜した)",
+          "explanation": "<b>かどうか</b> follows the plain form and accepts both tenses: 「勉強する かどうか」 = whether she studies/will study; 「勉強した かどうか」 = whether she studied. Choices B–D are wrong: B incorrectly limits it to present tense only; C is wrong because かどうか creates an indirect (embedded) question, not a direct one; D is wrong because no special predicate is required."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which correctly expresses 'talking about cooking'?",
+          "choices": [
+            "料理に ついて 話す",
+            "料理を について 話す",
+            "料理が について 話す",
+            "料理で について 話す"
+          ],
+          "answer": "料理に ついて 話す",
+          "explanation": "<b>〜について</b> is a compound postposition that attaches directly to the noun without any intervening particle. <b>料理について話す</b> = talk about cooking. Never insert を, が, or で between the noun and について."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which すぎる sentence applies the pattern correctly to a な-adjective?",
+          "choices": [
+            "この 音楽は きれい すぎます。",
+            "この 音楽は きれいな すぎます。",
+            "この 音楽は きれいく すぎます。",
+            "この 音楽は きれいさ すぎます。"
+          ],
+          "answer": "この 音楽は きれい すぎます。",
+          "explanation": "For な-adjectives: use the stem (no な) + すぎます. <b>きれい + すぎます = きれいすぎます</b>. Never add な or く before すぎる when working with な-adjectives. The な is only used in attributive position before a noun."
+        }
+      ]
+    }
+  ],
+  "unlocksAfter": "N4.34"
+}

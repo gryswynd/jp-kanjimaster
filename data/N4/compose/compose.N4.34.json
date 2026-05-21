@@ -1,0 +1,360 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.34",
+  "lesson": "N4.34",
+  "level": "N4",
+  "title": "The New Ward and the Long Commute",
+  "titleJp": "新しい 区と 長い 通い",
+  "emoji": "🚃",
+  "theme": "Write a first-person account of moving to a new ward in a prefecture, discovering the daily commute, exploring the districts, and reflecting on the journey.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you moved to a new ward (区) in a prefecture (県). Use 区 and 県.",
+      "targets": [
+        { "id": "v_ku", "count": 1 },
+        { "id": "v_ken", "count": 1 }
+      ],
+      "model": "わたしは 新しい 県の 区に 来て、住んでいます。",
+      "vocabPool": [
+        "v_watashi",
+        "v_ku",
+        "v_ken",
+        "v_atarashii",
+        "v_sumu",
+        "v_machi",
+        "v_kuru",
+        "v_iku",
+        "p_wa",
+        "p_no",
+        "p_ni",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that the ward has many districts (地区) and that each district is diverse (区々). Use 地区 and 区々.",
+      "targets": [
+        { "id": "v_chiku", "count": 1 },
+        { "id": "v_machimachi", "count": 1 }
+      ],
+      "model": "この 区には いくつも 地区が あって、それぞれ 区々です。",
+      "vocabPool": [
+        "v_chiku",
+        "v_machimachi",
+        "v_ku",
+        "v_aru",
+        "v_iroiro",
+        "v_ooi",
+        "p_wa",
+        "p_ni",
+        "p_ga",
+        "p_no",
+        "p_mo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write that you now commute to school (通学する) every day, going back and forth (通う) by train. Use 通学 and 通う.",
+      "targets": [
+        { "id": "v_tsuugaku", "count": 1 },
+        { "id": "v_kayou", "count": 1 }
+      ],
+      "model": "毎日 電車で 通学しています。学校に 通うのは 楽しいです。",
+      "vocabPool": [
+        "v_tsuugaku",
+        "v_kayou",
+        "v_densha",
+        "v_gakkou",
+        "v_mainichi",
+        "v_ima",
+        "v_suru",
+        "v_iru",
+        "v_tanoshii",
+        "p_wa",
+        "p_de",
+        "p_ni",
+        "p_wo",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that your commute means passing through (通る) the wide main street (大通り) every morning. Use 通る and 大通り.",
+      "targets": [
+        { "id": "v_tooru", "count": 1 },
+        { "id": "v_oodoori", "count": 1 }
+      ],
+      "model": "毎朝、大通りを 通って 駅に 行きます。",
+      "vocabPool": [
+        "v_tooru",
+        "v_oodoori",
+        "v_eki",
+        "v_asa",
+        "v_mainichi",
+        "v_machi",
+        "v_aruku",
+        "v_noru",
+        "p_wo",
+        "p_ni",
+        "p_de",
+        "p_wa"
+      ]
+    },
+    {
+      "prompt": "Write that you take the first train (始発) every day, and that departure (出発) is early in the morning. Use 始発 and 出発.",
+      "targets": [
+        { "id": "v_shihatsu", "count": 1 },
+        { "id": "v_shuppatsu", "count": 1 }
+      ],
+      "model": "毎日 始発に 乗って、早い 時間に 出発します。",
+      "vocabPool": [
+        "v_shihatsu",
+        "v_shuppatsu",
+        "v_noru",
+        "v_asa",
+        "v_hayai",
+        "v_jikan",
+        "v_mainichi",
+        "v_suru",
+        "p_ni",
+        "p_de",
+        "p_wo",
+        "p_wa"
+      ]
+    },
+    {
+      "prompt": "Write that on the way to school you discovered (発見した) something new in the area. Use 発見.",
+      "targets": [
+        { "id": "v_hakken", "count": 1 }
+      ],
+      "model": "学校に 行く 時、新しい 店を 発見しました。",
+      "vocabPool": [
+        "v_hakken",
+        "v_suru",
+        "v_tsuugaku",
+        "v_atarashii",
+        "v_chiku",
+        "v_machi",
+        "v_miru",
+        "v_omou",
+        "p_de",
+        "p_wo",
+        "p_no",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that this ward is distinct (区別) from where you lived before — the atmosphere is completely different. Use 区別.",
+      "targets": [
+        { "id": "v_kubetsu", "count": 1 }
+      ],
+      "model": "前に 住んで いた 場所と この 区は 区別が あります。",
+      "vocabPool": [
+        "v_kubetsu",
+        "v_ku",
+        "v_mae",
+        "v_sumu",
+        "v_basho",
+        "v_iru",
+        "v_betsu",
+        "v_tokoro",
+        "v_suru",
+        "p_wa",
+        "p_to",
+        "p_ga",
+        "p_no",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that many people from outside the prefecture (県外) have come to live in this special ward (特別区). Use 県外 and 特別区.",
+      "targets": [
+        { "id": "v_kengai", "count": 1 },
+        { "id": "v_tokubetsuku", "count": 1 }
+      ],
+      "model": "県外から 来た 人も この 特別区に 住んでいます。",
+      "vocabPool": [
+        "v_kengai",
+        "v_tokubetsuku",
+        "v_ku",
+        "v_ken",
+        "v_kuru",
+        "v_sumu",
+        "v_iru",
+        "v_hito",
+        "v_ooi",
+        "p_kara",
+        "p_mo",
+        "p_ni",
+        "p_ga",
+        "p_no",
+        "p_wa"
+      ]
+    },
+    {
+      "prompt": "Write that you spoke up (発言した) about your commute experience in class. Use 発言.",
+      "targets": [
+        { "id": "v_hatsugen", "count": 1 }
+      ],
+      "model": "学校で、毎日の 通学の ことを 発言しました。",
+      "vocabPool": [
+        "v_hatsugen",
+        "v_suru",
+        "v_tsuugaku",
+        "v_gakkou",
+        "v_koto",
+        "v_mainichi",
+        "v_kiku",
+        "v_hanasu",
+        "p_de",
+        "p_wo",
+        "p_ni",
+        "p_no",
+        "p_to_quote"
+      ]
+    },
+    {
+      "prompt": "Reflect on the experience — write that the regular commute (通い) was worthwhile and that you think the new place is good. Use 通い and 思う.",
+      "targets": [
+        { "id": "v_kayoi", "count": 1 },
+        { "id": "v_omou", "count": 1 }
+      ],
+      "model": "毎日の 通いは 長かったですが、新しい 場所は いいと 思います。",
+      "vocabPool": [
+        "v_kayoi",
+        "v_omou",
+        "v_mainichi",
+        "v_atarashii",
+        "v_basho",
+        "v_ii",
+        "v_nagai",
+        "v_tanoshii",
+        "v_chiku",
+        "p_wa",
+        "p_ga",
+        "p_no",
+        "p_to_quote",
+        "p_ga_but",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "On another day, imagine you are telling a friend casually that you were made to commute (causative-passive) through the district every day. Use 通学, 地区, and 通う or 通い. Write in casual plain form.",
+      "targets": [
+        { "id": "v_tsuugaku", "count": 1 },
+        { "id": "v_chiku", "count": 1 },
+        { "id": "v_kayou", "count": 1 }
+      ],
+      "model": "毎日 あの 地区を 通って 通学させられた よ。",
+      "vocabPool": [
+        "v_tsuugaku",
+        "v_chiku",
+        "v_kayou",
+        "v_mainichi",
+        "v_oodoori",
+        "v_ku",
+        "v_iu",
+        "g_da",
+        "p_wo",
+        "p_de",
+        "p_yo",
+        "p_kedo",
+        "p_to_quote"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_ya",
+    "p_yori",
+    "p_dake",
+    "p_shika",
+    "p_made",
+    "p_bakari",
+    "p_demo",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_demo_but",
+    "p_tte_quote",
+    "p_ga_but",
+    "p_kedo",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[plain form] + と + 思う",
+      "meaning": "I think that … (expressing opinions and reflections)",
+      "examples": [
+        "新しい 場所は いいと 思います",
+        "毎日 通学する のは 長いと 思います",
+        "この 地区は 特別だと 思います"
+      ]
+    },
+    {
+      "pattern": "[verb-passive] + れる / られる",
+      "meaning": "is done / was done (passive — something happens to the subject)",
+      "examples": [
+        "この 区は 特別区と 言われて います",
+        "新しい 大通りが 作られました",
+        "区の 地図が 作られました"
+      ]
+    },
+    {
+      "pattern": "[verb-causative-passive] + せられる / させられる",
+      "meaning": "be made to do / was forced to do (causative-passive)",
+      "examples": [
+        "毎日 あの 地区を 通って 通学させられた",
+        "早い 時間に 出発させられました",
+        "大通りを 通らせられました"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ために",
+      "meaning": "in order to / for the purpose of",
+      "examples": [
+        "通学する ために 始発に 乗ります",
+        "区別する ために 地図を 見ました",
+        "発言する ために 勉強しました"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + いる",
+      "meaning": "is doing / has been doing (ongoing state or action)",
+      "examples": [
+        "毎日 電車で 通って います",
+        "この 区は 県外に あって、特別区と 言われて います",
+        "新しい 地区を 発見して います"
+      ]
+    },
+    {
+      "pattern": "A + と + B (AとB conditional)",
+      "meaning": "if / when A, then B naturally follows (automatic result)",
+      "examples": [
+        "大通りを 通ると、駅が 見えます",
+        "始発に 乗ると、早く 着きます",
+        "毎日 通学すると、道が わかります"
+      ]
+    }
+  ]
+}

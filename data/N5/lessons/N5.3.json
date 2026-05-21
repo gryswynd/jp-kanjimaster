@@ -1,0 +1,1820 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.3",
+  "title": "Numbers & Money",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 3,
+    "focus": "Numbers 1–10, large numbers (百・千・万), currency (円), and counting people, days, and months",
+    "estimated_minutes": 50,
+    "kanji": [
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六",
+      "七",
+      "八",
+      "九",
+      "十",
+      "百",
+      "千",
+      "万",
+      "円"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "一",
+      "on": "いち/いつ",
+      "kun": "ひと/ひとつ",
+      "meaning": "One",
+      "termId": "k_hito_2"
+    },
+    {
+      "kanji": "二",
+      "on": "に",
+      "kun": "ふた/ふたつ",
+      "meaning": "Two",
+      "termId": "k_futa"
+    },
+    {
+      "kanji": "三",
+      "on": "さん",
+      "kun": "み/みつ/みっつ",
+      "meaning": "Three",
+      "termId": "k_mi"
+    },
+    {
+      "kanji": "四",
+      "on": "し",
+      "kun": "よん/よ/よっつ",
+      "meaning": "Four",
+      "termId": "k_yon"
+    },
+    {
+      "kanji": "五",
+      "on": "ご",
+      "kun": "いつ/いつつ",
+      "meaning": "Five",
+      "termId": "k_itsu"
+    },
+    {
+      "kanji": "六",
+      "on": "ろく",
+      "kun": "む/むつ/むっつ",
+      "meaning": "Six",
+      "termId": "k_mu"
+    },
+    {
+      "kanji": "七",
+      "on": "しち",
+      "kun": "なな/ななつ",
+      "meaning": "Seven",
+      "termId": "k_nana"
+    },
+    {
+      "kanji": "八",
+      "on": "はち",
+      "kun": "や/やつ/やっつ",
+      "meaning": "Eight",
+      "termId": "k_hachi"
+    },
+    {
+      "kanji": "九",
+      "on": "きゅう/く",
+      "kun": "ここの/ここのつ",
+      "meaning": "Nine",
+      "termId": "k_kokono"
+    },
+    {
+      "kanji": "十",
+      "on": "じゅう/じっ",
+      "kun": "とお",
+      "meaning": "Ten",
+      "termId": "k_too"
+    },
+    {
+      "kanji": "百",
+      "on": "ひゃく",
+      "kun": "",
+      "meaning": "Hundred",
+      "termId": "k_u767e"
+    },
+    {
+      "kanji": "千",
+      "on": "せん",
+      "kun": "ち",
+      "meaning": "Thousand",
+      "termId": "k_chi"
+    },
+    {
+      "kanji": "万",
+      "on": "まん/ばん",
+      "kun": "",
+      "meaning": "Ten thousand",
+      "termId": "k_u4e07"
+    },
+    {
+      "kanji": "円",
+      "on": "えん",
+      "kun": "",
+      "meaning": "Yen / Circle",
+      "termId": "k_u5186"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "友だちは 何人 いますか。",
+          "en": "How many friends do you have?",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "今日は 何よう日ですか。",
+          "en": "What day is today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_nanyoubi",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "お母さんは やさしいですか。",
+          "en": "Is your mother kind?",
+          "terms": [
+            "v_okaasan",
+            "p_wa",
+            "v_yasashii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先生は 毎日 いますか。",
+          "en": "Is your teacher here every day?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "一",
+          "on": "いち/いつ",
+          "kun": "ひと/ひとつ",
+          "meaning": "one",
+          "terms": [
+            "k_hito_2"
+          ]
+        },
+        {
+          "kanji": "二",
+          "on": "に",
+          "kun": "ふた/ふたつ",
+          "meaning": "two",
+          "terms": [
+            "k_futa"
+          ]
+        },
+        {
+          "kanji": "三",
+          "on": "さん",
+          "kun": "み/みつ/みっつ",
+          "meaning": "three",
+          "terms": [
+            "k_mi"
+          ]
+        },
+        {
+          "kanji": "四",
+          "on": "し",
+          "kun": "よん/よ/よっつ",
+          "meaning": "four",
+          "terms": [
+            "k_yon"
+          ]
+        },
+        {
+          "kanji": "五",
+          "on": "ご",
+          "kun": "いつ/いつつ",
+          "meaning": "five",
+          "terms": [
+            "k_itsu"
+          ]
+        },
+        {
+          "kanji": "六",
+          "on": "ろく",
+          "kun": "む/むつ/むっつ",
+          "meaning": "six",
+          "terms": [
+            "k_mu"
+          ]
+        },
+        {
+          "kanji": "七",
+          "on": "しち",
+          "kun": "なな/ななつ",
+          "meaning": "seven",
+          "terms": [
+            "k_nana"
+          ]
+        },
+        {
+          "kanji": "八",
+          "on": "はち",
+          "kun": "や/やつ/やっつ",
+          "meaning": "eight",
+          "terms": [
+            "k_hachi"
+          ]
+        },
+        {
+          "kanji": "九",
+          "on": "きゅう/く",
+          "kun": "ここの/ここのつ",
+          "meaning": "nine",
+          "terms": [
+            "k_kokono"
+          ]
+        },
+        {
+          "kanji": "十",
+          "on": "じゅう/じっ",
+          "kun": "とお",
+          "meaning": "ten",
+          "terms": [
+            "k_too"
+          ]
+        },
+        {
+          "kanji": "百",
+          "on": "ひゃく",
+          "kun": "",
+          "meaning": "hundred",
+          "terms": [
+            "k_u767e"
+          ]
+        },
+        {
+          "kanji": "千",
+          "on": "せん",
+          "kun": "ち",
+          "meaning": "thousand",
+          "terms": [
+            "k_chi"
+          ]
+        },
+        {
+          "kanji": "万",
+          "on": "まん/ばん",
+          "kun": "",
+          "meaning": "ten thousand",
+          "terms": [
+            "k_u4e07"
+          ]
+        },
+        {
+          "kanji": "円",
+          "on": "えん",
+          "kun": "",
+          "meaning": "yen; circle",
+          "terms": [
+            "k_u5186"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary & Compounds）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_hito_2",
+            "k_futa",
+            "k_mi",
+            "k_yon",
+            "k_itsu",
+            "k_mu",
+            "k_nana",
+            "k_hachi",
+            "k_kokono",
+            "k_too",
+            "k_u767e",
+            "k_chi",
+            "k_u4e07",
+            "k_u5186"
+          ]
+        },
+        {
+          "label": "Celebrations",
+          "items": [
+            "v_tanjoubi"
+          ]
+        },
+        {
+          "label": "Counting People",
+          "items": [
+            "v_hitori",
+            "v_futari",
+            "v_sannin",
+            "v_yonin",
+            "v_gonin",
+            "v_rokunin",
+            "v_shichinin",
+            "v_hachinin",
+            "v_kunin",
+            "v_juunin"
+          ]
+        },
+        {
+          "label": "Days of the Month",
+          "items": [
+            "v_ichinichitsuitachi",
+            "v_futsuka",
+            "v_mikka",
+            "v_yokka",
+            "v_itsuka",
+            "v_muika",
+            "v_nanoka",
+            "v_youka",
+            "v_kokonoka",
+            "v_tooka"
+          ]
+        },
+        {
+          "label": "Month Names",
+          "items": [
+            "v_ichigatsu",
+            "v_nigatsu",
+            "v_sangatsu",
+            "v_shigatsu",
+            "v_gogatsu",
+            "v_rokugatsu",
+            "v_shichigatsu",
+            "v_hachigatsu",
+            "v_kugatsu",
+            "v_juugatsu"
+          ]
+        },
+        {
+          "label": "Common Words",
+          "items": [
+            "v_sorekara"
+          ]
+        },
+        {
+          "label": "Currency & Large Numbers",
+          "items": [
+            "v_hyaku",
+            "v_sen",
+            "v_man",
+            "v_en"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: クラスのグループ（The Class Group）",
+      "context": "Yamakawa asks Rikizo about how many friends and teachers are in their group.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "やまかわさん、友だちは 何人 いますか。",
+          "en": "Yamakawa-san, how many friends are there?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "v_tomodachi",
+            "p_wa",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "三人 います。",
+          "en": "There are three.",
+          "terms": [
+            {
+              "counter": "nin",
+              "n": 3
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "先生は 何人 いますか。",
+          "en": "How many teachers are there?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "一人 います。やまもと先生です。",
+          "en": "There is one. It is Yamamoto-sensei.",
+          "terms": [
+            "char_yamamoto",
+            {
+              "counter": "nin",
+              "n": 1
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_sensei",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "クラスに 何が ありますか。",
+          "en": "What is in the class?",
+          "terms": [
+            "v_kurasu_class",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "パソコンや テレビが あります。",
+          "en": "There are computers, TVs, and so on.",
+          "terms": [
+            "v_pasokon",
+            "p_ya",
+            "v_terebi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "毎日 一人 いますか。",
+          "en": "Is there one teacher every day?",
+          "terms": [
+            "v_mainichi",
+            {
+              "counter": "nin",
+              "n": 1
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうです。毎日 います。",
+          "en": "That's right. She is here every day.",
+          "terms": [
+            "p_soudesu",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 今月と 今日（This Month and Today）",
+      "context": "Yamamoto-sensei and Rikizo talk about the date and how many friends come this month.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、今月は 三月ですね。",
+          "en": "Rikizo-san, this month is March, right?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kongetsu",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうです。今日は 三日です。",
+          "en": "That's right. Today is the third.",
+          "terms": [
+            "p_soudesu",
+            "v_kyou",
+            "p_wa",
+            "v_mikka",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "今月 友だちは 何人 いますか。",
+          "en": "How many friends are here this month?",
+          "terms": [
+            "v_kongetsu",
+            "v_tomodachi",
+            "p_wa",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "五人 います。",
+          "en": "There are five.",
+          "terms": [
+            {
+              "counter": "nin",
+              "n": 5
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "友だちは いつから いつまで いますか。",
+          "en": "From when until when are your friends here?",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_itsu",
+            "p_kara",
+            "v_itsu",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "二日から 七日まで います。それから、お金も あります。",
+          "en": "They are here from the second to the seventh. Also, I have money too.",
+          "terms": [
+            "v_futsuka",
+            "p_kara",
+            "v_nanoka",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_sorekara",
+            "v_okane",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "毎月 三日に 五人 います。",
+          "en": "Every month on the third, five people come.",
+          "terms": [
+            "v_maigetsu",
+            "v_mikka",
+            "p_ni",
+            {
+              "counter": "nin",
+              "n": 5
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "とても いいですね。",
+          "en": "That's really nice, isn't it!",
+          "terms": [
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: お金のこと（About Money）",
+      "context": "Yamakawa asks Rikizo about when he gets his monthly allowance.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、お金が ありますか。",
+          "en": "Rikizo-san, do you have money?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "今日は ありません。毎月 一日に あります。",
+          "en": "Not today. I have some on the first of every month.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_maigetsu",
+            "v_ichinichitsuitachi",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "一日ですか。いいですね。",
+          "en": "The first? That's nice!",
+          "terms": [
+            "v_ichinichitsuitachi",
+            "g_desu",
+            "p_ka",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい。お父さんも 一日に あります。",
+          "en": "Yes. My father also has money on the first.",
+          "terms": [
+            "p_hai",
+            "v_otousan",
+            "p_mo",
+            "v_ichinichitsuitachi",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "お母さんも ですか。",
+          "en": "And your mother too?",
+          "terms": [
+            "v_okaasan",
+            "p_mo",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうです。一日は いい 日ですね。",
+          "en": "That's right. The first is a great day, isn't it!",
+          "terms": [
+            "p_soudesu",
+            "v_ichinichitsuitachi",
+            "p_wa",
+            "v_ii",
+            "v_hi",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "これは お金ですか。",
+          "en": "Is this money?",
+          "terms": [
+            "v_kore",
+            "p_wa",
+            "v_okane",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうです。それも あれも お金です。",
+          "en": "That's right. That and that over there are also money.",
+          "terms": [
+            "p_soudesu",
+            "v_sore",
+            "p_mo",
+            "v_are",
+            "v_okane",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "いくら ありますか。",
+          "en": "How much is there?",
+          "terms": [
+            "v_ikura",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "千円 あります。",
+          "en": "There is one thousand yen.",
+          "terms": [
+            "v_sen",
+            "v_en",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "今月、いつまでに ゲームを しますか。",
+          "en": "This month, by when will you do (play) the game?",
+          "terms": [
+            "v_kongetsu",
+            "v_itsu",
+            "p_made_ni",
+            "v_geemu",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "九日までに ゲームを します。",
+          "en": "I will do (play) the game by the 9th.",
+          "terms": [
+            "v_kokonoka",
+            "p_made_ni",
+            "v_geemu",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: たんじょうびのはなし（Talking About Birthdays）",
+      "context": "Rikizo and Yamakawa share their birthday months and days.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "やまかわさん、たんじょうびは 三月ですか。",
+          "en": "Yamakawa-san, is your birthday in March?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうです。三月 三日です。",
+          "en": "That's right. It's March 3rd.",
+          "terms": [
+            "p_soudesu",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "わたしは 五月 五日です。",
+          "en": "Mine is May 5th.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 5
+            },
+            "v_itsuka",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "五月は いいですね。お金が たくさん ありますか。",
+          "en": "May is nice! Do you have lots of money?",
+          "terms": [
+            {
+              "counter": "gatsu",
+              "n": 5
+            },
+            "p_wa",
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_okane",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "今日は ありません。五日に あります。",
+          "en": "Not today. I have some on the fifth.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_itsuka",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "五日は お金の 日ですね。",
+          "en": "The fifth is a money day, isn't it!",
+          "terms": [
+            "v_itsuka",
+            "p_wa",
+            "v_okane",
+            "p_no",
+            "v_hi",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: やまかわのスケジュール（Yamakawa's Schedule）",
+      "passage": [
+        {
+          "jp": "今月は 六月です。",
+          "en": "This month is June.",
+          "terms": [
+            "v_kongetsu",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 6
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "友だちは 三人 います。",
+          "en": "There are three friends.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            {
+              "counter": "nin",
+              "n": 3
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "六月 一日に 友だちと います。",
+          "en": "On June 1st, he is together with friends.",
+          "terms": [
+            {
+              "counter": "gatsu",
+              "n": 6
+            },
+            "v_ichinichitsuitachi",
+            "p_ni",
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎月 一日に 友だちが います。",
+          "en": "Friends are here on the first of every month.",
+          "terms": [
+            "v_maigetsu",
+            "v_ichinichitsuitachi",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今月は お金も あります。",
+          "en": "This month there is also money.",
+          "terms": [
+            "v_kongetsu",
+            "p_wa",
+            "v_okane",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "一万円 あります。",
+          "en": "There is ten thousand yen.",
+          "terms": [
+            "v_man",
+            "v_en",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "四日に ゲームを します。",
+          "en": "On the 4th, he plays games.",
+          "terms": [
+            "v_yokka",
+            "p_ni",
+            "v_geemu",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわは とても うれしいです。",
+          "en": "Yamakawa is very happy.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_totemo",
+            "v_ureshii",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "友だちは 何人 いますか。",
+          "q_en": "How many friends are there?",
+          "a": "三人 います。",
+          "a_en": "There are three.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "counter": "nin",
+              "n": 3
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "毎月 一日に 何が ありますか。",
+          "q_en": "What is there on the first of every month?",
+          "a": "お金が あります。",
+          "a_en": "There is money.",
+          "terms": [
+            "v_maigetsu",
+            "v_ichinichitsuitachi",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "やまかわは どうですか。",
+          "q_en": "How is Yamakawa?",
+          "a": "とても うれしいです。",
+          "a_en": "He is very happy.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_totemo",
+            "v_ureshii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "今月も お金が ありますか。",
+          "q_en": "Is there money this month too?",
+          "a": "はい、あります。",
+          "a_en": "Yes, there is.",
+          "terms": [
+            "v_kongetsu",
+            "p_mo",
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: たんじょうび（Birthdays）",
+      "passage": [
+        {
+          "jp": "わたしのたんじょうびは 五月 五日です。",
+          "en": "My birthday is May 5th.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 5
+            },
+            "v_itsuka",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "父のたんじょうびは 一月 一日です。",
+          "en": "My father's birthday is January 1st.",
+          "terms": [
+            "v_chichi",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 1
+            },
+            "v_ichinichitsuitachi",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "母のたんじょうびは 三月 三日です。",
+          "en": "My mother's birthday is March 3rd.",
+          "terms": [
+            "v_haha",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "友だちのたんじょうびは 八月 八日です。",
+          "en": "My friend's birthday is August 8th.",
+          "terms": [
+            "v_tomodachi",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 8
+            },
+            "v_youka",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "先生のたんじょうびは 十月 十日です。",
+          "en": "The teacher's birthday is October 10th.",
+          "terms": [
+            "v_sensei",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 10
+            },
+            "v_tooka",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "たんじょうびに 五百円 あります。",
+          "en": "On birthdays, there is five hundred yen.",
+          "terms": [
+            "v_tanjoubi",
+            "p_ni",
+            "v_hyaku",
+            "v_en",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎月、いい たんじょうびが あります。",
+          "en": "Every month, there are good birthdays.",
+          "terms": [
+            "v_maigetsu",
+            "v_ii",
+            "g_desu",
+            "v_tanjoubi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "たんじょうびは 五月 五日ですか。",
+          "q_en": "Is the birthday on May 5th?",
+          "a": "はい、五月 五日です。",
+          "a_en": "Yes, it is May 5th.",
+          "terms": [
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 5
+            },
+            "v_itsuka",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            {
+              "counter": "gatsu",
+              "n": 5
+            },
+            "v_itsuka",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "友だちのたんじょうびは 八月 八日ですか。",
+          "q_en": "Is the friend's birthday on August 8th?",
+          "a": "そうです。八月 八日です。",
+          "a_en": "That's right. It is August 8th.",
+          "terms": [
+            "v_tomodachi",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 8
+            },
+            "v_youka",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_soudesu",
+            {
+              "counter": "gatsu",
+              "n": 8
+            },
+            "v_youka",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "毎月、何が ありますか。",
+          "q_en": "What is there every month?",
+          "a": "いい たんじょうびが あります。",
+          "a_en": "There are nice birthdays.",
+          "terms": [
+            "v_maigetsu",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ii",
+            "g_desu",
+            "v_tanjoubi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "先生のたんじょうびは 十月ですか。",
+          "q_en": "Is the teacher's birthday in October?",
+          "a": "はい、十月 十日です。",
+          "a_en": "Yes, it is October 10th.",
+          "terms": [
+            "v_sensei",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 10
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            {
+              "counter": "gatsu",
+              "n": 10
+            },
+            "v_tooka",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each kanji.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[一] の よみかたは？",
+          "choices": [
+            "いち",
+            "に",
+            "さん",
+            "し"
+          ],
+          "answer": "いち"
+        },
+        {
+          "kind": "mcq",
+          "q": "[四] の よみかたは？",
+          "choices": [
+            "よん",
+            "ご",
+            "ろく",
+            "しち"
+          ],
+          "answer": "よん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[八] の よみかたは？",
+          "choices": [
+            "はち",
+            "きゅう",
+            "じゅう",
+            "なな"
+          ],
+          "answer": "はち"
+        },
+        {
+          "kind": "mcq",
+          "q": "[百] の よみかたは？",
+          "choices": [
+            "ひゃく",
+            "せん",
+            "まん",
+            "えん"
+          ],
+          "answer": "ひゃく"
+        },
+        {
+          "kind": "mcq",
+          "q": "[千] の よみかたは？",
+          "choices": [
+            "せん",
+            "ひゃく",
+            "まん",
+            "えん"
+          ],
+          "answer": "せん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[円] の よみかたは？",
+          "choices": [
+            "えん",
+            "まん",
+            "せん",
+            "ひゃく"
+          ],
+          "answer": "えん"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今月は _______ です。",
+          "choices": [
+            "三月",
+            "三日",
+            "三人",
+            "三よう日"
+          ],
+          "answer": "三月",
+          "terms": [
+            "v_kongetsu",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちは _______ います。",
+          "choices": [
+            "二人",
+            "二日",
+            "二月",
+            "二よう日"
+          ],
+          "answer": "二人",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            {
+              "counter": "nin",
+              "n": 2
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は _______ です。",
+          "choices": [
+            "六日",
+            "六月",
+            "六人",
+            "六よう日"
+          ],
+          "answer": "六日",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_muika",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎月 _______ に 友だちが います。",
+          "choices": [
+            "一日",
+            "一月",
+            "一人",
+            "一よう日"
+          ],
+          "answer": "一日",
+          "terms": [
+            "v_maigetsu",
+            "v_ichinichitsuitachi",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ は 八日です。",
+          "choices": [
+            "今日",
+            "今月",
+            "毎日",
+            "毎月"
+          ],
+          "answer": "今日",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_youka",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "お金が たくさん _______。",
+          "choices": [
+            "あります",
+            "います",
+            "です",
+            "ありません"
+          ],
+          "answer": "あります",
+          "terms": [
+            "v_okane",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ は いくらですか。",
+          "choices": [
+            "これ",
+            "だれ",
+            "なに",
+            "どんな"
+          ],
+          "answer": "これ",
+          "terms": [
+            "v_kore",
+            "p_wa",
+            "v_ikura",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ が いいですか。",
+          "choices": [
+            "どれ",
+            "だれ",
+            "なに",
+            "いくら"
+          ],
+          "answer": "どれ",
+          "terms": [
+            "v_dore",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "友だち _______ 三人 います。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "の"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            {
+              "counter": "nin",
+              "n": 3
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今月 _______ 六月です。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "も"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_kongetsu",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 6
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "一日 _______ お金が あります。",
+          "choices": [
+            "に",
+            "は",
+            "が",
+            "と"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_ichinichitsuitachi",
+            "p_ni",
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "父 _______ 母のたんじょうびは 三月です。",
+          "choices": [
+            "と",
+            "は",
+            "も",
+            "を"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_chichi",
+            "p_to",
+            "v_haha",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今月 _______ 友だちが います。",
+          "choices": [
+            "も",
+            "は",
+            "が",
+            "を"
+          ],
+          "answer": "も",
+          "terms": [
+            "v_kongetsu",
+            "p_mo",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "三人 _______ 友だちが います。",
+          "choices": [
+            "の",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "の",
+          "terms": [
+            {
+              "counter": "nin",
+              "n": 3
+            },
+            "p_no",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "あれ _______ いいですか。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_are",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "テレビ _______ いくつ ありますか。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "に"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_terebi",
+            "p_wa",
+            "v_ikutsu",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    }
+  ]
+}

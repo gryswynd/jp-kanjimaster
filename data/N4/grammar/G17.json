@@ -1,0 +1,757 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G17",
+  "type": "grammar",
+  "title": "Limiting Particles — だけ / しか / ばかり / でも",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.7",
+    "focus": "Four ways to say 'only': だけ (just/only — neutral), しか…ない (nothing but — always negative), ばかり (nothing but as habit / just completed), and でも (even X / any~).",
+    "estimatedMinutes": 20,
+    "particles": [
+      "だけ",
+      "しか",
+      "ばかり",
+      "でも"
+    ],
+    "grammarForms": [],
+    "icon": "🔒"
+  },
+  "targetVocab": [
+    "p_dake",
+    "p_shika",
+    "p_bakari",
+    "p_demo"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Four Ways to Say 'Only'",
+      "icon": "🔒",
+      "summary": "Japanese has four particles that express different kinds of 'only'. だけ is neutral and flexible — it simply marks a limit. しか is its grammatical twin: it means the same thing but ALWAYS pairs with a negative verb. ばかり expresses an excessive or exclusive focus (often with a critical tone) and doubles as a 'just completed' marker after a plain past verb. でも means 'even X' after a noun and creates open-ended expressions like 何でも (anything) and いつでも (anytime) when combined with question words.",
+      "whyItMatters": "These four particles are essential for expressing precision and nuance in everyday Japanese. Without them you can say 'I eat' or 'I drink' — but not 'I only eat this,' 'I just finished eating,' or 'even a child can do this.' Mastering the だけ/しか distinction alone unlocks dozens of natural expressions used every day. ばかり and でも round out the set, letting you describe exclusive habits and inclusive possibilities.",
+      "youWillLearn": [
+        "だけ — only/just (neutral): 水だけ飲みます (I only drink water — my choice)",
+        "しか — nothing but (requires negative): 水しか飲みません (I drink nothing but water — always negative!)",
+        "だけ vs しか — same meaning, opposite grammar, different nuance",
+        "ばかり — nothing but (excessive habit): ゲームばかりしています (all you do is play games)",
+        "ばかり — just completed: 食べたばかりです (I just ate)",
+        "でも — even X: 子どもでも分かります (even a child understands)",
+        "でも — any~ with question words: 何でも (anything), いつでも (anytime)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_dake",
+      "pattern": [
+        {
+          "label": "[Noun]",
+          "color": "modifier",
+          "text": "水"
+        },
+        {
+          "label": "だけ",
+          "color": "modifier",
+          "text": "だけ"
+        },
+        {
+          "label": "[Verb]",
+          "color": "predicate",
+          "text": "飲みます"
+        }
+      ],
+      "meaning": "only / just",
+      "explanation": "だけ follows a noun or dictionary-form verb to express a simple, neutral limit. The verb may be affirmative or negative — unlike しか, there is no grammatical requirement on the verb form. だけ does not carry emotional weight; it simply states that this is the extent of the situation.",
+      "notes": [
+        "だけ can follow nouns (水だけ), verbs in dictionary form (できるだけ), and adjectives.",
+        "When you want to mark a deliberate choice or preference, だけ sounds informational and neutral — no frustration implied.",
+        "できるだけ ('as much as possible') is a common fixed expression formed from できる (to be able to / possible) + だけ (just/only)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "水",
+              "role": "modifier",
+              "gloss": "water"
+            },
+            {
+              "text": "だけ",
+              "role": "modifier",
+              "gloss": "only / just (limiting particle)"
+            },
+            {
+              "text": "飲みます。",
+              "role": "predicate",
+              "gloss": "drink (polite present)"
+            }
+          ],
+          "en": "I only drink water.",
+          "breakdown": "水だけ = only water; だけ follows the noun being limited; the verb is affirmative — neutral limit, no frustration"
+        },
+        {
+          "parts": [
+            {
+              "text": "できるだけ",
+              "role": "modifier",
+              "gloss": "as much as possible (fixed: できる + だけ = 'only what is possible')"
+            },
+            {
+              "text": "食べます。",
+              "role": "predicate",
+              "gloss": "eat (polite present)"
+            }
+          ],
+          "en": "I eat as much as possible.",
+          "breakdown": "できるだけ is a fixed expression: できる (can do / be possible) + だけ (just/only) = 'only what I can' → 'as much as possible'"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_shika",
+      "pattern": [
+        {
+          "label": "[Noun]",
+          "color": "modifier",
+          "text": "水"
+        },
+        {
+          "label": "しか",
+          "color": "connector",
+          "text": "しか"
+        },
+        {
+          "label": "[Negative verb]",
+          "color": "predicate",
+          "text": "飲みません"
+        }
+      ],
+      "meaning": "nothing but / only (ALWAYS with negative verb)",
+      "explanation": "しか expresses an exclusive limit, but it ALWAYS requires a negative verb. The particle and the negative verb work together: しか + ～ない/ません = 'only.' Grammatically, the sentence looks negative — but the meaning is 'nothing but this.' The nuance leans toward insufficiency or restriction.",
+      "notes": [
+        "Critical rule: しか MUST be followed by a negative verb form. Using しか with a positive verb is ungrammatical.",
+        "しか carries an emotional nuance of insufficiency: 一人しか来ませんでした = only one person came (and that feels like too few).",
+        "Compare: 水だけ飲みます (neutral — I drink only water) vs 水しか飲みません (the restriction is notable — I drink nothing but water).",
+        "Important: しか does NOT specify WHY the limit exists. 牛肉しか食べません could mean 'beef is all I can get' (circumstance) OR 'beef is all I ever eat' (personal habit). Context tells you which — the grammar is neutral on this point. Do not assume しか implies external scarcity or forced restriction."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "牛肉",
+              "role": "modifier",
+              "gloss": "beef"
+            },
+            {
+              "text": "しか",
+              "role": "modifier",
+              "gloss": "nothing but / only (requires negative verb)"
+            },
+            {
+              "text": "食べません。",
+              "role": "predicate",
+              "gloss": "don't eat (polite negative)"
+            }
+          ],
+          "en": "I eat nothing but beef.",
+          "breakdown": "牛肉しか = nothing but beef; しか forces the verb to be negative; 食べません (don't eat) + しか together carry the 'only' meaning"
+        },
+        {
+          "parts": [
+            {
+              "text": "コーヒー",
+              "role": "modifier",
+              "gloss": "coffee"
+            },
+            {
+              "text": "しか",
+              "role": "modifier",
+              "gloss": "nothing but (restriction)"
+            },
+            {
+              "text": "飲みませんでした。",
+              "role": "predicate",
+              "gloss": "did not drink (polite past negative)"
+            }
+          ],
+          "en": "I didn't drink anything except coffee.",
+          "breakdown": "コーヒーしか = nothing but coffee; past negative verb (飲みませんでした) pairs with しか — the restriction applies to the past"
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "だけ vs しか — Same Meaning, Opposite Grammar",
+      "items": [
+        {
+          "label": "だけ + affirmative verb",
+          "color": "modifier",
+          "points": [
+            "Verb is AFFIRMATIVE (食べます, 飲みます)",
+            "Neutral tone — states a limit without emotional weight",
+            "The speaker chose or accepts this limit calmly"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "野菜",
+                "role": "modifier",
+                "gloss": "vegetables"
+              },
+              {
+                "text": "だけ",
+                "role": "modifier",
+                "gloss": "only / just"
+              },
+              {
+                "text": "食べます。",
+                "role": "predicate",
+                "gloss": "eat (polite — AFFIRMATIVE)"
+              }
+            ],
+            "en": "I only eat vegetables. (neutral choice)"
+          }
+        },
+        {
+          "label": "しか + negative verb",
+          "color": "connector",
+          "points": [
+            "Verb is NEGATIVE (食べません, 飲みません)",
+            "Implies insufficiency or restriction",
+            "The negative verb + しか together = 'only / nothing but'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "野菜",
+                "role": "modifier",
+                "gloss": "vegetables"
+              },
+              {
+                "text": "しか",
+                "role": "modifier",
+                "gloss": "nothing but (restriction)"
+              },
+              {
+                "text": "食べません。",
+                "role": "predicate",
+                "gloss": "don't eat (polite — NEGATIVE)"
+              }
+            ],
+            "en": "I don't eat anything except vegetables. (restricted)"
+          }
+        }
+      ],
+      "tip": "Both sentences describe the same situation — vegetables are the only thing being eaten. But だけ uses an affirmative verb (sounds deliberate and calm), and しか uses a negative verb (sounds restricted or insufficient)."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_bakari",
+      "pattern": [
+        {
+          "label": "[Noun]",
+          "color": "modifier",
+          "text": "ゲーム"
+        },
+        {
+          "label": "ばかり",
+          "color": "modifier",
+          "text": "ばかり"
+        },
+        {
+          "label": "/ [Verb-plain-past]",
+          "color": "connector",
+          "text": "食べた"
+        },
+        {
+          "label": "ばかり",
+          "color": "modifier",
+          "text": "ばかり"
+        }
+      ],
+      "meaning": "nothing but (habit) / just completed",
+      "explanation": "ばかり has two distinct uses. First: after a noun or dictionary-form verb, it means 'nothing but' — often with a critical or exasperated tone about an excessive habit. This is stronger than neutral だけ. Second: after a verb in plain past form, it means 'just completed' — the action happened very recently.",
+      "notes": [
+        "Habit use: [Noun]ばかり + verb = 'nothing but X.' ゲームばかりしている = doing nothing but playing games (implies criticism).",
+        "Just-completed use: [Verb-plain-past]ばかり = 'just did ~.' 食べたばかりです = I just ate.",
+        "The 'just completed' use (plain past + ばかり) works like English 'I've just...' or 'I just finished...'"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "弟は",
+              "role": "topic",
+              "gloss": "my younger brother (は = topic marker)"
+            },
+            {
+              "text": "ゲームばかり",
+              "role": "modifier",
+              "gloss": "nothing but games (ゲーム + ばかり — excessive habit)"
+            },
+            {
+              "text": "しています。",
+              "role": "predicate",
+              "gloss": "is doing (progressive)"
+            }
+          ],
+          "en": "My younger brother does nothing but play games.",
+          "breakdown": "ゲームばかり = nothing but games; ばかり after a noun has a critical, exasperated tone that neutral だけ does not"
+        },
+        {
+          "parts": [
+            {
+              "text": "食べた",
+              "role": "connector",
+              "gloss": "ate (plain past — used before ばかり in the 'just did' pattern)"
+            },
+            {
+              "text": "ばかり",
+              "role": "modifier",
+              "gloss": "just (marks recent completion of the action)"
+            },
+            {
+              "text": "です。",
+              "role": "predicate",
+              "gloss": "is (polite copula)"
+            }
+          ],
+          "en": "I just ate.",
+          "breakdown": "Plain past verb + ばかり = just completed; 食べた (ate) + ばかりです = I just ate (a moment ago)"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_demo",
+      "pattern": [
+        {
+          "label": "[Noun]",
+          "color": "topic",
+          "text": "子ども"
+        },
+        {
+          "label": "でも",
+          "color": "modifier",
+          "text": "でも"
+        },
+        {
+          "label": "[Verb]",
+          "color": "predicate",
+          "text": "分かります"
+        }
+      ],
+      "meaning": "even X / any~ (inclusive particle)",
+      "explanation": "でも after a noun means 'even X' — including the least expected or most minimal case still applies. When combined with question words (何, いつ, どこ, 誰), it creates open-ended 'any~' expressions: 何でも (anything), いつでも (anytime), どこでも (anywhere), 誰でも (anyone). Important: sentence-initial でも (p_demo_but) means 'but/however' and is a completely different usage.",
+      "notes": [
+        "After a noun: [Noun]でも = 'even X.' 子どもでも = even a child; 一人でも = even one person.",
+        "With question words: 何でも (anything), いつでも (anytime), どこでも (anywhere), 誰でも (anyone).",
+        "Do not confuse with sentence-initial でも (= 'but/however', p_demo_but). でも、行きます = 'But I'll go.' The particle でも (p_demo) comes after a noun; the conjunction でも (p_demo_but) starts a sentence."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "子ども",
+              "role": "modifier",
+              "gloss": "child / kid"
+            },
+            {
+              "text": "でも",
+              "role": "modifier",
+              "gloss": "even (inclusive particle — 'even X')"
+            },
+            {
+              "text": "分かります。",
+              "role": "predicate",
+              "gloss": "understand (polite)"
+            }
+          ],
+          "en": "Even a child understands.",
+          "breakdown": "子どもでも = even a child; でも after a noun = 'even X' — the least expected case still applies to the statement"
+        },
+        {
+          "parts": [
+            {
+              "text": "何でも",
+              "role": "modifier",
+              "gloss": "anything / whatever (何 = what/any + でも = any~ marker)"
+            },
+            {
+              "text": "食べます。",
+              "role": "predicate",
+              "gloss": "eat (polite)"
+            }
+          ],
+          "en": "I eat anything.",
+          "breakdown": "Question word + でも = any~: 何でも (anything), いつでも (anytime), どこでも (anywhere), 誰でも (anyone)"
+        }
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Limiting Particles in Everyday Life",
+      "examples": [
+        {
+          "context": "だけ — neutral, deliberate choice",
+          "parts": [
+            {
+              "text": "今日は",
+              "role": "time",
+              "gloss": "today (は = topic)"
+            },
+            {
+              "text": "野菜だけ",
+              "role": "modifier",
+              "gloss": "only vegetables (野菜 + だけ)"
+            },
+            {
+              "text": "食べました。",
+              "role": "predicate",
+              "gloss": "ate (polite past)"
+            }
+          ],
+          "en": "Today I only ate vegetables.",
+          "note": "だけ + affirmative verb = neutral limit. No emotional weight — just a fact about what was eaten today."
+        },
+        {
+          "context": "しか — restriction, challenge",
+          "parts": [
+            {
+              "text": "旅行で",
+              "role": "modifier",
+              "gloss": "during the trip (旅行 = trip, で = at/during)"
+            },
+            {
+              "text": "日本語しか",
+              "role": "modifier",
+              "gloss": "nothing but Japanese (日本語 + しか)"
+            },
+            {
+              "text": "話しませんでした。",
+              "role": "predicate",
+              "gloss": "did not speak (polite past negative)"
+            }
+          ],
+          "en": "During the trip I only spoke Japanese.",
+          "note": "しか + negative verb = exclusive restriction. This implies a deliberate challenge — speaking only Japanese even when another language was available."
+        },
+        {
+          "context": "ばかり — excessive ongoing habit (critical tone)",
+          "parts": [
+            {
+              "text": "弟は",
+              "role": "topic",
+              "gloss": "my younger brother (は = topic)"
+            },
+            {
+              "text": "ゲームばかり",
+              "role": "modifier",
+              "gloss": "nothing but games (ゲーム + ばかり)"
+            },
+            {
+              "text": "しています。",
+              "role": "predicate",
+              "gloss": "is doing (progressive)"
+            }
+          ],
+          "en": "My younger brother does nothing but play games.",
+          "note": "ばかり + progressive = excessive ongoing habit. The speaker sounds exasperated — ばかり has a critical undertone that neutral だけ does not carry."
+        },
+        {
+          "context": "でも — open invitation (question word + でも)",
+          "parts": [
+            {
+              "text": "いつでも",
+              "role": "adverb",
+              "gloss": "anytime (いつ = when + でも = any~ marker)"
+            },
+            {
+              "text": "来て",
+              "role": "connector",
+              "gloss": "come (te-form — connects to ください)"
+            },
+            {
+              "text": "ください。",
+              "role": "predicate",
+              "gloss": "please (polite request)"
+            }
+          ],
+          "en": "Please come anytime.",
+          "note": "いつでも = anytime (question word いつ + でも). With question words, でも creates warm, open-ended expressions."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "昼休みの会話 (Lunch Break Conversation)",
+      "context": "けん and りきぞ are talking during their lunch break.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "りきぞさん、今日は昼ご飯を食べましたか。",
+          "en": "Rikizo, did you eat lunch today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "p_wa",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "今日はパンだけ食べました。",
+          "en": "Today I only ate bread.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_pan",
+            "p_dake",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "え、それだけですか。",
+          "en": "What, that's all?",
+          "terms": [
+            "v_e_exclaim",
+            "v_sore",
+            "p_dake",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "朝はコーヒーしか飲みませんでした。",
+          "en": "In the morning I only had coffee.",
+          "terms": [
+            "v_asa",
+            "p_wa",
+            "v_koohii",
+            "p_shika",
+            {
+              "id": "v_nomu",
+              "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "きのうも牛肉ばかり食べていましたね。",
+          "en": "Yesterday you were eating nothing but beef too, weren't you.",
+          "terms": [
+            "v_kinou",
+            "p_mo",
+            "v_gyuuniku",
+            "p_bakari",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、すみません。",
+          "en": "Yes, sorry about that.",
+          "terms": [
+            "p_hai",
+            "p_sumimasen"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "野菜も食べてください！",
+          "en": "Please eat some vegetables too!",
+          "terms": [
+            "v_yasai",
+            "p_mo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "分かりました。今日の晩ご飯は何でも食べます！",
+          "en": "I understand. Tonight I'll eat anything for dinner!",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_kyou",
+            "p_no",
+            "v_bangohan",
+            "p_wa",
+            "v_nan",
+            "p_demo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Choose the Correct Limiting Particle",
+      "instructions": "Fill in the blank with the best limiting particle: だけ, しか, ばかり, or でも.",
+      "items": [
+        {
+          "before": "コーヒー",
+          "after": "飲みます。",
+          "translation": "I only drink coffee. (neutral choice)",
+          "choices": [
+            "だけ",
+            "しか",
+            "ばかり",
+            "でも"
+          ],
+          "answer": "だけ",
+          "explanation": "だけ pairs with an AFFIRMATIVE verb (飲みます). しか would require a negative verb (飲みません). ばかり after a noun would imply an excessive habit with a critical tone; でも doesn't work here. だけ = neutral 'only.'"
+        },
+        {
+          "before": "野菜",
+          "after": "食べません。",
+          "translation": "I don't eat anything except vegetables.",
+          "choices": [
+            "だけ",
+            "しか",
+            "ばかり",
+            "でも"
+          ],
+          "answer": "しか",
+          "explanation": "しか ALWAYS pairs with a NEGATIVE verb (食べません). The negative verb form is the key signal that しか is needed. だけ would require an affirmative verb (食べます). ばかり and でも don't fit the negative-verb structure here."
+        },
+        {
+          "before": "ゲーム",
+          "after": "しています。",
+          "translation": "All (you) do is play games.",
+          "choices": [
+            "だけ",
+            "しか",
+            "ばかり",
+            "でも"
+          ],
+          "answer": "ばかり",
+          "explanation": "ばかり after a noun + progressive verb expresses an excessive, ongoing habit — often with an exasperated or critical tone. ゲームばかりしている = doing nothing but playing games. だけ would also work grammatically but lacks the critical nuance ばかり adds."
+        },
+        {
+          "before": "子ども",
+          "after": "分かります。",
+          "translation": "Even a child understands.",
+          "choices": [
+            "だけ",
+            "しか",
+            "ばかり",
+            "でも"
+          ],
+          "answer": "でも",
+          "explanation": "でも after a noun means 'even X.' 子どもでも = even a child. This is p_demo (inclusive particle) — distinct from sentence-initial でも (p_demo_but) which means 'but/however.'"
+        },
+        {
+          "before": "食べた",
+          "after": "です。",
+          "translation": "I just ate.",
+          "choices": [
+            "だけ",
+            "しか",
+            "ばかり",
+            "でも"
+          ],
+          "answer": "ばかり",
+          "explanation": "Plain past verb + ばかり = 'just completed the action.' 食べた (plain past of 食べる) + ばかりです = 'I just ate (a moment ago).' This is ばかり's second use — quite different from the noun + ばかり habit use."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Limiting Particle Practice",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly uses しか?",
+          "choices": [
+            "水しか飲みます。",
+            "水しか飲みません。",
+            "水だけ飲みません。",
+            "水ばかり飲みます。"
+          ],
+          "answer": "水しか飲みません。",
+          "explanation": "しか ALWAYS requires a NEGATIVE verb. 水しか飲みます (positive verb) is ungrammatical. 水しか飲みません (negative verb) is correct: 'I drink nothing but water.' The negative verb and しか work together to create the 'only' meaning."
+        },
+        {
+          "kind": "mcq",
+          "q": "What does 食べたばかりです mean?",
+          "choices": [
+            "I only ate once.",
+            "I just ate.",
+            "I eat nothing but that.",
+            "I haven't eaten yet."
+          ],
+          "answer": "I just ate.",
+          "explanation": "Verb (plain past) + ばかりです = 'just completed the action.' 食べた (ate — plain past) + ばかり = just ate. This is ばかり's 'just completed' use, different from the habit use (noun + ばかり = nothing but)."
+        },
+        {
+          "kind": "mcq",
+          "q": "How do you say 'I eat anything' in Japanese?",
+          "choices": [
+            "何しか食べません。",
+            "何だけ食べます。",
+            "何でも食べます。",
+            "何ばかり食べています。"
+          ],
+          "answer": "何でも食べます。",
+          "explanation": "Question word + でも = any~: 何でも = anything, いつでも = anytime, どこでも = anywhere. 何でも食べます = 'I eat anything / whatever.' The でも here is the inclusive particle (p_demo), not the 'but' conjunction."
+        },
+        {
+          "kind": "mcq",
+          "q": "牛肉だけ食べます vs 牛肉しか食べません — what is the key grammatical difference?",
+          "choices": [
+            "だけ uses an affirmative verb; しか uses a negative verb.",
+            "だけ means 'even beef'; しか means 'only beef'.",
+            "They use the same verb form; only the emotional tone differs.",
+            "だけ is used for food; しか is used for drinks."
+          ],
+          "answer": "だけ uses an affirmative verb; しか uses a negative verb.",
+          "explanation": "Both sentences mean roughly 'I only eat beef' but use opposite verb forms. だけ + affirmative verb (食べます) is neutral and deliberate. しか + negative verb (食べません) implies restriction or insufficiency. The verb polarity is the key grammatical difference."
+        },
+        {
+          "kind": "mcq",
+          "q": "一人しか来ませんでした。 What does this sentence mean?",
+          "choices": [
+            "Everyone came.",
+            "Only one person came.",
+            "One person came alone.",
+            "One person came many times."
+          ],
+          "answer": "Only one person came.",
+          "explanation": "一人 (one person) + しか + 来ませんでした (did not come — polite past negative). しか + negative verb = 'only/nothing but': only one person came (and the speaker implies that was not many enough)."
+        }
+      ]
+    }
+  ]
+}

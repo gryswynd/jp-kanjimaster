@@ -1,0 +1,1650 @@
+{
+  "contentVersion": "1.0.0",
+  "version": 1,
+  "levels": [
+    "N5",
+    "N4"
+  ],
+  "globalFiles": {
+    "conjugationRules": "conjugation_rules.json",
+    "counterRules": "counter_rules.json"
+  },
+  "shared": {
+    "assetUrl": "shared/asset-url.js",
+    "helperVocab": "shared/helper-vocab.json",
+    "particles": "shared/particles.json",
+    "characters": "shared/characters.json",
+    "playerSprite": "assets/characters/rikizo/rikizo_sheet.png"
+  },
+  "data": {
+    "N5": {
+      "glossary": "data/N5/glossary.N5.json",
+      "lessons": [
+        {
+          "id": "N5.1",
+          "title": "People & Family",
+          "file": "data/N5/lessons/N5.1.json",
+          "kanji": [
+            "人",
+            "男",
+            "女",
+            "子",
+            "友",
+            "母",
+            "父",
+            "名",
+            "生",
+            "先"
+          ]
+        },
+        {
+          "id": "N5.2",
+          "title": "Days of the Week",
+          "file": "data/N5/lessons/N5.2.json",
+          "unlocksAfter": "G3",
+          "kanji": [
+            "日",
+            "月",
+            "火",
+            "水",
+            "木",
+            "金",
+            "土",
+            "毎",
+            "今",
+            "何"
+          ]
+        },
+        {
+          "id": "N5.3",
+          "title": "Numbers & Money",
+          "file": "data/N5/lessons/N5.3.json",
+          "unlocksAfter": "N5.Review.1",
+          "kanji": [
+            "一",
+            "二",
+            "三",
+            "四",
+            "五",
+            "六",
+            "七",
+            "八",
+            "九",
+            "十",
+            "百",
+            "千",
+            "万",
+            "円"
+          ]
+        },
+        {
+          "id": "N5.4",
+          "title": "Time & Duration",
+          "file": "data/N5/lessons/N5.4.json",
+          "unlocksAfter": "N5.3",
+          "kanji": [
+            "時",
+            "分",
+            "年",
+            "週",
+            "半"
+          ]
+        },
+        {
+          "id": "N5.5",
+          "title": "Going & Places",
+          "file": "data/N5/lessons/N5.5.json",
+          "unlocksAfter": "N5.Review.2",
+          "kanji": [
+            "行",
+            "来",
+            "店",
+            "駅",
+            "家"
+          ]
+        },
+        {
+          "id": "N5.6",
+          "title": "Landscape & Vehicles",
+          "file": "data/N5/lessons/N5.6.json",
+          "unlocksAfter": "G8",
+          "kanji": [
+            "山",
+            "川",
+            "道",
+            "車"
+          ]
+        },
+        {
+          "id": "N5.7",
+          "title": "Size & Food",
+          "file": "data/N5/lessons/N5.7.json",
+          "unlocksAfter": "N5.Review.3",
+          "kanji": [
+            "大",
+            "小",
+            "食",
+            "飲"
+          ]
+        },
+        {
+          "id": "N5.8",
+          "title": "Shopping & Adjectives",
+          "file": "data/N5/lessons/N5.8.json",
+          "unlocksAfter": "N5.7",
+          "kanji": [
+            "古",
+            "新",
+            "買",
+            "長",
+            "高",
+            "安"
+          ]
+        },
+        {
+          "id": "N5.9",
+          "title": "Relative Position",
+          "file": "data/N5/lessons/N5.9.json",
+          "unlocksAfter": "G9",
+          "kanji": [
+            "前",
+            "後",
+            "中",
+            "外"
+          ]
+        },
+        {
+          "id": "N5.10",
+          "title": "Weather & Energy",
+          "file": "data/N5/lessons/N5.10.json",
+          "unlocksAfter": "G10",
+          "kanji": [
+            "天",
+            "電",
+            "気",
+            "休"
+          ]
+        },
+        {
+          "id": "N5.11",
+          "title": "Sky, Rain & Nature",
+          "file": "data/N5/lessons/N5.11.json",
+          "unlocksAfter": "N5.Review.5",
+          "kanji": [
+            "空",
+            "雨",
+            "花",
+            "魚"
+          ]
+        },
+        {
+          "id": "N5.12",
+          "title": "Study & Country",
+          "file": "data/N5/lessons/N5.12.json",
+          "unlocksAfter": "G12",
+          "kanji": [
+            "本",
+            "語",
+            "学",
+            "校",
+            "国"
+          ]
+        },
+        {
+          "id": "N5.13",
+          "title": "Communication",
+          "file": "data/N5/lessons/N5.13.json",
+          "unlocksAfter": "N5.Review.6",
+          "kanji": [
+            "手",
+            "言",
+            "読",
+            "書",
+            "話"
+          ]
+        },
+        {
+          "id": "N5.14",
+          "title": "Quantity & Space",
+          "file": "data/N5/lessons/N5.14.json",
+          "unlocksAfter": "N5.13",
+          "kanji": [
+            "少",
+            "多",
+            "白",
+            "間"
+          ]
+        },
+        {
+          "id": "N5.15",
+          "title": "Cardinal Directions",
+          "file": "data/N5/lessons/N5.15.json",
+          "unlocksAfter": "N5.Review.7",
+          "kanji": [
+            "北",
+            "南",
+            "東",
+            "西"
+          ]
+        },
+        {
+          "id": "N5.16",
+          "title": "Sides & Vertical",
+          "file": "data/N5/lessons/N5.16.json",
+          "unlocksAfter": "N5.15",
+          "kanji": [
+            "右",
+            "左",
+            "上",
+            "下"
+          ]
+        },
+        {
+          "id": "N5.17",
+          "title": "Work & Society",
+          "file": "data/N5/lessons/N5.17.json",
+          "unlocksAfter": "N5.Review.8",
+          "kanji": [
+            "午",
+            "口",
+            "出",
+            "入",
+            "会",
+            "社"
+          ]
+        },
+        {
+          "id": "N5.18",
+          "title": "Body & Senses",
+          "file": "data/N5/lessons/N5.18.json",
+          "unlocksAfter": "N5.17",
+          "kanji": [
+            "目",
+            "見",
+            "耳",
+            "聞",
+            "足",
+            "立"
+          ]
+        }
+      ],
+      "grammar": [
+        {
+          "id": "G1",
+          "title": "です / だ — The Copula",
+          "file": "data/N5/grammar/G1.json",
+          "unlocksAfter": "N5.1",
+          "icon": "📐"
+        },
+        {
+          "id": "G2",
+          "title": "Ko-so-a-do Demonstratives",
+          "file": "data/N5/grammar/G2.json",
+          "unlocksAfter": "G1",
+          "icon": "👉",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G3",
+          "title": "Core Particles I: は, が, の, か, を",
+          "file": "data/N5/grammar/G3.json",
+          "unlocksAfter": "G2",
+          "icon": "📌"
+        },
+        {
+          "id": "G4",
+          "title": "Core Particles II: も, と, や, から, まで",
+          "file": "data/N5/grammar/G4.json",
+          "unlocksAfter": "N5.2",
+          "icon": "📌"
+        },
+        {
+          "id": "G5",
+          "title": "Core Particles III: に, で, へ",
+          "file": "data/N5/grammar/G5.json",
+          "unlocksAfter": "N5.5",
+          "icon": "📌"
+        },
+        {
+          "id": "G6",
+          "title": "Verb Types — RU-Verbs vs U-Verbs vs Irregulars",
+          "file": "data/N5/grammar/G6.json",
+          "unlocksAfter": "G5",
+          "icon": "⚙️"
+        },
+        {
+          "id": "G7",
+          "title": "Polite Verb Forms — ます形",
+          "file": "data/N5/grammar/G7.json",
+          "unlocksAfter": "G6",
+          "icon": "🔤"
+        },
+        {
+          "id": "G8",
+          "title": "て-form — Connecting Actions",
+          "file": "data/N5/grammar/G8.json",
+          "unlocksAfter": "G7",
+          "icon": "🔗"
+        },
+        {
+          "id": "G9",
+          "title": "ている・たいです・ましょう — Progressive, Desire & Invitation",
+          "file": "data/N5/grammar/G9.json",
+          "unlocksAfter": "N5.Review.4",
+          "icon": "🎯"
+        },
+        {
+          "id": "G10",
+          "title": "Plain Forms & Basic Connectors",
+          "file": "data/N5/grammar/G10.json",
+          "unlocksAfter": "N5.9",
+          "icon": "👋",
+          "estimatedMinutes": 30
+        },
+        {
+          "id": "G11",
+          "title": "i-Adjective Conjugation",
+          "file": "data/N5/grammar/G11.json",
+          "unlocksAfter": "N5.10",
+          "icon": "🎨",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G12",
+          "title": "na-Adjective Conjugation",
+          "file": "data/N5/grammar/G12.json",
+          "unlocksAfter": "N5.11",
+          "icon": "🎨",
+          "estimatedMinutes": 20
+        }
+      ],
+      "reviews": [
+        {
+          "id": "N5.Review.1",
+          "title": "People, Family & Days of the Week",
+          "file": "data/N5/reviews/N5.Review.1.json",
+          "unlocksAfter": "G4"
+        },
+        {
+          "id": "N5.Review.2",
+          "title": "Numbers, Money & Time",
+          "file": "data/N5/reviews/N5.Review.2.json",
+          "unlocksAfter": "N5.4"
+        },
+        {
+          "id": "N5.Review.3",
+          "title": "Going, Places & Landscape",
+          "file": "data/N5/reviews/N5.Review.3.json",
+          "unlocksAfter": "N5.6"
+        },
+        {
+          "id": "N5.Review.4",
+          "title": "Size, Food & Shopping",
+          "file": "data/N5/reviews/N5.Review.4.json",
+          "unlocksAfter": "N5.8"
+        },
+        {
+          "id": "N5.Review.5",
+          "title": "Relative Position, Weather & Energy",
+          "file": "data/N5/reviews/N5.Review.5.json",
+          "unlocksAfter": "G11"
+        },
+        {
+          "id": "N5.Review.6",
+          "title": "Sky, Rain, Nature & Study",
+          "file": "data/N5/reviews/N5.Review.6.json",
+          "unlocksAfter": "N5.12"
+        },
+        {
+          "id": "N5.Review.7",
+          "title": "Communication & Quantity",
+          "file": "data/N5/reviews/N5.Review.7.json",
+          "unlocksAfter": "N5.14"
+        },
+        {
+          "id": "N5.Review.8",
+          "title": "Cardinal Directions & Sides",
+          "file": "data/N5/reviews/N5.Review.8.json",
+          "unlocksAfter": "N5.16"
+        },
+        {
+          "id": "N5.Review.9",
+          "title": "Work, Society & Body Senses",
+          "file": "data/N5/reviews/N5.Review.9.json",
+          "unlocksAfter": "N5.18"
+        },
+        {
+          "id": "N5.Final.Review",
+          "title": "りきぞ N5ファイナル — N5 Final Review",
+          "scope": "N5.1–N5.18",
+          "file": "data/N5/reviews/N5.Final.Review.json",
+          "unlocksAfter": "N5.Review.9"
+        }
+      ],
+      "compose": [
+        {
+          "lesson": "N5.1",
+          "file": "data/N5/compose/compose.N5.1.json",
+          "unlocksAfter": "N5.1"
+        },
+        {
+          "lesson": "N5.2",
+          "file": "data/N5/compose/compose.N5.2.json",
+          "unlocksAfter": "N5.2"
+        },
+        {
+          "lesson": "N5.3",
+          "file": "data/N5/compose/compose.N5.3.json",
+          "unlocksAfter": "N5.3"
+        },
+        {
+          "lesson": "N5.4",
+          "file": "data/N5/compose/compose.N5.4.json",
+          "unlocksAfter": "N5.4"
+        },
+        {
+          "lesson": "N5.5",
+          "file": "data/N5/compose/compose.N5.5.json",
+          "unlocksAfter": "N5.5"
+        },
+        {
+          "lesson": "N5.6",
+          "file": "data/N5/compose/compose.N5.6.json",
+          "unlocksAfter": "N5.6"
+        },
+        {
+          "lesson": "N5.7",
+          "file": "data/N5/compose/compose.N5.7.json",
+          "unlocksAfter": "N5.7"
+        },
+        {
+          "lesson": "N5.8",
+          "file": "data/N5/compose/compose.N5.8.json",
+          "unlocksAfter": "N5.8"
+        },
+        {
+          "lesson": "N5.9",
+          "file": "data/N5/compose/compose.N5.9.json",
+          "unlocksAfter": "N5.9"
+        },
+        {
+          "lesson": "N5.10",
+          "file": "data/N5/compose/compose.N5.10.json",
+          "unlocksAfter": "N5.10"
+        },
+        {
+          "lesson": "N5.11",
+          "file": "data/N5/compose/compose.N5.11.json",
+          "unlocksAfter": "N5.11"
+        },
+        {
+          "lesson": "N5.12",
+          "file": "data/N5/compose/compose.N5.12.json",
+          "unlocksAfter": "N5.12"
+        },
+        {
+          "lesson": "N5.13",
+          "file": "data/N5/compose/compose.N5.13.json",
+          "unlocksAfter": "N5.13"
+        },
+        {
+          "lesson": "N5.14",
+          "file": "data/N5/compose/compose.N5.14.json",
+          "unlocksAfter": "N5.14"
+        },
+        {
+          "lesson": "N5.15",
+          "file": "data/N5/compose/compose.N5.15.json",
+          "unlocksAfter": "N5.15"
+        },
+        {
+          "lesson": "N5.16",
+          "file": "data/N5/compose/compose.N5.16.json",
+          "unlocksAfter": "N5.16"
+        },
+        {
+          "lesson": "N5.17",
+          "file": "data/N5/compose/compose.N5.17.json",
+          "unlocksAfter": "N5.17"
+        },
+        {
+          "lesson": "N5.18",
+          "file": "data/N5/compose/compose.N5.18.json",
+          "unlocksAfter": "N5.18"
+        }
+      ],
+      "stories": [
+        {
+          "id": "my-family",
+          "title": "My Family",
+          "titleJp": "わたしのかぞく",
+          "dir": "data/N5/stories/my-family",
+          "unlocksAfter": "G4"
+        },
+        {
+          "id": "tanjoubi-no-keeki",
+          "title": "Birthday Cake",
+          "titleJp": "たんじょうびのケーキ",
+          "dir": "data/N5/stories/tanjoubi-no-keeki",
+          "unlocksAfter": "N5.3"
+        },
+        {
+          "id": "kazoku-ga-kimasu",
+          "title": "The Family is Coming",
+          "titleJp": "かぞくがきます",
+          "dir": "data/N5/stories/kazoku-ga-kimasu",
+          "unlocksAfter": "N5.6"
+        },
+        {
+          "id": "restoran-to-kaimono",
+          "title": "Restaurant and Shopping",
+          "titleJp": "レストランとかいもの",
+          "dir": "data/N5/stories/restoran-to-kaimono",
+          "unlocksAfter": "N5.8"
+        },
+        {
+          "id": "kyuujitsu-no-rikizo",
+          "title": "Rikizo's Holiday",
+          "titleJp": "休日のりきぞ",
+          "dir": "data/N5/stories/kyuujitsu-no-rikizo",
+          "unlocksAfter": "N5.10"
+        },
+        {
+          "id": "ame-no-hi-no-gakkou",
+          "title": "A Rainy Day at School",
+          "titleJp": "雨の日の学校",
+          "dir": "data/N5/stories/ame-no-hi-no-gakkou",
+          "unlocksAfter": "N5.12"
+        },
+        {
+          "id": "yonde-kaite",
+          "title": "Reading and Writing",
+          "titleJp": "読んで、書いて",
+          "dir": "data/N5/stories/yonde-kaite",
+          "unlocksAfter": "N5.13"
+        },
+        {
+          "id": "kita-minami-higashi-nishi",
+          "title": "North, South, East, and West",
+          "titleJp": "北と南と東と西",
+          "dir": "data/N5/stories/kita-minami-higashi-nishi",
+          "unlocksAfter": "N5.15"
+        },
+        {
+          "id": "kaisha-de-no-arubaito",
+          "title": "Part-time Job at the Company",
+          "titleJp": "会社でのアルバイト",
+          "dir": "data/N5/stories/kaisha-de-no-arubaito",
+          "unlocksAfter": "N5.17"
+        },
+        {
+          "id": "rikizo-to-ookii-sakana",
+          "title": "Rikizo and the Big Fish",
+          "titleJp": "りきぞと大きい魚",
+          "dir": "data/N5/stories/rikizo-to-ookii-sakana",
+          "unlocksAfter": "N5.18"
+        }
+      ],
+      "game": [
+        {
+          "id": "day-01-home",
+          "title": "House Adventure",
+          "titleJp": "いえ",
+          "dir": "data/N5/game/day-01-home",
+          "unlocksAfter": "N5.1"
+        }
+      ]
+    },
+    "N4": {
+      "glossary": "data/N4/glossary.N4.json",
+      "lessons": [
+        {
+          "id": "N4.1",
+          "title": "Returning & Using",
+          "file": "data/N4/lessons/N4.1.json",
+          "unlocksAfter": "N5.Final.Review",
+          "kanji": [
+            "帰",
+            "作",
+            "使",
+            "借",
+            "働",
+            "送",
+            "起",
+            "着",
+            "切"
+          ]
+        },
+        {
+          "id": "N4.2",
+          "title": "Riding & Distance",
+          "file": "data/N4/lessons/N4.2.json",
+          "kanji": [
+            "乗",
+            "歩",
+            "近",
+            "遠"
+          ]
+        },
+        {
+          "id": "N4.3",
+          "title": "Self & Time of Day",
+          "file": "data/N4/lessons/N4.3.json",
+          "kanji": [
+            "私",
+            "明",
+            "朝",
+            "晩"
+          ]
+        },
+        {
+          "id": "N4.4",
+          "title": "Colors & Preferences",
+          "file": "data/N4/lessons/N4.4.json",
+          "kanji": [
+            "色",
+            "茶",
+            "好",
+            "赤",
+            "青",
+            "黒"
+          ]
+        },
+        {
+          "id": "N4.5",
+          "title": "Food & Ingredients",
+          "file": "data/N4/lessons/N4.5.json",
+          "kanji": [
+            "物",
+            "野",
+            "菜",
+            "料",
+            "理",
+            "牛",
+            "肉"
+          ]
+        },
+        {
+          "id": "N4.6",
+          "title": "Birds, Taste & Meals",
+          "file": "data/N4/lessons/N4.6.json",
+          "kanji": [
+            "鳥",
+            "同",
+            "味",
+            "暗",
+            "飯",
+            "昼"
+          ]
+        },
+        {
+          "id": "N4.7",
+          "title": "Family Members and Relationships",
+          "file": "data/N4/lessons/N4.7.json",
+          "kanji": [
+            "族",
+            "親",
+            "兄",
+            "姉",
+            "妹",
+            "弟"
+          ]
+        },
+        {
+          "id": "N4.8",
+          "title": "Seasons & Weather",
+          "file": "data/N4/lessons/N4.8.json",
+          "kanji": [
+            "冬",
+            "寒",
+            "春",
+            "暑",
+            "夏",
+            "秋"
+          ]
+        },
+        {
+          "id": "N4.9",
+          "title": "Living & Places",
+          "file": "data/N4/lessons/N4.9.json",
+          "kanji": [
+            "住",
+            "所",
+            "町",
+            "元",
+            "去",
+            "別"
+          ]
+        },
+        {
+          "id": "N4.10",
+          "title": "Movies & Beginnings",
+          "file": "data/N4/lessons/N4.10.json",
+          "kanji": [
+            "始",
+            "終",
+            "映",
+            "画",
+            "館",
+            "英"
+          ]
+        },
+        {
+          "id": "N4.11",
+          "title": "Travel & The World",
+          "file": "data/N4/lessons/N4.11.json",
+          "kanji": [
+            "旅",
+            "自",
+            "写",
+            "真",
+            "世",
+            "界"
+          ]
+        },
+        {
+          "id": "N4.12",
+          "title": "Body & Existence",
+          "file": "data/N4/lessons/N4.12.json",
+          "kanji": [
+            "首",
+            "顔",
+            "体",
+            "頭",
+            "心",
+            "有"
+          ]
+        },
+        {
+          "id": "N4.13",
+          "title": "Music, Sound & Characteristics",
+          "file": "data/N4/lessons/N4.13.json",
+          "kanji": [
+            "音",
+            "楽",
+            "歌",
+            "声",
+            "低",
+            "軽"
+          ]
+        },
+        {
+          "id": "N4.14",
+          "title": "Work & Rhythms",
+          "file": "data/N4/lessons/N4.14.json",
+          "kanji": [
+            "仕",
+            "事",
+            "曜",
+            "早",
+            "急",
+            "員"
+          ]
+        },
+        {
+          "id": "N4.15",
+          "title": "Health & Life",
+          "file": "data/N4/lessons/N4.15.json",
+          "kanji": [
+            "薬",
+            "病",
+            "院",
+            "医",
+            "者",
+            "死"
+          ]
+        },
+        {
+          "id": "N4.16",
+          "title": "Movement & Action",
+          "file": "data/N4/lessons/N4.16.json",
+          "kanji": [
+            "動",
+            "犬",
+            "銀",
+            "去",
+            "走",
+            "運"
+          ]
+        },
+        {
+          "id": "N4.17",
+          "title": "Travel & Transport",
+          "file": "data/N4/lessons/N4.17.json",
+          "kanji": [
+            "京",
+            "都",
+            "転",
+            "回",
+            "田",
+            "海"
+          ]
+        },
+        {
+          "id": "N4.18",
+          "title": "Strength & Nature",
+          "file": "data/N4/lessons/N4.18.json",
+          "kanji": [
+            "弱",
+            "強",
+            "勉",
+            "風",
+            "光",
+            "力"
+          ]
+        },
+        {
+          "id": "N4.19",
+          "title": "Geography & Explanations",
+          "file": "data/N4/lessons/N4.19.json",
+          "kanji": [
+            "地",
+            "図",
+            "質",
+            "問",
+            "題",
+            "説"
+          ]
+        },
+        {
+          "id": "N4.20",
+          "title": "Night & Lifestyle",
+          "file": "data/N4/lessons/N4.20.json",
+          "kanji": [
+            "夜",
+            "洋",
+            "服",
+            "屋"
+          ]
+        },
+        {
+          "id": "N4.21",
+          "title": "Commerce & Possessions",
+          "file": "data/N4/lessons/N4.21.json",
+          "kanji": [
+            "売",
+            "品",
+            "持",
+            "貸"
+          ]
+        },
+        {
+          "id": "N4.22",
+          "title": "Writing & Ideas",
+          "file": "data/N4/lessons/N4.22.json",
+          "kanji": [
+            "漢",
+            "字",
+            "紙",
+            "意"
+          ]
+        },
+        {
+          "id": "N4.23",
+          "title": "Physical Attributes & Progress",
+          "file": "data/N4/lessons/N4.23.json",
+          "kanji": [
+            "太",
+            "短",
+            "重",
+            "進"
+          ]
+        },
+        {
+          "id": "N4.24",
+          "title": "Education & Experience",
+          "file": "data/N4/lessons/N4.24.json",
+          "kanji": [
+            "教",
+            "室",
+            "試",
+            "験"
+          ]
+        },
+        {
+          "id": "N4.25",
+          "title": "Research & Literature",
+          "file": "data/N4/lessons/N4.25.json",
+          "kanji": [
+            "文",
+            "注",
+            "研",
+            "究"
+          ]
+        },
+        {
+          "id": "N4.26",
+          "title": "Truth & Thoughts",
+          "file": "data/N4/lessons/N4.26.json",
+          "kanji": [
+            "正",
+            "考",
+            "方",
+            "悪"
+          ]
+        },
+        {
+          "id": "N4.27",
+          "title": "Waiting & Fitting",
+          "file": "data/N4/lessons/N4.27.json",
+          "kanji": [
+            "待",
+            "合",
+            "夕",
+            "度"
+          ]
+        },
+        {
+          "id": "N4.28",
+          "title": "Ponds, Groves, Gates, Villages",
+          "file": "data/N4/lessons/N4.28.json",
+          "kanji": [
+            "池",
+            "林",
+            "門",
+            "村"
+          ]
+        },
+        {
+          "id": "N4.29",
+          "title": "Typhoons, Clocks, and Knowing",
+          "file": "data/N4/lessons/N4.29.json",
+          "kanji": [
+            "台",
+            "知",
+            "計",
+            "以"
+          ]
+        },
+        {
+          "id": "N4.30",
+          "title": "Thoughts & Special Answers",
+          "file": "data/N4/lessons/N4.30.json",
+          "kanji": [
+            "思",
+            "特",
+            "集",
+            "答"
+          ]
+        },
+        {
+          "id": "N4.31",
+          "title": "Times & Openings",
+          "file": "data/N4/lessons/N4.31.json",
+          "kanji": [
+            "代",
+            "森",
+            "堂",
+            "開"
+          ]
+        },
+        {
+          "id": "N4.32",
+          "title": "Use, Learn, & The City",
+          "file": "data/N4/lessons/N4.32.json",
+          "kanji": [
+            "引",
+            "用",
+            "習",
+            "市"
+          ]
+        },
+        {
+          "id": "N4.33",
+          "title": "Places, Factories, & Buildings",
+          "file": "data/N4/lessons/N4.33.json",
+          "kanji": [
+            "場",
+            "工",
+            "広",
+            "建"
+          ]
+        },
+        {
+          "id": "N4.34",
+          "title": "Districts, Departure, & Commuting",
+          "file": "data/N4/lessons/N4.34.json",
+          "kanji": [
+            "区",
+            "発",
+            "県",
+            "通"
+          ]
+        },
+        {
+          "id": "N4.35",
+          "title": "Owners, Stops, People, & Washing",
+          "file": "data/N4/lessons/N4.35.json",
+          "kanji": [
+            "主",
+            "止",
+            "民",
+            "洗"
+          ]
+        },
+        {
+          "id": "N4.36",
+          "title": "Negatives, Convenience, Business & Production",
+          "file": "data/N4/lessons/N4.36.json",
+          "kanji": [
+            "不",
+            "便",
+            "業",
+            "産"
+          ]
+        }
+      ],
+      "reviews": [
+        {
+          "id": "N4.Review.1",
+          "title": "Returning, Using & Getting Around",
+          "file": "data/N4/reviews/N4.Review.1.json",
+          "unlocksAfter": "N4.2"
+        },
+        {
+          "id": "N4.Review.2",
+          "title": "Self, Time of Day & Colors",
+          "file": "data/N4/reviews/N4.Review.2.json",
+          "unlocksAfter": "N4.4"
+        },
+        {
+          "id": "N4.Review.3",
+          "title": "Food, Ingredients & Meals",
+          "file": "data/N4/reviews/N4.Review.3.json",
+          "unlocksAfter": "N4.6"
+        },
+        {
+          "id": "N4.Review.4",
+          "title": "Family & Seasons",
+          "file": "data/N4/reviews/N4.Review.4.json",
+          "unlocksAfter": "N4.8"
+        },
+        {
+          "id": "N4.Review.5",
+          "title": "Phase 4 Review: Hometowns & Cinema",
+          "file": "data/N4/reviews/N4.Review.5.json",
+          "lessonRange": "N4.9–N4.10",
+          "unlocksAfter": "N4.10"
+        },
+        {
+          "id": "N4.Review.6",
+          "title": "Phase 4 Review: Travel & the Body",
+          "file": "data/N4/reviews/N4.Review.6.json",
+          "lessonRange": "N4.11–N4.12",
+          "unlocksAfter": "N4.12"
+        },
+        {
+          "id": "N4.Review.7",
+          "title": "Phase 4 Review: Music, Sound & Work Rhythms",
+          "file": "data/N4/reviews/N4.Review.7.json",
+          "lessonRange": "N4.13–N4.14",
+          "unlocksAfter": "N4.14"
+        },
+        {
+          "id": "N4.Review.8",
+          "title": "Phase 4 Review: Health & Movement",
+          "file": "data/N4/reviews/N4.Review.8.json",
+          "lessonRange": "N4.15–N4.16",
+          "unlocksAfter": "N4.16"
+        },
+        {
+          "id": "N4.Review.9",
+          "title": "Phase 4 Review: Travel, Nature & Strength",
+          "file": "data/N4/reviews/N4.Review.9.json",
+          "lessonRange": "N4.17–N4.18",
+          "unlocksAfter": "N4.18"
+        },
+        {
+          "id": "N4.Review.10",
+          "title": "Body, Life & Work",
+          "file": "data/N4/reviews/N4.Review.10.json",
+          "unlocksAfter": "N4.20"
+        },
+        {
+          "id": "N4.Review.11",
+          "title": "Movement, Nature & Geography",
+          "file": "data/N4/reviews/N4.Review.11.json",
+          "unlocksAfter": "N4.22"
+        },
+        {
+          "id": "N4.Review.12",
+          "title": "Lifestyle, Trade & Attributes",
+          "file": "data/N4/reviews/N4.Review.12.json",
+          "unlocksAfter": "N4.24"
+        },
+        {
+          "id": "N4.Review.13",
+          "title": "Phase 4 Review: Research, Literature & Correct Thinking",
+          "file": "data/N4/reviews/N4.Review.13.json",
+          "unlocksAfter": "N4.26"
+        },
+        {
+          "id": "N4.Review.14",
+          "title": "Nature, Places & Measurement",
+          "file": "data/N4/reviews/N4.Review.14.json",
+          "unlocksAfter": "N4.28"
+        },
+        {
+          "id": "N4.Review.15",
+          "title": "Plans, Typhoons & Thinking Together",
+          "file": "data/N4/reviews/N4.Review.15.json",
+          "unlocksAfter": "N4.30"
+        },
+        {
+          "id": "N4.Review.16",
+          "title": "Times, Openings & City Life",
+          "file": "data/N4/reviews/N4.Review.16.json",
+          "unlocksAfter": "N4.32"
+        },
+        {
+          "id": "N4.Review.17",
+          "title": "Districts, Departure & City Life",
+          "file": "data/N4/reviews/N4.Review.17.json",
+          "unlocksAfter": "N4.34"
+        },
+        {
+          "id": "N4.Review.18",
+          "title": "Owners, Business & Production",
+          "file": "data/N4/reviews/N4.Review.18.json",
+          "unlocksAfter": "N4.36"
+        },
+        {
+          "id": "N4 1st Half Review",
+          "title": "N4 Complete Phase 4 Review",
+          "scope": "N4.1–N4.18",
+          "file": "data/N4/reviews/N4 Half Review.json",
+          "unlocksAfter": "N4.18"
+        },
+        {
+          "id": "N4 2nd Half Review",
+          "title": "N4 Complete Phase 4 Review — Part 2",
+          "scope": "N4.19–N4.36",
+          "file": "data/N4/reviews/N4 Half Review 2.json",
+          "unlocksAfter": "N4.36"
+        },
+        {
+          "id": "N4.Final.Review",
+          "title": "りきぞうファイナル — N4 Final Review",
+          "scope": "N4.1–N4.36",
+          "file": "data/N4/reviews/N4.Final.Review.json",
+          "unlocksAfter": "N4.36"
+        }
+      ],
+      "compose": [
+        {
+          "lesson": "N4.1",
+          "file": "data/N4/compose/compose.N4.1.json",
+          "unlocksAfter": "N4.1"
+        },
+        {
+          "lesson": "N4.2",
+          "file": "data/N4/compose/compose.N4.2.json",
+          "unlocksAfter": "N4.2"
+        },
+        {
+          "lesson": "N4.3",
+          "file": "data/N4/compose/compose.N4.3.json",
+          "unlocksAfter": "N4.3"
+        },
+        {
+          "lesson": "N4.4",
+          "file": "data/N4/compose/compose.N4.4.json",
+          "unlocksAfter": "N4.4"
+        },
+        {
+          "lesson": "N4.5",
+          "file": "data/N4/compose/compose.N4.5.json",
+          "unlocksAfter": "N4.5"
+        },
+        {
+          "lesson": "N4.6",
+          "file": "data/N4/compose/compose.N4.6.json",
+          "unlocksAfter": "N4.6"
+        },
+        {
+          "lesson": "N4.7",
+          "file": "data/N4/compose/compose.N4.7.json",
+          "unlocksAfter": "N4.7"
+        },
+        {
+          "lesson": "N4.8",
+          "file": "data/N4/compose/compose.N4.8.json",
+          "unlocksAfter": "N4.8"
+        },
+        {
+          "lesson": "N4.9",
+          "file": "data/N4/compose/compose.N4.9.json",
+          "unlocksAfter": "N4.9"
+        },
+        {
+          "lesson": "N4.10",
+          "file": "data/N4/compose/compose.N4.10.json",
+          "unlocksAfter": "N4.10"
+        },
+        {
+          "lesson": "N4.11",
+          "file": "data/N4/compose/compose.N4.11.json",
+          "unlocksAfter": "N4.11"
+        },
+        {
+          "lesson": "N4.12",
+          "file": "data/N4/compose/compose.N4.12.json",
+          "unlocksAfter": "N4.12"
+        },
+        {
+          "lesson": "N4.13",
+          "file": "data/N4/compose/compose.N4.13.json",
+          "unlocksAfter": "N4.13"
+        },
+        {
+          "lesson": "N4.14",
+          "file": "data/N4/compose/compose.N4.14.json",
+          "unlocksAfter": "N4.14"
+        },
+        {
+          "lesson": "N4.15",
+          "file": "data/N4/compose/compose.N4.15.json",
+          "unlocksAfter": "N4.15"
+        },
+        {
+          "lesson": "N4.16",
+          "file": "data/N4/compose/compose.N4.16.json",
+          "unlocksAfter": "N4.16"
+        },
+        {
+          "lesson": "N4.17",
+          "file": "data/N4/compose/compose.N4.17.json",
+          "unlocksAfter": "N4.17"
+        },
+        {
+          "lesson": "N4.18",
+          "file": "data/N4/compose/compose.N4.18.json",
+          "unlocksAfter": "N4.18"
+        },
+        {
+          "lesson": "N4.19",
+          "file": "data/N4/compose/compose.N4.19.json",
+          "unlocksAfter": "N4.19"
+        },
+        {
+          "lesson": "N4.20",
+          "file": "data/N4/compose/compose.N4.20.json",
+          "unlocksAfter": "N4.20"
+        },
+        {
+          "lesson": "N4.21",
+          "file": "data/N4/compose/compose.N4.21.json",
+          "unlocksAfter": "N4.21"
+        },
+        {
+          "lesson": "N4.22",
+          "file": "data/N4/compose/compose.N4.22.json",
+          "unlocksAfter": "N4.22"
+        },
+        {
+          "lesson": "N4.23",
+          "file": "data/N4/compose/compose.N4.23.json",
+          "unlocksAfter": "N4.23"
+        },
+        {
+          "lesson": "N4.24",
+          "file": "data/N4/compose/compose.N4.24.json",
+          "unlocksAfter": "N4.24"
+        },
+        {
+          "lesson": "N4.25",
+          "file": "data/N4/compose/compose.N4.25.json",
+          "unlocksAfter": "N4.25"
+        },
+        {
+          "lesson": "N4.26",
+          "file": "data/N4/compose/compose.N4.26.json",
+          "unlocksAfter": "N4.26"
+        },
+        {
+          "lesson": "N4.27",
+          "file": "data/N4/compose/compose.N4.27.json",
+          "unlocksAfter": "N4.27"
+        },
+        {
+          "lesson": "N4.28",
+          "file": "data/N4/compose/compose.N4.28.json",
+          "unlocksAfter": "N4.28"
+        },
+        {
+          "lesson": "N4.29",
+          "file": "data/N4/compose/compose.N4.29.json",
+          "unlocksAfter": "N4.29"
+        },
+        {
+          "lesson": "N4.30",
+          "file": "data/N4/compose/compose.N4.30.json",
+          "unlocksAfter": "N4.30"
+        },
+        {
+          "lesson": "N4.31",
+          "file": "data/N4/compose/compose.N4.31.json",
+          "unlocksAfter": "N4.31"
+        },
+        {
+          "lesson": "N4.32",
+          "file": "data/N4/compose/compose.N4.32.json",
+          "unlocksAfter": "N4.32"
+        },
+        {
+          "lesson": "N4.33",
+          "file": "data/N4/compose/compose.N4.33.json",
+          "unlocksAfter": "N4.33"
+        },
+        {
+          "lesson": "N4.34",
+          "file": "data/N4/compose/compose.N4.34.json",
+          "unlocksAfter": "N4.34"
+        },
+        {
+          "lesson": "N4.35",
+          "file": "data/N4/compose/compose.N4.35.json",
+          "unlocksAfter": "N4.35"
+        }
+      ],
+      "stories": [
+        {
+          "id": "field-trip-day",
+          "title": "The Day of the Field Trip",
+          "titleJp": "遠足の日",
+          "dir": "data/N4/stories/field-trip-day",
+          "unlocksAfter": "N4.2"
+        },
+        {
+          "id": "watashi-no-iro",
+          "title": "My Favorite Color",
+          "titleJp": "私の好きな色",
+          "dir": "data/N4/stories/watashi-no-iro",
+          "unlocksAfter": "N4.4"
+        },
+        {
+          "id": "hirugohan-monogatari",
+          "title": "The Story of Lunch",
+          "titleJp": "昼ご飯の物語",
+          "dir": "data/N4/stories/hirugohan-monogatari",
+          "unlocksAfter": "N4.6"
+        },
+        {
+          "id": "kazoku-no-kisetsu",
+          "title": "The Family's Seasons",
+          "titleJp": "かぞくのきせつ",
+          "dir": "data/N4/stories/kazoku-no-kisetsu",
+          "unlocksAfter": "N4.8"
+        },
+        {
+          "id": "machi-no-eigakan",
+          "title": "The Town's Movie Theater",
+          "titleJp": "まちの映画館",
+          "dir": "data/N4/stories/machi-no-eigakan",
+          "unlocksAfter": "N4.10"
+        },
+        {
+          "id": "tabisaki-no-shashin",
+          "title": "Photos at the Destination",
+          "titleJp": "旅先の写真",
+          "dir": "data/N4/stories/tabisaki-no-shashin",
+          "unlocksAfter": "N4.12"
+        },
+        {
+          "id": "uta-to-shigoto",
+          "title": "Song and Work",
+          "titleJp": "歌と仕事",
+          "dir": "data/N4/stories/uta-to-shigoto",
+          "unlocksAfter": "N4.14"
+        },
+        {
+          "id": "hashiru-asa",
+          "title": "The Morning Run",
+          "titleJp": "走る朝",
+          "dir": "data/N4/stories/hashiru-asa",
+          "unlocksAfter": "N4.16"
+        },
+        {
+          "id": "jitensha-de-kyouto-e",
+          "title": "To Kyoto by Bicycle",
+          "titleJp": "自転車で京都へ",
+          "dir": "data/N4/stories/jitensha-de-kyouto-e",
+          "unlocksAfter": "N4.18"
+        },
+        {
+          "id": "library-book",
+          "title": "The Library Book",
+          "titleJp": "図書館の本",
+          "dir": "data/N4/stories/library-book",
+          "unlocksAfter": "N4.20"
+        },
+        {
+          "id": "furima-no-hi",
+          "title": "The Day of the Flea Market",
+          "titleJp": "フリーマーケットの日",
+          "dir": "data/N4/stories/furima-no-hi",
+          "unlocksAfter": "N4.22"
+        },
+        {
+          "id": "rikizo-journey",
+          "title": "Rikizo's Journey",
+          "titleJp": "りきぞの旅",
+          "dir": "data/N4/stories/rikizo-journey",
+          "unlocksAfter": "N4.33"
+        },
+        {
+          "id": "factory-owner",
+          "title": "The Factory Owner",
+          "titleJp": "工場の主人",
+          "dir": "data/N4/stories/factory-owner",
+          "unlocksAfter": "N4.36"
+        },
+        {
+          "id": "natsuyasumi-no-taiken",
+          "title": "A Summer Holiday Experience",
+          "titleJp": "夏休みの体験",
+          "dir": "data/N4/stories/natsuyasumi-no-taiken",
+          "unlocksAfter": "N4.24"
+        },
+        {
+          "id": "kenkyuu-to-sakubun",
+          "title": "Research and Composition",
+          "titleJp": "研究と作文",
+          "dir": "data/N4/stories/kenkyuu-to-sakubun",
+          "unlocksAfter": "N4.26"
+        },
+        {
+          "id": "yuugata-no-mura",
+          "title": "Evening in the Village",
+          "titleJp": "夕方の村",
+          "dir": "data/N4/stories/yuugata-no-mura",
+          "unlocksAfter": "N4.28"
+        },
+        {
+          "id": "taifuu-no-omoide",
+          "title": "Memories of the Typhoon",
+          "titleJp": "台風の思い出",
+          "dir": "data/N4/stories/taifuu-no-omoide",
+          "unlocksAfter": "N4.30"
+        },
+        {
+          "id": "mori-no-shokudou",
+          "title": "The Forest Dining Hall",
+          "titleJp": "森の食堂",
+          "dir": "data/N4/stories/mori-no-shokudou",
+          "unlocksAfter": "N4.32"
+        },
+        {
+          "id": "new-city",
+          "title": "In the New City",
+          "titleJp": "新しい都市で",
+          "dir": "data/N4/stories/new-city",
+          "unlocksAfter": "N4.34"
+        }
+      ],
+      "game": [],
+      "grammar": [
+        {
+          "id": "G13",
+          "title": "Potential Form — Can / Able to",
+          "file": "data/N4/grammar/G13.json",
+          "unlocksAfter": "N4.3",
+          "icon": "💪",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G14",
+          "title": "Give & Receive — あげる / もらう / くれる",
+          "file": "data/N4/grammar/G14.json",
+          "unlocksAfter": "N4.5",
+          "icon": "🎁",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G15",
+          "title": "Comparison & Degree — より / ほう / ほど / くらい / すぎる",
+          "file": "data/N4/grammar/G15.json",
+          "unlocksAfter": "N4.5",
+          "icon": "⚖️",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G16",
+          "title": "Manner & Similarity — のように / のような / みたいに / みたいな",
+          "file": "data/N4/grammar/G16.json",
+          "unlocksAfter": "N4.6",
+          "icon": "🦞",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "G17",
+          "title": "Limiting Particles — だけ / しか / ばかり / でも",
+          "file": "data/N4/grammar/G17.json",
+          "unlocksAfter": "N4.7",
+          "icon": "🔒",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "G18",
+          "title": "Transitive & Intransitive Verb Pairs",
+          "file": "data/N4/grammar/G18.json",
+          "unlocksAfter": "N4.10",
+          "icon": "🔀",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G19",
+          "title": "Connecting Actions — てから / まえに / ながら / ために / ～たり",
+          "file": "data/N4/grammar/G19.json",
+          "unlocksAfter": "N4.10",
+          "icon": "⛓️",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G20",
+          "title": "Contrast, Concession & Listing Reasons — のに / ても / し",
+          "file": "data/N4/grammar/G20.json",
+          "unlocksAfter": "N4.14",
+          "icon": "🌀",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "G21",
+          "title": "Conversation Mechanics — Hesitation, Floor-Holding & 相槌",
+          "file": "data/N4/grammar/G21.json",
+          "unlocksAfter": "N4.16",
+          "icon": "💬",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G22",
+          "title": "そうだ: Appearance & Hearsay",
+          "file": "data/N4/grammar/G22.json",
+          "unlocksAfter": "N4.18",
+          "icon": "👀",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G23",
+          "title": "Permissions & Prohibitions — てもいい / てはいけない / なくてもいい",
+          "file": "data/N4/grammar/G23.json",
+          "unlocksAfter": "N4.21",
+          "icon": "🚦",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "G24",
+          "title": "Directional & Resultant て-Form — てくる / ていく / てある",
+          "file": "data/N4/grammar/G24.json",
+          "unlocksAfter": "N4.23",
+          "icon": "↔️",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G25",
+          "title": "Obligations & Conditionals — なければ / ば / たら / なら / と",
+          "file": "data/N4/grammar/G25.json",
+          "unlocksAfter": "N4.25",
+          "icon": "🔀",
+          "estimatedMinutes": 30
+        },
+        {
+          "id": "G26",
+          "title": "ように Patterns — ようにする / ようになる",
+          "file": "data/N4/grammar/G26.json",
+          "unlocksAfter": "N4.27",
+          "icon": "🎯",
+          "estimatedMinutes": 20
+        },
+        {
+          "id": "G27",
+          "title": "Expressing Thoughts & Experience — と思う / たことがある",
+          "file": "data/N4/grammar/G27.json",
+          "unlocksAfter": "N4.30",
+          "icon": "💭",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G28",
+          "title": "Passive Form",
+          "file": "data/N4/grammar/G28.json",
+          "unlocksAfter": "N4.31",
+          "icon": "🔄",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G29",
+          "title": "Causative Form",
+          "file": "data/N4/grammar/G29.json",
+          "unlocksAfter": "N4.31",
+          "icon": "🎭",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "G30",
+          "title": "Advanced Verb Usages — てみる / ておく / てしまう / すぎる / とする",
+          "file": "data/N4/grammar/G30.json",
+          "unlocksAfter": "N4.34",
+          "icon": "🧩",
+          "estimatedMinutes": 30
+        },
+        {
+          "id": "G31",
+          "title": "Advanced Adjective Patterns — くなる / になる / くする / にする",
+          "file": "data/N4/grammar/G31.json",
+          "unlocksAfter": "N4.34",
+          "icon": "🌀",
+          "estimatedMinutes": 25
+        }
+      ]
+    },
+    "custom": {
+      "stories": [
+        { "id": "keikaku-no-hi", "titleJp": "計画の日", "title": "The Day of the Plan", "dir": "data/custom/stories/keikaku-no-hi", "unlocksAfter": "N4.10" },
+        { "id": "unten-no-shinpo", "titleJp": "運転の進歩", "title": "Progress in Driving", "dir": "data/custom/stories/unten-no-shinpo", "unlocksAfter": "N4.10" },
+        { "id": "kenkyuu-no-purezenteshon", "titleJp": "研究のプレゼンテーション", "title": "The Research Presentation", "dir": "data/custom/stories/kenkyuu-no-purezenteshon", "unlocksAfter": "N4.34" },
+        { "id": "okujou-no-konsaato", "titleJp": "屋上のコンサート", "title": "The Rooftop Concert", "dir": "data/custom/stories/okujou-no-konsaato", "unlocksAfter": "N4.34" }
+      ]
+    }
+  }
+}

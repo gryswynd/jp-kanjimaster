@@ -1,0 +1,793 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.14",
+  "title": "Review: Waiting, Meeting & Village Life",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 27-28.",
+    "kanji": ["待", "合", "夕", "度", "池", "林", "門", "村"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read the conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Two colleagues arranging where to meet before an evening conference.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今度の 会合は 夕方に あります。どこで 待ち合わせ しましょうか。",
+              "terms": [
+                "v_kondo",
+                "p_no",
+                "v_kaigou",
+                "p_wa",
+                "v_yuugata",
+                "p_ni",
+                { "id": "v_aru", "form": "polite_masu" },
+                "v_doko",
+                "p_de",
+                "v_machiawase",
+                { "id": "v_suru", "form": "polite_volitional_mashou" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "駅の 待ち合い室に しましょう。いい 所ですよ。",
+              "terms": [
+                "v_eki",
+                "p_no",
+                "v_machiaishitsu",
+                "p_ni",
+                { "id": "v_suru", "form": "polite_volitional_mashou" },
+                "v_ii",
+                "v_tokoro",
+                "g_desu",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "分かりました。夕方の 六時に 着いたら、すぐに 電話 します。",
+              "terms": [
+                { "id": "v_wakaru", "form": "polite_mashita" },
+                "v_yuugata",
+                "p_no",
+                { "counter": "ji", "n": 6 },
+                "p_ni",
+                { "id": "v_tsuku", "form": "conditional_tara" },
+                "v_sugu",
+                "p_ni",
+                "v_denwa",
+                { "id": "v_suru", "form": "polite_masu" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "急ぐ ように して ください。",
+              "terms": [
+                { "id": "v_isogu", "form": "plain_form" },
+                "v_you_manner",
+                "p_ni",
+                { "id": "v_suru", "form": "te_form" },
+                "v_kudasai"
+              ]
+            }
+          ],
+          "question": "Where do they decide to meet?",
+          "choices": [
+            "At the main gate.",
+            "At the station waiting room.",
+            "At the park.",
+            "At the school."
+          ],
+          "answer": "At the station waiting room.",
+          "explanation": "B suggests meeting at the station waiting room (駅の待ち合い室)."
+        },
+        {
+          "title": "Conversation 2 (Casual)",
+          "context": "Two close friends talking about a mountain village one of them visited.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "山村は どんな 所？",
+              "terms": [
+                "v_sanson",
+                "p_wa",
+                "v_donna",
+                "v_tokoro",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "林や 池が あって、とても きれいな 所だよ。",
+              "terms": [
+                "v_hayashi",
+                "p_ya",
+                "v_ike",
+                "p_ga",
+                { "id": "v_aru", "form": "te_form" },
+                "v_totemo",
+                { "id": "v_kirei", "form": "attributive_na" },
+                "v_tokoro",
+                "p_yo",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "村人は 毎日 何を して いる？",
+              "terms": [
+                "v_murabito",
+                "p_wa",
+                "v_mainichi",
+                "v_nani",
+                "p_wo",
+                { "id": "v_suru", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_form" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "山林で 仕事を したり 林の 中を 歩いたり して いるよ。",
+              "terms": [
+                "v_sanrin",
+                "p_de",
+                "v_shigoto",
+                "p_wo",
+                { "id": "v_suru", "form": "tari_form" },
+                "v_hayashi",
+                "p_no",
+                "v_naka",
+                "p_wo",
+                { "id": "v_aruku", "form": "tari_form" },
+                { "id": "v_suru", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_form" },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What is in the mountain village?",
+          "choices": [
+            "A grove and a pond.",
+            "A school and a station.",
+            "A mountain and a river.",
+            "A factory and a shop."
+          ],
+          "answer": "A grove and a pond.",
+          "explanation": "B mentions a grove (林) and a pond (池) in the village."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two close friends making plans for the Tanabata festival evening.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今年の 七夕は いっしょに 行かない？",
+              "terms": [
+                "v_kotoshi",
+                "p_no",
+                "v_tanabata",
+                "p_wa",
+                "v_issho",
+                { "id": "v_iku", "form": "plain_negative" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "行くよ！ 夕べから 心待ちに して いたよ。",
+              "terms": [
+                { "id": "v_iku", "form": "plain_form" },
+                "p_yo",
+                "v_yuube",
+                "p_kara",
+                "v_kokoromachi",
+                "p_ni",
+                { "id": "v_suru", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_past" },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "夕方に 待ち合わせ しようよ。林の 前で どう？",
+              "terms": [
+                "v_yuugata",
+                "p_ni",
+                "v_machiawase",
+                { "id": "v_suru", "form": "plain_volitional" },
+                "p_yo",
+                "v_hayashi",
+                "p_no",
+                "v_mae",
+                "p_de",
+                "v_dou",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいね！ 一度 見たら、また 行きたい って なるよ。",
+              "terms": [
+                "v_ii",
+                "p_ne",
+                "v_ichido",
+                { "id": "v_miru", "form": "conditional_tara" },
+                "v_mata",
+                { "id": "v_iku", "form": "plain_desire_tai" },
+                "p_tte_quote",
+                { "id": "v_naru", "form": "plain_form" },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What event are they planning to go to?",
+          "choices": [
+            "A sports match.",
+            "The Tanabata festival.",
+            "A village visit.",
+            "A club meeting."
+          ],
+          "answer": "The Tanabata festival.",
+          "explanation": "A invites B to go to the Tanabata festival (七夕) together."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Let's arrange to meet at the station waiting room.",
+          "segments": ["駅の", "待ち合い室で", "待ち合わせ", "しましょう"],
+          "distractors": ["正門で", "会合が", "林の中を"],
+          "explanation": "Station (Eki) + no + waiting room (Machiaishitsu) + de + Machiawase + Shimashou."
+        },
+        {
+          "kind": "scramble",
+          "q": "When you get near the main gate, please call right away.",
+          "segments": ["正門の", "近くに", "来たら", "すぐに", "電話して", "ください"],
+          "distractors": ["待ち合わせを", "夕方から", "池の"],
+          "explanation": "Seimon no + chikaku ni + kitara (conditional) + sugu ni + denwa shite + kudasai."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please make an effort to walk through the grove.",
+          "segments": ["林の中を", "歩く", "ように", "して", "ください"],
+          "distractors": ["会合の", "村人が", "夕飯を"],
+          "explanation": "Hayashi no naka wo + aruku + you ni + shite + kudasai."
+        },
+        {
+          "kind": "scramble",
+          "q": "There are mountain forests and ponds near the village.",
+          "segments": ["村の", "近くに", "山林や", "池が", "あります"],
+          "distractors": ["正門で", "待ち合わせを", "夕方の"],
+          "explanation": "Mura no + chikaku ni + sanrin ya + ike ga + arimasu."
+        },
+        {
+          "kind": "scramble",
+          "q": "If you go to the grove, you can also see the pond.",
+          "segments": ["林に", "行ったら", "池も", "見られます"],
+          "distractors": ["正門から", "待合で", "夕方に"],
+          "explanation": "Hayashi ni + ittara (conditional) + ike mo + miraremasu (potential)."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading 1 — Planning a Meeting",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "来週 先生の 会合が あります。",
+          "en": "Next week there will be a teacher's meeting.",
+          "terms": [
+            "v_raishuu",
+            "v_sensei",
+            "p_no",
+            "v_kaigou",
+            "p_ga",
+            { "id": "v_aru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "会合は 駅の 待ち合い室で あります。",
+          "en": "The meeting is at the station waiting room.",
+          "terms": [
+            "v_kaigou",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_machiaishitsu",
+            "p_de",
+            { "id": "v_aru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "先生は 夕方の 七時に 来る そうです。",
+          "en": "Apparently the teacher is coming at 7 in the evening.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_yuugata",
+            "p_no",
+            { "counter": "ji", "n": 7 },
+            "p_ni",
+            { "id": "v_kuru", "form": "plain_form" },
+            "p_sou_da_hearsay"
+          ]
+        },
+        {
+          "jp": "夕方に なると 先生が 正門で 待って います。",
+          "en": "When evening comes, the teacher waits at the main gate.",
+          "terms": [
+            "v_yuugata",
+            "p_ni",
+            { "id": "v_naru", "form": "plain_form" },
+            "p_to_conditional",
+            "v_sensei",
+            "p_ga",
+            "v_seimon",
+            "p_de",
+            { "id": "v_matsu", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "早く 来なければ いけません。",
+          "en": "You must come early.",
+          "terms": [
+            { "id": "v_hayai", "form": "adverbial" },
+            { "id": "v_kuru", "form": "nakereba" },
+            { "id": "v_ikeru", "form": "polite_negative" }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "会合は どこで ありますか。",
+          "a": "駅の 待ち合い室で あります。",
+          "choices": [
+            "駅の 待ち合い室で あります。",
+            "学校で あります。",
+            "正門の 前で あります。",
+            "林の 中で あります。"
+          ],
+          "terms": [
+            "v_kaigou",
+            "p_wa",
+            "v_doko",
+            "p_de",
+            { "id": "v_aru", "form": "polite_masu" },
+            "p_ka",
+            "v_eki",
+            "p_no",
+            "v_machiaishitsu"
+          ]
+        },
+        {
+          "q": "先生は 何時に 来ますか。",
+          "a": "夕方の 七時に 来ます。",
+          "choices": [
+            "夕方の 七時に 来ます。",
+            "夕方の 六時に 来ます。",
+            "朝の 七時に 来ます。",
+            "学校に 来ます。"
+          ],
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            { "id": "v_kuru", "form": "polite_masu" },
+            "p_ka",
+            "v_yuugata",
+            "p_no",
+            { "counter": "ji", "n": 7 }
+          ]
+        },
+        {
+          "q": "夕方に なると 先生は どこに いますか。",
+          "a": "正門で 待って います。",
+          "choices": [
+            "正門で 待って います。",
+            "駅で 待って います。",
+            "林の 前に います。",
+            "学校に います。"
+          ],
+          "terms": [
+            "v_yuugata",
+            "p_ni",
+            { "id": "v_naru", "form": "plain_form" },
+            "p_to_conditional",
+            "v_sensei",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            { "id": "v_iru", "form": "polite_masu" },
+            "p_ka",
+            "v_seimon",
+            "p_de",
+            { "id": "v_matsu", "form": "te_form" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 4: Reading 2 — A Mountain Village",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "小さい 山村に 村長と 村人が 住んで います。",
+          "en": "A village headman and villagers live in a small mountain village.",
+          "terms": [
+            "v_chiisai",
+            "v_sanson",
+            "p_ni",
+            "v_sonchou",
+            "p_to",
+            "v_murabito",
+            "p_ga",
+            { "id": "v_sumu", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "村の 近くに 山林や 林や 池が あります。",
+          "en": "Near the village there are mountain forests, groves, and ponds.",
+          "terms": [
+            "v_mura",
+            "p_no",
+            { "id": "v_chikai", "form": "adverbial" },
+            "p_ni",
+            "v_sanrin",
+            "p_ya",
+            "v_hayashi",
+            "p_ya",
+            "v_ike",
+            "p_ga",
+            { "id": "v_aru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "村長は 毎朝 正門を 出て から 山林の 中を 歩きます。",
+          "en": "The village headman leaves through the main gate every morning and walks through the mountain forest.",
+          "terms": [
+            "v_sonchou",
+            "p_wa",
+            "v_maiasa",
+            "v_seimon",
+            "p_wo",
+            { "id": "v_deru", "form": "te_form" },
+            "p_tekara",
+            "v_sanrin",
+            "p_no",
+            "v_naka",
+            "p_wo",
+            { "id": "v_aruku", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "池の 水は きれいで 木も たくさん あります。",
+          "en": "The pond water is clean, and there are also many trees.",
+          "terms": [
+            "v_ike",
+            "p_no",
+            "v_mizu",
+            "p_wa",
+            { "id": "v_kirei", "form": "te_form" },
+            "v_ki",
+            "p_mo",
+            "v_takusan",
+            { "id": "v_aru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "村長は 池の 近くの 店で 電池を 買います。",
+          "en": "The village headman buys batteries at the shop near the pond.",
+          "terms": [
+            "v_sonchou",
+            "p_wa",
+            "v_ike",
+            "p_no",
+            { "id": "v_chikai", "form": "adverbial" },
+            "p_no",
+            "v_mise",
+            "p_de",
+            "v_denchi",
+            "p_wo",
+            { "id": "v_kau", "form": "polite_masu" }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "村の 近くに 何が ありますか。",
+          "a": "山林や 林や 池が あります。",
+          "choices": [
+            "山林や 林や 池が あります。",
+            "学校と 店が あります。",
+            "駅と 町が あります。",
+            "正門と 校門が あります。"
+          ],
+          "terms": [
+            "v_mura",
+            "p_no",
+            { "id": "v_chikai", "form": "adverbial" },
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            { "id": "v_aru", "form": "polite_masu" },
+            "p_ka",
+            "v_sanrin",
+            "p_ya",
+            "v_hayashi",
+            "v_ike"
+          ]
+        },
+        {
+          "q": "村長は 毎朝 何を しますか。",
+          "a": "正門を 出て から 山林の 中を 歩きます。",
+          "choices": [
+            "正門を 出て から 山林の 中を 歩きます。",
+            "正門の 前で 待ち合わせ します。",
+            "電池を 買いに 行きます。",
+            "池の 近くで 仕事を します。"
+          ],
+          "terms": [
+            "v_sonchou",
+            "p_wa",
+            "v_maiasa",
+            "v_nani",
+            "p_wo",
+            { "id": "v_suru", "form": "polite_masu" },
+            "p_ka",
+            "v_seimon",
+            { "id": "v_deru", "form": "te_form" },
+            "p_tekara",
+            "v_sanrin",
+            "p_no",
+            "v_naka",
+            { "id": "v_aruku", "form": "polite_masu" }
+          ]
+        },
+        {
+          "q": "電池は どこで 買いますか。",
+          "a": "池の 近くの 店で 買います。",
+          "choices": [
+            "池の 近くの 店で 買います。",
+            "校門の 前の 店で 買います。",
+            "駅の 中で 買います。",
+            "山林の 中で 買います。"
+          ],
+          "terms": [
+            "v_denchi",
+            "p_wa",
+            "v_doko",
+            "p_de",
+            { "id": "v_kau", "form": "polite_masu" },
+            "p_ka",
+            "v_ike",
+            "p_no",
+            { "id": "v_chikai", "form": "adverbial" },
+            "v_mise"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[待ち合わせ]を します。",
+          "choices": ["まちあわせ", "たちあわせ", "まちあいせ", "うちあわせ"],
+          "answer": "まちあわせ",
+          "explanation": "待ち合わせ (meeting arrangement) is read as <b>machiawase</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[夕方]に 帰ります。",
+          "choices": ["ゆうがた", "せきほう", "ゆうほう", "せきがた"],
+          "answer": "ゆうがた",
+          "explanation": "夕方 (evening) is read as <b>yuugata</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[何度]も 来ました。",
+          "choices": ["なんど", "なんたく", "いくど", "なにど"],
+          "answer": "なんど",
+          "explanation": "何度 (how many times) is read as <b>nando</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[今度]の 会合です。",
+          "choices": ["こんど", "いまど", "こうど", "こんたく"],
+          "answer": "こんど",
+          "explanation": "今度 (this time / next time) is read as <b>kondo</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[池]が あります。",
+          "choices": ["いけ", "ちょ", "ため", "うみ"],
+          "answer": "いけ",
+          "explanation": "池 (pond) is read as <b>ike</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[山林]を 歩きます。",
+          "choices": ["さんりん", "やまはやし", "さんもり", "やまりん"],
+          "answer": "さんりん",
+          "explanation": "山林 (mountain forest) is read as <b>sanrin</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "学校の [正門]。",
+          "choices": ["せいもん", "しょうもん", "ただもん", "まさかど"],
+          "answer": "せいもん",
+          "explanation": "正門 (main gate) is read as <b>seimon</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[村人]が います。",
+          "choices": ["むらびと", "むらひと", "そんにん", "むらじん"],
+          "answer": "むらびと",
+          "explanation": "村人 (villager) is read as <b>murabito</b>."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "明日 駅の ______ で 待ち合わせ します。",
+          "choices": ["待ち合い室", "林", "池", "正門"],
+          "answer": "待ち合い室",
+          "explanation": "You arrange to meet at the station waiting room (待ち合い室).",
+          "terms": [
+            "v_ashita",
+            "v_eki",
+            "p_no",
+            "p_de",
+            "v_machiawase",
+            { "id": "v_suru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "カメラで 写真を とりたいですが、______ が ありません。",
+          "choices": ["電池", "村人", "会合", "夕方"],
+          "answer": "電池",
+          "explanation": "I want to take a photo with my camera, but I have no battery (電池).",
+          "terms": [
+            "v_kamera",
+            "p_de",
+            "v_shashin",
+            "p_wo",
+            { "id": "v_toru", "form": "plain_desire_tai" },
+            "g_desu",
+            "p_ga_but",
+            "p_ga",
+            { "id": "v_aru", "form": "plain_negative" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "林の 中に 小さい ______ が あります。",
+          "choices": ["池", "会合", "夕方", "電池"],
+          "answer": "池",
+          "explanation": "There is a small pond (池) in the grove.",
+          "terms": [
+            "v_hayashi",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_chiisai",
+            "p_ga",
+            { "id": "v_aru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "学校の ______ の 前に 来て ください。",
+          "choices": ["校門", "池", "夕方", "度合い"],
+          "answer": "校門",
+          "explanation": "Please come in front of the school gate (校門).",
+          "terms": [
+            "v_gakkou",
+            "p_no",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            { "id": "v_kuru", "form": "te_form" },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 7: Grammar Check",
+      "instructions": "Choose the correct particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "夕飯までに 帰ら ______ いけません。",
+          "choices": ["なければ", "なくて", "ないで", "ないから"],
+          "answer": "なければ",
+          "explanation": "Nakereba + ikemasen = 'must return by dinnertime' (なければいけない).",
+          "terms": [
+            "v_yuuhan",
+            "p_made_ni",
+            { "id": "v_kaeru", "form": "nakereba" },
+            { "id": "v_ikeru", "form": "polite_negative" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 林の 中を 歩く ______ して います。",
+          "choices": ["ように", "ために", "のに", "てから"],
+          "answer": "ように",
+          "explanation": "You ni + shite iru = 'making an effort to walk through the grove every day'.",
+          "terms": [
+            "v_mainichi",
+            "v_hayashi",
+            "p_no",
+            "v_naka",
+            "p_wo",
+            { "id": "v_aruku", "form": "plain_form" },
+            { "id": "v_suru", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "正門に 来 ______ 電話 して ください。",
+          "choices": ["たら", "てから", "ないで", "ながら"],
+          "answer": "たら",
+          "explanation": "Kitara = 'when/if you come to the main gate, please call' (conditional たら).",
+          "terms": [
+            "v_seimon",
+            "p_ni",
+            { "id": "v_kuru", "form": "conditional_tara" },
+            "v_denwa",
+            { "id": "v_suru", "form": "te_form" },
+            "v_kudasai"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "何度も 運動 ______ 上手に なります。",
+          "choices": ["すれば", "したから", "するのに", "するため"],
+          "answer": "すれば",
+          "explanation": "Sureba = 'if you exercise many times, you will become skilled' (conditional ば).",
+          "terms": [
+            "v_nando",
+            "p_mo",
+            "v_undou",
+            { "id": "v_suru", "form": "conditional_ba" },
+            "v_jouzu",
+            "p_ni",
+            { "id": "v_naru", "form": "polite_masu" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1519 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.15",
+  "title": "Health & Life",
+  "meta": {
+    "level": "N4",
+    "lesson_number": 15,
+    "focus": "Medical terminology, illness, hospitals, doctors, and life and death concepts.",
+    "estimated_minutes": 30,
+    "kanji": [
+      "薬",
+      "病",
+      "院",
+      "医",
+      "者",
+      "死"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "薬",
+      "on": "やく",
+      "kun": "くすり",
+      "meaning": "medicine / drug",
+      "termId": "k_kusuri"
+    },
+    {
+      "kanji": "病",
+      "on": "びょう",
+      "kun": "や(む)",
+      "meaning": "ill / sick",
+      "termId": "k_byou"
+    },
+    {
+      "kanji": "院",
+      "on": "いん",
+      "kun": "(なし)",
+      "meaning": "institution / temple",
+      "termId": "k_in_2"
+    },
+    {
+      "kanji": "医",
+      "on": "い",
+      "kun": "(なし)",
+      "meaning": "doctor / medicine",
+      "termId": "k_i_4"
+    },
+    {
+      "kanji": "者",
+      "on": "しゃ",
+      "kun": "もの",
+      "meaning": "someone / person",
+      "termId": "k_sha"
+    },
+    {
+      "kanji": "死",
+      "on": "し",
+      "kun": "し(ぬ)",
+      "meaning": "death / to die",
+      "termId": "k_shi_2"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Review what you already know with these questions:",
+      "items": [
+        {
+          "jp": "毎日、お茶だけ 飲みますか。",
+          "en": "Do you drink only tea every day?",
+          "terms": [
+            "v_mainichi",
+            "v_ocha",
+            "p_dake",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "兄は 会社で 働いています。",
+          "en": "My older brother works at a company.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "大学で 何を 学びたいですか。",
+          "en": "What do you want to learn at university?",
+          "terms": [
+            "v_daigaku",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "体は 元気ですか。",
+          "en": "Is your body healthy?",
+          "terms": [
+            "v_karada",
+            "p_wa",
+            {
+              "id": "v_genki",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "薬",
+          "on": "やく",
+          "kun": "くすり",
+          "meaning": "medicine",
+          "terms": [
+            "k_kusuri",
+            "v_kusuri",
+            "v_megusuri",
+            "v_nomigusuri"
+          ]
+        },
+        {
+          "kanji": "病",
+          "on": "びょう",
+          "kun": "や",
+          "meaning": "sick",
+          "terms": [
+            "k_byou",
+            "v_byouki",
+            "v_byouin",
+            "v_byoushi"
+          ]
+        },
+        {
+          "kanji": "院",
+          "on": "いん",
+          "kun": "(なし)",
+          "meaning": "institution",
+          "terms": [
+            "k_in_2",
+            "v_byouin",
+            "v_gakuin",
+            "v_daigakuin",
+            "v_nyuuin"
+          ]
+        },
+        {
+          "kanji": "医",
+          "on": "い",
+          "kun": "(なし)",
+          "meaning": "doctor",
+          "terms": [
+            "k_i_4",
+            "v_isha",
+            "v_igaku"
+          ]
+        },
+        {
+          "kanji": "者",
+          "on": "しゃ",
+          "kun": "もの",
+          "meaning": "person",
+          "terms": [
+            "k_sha",
+            "v_isha",
+            "v_gakusha",
+            "v_shisha",
+            "v_mono_2"
+          ]
+        },
+        {
+          "kanji": "死",
+          "on": "し",
+          "kun": "し(ぬ)",
+          "meaning": "death",
+          "terms": [
+            "k_shi_2",
+            "v_shinu",
+            "v_byoushi",
+            "v_shisha",
+            "v_shinin"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Medical & Hospital",
+          "items": [
+            "v_byouin",
+            "v_byouki",
+            "v_nyuuin",
+            "v_isha",
+            "v_kusuri",
+            "v_megusuri",
+            "v_nomigusuri"
+          ]
+        },
+        {
+          "label": "Scholar & Academic",
+          "items": [
+            "v_gakusha",
+            "v_gakuin",
+            "v_daigakuin",
+            "v_igaku"
+          ]
+        },
+        {
+          "label": "Life, Death & People",
+          "items": [
+            "v_shinu",
+            "v_byoushi",
+            "v_shisha",
+            "v_shinin",
+            "v_mono_2",
+            "v_tsukareru"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: At the Hospital",
+      "context": "A patient visits a doctor at a hospital.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "今日は どう しましたか。",
+          "en": "What seems to be the problem today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "先生、頭が いたいですし、少し つかれていますし、休みたいです。",
+          "en": "Doctor, my head hurts, and I'm a little tired, so I want to rest.",
+          "terms": [
+            "v_sensei",
+            "v_atama",
+            "p_ga",
+            {
+              "id": "v_itai",
+              "form": "polite_adj"
+            },
+            "p_shi",
+            "v_sukoshi",
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_shi",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "体の どこが いたいですか。首も いたいですか。",
+          "en": "Where on your body does it hurt? Does your neck hurt too?",
+          "terms": [
+            "v_karada",
+            "p_no",
+            "v_doko",
+            "p_ga",
+            {
+              "id": "v_itai",
+              "form": "polite_adj"
+            },
+            "p_ka",
+            "v_kubi",
+            "p_mo",
+            {
+              "id": "v_itai",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、首も いたいです。",
+          "en": "Yes, my neck hurts too.",
+          "terms": [
+            "p_hai",
+            "v_kubi",
+            "p_mo",
+            {
+              "id": "v_itai",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "病気ですね。この 薬を 飲んで ください。",
+          "en": "It is an illness. Please take this medicine.",
+          "terms": [
+            "v_byouki",
+            "g_desu",
+            "p_ne",
+            "v_kono",
+            "v_kusuri",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "分かりました。ありがとうございます。",
+          "en": "I understand. Thank you very much.",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "p_arigatou_gozaimasu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Career Discussion",
+      "context": "Two university students discuss their future career plans.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "大学を 出て、大学院に 行きたいですか。",
+          "en": "Do you want to go to graduate school after university?",
+          "terms": [
+            "v_daigaku",
+            "p_wo",
+            {
+              "id": "v_deru",
+              "form": "te_form"
+            },
+            "v_daigakuin",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、医学を 学びたいです。医者に なりたいですから。",
+          "en": "Yes, I want to study medical science. Because I want to become a doctor.",
+          "terms": [
+            "p_hai",
+            "v_igaku",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_isha",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "すごいですね。有名な 学者に なれますよ。",
+          "en": "That is amazing. You can become a famous scholar.",
+          "terms": [
+            {
+              "id": "v_sugoi",
+              "form": "polite_adj"
+            },
+            "p_ne",
+            {
+              "id": "v_yuumei",
+              "form": "attributive_na"
+            },
+            "v_gakusha",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_potential"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "ありがとうございます。つかれても、医学を 学びたいです！",
+          "en": "Thank you. Even if I get tired, I want to study medical science!",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_igaku",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: At the Pharmacy",
+      "context": "A customer asks about medicine at a pharmacy.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "すみません。目薬は ありますか。",
+          "en": "Excuse me. Do you have eye drops?",
+          "terms": [
+            "p_sumimasen",
+            "v_megusuri",
+            "p_wa",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、あります。飲み薬も ありますよ。",
+          "en": "Yes, we do. We also have oral medicine.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_nomigusuri",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "目薬を 使っても、目が 赤いです。飲み薬も 使いたいです。",
+          "en": "Even if I use eye drops, my eyes are red. I want to use oral medicine too.",
+          "terms": [
+            "v_megusuri",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_me",
+            "p_ga",
+            {
+              "id": "v_akai",
+              "form": "polite_adj"
+            },
+            "v_nomigusuri",
+            "p_mo",
+            {
+              "id": "v_tsukau",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "分かりました。これを 使って ください。毎日 使って ください。",
+          "en": "I understand. Please use this. Please use it every day.",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_kore",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_mainichi",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "薬だけで いいですか。",
+          "en": "Is medicine alone sufficient?",
+          "terms": [
+            "v_kusuri",
+            "p_dake",
+            "p_de",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、薬だけで いいですよ。",
+          "en": "Yes, medicine alone is sufficient.",
+          "terms": [
+            "p_hai",
+            "v_kusuri",
+            "p_dake",
+            "p_de",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Tired Friends (Casual)",
+      "context": "Two university friends chat about their health after a long week.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "今週も つかれたね。",
+          "en": "We're tired again this week, huh.",
+          "terms": [
+            "v_konshuu",
+            "p_mo",
+            {
+              "id": "v_tsukareru",
+              "form": "plain_past"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん、毎日 いそがしいけど、体は 元気だよ。",
+          "en": "Yeah, every day is busy, but my body is doing well.",
+          "terms": [
+            "v_un",
+            "v_mainichi",
+            {
+              "id": "v_isogashii",
+              "form": "plain_form"
+            },
+            "p_kedo",
+            "v_karada",
+            "p_wa",
+            "v_genki",
+            "p_yo",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "それは よかった。私は 薬しか 飲まなかった。",
+          "en": "That's good to hear. I only took medicine.",
+          "terms": [
+            "v_sore",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "v_watashi",
+            "p_wa",
+            "v_kusuri",
+            "p_shika",
+            {
+              "id": "v_nomu",
+              "form": "plain_past_negative"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "えっ、病気だった？",
+          "en": "Eh, were you sick?",
+          "terms": [
+            "v_e",
+            "v_byouki",
+            {
+              "id": "g_da",
+              "form": "da_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "うん、少し つかれていたけど、もう 元気だよ。",
+          "en": "Yeah, I was a bit tired, but I'm well now.",
+          "terms": [
+            "v_un",
+            "v_sukoshi",
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_past"
+            },
+            "p_kedo",
+            "v_mou",
+            "v_genki",
+            "p_yo",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "休んだほうが よかったね。",
+          "en": "It would have been better to rest.",
+          "terms": [
+            {
+              "id": "v_yasumu",
+              "form": "plain_past"
+            },
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: A Long Life",
+      "passage": [
+        {
+          "jp": "有名な 学者が いました。",
+          "en": "There was a famous scholar.",
+          "terms": [
+            {
+              "id": "v_yuumei",
+              "form": "attributive_na"
+            },
+            "v_gakusha",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "この 人は 医学の 本を たくさん 書きました。",
+          "en": "This person wrote many books on medical science.",
+          "terms": [
+            "v_kono",
+            "v_hito",
+            "p_wa",
+            "v_igaku",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            "v_takusan",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "先月、大きい 病院で 死にました。",
+          "en": "Last month, he passed away at a large hospital.",
+          "terms": [
+            "v_sengetsu",
+            "v_ookii",
+            "v_byouin",
+            "p_de",
+            {
+              "id": "v_shinu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "「長い 人生でした」と 家族が 言いました。",
+          "en": "His family said, \"It was a long life.\"",
+          "terms": [
+            "v_nagai",
+            "v_jinsei",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_to_quote",
+            "v_kazoku",
+            "p_ga",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "病死では ありませんでした。古くて 長い 人生でした。",
+          "en": "It was not death from illness. It was an old and long life.",
+          "terms": [
+            "v_byoushi",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "polite_past_negative"
+            },
+            {
+              "id": "v_furui",
+              "form": "te_form"
+            },
+            "v_nagai",
+            "v_jinsei",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            }
+          ]
+        },
+        {
+          "jp": "死者ですが、本は 今でも あります。",
+          "en": "He is a deceased person, but his books are here even now.",
+          "terms": [
+            "v_shisha",
+            "g_desu",
+            "p_ga_but",
+            "v_hon",
+            "p_wa",
+            "v_ima",
+            "p_demo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "学者は 何を 書きましたか。",
+          "q_en": "What did the scholar write?",
+          "a": "医学の 本を 書きました。",
+          "a_en": "He wrote many books on medicine.",
+          "terms": [
+            "v_gakusha",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_igaku",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "どこで 死にましたか。",
+          "q_en": "Where did he die?",
+          "a": "大きい 病院で 死にました。",
+          "a_en": "He died at a large hospital.",
+          "terms": [
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_shinu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ookii",
+            "v_byouin",
+            "p_de",
+            {
+              "id": "v_shinu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "病死でしたか。",
+          "q_en": "Was it a disease-related death?",
+          "a": "いいえ、病死ではありませんでした。",
+          "a_en": "No, it was not a disease-related death.",
+          "terms": [
+            "v_byoushi",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_iie",
+            "v_byoushi",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "q": "家族は 何と 言いましたか。",
+          "q_en": "What did the family say?",
+          "a": "「長い 人生でした」と 言いました。",
+          "a_en": "They said it was a long life.",
+          "terms": [
+            "v_kazoku",
+            "p_wa",
+            "v_nani",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_nagai",
+            "v_jinsei",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: My Family's Doctor",
+      "passage": [
+        {
+          "jp": "私の 兄は 医者です。",
+          "en": "My older brother is a doctor.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_ani",
+            "p_wa",
+            "v_isha",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "大きい 病院で 働いています。",
+          "en": "He is working at a large hospital.",
+          "terms": [
+            "v_ookii",
+            "v_byouin",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日、たくさんの 病気の 人に 会います。",
+          "en": "Every day, he meets many sick people.",
+          "terms": [
+            "v_mainichi",
+            "v_takusan",
+            "p_no",
+            "v_byouki",
+            "p_no",
+            "v_hito",
+            "p_ni",
+            {
+              "id": "v_au",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "兄は いつも つかれていますが、入院より 仕事の ほうが 楽しいと 言っています。",
+          "en": "My brother is always tired, but he says work is more enjoyable than being hospitalized.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_itsumo",
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ga_but",
+            "v_nyuuin",
+            "p_yori",
+            "v_shigoto",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_tanoshii",
+              "form": "plain_form"
+            },
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "私も 医者に なりたいです。",
+          "en": "I also want to become a doctor.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_isha",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "兄の 仕事は 何ですか。",
+          "q_en": "What is the older brother's job?",
+          "a": "医者です。",
+          "a_en": "He is a doctor.",
+          "terms": [
+            "v_ani",
+            "p_no",
+            "v_shigoto",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_isha",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "兄は どんな 病院で 働いていますか。",
+          "q_en": "What kind of hospital does the older brother work at?",
+          "a": "大きい 病院で 働いています。",
+          "a_en": "He works at a large hospital.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_donna",
+            "v_byouin",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ookii",
+            "v_byouin",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "兄は 仕事が 楽しいと 言っていますか。",
+          "q_en": "Does the older brother say work is enjoyable?",
+          "a": "はい、仕事が 楽しいと 言っています。",
+          "a_en": "Yes, he says work is more enjoyable than being in the hospital.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_shigoto",
+            "p_ga",
+            {
+              "id": "v_tanoshii",
+              "form": "plain_form"
+            },
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_shigoto",
+            "p_ga",
+            {
+              "id": "v_tanoshii",
+              "form": "plain_form"
+            },
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "私は 何に なりたいですか。",
+          "q_en": "What does the narrator want to become?",
+          "a": "医者に なりたいです。",
+          "a_en": "They want to become a doctor.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_nani",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_isha",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[薬] の よみかたは？",
+          "choices": [
+            "くすり",
+            "やく",
+            "くさ",
+            "はな"
+          ],
+          "answer": "くすり"
+        },
+        {
+          "kind": "mcq",
+          "q": "[病気] の よみかたは？",
+          "choices": [
+            "びょうき",
+            "やまき",
+            "びょうかん",
+            "やむき"
+          ],
+          "answer": "びょうき"
+        },
+        {
+          "kind": "mcq",
+          "q": "[病院] の よみかたは？",
+          "choices": [
+            "びょういん",
+            "くすりいん",
+            "びょうかん",
+            "やみいん"
+          ],
+          "answer": "びょういん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[医者] の よみかたは？",
+          "choices": [
+            "いしゃ",
+            "いもの",
+            "くすしゃ",
+            "こうしゃ"
+          ],
+          "answer": "いしゃ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[学者] の よみかたは？",
+          "choices": [
+            "がくしゃ",
+            "まなびもの",
+            "がくいん",
+            "まなぶしゃ"
+          ],
+          "answer": "がくしゃ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[死ぬ] の よみかたは？",
+          "choices": [
+            "しぬ",
+            "やむ",
+            "きえる",
+            "おわる"
+          ],
+          "answer": "しぬ"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the word that best completes each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "______ なので、学校を 休みます。",
+          "choices": [
+            "病気",
+            "病院",
+            "死語",
+            "入院"
+          ],
+          "answer": "病気",
+          "terms": [
+            "v_byouki",
+            "p_node",
+            "v_gakkou",
+            "p_wo",
+            {
+              "id": "v_yasumu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "頭が いたいので、______ を 飲みました。",
+          "choices": [
+            "薬",
+            "医学",
+            "学者",
+            "入院"
+          ],
+          "answer": "薬",
+          "terms": [
+            "v_atama",
+            "p_ga",
+            {
+              "id": "v_itai",
+              "form": "plain_form"
+            },
+            "p_node",
+            "v_kusuri",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "大学を 出て、______ に 行きたいです。",
+          "choices": [
+            "大学院",
+            "病院",
+            "学院",
+            "医学"
+          ],
+          "answer": "大学院",
+          "terms": [
+            "v_daigaku",
+            "p_wo",
+            {
+              "id": "v_deru",
+              "form": "te_form"
+            },
+            "v_daigakuin",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "______ が あります。病気の 時に 飲みます。",
+          "choices": [
+            "飲み薬",
+            "目薬",
+            "お茶",
+            "入院"
+          ],
+          "answer": "飲み薬",
+          "terms": [
+            "v_nomigusuri",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_byouki",
+            "p_no",
+            "v_toki",
+            "p_ni",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "病院で 仕事を して います。この 人は ______ です。",
+          "choices": [
+            "医者",
+            "学者",
+            "死者",
+            "死人"
+          ],
+          "answer": "医者",
+          "terms": [
+            "v_byouin",
+            "p_de",
+            "v_shigoto",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_kono",
+            "v_hito",
+            "p_wa",
+            "v_isha",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Grammar & Forms）",
+      "instructions": "Choose the correct particle or word form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 お茶 ______ 飲みません。飲み物は お茶だけ 飲みます。",
+          "choices": [
+            "しか",
+            "だけ",
+            "も",
+            "より"
+          ],
+          "answer": "しか",
+          "terms": [
+            "v_mainichi",
+            "v_ocha",
+            "p_shika",
+            {
+              "id": "v_nomu",
+              "form": "polite_negative"
+            },
+            "v_nomimono",
+            "p_wa",
+            "v_ocha",
+            "p_dake",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "医学を 学ぶ ため ______ 、大学院に 行きます。",
+          "choices": [
+            "に",
+            "で",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_igaku",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "plain_form"
+            },
+            "v_tame",
+            "p_ni",
+            "v_daigakuin",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "大学院は いそがしい ______、楽しいです。",
+          "choices": [
+            "のに",
+            "ので",
+            "から",
+            "けど"
+          ],
+          "answer": "のに",
+          "terms": [
+            "v_daigakuin",
+            "p_wa",
+            {
+              "id": "v_isogashii",
+              "form": "plain_form"
+            },
+            "p_noni",
+            {
+              "id": "v_tanoshii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "医者に なる ______ 、医学を 学んで います。",
+          "choices": [
+            "ために",
+            "のに",
+            "なのに",
+            "ながら"
+          ],
+          "answer": "ために",
+          "terms": [
+            "v_isha",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "v_tame",
+            "p_ni",
+            "v_igaku",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 薬を 飲んで ______。",
+          "choices": [
+            "ください",
+            "います",
+            "いました",
+            "ありません"
+          ],
+          "answer": "ください",
+          "terms": [
+            "v_kono",
+            "v_kusuri",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "大学院で 医学を 学び ______。",
+          "choices": [
+            "られます",
+            "られました",
+            "ません",
+            "ました"
+          ],
+          "answer": "られます",
+          "terms": [
+            "v_daigakuin",
+            "p_de",
+            "v_igaku",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "polite_potential"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

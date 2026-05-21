@@ -1,0 +1,371 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.29",
+  "lesson": "N4.29",
+  "level": "N4",
+  "title": "Typhoon Preparation",
+  "titleJp": "台風の じゅんび",
+  "emoji": "🌀",
+  "theme": "Write about a day spent preparing for an incoming typhoon — from hearing the news and checking the clock, to planning, measuring supplies, staying on high ground, notifying family, and reflecting on the storm's aftermath.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you heard a typhoon is coming. Use 台風.",
+      "targets": [
+        {
+          "id": "v_taifuu",
+          "count": 1
+        }
+      ],
+      "model": "台風が 来ると 聞きました。",
+      "vocabPool": [
+        "v_taifuu",
+        "v_kiku",
+        "v_kuru",
+        "v_iu",
+        "v_hayai",
+        "v_ima",
+        "v_kyou",
+        "p_ga",
+        "p_to_quote",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that you immediately checked your clock and it was already afternoon. Use 時計.",
+      "targets": [
+        {
+          "id": "v_tokei",
+          "count": 1
+        }
+      ],
+      "model": "すぐ 時計を 見たら、もう 午後でした。",
+      "vocabPool": [
+        "v_tokei",
+        "v_miru",
+        "v_gogo",
+        "v_ima",
+        "v_hayai",
+        "v_taifuu",
+        "g_desu",
+        "p_wo",
+        "p_to_conditional"
+      ]
+    },
+    {
+      "prompt": "Write that you had to make a plan right away. Use なければいけない and 計画.",
+      "targets": [
+        {
+          "id": "v_keikaku",
+          "count": 1
+        }
+      ],
+      "model": "すぐ 計画しなければ いけませんでした。",
+      "vocabPool": [
+        "v_keikaku",
+        "v_suru",
+        "v_ima",
+        "v_hayai",
+        "v_taifuu",
+        "v_tokei",
+        "g_desu",
+        "p_wo",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that your house is on high ground, so it is safer than other places. Use より and 高台.",
+      "targets": [
+        {
+          "id": "v_takadai",
+          "count": 1
+        }
+      ],
+      "model": "家は 高台に あるので、ほかの 所より よかったです。",
+      "vocabPool": [
+        "v_takadai",
+        "v_ie",
+        "v_hoka",
+        "v_tokoro",
+        "v_aru",
+        "g_desu",
+        "p_wa",
+        "p_ni",
+        "p_yori",
+        "p_node"
+      ]
+    },
+    {
+      "prompt": "Write that you measured your water and food supplies. Write that water was more than enough (use 以上 and 計る) but food was below what you needed (use 以下).",
+      "targets": [
+        {
+          "id": "v_ijou",
+          "count": 1
+        },
+        {
+          "id": "v_hakaru",
+          "count": 1
+        },
+        {
+          "id": "v_ika",
+          "count": 1
+        }
+      ],
+      "model": "水を 計ったら、五リットル 以上 ありました。食べ物は 三日分 以下でした。",
+      "vocabPool": [
+        "v_ijou",
+        "v_ika",
+        "v_hakaru",
+        "v_mizu",
+        "v_takusan",
+        "v_aru",
+        "v_keikaku",
+        "g_desu",
+        "p_wo",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that you also checked food other than rice. Use 以外.",
+      "targets": [
+        {
+          "id": "v_igai2",
+          "count": 1
+        }
+      ],
+      "model": "ご飯以外の 食べ物も 見ました。",
+      "vocabPool": [
+        "v_igai2",
+        "v_gohan",
+        "v_tabemono",
+        "v_miru",
+        "v_aru",
+        "v_takusan",
+        "g_desu",
+        "p_no",
+        "p_mo",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that you notified your family about the typhoon. Use 知らせる.",
+      "targets": [
+        {
+          "id": "v_shiraseru",
+          "count": 1
+        }
+      ],
+      "model": "家族に 台風の ことを 知らせました。",
+      "vocabPool": [
+        "v_shiraseru",
+        "v_kazoku",
+        "v_taifuu",
+        "v_denwa",
+        "v_oshieru",
+        "v_keikaku",
+        "g_desu",
+        "p_ni",
+        "p_no",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that you made an effort to learn more about the typhoon. Use ようにする and 知る.",
+      "targets": [
+        {
+          "id": "v_shiru",
+          "count": 1
+        }
+      ],
+      "model": "台風の ことを もっと 知る ように しました。",
+      "vocabPool": [
+        "v_shiru",
+        "v_you_manner",
+        "v_taifuu",
+        "v_motto",
+        "v_kiku",
+        "v_miru",
+        "v_suru",
+        "g_desu",
+        "p_wo",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you used one appliance in the kitchen during the typhoon. Use 一台 and 台所.",
+      "targets": [
+        {
+          "id": "v_ichidai",
+          "count": 1
+        },
+        {
+          "id": "v_daidokoro",
+          "count": 1
+        }
+      ],
+      "model": "台風の とき、台所で テレビを 一台 つけました。",
+      "vocabPool": [
+        "v_ichidai",
+        "v_daidokoro",
+        "v_terebi",
+        "v_tsukau",
+        "v_taifuu",
+        "v_ie",
+        "g_desu",
+        "p_de",
+        "p_wo",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that the typhoon left damage that felt immeasurable, but your preparations helped. Use 計り知れない.",
+      "targets": [
+        {
+          "id": "v_hakarishirenai",
+          "count": 1
+        }
+      ],
+      "model": "台風の 力は 計り知れないですが、計画を して おいて よかったです。",
+      "vocabPool": [
+        "v_hakarishirenai",
+        "v_taifuu",
+        "v_chikara",
+        "v_keikaku",
+        "v_ii",
+        "v_suru",
+        "v_iru",
+        "g_desu",
+        "p_wa",
+        "p_ga_but"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "During a different storm, you text a shy friend who tends to avoid people. Encourage them in casual language to overcome their 人見知り and reach out to neighbors during emergencies. Use ようになる.",
+      "targets": [
+        {
+          "id": "v_hitomishiri",
+          "count": 1
+        }
+      ],
+      "model": "台風の とき、人見知りを しないで、近所の 人と 話せる ように なってね。",
+      "vocabPool": [
+        "v_hitomishiri",
+        "v_you_manner",
+        "v_kinjo",
+        "v_hanasu",
+        "v_naru",
+        "v_taifuu",
+        "v_tomodachi",
+        "v_ie",
+        "g_da",
+        "p_no",
+        "p_to",
+        "p_ni",
+        "p_de"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_ya",
+    "p_dewa",
+    "p_ga_but",
+    "p_kedo",
+    "p_node",
+    "p_hodo",
+    "p_yori",
+    "p_dake",
+    "p_shika",
+    "p_made",
+    "p_made_ni",
+    "p_bakari",
+    "p_demo",
+    "p_shi",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_demo_but",
+    "p_sou_da",
+    "p_sou_da_hearsay",
+    "p_tte_quote",
+    "p_zutsu",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-た] + ら",
+      "meaning": "when / after [verb] (conditional — event sequence)",
+      "examples": [
+        "時計を 見たら、もう 午後でした",
+        "水を 計ったら、たくさん ありました",
+        "高台に 着いたら、家族に 知らせました"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + する",
+      "meaning": "make an effort to / try to [verb]",
+      "examples": [
+        "台風の ことを 知る ように しました",
+        "毎日 計画する ように して います",
+        "家族に 知らせる ように して ください"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + なる",
+      "meaning": "come to be able to / come to do (change of state)",
+      "examples": [
+        "近所の 人と 話せる ように なりました",
+        "台風の 計画が 上手に できる ように なりました",
+        "水を 計る ように なりました"
+      ]
+    },
+    {
+      "pattern": "[verb-なければ] + いけない",
+      "meaning": "must [verb] / have to [verb] (obligation)",
+      "examples": [
+        "すぐ 計画しなければ いけませんでした",
+        "水を 計らなければ いけません",
+        "家族に 知らせなければ いけません"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + から",
+      "meaning": "after doing [verb] (sequential actions)",
+      "examples": [
+        "台風を 知って から、すぐ 計画を しました",
+        "水を 計って から、食べ物を 見ました",
+        "家族に 知らせて から、台所で テレビを つけました"
+      ]
+    },
+    {
+      "pattern": "[plain past] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay)",
+      "examples": [
+        "台風が 来た そうです",
+        "高台は いい 所 だった そうです",
+        "台風の 力は 計り知れない そうです"
+      ]
+    }
+  ]
+}

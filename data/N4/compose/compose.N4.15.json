@@ -1,0 +1,176 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.15",
+  "lesson": "N4.15",
+  "level": "N4",
+  "title": "My Health and Recovery",
+  "titleJp": "わたしの けんこうと かいふく",
+  "emoji": "🏥",
+  "theme": "Write about a recent illness — what happened, visiting the doctor, the medicine you took, and what you want to do in the future with your health in mind.",
+  "prompts": [
+    {
+      "prompt": "Open by introducing that you were sick recently. Where did you go? Use 病気 and 病院.",
+      "targets": [
+        { "id": "v_byouki", "count": 1 },
+        { "id": "v_byouin", "count": 1 }
+      ],
+      "model": "先週、病気に なりました。それで、病院に 行きました。",
+      "vocabPool": [
+        "v_byouki", "v_byouin", "v_senshuu", "v_iku", "v_naru",
+        "v_kyou", "v_yasumi", "v_watashi", "p_ni", "p_de"
+      ]
+    },
+    {
+      "prompt": "Describe your symptoms. What hurt? How were you feeling? Use 頭 and つかれる.",
+      "targets": [
+        { "id": "v_atama", "count": 1 },
+        { "id": "v_karada", "count": 1 }
+      ],
+      "model": "頭が いたかったです。体も とても つかれていました。",
+      "vocabPool": [
+        "v_atama", "v_tsukareru", "v_itai", "v_karada", "v_isogashii",
+        "v_totemo", "v_sukoshi", "v_me", "p_ga", "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write about your visit to the doctor. What did the doctor say to you? Use 医者 and 薬.",
+      "targets": [
+        { "id": "v_isha", "count": 1 },
+        { "id": "v_kusuri", "count": 1 }
+      ],
+      "model": "医者は 「薬を 飲んで ください」と 言いました。三日間 休みました。",
+      "vocabPool": [
+        "v_isha", "v_kusuri", "v_nomu", "v_yasumu", "v_iu",
+        "v_byouin", "v_karada", "v_mainichi", "p_ni", "p_to_quote"
+      ]
+    },
+    {
+      "prompt": "Write about the medicine you took. Use 飲み薬 or 目薬, and use だけ or しか to describe the limit.",
+      "targets": [
+        { "id": "v_nomigusuri", "count": 1 }
+      ],
+      "model": "飲み薬だけ 飲みました。目薬は 使いませんでした。",
+      "vocabPool": [
+        "v_nomigusuri", "v_megusuri", "v_kusuri", "v_nomu", "v_tsukau",
+        "v_mainichi", "v_asa", "v_maiasa", "p_dake", "p_shika"
+      ]
+    },
+    {
+      "prompt": "Write about how you feel now after recovering. Use 元気 and ている to describe your current state.",
+      "targets": [
+        { "id": "v_genki", "count": 1 }
+      ],
+      "model": "今は 元気に なっています。毎日 食べて、休んでいます。",
+      "vocabPool": [
+        "v_genki", "v_naru", "v_taberu", "v_yasumu", "v_mainichi",
+        "v_ima", "v_karada", "v_ii", "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write about your future plans. What do you want to become? Use 医者 or 医学 with たいです.",
+      "targets": [
+        { "id": "v_isha", "count": 1 }
+      ],
+      "model": "わたしは 医者に なりたいです。病気の 人のために 医学を 学びたいです。",
+      "vocabPool": [
+        "v_isha", "v_igaku", "v_naru", "v_hito", "v_byouki",
+        "v_hataraku", "v_manabu", "v_daigakuin", "p_ni", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Express your dedication to study, even though it is difficult. Use 医学 or 大学院 with のに or ても.",
+      "targets": [
+        { "id": "v_igaku", "count": 1 }
+      ],
+      "model": "医学は いそがしいのに、とても 楽しいです。いそがしくても、毎日 医学を 学びます。",
+      "vocabPool": [
+        "v_igaku", "v_daigakuin", "v_isogashii", "v_tanoshii", "v_taisetsu",
+        "v_manabu", "v_suru", "v_mainichi", "p_noni", "p_demo"
+      ]
+    },
+    {
+      "prompt": "Close with a reflection on life and health. Use 人生 and 大切 to express what matters most to you.",
+      "targets": [
+        { "id": "v_jinsei", "count": 1 },
+        { "id": "v_taisetsu", "count": 1 }
+      ],
+      "model": "人生で いちばん 大切な ことは 体です。いつも 元気で いたいです。",
+      "vocabPool": [
+        "v_jinsei", "v_taisetsu", "v_karada", "v_genki", "v_ichiban",
+        "v_koto", "v_itsumo", "v_iru", "v_ima", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Write as a medical student describing your studies and your goal to help 病気の 人. Use 医学, 大学院, and include a のに or ても sentence about the difficulty of medical school.",
+      "targets": [
+        { "id": "v_igaku", "count": 1 },
+        { "id": "v_daigakuin", "count": 1 }
+      ],
+      "model": "大学院で 医学を 学んでいます。いそがしいのに、毎日 楽しいです。病気の 人のために 医者に なりたいです。",
+      "vocabPool": [
+        "v_igaku", "v_daigakuin", "v_manabu", "v_isha", "v_byouki",
+        "v_hataraku", "v_isogashii", "v_tanoshii", "p_noni", "p_de"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_ka", "p_yo", "p_ne", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo", "p_node",
+    "p_to_quote", "g_desu", "g_da", "p_dake", "p_shika", "p_bakari", "p_noni", "p_demo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["飲みます", "行きました", "休みました", "薬を 飲みました"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["飲みません", "病院に 行きませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["つかれています", "元気に なっています", "医学を 学んでいます"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["医者に なりたいです", "また 病気に なりたくないです", "病院に 行きたいです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["医学を 学べます", "病院に 行けます", "毎日 飲めます"]
+    },
+    {
+      "pattern": "[noun/adjective] + のに + [unexpected result]",
+      "meaning": "even though / despite (contrast — unexpected result)",
+      "examples": ["いそがしいのに 楽しいです", "病気なのに 元気そうです", "高いのに 買いました"]
+    },
+    {
+      "pattern": "verb-て form / adjective + でも + [still true]",
+      "meaning": "even if / even though (concession)",
+      "examples": ["いそがしくても 働きます", "つかれていても 働きます", "高くても 買います"]
+    },
+    {
+      "pattern": "[noun] + だけ / [noun] + しか + negative",
+      "meaning": "only [noun] / nothing but (limiting particles)",
+      "examples": ["飲み薬だけ 飲みました", "薬しか 飲みませんでした", "日曜日だけ 休みました"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["薬を 飲んだり 休んだり しました", "食べたり 休んだり します"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["病気なので 休みます", "いそがしいから つかれます", "元気なので だいじょうぶです"]
+    }
+  ]
+}

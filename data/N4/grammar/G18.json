@@ -1,0 +1,786 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G18",
+  "type": "grammar",
+  "title": "Transitive & Intransitive Verb Pairs — 自動詞・他動詞",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.10",
+    "focus": "Japanese verbs come in transitive/intransitive pairs: 他動詞 (transitive) takes を and has an agent acting on an object; 自動詞 (intransitive) takes が and describes something happening on its own — no external agent needed.",
+    "estimatedMinutes": 25,
+    "particles": [
+      "p_ga",
+      "p_wo",
+      "p_ni"
+    ],
+    "grammarForms": [
+      "polite_masu",
+      "polite_mashita",
+      "te_form",
+      "polite_volitional_mashou"
+    ],
+    "icon": "🔀"
+  },
+  "targetVocab": [
+    "v_dasu",
+    "v_deru",
+    "v_hairu",
+    "v_ireru",
+    "v_hajimaru",
+    "v_hajimeru"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "One Kanji, Two Verbs",
+      "icon": "🔀",
+      "summary": "Many Japanese verbs come in pairs that share the same kanji but have different endings. One verb is transitive (他動詞 — someone does something TO something) and the other is intransitive (自動詞 — something happens ON ITS OWN). English often uses the same word for both: 'I start the movie' / 'The movie starts'. Japanese uses two different verbs — and two different particles: を for transitive objects, が for intransitive subjects.",
+      "whyItMatters": "You already know 出る, 出す, 入る, 入れる, 始まる, and 始める — but did you notice they come in pairs? Understanding WHY each pair exists and which particle to use stops the most common mistake: using the wrong verb or wrong particle. Once you see the transitive/intransitive pattern, you can predict which verb to use even for pairs you haven't studied yet.",
+      "youWillLearn": [
+        "他動詞 (transitive verbs): [Agent] が [Object] を [Verb] — someone acts on something",
+        "自動詞 (intransitive verbs): [Subject] が [Verb] — something happens on its own",
+        "The particle difference: を = transitive object; が = intransitive subject",
+        "Three complete verb pairs: 出る/出す, 入る/入れる, 始まる/始める",
+        "Morphological clues: ～える/ける endings → often transitive; ～まる endings → often intransitive; ～す → almost always transitive",
+        "Why 映画が始まる is correct but 映画が始める is wrong"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_transitive",
+      "pattern": [
+        {
+          "label": "[Agent]",
+          "color": "subject",
+          "text": "りきぞが"
+        },
+        {
+          "label": "[Object]",
+          "color": "object",
+          "text": "メモを"
+        },
+        {
+          "label": "[Transitive Verb]",
+          "color": "verb",
+          "text": "出した"
+        }
+      ],
+      "meaning": "Transitive verb (他動詞) — someone acts on something",
+      "explanation": "A transitive verb (他動詞) requires an agent — someone or something performing the action — and a direct object — the thing being acted upon. The object is always marked with を. Think of transitive verbs as 'I [verb] [the thing]': I take out the notes, I put things in the bag, I start the movie. The key question is: Is someone DOING this TO something else? If yes, use the transitive form.",
+      "notes": [
+        "他動詞 = transitive verb. 他 means 'other' — a transitive verb acts on something OTHER than the subject.",
+        "を always marks the direct object: メモを出す (take out the notes), 映画を始める (start the movie), 水を入れる (pour in water).",
+        "Transitive verbs need an agent. You cannot say ×映画が始める — the movie cannot 'start itself' with a transitive verb. The agent (the one doing the starting) is missing."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "りきぞさんが",
+              "role": "subject",
+              "gloss": "Rikizo (が = agent — the one taking out)"
+            },
+            {
+              "text": "メモを",
+              "role": "object",
+              "gloss": "notes (を = direct object — what is being taken out)"
+            },
+            {
+              "text": "出しました。",
+              "role": "predicate",
+              "gloss": "took out (出す — transitive, polite past)"
+            }
+          ],
+          "en": "Rikizo took out his notes.",
+          "breakdown": "Agent (りきぞさんが) + Object (メモを) + Transitive verb (出す). Someone is acting on the notes. を = direct object signal for a transitive verb."
+        },
+        {
+          "parts": [
+            {
+              "text": "映画館の人が",
+              "role": "subject",
+              "gloss": "theater staff (が = agent doing the starting)"
+            },
+            {
+              "text": "映画を",
+              "role": "object",
+              "gloss": "movie (を = direct object — what is being started)"
+            },
+            {
+              "text": "始めました。",
+              "role": "predicate",
+              "gloss": "started (始める — transitive, polite past)"
+            }
+          ],
+          "en": "The theater staff started the movie.",
+          "breakdown": "Agent (映画館の人が) + Object (映画を) + Transitive verb (始める). を before the verb confirms this is transitive — someone is acting on the movie."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_intransitive",
+      "pattern": [
+        {
+          "label": "[Subject that changes]",
+          "color": "subject",
+          "text": "映画が"
+        },
+        {
+          "label": "[Intransitive Verb]",
+          "color": "verb",
+          "text": "始まった"
+        }
+      ],
+      "meaning": "Intransitive verb (自動詞) — something happens on its own",
+      "explanation": "An intransitive verb (自動詞) describes a change of state or movement that happens WITHOUT an external agent. No one is 'doing it' — it just happens. The subject that undergoes the change is marked with が. Think of intransitive verbs as 'something [verb]s': the movie starts, people enter, the notes come out. The key question is: Is this happening by itself, with no one forcing it? If yes, use the intransitive form.",
+      "notes": [
+        "自動詞 = intransitive verb. 自 means 'self' — a self-moving, self-changing verb.",
+        "が marks the subject that undergoes the change: 映画が始まる (the movie begins — on its own), 人が入る (people enter — on their own).",
+        "Intransitive verbs have no direct object — there is no を. If you see を with an intransitive verb, something is wrong.",
+        "For movement into a location, に marks the destination (not を): 映画館に入る = enter the theater (destination with に, not object with を)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "映画が",
+              "role": "subject",
+              "gloss": "movie (が = subject — begins on its own)"
+            },
+            {
+              "text": "始まりました。",
+              "role": "predicate",
+              "gloss": "started/began (始まる — intransitive, polite past)"
+            }
+          ],
+          "en": "The movie started.",
+          "breakdown": "Subject (映画が) + Intransitive verb (始まる). The movie started by itself — no one 'started it'. が marks the subject that changed state. No を because there is no object."
+        },
+        {
+          "parts": [
+            {
+              "text": "たくさんの人が",
+              "role": "subject",
+              "gloss": "many people (が = subject entering on their own)"
+            },
+            {
+              "text": "映画館に",
+              "role": "modifier",
+              "gloss": "into the movie theater (に = destination)"
+            },
+            {
+              "text": "入りました。",
+              "role": "predicate",
+              "gloss": "entered (入る — intransitive, polite past)"
+            }
+          ],
+          "en": "Many people entered the movie theater.",
+          "breakdown": "Subject (たくさんの人が) + Destination (映画館に) + Intransitive verb (入る). People entered on their own. 映画館に (destination に), not 映画館を — there is no direct object."
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "Verb Pairs at a Glance",
+      "description": "Three transitive/intransitive pairs you already know. Notice how the verb ending and the particle both change.",
+      "tableType": "verb_pairs",
+      "headers": [
+        "自動詞 — Intransitive",
+        "Particle",
+        "他動詞 — Transitive",
+        "Particle"
+      ],
+      "rows": [
+        {
+          "label": "exit / take out",
+          "cells": [
+            "出る (でる) — to exit, come out",
+            "が / から",
+            "出す (だす) — to take out",
+            "を"
+          ],
+          "meaning": "出る / 出す"
+        },
+        {
+          "label": "enter / put in",
+          "cells": [
+            "入る (はいる) — to enter",
+            "が / に",
+            "入れる (いれる) — to put in",
+            "を"
+          ],
+          "meaning": "入る / 入れる"
+        },
+        {
+          "label": "begin / start",
+          "cells": [
+            "始まる (はじまる) — to begin",
+            "が",
+            "始める (はじめる) — to start (something)",
+            "を"
+          ],
+          "meaning": "始まる / 始める"
+        }
+      ],
+      "notes": [
+        "Intransitive verbs take が for their subject (the thing that changes state) and often に or から for location or source.",
+        "Transitive verbs take を for their direct object (the thing being acted upon).",
+        "The same kanji appears in both forms — only the verb ending and the particle change.",
+        "More pairs unlock later: 集まる/集める (N4.30), 開く/開ける (N4.31), 止まる/止める (N4.35)."
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_morphological_clues",
+      "pattern": [
+        {
+          "label": "～える / ～ける",
+          "color": "verb",
+          "text": "始める / 入れる"
+        },
+        {
+          "label": "→ often TRANSITIVE",
+          "color": "predicate",
+          "text": "他動詞"
+        }
+      ],
+      "meaning": "Verb endings that hint at transitive vs intransitive",
+      "explanation": "Japanese has useful morphological patterns that often (but not always) predict whether a verb is transitive or intransitive. Learning these patterns lets you make educated guesses about new verb pairs you haven't studied yet. Think of these as strong tendencies, not absolute rules — Japanese has exceptions — but they are reliable enough to be very helpful.",
+      "notes": [
+        "～える / ～ける endings → often TRANSITIVE (他動詞): 始める (start), 入れる (put in). These ichidan verbs tend to have an agent acting on an object.",
+        "～まる / ～ある endings → often INTRANSITIVE (自動詞): 始まる (begin), 集まる (gather), 決まる (be decided). These godan verbs tend to describe self-contained changes of state.",
+        "～す endings → almost always TRANSITIVE (他動詞): 出す (take out), 直す (fix), 消す (erase). The ～す ending is one of the most reliable transitive signals in Japanese.",
+        "～れる endings → often INTRANSITIVE: 壊れる (break/get broken), 離れる (separate). Compare 壊す (to break something) — transitive.",
+        "The ichidan/godan pair pattern: ichidan (～える) = transitive, godan (～まる) = intransitive is very common. You will see this again with 集める/集まる (N4.30), 開ける/開く (N4.31), and 止める/止まる (N4.35)."
+      ],
+      "examples": [
+        {
+          "context": "～す ending → transitive (highly reliable)",
+          "parts": [
+            {
+              "text": "りきぞさんが",
+              "role": "subject",
+              "gloss": "Rikizo (agent)"
+            },
+            {
+              "text": "メモを",
+              "role": "object",
+              "gloss": "notes (を = direct object — the thing being taken out)"
+            },
+            {
+              "text": "出した。",
+              "role": "predicate",
+              "gloss": "took out (出す — ～す ending, almost always transitive, plain past)"
+            }
+          ],
+          "en": "Rikizo took out his notes.",
+          "breakdown": "出す ends in ～す → almost always transitive. The object (メモを) confirms this — someone acted on the notes."
+        },
+        {
+          "context": "～まる ending → intransitive (reliable tendency)",
+          "parts": [
+            {
+              "text": "映画が",
+              "role": "subject",
+              "gloss": "movie (が = subject that begins on its own)"
+            },
+            {
+              "text": "始まった。",
+              "role": "predicate",
+              "gloss": "started (始まる — ～まる ending, typically intransitive, plain past)"
+            }
+          ],
+          "en": "The movie started.",
+          "breakdown": "始まる ends in ～まる → typically intransitive. No agent, no を — the movie begins by itself."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "始める vs 始まる — Same Kanji, Different Role",
+      "items": [
+        {
+          "label": "始まる — Intransitive (自動詞)",
+          "color": "subject",
+          "points": [
+            "Something BEGINS on its own — no external agent required",
+            "The subject is what changes state: 映画が (the movie begins)",
+            "Particle: が marks the subject that starts",
+            "No direct object — no を in the sentence"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "映画が",
+                "role": "subject",
+                "gloss": "movie (が = subject — starts on its own)"
+              },
+              {
+                "text": "始まりました。",
+                "role": "predicate",
+                "gloss": "started (始まる — intransitive, polite past)"
+              }
+            ],
+            "en": "The movie started. (on its own)"
+          }
+        },
+        {
+          "label": "始める — Transitive (他動詞)",
+          "color": "verb",
+          "points": [
+            "An AGENT starts something — external action required",
+            "The object is what gets started: 映画を (the movie, as the object)",
+            "Particle: を marks the direct object being started",
+            "Needs an agent (someone doing the starting)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "映画館の人が",
+                "role": "subject",
+                "gloss": "theater staff (が = agent doing the starting)"
+              },
+              {
+                "text": "映画を",
+                "role": "object",
+                "gloss": "movie (を = direct object — what is being started)"
+              },
+              {
+                "text": "始めました。",
+                "role": "predicate",
+                "gloss": "started (始める — transitive, polite past)"
+              }
+            ],
+            "en": "The theater staff started the movie. (they did it)"
+          }
+        }
+      ],
+      "tip": "Same kanji 始, different endings: ～まる = intransitive (it starts by itself), ～める = transitive (someone starts it). When you see を before the verb, you need transitive 始める. When the subject is what begins and there is no を, use intransitive 始まる."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "All Three Pairs in Context",
+      "examples": [
+        {
+          "context": "始まる (intransitive) — English class begins on its own",
+          "parts": [
+            {
+              "text": "英語の授業が",
+              "role": "subject",
+              "gloss": "English class (が = subject — begins on its own)"
+            },
+            {
+              "text": "もうすぐ",
+              "role": "adverb",
+              "gloss": "soon / shortly"
+            },
+            {
+              "text": "始まります。",
+              "role": "predicate",
+              "gloss": "will begin (始まる — intransitive, polite present)"
+            }
+          ],
+          "en": "English class will start soon.",
+          "note": "が marks English class as the subject that begins. No agent, no を — it begins by itself."
+        },
+        {
+          "context": "始める (transitive) — teacher starts the class",
+          "parts": [
+            {
+              "text": "先生が",
+              "role": "subject",
+              "gloss": "teacher (が = agent doing the starting)"
+            },
+            {
+              "text": "英語の授業を",
+              "role": "object",
+              "gloss": "English class (を = direct object — what the teacher starts)"
+            },
+            {
+              "text": "始めました。",
+              "role": "predicate",
+              "gloss": "started (始める — transitive, polite past)"
+            }
+          ],
+          "en": "The teacher started English class.",
+          "note": "を marks English class as the direct object. The teacher (agent) is acting on the class. Compare: 授業が始まった (class started on its own)."
+        },
+        {
+          "context": "入る (intransitive) — people enter on their own",
+          "parts": [
+            {
+              "text": "たくさんの人が",
+              "role": "subject",
+              "gloss": "many people (が = subject entering)"
+            },
+            {
+              "text": "映画館に",
+              "role": "modifier",
+              "gloss": "into the theater (に = destination)"
+            },
+            {
+              "text": "入りました。",
+              "role": "predicate",
+              "gloss": "entered (入る — intransitive, polite past)"
+            }
+          ],
+          "en": "Many people entered the movie theater.",
+          "note": "No agent is forcing people to enter — they enter on their own. に marks the destination; no を because there is no direct object."
+        },
+        {
+          "context": "入れる (transitive) — putting something inside",
+          "parts": [
+            {
+              "text": "りきぞさんが",
+              "role": "subject",
+              "gloss": "Rikizo (agent — doing the putting)"
+            },
+            {
+              "text": "メモを",
+              "role": "object",
+              "gloss": "notes (を = direct object — what is being put in)"
+            },
+            {
+              "text": "ポケットに",
+              "role": "modifier",
+              "gloss": "into the pocket (に = destination)"
+            },
+            {
+              "text": "入れました。",
+              "role": "predicate",
+              "gloss": "put in (入れる — transitive, polite past)"
+            }
+          ],
+          "en": "Rikizo put his notes in his pocket.",
+          "note": "を marks the notes as the direct object. Rikizo is the agent placing something somewhere — transitive 入れる."
+        },
+        {
+          "context": "出る (intransitive) — exiting on one's own",
+          "parts": [
+            {
+              "text": "りきぞさんが",
+              "role": "subject",
+              "gloss": "Rikizo (subject — exits on his own)"
+            },
+            {
+              "text": "映画館から",
+              "role": "modifier",
+              "gloss": "from the movie theater (から = source / starting point)"
+            },
+            {
+              "text": "出ました。",
+              "role": "predicate",
+              "gloss": "exited (出る — intransitive, polite past)"
+            }
+          ],
+          "en": "Rikizo left the movie theater.",
+          "note": "No one is 'sending' Rikizo out — he exits on his own. から marks where he exits from. No を because there is no direct object."
+        },
+        {
+          "context": "出す (transitive) — taking something out",
+          "parts": [
+            {
+              "text": "りきぞさんが",
+              "role": "subject",
+              "gloss": "Rikizo (agent — doing the taking out)"
+            },
+            {
+              "text": "ポケットから",
+              "role": "modifier",
+              "gloss": "from the pocket (から = source)"
+            },
+            {
+              "text": "メモを",
+              "role": "object",
+              "gloss": "notes (を = direct object — what is taken out)"
+            },
+            {
+              "text": "出しました。",
+              "role": "predicate",
+              "gloss": "took out (出す — transitive, polite past)"
+            }
+          ],
+          "en": "Rikizo took his notes out of his pocket.",
+          "note": "を marks the notes as the object being taken out. Rikizo is acting on the notes — transitive 出す."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "映画館で (At the Movie Theater)",
+      "context": "ゆき and りきぞ are at a movie theater before the film starts.",
+      "lines": [
+        {
+          "spk": "ゆき",
+          "jp": "映画がすぐ始まりますよ。",
+          "en": "The movie will start soon!",
+          "terms": [
+            "v_eiga",
+            "p_ga",
+            "v_sugu",
+            {
+              "id": "v_hajimaru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そうですね。まだ人が映画館に入っていますね。",
+          "en": "Right. People are still entering the theater.",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_mada",
+            "v_hito",
+            "p_ga",
+            "v_eigakan",
+            "p_ni",
+            {
+              "id": "v_hairu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "りきぞさんはメモを出しましたか。",
+          "en": "Rikizo, did you take out your notes?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_memo",
+            "p_wo",
+            {
+              "id": "v_dasu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "まだです。今出します。",
+          "en": "Not yet. I'll take them out now.",
+          "terms": [
+            "v_mada",
+            "g_desu",
+            "v_ima",
+            {
+              "id": "v_dasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "映画館の人が映画を始めましたよ！",
+          "en": "The theater staff has started the movie!",
+          "terms": [
+            "v_eigakan",
+            "p_no",
+            "v_hito",
+            "p_ga",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_hajimeru",
+              "form": "polite_mashita"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "映画が終わりました。外に出ましょう。",
+          "en": "The movie ended. Let's go outside.",
+          "terms": [
+            "v_eiga",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "polite_mashita"
+            },
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_deru",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "分かりました。メモを中に入れて、出ましょう！",
+          "en": "Got it. Let me put my notes inside, and let's go!",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_memo",
+            "p_wo",
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_ireru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_deru",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Choose the Correct Verb",
+      "instructions": "Fill in the blank with the correct verb form. Use the particle clue (が vs を) and the context to decide between the transitive and intransitive pair.",
+      "items": [
+        {
+          "before": "映画が",
+          "after": "。",
+          "translation": "The movie starts.",
+          "choices": [
+            "始まります",
+            "始めます",
+            "始まりました",
+            "始めました"
+          ],
+          "answer": "始まります",
+          "explanation": "映画が = the movie (が = subject marker). The movie starts on its own — no external agent. Use the INTRANSITIVE 始まる. 始める (transitive) would be wrong: ×映画が始めます is ungrammatical — 映画 cannot be the agent of a transitive verb acting on itself."
+        },
+        {
+          "before": "映画館の人が映画を",
+          "after": "。",
+          "translation": "The theater staff started the movie.",
+          "choices": [
+            "始まりました",
+            "始めました",
+            "始まります",
+            "始めます"
+          ],
+          "answer": "始めました",
+          "explanation": "映画を = the movie (を = direct object). There is an agent (映画館の人) acting on an object (映画). Use the TRANSITIVE 始める (polite past: 始めました). 始まりました is intransitive and cannot take を: ×映画館の人が映画を始まりました is ungrammatical."
+        },
+        {
+          "before": "りきぞさんが外に",
+          "after": "。",
+          "translation": "Rikizo goes outside.",
+          "choices": [
+            "出ます",
+            "出します",
+            "入ります",
+            "入れます"
+          ],
+          "answer": "出ます",
+          "explanation": "外に = outside (に = direction). Rikizo is exiting on his own — no direct object (を) is present. Use the INTRANSITIVE 出る (polite present: 出ます). 出す (transitive) would need an object: りきぞさんが何かを出す. Without を marking an object, 出す does not fit."
+        },
+        {
+          "before": "りきぞさんがメモを中に",
+          "after": "。",
+          "translation": "Rikizo puts the notes inside.",
+          "choices": [
+            "入ります",
+            "入れます",
+            "出ます",
+            "出します"
+          ],
+          "answer": "入れます",
+          "explanation": "メモを = the notes (を = direct object marker). Rikizo is putting something somewhere — he is the agent, and the notes are the object. Use the TRANSITIVE 入れる (polite present: 入れます). 入る (intransitive) cannot take を: ×りきぞさんがメモを中に入ります is ungrammatical."
+        },
+        {
+          "before": "りきぞさんがメモを",
+          "after": "。",
+          "translation": "Rikizo takes out the notes.",
+          "choices": [
+            "出ます",
+            "出します",
+            "入ります",
+            "入れます"
+          ],
+          "answer": "出します",
+          "explanation": "メモを = the notes (を = direct object). Rikizo is taking the notes out — he is acting ON the notes. Use the TRANSITIVE 出す (polite present: 出します). 出る (intransitive) means 'to exit/come out' and cannot take an object with を. Only the transitive 出す can have を with something being taken out."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Transitive & Intransitive Practice",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which sentence is grammatically correct?",
+          "choices": [
+            "映画が始める。",
+            "映画が始まる。",
+            "映画を始まる。",
+            "映画に始める。"
+          ],
+          "answer": "映画が始まる。",
+          "explanation": "映画が始まる is correct. 映画が = the movie (が = subject). 始まる is intransitive — something begins on its own. '映画が始める' is wrong: 始める is transitive and needs a human agent acting on an object, not 映画 as the subject. '映画を始まる' is wrong: intransitive 始まる cannot take を. '映画に始める' is wrong on both particle and transitivity."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which particle should fill the blank? りきぞさんがメモ___入れました。",
+          "choices": [
+            "を",
+            "が",
+            "に",
+            "から"
+          ],
+          "answer": "を",
+          "explanation": "入れる is a transitive verb (他動詞) — it takes を for its direct object. メモを入れました = put the notes in. が marks the subject (not the object here), に marks the destination (where something is put — also used, but comes AFTER を in this sentence), から marks the source. を directly before the verb is the key signal that 入れる is transitive."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which verb ending is almost always a signal that the verb is TRANSITIVE?",
+          "choices": [
+            "～まる (e.g. 始まる, 集まる)",
+            "～れる (e.g. 壊れる, 離れる)",
+            "～す (e.g. 出す, 直す)",
+            "～く (e.g. 開く, 歩く)"
+          ],
+          "answer": "～す (e.g. 出す, 直す)",
+          "explanation": "～す endings are almost always TRANSITIVE (他動詞): 出す (take out), 直す (fix), 消す (erase), 話す (speak). The intransitive counterpart often ends in ～れる (壊す/壊れる) or ～まる (始める/始まる). ～まる endings are typically INTRANSITIVE. ～れる endings are typically intransitive (potential or passive-like). ～く covers various verb types with no reliable rule."
+        },
+        {
+          "kind": "mcq",
+          "q": "映画館の人が映画を___。 Which form correctly completes this sentence?",
+          "choices": [
+            "始まりました",
+            "始めました",
+            "入りました",
+            "入れました"
+          ],
+          "answer": "始めました",
+          "explanation": "映画を = the movie (を = direct object). There is an agent (映画館の人) acting on the movie — use TRANSITIVE 始める (polite past: 始めました). 始まりました is intransitive and cannot take を. 入りました/入れました relate to 入る/入れる (enter/put in), which don't fit the meaning 'start the movie'."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which Japanese sentence best translates 'The movie ended'?",
+          "choices": [
+            "映画が終わりました。",
+            "映画を終わりました。",
+            "映画に終わりました。",
+            "映画で終わりました。"
+          ],
+          "answer": "映画が終わりました。",
+          "explanation": "映画が終わりました = the movie ended (on its own). 終わる is intransitive — the movie ends by itself, with no agent. が marks the subject that changes state. 映画を終わりました is wrong: を marks a direct object, but intransitive 終わる does not take を. The transitive counterpart 終える (to finish something) takes を — but 終わる does not."
+        }
+      ]
+    }
+  ]
+}

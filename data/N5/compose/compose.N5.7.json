@@ -1,0 +1,112 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.7",
+  "lesson": "N5.7",
+  "level": "N5",
+  "title": "Lunch at the Restaurant",
+  "titleJp": "レストランのひるごはん",
+  "emoji": "🍛",
+  "theme": "Write about going to a restaurant — what you eat and drink, and how big or small the food is.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write where you are going to eat today and mention the restaurant.",
+      "targets": [
+        { "id": "v_iku", "count": 1 }
+      ],
+      "model": "今日 レストランへ 行きます。友だちと 行きます。",
+      "vocabPool": [
+        "v_resutoran", "v_iku", "v_kuru", "v_aru",
+        "v_kyou", "v_mainichi", "v_konshuu",
+        "v_eki", "v_mise", "v_tomodachi", "v_sensei",
+        "v_ii", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write what you will eat and describe it — is it big or small?",
+      "targets": [
+        { "id": "v_ookii", "count": 1 }
+      ],
+      "model": "カレーを 食べます。カレーは 大きいです。",
+      "vocabPool": [
+        "v_karee", "v_pan", "v_sarada", "v_taberu",
+        "v_ookii", "v_chiisai", "v_ii", "v_totemo",
+        "v_resutoran", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write what you will drink.",
+      "targets": [
+        { "id": "v_nomu", "count": 1 }
+      ],
+      "model": "コーヒーを 飲みます。ジュースは 飲みません。",
+      "vocabPool": [
+        "v_koohii", "v_juusu", "v_nomu",
+        "v_karee", "v_pan", "v_sarada",
+        "v_ookii", "v_chiisai", "v_totemo", "v_ii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write what you ate and drank at the restaurant, how much it cost, and use the meal-ending phrase.",
+      "targets": [
+        { "id": "v_taberu", "count": 1 },
+        { "id": "v_en", "count": 1 }
+      ],
+      "model": "カレーと パンを 食べました。千円でした。ごちそうさまでした。",
+      "vocabPool": [
+        "v_karee", "v_pan", "v_sarada", "v_taberu", "v_nomu",
+        "v_koohii", "v_juusu",
+        "v_ikura", "v_hyaku", "v_sen", "v_en",
+        "v_iku", "v_kuru", "v_mata",
+        "v_raishuu", "v_senshuu", "v_kyou",
+        "v_tomodachi", "v_sensei",
+        "p_itadakimasu", "p_gochisousama",
+        "v_ii", "v_totemo", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made", "p_made_ni",
+    "p_ni", "p_de", "p_e"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[ichidan verb] 食べる → 食べます",
+      "meaning": "eat (polite forms of 食べる)",
+      "examples": ["食べます", "食べました", "食べません", "食べませんでした"]
+    },
+    {
+      "pattern": "[godan verb] 飲む → 飲みます",
+      "meaning": "drink (polite forms of 飲む)",
+      "examples": ["飲みます", "飲みました", "飲みません", "飲みませんでした"]
+    },
+    {
+      "pattern": "[godan verb] 〜く → 〜きます",
+      "meaning": "go (polite forms of 行く)",
+      "examples": ["行きます", "行きました", "行きません", "行きませんでした"]
+    },
+    {
+      "pattern": "[て-form] verb + て — connect sequential actions",
+      "meaning": "AてB = 'did A, then B' — tense set by final verb",
+      "examples": ["食べて (ichidan: drop る → て)", "飲んで (godan む → んで)", "行って (godan く → って — EXCEPTION)"]
+    },
+    {
+      "pattern": "[い-adjective] + です",
+      "meaning": "is (adj) — polite",
+      "examples": ["大きいです", "小さいです", "いいです"]
+    },
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["カレーです", "レストランです"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite)",
+      "examples": ["カレーでした", "レストランでした"]
+    }
+  ]
+}

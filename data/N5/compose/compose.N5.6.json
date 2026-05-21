@@ -1,0 +1,121 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.6",
+  "lesson": "N5.6",
+  "level": "N5",
+  "title": "A Drive Through the Landscape",
+  "titleJp": "ドライブ",
+  "emoji": "🚗",
+  "theme": "Write about a car trip through the natural landscape — mountains, rivers, and roads.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write where you go by car and what you can find there.",
+      "targets": [
+        { "id": "v_kuruma", "count": 1 }
+      ],
+      "model": "毎週 車で 山へ 行きます。山に 川が あります。",
+      "vocabPool": [
+        "v_kuruma", "v_yama", "v_kawa", "v_michi", "v_kazan",
+        "v_iku", "v_kuru", "v_aru",
+        "v_mainichi", "v_maishuu", "v_kyou",
+        "v_eki", "v_ie", "v_uchi", "v_mise", "v_konbini",
+        "v_basu", "v_takushii",
+        "v_totemo", "v_ii", "g_desu",
+        "v_tomodachi", "v_sensei"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write how the mountain road is and where you went last week.",
+      "targets": [
+        { "id": "v_michi", "count": 1 }
+      ],
+      "model": "山の 道は とても いいです。先週 火山へも 行きました。",
+      "vocabPool": [
+        "v_kuruma", "v_yama", "v_kawa", "v_michi", "v_kazan",
+        "v_iku", "v_kuru", "v_aru",
+        "v_senshuu", "v_kinou", "v_mainichi",
+        "v_eki", "v_mise", "v_konbini", "v_suupaa",
+        "v_basu", "v_takushii",
+        "v_totemo", "v_ii", "g_desu",
+        "v_tomodachi", "v_dou"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about an email you received about a trip to the mountain or volcano. Mention the volcano.",
+      "targets": [
+        { "id": "v_kazan", "count": 1 }
+      ],
+      "model": "やまかわさんから メールが 来ました。山と 川の メールです。",
+      "vocabPool": [
+        "v_kuruma", "v_yama", "v_kawa", "v_michi", "v_kazan", "v_meeru",
+        "v_iku", "v_kuru", "v_aru",
+        "v_senshuu", "v_konshuu", "v_kyou",
+        "v_eki", "v_ie", "v_uchi",
+        "v_tomodachi", "v_sensei",
+        "v_ii", "v_totemo", "g_desu",
+        "v_doko", "p_soudesu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about your plans for next week — where you will go and how you will get there.",
+      "targets": [
+        { "id": "v_yama", "count": 1 }
+      ],
+      "model": "来週も 車で 山へ 行きます。駅から 山まで 車で 行きます。友だちと 来ます。",
+      "vocabPool": [
+        "v_kuruma", "v_yama", "v_kawa", "v_michi", "v_kazan",
+        "v_iku", "v_kuru", "v_aru", "v_mata",
+        "v_raishuu", "v_raigetsu", "v_rainen",
+        "v_eki", "v_mise", "v_konbini", "v_suupaa",
+        "v_basu", "v_takushii",
+        "v_tomodachi", "v_sensei",
+        "v_ii", "v_ureshii", "v_totemo", "g_desu",
+        "v_mainichi", "v_maishuu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made", "p_made_ni",
+    "p_ni", "p_de", "p_e"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[godan verb]: 〜く → 〜きます",
+      "meaning": "present / future polite",
+      "examples": ["行きます", "行きました", "行きません", "行きませんでした"]
+    },
+    {
+      "pattern": "[irregular] 来る → 来ます",
+      "meaning": "come (polite forms of 来る)",
+      "examples": ["来ます (きます)", "来ました (きました)", "来ません (きません)", "来ませんでした (きませんでした)"]
+    },
+    {
+      "pattern": "[godan irregular] ある → あります",
+      "meaning": "to exist / be / have (inanimate things, polite forms)",
+      "examples": ["あります", "ありました", "ありません", "ありませんでした"]
+    },
+    {
+      "pattern": "[て-form] verb + て — connect sequential actions",
+      "meaning": "AてB = 'did A, then B' — tense set by final verb",
+      "examples": ["行って (godan く→って — EXCEPTION)", "来て (きて — irregular)", "あって (godan る→って)"]
+    },
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["山です", "車です", "道です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite)",
+      "examples": ["山でした", "川でした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is adj (polite)",
+      "examples": ["いいです", "うれしいです"]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.13",
+  "lesson": "N4.13",
+  "level": "N4",
+  "title": "Music & Sound",
+  "titleJp": "音楽と 歌",
+  "emoji": "🎵",
+  "theme": "Write about your relationship with music — what you listen to, how it makes you feel, whether you sing or play an instrument, and what your favourite sounds are.",
+  "prompts": [
+    {
+      "prompt": "Open by introducing your relationship with music. Do you like it? What kind of music — light pop, classical, or something else? Use 音楽 and 軽音楽.",
+      "targets": [
+        { "id": "v_ongaku", "count": 1 },
+        { "id": "v_keiongaku", "count": 1 }
+      ],
+      "model": "私は 音楽が 大好きです。軽音楽が 好きで、毎日 聞きます。",
+      "vocabPool": [
+        "v_ongaku", "v_keiongaku", "v_daisuki", "v_suki", "v_kiku",
+        "v_mainichi", "v_totemo", "v_amari", "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your favourite singer or vocal style. What kind of voice do they have — high, low, light? Use 歌手 and 声.",
+      "targets": [
+        { "id": "v_kashu", "count": 1 },
+        { "id": "v_koe", "count": 1 }
+      ],
+      "model": "好きな 歌手の 声は 低くて、とても きれいです。その 声を 聞いて、とても 楽しいです。",
+      "vocabPool": [
+        "v_kashu", "v_koe", "v_hikui", "v_takai", "v_karui",
+        "v_ii", "v_totemo", "v_tanoshii", "v_naru", "v_suki"
+      ]
+    },
+    {
+      "prompt": "Describe the sounds you enjoy most. Do you prefer low tones or high tones? Write about 低音 and use 低い in a comparison.",
+      "targets": [
+        { "id": "v_teion", "count": 1 },
+        { "id": "v_hikui", "count": 1 }
+      ],
+      "model": "高い 音より 低音が 好きです。低い 声は とても きれいで、よく 聞きます。",
+      "vocabPool": [
+        "v_teion", "v_hikui", "v_takai", "v_oto", "v_koe",
+        "v_suki", "v_kiku", "v_kokoro", "p_yori", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about when you listen to music and what you do at the same time. Use ながら to describe a simultaneous activity. Include 音楽 and an い-adjective like 軽い to describe the mood.",
+      "targets": [
+        { "id": "v_ongaku", "count": 1 },
+        { "id": "v_karui", "count": 1 }
+      ],
+      "model": "毎朝、音楽を 聞きながら 朝ごはんを 食べます。軽い 音楽が 好きで、毎日 楽しいです。",
+      "vocabPool": [
+        "v_ongaku", "v_karui", "v_kiku", "v_maiasa", "v_taberu",
+        "v_aruku", "v_mainichi", "v_genki", "v_suru", "v_tanoshii"
+      ]
+    },
+    {
+      "prompt": "Do you sing? Write about your singing experiences — where, when, and with whom. Use 歌う and 楽しい.",
+      "targets": [
+        { "id": "v_utau", "count": 1 },
+        { "id": "v_tanoshii", "count": 1 }
+      ],
+      "model": "友だちと 歌を 歌うのが 楽しいです。一人でも 楽しいですが、みんなで 歌うのが もっと 楽しいです。",
+      "vocabPool": [
+        "v_utau", "v_tanoshii", "v_uta", "v_tomodachi", "v_issho",
+        "v_jouzu", "v_heta", "v_tokidoki", "v_suki", "v_suru"
+      ]
+    },
+    {
+      "prompt": "Describe how you sing — quietly, casually, freely? Use 小声 or 気軽に. Are you relaxed about it or do you try hard?",
+      "targets": [
+        { "id": "v_kogoe", "count": 1 },
+        { "id": "v_kigaru", "count": 1 }
+      ],
+      "model": "私は 気軽に 歌うのが 好きです。家では いつも 小声で 歌います。うまくなくても 楽しいです。",
+      "vocabPool": [
+        "v_kogoe", "v_kigaru", "v_utau", "v_tanoshii", "v_jouzu",
+        "v_itsumo", "v_ima", "v_watashi", "v_ie", "v_suru"
+      ]
+    },
+    {
+      "prompt": "List the music activities you enjoy using たり～たりします. Include 声楽 or 歌う and at least one other activity.",
+      "targets": [
+        { "id": "v_seigaku", "count": 1 },
+        { "id": "v_utau", "count": 1 }
+      ],
+      "model": "音楽の 時間に、声楽を 聞いたり 歌ったり します。家では 話し声を 小さくして 歌います。",
+      "vocabPool": [
+        "v_seigaku", "v_utau", "v_hanashigoe", "v_ongaku", "v_kiku",
+        "v_kogoe", "v_uta", "v_suru", "v_miru", "v_watashi"
+      ]
+    },
+    {
+      "prompt": "Close by writing about the kind of music life or singer you would like to become. Express your desire using たいです. Use 歌手 or 楽しい.",
+      "targets": [
+        { "id": "v_kashu", "count": 1 },
+        { "id": "v_tanoshii", "count": 1 }
+      ],
+      "model": "いつか 上手な 歌手に なりたいです。音楽は 楽しいので、毎日 歌いたいです。",
+      "vocabPool": [
+        "v_kashu", "v_tanoshii", "v_ongaku", "v_utau", "v_jouzu",
+        "v_naru", "v_suki", "v_koe", "v_uta", "v_suru"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Imagine you have become a famous singer. Use 歌手 and 声楽 to describe your music career. Write about what kind of music you perform and what your voice is like. Include a comparison using より.",
+      "targets": [
+        { "id": "v_kashu", "count": 1 },
+        { "id": "v_seigaku", "count": 1 }
+      ],
+      "model": "有名な 歌手に なりました。声楽より 軽音楽が 好きですが、どちらも 楽しいです。低音の 声で 歌うのが とても 好きです。",
+      "vocabPool": [
+        "v_kashu", "v_seigaku", "v_keiongaku", "v_teion", "v_koe",
+        "v_tanoshii", "v_hikui", "p_yori", "v_ongaku", "v_utau"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_ka", "p_yo", "p_ne", "p_ya", "p_he",
+    "p_ga_but", "p_kara_because", "p_kedo", "p_yori",
+    "p_node", "p_nagara", "p_to_quote", "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["歌います", "聞きました", "歌いました", "声楽を 聞きました"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["歌いません", "聞きませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["歌って います", "聞いて います"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["歌いたいです", "歌手に なりたいです", "聞きたくないです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["歌えます", "聞けます", "低い 声で 歌えます"]
+    },
+    {
+      "pattern": "verb masu-stem + ながら",
+      "meaning": "while doing (simultaneous actions)",
+      "examples": ["音楽を 聞きながら 歩きます", "歌いながら 料理します"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["歌ったり、聞いたりします", "声楽を 聞いたり、歌ったりします"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["楽しいので 毎日 歌います", "声が きれいだから 好きです"]
+    },
+    {
+      "pattern": "い-adj + かったです / くないです",
+      "meaning": "was [adj] / is not [adj] (past / negative adjective)",
+      "examples": ["楽しかったです", "楽しくないです", "低くなかったです"]
+    },
+    {
+      "pattern": "な-adj + な (attributive)",
+      "meaning": "na-adjective modifying a noun (carefree, easy)",
+      "examples": ["気軽に 歌います", "手軽な 音楽が 好きです"]
+    },
+    {
+      "pattern": "A は B より [adj]",
+      "meaning": "A is more [adj] than B",
+      "examples": ["低音は 高音より 好きです", "声楽より 軽音楽が 楽しいです"]
+    }
+  ]
+}

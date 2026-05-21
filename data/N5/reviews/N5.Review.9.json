@@ -1,0 +1,999 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.9",
+  "title": "Work, Society & Body Senses",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 17–18.",
+    "kanji": [
+      "午",
+      "口",
+      "出",
+      "入",
+      "会",
+      "社",
+      "目",
+      "見",
+      "耳",
+      "聞",
+      "足",
+      "立"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Taro asks Rikizo about his part-time job at a company.",
+          "lines": [
+            {
+              "spk": "たろう",
+              "jp": "りきぞさん、アルバイトは 午前ですか、午後ですか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "v_arubaito",
+                "p_wa",
+                "v_gozen",
+                "g_desu",
+                "p_ka",
+                "v_gogo",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "午後です。毎日 会社の 入り口から 入って、社長に 会います。",
+              "terms": [
+                "v_gogo",
+                "g_desu",
+                "v_mainichi",
+                "v_kaisha",
+                "p_no",
+                "v_iriguchi",
+                "p_kara",
+                {
+                  "id": "v_hairu",
+                  "form": "te_form"
+                },
+                "v_shachou",
+                "p_ni",
+                {
+                  "id": "v_au",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "たろう",
+              "jp": "社長と 会話を しますか。",
+              "terms": [
+                "v_shachou",
+                "p_to",
+                "v_kaiwa",
+                "p_wo",
+                {
+                  "id": "v_suru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "はい。社長と 日本語で 会話を して、出口から 出ます。",
+              "terms": [
+                "p_hai",
+                "v_shachou",
+                "p_to",
+                "v_nihongo",
+                "p_de",
+                "v_kaiwa",
+                "p_wo",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                "v_deguchi",
+                "p_kara",
+                {
+                  "id": "v_deru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "What does Rikizo do at the company?",
+          "choices": [
+            "He has a conversation with the president in Japanese and then exits",
+            "He meets his friends and studies Japanese",
+            "He works in the morning and enters through the exit",
+            "He speaks with Taro on the phone"
+          ],
+          "answer": "He has a conversation with the president in Japanese and then exits",
+          "explanation": "Line 4 states 社長と日本語で会話をして、出口から出ます — 'I have a conversation with the president in Japanese and then exit through the exit.' 会話 (N5.17) = conversation: 会 (meet, かい) + 話 (N5.13, speak, わ). して = te-form of する, used as a te-connector (G7) linking the two sequential actions: 'has a conversation AND THEN exits.' 出口 (N5.17) = exit: 出 (exit/out, N5.17) + 口 (opening, N5.17) = でぐち. Line 2 confirms the アルバイト is in the 午後 (afternoon), not the morning, so the third choice is wrong. The student enters through the 入り口 (entrance), not the 出口 (exit)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Yamamoto-sensei teaches Lee to study Japanese by looking and listening.",
+          "lines": [
+            {
+              "spk": "先生",
+              "jp": "リーさん、目で 見て、耳で 聞いてください。",
+              "terms": [
+                "char_lee",
+                "v_san",
+                "v_me",
+                "p_de",
+                {
+                  "id": "v_miru",
+                  "form": "te_form"
+                },
+                "v_mimi",
+                "p_de",
+                {
+                  "id": "v_kiku",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            },
+            {
+              "spk": "リー",
+              "jp": "わかりました。先生、新聞を 見せてください。",
+              "terms": [
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_mashita"
+                },
+                "v_sensei",
+                "v_shinbun",
+                "p_wo",
+                {
+                  "id": "v_miseru",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "いいですね。毎日 新聞を 読みましょう。",
+              "terms": [
+                "v_ii",
+                "g_desu",
+                "p_ne",
+                "v_mainichi",
+                "v_shinbun",
+                "p_wo",
+                {
+                  "id": "v_yomu",
+                  "form": "polite_volitional_mashou"
+                }
+              ]
+            },
+            {
+              "spk": "リー",
+              "jp": "はい。耳で 聞くことも すきですが、目で 読むことが いちばん すきです。",
+              "terms": [
+                "p_hai",
+                "v_mimi",
+                "p_de",
+                "v_kiku",
+                "v_koto",
+                "p_mo",
+                "v_suki",
+                "g_desu",
+                "p_ga_but",
+                "v_me",
+                "p_de",
+                "v_yomu",
+                "v_koto",
+                "p_ga",
+                "v_ichiban",
+                "v_suki",
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "What does Yamamoto-sensei ask Lee to do?",
+          "choices": [
+            "Look with their eyes and listen with their ears",
+            "Read the newspaper every day",
+            "Show the newspaper to the teacher",
+            "Stand up and read aloud"
+          ],
+          "answer": "Look with their eyes and listen with their ears",
+          "explanation": "Line 1 states 目で見て、耳で聞いてください — 'Please look with your eyes and listen with your ears.' 目 (N5.18) = eye (め), 耳 (N5.18) = ear (みみ). で marks the sense organ as the instrument/means: 目で = 'with/using your eyes.' 見て = te-form of 見る (see, ichidan: る→て), used as a te-connector (G7). 聞いてください = te-form of 聞く (hear, godan く→いて) + ください = polite request 'please listen' (G7). Line 2 is Lee asking 見せてください (please show me) — Lee's request to the teacher, not the teacher's instruction. Line 3 is the teacher suggesting 読みましょう (polite volitional, G8: 'let's read')."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Rikizo and Ken chat casually after school about a scary newspaper story.",
+          "lines": [
+            {
+              "spk": "けん",
+              "jp": "りきぞ、この 新聞 見た？ こわかったよ。",
+              "terms": [
+                "char_rikizo",
+                "v_kono",
+                "v_shinbun",
+                {
+                  "id": "v_miru",
+                  "form": "plain_past"
+                },
+                {
+                  "id": "v_kowai",
+                  "form": "plain_past_adj"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "うん、見た。目が いたいね。",
+              "terms": [
+                "v_un",
+                {
+                  "id": "v_miru",
+                  "form": "plain_past"
+                },
+                "v_me",
+                "p_ga",
+                "v_itai",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "けん",
+              "jp": "足も いたいよ。立ちたくない。",
+              "terms": [
+                "v_ashi",
+                "p_mo",
+                "v_itai",
+                "p_yo",
+                {
+                  "id": "v_tatsu",
+                  "form": "desire_tai_negative"
+                }
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "かなしいね。また 見たいけど。",
+              "terms": [
+                "v_kanashii",
+                "p_ne",
+                "v_mata",
+                {
+                  "id": "v_miru",
+                  "form": "plain_desire_tai"
+                },
+                "p_kedo"
+              ]
+            }
+          ],
+          "question": "What does Ken say about the newspaper?",
+          "choices": [
+            "It was scary",
+            "It was sad",
+            "He does not want to read it",
+            "He wants to see it again"
+          ],
+          "answer": "It was scary",
+          "explanation": "Line 1: けん says この新聞見た？こわかったよ — 'Did you see this newspaper? It was scary!' こわかった = plain past of こわい (N5.18, scary). i-adjective plain past: remove い, add かった (plain_past_adj form, G9/G10). In casual speech, i-adjectives drop です in the present (こわい, not こわいです) and use plain past without です (こわかった, not こわかったです). この新聞 without を is natural in casual speech — object particle を is often dropped. りきぞ says かなしいね (sad) in Line 4 — but that is りきぞ's own feeling, not what けん said. Line 4's また見たい (want to see again, plain_desire_tai) is also りきぞ speaking."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I enter the company through the entrance at two in the afternoon.",
+          "segments": [
+            "午後",
+            "二時",
+            "に",
+            "会社",
+            "の",
+            "入り口",
+            "から",
+            "入ります"
+          ],
+          "distractors": [
+            "出口",
+            "出ます",
+            "で"
+          ],
+          "alts": [
+            [
+              "会社",
+              "の",
+              "入り口",
+              "から",
+              "午後",
+              "二時",
+              "に",
+              "入ります"
+            ]
+          ],
+          "explanation": "午後 + 二時 + に (time) + 会社 + の + 入り口 + から (starting point) + 入ります. 入り口 (N5.17) = entrance: 入 (enter) + り + 口 (opening). から after 入り口 (a noun) marks the starting point 'through/from the entrance' (p_kara, G3). 入ります = polite non-past of 入る (to enter, intransitive godan). 午後二時に = 'at 2 p.m.' — the time expression can also come after the destination phrase: 会社の入り口から午後二時に入ります is equally natural. 出口 (でぐち = exit) is the opposite. 出ます = polite non-past of 出る (to exit) — opposite direction. で marks instrument or location of action, not the starting point."
+        },
+        {
+          "kind": "scramble",
+          "q": "The company president exits through the exit.",
+          "segments": [
+            "社長",
+            "は",
+            "出口",
+            "から",
+            "出ます"
+          ],
+          "distractors": [
+            "入り口",
+            "入ります",
+            "が"
+          ],
+          "explanation": "社長 + は (topic) + 出口 + から (starting point) + 出ます. 社長 (N5.17) = company president: 社 (しゃ, company) + 長 (N5.8, ちょう, chief). 出口 (N5.17) = exit: 出 (exit) + 口 (opening). から after 出口 (a noun) marks the starting point: 出口から = 'from/through the exit.' 出ます = polite non-past of 出る (to exit, intransitive ichidan). Compare: 入り口から入ります (enters through the entrance) — 入り口 and 出口 are a natural antonym pair, as are 入る and 出る. が would mark 社長 as a subject in a new-information context — は marks it as the topic. 入ります = to enter — wrong direction here."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please show me the newspaper.",
+          "segments": [
+            "新聞",
+            "を",
+            "見せてください"
+          ],
+          "distractors": [
+            "聞いて",
+            "が",
+            "読んで"
+          ],
+          "explanation": "新聞 + を (object) + 見せてください. 新聞 (N5.18) = newspaper: 新 (N5.8, new, しん) + 聞 (N5.18, hear, ぶん) = しんぶん. 見せてください = te-form of 見せる (to show, N5.18, ichidan: る→て → 見せて) + ください = polite request 'please show' (G7). The three 見 verbs: 見る (to look/see, volitional), 見える (to be visible, spontaneous), 見せる (to show, transitive). を marks 新聞 as the direct object of 見せる. が would mark 新聞 as a subject — wrong role here. 聞いて = te-form of 聞く (listen) — wrong verb. 読んで = te-form of 読む (read) — also wrong for 'show.'"
+        },
+        {
+          "kind": "scramble",
+          "q": "The entrance can be seen with my eyes.",
+          "segments": [
+            "目",
+            "で",
+            "入り口",
+            "が",
+            "見えます"
+          ],
+          "distractors": [
+            "耳",
+            "を",
+            "見せます"
+          ],
+          "explanation": "目 + で (instrument) + 入り口 + が (subject of 見える) + 見えます. 目 (N5.18) = eye (め). で marks 目 as the means/instrument: 目で = 'using/with one's eyes.' 見えます = polite non-past of 見える (to be visible, N5.18, ichidan). Key grammar: 見える marks the visible thing with が (not を): X が 見える = 'X can be seen / X is visible.' This が is p_ga (subject marker) — not p_ga_but. を would be incorrect for 見える (visible things take が). 耳 (N5.18) = ear — used with 聞く (listen), not 見える. 見せます = polite non-past of 見せる (to show, transitive) — 入り口を見せます means 'show the entrance to someone,' a completely different meaning."
+        },
+        {
+          "kind": "scramble",
+          "q": "My foot hurts, so I don't want to stand.",
+          "segments": [
+            "足",
+            "が",
+            "いたい",
+            "から",
+            "立ちたくないです"
+          ],
+          "distractors": [
+            "耳",
+            "かなしい",
+            "に"
+          ],
+          "explanation": "足 + が (subject) + いたい + から (because) + 立ちたくないです. 足 (N5.18) = foot/leg (あし). いたい (N5.18) = painful (i-adjective). から after the plain adjective form (いたい) marks a reason: いたいから = 'because it hurts' (p_kara_because, G9 — follows verb/adjective). 立ちたくないです = desire-negative of 立つ (N5.18, to stand, godan つ-verb): stem 立ち + たくない + です. 耳 (N5.18) = ear — the wrong body part; foot pain causes reluctance to stand, not ear pain. かなしい (N5.18) = sad — an emotional state, not physical pain. に marks destination or time — wrong particle after いたい."
+        },
+        {
+          "kind": "scramble",
+          "q": "Every day I read the newspaper and listen to Japanese.",
+          "segments": [
+            "毎日",
+            "新聞",
+            "を",
+            "読んで",
+            "日本語",
+            "を",
+            "聞いています"
+          ],
+          "distractors": [
+            "から",
+            "見て",
+            "が"
+          ],
+          "alts": [
+            [
+              "新聞",
+              "を",
+              "毎日",
+              "読んで",
+              "日本語",
+              "を",
+              "聞いています"
+            ]
+          ],
+          "explanation": "毎日 + 新聞 + を (object) + 読んで + 日本語 + を (object) + 聞いています. 読んで = te-form of 読む (read, godan む-verb: む→んで), used as a te-connector (G7) linking the two actions. 聞いています = te-form of 聞く (聞いて) + います = progressive/habitual 'is listening' (G8). 毎日 can float: 新聞を毎日読んで日本語を聞いています is also natural. から marks a starting point — wrong particle after 新聞 or 日本語. 見て = te-form of 見る (see) — the correct verb for 'read' is 読む, not 見る. が would mark 新聞 as a subject — wrong role; it is the direct object of 読む."
+        },
+        {
+          "kind": "scramble",
+          "q": "This morning I did a part-time job at the company and met the president.",
+          "segments": [
+            "午前",
+            "に",
+            "会社",
+            "で",
+            "アルバイト",
+            "を",
+            "して",
+            "社長",
+            "に",
+            "会いました"
+          ],
+          "distractors": [
+            "から",
+            "出て",
+            "が"
+          ],
+          "alts": [
+            [
+              "会社",
+              "で",
+              "午前",
+              "に",
+              "アルバイト",
+              "を",
+              "して",
+              "社長",
+              "に",
+              "会いました"
+            ]
+          ],
+          "explanation": "午前 + に (time) + 会社 + で (location of action) + アルバイト + を (object) + して + 社長 + に (partner/recipient) + 会いました. 午前 (N5.17) = morning: 午 (noon) + 前 (N5.9, before). して = te-form of する (do), connecting the two actions (G7): 'did the part-time job AND THEN met the president.' 会いました = polite past of 会う (to meet, N5.17, godan う→って). に after 社長 marks the person one meets: 社長に会う = 'meet the president.' 午前に can float to after 会社で: 会社で午前にアルバイトをして... is equally natural. から marks a starting point — not used after 午前 for time-of-day expressions (に is correct). 出て = te-form of 出る (exit) — wrong verb here."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — A Part-Time Job at the Company",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "わたしは 午後から 会社で アルバイトを しています。",
+          "en": "I am doing a part-time job at a company from the afternoon.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_gogo",
+            "p_kara",
+            "v_kaisha",
+            "p_de",
+            "v_arubaito",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日、入り口から 入って、社長に 会います。",
+          "en": "Every day, I enter through the entrance and meet the president.",
+          "terms": [
+            "v_mainichi",
+            "v_iriguchi",
+            "p_kara",
+            {
+              "id": "v_hairu",
+              "form": "te_form"
+            },
+            "v_shachou",
+            "p_ni",
+            {
+              "id": "v_au",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "社長と 日本語で 会話を します。",
+          "en": "I have a conversation with the president in Japanese.",
+          "terms": [
+            "v_shachou",
+            "p_to",
+            "v_nihongo",
+            "p_de",
+            "v_kaiwa",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "目で 見て、耳で 聞くのが すきです。",
+          "en": "I like looking with my eyes and listening with my ears.",
+          "terms": [
+            "v_me",
+            "p_de",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_mimi",
+            "p_de",
+            "v_kiku",
+            "p_ga",
+            "p_no",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "きのう 足が いたかったですが、社会に 出たいです。",
+          "en": "My foot hurt yesterday, but I want to enter society.",
+          "terms": [
+            "v_kinou",
+            "v_ashi",
+            "p_ga",
+            {
+              "id": "v_itai",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ga_but",
+            "v_shakai",
+            "p_ni",
+            {
+              "id": "v_deru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "アルバイトは 午前ですか、午後ですか。",
+          "a": "午後です。",
+          "choices": [
+            "午後です。",
+            "午前です。",
+            "午前と 午後です。",
+            "アルバイトは ありません。"
+          ],
+          "terms": [
+            "v_arubaito",
+            "p_wa",
+            "v_gozen",
+            "g_desu",
+            "p_ka",
+            "v_gogo",
+            "g_desu",
+            "p_ka"
+          ],
+          "explanation": "Sentence 1 states わたしは午後から会社でアルバイトをしています — 'I am doing a part-time job at a company from the afternoon.' 午後 (N5.17) = afternoon: 午 (noon, on-reading ご) + 後 (N5.9, after, on-reading ご) = ごご. 午前 (N5.17) = morning: 午 + 前 (N5.9, before, on-reading ぜん) = ごぜん. から after 午後 (a noun) marks the starting point: 午後から = 'from the afternoon onward' (p_kara, G3). The narrator's アルバイト begins in the 午後, not 午前."
+        },
+        {
+          "q": "社長と 何を しますか。",
+          "a": "日本語で 会話を します。",
+          "choices": [
+            "日本語で 会話を します。",
+            "新聞を 読みます。",
+            "入り口から 出ます。",
+            "アルバイトを します。"
+          ],
+          "terms": [
+            "v_shachou",
+            "p_to",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_nihongo",
+            "p_de",
+            "v_kaiwa"
+          ],
+          "explanation": "Sentence 3 states 社長と日本語で会話をします — 'I have a conversation with the president in Japanese.' 会話 (N5.17) = conversation: 会 (meet, かい) + 話 (N5.13, speak, わ). と marks 社長 as the conversation partner (p_to, 'with'). Sentence 2 shows the narrator enters and meets (会います) the president; Sentence 3 shows what they do together. 入り口から出ます would mean 'exits through the entrance' — but 入り口 is for entering (the narrator exits through 出口 in the conversations)."
+        },
+        {
+          "q": "何が すきですか。",
+          "a": "目で 見て、耳で 聞くのが すきです。",
+          "choices": [
+            "目で 見て、耳で 聞くのが すきです。",
+            "午後に アルバイトを するのが すきです。",
+            "会社の 入り口に 入るのが すきです。",
+            "社長に 会うのが すきです。"
+          ],
+          "terms": [
+            "v_nani",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka",
+            "v_me",
+            "p_de",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_mimi",
+            "v_kiku",
+            "p_no"
+          ],
+          "explanation": "Sentence 4 states 目で見て、耳で聞くのがすきです — 'I like looking with my eyes and listening with my ears.' の nominalizes the verb phrase 見て、耳で聞く (the act of seeing and listening) — it becomes a noun phrase as the subject of すきです, marked by が. 目 (N5.18, め = eye) and 耳 (N5.18, みみ = ear) are the two sense-organ kanji from Lesson 18. The other choices describe activities from other sentences (アルバイト, 入り口, 社長に会う) but none are explicitly stated as the narrator's favourite."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "会社の [入り口] に 入ります。",
+          "choices": [
+            "いりぐち",
+            "でぐち",
+            "いれます",
+            "にゅうぐち"
+          ],
+          "answer": "いりぐち",
+          "explanation": "入り口 (entrance) is read as <b>iriguchi</b>. 入 (enter): on-reading にゅう, kun-reading い/はい. 口 (opening): on-reading こう, kun-reading くち (voiced to ぐち in compounds). 入り口 = the opening through which one enters. Compare: 出口 (でぐち = exit) — same structure but with 出 (exit) instead of 入. いれます is polite non-past of 入れる (to put in, transitive) — a different verb from 入る (to enter, intransitive). にゅうぐち mixes on-reading にゅう with kun-reading くち — not the standard reading of this compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "[出口] から 出てください。",
+          "choices": [
+            "でぐち",
+            "いりぐち",
+            "しゅつぐち",
+            "でくち"
+          ],
+          "answer": "でぐち",
+          "explanation": "出口 (exit) is read as <b>deguchi</b>. 出 (exit/take out): on-reading しゅつ, kun-reading で/だ. 口 (opening): kun-reading くち (voiced to ぐち in compounds). から after 出口 (a noun) marks the starting point: 出口から = 'from/through the exit' (p_kara, G3). 入り口 (いりぐち = entrance) is the direct antonym — same structure, opposite direction. しゅつぐち uses on-reading しゅつ — while そのmixed reading exists in other words, でぐち is standard here. でくち misses the voiced sound change: 口 becomes ぐち (voiced), not くち, in this compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "[午後] に 会社に 入ります。",
+          "choices": [
+            "ごご",
+            "ごぜん",
+            "こうご",
+            "ごうご"
+          ],
+          "answer": "ごご",
+          "explanation": "午後 (afternoon) is read as <b>gogo</b>. 午 (noon): on-reading ご — 午 has no kun-reading and only appears in compounds: 午後, 午前, 正午. 後 (N5.9, after): on-reading ご. Both kanji use their on-readings: ご + ご = ごご. 午前 (ごぜん = morning) is the antonym: 午 (ご) + 前 (N5.9, before, on-reading ぜん) = 'before noon.' こうご uses a non-existent reading こう for 午. ごうご adds an incorrect prolonged vowel to the first syllable."
+        },
+        {
+          "kind": "mcq",
+          "q": "[社長] は 今 会社に います。",
+          "choices": [
+            "しゃちょう",
+            "かいちょう",
+            "かいしゃ",
+            "しゃかい"
+          ],
+          "answer": "しゃちょう",
+          "explanation": "社長 (company president) is read as <b>shachou</b>. 社 (company): on-reading しゃ. 長 (N5.8, chief/long): on-reading ちょう. Both use on-readings: しゃ + ちょう = しゃちょう. Compare: 会長 (かいちょう = chairman) uses 会 (かい, N5.17) + 長 — a similar compound with different kanji. 会社 (かいしゃ = company) uses 会 + 社. 社会 (しゃかい = society) uses 社 + 会 — note how 会社 and 社会 are the same two kanji in reverse order with completely different meanings."
+        },
+        {
+          "kind": "mcq",
+          "q": "会社で [会話] を しました。",
+          "choices": [
+            "かいわ",
+            "かいしゃ",
+            "しゃかい",
+            "あいわ"
+          ],
+          "answer": "かいわ",
+          "explanation": "会話 (conversation) is read as <b>kaiwa</b>. 会 (meet/gathering): on-reading かい. 話 (N5.13, speak/story): on-reading わ (in compounds; kun-reading はなし for standalone 'story'). Both use on-readings: かい + わ = かいわ. The N5.17 trio: 会社 (かいしゃ = company), 社会 (しゃかい = society), 会話 (かいわ = conversation) — three words using 会 and/or 社 with completely different meanings. あいわ uses the kun-reading あ(う) for 会 — incorrect for this compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "[目] で 見てください。",
+          "choices": [
+            "め",
+            "もく",
+            "ぼく",
+            "み"
+          ],
+          "answer": "め",
+          "explanation": "目 (eye) is read as <b>me</b> (kun-reading). 目 (もく/ぼく/め) — kun-reading め is used for the body part in everyday speech. On-reading もく appears in compounds: 目的 (もくてき = purpose). On-reading ぼく in 着目 (ちゃくもく = focusing). Compare: 見 (N5.18) = the action kanji 'see/show' — kun-reading み. 目 is the body part (eye), 見 is the action (see). み is the kun-reading of 見, not 目."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生の 話を [聞きました]。",
+          "choices": [
+            "ききました",
+            "みました",
+            "かきました",
+            "たちました"
+          ],
+          "answer": "ききました",
+          "explanation": "聞きました (listened) — 聞 is read as <b>ki</b> (kun-reading). 聞 (ぶん/もん/き) — kun-reading き in 聞く. Polite past: 聞き (stem) + ました = 聞きました. 聞く = to hear/listen (godan く-verb). Compare all polite past forms in the choices: 見ました (みました = looked, from 見る N5.18), 書きました (かきました = wrote, from 書く N5.13), 立ちました (たちました = stood up, from 立つ N5.18). On-readings ぶん/もん appear in literary compounds like 新聞 (しんぶん = newspaper, N5.18)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[足] が いたいです。",
+          "choices": [
+            "あし",
+            "そく",
+            "てい",
+            "ふく"
+          ],
+          "answer": "あし",
+          "explanation": "足 (foot/leg) is read as <b>ashi</b> (kun-reading). 足 (そく/あし) — kun-reading あし for the body part in everyday speech. On-reading そく appears in compounds: 満足 (まんぞく = satisfaction), 遠足 (えんそく = field trip, excursion). てい and ふく are not valid readings of 足. 足 refers to both the foot and the leg — context clarifies. Compare: 立つ (N5.18, to stand) — an action performed using the 足. 目 (め = eye) and 耳 (みみ = ear) are the other body-part kanji from N5.18."
+        },
+        {
+          "kind": "mcq",
+          "q": "[耳] で 聞いてください。",
+          "choices": [
+            "みみ",
+            "じ",
+            "ほ",
+            "め"
+          ],
+          "answer": "みみ",
+          "explanation": "耳 (ear) is read as <b>mimi</b> (kun-reading). 耳 (じ/みみ) — kun-reading みみ for the body part. On-reading じ appears in medical compounds: 耳鼻科 (じびか = ear, nose and throat clinic). 耳で聞く = 'listen with the ears' — で marks the ear as the instrument of listening. Compare: 目 (め = eye, N5.18) — another sense-organ kanji from the same lesson. じ is the on-reading, used in formal/compound contexts. め is the reading of 目 (eye) — a different sense organ."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "会社の _____ から 入って、社長に 会いました。（I entered through the _____ and met the president.）",
+          "choices": [
+            "入り口",
+            "出口",
+            "社会",
+            "午後"
+          ],
+          "answer": "入り口",
+          "terms": [
+            "v_kaisha",
+            "p_no",
+            "v_iriguchi",
+            "p_kara",
+            {
+              "id": "v_hairu",
+              "form": "te_form"
+            },
+            "v_shachou",
+            "p_ni",
+            {
+              "id": "v_au",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "入り口 (N5.17) = entrance: 入 (enter) + り + 口 (opening). 入り口から = 'from/through the entrance' — から marks the starting point (p_kara, G3). 入って = te-form of 入る (to enter, intransitive godan: る→って), used as a te-connector leading to the next action (G7). 出口 (N5.17) = exit — the opposite of 入り口; you exit through 出口, not enter through it. 社会 (N5.17) = society — a broad concept, not a physical entrance to a building. 午後 (N5.17) = afternoon — a time expression, not a physical location."
+        },
+        {
+          "kind": "mcq",
+          "q": "足が _____ から、立ちたくないです。（My foot hurts, so I don't want to stand.）",
+          "choices": [
+            "いたい",
+            "こわい",
+            "かなしい",
+            "いい"
+          ],
+          "answer": "いたい",
+          "terms": [
+            "v_ashi",
+            "p_ga",
+            "v_itai",
+            "p_kara_because",
+            {
+              "id": "v_tatsu",
+              "form": "desire_tai_negative"
+            }
+          ],
+          "explanation": "いたい (N5.18) = painful — the i-adjective for physical pain: 足がいたい = 'my foot hurts.' から after the plain i-adjective (いたい) gives a reason: いたいから = 'because it hurts' (p_kara_because, G9 — follows verb/adjective). 立ちたくないです = don't want to stand: 立つ (N5.18, godan つ-verb, stem 立ち) + たくないです (desire-negative). こわい (N5.18) = scary — an emotional response, not physical pain. かなしい (N5.18) = sad — also emotional. いい = good — the opposite of painful; いいから = 'because it is good.'"
+        },
+        {
+          "kind": "mcq",
+          "q": "会社で 日本語で _____ を します。（We have a conversation at the company in Japanese.）",
+          "choices": [
+            "会話",
+            "社会",
+            "入り口",
+            "アルバイト"
+          ],
+          "answer": "会話",
+          "terms": [
+            "v_kaisha",
+            "p_de",
+            "v_nihongo",
+            "p_de",
+            "v_kaiwa",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "会話 (N5.17) = conversation: 会 (meet, かい) + 話 (N5.13, speak, わ). 会話をする = 'to have a conversation' — a compound suru-verb pattern. 日本語で = 'in Japanese' — で marks the language/means used. 社会 (N5.17) = society — the same kanji as 会社 in reverse order; 社会をする is not a standard expression. 入り口 (N5.17) = entrance — a physical location, not an activity. アルバイト (N5.17) = part-time job — an employment activity, not specifically a conversation."
+        },
+        {
+          "kind": "mcq",
+          "q": "新聞を _____ で 読んでいます。（I am reading the newspaper with my eyes.）",
+          "choices": [
+            "目",
+            "耳",
+            "足",
+            "手"
+          ],
+          "answer": "目",
+          "terms": [
+            "v_shinbun",
+            "p_wo",
+            "v_me",
+            "p_de",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "目 (N5.18) = eye (め) — 目で読む = 'read with the eyes.' で marks the instrument/means: Xで = 'by/using X.' 読んでいます = te-form of 読む (godan む-verb: む→んで) + います = progressive 'is reading' (G8). 耳 (N5.18) = ear — 耳で聞く = 'listen with the ears' (you listen with ears, not read). 足 (N5.18) = foot/leg — you don't read with your feet. 手 (N5.13) = hand — 手で書く = 'write by hand' (you write with hands, not read)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "会社に ___。（I enter the company.）",
+          "choices": [
+            "入ります",
+            "出ます",
+            "入れます",
+            "出します"
+          ],
+          "answer": "入ります",
+          "terms": [
+            "v_kaisha",
+            "p_ni",
+            {
+              "id": "v_hairu",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "入ります = polite non-past of 入る (to enter, intransitive godan). に marks 会社 as the destination of movement: 会社に入る = 'enter the company.' 出ます = polite non-past of 出る (to exit, intransitive) — same structure, opposite direction: 会社から出る = 'exit from the company.' 入れます = polite non-past of 入れる (to put in, transitive ichidan) — requires an object marked by を: 何かを入れる (put something in). 出します = polite non-past of 出す (to take out, transitive godan) — also transitive and opposite direction. Key distinction: 入る/出る are intransitive; 入れる/出す are transitive and require a direct object."
+        },
+        {
+          "kind": "mcq",
+          "q": "社長に ___、会話を しました。（I met the president and had a conversation.）",
+          "choices": [
+            "会って",
+            "会います",
+            "会いました",
+            "会いましょう"
+          ],
+          "answer": "会って",
+          "terms": [
+            "v_shachou",
+            "p_ni",
+            {
+              "id": "v_au",
+              "form": "te_form"
+            },
+            "v_kaiwa",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "会って = te-form of 会う (to meet, N5.17, godan う-verb: う→って). The て-form connects two sequential past actions: 社長に会って、会話をしました = 'I met the president and (then) had a conversation' (G7 te-connector). しました confirms the whole sequence is in the past. 会います = polite non-past — describes future or habitual meetings, cannot connect to a following past clause. 会いました = polite past — stands alone ('I met the president') but cannot link to the next clause as a connector. 会いましょう = polite volitional 'let's meet' — a suggestion/invitation, not a completed sequence."
+        },
+        {
+          "kind": "mcq",
+          "q": "目で 見て、耳で ___。（Please look with your eyes and listen with your ears.）",
+          "choices": [
+            "聞いてください",
+            "聞きます",
+            "聞きました",
+            "聞きましょう"
+          ],
+          "answer": "聞いてください",
+          "terms": [
+            "v_me",
+            "p_de",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_mimi",
+            "p_de",
+            {
+              "id": "v_kiku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ],
+          "explanation": "聞いてください = te-form of 聞く + ください = polite request 'please listen' (G7). 聞く (N5.18) = to hear/listen (godan く-verb): く→いて → 聞いて. Pattern: [verb te-form] + ください = polite request. 見て (te-form of 見る) connects as the first action before the main request ください on 聞く. 聞きます = polite statement 'I will listen' — not a request form. 聞きました = past tense 'I listened' — a completed action, not a request. 聞きましょう = polite volitional 'let's listen' (G8) — a joint suggestion, not a direct request to the listener."
+        },
+        {
+          "kind": "mcq",
+          "q": "足が いたいです ___、会社に 行きます。（My foot hurts, but I will go to the company.）",
+          "choices": [
+            "が",
+            "から",
+            "で",
+            "に"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_ashi",
+            "p_ga",
+            "v_itai",
+            "g_desu",
+            "p_ga_but",
+            "v_kaisha",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "が (p_ga_but, G9) after a polite adjective form (いたいです) is the clause-linking conjunction 'but' — it contrasts two clauses in polite speech. Note: this sentence has two が. The first is p_ga (subject marker: 足が — 'the foot' is the subject of いたい). The second is p_ga_but (clause connector: いたいですが — 'hurts, but'). から after いたいです would create p_kara_because (G9): 'because my foot hurts, I will go' — a reason clause, not a contrast. で marks instrument or location. に marks destination — already used for 会社に行きます."
+        },
+        {
+          "kind": "mcq",
+          "q": "社会に ___、新聞を 読みたいです。（I want to emerge into society and read newspapers.）",
+          "choices": [
+            "出て",
+            "出ます",
+            "出ました",
+            "出ましょう"
+          ],
+          "answer": "出て",
+          "terms": [
+            "v_shakai",
+            "p_ni",
+            {
+              "id": "v_deru",
+              "form": "te_form"
+            },
+            "v_shinbun",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ],
+          "explanation": "出て = te-form of 出る (to exit/emerge, N5.17, ichidan: る→て). The て-form connects the first action to the desire: 社会に出て、新聞を読みたいです = 'I want to emerge into society and read newspapers' (G7 te-connector + G8 desire). 社会に出る is an idiomatic expression: 'to enter the workforce / emerge into society.' 読みたいです = desire form (G8): 読む stem + たいです. 出ます = polite non-past statement — cannot connect to a たいです desire clause. 出ました = past tense — the action would already be completed. 出ましょう = polite volitional 'let's exit' — a joint suggestion, not a personal desire."
+        }
+      ]
+    }
+  ]
+}

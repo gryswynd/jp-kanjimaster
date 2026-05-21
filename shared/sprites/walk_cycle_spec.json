@@ -1,0 +1,267 @@
+{
+  "version": "1.0.0",
+  "description": "Frame-by-frame walk cycle specification for Rikizo player sprite sheet. Each frame has a precise pose description for individual AI image generation. Frames are stitched into me_sheet.png by stitch_spritesheet.py.",
+  "character": "Rikizo — high-school student, black curly hair, glasses, school uniform (white shirt, red/maroon tie, dark navy blazer, dark slacks), pocket dictionary in breast pocket. Chibi pixel art style, 2-3 heads tall, 16-32 color limited palette. Dark outline (not pure black). Upper-left light source.",
+  "sheet_layout": {
+    "columns": 6,
+    "rows": 4,
+    "frame_width": 204,
+    "frame_height": 293,
+    "total_width": 1224,
+    "total_height": 1172,
+    "background": "#000000",
+    "row_order": ["down", "left", "right", "up"],
+    "column_order": ["idle", "step_right", "pass_right", "step_left", "pass_left", "step_right_2"]
+  },
+  "walk_cycle_phases": {
+    "idle": "Neutral standing pose. Feet together, weight centered. Arms relaxed at sides. Body at baseline height.",
+    "step_right": "Right foot forward, left foot back. Left arm swings forward, right arm swings back. Weight shifting forward. Body at baseline height.",
+    "pass_right": "Right leg mid-stride passing center, left foot pushing off behind. Arms transitioning through center. Body bobs UP 1-2 pixels (passing position — highest point of cycle).",
+    "step_left": "Left foot forward, right foot back. Right arm swings forward, left arm swings back. Mirror of step_right. Body at baseline height.",
+    "pass_left": "Left leg mid-stride passing center, right foot pushing off behind. Arms transitioning through center. Mirror of pass_right. Body bobs UP 1-2 pixels.",
+    "step_right_2": "Same as step_right — right foot forward again. This creates the looping cycle: idle→R→pass→L→pass→R→(loop back to step_right)."
+  },
+  "direction_notes": {
+    "down": "Character faces TOWARD the camera. Full face visible — eyes, glasses, mouth. Chest and tie visible. Feet splay left/right on step frames. Arms swing visibly at sides of body.",
+    "left": "Character faces LEFT (camera sees the right side of the body). Right arm and right leg are visible/in front. Left arm and left leg are mostly occluded behind the body. Head shown in profile — right side of face, glasses arm visible.",
+    "right": "Character faces RIGHT (camera sees the left side of the body). Mirror of 'left' row. Left arm and left leg are visible/in front. Right arm and right leg mostly occluded.",
+    "up": "Character faces AWAY from camera. Back of head and hair dominant. NO face visible — only the back of the head, back of the blazer, and back of the slacks. Feet splay left/right on step frames."
+  },
+  "frames": [
+    {
+      "index": 0,
+      "row": 0,
+      "col": 0,
+      "direction": "down",
+      "phase": "idle",
+      "filename": "frame_down_0_idle.png",
+      "prompt_detail": "Chibi pixel art character facing TOWARD the viewer (front view). Standing still, neutral pose. Feet together, arms relaxed at sides. Full face visible — round glasses, simple dot/line eyes, small mouth. White shirt with red tie visible under dark navy blazer. Dark slacks. Pocket dictionary in breast pocket. This is the REST pose — balanced, centered, symmetrical."
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "col": 1,
+      "direction": "down",
+      "phase": "step_right",
+      "filename": "frame_down_1_step_r.png",
+      "prompt_detail": "Chibi pixel art character facing TOWARD the viewer (front view). Walking — RIGHT foot is forward (shifted slightly left on screen since it's the character's right from their perspective), LEFT foot is back. LEFT arm swings forward, RIGHT arm swings back. Slight forward lean. Same front-facing view as idle — full face, glasses, tie visible."
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "col": 2,
+      "direction": "down",
+      "phase": "pass_right",
+      "filename": "frame_down_2_pass_r.png",
+      "prompt_detail": "Chibi pixel art character facing TOWARD the viewer (front view). Walking — mid-stride passing position. Right leg swinging through center, left foot pushing off. Arms transitioning through center (close to body). Body is at the HIGHEST point of the walk cycle — shift the entire character UP by 1-2 pixels compared to the idle frame. Feet are close together momentarily."
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "col": 3,
+      "direction": "down",
+      "phase": "step_left",
+      "filename": "frame_down_3_step_l.png",
+      "prompt_detail": "Chibi pixel art character facing TOWARD the viewer (front view). Walking — LEFT foot is forward (shifted slightly right on screen), RIGHT foot is back. RIGHT arm swings forward, LEFT arm swings back. Mirror image of frame 1. Same front-facing view — full face, glasses, tie visible."
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "col": 4,
+      "direction": "down",
+      "phase": "pass_left",
+      "filename": "frame_down_4_pass_l.png",
+      "prompt_detail": "Chibi pixel art character facing TOWARD the viewer (front view). Walking — mid-stride passing position, mirror of frame 2. Left leg swinging through center, right foot pushing off. Arms close to body. Body shifted UP 1-2 pixels (highest point). Feet close together."
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "col": 5,
+      "direction": "down",
+      "phase": "step_right_2",
+      "filename": "frame_down_5_step_r2.png",
+      "prompt_detail": "Chibi pixel art character facing TOWARD the viewer (front view). Walking — identical pose to frame 1 (step_right). RIGHT foot forward, LEFT foot back. LEFT arm forward, RIGHT arm back. This frame completes the loop cycle."
+    },
+    {
+      "index": 6,
+      "row": 1,
+      "col": 0,
+      "direction": "left",
+      "phase": "idle",
+      "filename": "frame_left_0_idle.png",
+      "prompt_detail": "Chibi pixel art character facing LEFT (viewer sees the right side of the body — profile/three-quarter view). Standing still, neutral pose. Feet together, arms at sides. Head in profile — right side of face visible, glasses arm visible, right ear visible. Right shoulder and right side of blazer visible. Body angled so the character is clearly looking/facing to the LEFT of the screen."
+    },
+    {
+      "index": 7,
+      "row": 1,
+      "col": 1,
+      "direction": "left",
+      "phase": "step_right",
+      "filename": "frame_left_1_step_r.png",
+      "prompt_detail": "Chibi pixel art character facing LEFT (profile view, right side visible). Walking — the leg closest to viewer (right leg) steps forward (leftward on screen). The far leg (left) is behind. The far arm (left) swings forward past the body (visible in front). The near arm (right) swings back. Body has a slight forward lean in the direction of movement (left)."
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "col": 2,
+      "direction": "left",
+      "phase": "pass_right",
+      "filename": "frame_left_2_pass_r.png",
+      "prompt_detail": "Chibi pixel art character facing LEFT (profile view). Mid-stride passing position. Legs overlapping at center. Arms close to body. Body shifted UP 1-2 pixels (highest point of walk cycle). The character appears to 'bounce' slightly upward at this frame."
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "col": 3,
+      "direction": "left",
+      "phase": "step_left",
+      "filename": "frame_left_3_step_l.png",
+      "prompt_detail": "Chibi pixel art character facing LEFT (profile view, right side visible). Walking — the far leg (left) now steps forward (leftward). The near leg (right) is behind. The near arm (right) swings forward past the body. The far arm (left) swings back. Mirror of frame 7 in terms of which leg leads."
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "col": 4,
+      "direction": "left",
+      "phase": "pass_left",
+      "filename": "frame_left_4_pass_l.png",
+      "prompt_detail": "Chibi pixel art character facing LEFT (profile view). Mid-stride passing position, mirror of frame 8. Legs overlapping at center. Arms close to body. Body shifted UP 1-2 pixels. Same bounce as frame 8."
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "col": 5,
+      "direction": "left",
+      "phase": "step_right_2",
+      "filename": "frame_left_5_step_r2.png",
+      "prompt_detail": "Chibi pixel art character facing LEFT (profile view). Identical pose to frame 7 (step_right). Near leg forward, far leg back. Completes the loop."
+    },
+    {
+      "index": 12,
+      "row": 2,
+      "col": 0,
+      "direction": "right",
+      "phase": "idle",
+      "filename": "frame_right_0_idle.png",
+      "prompt_detail": "Chibi pixel art character facing RIGHT (viewer sees the left side of the body — profile/three-quarter view). Standing still, neutral pose. Feet together, arms at sides. Head in profile — left side of face visible, glasses arm visible, left ear visible. Left shoulder and left side of blazer visible. EXACT MIRROR of the left-idle frame. Body angled so the character is clearly looking/facing to the RIGHT of the screen."
+    },
+    {
+      "index": 13,
+      "row": 2,
+      "col": 1,
+      "direction": "right",
+      "phase": "step_right",
+      "filename": "frame_right_1_step_r.png",
+      "prompt_detail": "Chibi pixel art character facing RIGHT (profile view, left side visible). Walking — the near leg (left) steps forward (rightward on screen). The far leg (right) is behind. The far arm (right) swings forward past the body. The near arm (left) swings back. Mirror of the left-walking frames. Forward lean toward the right."
+    },
+    {
+      "index": 14,
+      "row": 2,
+      "col": 2,
+      "direction": "right",
+      "phase": "pass_right",
+      "filename": "frame_right_2_pass_r.png",
+      "prompt_detail": "Chibi pixel art character facing RIGHT (profile view). Mid-stride passing position. Legs overlapping at center. Arms close to body. Body shifted UP 1-2 pixels. Mirror of the left pass_right frame."
+    },
+    {
+      "index": 15,
+      "row": 2,
+      "col": 3,
+      "direction": "right",
+      "phase": "step_left",
+      "filename": "frame_right_3_step_l.png",
+      "prompt_detail": "Chibi pixel art character facing RIGHT (profile view, left side visible). Walking — the far leg (right) steps forward (rightward). The near leg (left) is behind. The near arm (left) swings forward. The far arm (right) swings back. Mirror of frame 13."
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "col": 4,
+      "direction": "right",
+      "phase": "pass_left",
+      "filename": "frame_right_4_pass_l.png",
+      "prompt_detail": "Chibi pixel art character facing RIGHT (profile view). Mid-stride passing position. Mirror of frame 14. Body UP 1-2 pixels."
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "col": 5,
+      "direction": "right",
+      "phase": "step_right_2",
+      "filename": "frame_right_5_step_r2.png",
+      "prompt_detail": "Chibi pixel art character facing RIGHT (profile view). Identical pose to frame 13. Completes the loop."
+    },
+    {
+      "index": 18,
+      "row": 3,
+      "col": 0,
+      "direction": "up",
+      "phase": "idle",
+      "filename": "frame_up_0_idle.png",
+      "prompt_detail": "Chibi pixel art character facing AWAY from the viewer (back view). Standing still, neutral pose. Feet together, arms at sides. BACK of head visible — dark curly hair filling the top of the frame. NO face visible. Back of the navy blazer visible, back of dark slacks. This is a REAR view — the character is looking away from the camera into the distance."
+    },
+    {
+      "index": 19,
+      "row": 3,
+      "col": 1,
+      "direction": "up",
+      "phase": "step_right",
+      "filename": "frame_up_1_step_r.png",
+      "prompt_detail": "Chibi pixel art character facing AWAY from viewer (back view). Walking — right foot steps forward (upward/away from camera). Left foot behind. Left arm visible swinging forward on the left side, right arm swinging back on the right side. Back of head, back of blazer visible. NO face."
+    },
+    {
+      "index": 20,
+      "row": 3,
+      "col": 2,
+      "direction": "up",
+      "phase": "pass_right",
+      "filename": "frame_up_2_pass_r.png",
+      "prompt_detail": "Chibi pixel art character facing AWAY from viewer (back view). Mid-stride passing position. Legs close together. Arms near body. Body shifted UP 1-2 pixels. Back of head and blazer. NO face."
+    },
+    {
+      "index": 21,
+      "row": 3,
+      "col": 3,
+      "direction": "up",
+      "phase": "step_left",
+      "filename": "frame_up_3_step_l.png",
+      "prompt_detail": "Chibi pixel art character facing AWAY from viewer (back view). Walking — left foot steps forward, right foot behind. Right arm swings forward on the right side, left arm swings back. Mirror of frame 19. Back of head, blazer. NO face."
+    },
+    {
+      "index": 22,
+      "row": 3,
+      "col": 4,
+      "direction": "up",
+      "phase": "pass_left",
+      "filename": "frame_up_4_pass_l.png",
+      "prompt_detail": "Chibi pixel art character facing AWAY from viewer (back view). Mid-stride passing position. Mirror of frame 20. Body UP 1-2 pixels. NO face."
+    },
+    {
+      "index": 23,
+      "row": 3,
+      "col": 5,
+      "direction": "up",
+      "phase": "step_right_2",
+      "filename": "frame_up_5_step_r2.png",
+      "prompt_detail": "Chibi pixel art character facing AWAY from viewer (back view). Identical pose to frame 19. Completes the loop. NO face."
+    }
+  ],
+  "generation_instructions": {
+    "step_1": "Generate frame_down_0_idle.png first as the CANONICAL REFERENCE. Get proportions, palette, and style perfect. All other frames must match this one.",
+    "step_2": "Generate remaining down-facing frames (1-5) using the idle as reference. Focus on leg/arm positions per the phase descriptions. Keep the face, body proportions, and palette IDENTICAL.",
+    "step_3": "Generate left-facing frames (6-11). Use the down-idle as character reference but rotate the viewpoint to profile. Maintain identical proportions and palette.",
+    "step_4": "Generate right-facing frames (12-17). These should be EXACT MIRRORS of the left-facing frames. If your generation tool supports horizontal flip, generate left frames and flip them.",
+    "step_5": "Generate up-facing frames (18-23). Back of head and body only. NO face. Use the same proportions and palette.",
+    "step_6": "Run stitch_spritesheet.py to assemble all 24 frames into me_sheet.png.",
+    "mirror_optimization": "RIGHT-facing frames can be generated by horizontally flipping LEFT-facing frames. This guarantees perfect consistency between the two side-view directions. If using this approach, only generate 18 unique frames (down 6, left 6, up 6) and flip left→right."
+  },
+  "common_pitfalls": [
+    "DO NOT change the character's facing direction between frames within a row. Every frame in row 0 faces DOWN. Every frame in row 1 faces LEFT. etc.",
+    "DO NOT treat each frame as an independent character portrait. These are ANIMATION FRAMES — the body stays consistent, only the limbs move.",
+    "DO NOT add random accessories, expression changes, or outfit variations between frames. The character looks IDENTICAL except for limb positions.",
+    "DO NOT forget the 1-2px vertical bob on pass frames (cols 2 and 4). This creates the natural walking bounce.",
+    "DO NOT make the up-facing row show any face. It is the BACK of the head only.",
+    "DO NOT use anti-aliasing or gradients. This is pixel art — hard edges, flat colors, no sub-pixel blending.",
+    "DO keep the character centered in each 204x293 cell with consistent padding/margins across all frames.",
+    "DO maintain the EXACT same palette across all 24 frames — same skin tone, same blazer navy, same hair brown, same tie red."
+  ]
+}

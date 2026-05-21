@@ -1,0 +1,831 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.11",
+  "title": "Phase 4 Review: Commerce, Possessions & Writing",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 21–22.",
+    "kanji": ["売", "品", "持", "貸", "漢", "字", "紙", "意"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and answer the comprehension question.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "A customer is browsing at a small shop. The shopkeeper explains what is for sale.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "すみません。この 品物は 売り物ですか。",
+              "terms": [
+                "p_sumimasen",
+                "v_kono",
+                "v_shinamono",
+                "p_wa",
+                "v_urimono",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、売り物です。今、売り出して います。",
+              "terms": [
+                "p_hai",
+                "v_urimono",
+                "g_desu",
+                "v_ima",
+                {
+                  "id": "v_uridasu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "これを 家に 持ち帰っても いいですか。",
+              "terms": [
+                "v_kore",
+                "p_wo",
+                "v_ie",
+                "p_ni",
+                {
+                  "id": "v_mochikaeru",
+                  "form": "te_form"
+                },
+                "p_mo",
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、いいですよ。上品な 品物ですから、大切に 持って ください。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_yo",
+                {
+                  "id": "v_jouhin",
+                  "form": "attributive_na"
+                },
+                "v_shinamono",
+                "g_desu",
+                "p_kara_because",
+                {
+                  "id": "v_taisetsu",
+                  "form": "adverbial"
+                },
+                "p_ni",
+                {
+                  "id": "v_motsu",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            }
+          ],
+          "question": "What does the shopkeeper say about the item?",
+          "choices": [
+            "It is not for sale.",
+            "It is a refined item, so please handle it carefully.",
+            "It cannot be taken home.",
+            "It is too expensive to buy."
+          ],
+          "answer": "It is a refined item, so please handle it carefully.",
+          "explanation": "B says the item is 上品 (elegant/refined) and asks the customer to handle it carefully — 大切に持ってください."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "A student asks their teacher about a kanji and its meaning.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "先生、この 漢字の 意味は 何ですか。",
+              "terms": [
+                "v_sensei",
+                "v_kono",
+                "v_kanji",
+                "p_no",
+                "v_imi",
+                "p_wa",
+                "v_nan",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "この 漢字の 意味は こころや 気持ちの ことです。",
+              "terms": [
+                "v_kono",
+                "v_kanji",
+                "p_no",
+                "v_imi",
+                "p_wa",
+                "v_kokoro",
+                "p_ya",
+                "v_kimochi",
+                "p_no",
+                "v_koto",
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "漢字は むずかしいですね。ローマ字で 書いても いいですか。",
+              "terms": [
+                "v_kanji",
+                "p_wa",
+                {
+                  "id": "v_muzukashii",
+                  "form": "polite_adj"
+                },
+                "p_ne",
+                "v_romaji",
+                "p_de",
+                {
+                  "id": "v_kaku",
+                  "form": "te_form"
+                },
+                "p_mo",
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいえ、この テストでは ローマ字で 書いては いけません。",
+              "terms": [
+                "v_iie",
+                "v_kono",
+                "v_tesuto",
+                "p_dewa",
+                "v_romaji",
+                "p_de",
+                {
+                  "id": "v_kaku",
+                  "form": "te_form"
+                },
+                "p_wa",
+                {
+                  "id": "v_ikeru",
+                  "form": "polite_negative"
+                }
+              ]
+            }
+          ],
+          "question": "What does the teacher say the student must not do on the test?",
+          "choices": [
+            "Write kanji.",
+            "Use romaji.",
+            "Ask questions.",
+            "Look at the textbook."
+          ],
+          "answer": "Use romaji.",
+          "explanation": "The teacher says ローマ字で書いてはいけません — romaji may not be used on this test (てはいけない = prohibition)."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two friends are talking after school. Ren wants to borrow a notebook from Yuki.",
+          "lines": [
+            {
+              "spk": "レン",
+              "jp": "ゆき、その ノートを 貸してくれない？",
+              "terms": [
+                "char_yuki",
+                "v_sono",
+                "v_nooto",
+                "p_wo",
+                {
+                  "id": "v_kasu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_kureru",
+                  "form": "plain_negative"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "いいよ。でも、名字を 書いてね。",
+              "terms": [
+                "v_ii",
+                "p_yo",
+                "p_demo_but",
+                "v_myouji",
+                "p_wo",
+                {
+                  "id": "v_kaku",
+                  "form": "te_form"
+                },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "わかった。後、この 漢字の 意味が 分かる？",
+              "terms": [
+                {
+                  "id": "v_wakaru",
+                  "form": "plain_past"
+                },
+                "v_ato",
+                "v_kono",
+                "v_kanji",
+                "p_no",
+                "v_imi",
+                "p_ga",
+                {
+                  "id": "v_wakaru",
+                  "form": "plain_form"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "いいよ。意外と むずかしくないよ。",
+              "terms": [
+                "v_ii",
+                "p_yo",
+                "v_igai",
+                "p_to",
+                {
+                  "id": "v_muzukashii",
+                  "form": "plain_negative"
+                },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What does Yuki say about the kanji?",
+          "choices": [
+            "It is very difficult.",
+            "She cannot teach it.",
+            "It is surprisingly not difficult.",
+            "She has never studied it."
+          ],
+          "answer": "It is surprisingly not difficult.",
+          "explanation": "Yuki says 意外とむずかしくないよ — it is surprisingly (意外と) not difficult (むずかしくない)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Arrange the word chips into the correct Japanese sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Is it okay to take this item home?",
+          "segments": ["この", "品物", "を", "持ち帰っても", "いいですか"],
+          "distractors": ["持ち出しても", "品名", "いけません"],
+          "explanation": "Permission pattern: <b>て-form + も + いいですか</b> — 持ち帰る (take home) → 持ち帰って + も + いいですか."
+        },
+        {
+          "kind": "scramble",
+          "q": "You must not take the goods outside.",
+          "segments": ["品物", "を", "外へ", "持ち出しては", "いけません"],
+          "distractors": ["持ち帰っても", "品名", "いいです"],
+          "alts": [
+            ["外へ", "品物", "を", "持ち出しては", "いけません"]
+          ],
+          "explanation": "Prohibition pattern: <b>て-form + は + いけません</b> — 持ち出す (take out) → 持ち出して + は + いけません."
+        },
+        {
+          "kind": "scramble",
+          "q": "I wrote a letter on paper and sent it.",
+          "segments": ["紙", "に", "手紙", "を", "書いて", "送りました"],
+          "distractors": ["漢字", "読んで", "売りました"],
+          "explanation": "Sequential te-form: <b>書いて (wrote and) + 送りました (sent)</b>. に after 紙 marks the surface written on."
+        },
+        {
+          "kind": "scramble",
+          "q": "What is the meaning of this kanji?",
+          "segments": ["この", "漢字", "の", "意味", "は", "何ですか"],
+          "distractors": ["意見", "字体", "どこですか"],
+          "explanation": "<b>漢字の意味は何ですか</b> — 'What is the meaning of this kanji?' の connects 漢字 to 意味 (meaning)."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please lend me this book.",
+          "segments": ["この", "本", "を", "貸して", "ください"],
+          "distractors": ["持ち出して", "いけません", "売り物"],
+          "explanation": "Request pattern: <b>て-form + ください</b> — 貸す (lend) → 貸して + ください = Please lend (me). この本を is the direct object."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Learning to Write",
+      "instructions": "Read the passage carefully, then answer the questions.",
+      "passage": [
+        {
+          "jp": "私は 日本語の 漢字を 勉強して います。",
+          "en": "I am studying Japanese kanji.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_nihongo",
+            "p_no",
+            "v_kanji",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "漢字は むずかしいですが、書いて いますから、たのしく なりました。",
+          "en": "Kanji is difficult, but because I keep writing, it has become enjoyable.",
+          "terms": [
+            "v_kanji",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_kara_because",
+            {
+              "id": "v_tanoshii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "今日、先生に 手紙を 書いて、意見を 聞きました。",
+          "en": "Today, I wrote a letter to the teacher and asked for their opinion.",
+          "terms": [
+            "v_kyou",
+            "v_sensei",
+            "p_ni",
+            "v_tegami",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "v_iken",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "先生は「字を 大切に 書くことが 大切です」と 言いました。",
+          "en": "The teacher said, 'It is important to write characters carefully.'",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_ji",
+            "p_wo",
+            {
+              "id": "v_taisetsu",
+              "form": "adverbial"
+            },
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            },
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "私は 毎日、紙に 字を 書いて います。",
+          "en": "I write characters on paper every day.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_mainichi",
+            "v_kami",
+            "p_ni",
+            "v_ji",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "何を 勉強して いますか。",
+          "a": "日本語の 漢字を 勉強して います",
+          "choices": [
+            "日本語の 漢字を 勉強して います",
+            "英語の 漢字を 勉強して います",
+            "ローマ字を 勉強して います",
+            "名字を 勉強して います"
+          ],
+          "terms": [
+            "v_nan",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_nihongo",
+            "p_no",
+            "v_kanji"
+          ],
+          "explanation": "The passage states わたしは日本語の漢字を勉強しています — studying Japanese kanji."
+        },
+        {
+          "q": "先生は 何と 言いましたか。",
+          "a": "字を 大切に 書くことが 大切です",
+          "choices": [
+            "漢字だけ 書いて ください",
+            "字を 大切に 書くことが 大切です",
+            "ローマ字は いつでも 使えます",
+            "手紙は 書かなくて いいです"
+          ],
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nan",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            "v_ji",
+            "p_wo",
+            {
+              "id": "v_taisetsu",
+              "form": "adverbial"
+            },
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            }
+          ],
+          "explanation": "The teacher said 字を大切に書くことが大切です — it is important to write characters carefully."
+        },
+        {
+          "q": "どうして、たのしく なりましたか。",
+          "a": "書いて いますから",
+          "choices": [
+            "書いて いますから",
+            "先生に 手紙を 書いたから",
+            "毎日 勉強したから",
+            "名字が 分かったから"
+          ],
+          "terms": [
+            "v_doushite",
+            {
+              "id": "v_tanoshii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_kara_because"
+          ],
+          "explanation": "The passage says 書いていますから、たのしくなりました — because I keep writing, it has become enjoyable."
+        },
+        {
+          "q": "毎日、何を して いますか。",
+          "a": "紙に 字を 書いて います",
+          "choices": [
+            "漢字を 売って います",
+            "紙に 字を 書いて います",
+            "先生に 手紙を 貸して います",
+            "意見を 持ち出して います"
+          ],
+          "terms": [
+            "v_mainichi",
+            "v_nan",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_kami",
+            "p_ni",
+            "v_ji",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            }
+          ],
+          "explanation": "The passage says 毎日紙に字を書いています — writing characters on paper every day."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[売り物]は ありますか。",
+          "choices": ["うりもの", "うりこと", "ばいもの", "うったもの"],
+          "answer": "うりもの",
+          "explanation": "売り物 (item for sale) is read as <b>urimono</b>. 売 (う) + り + 物 (もの)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[品物]を 見て ください。",
+          "choices": ["しなもの", "ひんぶつ", "ひんもの", "しなごと"],
+          "answer": "しなもの",
+          "explanation": "品物 (goods / article) is read as <b>shinamono</b>. 品 (しな) + 物 (もの)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[漢字]が 読めます。",
+          "choices": ["かんじ", "かんご", "かんいち", "もじ"],
+          "answer": "かんじ",
+          "explanation": "漢字 (kanji characters) is read as <b>kanji</b>. 漢 (かん) + 字 (じ)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[手紙]を 書きます。",
+          "choices": ["てがみ", "てかみ", "しゅし", "てし"],
+          "answer": "てがみ",
+          "explanation": "手紙 (letter) is read as <b>tegami</b>. 手 (て) + 紙 (がみ) — 紙 voices to がみ in compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "[意味]が 分かりません。",
+          "choices": ["いみ", "いけん", "もくてき", "いがい"],
+          "answer": "いみ",
+          "explanation": "意味 (meaning) is read as <b>imi</b>. 意 (い) + 味 (み)."
+        },
+        {
+          "kind": "mcq",
+          "q": "本を [貸して] ください。",
+          "choices": ["かして", "かりて", "はかして", "たして"],
+          "answer": "かして",
+          "explanation": "貸す (to lend) in te-form is read as <b>kashite</b>. 貸 (か) + して."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Choose the best word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この 漢字の ______ は 何ですか。",
+          "choices": ["意味", "意見", "品名", "名字"],
+          "answer": "意味",
+          "terms": [
+            "v_kono",
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ],
+          "explanation": "意味 (imi) = meaning. この漢字の意味は何ですか asks 'What is the meaning of this kanji?' 意見 is opinion, 品名 is product name, 名字 is surname."
+        },
+        {
+          "kind": "mcq",
+          "q": "この ______ を 家に 持ち帰っても いいですか。",
+          "choices": ["品物", "手紙", "意見", "漢字"],
+          "answer": "品物",
+          "terms": [
+            "v_shinamono",
+            "p_wo",
+            "v_uchi",
+            "p_ni",
+            {
+              "id": "v_mochikaeru",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "explanation": "品物 (shinamono) = goods / article. The sentence asks if you may take the item home — 品物 fits naturally."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちに 本を ______。",
+          "choices": ["貸しました", "売り出しました", "持ち出しました", "意見しました"],
+          "answer": "貸しました",
+          "terms": [
+            "v_tomodachi",
+            "p_ni",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kasu",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "貸しました (kashimashita) = lent. 貸す (kasu) is to lend. に marks the recipient (to a friend)."
+        },
+        {
+          "kind": "mcq",
+          "q": "あなたの ______ を 聞いて ください。",
+          "choices": ["意見", "赤字", "売り物", "ローマ字"],
+          "answer": "意見",
+          "terms": [
+            "v_anata",
+            "p_no",
+            "v_iken",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ],
+          "explanation": "意見 (iken) = opinion. 意見を聞いてください means 'please let me hear your opinion'. 赤字 is deficit/red ink, 売り物 is an item for sale, ローマ字 is romaji."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct grammar form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この 紙に 書いて______ いいですか。",
+          "choices": ["も", "は", "を", "が"],
+          "answer": "も",
+          "terms": [
+            "v_kono",
+            "v_kami",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "explanation": "Permission pattern: <b>て-form + も + いいですか</b>. も is required to form てもいいですか (Is it okay to write on this paper?)."
+        },
+        {
+          "kind": "mcq",
+          "q": "ここでは 写真を とって______ いけません。",
+          "choices": ["は", "も", "が", "の"],
+          "answer": "は",
+          "terms": [
+            "v_koko",
+            "p_dewa",
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ],
+          "explanation": "Prohibition pattern: <b>て-form + は + いけません</b>. は is the required particle — とっては いけません means you must not take photos here."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 品物を 外へ ______。",
+          "choices": ["持ち出しても いいです", "持ち出しては いけません", "持ち帰っても いいですか", "持って います"],
+          "answer": "持ち出しては いけません",
+          "terms": [
+            "v_kono",
+            "v_shinamono",
+            "p_wo",
+            "v_soto",
+            "p_e",
+            {
+              "id": "v_mochidasu",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ],
+          "explanation": "持ち出しては いけません = You must not take (the item) outside. The prohibition form (てはいけません) expresses that something is not permitted."
+        },
+        {
+          "kind": "mcq",
+          "q": "漢字の 意味が 分からない ______、先生に 聞きます。",
+          "choices": ["から", "のに", "ほど", "まで"],
+          "answer": "から",
+          "terms": [
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "plain_negative"
+            },
+            "p_kara_because",
+            "v_sensei",
+            "p_ni",
+            {
+              "id": "v_kiku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "から (kara) after a plain-form clause means <b>because</b>. 分からないから = because I don't understand. のに would express disappointment/contrast, not reason."
+        }
+      ]
+    }
+  ]
+}

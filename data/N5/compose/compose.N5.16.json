@@ -1,0 +1,295 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.16",
+  "lesson": "N5.16",
+  "level": "N5",
+  "title": "Right, Left, Up, Down",
+  "titleJp": "右と 左と 上と 下",
+  "emoji": "🧭",
+  "theme": "Write about spatial positions — describe where things are using right, left, above, and below, and share your skills and goals for improvement.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about where things are to the right and left — describe a place you know using 右 and 左.",
+      "targets": [
+        {
+          "id": "v_migi",
+          "count": 1
+        },
+        {
+          "id": "v_hidari",
+          "count": 1
+        }
+      ],
+      "model": "学校の 右に 駅が あります。左に 長い 道が あります。",
+      "vocabPool": [
+        "v_migi",
+        "v_hidari",
+        "v_gakkou",
+        "v_eki",
+        "v_mise",
+        "v_michi",
+        "v_ie",
+        "v_nagai",
+        "v_ookii",
+        "v_ii",
+        "v_aru",
+        "v_iku",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about what is above and below — describe something that is higher up and something lower down.",
+      "targets": [
+        {
+          "id": "v_ue",
+          "count": 1
+        },
+        {
+          "id": "v_shita",
+          "count": 1
+        }
+      ],
+      "model": "駅の 上に 大きい 店が あります。下の 道は 古いです。",
+      "vocabPool": [
+        "v_ue",
+        "v_shita",
+        "v_eki",
+        "v_mise",
+        "v_michi",
+        "v_yama",
+        "v_kawa",
+        "v_ookii",
+        "v_nagai",
+        "v_furui",
+        "v_atarashii",
+        "v_aru",
+        "v_ii",
+        "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about going somewhere using directions — use at least one てください or 行きます with a direction word.",
+      "targets": [
+        {
+          "id": "v_migi",
+          "count": 1
+        }
+      ],
+      "model": "右に 行ってください。上に 行って、右に 行きます。",
+      "vocabPool": [
+        "v_migi",
+        "v_hidari",
+        "v_ue",
+        "v_shita",
+        "v_kita",
+        "v_minami",
+        "v_iku",
+        "v_kuru",
+        "v_aru",
+        "v_mae",
+        "v_ushiro",
+        "v_michi",
+        "v_eki",
+        "v_kudasai",
+        "v_issho",
+        "v_mainichi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about a skill — are you skilled (上手) or not yet skilled (下手) at something? What do you want to improve?",
+      "targets": [
+        {
+          "id": "v_jouzu",
+          "count": 1
+        }
+      ],
+      "model": "日本語が まだ 下手です。上手に なりたいです。",
+      "vocabPool": [
+        "v_jouzu",
+        "v_heta",
+        "v_nihongo",
+        "v_naru",
+        "v_yomu",
+        "v_kaku",
+        "v_hanasu",
+        "v_mada",
+        "v_sukoshi",
+        "v_totemo",
+        "v_mainichi",
+        "v_iru",
+        "v_iku",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about your progress — are you getting better? Use 上手に なっています or a similar expression.",
+      "targets": [
+        {
+          "id": "v_mainichi",
+          "count": 1
+        }
+      ],
+      "model": "毎日 少し 上手に なっています。うれしいです。",
+      "vocabPool": [
+        "v_naru",
+        "v_jouzu",
+        "v_heta",
+        "v_mainichi",
+        "v_sukoshi",
+        "v_yomu",
+        "v_kaku",
+        "v_hanasu",
+        "v_nihongo",
+        "v_ureshii",
+        "v_mada",
+        "v_iru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about your goal — someday (いつか) you want to be skilled. Include both a direction word and a skill word.",
+      "targets": [
+        {
+          "id": "v_jouzu",
+          "count": 1
+        }
+      ],
+      "model": "いつか 上手に 日本語を 話したいです。右から 左まで 読みたいです。",
+      "vocabPool": [
+        "v_jouzu",
+        "v_heta",
+        "v_nihongo",
+        "v_hanasu",
+        "v_yomu",
+        "v_kaku",
+        "v_itsuka",
+        "v_mainichi",
+        "v_mada",
+        "v_sukoshi",
+        "v_migi",
+        "v_hidari",
+        "v_ue",
+        "v_shita",
+        "v_naru",
+        "v_iku",
+        "v_iru",
+        "v_tomodachi",
+        "v_issho",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_dewa",
+    "p_ja",
+    "g_desu",
+    "p_mo",
+    "p_to",
+    "p_ya",
+    "p_kara",
+    "p_made",
+    "p_ni",
+    "p_de",
+    "p_e",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます",
+      "meaning": "polite present — goes / comes / exists",
+      "examples": [
+        "行きます",
+        "あります",
+        "読みます"
+      ]
+    },
+    {
+      "pattern": "[verb ます-stem] + ました",
+      "meaning": "polite past — went / bought",
+      "examples": [
+        "行きました",
+        "買いました"
+      ]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません",
+      "meaning": "polite negative — does not go / exist",
+      "examples": [
+        "行きません",
+        "ありません"
+      ]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do — polite request",
+      "examples": [
+        "右に 行ってください",
+        "上に 行ってください"
+      ]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing / is becoming — ongoing action or state",
+      "examples": [
+        "上手に なっています",
+        "読んでいます"
+      ]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": [
+        "上手に なりたいです",
+        "右に 行きたいです",
+        "下手に なりたくないです"
+      ]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do — invitation or suggestion",
+      "examples": [
+        "右に 行きましょう",
+        "いっしょに 読みましょう"
+      ]
+    },
+    {
+      "pattern": "[な-adj] + に + なる",
+      "meaning": "to become [adj] — state change with な-adjective",
+      "examples": [
+        "上手に なります",
+        "上手に なりたいです",
+        "上手に なっています"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past adjective — was large / was old (irregular: いい → よかったです)",
+      "examples": [
+        "大きかったです",
+        "古かったです",
+        "よかったです"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + そうです",
+      "meaning": "looks / seems — appearance",
+      "examples": [
+        "大きそうです",
+        "古そうです",
+        "よさそうです"
+      ]
+    }
+  ]
+}

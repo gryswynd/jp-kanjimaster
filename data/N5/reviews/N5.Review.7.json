@@ -1,0 +1,994 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.7",
+  "title": "Communication & Quantity",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 13–14.",
+    "kanji": [
+      "手",
+      "言",
+      "書",
+      "読",
+      "話",
+      "少",
+      "多",
+      "白",
+      "間"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Yamamoto-sensei talks with Lee, an international student, about reading and writing Japanese at school.",
+          "lines": [
+            {
+              "spk": "先生",
+              "jp": "リーさんは 毎日 日本語を 読んでいますか。",
+              "terms": [
+                "char_lee",
+                "v_san",
+                "p_wa",
+                "v_mainichi",
+                "v_nihongo",
+                "p_wo",
+                {
+                  "id": "v_yomu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "リー",
+              "jp": "はい、毎日 少し 読んでいます。ゆっくり 読むのが すきです。",
+              "terms": [
+                "p_hai",
+                "v_mainichi",
+                "v_sukoshi",
+                {
+                  "id": "v_yomu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_yukkuri",
+                "v_yomu",
+                "p_ga",
+                "p_no",
+                "v_suki",
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "いいですね。毎日 手で 書いてください。よく 分かりますよ。",
+              "terms": [
+                "v_ii",
+                "g_desu",
+                "p_ne",
+                "v_mainichi",
+                "v_te",
+                "p_de",
+                {
+                  "id": "v_kaku",
+                  "form": "te_form"
+                },
+                "v_kudasai",
+                "v_yoku",
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "リー",
+              "jp": "わかりました。手で 書くことも、電話で 話すことも すきです。",
+              "terms": [
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_mashita"
+                },
+                "v_te",
+                "p_de",
+                "v_kaku",
+                "v_koto",
+                "p_mo",
+                "v_denwa",
+                "p_de",
+                "v_hanasu",
+                "v_koto",
+                "p_mo",
+                "v_suki",
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "What does Yamamoto-sensei ask Lee to do every day?",
+          "choices": [
+            "Write by hand",
+            "Read slowly",
+            "Call on the phone",
+            "Speak quickly"
+          ],
+          "answer": "Write by hand",
+          "explanation": "Yamamoto-sensei says 毎日手で書いてください — 'Please write by hand every day.' 書いてください = te-form of 書く + ください = polite request (G7). 手 (N5.13) = hand; 書 (N5.13) = write; 手で = 'by hand' — v_te + p_de, where で marks the instrument/means. Lee replies わかりました = 'Understood' — polite past of 分かる (分 N5.4, read わか). Lee's Line 4 confirms liking both 手で書くこと (writing by hand) and 電話で話すこと (talking on the phone) — こと nominalizes each verb phrase (early-use from N5.9, written in hiragana as こと since 事 is N4.14)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Nana and Rikizo talk in the school corridor about how much time they have today.",
+          "lines": [
+            {
+              "spk": "ナナ",
+              "jp": "りきぞさん、今日は 時間が 多いですか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "v_kyou",
+                "p_wa",
+                "v_jikan",
+                "p_ga",
+                "v_ooi",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "いいえ、今日は 時間が 少ないです。電話で 友だちと 話しますから。",
+              "terms": [
+                "v_iie",
+                "v_kyou",
+                "p_wa",
+                "v_jikan",
+                "p_ga",
+                "v_sukunai",
+                "g_desu",
+                "v_denwa",
+                "p_de",
+                "v_tomodachi",
+                "p_to",
+                {
+                  "id": "v_hanasu",
+                  "form": "polite_masu"
+                },
+                "p_kara_because"
+              ]
+            },
+            {
+              "spk": "ナナ",
+              "jp": "そうですか。たいてい、わたしは 時間が たくさん あります。",
+              "terms": [
+                "p_soudesu",
+                "p_ka",
+                "v_taitei",
+                "v_watashi",
+                "p_wa",
+                "v_jikan",
+                "p_ga",
+                "v_takusan",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "いいですね。わたしも たいてい 時間が 多いですが、今日は 少ないです。",
+              "terms": [
+                "v_ii",
+                "g_desu",
+                "p_ne",
+                "v_watashi",
+                "p_mo",
+                "v_taitei",
+                "v_jikan",
+                "p_ga",
+                "v_ooi",
+                "g_desu",
+                "p_ga_but",
+                "v_kyou",
+                "p_wa",
+                "v_sukunai",
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "Why does Rikizo say he has little time today?",
+          "choices": [
+            "He is going to talk on the phone with a friend",
+            "He is going to write by hand",
+            "He has a test at school",
+            "He wants to read many books"
+          ],
+          "answer": "He is going to talk on the phone with a friend",
+          "explanation": "りきぞ says 電話で友だちと話しますから — 'Because I am going to talk with my friend on the phone.' から (p_kara_because, G9) follows the polite verb form 話します to give a reason: verb/adjective + から = 'because.' 少ない (N5.14) = scarce/few; 多い (N5.14) = many — antonym i-adjectives. 時間 (N5.14): 時 (N5.4) + 間 (N5.14) = time. In Line 4, りきぞ uses p_ga_but (が after 多いです) to contrast: 'I usually have a lot [of time], but today I have little.' Note: this が is the clause connector 'but' (p_ga_but, G9) — different from the subject-marking が (p_ga) before 多いです in the same sentence."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Rikizo and Yamakawa, close friends, chat casually in the school library after class.",
+          "lines": [
+            {
+              "spk": "りきぞ",
+              "jp": "ね、この 白い 本、読んだ？",
+              "terms": [
+                "p_ne",
+                "v_kono",
+                "v_shiroi",
+                "v_hon",
+                {
+                  "id": "v_yomu",
+                  "form": "plain_past"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "うん、読んだよ。多分 この 本が いちばん おもしろいね。",
+              "terms": [
+                "v_un",
+                {
+                  "id": "v_yomu",
+                  "form": "plain_past"
+                },
+                "p_ne",
+                "v_tabun",
+                "v_kono",
+                "v_hon",
+                "p_ga",
+                "v_ichiban",
+                "v_omoshiroi",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "うん。また 読みたいよ。いちばん おもしろかった。",
+              "terms": [
+                "v_un",
+                "v_mata",
+                {
+                  "id": "v_yomu",
+                  "form": "plain_desire_tai"
+                },
+                "p_yo",
+                "v_ichiban",
+                {
+                  "id": "v_omoshiroi",
+                  "form": "plain_past_adj"
+                }
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "ゆっくり 読むのが すきだよ。電話で 話すことも すきだけど。",
+              "terms": [
+                "v_yukkuri",
+                "v_yomu",
+                "p_ga",
+                "p_mo",
+                "v_suki",
+                "p_yo",
+                "g_da",
+                "v_denwa",
+                "p_de",
+                "v_hanasu",
+                "v_koto",
+                "p_no",
+                "v_suki",
+                "g_da",
+                "p_kedo"
+              ]
+            }
+          ],
+          "question": "What does Yamakawa say about the book?",
+          "choices": [
+            "He read it and thinks it is the most interesting",
+            "He has not read it yet",
+            "He wants to write about the book",
+            "He read it but it was boring"
+          ],
+          "answer": "He read it and thinks it is the most interesting",
+          "explanation": "やまかわ says うん、読んだよ。多分この本がいちばんおもしろいね — 'Yeah, I read it. This book is probably the most interesting.' 読んだ = plain past of 読む (G9) — casual confirmation. 多分 (N5.14) = probably. いちばん (N5.1) = most/best. おもしろい in plain form without です = casual predicate (i-adj drops です in casual speech, G9). In Line 4, ゆっくり読むのが好きだよ = 'I like reading slowly' — ゆっくり (N5.13) + 読む (dict. form for nominalization) + のが + 好きだ. 好きだ = 好き (na-adj) + だ (g_da, casual copula, G1/G9). けど (p_kedo, G9) as a sentence-final trailing-off = 'though / but' — a natural casual softening. In りきぞ's Line 3: 読みたい (plain_desire_tai, G9) = 'want to read' (casual desire); おもしろかった (plain_past_adj, G9) = 'was interesting' in plain past."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I am reading Japanese a little every day.",
+          "segments": [
+            "毎日",
+            "日本語",
+            "を",
+            "少し",
+            "読んでいます"
+          ],
+          "distractors": [
+            "書いて",
+            "多く",
+            "に"
+          ],
+          "alts": [
+            [
+              "日本語",
+              "を",
+              "毎日",
+              "少し",
+              "読んでいます"
+            ]
+          ],
+          "explanation": "毎日 + 日本語 + を (object) + 少し + 読んでいます. 読んでいます = te-form of 読む (読んで, godan む-verb: む → んで) + います = progressive 'is reading' (G8). を marks 日本語 as the direct object of 読む. 少し (N5.14) = a little. 多く would be the adverbial form of 多い ('a lot/plentifully') — the antonym of 少し. 書いて is the te-form of 書く (write) — wrong verb here. に marks a destination or time, not a direct object. 毎日 can float: 日本語を毎日少し読んでいます is equally natural."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please write your name here by hand.",
+          "segments": [
+            "ここ",
+            "に",
+            "名前",
+            "を",
+            "手",
+            "で",
+            "書いてください"
+          ],
+          "distractors": [
+            "が",
+            "話して",
+            "から"
+          ],
+          "explanation": "ここ + に (location) + 名前 + を (object) + 手 + で (means: by hand) + 書いてください. 書いてください = te-form of 書く + ください = polite request 'please write' (G7). に marks ここ as the location where the writing takes place. で marks 手 (N5.13) as the instrument/means — 手で = 'by hand.' を marks 名前 as the direct object of 書く. が would mark 名前 as a subject — wrong role. 話して is the te-form of 話す (speak) — wrong verb. から marks a starting point — does not fit."
+        },
+        {
+          "kind": "scramble",
+          "q": "I don't have much time today, but I will speak on the phone.",
+          "segments": [
+            "今日",
+            "は",
+            "時間",
+            "が",
+            "少ないです",
+            "が",
+            "電話",
+            "で",
+            "話します"
+          ],
+          "distractors": [
+            "多い",
+            "に",
+            "書きます"
+          ],
+          "explanation": "今日 + は (topic) + 時間 + が (subject) + 少ないです + が (p_ga_but: clause connector 'but') + 電話 + で (means: by phone) + 話します. Note: the sentence contains two が — the first is p_ga (subject marker before 少ないです), the second is p_ga_but (clause connector 'but' after 少ないです, G9). 少ない (N5.14) = scarce/not much. 電話で = 'by phone/on the phone.' に would mark a destination — not the instrument. 多い (N5.14) = many/a lot — antonym of 少ない. 書きます = 'will write' — wrong verb here."
+        },
+        {
+          "kind": "scramble",
+          "q": "Are you reading that white book?",
+          "segments": [
+            "あの",
+            "白い",
+            "本",
+            "を",
+            "読んでいます",
+            "か"
+          ],
+          "distractors": [
+            "が",
+            "書いて",
+            "多い"
+          ],
+          "explanation": "あの + 白い (N5.14, attributive i-adjective modifying 本) + 本 + を (object) + 読んでいます + か (question). 読んでいます = progressive 'is reading' (G8). 白い in attributive position: the surface form of i-adjectives is unchanged when modifying a noun directly (白い本 = white book). を marks 本 as the direct object of 読む. が would mark 本 as subject — wrong role here. 書いて is the te-form of 書く (write) — wrong verb. 多い = 'many' — an i-adjective but describes quantity, not colour."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please speak slowly every day.",
+          "segments": [
+            "毎日",
+            "ゆっくり",
+            "話してください"
+          ],
+          "distractors": [
+            "書いてください",
+            "少し",
+            "に"
+          ],
+          "alts": [
+            [
+              "ゆっくり",
+              "毎日",
+              "話してください"
+            ]
+          ],
+          "explanation": "毎日 + ゆっくり + 話してください. 話してください = te-form of 話す (話して) + ください = polite request 'please speak' (G7). ゆっくり (N5.13) = slowly/leisurely — an adverb modifying the verb. 毎日 can appear before or after ゆっくり: ゆっくり毎日話してください is also natural. 書いてください = 'please write' (書く te-form + ください) — correct structure but wrong verb. 少し = 'a little' — not the same as 'slowly.' に is a particle for destination/time — does not fit."
+        },
+        {
+          "kind": "scramble",
+          "q": "I am usually speaking Japanese at school.",
+          "segments": [
+            "たいてい",
+            "学校",
+            "で",
+            "日本語",
+            "を",
+            "話しています"
+          ],
+          "distractors": [
+            "に",
+            "読んでいます",
+            "書いて"
+          ],
+          "alts": [
+            [
+              "学校",
+              "で",
+              "たいてい",
+              "日本語",
+              "を",
+              "話しています"
+            ]
+          ],
+          "explanation": "たいてい + 学校 + で (location of action) + 日本語 + を (object) + 話しています. 話しています = te-form of 話す (話して) + います = progressive/habitual 'is speaking' (G8). で marks 学校 as where the action takes place. たいてい (N5.14) = usually/mostly — a frequency adverb that can float: both たいてい学校で and 学校でたいてい are natural. に marks a destination (学校に行く) — not the location of an ongoing activity. 読んでいます = 'is reading' — wrong verb. 書いて = te-form of 書く — wrong verb."
+        },
+        {
+          "kind": "scramble",
+          "q": "There are probably many people at the station today.",
+          "segments": [
+            "多分",
+            "今日",
+            "は",
+            "駅",
+            "に",
+            "人",
+            "が",
+            "多いです"
+          ],
+          "distractors": [
+            "少ない",
+            "で",
+            "から"
+          ],
+          "alts": [
+            [
+              "今日",
+              "は",
+              "多分",
+              "駅",
+              "に",
+              "人",
+              "が",
+              "多いです"
+            ]
+          ],
+          "explanation": "多分 + 今日 + は (topic) + 駅 + に (location of existence) + 人 + が (subject) + 多いです. 多分 (N5.14) = probably — a degree adverb for uncertainty that naturally appears sentence-initially or after the topic expression. に marks 駅 as where the people exist (X に Y が います/あります). 多い (N5.14) = many/numerous. 少ない (N5.14) = few/scarce — antonym of 多い. で marks a location of action — not existence. から marks a starting point — does not fit. 多分 can follow the topic: 今日は多分駅に人が多いです is also natural."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Reading and Writing",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "わたしは 毎日 少し 本を 読みます。",
+          "en": "I read books a little every day.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_mainichi",
+            "v_sukoshi",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "電話で 話すことも すきですが、手で 書くことが いちばん すきです。",
+          "en": "I also like talking on the phone, but I like writing by hand the most.",
+          "terms": [
+            "v_denwa",
+            "p_de",
+            "v_hanasu",
+            "v_koto",
+            "p_mo",
+            "v_suki",
+            "g_desu",
+            "p_ga_but",
+            "v_te",
+            "p_de",
+            "v_kaku",
+            "v_koto",
+            "p_ga",
+            "v_ichiban",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "今日は 時間が 少ないですが、少し 書きました。",
+          "en": "Today I don't have much time, but I wrote a little.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_jikan",
+            "p_ga",
+            "v_sukunai",
+            "g_desu",
+            "p_ga_but",
+            "v_sukoshi",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "たいてい 時間が 多いですから、ゆっくり 読みます。",
+          "en": "I usually have a lot of time, so I read slowly.",
+          "terms": [
+            "v_taitei",
+            "v_jikan",
+            "p_ga",
+            "v_ooi",
+            "g_desu",
+            "p_kara_because",
+            "v_yukkuri",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "多分 今日も ゆっくり 話します。",
+          "en": "I will probably also speak slowly today.",
+          "terms": [
+            "v_tabun",
+            "v_kyou",
+            "p_mo",
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "何が いちばん すきですか。",
+          "a": "手で 書くことが いちばん すきです。",
+          "choices": [
+            "手で 書くことが いちばん すきです。",
+            "電話で 話すことが いちばん すきです。",
+            "毎日 読むことが いちばん すきです。",
+            "ゆっくり 話すことが いちばん すきです。"
+          ],
+          "terms": [
+            "v_nani",
+            "p_ga",
+            "v_ichiban",
+            "v_suki",
+            "g_desu",
+            "p_ka",
+            "v_te",
+            "p_de",
+            "v_kaku",
+            "v_koto"
+          ],
+          "explanation": "The passage states 手で書くことが一番すきです — 'I like writing by hand the most.' 一番 (N5.1) = most/best. 手で = 'by hand' (v_te + p_de, instrument particle). 書くこと = the act of writing (v_kaku plain form + こと nominalizer, early-use from N5.9, written as hiragana こと). が marks 書くこと as the subject of すきです. The other choices also use こと nominalization: 電話で話すこと (talking on the phone — mentioned but not 一番), 毎日読むこと (reading every day — mentioned in Line 1), ゆっくり話すこと (speaking slowly — Line 5)."
+        },
+        {
+          "q": "今日 時間が 多いですか。",
+          "a": "いいえ、少ないです。",
+          "choices": [
+            "いいえ、少ないです。",
+            "はい、多いです。",
+            "はい、たくさんあります。",
+            "いいえ、ぜんぜんありません。"
+          ],
+          "terms": [
+            "v_kyou",
+            "v_jikan",
+            "p_ga",
+            "v_ooi",
+            "g_desu",
+            "p_ka",
+            "v_iie",
+            "v_sukunai"
+          ],
+          "explanation": "Line 3 states 今日は時間が少ないです — 'Today I don't have much time.' 少ない (N5.14) = scarce/few. The が in 今日は時間が少ない is p_ga (subject marker) — 時間 is the subject of 少ない. The correct answer is いいえ、少ないです (No, there is little time). はい、多いです contradicts Line 3 — 多い (many) is stated as たいてい (usually) in Line 4, not for today. ぜんぜんありません = 'there is none at all' — too strong; the passage says 少し書きました (wrote a little), so some time existed. ぜんぜん (N5.14) = not at all — used with negative verbs."
+        },
+        {
+          "q": "今日も ゆっくり 話しますか。",
+          "a": "はい、多分 ゆっくり 話します。",
+          "choices": [
+            "はい、多分 ゆっくり 話します。",
+            "いいえ、今日は 話しません。",
+            "はい、毎日 電話で 話します。",
+            "いいえ、ゆっくり 書きます。"
+          ],
+          "terms": [
+            "v_kyou",
+            "p_mo",
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "p_hai",
+            "v_tabun"
+          ],
+          "explanation": "Line 5 states 多分今日もゆっくり話します — 'I will probably also speak slowly today.' 多分 (N5.14) = probably — expresses uncertainty about a future action. も (p_mo) marks 今日 as 'also' or 'too' — in addition to other days. So the narrator expects to speak slowly today as well, consistent with their usual habit. いいえ、今日は話しません contradicts Line 5. はい、毎日電話で話します is too strong — 電話 is mentioned in Lines 2 and 5, but 毎日 (every day) for 電話 is not stated. いいえ、ゆっくり書きます contradicts the verb — Line 5 says 話す (speak), not 書く (write)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 [手] で 書いてください。",
+          "choices": [
+            "て",
+            "しゅ",
+            "か",
+            "はな"
+          ],
+          "answer": "て",
+          "explanation": "手 (hand) is read as <b>te</b> (kun-reading). 手 (しゅ/て) — kun-reading て. 手で = 'by hand' — instrument particle で after the body-part noun 手. On-reading しゅ is used in compounds like 選手 (せんしゅ = athlete). Compare: か is the kun-reading of 書 (write), はな is the kun-reading of 話 (speak/story) — both other N5.13 kanji. Introduced in N5.13 as part of the communication lesson."
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語を [書いて] ください。",
+          "choices": [
+            "かいて",
+            "よんで",
+            "はなして",
+            "いって"
+          ],
+          "answer": "かいて",
+          "explanation": "書いて (write, te-form) — 書 is read as <b>ka</b> (kun-reading). 書く (write, godan く-verb) te-form: く → いて, so 書 + いて = 書いて. On-reading しょ in compounds like 読書 (どくしょ = reading books). Compare: よんで = 読んで (te-form of 読む = read), はなして = 話して (te-form of 話す = speak), いって = 言って (te-form of 言う = say) — all N5.13 communication verbs in te-form. Introduced in N5.13."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生に [言いました]。",
+          "choices": [
+            "いいました",
+            "かきました",
+            "よみました",
+            "はなしました"
+          ],
+          "answer": "いいました",
+          "explanation": "言いました (said) — 言 is read as <b>i</b> (kun-reading). 言う = to say (godan う-verb; 言 + う → 言う, pronounced いう). Polite past: 言い (stem) + ました = 言いました. On-reading げん in 言語 (げんご = language). Compare: 書きました (wrote), 読みました (read), 話しました (spoke) — all polite past forms of N5.13 communication verbs. Introduced in N5.13."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 本を [読む] のが すきです。",
+          "choices": [
+            "よむ",
+            "かく",
+            "はなす",
+            "いう"
+          ],
+          "answer": "よむ",
+          "explanation": "読む (read) is read as <b>yomu</b> (kun-reading). 読 (どく/よ) — kun-reading よ (read). 読む = to read (godan む-verb). On-reading どく in 読書 (どくしょ = reading books). 読むの = nominalized verb phrase 'the act of reading' — 読む in plain form + の = nominalizer. Compare: 書く (かく = write), 話す (はなす = speak), 言う (いう = say) — all communication verbs from N5.13."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生と [話します]。",
+          "choices": [
+            "はなします",
+            "かきます",
+            "いいます",
+            "よみます"
+          ],
+          "answer": "はなします",
+          "explanation": "話します (will speak) — 話 is read as <b>hanashi</b> (kun-reading). 話 (わ/はな) — kun-reading はな (speak/story). 話す = to speak/talk (godan す-verb). Polite present/future: 話し + ます = 話します. On-reading わ in 電話 (でんわ = telephone): 電 (N5.10) + 話 (N5.13). Compare: 書きます (write), 言います (say), 読みます (read) — all polite non-past forms of N5.13 communication verbs."
+        },
+        {
+          "kind": "mcq",
+          "q": "時間が [少し] あります。",
+          "choices": [
+            "すこし",
+            "おおく",
+            "しろく",
+            "たぶん"
+          ],
+          "answer": "すこし",
+          "explanation": "少し (a little) is read as <b>sukoshi</b>. 少 (しょう/すこ/すく) — kun-reading すこ in 少し. 少し = 'a little / slightly.' Compare: 少ない (すくない = scarce, few) uses the other kun-reading すく of 少. おおく = 多く (adverbial of 多い = many, a lot) — opposite in quantity; uses 多 (N5.14). しろく = 白く (adverbial of 白い = white) — different N5.14 kanji. たぶん = 多分 (probably) — written using 多 (N5.14) + 分 (N5.4), but is a completely different word. Introduced in N5.14."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅に 人が [多い] です。",
+          "choices": [
+            "おおい",
+            "すくない",
+            "しろい",
+            "たいてい"
+          ],
+          "answer": "おおい",
+          "explanation": "多い (many) is read as <b>ooi</b>. 多 (た/おお) — kun-reading おお in 多い. 多い = 'many/numerous' (i-adjective). On-reading た in 多分 (たぶん = probably). Compare: 少ない (すくない = scarce, few) is the direct antonym of 多い — both N5.14 i-adjectives of quantity. 白い (しろい = white) uses the N5.14 kanji 白, but describes colour not quantity. たいてい = 'usually' — a separate kana-only word, not a reading of 多. Introduced in N5.14."
+        },
+        {
+          "kind": "mcq",
+          "q": "[白い] 本を 読みます。",
+          "choices": [
+            "しろい",
+            "おおい",
+            "すくない",
+            "はくい"
+          ],
+          "answer": "しろい",
+          "explanation": "白い (white) is read as <b>shiroi</b>. 白 (はく/しろ) — kun-reading しろ. 白い = 'white' (i-adjective). On-reading はく in 白人 (はくじん = Caucasian person): 白 (N5.14) + 人 (N5.1). Note: はくい is not a real word — this tests that students know the correct kun-reading しろ (not on-reading はく) for the adjective 白い. Compare: 多い (おおい = many), 少ない (すくない = scarce) — other N5.14 i-adjectives. Introduced in N5.14."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅と 学校の [間] に あります。",
+          "choices": [
+            "あいだ",
+            "まえ",
+            "そと",
+            "なか"
+          ],
+          "answer": "あいだ",
+          "explanation": "間 (between/space) is read as <b>aida</b> (kun-reading). 間 (かん/けん/あいだ/ま) — kun-reading あいだ when used spatially for 'the space between.' Pattern: 〜と〜の間に = 'between X and Y.' On-reading かん in 時間 (じかん = time, N5.14). Reading ま in time expressions like 間に合う. Compare: 前 (まえ = in front, N5.9), 外 (そと = outside, N5.9), 中 (なか = inside, N5.9) — all relative-position words from N5.9. Introduced in N5.14."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "_______ 話してください。よく 分かります。",
+          "choices": [
+            "ゆっくり",
+            "たいてい",
+            "ぜんぜん",
+            "たくさん"
+          ],
+          "answer": "ゆっくり",
+          "terms": [
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_yoku",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "ゆっくり (N5.13) = slowly/leisurely — the adverb that naturally pairs with a request to speak: ゆっくり話してください = 'Please speak slowly.' よく分かります = 'You understand well' (positive result). たいてい = 'usually' — a frequency adverb (N5.14), not a manner adverb; たいてい話してください would mean 'please usually speak,' which is unnatural here. ぜんぜん = 'not at all' — used with negatives: ぜんぜん分かりません (I don't understand at all); not with requests. たくさん = 'a lot' — modifies quantities, not the manner of speaking."
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語が _______ 分かりません。（I don't understand Japanese at all.）",
+          "choices": [
+            "ぜんぜん",
+            "たいてい",
+            "少し",
+            "多分"
+          ],
+          "answer": "ぜんぜん",
+          "terms": [
+            "v_nihongo",
+            "p_ga",
+            "v_zenzen",
+            {
+              "id": "v_wakaru",
+              "form": "polite_negative"
+            }
+          ],
+          "explanation": "ぜんぜん (N5.14) = not at all — always pairs with a negative verb/adjective: ぜんぜん分かりません = 'I don't understand at all.' ぜんぜん with a negative is a strong intensifier. たいてい = 'usually' — a frequency adverb, not a total-negative intensifier; たいてい分かりません = 'I usually don't understand' (partial, not total). 少し = 'a little' — the opposite emphasis: 少し分かります = 'I understand a little' (positive). 多分 = 'probably' — expresses probability: 多分分かりません = 'I probably don't understand' (uncertain, not absolute)."
+        },
+        {
+          "kind": "mcq",
+          "q": "わたしは _______ 学校で 日本語を 読んでいます。（I usually read Japanese at school.）",
+          "choices": [
+            "たいてい",
+            "ぜんぜん",
+            "少し",
+            "多分"
+          ],
+          "answer": "たいてい",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_taitei",
+            "v_gakkou",
+            "p_de",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "たいてい (N5.14) = usually/mostly — a frequency adverb for habitual actions: たいてい学校で日本語を読んでいます = 'I usually read Japanese at school.' ぜんぜん = 'not at all' — used with negatives; ぜんぜん読んでいません would mean 'not reading at all' — contradicts the positive sentence. 少し = 'a little' — a quantifier (少し読む = 'read a little'), not a frequency; it changes the meaning significantly. 多分 = 'probably' — expresses uncertainty about a fact, not a habitual frequency."
+        },
+        {
+          "kind": "mcq",
+          "q": "やまかわさんに _______ しましょう。（Let's call Yamakawa.）",
+          "choices": [
+            "電話",
+            "空手",
+            "手",
+            "話"
+          ],
+          "answer": "電話",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_ni",
+            "v_denwa",
+            {
+              "id": "v_suru",
+              "form": "polite_volitional_mashou"
+            }
+          ],
+          "explanation": "電話 (N5.13) = telephone — 電話する = to make a phone call (compound suru verb: v_denwa + v_suru). 電話しましょう = 'Let's call' (polite volitional, G8). に marks やまかわさん as the recipient. 空手 (N5.13) = karate — a martial art; 空手する is not a natural phrase for this context. 手 (N5.13) = hand — 手する is not a standard compound suru verb. 話 (N5.13) = speech/talk — 話する is not standard; the correct verb for talking is 話す or 電話で話す."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "ゆっくり 話して ___。（Please speak slowly.）",
+          "choices": [
+            "ください",
+            "います",
+            "いました",
+            "みます"
+          ],
+          "answer": "ください",
+          "terms": [
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ],
+          "explanation": "ください after the te-form creates a polite request (G7, N5.5+): 話して + ください = 'please speak.' This is the てください pattern: [verb te-form] + ください = polite request. います would create 話しています = 'is speaking' (progressive, G8) — a statement, not a request. いました = 話していました = 'was speaking' (past progressive) — past tense statement. みます = 話してみます = 'will try speaking' — uses the G23 てみる pattern (N4.35+) which is not yet available at this level."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 学校で 日本語を ___。（I am reading Japanese at school every day.）",
+          "choices": [
+            "読んでいます",
+            "読みます",
+            "読みました",
+            "読みましょう"
+          ],
+          "answer": "読んでいます",
+          "terms": [
+            "v_mainichi",
+            "v_gakkou",
+            "p_de",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "読んでいます = te-form of 読む (読んで, godan む-verb nasal euphonic change) + います = progressive/habitual 'is reading' (G8). With 毎日, ている describes an ongoing daily habit. 読みます = 'will read / reads' — simple polite non-past, describes a plan or general habit but not an ongoing action. 読みました = 'read' — past tense (G6). 読みましょう = 'let's read' — polite volitional/invitation (G8), not a statement about one's own habits."
+        },
+        {
+          "kind": "mcq",
+          "q": "時間が 少ないです ___、電話で 話します。（I don't have much time, but I will talk on the phone.）",
+          "choices": [
+            "が",
+            "でも",
+            "から",
+            "けど"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_jikan",
+            "p_ga",
+            "v_sukunai",
+            "g_desu",
+            "p_ga_but",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "が (p_ga_but, G9) is the polite clause-connector 'but' — it follows a polite form (少ないです) to contrast two clauses within one sentence. In polite speech, が is the standard contrastive connector. でも is a sentence-STARTING conjunction — it begins a new sentence ('But I will...') and cannot link clauses within one sentence. から after 少ないです means 'because' (p_kara_because) — completely changes the meaning to 'because I don't have much time.' けど (p_kedo, G9) is also a 'but' connector but is casual in register — less appropriate after a polite form like ～ですが. In polite speech: use が; in casual speech: use けど."
+        },
+        {
+          "kind": "mcq",
+          "q": "家 ___ 学校まで 電車で 行きます。（I go from home to school by train.）",
+          "choices": [
+            "から",
+            "に",
+            "で",
+            "が"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_ie",
+            "p_kara",
+            "v_gakkou",
+            "p_made",
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "から (p_kara, G3) after the noun 家 marks the starting point 'from' — 家から = 'from home.' Note: this から follows a NOUN, so it is p_kara ('from') — NOT p_kara_because (G9, which follows a verb/adjective). The pattern 〜から〜まで = 'from X to Y.' まで marks 学校 as the endpoint. で marks 電車 as the means of transport — 電車で = 'by train.' に marks a destination or existence location — 家に行く (go home) is correct but 家に学校まで = unnatural starting point. が marks the subject — not a location role."
+        },
+        {
+          "kind": "mcq",
+          "q": "きのうの テストは 長 ___。（Yesterday's test was long.）",
+          "choices": [
+            "かったです",
+            "かいです",
+            "いです",
+            "くてです"
+          ],
+          "answer": "かったです",
+          "terms": [
+            "v_kinou",
+            "p_wa",
+            "v_tesuto",
+            "p_no",
+            {
+              "id": "v_nagai",
+              "form": "polite_past_adj"
+            },
+            "g_desu"
+          ],
+          "explanation": "かったです is the polite past suffix for i-adjectives (G10, N5.10+): [i-adj stem] + かったです. 長い → remove い → stem 長 + かったです = 長かったです (polite past: 'was long'). かいです — not a valid form; です is not added to a stem ending in か. いです = 長いです = 'is long' (present polite) — not past. くてです — くて is the te-form connector of i-adjectives (長くて = 'long and...') used to connect adjectives within a sentence — not a sentence-ending polite past form."
+        }
+      ]
+    }
+  ]
+}

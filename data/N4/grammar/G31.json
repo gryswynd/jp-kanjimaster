@@ -1,0 +1,1624 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G31",
+  "type": "grammar",
+  "title": "Advanced Adjective Patterns — Become, Make, Even If, Must Be",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.34",
+    "focus": "Four adjective-driven patterns: ～くなる/になる (spontaneous change), ～くする/にする (deliberate change), ～くても/でも (even if), ～くなければ/でなければ (must be / if not). Plus reinforcement of ～すぎる with adjectives.",
+    "estimatedMinutes": 30,
+    "particles": [
+      "くなる",
+      "になる",
+      "くする",
+      "にする",
+      "くても",
+      "でも",
+      "くなければ",
+      "でなければ",
+      "なってきた",
+      "なっていく"
+    ],
+    "grammarForms": [
+      "adverbial",
+      "sugiru_form"
+    ],
+    "icon": "🔀"
+  },
+  "targetVocab": [
+    "v_naru",
+    "v_suru"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Advanced Adjective Patterns — Become, Make, Even If, Must Be",
+      "icon": "🔀",
+      "summary": "You already know how adjectives describe things — hot, cool, expensive, famous. Now learn how adjectives drive change. Four patterns built on the adjective adverbial stem (く/に) let you say that things become different, that you deliberately make them different, that even if something is a certain way the outcome stands, and that something must meet a certain condition.",
+      "whyItMatters": "These four patterns appear constantly in daily Japanese: seasons change (涼しくなった), you make adjustments (安くしてください), you hold your position despite circumstances (むずかしくても頑張る), and you set conditions (大きくなければ入れない). Mastering them moves your Japanese from description to action.",
+      "youWillLearn": [
+        "～くなる / ～になる — express that something becomes a certain way (spontaneous change)",
+        "～くする / ～にする — express that you deliberately make something a certain way",
+        "The key contrast: なる = the subject changes by itself; する = an agent causes the change",
+        "～くても / ～でも — 'even if it is ~': concede a condition without changing the conclusion",
+        "～くなければ / ～でなければ — 'must be ~' or 'if not ~': set a minimum condition",
+        "Reinforcement of ～すぎる with adjectives (high, difficult, famous — too much)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kunaru",
+      "pattern": [
+        {
+          "label": "I-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（い→）く"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "なる"
+        },
+        {
+          "label": "OR",
+          "color": "connector",
+          "text": "/"
+        },
+        {
+          "label": "NA-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（stem）"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "になる"
+        }
+      ],
+      "meaning": "become ~ (spontaneous / natural change of state)",
+      "explanation": "The pattern ～くなる (i-adjectives) and ～になる (na-adjectives) expresses a spontaneous or natural change of state — the subject shifts to that condition on its own, without an external agent causing it. Form the adverbial from the adjective: drop い and add く for i-adjectives; add に after the bare stem for na-adjectives. Then attach なる in the appropriate tense. This pattern pairs naturally with ～てくる (change up to now, felt by the speaker) and ～ていく (change continuing into the future).",
+      "notes": [
+        "I-adjective adverbial: drop い, add く. Examples: 高い→高く、寒い→寒く、楽しい→楽しく、むずかしい→むずかしく",
+        "Na-adjective adverbial: bare stem + に. Examples: 元気→元気に、有名→有名に、大切→大切に、きれい→きれいに",
+        "Irregular: いい→よくなる (not いくなる) — the irr_ii rule applies to all adverbial derivations",
+        "With てくる: 寒くなってきた — 'It has been getting cold (and I feel it now)'. Signals gradual change toward the present.",
+        "With ていく: もっと暗くなっていく — 'It will keep getting darker (into the future)'. Signals ongoing/future progression.",
+        "Desire form: 上手になりたい (want to become skilled at ~) — 上手 is na-adj, so: 上手に + なりたい",
+        "Use ようになる (G26 pattern) for changes in ability or habit: 日本語が話せるようになった (came to be able to speak Japanese)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "秋に なると、",
+              "role": "time",
+              "gloss": "when autumn comes (と conditional — when/if)"
+            },
+            {
+              "text": "空気が",
+              "role": "subject",
+              "gloss": "the air (が — subject marker)"
+            },
+            {
+              "text": "寒く",
+              "role": "modifier",
+              "gloss": "cold-ADV (寒い → 寒く — i-adj adverbial stem)"
+            },
+            {
+              "text": "なります。",
+              "role": "predicate",
+              "gloss": "becomes (なる — polite present)"
+            }
+          ],
+          "en": "When autumn comes, the air becomes cold.",
+          "breakdown": "寒い (i-adj) → drop い → 寒く. Attach なります (polite). The change is natural — nobody is causing the cold; it just happens."
+        },
+        {
+          "parts": [
+            {
+              "text": "毎日 勉強すれば、",
+              "role": "connector",
+              "gloss": "if you study every day (ば conditional)"
+            },
+            {
+              "text": "上手に",
+              "role": "modifier",
+              "gloss": "skilled-ADV (上手 na-adj stem + に)"
+            },
+            {
+              "text": "なれますよ。",
+              "role": "predicate",
+              "gloss": "you can become (なれる — potential of なる, polite)"
+            }
+          ],
+          "en": "If you study every day, you can become skilled at it.",
+          "breakdown": "上手 is a na-adjective (na_adj). Adverbial: 上手 + に. Potential: なれる → なれます. The ば conditional sets the condition."
+        },
+        {
+          "parts": [
+            {
+              "text": "今年は、",
+              "role": "time",
+              "gloss": "this year (time context)"
+            },
+            {
+              "text": "この 町が",
+              "role": "subject",
+              "gloss": "this town (が — subject)"
+            },
+            {
+              "text": "有名に",
+              "role": "modifier",
+              "gloss": "famous-ADV (有名 na-adj stem + に)"
+            },
+            {
+              "text": "なってきました。",
+              "role": "predicate",
+              "gloss": "has been becoming (なって + きました — change toward now, polite past)"
+            }
+          ],
+          "en": "This town has been getting famous recently.",
+          "breakdown": "有名 (na-adj) + に + なる. The てくる form (なってきました) signals gradual change that the speaker now perceives."
+        },
+        {
+          "parts": [
+            {
+              "text": "夏に なると、",
+              "role": "time",
+              "gloss": "when summer comes (と conditional)"
+            },
+            {
+              "text": "もっと",
+              "role": "adverb",
+              "gloss": "even more (adverb)"
+            },
+            {
+              "text": "暑く",
+              "role": "modifier",
+              "gloss": "hot-ADV (暑い → 暑く)"
+            },
+            {
+              "text": "なって いきます。",
+              "role": "predicate",
+              "gloss": "will keep getting (なって + いきます — ongoing future change, polite)"
+            }
+          ],
+          "en": "When summer comes, it will keep getting hotter.",
+          "breakdown": "暑い (i-adj) → 暑く. The ていく form (なっていきます) signals change that continues into the future."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kusuru",
+      "pattern": [
+        {
+          "label": "I-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（い→）く"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "する"
+        },
+        {
+          "label": "OR",
+          "color": "connector",
+          "text": "/"
+        },
+        {
+          "label": "NA-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（stem）"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "にする"
+        }
+      ],
+      "meaning": "make ~ / cause to be ~ (deliberate change by an agent)",
+      "explanation": "The pattern ～くする (i-adjectives) and ～にする (na-adjectives) expresses a deliberate act of changing something to a certain state. The key difference from ～くなる is that here there is an agent who is intentionally making the change happen — the subject of する is doing it on purpose. The most common contexts are requests (もっと安くしてください), decisions (部屋を明るくした), and the fixed expression 大切にする (to treat with care / take care of).",
+      "notes": [
+        "I-adjective: drop い, add く + する. Examples: 安い→安くする、明るい→明るくする、楽しい→楽しくする",
+        "Na-adjective: bare stem + にする. Examples: 元気→元気にする、大切→大切にする、きれい→きれいにする",
+        "Fixed expression: 大切にする — 'to take care of / treat with care'. 体を大切にしてください (please take care of your health).",
+        "Requests are common: もっと安くしてください (please make it cheaper)、部屋を明るくしてください (please brighten the room).",
+        "The causative ～させる is the stronger verb-based equivalent; ～にする/くする focuses on adjective-described outcomes.",
+        "Irregular: いい → よくする (not いくする)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "もう少し",
+              "role": "adverb",
+              "gloss": "a little more (もう少し — adverb)"
+            },
+            {
+              "text": "安く",
+              "role": "modifier",
+              "gloss": "cheap-ADV (安い → 安く — i-adj adverbial)"
+            },
+            {
+              "text": "して もらえませんか。",
+              "role": "predicate",
+              "gloss": "could you make it? (してもらえませんか — potential + もらう, polite request)"
+            }
+          ],
+          "en": "Could you make it a little cheaper?",
+          "breakdown": "安い (i-adj) → 安く + する. してもらえませんか is a polite way to ask someone to do something for you. The agent (the shop worker) is being asked to deliberately change the price."
+        },
+        {
+          "parts": [
+            {
+              "text": "部屋を",
+              "role": "object",
+              "gloss": "the room (を — object)"
+            },
+            {
+              "text": "明るく",
+              "role": "modifier",
+              "gloss": "bright-ADV (明るい → 明るく)"
+            },
+            {
+              "text": "したいです。",
+              "role": "predicate",
+              "gloss": "I want to make it (したい + です — desire, polite)"
+            }
+          ],
+          "en": "I want to brighten up the room.",
+          "breakdown": "明るい (i-adj) → 明るく + する → したいです (desire). The speaker is the deliberate agent — they intend to act."
+        },
+        {
+          "parts": [
+            {
+              "text": "体を",
+              "role": "object",
+              "gloss": "your body/health (を — object)"
+            },
+            {
+              "text": "大切に",
+              "role": "modifier",
+              "gloss": "carefully-ADV (大切 na-adj stem + に)"
+            },
+            {
+              "text": "して ください。",
+              "role": "predicate",
+              "gloss": "please take care (してください — te-form request)"
+            }
+          ],
+          "en": "Please take care of your health.",
+          "breakdown": "大切 (na-adj) + に + する = 大切にする (fixed expression: to treat with care). In polite request: してください."
+        },
+        {
+          "parts": [
+            {
+              "text": "この 教室を",
+              "role": "object",
+              "gloss": "this classroom (を — object)"
+            },
+            {
+              "text": "元気に",
+              "role": "modifier",
+              "gloss": "lively-ADV (元気 na-adj stem + に)"
+            },
+            {
+              "text": "して いきましょう。",
+              "role": "predicate",
+              "gloss": "let's make it lively (していきましょう — ていく volitional, polite)"
+            }
+          ],
+          "en": "Let's make this classroom a lively place going forward.",
+          "breakdown": "元気 (na-adj) + に + する → していく (change continuing forward) → していきましょう (volitional polite). The ていく adds a forward-looking nuance."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "なる vs する — Spontaneous Change vs Deliberate Change",
+      "items": [
+        {
+          "label": "～くなる / ～になる",
+          "color": "verb",
+          "points": [
+            "The subject changes by itself — no agent is responsible",
+            "Spontaneous, natural, or inevitable change",
+            "Seasons change, skills improve over time, situations shift on their own",
+            "English: 'become ~', 'get ~', 'turn ~'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "寒く",
+                "role": "modifier",
+                "gloss": "cold-ADV (寒い → 寒く)"
+              },
+              {
+                "text": "なりました。",
+                "role": "predicate",
+                "gloss": "became (なる — polite past)"
+              }
+            ],
+            "en": "It became cold. (The cold just happened — nobody caused it.)"
+          }
+        },
+        {
+          "label": "～くする / ～にする",
+          "color": "predicate",
+          "points": [
+            "An agent deliberately causes the change — someone is doing it on purpose",
+            "Intentional action, requests, decisions, adjustments",
+            "Making a room brighter, asking for a lower price, taking care of something",
+            "English: 'make ~ / cause ~ to be / set ~ to'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "部屋を",
+                "role": "object",
+                "gloss": "the room (を — object)"
+              },
+              {
+                "text": "明るく",
+                "role": "modifier",
+                "gloss": "bright-ADV (明るい → 明るく)"
+              },
+              {
+                "text": "しました。",
+                "role": "predicate",
+                "gloss": "made it (する — polite past)"
+              }
+            ],
+            "en": "I made the room brighter. (I deliberately did this.)"
+          }
+        }
+      ],
+      "tip": "Both patterns use the same adverbial stem (く for i-adj, に for na-adj). The only difference is the verb: なる = happens on its own; する = someone makes it happen."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kutemo",
+      "pattern": [
+        {
+          "label": "I-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（い→）く"
+        },
+        {
+          "label": "CONNECTOR",
+          "color": "connector",
+          "text": "ても"
+        },
+        {
+          "label": "OR",
+          "color": "connector",
+          "text": "/"
+        },
+        {
+          "label": "NA-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（stem）"
+        },
+        {
+          "label": "CONNECTOR",
+          "color": "connector",
+          "text": "でも"
+        },
+        {
+          "label": "CONCLUSION",
+          "color": "predicate",
+          "text": "[main clause]"
+        }
+      ],
+      "meaning": "even if it is ~ / even though it is ~ (adjective concessive)",
+      "explanation": "The concessive pattern ～くても (i-adjectives) and ～でも (na-adjectives) means 'even if ~ / even though ~'. It concedes that a condition is true — or might be true — while insisting that the conclusion of the main clause holds regardless. This is the adjective parallel to the verb concessive ～ても (G20). For i-adjectives: drop い, add くても. For na-adjectives: stem + でも. The particle でも in this construction is different from sentence-initial でも (= 'but').",
+      "notes": [
+        "I-adjective formation: drop い, add くても. 高い→高くても、むずかしい→むずかしくても、楽しい→楽しくても",
+        "Na-adjective formation: stem + でも. 有名→有名でも、元気→元気でも、大切→大切でも",
+        "Irregular: いい→よくても (not いくても)",
+        "The main clause after ～くても / ～でも often contains 〜ます / 〜ない or a plain-form verb: 行きます、頑張ります、知らない",
+        "Contrast with のに (G20) — のに expresses surprise/frustration that the main clause happened despite the condition; ～くても is neutral and predictive.",
+        "This pattern parallels verb ～ても (G20): 食べても太らない (even if I eat, I don't gain weight)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "値段が",
+              "role": "subject",
+              "gloss": "the price (が — subject)"
+            },
+            {
+              "text": "高くても、",
+              "role": "connector",
+              "gloss": "even if it's expensive (高い → 高くても — i-adj concessive)"
+            },
+            {
+              "text": "買います。",
+              "role": "predicate",
+              "gloss": "I'll buy it (買う — polite present/future)"
+            }
+          ],
+          "en": "Even if it's expensive, I'll buy it.",
+          "breakdown": "高い (i-adj) → drop い → 高く + ても = 高くても. The speaker concedes the price is high but will buy anyway."
+        },
+        {
+          "parts": [
+            {
+              "text": "むずかしくても、",
+              "role": "connector",
+              "gloss": "even if it's difficult (むずかしい → むずかしくても)"
+            },
+            {
+              "text": "あきらめません。",
+              "role": "predicate",
+              "gloss": "I won't give up (あきらめる → あきらめません — polite negative)"
+            }
+          ],
+          "en": "Even if it's difficult, I won't give up.",
+          "breakdown": "むずかしい (i-adj) → むずかしくても. The main clause is a strong negative commitment. Note: むずかしい is always written in kana (難 not in taught set)."
+        },
+        {
+          "parts": [
+            {
+              "text": "有名でも、",
+              "role": "connector",
+              "gloss": "even if they're famous (有名 na-adj stem + でも)"
+            },
+            {
+              "text": "わたしは",
+              "role": "topic",
+              "gloss": "as for me (は — topic)"
+            },
+            {
+              "text": "知りません。",
+              "role": "predicate",
+              "gloss": "I don't know (知る → 知りません — polite negative)"
+            }
+          ],
+          "en": "Even if they're famous, I don't know them.",
+          "breakdown": "有名 (na-adj) → stem + でも = 有名でも. No matter how famous, the speaker simply doesn't recognize them."
+        },
+        {
+          "parts": [
+            {
+              "text": "元気でも、",
+              "role": "connector",
+              "gloss": "even if you feel well (元気 na-adj + でも)"
+            },
+            {
+              "text": "体を",
+              "role": "object",
+              "gloss": "body (を — object)"
+            },
+            {
+              "text": "大切に して ください。",
+              "role": "predicate",
+              "gloss": "please take care (大切にしてください — fixed expression, polite request)"
+            }
+          ],
+          "en": "Even if you feel well, please take care of your body.",
+          "breakdown": "元気 (na-adj) + でも = 元気でも. The request stands regardless of how the person feels. 大切にする = fixed expression 'take care of'."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kunakereba",
+      "pattern": [
+        {
+          "label": "I-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（い→）く"
+        },
+        {
+          "label": "CONDITION",
+          "color": "connector",
+          "text": "なければ"
+        },
+        {
+          "label": "OR",
+          "color": "connector",
+          "text": "/"
+        },
+        {
+          "label": "NA-ADJ STEM",
+          "color": "modifier",
+          "text": "adj（stem）"
+        },
+        {
+          "label": "CONDITION",
+          "color": "connector",
+          "text": "でなければ"
+        }
+      ],
+      "meaning": "must be ~ / if not ~ (adjective conditional/obligation)",
+      "explanation": "The pattern ～くなければ (i-adjectives) and ～でなければ (na-adjectives) sets a required minimum condition, often paired with いけない or ならない to express obligation ('must be ~'), or used alone as a negative conditional ('if it is not ~'). For i-adjectives: drop い, add くなければ. For na-adjectives: stem + でなければ. This pattern parallels the verb obligation form ～なければいけない (G22) and the ば conditional (also G22).",
+      "notes": [
+        "I-adjective: drop い, add くなければ. 安い→安くなければ、大きい→大きくなければ、いい→よくなければ (irregular — stem is よ-)",
+        "Na-adjective: stem + でなければ. 有名→有名でなければ、元気→元気でなければ",
+        "Paired with いけない (obligation): 安くなければいけない (must be cheap / it has to be cheap)",
+        "Paired with ならない (stricter/written): 元気でなければならない (must be healthy — more formal tone)",
+        "Standalone conditional: 有名でなければ、知らない — 'if they're not famous, I won't know them'",
+        "Casual spoken contraction: ～くなきゃ / ～でなきゃ — 安くなきゃ (if it's not cheap, I won't [buy it])",
+        "This pattern is the adjective equivalent of verb 〜なければいけない (taught in G22)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "値段が",
+              "role": "subject",
+              "gloss": "the price (が — subject)"
+            },
+            {
+              "text": "安くなければ",
+              "role": "connector",
+              "gloss": "if it's not cheap (安い → 安くなければ — i-adj conditional negative)"
+            },
+            {
+              "text": "買いません。",
+              "role": "predicate",
+              "gloss": "I won't buy it (買う → 買いません — polite negative)"
+            }
+          ],
+          "en": "If it's not cheap, I won't buy it.",
+          "breakdown": "安い (i-adj) → drop い → 安く + なければ = 安くなければ. The condition: price must be cheap or the speaker won't buy."
+        },
+        {
+          "parts": [
+            {
+              "text": "このドアは",
+              "role": "topic",
+              "gloss": "this door (は — topic)"
+            },
+            {
+              "text": "大きくなければ",
+              "role": "connector",
+              "gloss": "if it's not big (大きい → 大きくなければ)"
+            },
+            {
+              "text": "いけません。",
+              "role": "predicate",
+              "gloss": "it must (いけない — obligation, polite)"
+            }
+          ],
+          "en": "This door has to be big (it must be big).",
+          "breakdown": "大きくなければいけません = must be big. いけない adds the obligation meaning. Literally: 'if not big, it won't do'."
+        },
+        {
+          "parts": [
+            {
+              "text": "有名でなければ、",
+              "role": "connector",
+              "gloss": "if not famous (有名 na-adj + でなければ — negative conditional)"
+            },
+            {
+              "text": "このイベントには",
+              "role": "topic",
+              "gloss": "at this event (に+は — location + topic)"
+            },
+            {
+              "text": "入れません。",
+              "role": "predicate",
+              "gloss": "cannot enter (入る → potential negative, polite)"
+            }
+          ],
+          "en": "If you're not famous, you can't get into this event.",
+          "breakdown": "有名 (na-adj) + でなければ = 有名でなければ. The condition: must be famous to enter."
+        },
+        {
+          "parts": [
+            {
+              "text": "体が",
+              "role": "subject",
+              "gloss": "the body (が — subject)"
+            },
+            {
+              "text": "元気でなければ、",
+              "role": "connector",
+              "gloss": "if not healthy (元気 na-adj + でなければ)"
+            },
+            {
+              "text": "何も",
+              "role": "adverb",
+              "gloss": "nothing / anything (何も — total negative)"
+            },
+            {
+              "text": "できません。",
+              "role": "predicate",
+              "gloss": "cannot do (できる → polite negative)"
+            }
+          ],
+          "en": "If you're not healthy, you can't do anything.",
+          "breakdown": "元気 (na-adj) + でなければ = 元気でなければ. Strong negative conditional emphasizing health as a prerequisite for everything."
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "Adjective Pattern Paradigm — All Four Patterns",
+      "description": "Summary of how i-adjectives and na-adjectives form all four patterns taught in this lesson, plus the reinforcement of ～すぎる. Use this as a reference chart.",
+      "tableType": "conjugation",
+      "headers": [
+        "Pattern",
+        "I-adjective (高い)",
+        "Na-adjective (有名)",
+        "Meaning"
+      ],
+      "rows": [
+        {
+          "label": "Adverbial (base stem)",
+          "cells": [
+            "高く",
+            "有名に",
+            "ADV base — used in all four patterns below"
+          ],
+          "meaning": "ku-form / ni-form"
+        },
+        {
+          "label": "～くなる / ～になる",
+          "cells": [
+            "高くなる",
+            "有名になる",
+            "become expensive / become famous"
+          ],
+          "meaning": "spontaneous change (no agent)"
+        },
+        {
+          "label": "～くなった / ～になった",
+          "cells": [
+            "高くなった",
+            "有名になった",
+            "became expensive / became famous (plain past)"
+          ],
+          "meaning": "spontaneous change, past"
+        },
+        {
+          "label": "～くなってきた",
+          "cells": [
+            "高くなってきた",
+            "有名になってきた",
+            "has been getting expensive / famous (change toward now)"
+          ],
+          "meaning": "gradual change perceived now"
+        },
+        {
+          "label": "～くなっていく",
+          "cells": [
+            "高くなっていく",
+            "有名になっていく",
+            "will keep getting expensive / famous (continuing future)"
+          ],
+          "meaning": "ongoing future change"
+        },
+        {
+          "label": "～くなりたい / ～になりたい",
+          "cells": [
+            "よくなりたい",
+            "有名になりたい",
+            "want to get better / want to become famous"
+          ],
+          "meaning": "desire to change (adj + なりたい)"
+        },
+        {
+          "label": "～くする / ～にする",
+          "cells": [
+            "高くする",
+            "有名にする",
+            "make it expensive / make it famous"
+          ],
+          "meaning": "deliberate change (agent acts)"
+        },
+        {
+          "label": "～くしてください",
+          "cells": [
+            "安くしてください",
+            "きれいにしてください",
+            "please make it cheap / please make it clean"
+          ],
+          "meaning": "polite request for deliberate change"
+        },
+        {
+          "label": "～くても / ～でも",
+          "cells": [
+            "高くても",
+            "有名でも",
+            "even if it's expensive / even if they're famous"
+          ],
+          "meaning": "concessive (condition doesn't change outcome)"
+        },
+        {
+          "label": "～くなければ / ～でなければ",
+          "cells": [
+            "安くなければ",
+            "元気でなければ",
+            "if not cheap / if not healthy"
+          ],
+          "meaning": "negative conditional (must be ~)"
+        },
+        {
+          "label": "～すぎる (G25 reinforcement)",
+          "cells": [
+            "高すぎる",
+            "有名すぎる",
+            "too expensive / too famous"
+          ],
+          "meaning": "excessive degree — uses adj stem (drop い for i-adj)"
+        }
+      ],
+      "notes": [
+        "Irregular いい: adverbial = よく. All patterns follow: よくなる、よくする、よくても、よくなければ",
+        "～すぎる for adjectives: i-adj drops い before すぎる (高すぎる). Na-adj uses bare stem (有名すぎる). Both use sugiru_form.",
+        "The adverbial stem (く/に) is the foundation — all four patterns add different endings to the same base.",
+        "大切にする is a fixed expression: 'to take care of / treat with care' — not simply 'make it important'"
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "All Four Patterns in Context",
+      "examples": [
+        {
+          "context": "Seasonal change — くなる (spontaneous)",
+          "parts": [
+            {
+              "text": "秋に なると、",
+              "role": "time",
+              "gloss": "when autumn comes (と conditional)"
+            },
+            {
+              "text": "だんだん",
+              "role": "adverb",
+              "gloss": "gradually (adverb)"
+            },
+            {
+              "text": "寒く",
+              "role": "modifier",
+              "gloss": "cold-ADV (寒い → 寒く — i-adj adverbial)"
+            },
+            {
+              "text": "なって きます。",
+              "role": "predicate",
+              "gloss": "is getting (なる + てくる — gradual change toward now, polite)"
+            }
+          ],
+          "en": "When autumn comes, it gradually gets cold.",
+          "note": "寒い (i-adj) → 寒く + なる. The てくる form signals a gradual change the speaker perceives building toward them."
+        },
+        {
+          "context": "Making a request — くする (deliberate change)",
+          "parts": [
+            {
+              "text": "この 部屋を",
+              "role": "object",
+              "gloss": "this room (を — object)"
+            },
+            {
+              "text": "もっと",
+              "role": "adverb",
+              "gloss": "even more (もっと)"
+            },
+            {
+              "text": "明るく",
+              "role": "modifier",
+              "gloss": "bright-ADV (明るい → 明るく)"
+            },
+            {
+              "text": "して もらえませんか。",
+              "role": "predicate",
+              "gloss": "could you make it? (してもらえませんか — potential of もらう, polite request)"
+            }
+          ],
+          "en": "Could you make this room a little brighter?",
+          "note": "明るい (i-adj) → 明るく + する. The speaker is asking someone else to act deliberately. Contrast with なる — the room won't brighten by itself."
+        },
+        {
+          "context": "Concession — くても (even if)",
+          "parts": [
+            {
+              "text": "試験が",
+              "role": "subject",
+              "gloss": "the exam (が — subject)"
+            },
+            {
+              "text": "むずかしくても、",
+              "role": "connector",
+              "gloss": "even if it's difficult (むずかしい → むずかしくても)"
+            },
+            {
+              "text": "あきらめずに",
+              "role": "adverb",
+              "gloss": "without giving up (あきらめる → negative te-form あきらめず + に)"
+            },
+            {
+              "text": "頑張ります。",
+              "role": "predicate",
+              "gloss": "I'll do my best (頑張る → 頑張ります — polite)"
+            }
+          ],
+          "en": "Even if the exam is difficult, I'll do my best without giving up.",
+          "note": "むずかしい (i-adj) → むずかしくても. The concession doesn't change the resolve. Always write むずかしい in kana (難 not in taught kanji set)."
+        },
+        {
+          "context": "Setting a condition — くなければ (must be)",
+          "parts": [
+            {
+              "text": "この 仕事は、",
+              "role": "topic",
+              "gloss": "this job (は — topic)"
+            },
+            {
+              "text": "体が",
+              "role": "subject",
+              "gloss": "body/health (が — subject)"
+            },
+            {
+              "text": "元気でなければ",
+              "role": "connector",
+              "gloss": "if not healthy (元気 na-adj + でなければ — negative conditional)"
+            },
+            {
+              "text": "できません。",
+              "role": "predicate",
+              "gloss": "cannot do it (できる → polite negative)"
+            }
+          ],
+          "en": "For this job, you cannot do it if you're not healthy.",
+          "note": "元気 (na-adj) + でなければ = 元気でなければ. The condition is explicit: health is required. でなければ sets the threshold."
+        },
+        {
+          "context": "Reinforcement: すぎる with adjectives",
+          "parts": [
+            {
+              "text": "この 試験は",
+              "role": "topic",
+              "gloss": "this exam (は — topic)"
+            },
+            {
+              "text": "むずかしすぎて、",
+              "role": "connector",
+              "gloss": "too difficult (むずかしい → むずかしすぎる → te-form)"
+            },
+            {
+              "text": "何も",
+              "role": "adverb",
+              "gloss": "nothing (何も — total negation)"
+            },
+            {
+              "text": "書けませんでした。",
+              "role": "predicate",
+              "gloss": "I couldn't write anything (書く → potential negative, polite past)"
+            }
+          ],
+          "en": "The exam was too difficult, and I couldn't write anything.",
+          "note": "i-adj すぎる: drop い → むずかしすぎる. Then te-form: むずかしすぎて (connector). G25 pattern reinforced here."
+        },
+        {
+          "context": "Reinforcement: になれる (potential of なる) with たら conditional (G22) and と思います (G27)",
+          "parts": [
+            {
+              "text": "毎日 勉強したら、",
+              "role": "connector",
+              "gloss": "after studying every day (たら conditional — when/after)"
+            },
+            {
+              "text": "もっと 上手に",
+              "role": "modifier",
+              "gloss": "more skillfully (上手 na-adj + に)"
+            },
+            {
+              "text": "なれると",
+              "role": "connector",
+              "gloss": "if you can become (なれる + と conditional — natural result)"
+            },
+            {
+              "text": "思います。",
+              "role": "predicate",
+              "gloss": "I think (と思う — G27 reinforcement, polite)"
+            }
+          ],
+          "en": "I think if you practise every day, you'll be able to become more skilled.",
+          "note": "上手になれる = potential of 上手になる. Combined with と思います (G27). The conditional たら shows the path to change."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: The Seasons Are Changing",
+      "context": "Rikizo asks Yamamoto-sensei about the weather and then about studying. Polite register.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "やまもと先生、今年の 秋は すずしく なってきましたね。",
+          "en": "Yamamoto-sensei, it's been getting cool this autumn, hasn't it?",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "v_kotoshi",
+            "p_no",
+            "v_aki",
+            "p_wa",
+            {
+              "id": "v_suzushii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "やまもと先生",
+          "jp": "そうですね。秋に なると、空気が すずしく なります。もうすぐ 寒くなるでしょう。",
+          "en": "That's right. When autumn comes, the air gets cool. It'll probably get cold soon.",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_aki",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "p_to_conditional",
+            "v_kuuki",
+            "p_ga",
+            {
+              "id": "v_suzushii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "v_mou",
+            "v_sugu",
+            {
+              "id": "v_samui",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "g_deshou"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そうですね。先生、私は 日本語が もっと 上手に なりたいんですが、どうすれば いいですか。",
+          "en": "That's right. Sensei, I want to become better at Japanese — what should I do?",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_sensei",
+            "v_watashi",
+            "p_wa",
+            "v_nihongo",
+            "p_ga",
+            "v_motto",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "p_ndesu",
+            "p_ga_but",
+            "v_dou",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまもと先生",
+          "jp": "むずかしくても、毎日 勉強する ことが 大切ですよ。毎日 勉強 すれば、上手に なれますよ。",
+          "en": "Even if it's difficult, studying every day is important. If you study every day, you'll be able to become skilled.",
+          "terms": [
+            {
+              "id": "v_muzukashii",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            },
+            "p_yo",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_potential"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "分かりました。毎日 勉強 するように します。ありがとうございます。",
+          "en": "I understand. I'll make sure to study every day. Thank you.",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_arigatou_gozaimasu"
+          ]
+        },
+        {
+          "spk": "やまもと先生",
+          "jp": "元気に なるように、体も 大切に して くださいね。",
+          "en": "Please take care of your health too, so you can stay well.",
+          "terms": [
+            {
+              "id": "v_genki",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            "v_karada",
+            "p_mo",
+            {
+              "id": "v_taisetsu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Exam Prep (Casual)",
+      "context": "Two college friends, Taro and Rikizo, talk about an upcoming exam. Casual register.",
+      "lines": [
+        {
+          "spk": "たろう",
+          "jp": "ねえ、今度の 試験は むずかしいって 聞いたよ。",
+          "en": "Hey, I heard this exam is difficult.",
+          "terms": [
+            "p_nee",
+            "char_taro",
+            "v_kondo",
+            "p_no",
+            "v_shiken",
+            "p_wa",
+            "v_muzukashii",
+            "p_tte_quote",
+            {
+              "id": "v_kiku",
+              "form": "plain_past"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "うん、でも むずかしくても、毎日 勉強 している よ。",
+          "en": "Yeah, but even if it's hard, I study every day.",
+          "terms": [
+            "v_un",
+            "p_demo_but",
+            {
+              "id": "v_muzukashii",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "たろう",
+          "jp": "すごいね。試験は むずかしくなければ いいけど、私も 早く 始めないと な。",
+          "en": "That's amazing. I hope the exam isn't too hard, but I'd better start early too.",
+          "terms": [
+            "v_sugoi",
+            "p_ne",
+            "v_shiken",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "adverbial"
+            },
+            "p_nakereba",
+            "v_ii",
+            "p_kedo",
+            "v_watashi",
+            "p_mo",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_hajimeru",
+              "form": "plain_negative"
+            },
+            "p_to_conditional",
+            "p_na"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "たろうは 日本語が 上手 だから、だいじょうぶ だ と 思うよ。でも 試験が 近くなって きたし、早く 始めた 方が いいよ。",
+          "en": "Taro, you're good at Japanese, so I think you'll be fine. But the exam is getting close, so it's better to start early.",
+          "terms": [
+            "char_taro",
+            "p_wa",
+            "v_nihongo",
+            "p_ga",
+            {
+              "id": "v_jouzu",
+              "form": "plain_form"
+            },
+            "g_da",
+            "p_kara_because",
+            "v_daijoubu",
+            "g_da",
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "plain_form"
+            },
+            "p_yo",
+            "p_demo_but",
+            "v_shiken",
+            "p_ga",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "plain_past"
+            },
+            "p_shi",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_hajimeru",
+              "form": "plain_past"
+            },
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "たろう",
+          "jp": "そうだ ね。試験が 終わったら、いっしょに ご飯 食べに 行こうか。",
+          "en": "You're right. When the exam is over, shall we go eat together?",
+          "terms": [
+            "v_sou",
+            "g_da",
+            "p_ne",
+            "v_shiken",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "conditional_tara"
+            },
+            "v_issho",
+            "p_ni",
+            "v_gohan",
+            {
+              "id": "v_taberu",
+              "form": null
+            },
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_volitional"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "うん、もちろん 行こう！試験が 終わったら、たくさん 食べたいな。",
+          "en": "Yeah, of course! When the exam's done, I want to eat a lot.",
+          "terms": [
+            "v_un",
+            "v_mochiron",
+            {
+              "id": "v_iku",
+              "form": "plain_volitional"
+            },
+            "v_shiken",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "conditional_tara"
+            },
+            "v_takusan",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "p_na"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conjugationDrill",
+      "title": "Adjective Pattern Drill",
+      "instructions": "Change the adjective in brackets to the pattern shown. Type the full result.",
+      "manualProgression": true,
+      "items": [
+        {
+          "verb": "高い",
+          "type": "i_adj",
+          "reading": "たかい",
+          "targetForm": "～くなる (polite, present)",
+          "answer": "高くなります",
+          "answerReading": "たかくなります",
+          "hint": "i-adj: drop い, add く + なります",
+          "choices": [
+            "高くなります",
+            "高になります",
+            "高いなります",
+            "高さなります"
+          ]
+        },
+        {
+          "verb": "有名",
+          "type": "na_adj",
+          "reading": "ゆうめい",
+          "targetForm": "～になる (plain past)",
+          "answer": "有名になった",
+          "answerReading": "ゆうめいになった",
+          "hint": "na-adj: stem + になった",
+          "choices": [
+            "有名になった",
+            "有名くなった",
+            "有名にした",
+            "有名なった"
+          ]
+        },
+        {
+          "verb": "安い",
+          "type": "i_adj",
+          "reading": "やすい",
+          "targetForm": "～くする (て-form request: ～くしてください)",
+          "answer": "安くしてください",
+          "answerReading": "やすくしてください",
+          "hint": "i-adj: drop い, add く + してください",
+          "choices": [
+            "安くしてください",
+            "安にしてください",
+            "安いしてください",
+            "安くなってください"
+          ]
+        },
+        {
+          "verb": "元気",
+          "type": "na_adj",
+          "reading": "げんき",
+          "targetForm": "～にする (te-form request: ～にしてください)",
+          "answer": "元気にしてください",
+          "answerReading": "げんきにしてください",
+          "hint": "na-adj: stem + にしてください",
+          "choices": [
+            "元気にしてください",
+            "元気くしてください",
+            "元気なしてください",
+            "元気になってください"
+          ]
+        },
+        {
+          "verb": "むずかしい",
+          "type": "i_adj",
+          "reading": "むずかしい",
+          "targetForm": "～くても (even if it is ~)",
+          "answer": "むずかしくても",
+          "answerReading": "むずかしくても",
+          "hint": "i-adj: drop い, add くても",
+          "choices": [
+            "むずかしくても",
+            "むずかしでも",
+            "むずかしいでも",
+            "むずかしくたら"
+          ]
+        },
+        {
+          "verb": "大切",
+          "type": "na_adj",
+          "reading": "たいせつ",
+          "targetForm": "～でも (even if it is ~)",
+          "answer": "大切でも",
+          "answerReading": "たいせつでも",
+          "hint": "na-adj: stem + でも",
+          "choices": [
+            "大切でも",
+            "大切くても",
+            "大切なでも",
+            "大切にでも"
+          ]
+        },
+        {
+          "verb": "大きい",
+          "type": "i_adj",
+          "reading": "おおきい",
+          "targetForm": "～くなければ (if not ~ / must be ~)",
+          "answer": "大きくなければ",
+          "answerReading": "おおきくなければ",
+          "hint": "i-adj: drop い, add くなければ",
+          "choices": [
+            "大きくなければ",
+            "大きでなければ",
+            "大きいなければ",
+            "大きくなくては"
+          ]
+        },
+        {
+          "verb": "高い",
+          "type": "i_adj",
+          "reading": "たかい",
+          "targetForm": "～すぎる (plain, excessively ~)",
+          "answer": "高すぎる",
+          "answerReading": "たかすぎる",
+          "hint": "i-adj: drop い, add すぎる (no く needed for すぎる)",
+          "choices": [
+            "高すぎる",
+            "高くすぎる",
+            "高いすぎる",
+            "高さすぎる"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Fill in the Blank",
+      "instructions": "Choose the correct adjective form to complete each sentence.",
+      "items": [
+        {
+          "before": "毎日 勉強したら、日本語が もっと 上手",
+          "after": "と 思います。",
+          "translation": "I think if you study every day, you'll become more skilled at Japanese.",
+          "choices": [
+            "になると",
+            "くなると",
+            "にすると",
+            "になければ"
+          ],
+          "answer": "になると",
+          "explanation": "上手 is a na-adjective. The pattern is 上手 + に + なる. The と conditional here means 'if/when'. 上手くなる is incorrect — 上手 takes に, not く."
+        },
+        {
+          "before": "この 教室を もっと 明る",
+          "after": "もらえますか。",
+          "translation": "Could you make this classroom brighter?",
+          "choices": [
+            "くして",
+            "になって",
+            "くなって",
+            "にして"
+          ],
+          "answer": "くして",
+          "explanation": "明るい is an i-adjective. ～くする (deliberate change) → て-form: くして. The speaker is asking someone to act. ～になる is spontaneous, not deliberate."
+        },
+        {
+          "before": "この 本が 高",
+          "after": "買います。",
+          "translation": "Even if this book is expensive, I'll buy it.",
+          "choices": [
+            "くても",
+            "でも",
+            "くなれば",
+            "くなると"
+          ],
+          "answer": "くても",
+          "explanation": "高い is an i-adjective. Concessive form: drop い, add くても. でも would be used for na-adjectives (e.g. 有名でも)."
+        },
+        {
+          "before": "有名",
+          "after": "、このイベントには 入れません。",
+          "translation": "If you're not famous, you can't get into this event.",
+          "choices": [
+            "でなければ",
+            "くなければ",
+            "でも",
+            "になると"
+          ],
+          "answer": "でなければ",
+          "explanation": "有名 is a na-adjective. Negative conditional: stem + でなければ. くなければ is for i-adjectives. でも would be concessive (even if), not a negative condition."
+        },
+        {
+          "before": "この 仕事は、体が 元気",
+          "after": "できません。",
+          "translation": "If you're not healthy, you cannot do this job.",
+          "choices": [
+            "でなければ",
+            "くなければ",
+            "でも",
+            "になれば"
+          ],
+          "answer": "でなければ",
+          "explanation": "元気 is a na-adjective. Negative conditional: でなければ. 元気くなければ is incorrect — 元気 does not take く."
+        },
+        {
+          "before": "この 映画は 長す",
+          "after": "、見るのが むずかしいです。",
+          "translation": "This movie is too long, and it's hard to watch.",
+          "choices": [
+            "ぎて",
+            "くなって",
+            "くなれば",
+            "でも"
+          ],
+          "answer": "ぎて",
+          "explanation": "長い (i-adj) → drop い → 長す + ぎる = 長すぎる (too long). Te-form: 長すぎて (connector). G25 reinforcement."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Mixed Practice",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "type": "mcq",
+          "question": "Which sentence means 'It got cool' (natural change, no one caused it)?",
+          "choices": [
+            "すずしくしました。",
+            "すずしくなりました。",
+            "すずしくてもいいです。",
+            "すずしくなければいけません。"
+          ],
+          "answer": "すずしくなりました。",
+          "explanation": "～くなる expresses spontaneous/natural change. ～くする would mean 'I made it cool' (deliberate). ～くても = even if. ～くなければ = must be / if not."
+        },
+        {
+          "type": "mcq",
+          "question": "The teacher asked the student to make the classroom brighter. Which sentence fits?",
+          "choices": [
+            "教室が 明るくなりました。",
+            "教室を 明るくしてください。",
+            "教室が 明るくても。",
+            "教室が 明るくなければ。"
+          ],
+          "answer": "教室を 明るくしてください。",
+          "explanation": "～くしてください = 'please make it ~' (deliberate change by the listener). ～くなりました = it became (spontaneous). The を marks the thing being changed."
+        },
+        {
+          "type": "mcq",
+          "question": "りきぞ said: 「むずかしくても、____ます。」 Which ending makes the sentence mean 'Even if it's difficult, I'll do it'?",
+          "choices": [
+            "しない",
+            "し",
+            "する",
+            "した"
+          ],
+          "answer": "し",
+          "explanation": "The main clause after ～くても should express the conclusion. 'I'll do it' → します (polite). します → し (ます-stem before ます). The stem + ます = polite present affirmative."
+        },
+        {
+          "type": "mcq",
+          "question": "Which sentence means 'You must be healthy to do this job' (na-adjective obligation)?",
+          "choices": [
+            "この 仕事は 元気くなければ いけません。",
+            "この 仕事は 元気でなければ いけません。",
+            "この 仕事は 元気になければ いけません。",
+            "この 仕事は 元気もなければ いけません。"
+          ],
+          "answer": "この 仕事は 元気でなければ いけません。",
+          "explanation": "元気 is a na-adjective. Negative conditional: stem + でなければ. 元気くなければ is wrong (くなければ is for i-adj). 元気になければ is also incorrect — the pattern is でなければ."
+        },
+        {
+          "type": "mcq",
+          "question": "What is the difference between 教室が 明るくなった and 教室を 明るくした?",
+          "choices": [
+            "Both mean the classroom became bright naturally.",
+            "なった = someone made it bright; した = it became bright on its own.",
+            "なった = it became bright on its own; した = someone deliberately made it bright.",
+            "There is no difference — both are interchangeable."
+          ],
+          "answer": "なった = it became bright on its own; した = someone deliberately made it bright.",
+          "explanation": "なる = spontaneous change (the subject changes by itself). する = deliberate change (an agent causes it). が marks the subject (classroom changes on its own); を marks the object of a deliberate action."
+        },
+        {
+          "type": "mcq",
+          "question": "Which sentence best fits: 'Even if the book is expensive, I want to read it'?",
+          "choices": [
+            "本が 高くなると、読みたいです。",
+            "本が 高くなければ、読みたいです。",
+            "本が 高くても、読みたいです。",
+            "本が 高くして、読みたいです。"
+          ],
+          "answer": "本が 高くても、読みたいです。",
+          "explanation": "～くても = 'even if it is ~ (i-adj)'. The speaker concedes the high price but still wants to read. 高くなると = if/when it gets expensive (conditional). 高くなければ = if it's not expensive."
+        },
+        {
+          "type": "mcq",
+          "question": "りきぞ said he wants to become skilled at Japanese. How would he say: 'I want to become good at Japanese'?",
+          "choices": [
+            "日本語が 上手くなりたいです。",
+            "日本語が 上手になりたいです。",
+            "日本語を 上手にしたいです。",
+            "日本語が 上手でなければ なりません。"
+          ],
+          "answer": "日本語が 上手になりたいです。",
+          "explanation": "上手 is a na-adjective. Pattern: stem + になりたい. 上手くなりたい is incorrect — 上手 takes に not く. 上手にしたい would mean 'I want to make Japanese good' (deliberately changing it)."
+        }
+      ]
+    }
+  ],
+  "unlocksAfter": "N4.34"
+}

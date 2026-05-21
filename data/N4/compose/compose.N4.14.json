@@ -1,0 +1,185 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.14",
+  "lesson": "N4.14",
+  "level": "N4",
+  "title": "Work & Daily Rhythms",
+  "titleJp": "仕事と せいかつ",
+  "emoji": "💼",
+  "theme": "Write about your working life — your job, your commute, your weekly schedule, and the rhythms of your busy days.",
+  "prompts": [
+    {
+      "prompt": "Open by introducing your job. Are you a company employee, a store clerk, or a station attendant? Use 仕事 and 会社員.",
+      "targets": [
+        { "id": "v_shigoto", "count": 1 },
+        { "id": "v_kaishain", "count": 1 }
+      ],
+      "model": "わたしは 会社員です。仕事は 月曜日から 土曜日まで あります。",
+      "vocabPool": [
+        "v_shigoto", "v_kaishain", "v_ekiin", "v_tenin", "v_watashi",
+        "v_kaisha", "v_getsuyoubi", "v_doyoubi", "v_mainichi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your commute to work. How do you get there? Is it fast? Use 急行 and 早い.",
+      "targets": [
+        { "id": "v_kyuukou", "count": 1 },
+        { "id": "v_hayai", "count": 1 }
+      ],
+      "model": "毎朝 急行に 乗って 会社に 行きます。急行は 早いので、早く 着きます。",
+      "vocabPool": [
+        "v_kyuukou", "v_hayai", "v_maiasa", "v_noru", "v_kaisha",
+        "v_iku", "v_tsuku", "v_mainichi", "p_node", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write about your weekly work schedule. Which days do you work? Use 曜日 and 始まる.",
+      "targets": [
+        { "id": "v_youbi", "count": 1 },
+        { "id": "v_hajimaru", "count": 1 }
+      ],
+      "model": "仕事は 月曜日から 土曜日まで あります。九時に 始まります。",
+      "vocabPool": [
+        "v_youbi", "v_hajimaru", "v_getsuyoubi", "v_doyoubi", "v_nichiyoubi",
+        "v_kinyoubi", "v_shigoto", "v_jikan", "v_kaisha", "p_kara"
+      ]
+    },
+    {
+      "prompt": "Describe your morning routine before work. Do you wake up early? Use 早起き and 毎朝.",
+      "targets": [
+        { "id": "v_hayaoki", "count": 1 },
+        { "id": "v_maiasa", "count": 1 }
+      ],
+      "model": "毎朝 六時に 起きます。早起きを するので、朝 元気です。",
+      "vocabPool": [
+        "v_hayaoki", "v_maiasa", "v_okiru", "v_asa", "v_genki",
+        "v_asagohan", "v_suru", "v_isogashii", "p_node", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about your limited free time using しか or だけ. Include 時間 and 休み.",
+      "targets": [
+        { "id": "v_jikan", "count": 1 },
+        { "id": "v_yasumi", "count": 1 }
+      ],
+      "model": "今日は 時間が 少ししか ありません。休みは 日曜日だけです。",
+      "vocabPool": [
+        "v_jikan", "v_yasumi", "v_nichiyoubi", "v_sukoshi", "v_asa",
+        "v_kyou", "v_mainichi", "p_shika", "p_dake", "v_aru"
+      ]
+    },
+    {
+      "prompt": "Write about things that matter using the こと nominalizer. What is important at work? Use 大切 and 仕事.",
+      "targets": [
+        { "id": "v_taisetsu", "count": 1 },
+        { "id": "v_shigoto", "count": 1 }
+      ],
+      "model": "仕事の こと は 何でも 大切です。早起きの こと も 大切に しています。",
+      "vocabPool": [
+        "v_koto", "v_shigoto", "v_taisetsu", "v_hayaoki", "v_nani",
+        "v_suru", "v_iru", "p_demo", "p_no", "p_wa"
+      ]
+    },
+    {
+      "prompt": "Write about activities you do after work using たり～たりします. Include 食事 and 行事.",
+      "targets": [
+        { "id": "v_shokuji", "count": 1 },
+        { "id": "v_gyouji", "count": 1 }
+      ],
+      "model": "仕事の 後で、食事を したり 音楽を 聞いたり します。月曜日に 会社の 行事が ありました。",
+      "vocabPool": [
+        "v_shokuji", "v_gyouji", "v_ato", "v_ongaku", "v_kiku",
+        "v_suru", "v_tomodachi", "v_kaisha", "v_getsuyoubi", "p_de"
+      ]
+    },
+    {
+      "prompt": "Close by expressing what kind of worker you want to be. Use 仕事 and 働く.",
+      "targets": [
+        { "id": "v_hataraku", "count": 1 },
+        { "id": "v_shigoto", "count": 1 }
+      ],
+      "model": "毎日 元気に 働きたいです。仕事は とても 楽しいです。",
+      "vocabPool": [
+        "v_hataraku", "v_shigoto", "v_genki", "v_tanoshii", "v_mainichi",
+        "v_ii", "v_totemo", "v_isogashii", "p_node", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Imagine you are a station attendant. Describe your job and explain the express train to a customer. Use 急行 and 駅員, and include a しか or だけ sentence.",
+      "targets": [
+        { "id": "v_kyuukou", "count": 1 },
+        { "id": "v_ekiin", "count": 1 }
+      ],
+      "model": "わたしは 駅員です。急行は 早いですが、この 駅にしか 来ません。仕事は 月曜日から 土曜日まで あります。",
+      "vocabPool": [
+        "v_ekiin", "v_kyuukou", "v_eki", "v_hayai", "v_kuru",
+        "v_shigoto", "v_getsuyoubi", "v_doyoubi", "p_shika", "p_dake"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_ka", "p_yo", "p_ne", "p_ya", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo", "p_yori", "p_node",
+    "p_to_quote", "g_desu", "p_dake", "p_shika", "p_demo", "p_bakari", "p_noni"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["働きます", "始まります", "着きました", "急行に 乗りました"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["働きません", "土曜日は 働きません"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["働いて います", "早起きを して います"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["働きたいです", "急行に 乗りたいです", "休みたくないです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["乗れます", "早く 着けます", "何でも 食べられます"]
+    },
+    {
+      "pattern": "verb masu-stem + ながら",
+      "meaning": "while doing (simultaneous actions)",
+      "examples": ["音楽を 聞きながら 仕事を します", "急行に 乗りながら 音楽を 聞きます"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["食事を したり 音楽を 聞いたり します", "働いたり 休んだり します"]
+    },
+    {
+      "pattern": "[noun] + しか + negative verb",
+      "meaning": "nothing but / only (with negative verb)",
+      "examples": ["時間が 少ししか ありません", "日曜日しか 休みが ありません"]
+    },
+    {
+      "pattern": "[noun] + だけ + です",
+      "meaning": "only [noun] (positive limitation)",
+      "examples": ["休みは 日曜日だけです", "急行だけ 早いです"]
+    },
+    {
+      "pattern": "[noun/question word] + でも + verb",
+      "meaning": "even / any~ (inclusive)",
+      "examples": ["何でも 食べられます", "駅員でも わかります"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["急行は 早いので 着きます", "いそがしいから 時間が ありません"]
+    }
+  ]
+}

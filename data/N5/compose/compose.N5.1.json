@@ -1,0 +1,92 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.1",
+  "lesson": "N5.1",
+  "level": "N5",
+  "title": "My Family",
+  "titleJp": "わたしの かぞく",
+  "emoji": "👨‍👩‍👧‍👦",
+  "theme": "Introduce your family and describe the people in your life.",
+  "prompts": [
+    {
+      "prompt": "My family... My father is a... My mother is a...",
+      "targets": [
+        { "id": "v_chichi", "count": 1 },
+        { "id": "v_haha", "count": 1 }
+      ],
+      "model": "わたしの父はせんせいです。母はやさしいです。",
+      "vocabPool": [
+        "v_watashi", "v_chichi", "v_haha", "v_otousan", "v_okaasan",
+        "v_sensei", "v_san", "v_hito", "g_desu", "v_totemo", "v_yasashii",
+        "v_ii", "v_ureshii", "v_suru", "v_iru", "p_konnichiwa", "p_sumimasen"
+      ]
+    },
+    {
+      "prompt": "My parents together... My friend...",
+      "targets": [
+        { "id": "v_fubo", "count": 1 },
+        { "id": "v_tomodachi", "count": 1 }
+      ],
+      "model": "父母はとてもいいです。ともだちはやさしいです。",
+      "vocabPool": [
+        "v_fubo", "v_tomodachi", "v_hito", "v_issho", "v_ichiban", "v_takusan",
+        "v_totemo", "v_minasan", "v_ureshii", "v_ii",
+        "v_yasashii", "v_dare", "v_donna", "v_suru", "v_iru"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": ["p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne", "p_dewa", "p_ja", "g_desu"],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["せんせいです", "ともだちです"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite)",
+      "examples": ["せんせいでした", "ともだちでした"]
+    },
+    {
+      "pattern": "[noun] + ではありません",
+      "meaning": "is not (polite formal)",
+      "examples": ["せんせいではありません"]
+    },
+    {
+      "pattern": "[noun] + じゃありません",
+      "meaning": "is not (polite casual)",
+      "examples": ["ともだちじゃありません"]
+    },
+    {
+      "pattern": "[noun] + ではありませんでした",
+      "meaning": "was not (polite formal)",
+      "examples": ["せんせいではありませんでした"]
+    },
+    {
+      "pattern": "[noun] + じゃありませんでした",
+      "meaning": "was not (polite casual)",
+      "examples": ["ともだちじゃありませんでした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is adj (polite)",
+      "examples": ["やさしいです", "うれしいです", "いいです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was adj (polite)",
+      "examples": ["やさしかったです", "うれしかったです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜くないです",
+      "meaning": "is not adj (polite)",
+      "examples": ["やさしくないです", "うれしくないです", "よくないです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜くなかったです",
+      "meaning": "was not adj (polite)",
+      "examples": ["やさしくなかったです", "うれしくなかったです", "よくなかったです"]
+    }
+  ]
+}

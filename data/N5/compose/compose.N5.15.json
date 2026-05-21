@@ -1,0 +1,135 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.15",
+  "lesson": "N5.15",
+  "level": "N5",
+  "title": "Directions in Japan",
+  "titleJp": "日本の 北と 南",
+  "emoji": "🧭",
+  "theme": "Write about cardinal directions — where things are in Japan, where you want to travel, and what you find in the north, south, east, and west.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about what is in the north of Japan — mountains, rivers, or weather.",
+      "targets": [
+        { "id": "v_kita", "count": 1 }
+      ],
+      "model": "日本の 北には 山が 多いです。川も たくさん あります。",
+      "vocabPool": [
+        "v_kita", "v_nihon", "v_yama", "v_kawa", "v_tenki",
+        "v_ooi", "v_takusan", "v_ookii", "v_nagai",
+        "v_aru", "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about what is in the south of Japan — flowers, weather, or how it compares to the north.",
+      "targets": [
+        { "id": "v_minami", "count": 1 }
+      ],
+      "model": "南の 天気は いいです。白い 花が 多いです。",
+      "vocabPool": [
+        "v_minami", "v_nihon", "v_tenki", "v_hana", "v_shiroi",
+        "v_ooi", "v_ii", "v_totemo", "v_takusan",
+        "v_aru", "v_iku",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the east — what you find there and why you want to go.",
+      "targets": [
+        { "id": "v_higashi", "count": 1 }
+      ],
+      "model": "東には 大きい 山と 川が あります。東に 行きたいです。",
+      "vocabPool": [
+        "v_higashi", "v_yama", "v_kawa", "v_ookii", "v_nagai",
+        "v_aru", "v_iku", "v_ooi", "v_takusan",
+        "v_ii", "v_totemo", "v_kirei",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the west — roads, mountains, rivers, or anything interesting.",
+      "targets": [
+        { "id": "v_nishi", "count": 1 }
+      ],
+      "model": "西の 道は 長いです。山も あります。毎日 西から 来ています。",
+      "vocabPool": [
+        "v_nishi", "v_michi", "v_yama", "v_kawa", "v_nagai",
+        "v_aru", "v_kuru", "v_iku", "v_mainichi",
+        "v_ooi", "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about where you want to travel — using intercardinal directions like northeast or southwest.",
+      "targets": [
+        { "id": "v_hokutou", "count": 1 }
+      ],
+      "model": "北東の 山は 大きいです。友だちと いっしょに 北東に 行きましょう。",
+      "vocabPool": [
+        "v_hokutou", "v_hokusei", "v_nantou", "v_nansei",
+        "v_yama", "v_kawa", "v_hana", "v_michi",
+        "v_ookii", "v_nagai", "v_ooi", "v_kirei",
+        "v_iku", "v_kuru", "v_aru",
+        "v_tomodachi", "v_issho", "v_mainichi",
+        "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made",
+    "p_ni", "p_de", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます",
+      "meaning": "polite present — goes / comes / exists",
+      "examples": ["行きます", "来ます", "あります"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ました",
+      "meaning": "polite past — went / came",
+      "examples": ["行きました", "来ました"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません",
+      "meaning": "polite negative — does not go / come",
+      "examples": ["行きません", "来ません"]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do — polite request",
+      "examples": ["北に 行ってください", "東に 来てください"]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing / comes from — ongoing action or state",
+      "examples": ["北から 来ています", "東に 行っています"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": ["東に 行きたいです", "北に 来たいです", "南に 行きたくないです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do — invitation or suggestion",
+      "examples": ["北東に 行きましょう", "南西に 来ましょう"]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past adjective — was long / was large (irregular: いい → よかったです)",
+      "examples": ["長かったです", "大きかったです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj stem] + そうです",
+      "meaning": "looks / seems — appearance",
+      "examples": ["大きそうです", "長そうです", "よさそうです"]
+    }
+  ]
+}

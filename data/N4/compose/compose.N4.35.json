@@ -1,0 +1,339 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.35",
+  "lesson": "N4.35",
+  "level": "N4",
+  "title": "The Shop Owner, the Cancelled Match, and the Clean Town",
+  "titleJp": "店の 主人と 中止に なった 試合と きれいな 町",
+  "emoji": "🧹",
+  "theme": "Write a first-person account of being a shop owner in a community, dealing with a cancelled match day, washing your car at home, and reflecting on the importance of a clean, well-maintained neighbourhood.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you are the owner (主人) of a shop in this town. Use 主人.",
+      "targets": [
+        {
+          "id": "v_shujin",
+          "count": 1
+        }
+      ],
+      "model": "わたしは この 町の 店の 主人です。",
+      "vocabPool": [
+        "v_watashi",
+        "v_shujin",
+        "v_mise",
+        "v_machi",
+        "p_wa",
+        "p_no",
+        "p_ni",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write that your shop mainly sells (主に) vegetables and that many people come to shop. Use 主に.",
+      "targets": [
+        {
+          "id": "v_omoni",
+          "count": 1
+        }
+      ],
+      "model": "この 店は 主に 野菜を 売って いますが、たくさんの 人が 来ます。",
+      "vocabPool": [
+        "v_omoni",
+        "v_mise",
+        "v_yasai",
+        "v_hito",
+        "v_uru",
+        "v_kuru",
+        "v_iru",
+        "v_takusan",
+        "p_wa",
+        "p_wo",
+        "p_ga",
+        "p_no",
+        "p_ga_but"
+      ]
+    },
+    {
+      "prompt": "Write that today the match was cancelled (中止) because of the rain. Use 中止.",
+      "targets": [
+        {
+          "id": "v_chuushi",
+          "count": 1
+        }
+      ],
+      "model": "今日、雨で 試合が 中止に なりました。",
+      "vocabPool": [
+        "v_chuushi",
+        "v_shiai",
+        "v_ame",
+        "v_kyou",
+        "v_naru",
+        "v_suru",
+        "p_de",
+        "p_ga",
+        "p_wa",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that the bus also stopped (止まった) because of the rain, so you stayed home. Use 止まる.",
+      "targets": [
+        {
+          "id": "v_tomaru",
+          "count": 1
+        }
+      ],
+      "model": "バスも 止まって いたので、家に いました。",
+      "vocabPool": [
+        "v_tomaru",
+        "v_basu",
+        "v_ame",
+        "v_iru",
+        "v_uchi",
+        "p_mo",
+        "p_ni",
+        "p_de",
+        "p_node"
+      ]
+    },
+    {
+      "prompt": "Write that since you were home you washed the car (洗車). Use 洗車.",
+      "targets": [
+        {
+          "id": "v_sensha",
+          "count": 1
+        }
+      ],
+      "model": "家に いたので、車の 洗車を しました。",
+      "vocabPool": [
+        "v_sensha",
+        "v_suru",
+        "v_kuruma",
+        "v_uchi",
+        "v_iru",
+        "p_no",
+        "p_wo",
+        "p_ni",
+        "p_de",
+        "p_node"
+      ]
+    },
+    {
+      "prompt": "Write that after washing the car you washed your hands (手洗い) too. Use 手洗い.",
+      "targets": [
+        {
+          "id": "v_tearai",
+          "count": 1
+        }
+      ],
+      "model": "洗車の 後で、手洗いも しました。",
+      "vocabPool": [
+        "v_tearai",
+        "v_sensha",
+        "v_suru",
+        "v_ato",
+        "p_no",
+        "p_de",
+        "p_mo",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that the people (民) of this town always keep it clean. Use 民 or 民家.",
+      "targets": [
+        {
+          "id": "v_tami",
+          "count": 1
+        }
+      ],
+      "model": "この 町の 民は、いつも 町を きれいに しています。",
+      "vocabPool": [
+        "v_tami",
+        "v_machi",
+        "v_kirei",
+        "v_suru",
+        "v_iru",
+        "v_itsumo",
+        "p_wa",
+        "p_no",
+        "p_wo",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you think washing (洗う) things yourself is important. Use 洗う and 思う.",
+      "targets": [
+        {
+          "id": "v_arau",
+          "count": 1
+        },
+        {
+          "id": "v_omou",
+          "count": 1
+        }
+      ],
+      "model": "自分で 洗うことは 大切だと 思います。",
+      "vocabPool": [
+        "v_arau",
+        "v_omou",
+        "v_jibun",
+        "v_taisetsu",
+        "v_koto",
+        "v_suru",
+        "p_wa",
+        "p_de",
+        "p_to_quote",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Close by writing that you hope the cancellation (中止) won't happen again and that you want to watch (see) the match next time. Use 中止 and 次.",
+      "targets": [
+        {
+          "id": "v_chuushi",
+          "count": 1
+        },
+        {
+          "id": "v_tsugi",
+          "count": 1
+        }
+      ],
+      "model": "次は 中止に ならないように したいと 思います。",
+      "vocabPool": [
+        "v_chuushi",
+        "v_tsugi",
+        "v_shiai",
+        "v_naru",
+        "v_omou",
+        "v_miru",
+        "v_you_manner",
+        "v_suru",
+        "p_wa",
+        "p_ni",
+        "p_to_quote",
+        "p_ga_but"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Tell a friend casually that the match was suspended (休止) and that you ended up washing the car (てしまった) instead. Use 休止 and 洗車. Write in casual plain form.",
+      "targets": [
+        {
+          "id": "v_kyuushi",
+          "count": 1
+        },
+        {
+          "id": "v_sensha",
+          "count": 1
+        }
+      ],
+      "model": "試合が 休止に なって、家で 洗車して しまった よ。",
+      "vocabPool": [
+        "v_kyuushi",
+        "v_sensha",
+        "v_shiai",
+        "v_naru",
+        "v_suru",
+        "v_shimau",
+        "v_uchi",
+        "p_kara",
+        "p_ga",
+        "p_ni",
+        "p_de",
+        "p_wo",
+        "p_yo",
+        "p_kedo",
+        "g_da"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_kara",
+    "p_kara_because",
+    "p_node",
+    "p_ga_but",
+    "p_kedo",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_made",
+    "p_dake",
+    "p_demo",
+    "p_bakari",
+    "p_tte_quote",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-て] + しまう",
+      "meaning": "ended up doing / did (something unintended or regrettable)",
+      "examples": [
+        "家で 洗車して しまった",
+        "試合を 見られなくて しまいました",
+        "本を たくさん 読んで しまいました"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + おく",
+      "meaning": "do in advance / leave in a ready state",
+      "examples": [
+        "試合の 前に ノートを 書いて おきました",
+        "明日の ために 準備して おきます",
+        "手を 洗って おきましょう"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + みる",
+      "meaning": "try doing / do something to see what it's like",
+      "examples": [
+        "新しい 店で 食べて みました",
+        "洗車して みたいです",
+        "もっと 安い 野菜を 買って みます"
+      ]
+    },
+    {
+      "pattern": "[i-adj stem] + すぎる",
+      "meaning": "too much / excessively [adjective]",
+      "examples": [
+        "このスーパーは 安すぎて、毎日 行きたいです",
+        "野菜が 多すぎて 食べられません",
+        "試合の 時間が 長すぎました"
+      ]
+    },
+    {
+      "pattern": "[na-adj/noun] + に + なる",
+      "meaning": "to become [state] (a change takes place)",
+      "examples": [
+        "試合が 中止に なりました",
+        "町が きれいに なりました",
+        "日本語が 上手に なりたいです"
+      ]
+    },
+    {
+      "pattern": "[plain form] + と + 思う",
+      "meaning": "I think that … (expressing opinion or intent)",
+      "examples": [
+        "自分で 洗うことは 大切だと 思います",
+        "次は 中止に ならないと 思います",
+        "この 町の 人たちは いいと 思います"
+      ]
+    }
+  ]
+}

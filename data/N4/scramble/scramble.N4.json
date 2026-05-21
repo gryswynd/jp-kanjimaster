@@ -1,0 +1,2536 @@
+{
+  "mode": "progressive",
+  "marathons": [
+    {
+      "id": "n4-mar-1",
+      "title": "Morning Commute",
+      "requires": [
+        "N4.2"
+      ],
+      "warmup": [
+        {
+          "q": "I wake up early every day.",
+          "segments": [
+            "毎日",
+            "はやく",
+            "起きます"
+          ],
+          "distractors": [
+            "おそく",
+            "行きます"
+          ],
+          "explanation": "毎日 + はやく (early) + 起きます (wake up, N4.1). おそく means 'late.'"
+        },
+        {
+          "q": "I walk to the station.",
+          "segments": [
+            "駅",
+            "まで",
+            "歩きます"
+          ],
+          "distractors": [
+            "に",
+            "で"
+          ],
+          "explanation": "駅 + まで (as far as) + 歩きます (walk, N4.2). まで emphasizes walking the whole distance."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "The station is near my house.",
+          "segments": [
+            "駅",
+            "は",
+            "家",
+            "の",
+            "近く",
+            "に",
+            "あります"
+          ],
+          "distractors": [
+            "遠く",
+            "が",
+            "で"
+          ],
+          "explanation": "駅 + は + 家 + の + 近く (near, N4.2) + に + あります. 遠く (far) is the opposite."
+        },
+        {
+          "q": "I ride the train and go to work.",
+          "segments": [
+            "電車",
+            "に",
+            "乗って",
+            "会社",
+            "に",
+            "行きます"
+          ],
+          "distractors": [
+            "で",
+            "を",
+            "から"
+          ],
+          "explanation": "電車 + に (onto) + 乗って (ride, te-form of 乗る N4.2) + 会社 + に (destination) + 行きます. 乗る takes に."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "Every day I leave the house and walk to the station.",
+          "segments": [
+            "毎日",
+            "家",
+            "を",
+            "出て",
+            "駅",
+            "まで",
+            "歩きます"
+          ],
+          "distractors": [
+            "に",
+            "が",
+            "から",
+            "で"
+          ],
+          "explanation": "毎日 + 家 + を (place exited) + 出て (te-form of 出る) + 駅 + まで + 歩きます. を marks the place left."
+        },
+        {
+          "q": "The station is far, so I ride the bus every day.",
+          "segments": [
+            "駅",
+            "は",
+            "遠い",
+            "から",
+            "毎日",
+            "バス",
+            "に",
+            "乗ります"
+          ],
+          "distractors": [
+            "近い",
+            "で",
+            "を",
+            "が"
+          ],
+          "alts": [
+            [
+              "駅",
+              "は",
+              "遠い",
+              "から",
+              "バス",
+              "に",
+              "毎日",
+              "乗ります"
+            ]
+          ],
+          "explanation": "駅 + は + 遠い (far) + から (because) + 毎日 + バス + に + 乗ります. 近い (near) is the opposite."
+        },
+        {
+          "q": "I arrived at the company before eight o'clock.",
+          "segments": [
+            "八時",
+            "前",
+            "に",
+            "会社",
+            "に",
+            "着きました"
+          ],
+          "distractors": [
+            "後",
+            "で",
+            "を",
+            "まで"
+          ],
+          "explanation": "八時 + 前 (before) + に + 会社 + に + 着きました (arrived, N4.1). 後 means 'after.'"
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-2",
+      "title": "Favorite Colors",
+      "requires": [
+        "N4.4"
+      ],
+      "warmup": [
+        {
+          "q": "What color do you like?",
+          "segments": [
+            "何色",
+            "が",
+            "好き",
+            "ですか"
+          ],
+          "distractors": [
+            "を",
+            "は"
+          ],
+          "explanation": "何色 (what color) + が (subject with 好き) + 好き (like, N4.4) + ですか. 好き takes が."
+        },
+        {
+          "q": "I really like blue.",
+          "segments": [
+            "青",
+            "が",
+            "とても",
+            "好き",
+            "です"
+          ],
+          "distractors": [
+            "赤",
+            "を"
+          ],
+          "explanation": "青 (blue, N4.4) + が (subject with 好き) + とても (very) + 好き (like) + です. Simple preference. 赤 (red) is a different color."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "This morning I wore a red shirt.",
+          "segments": [
+            "今朝",
+            "赤い",
+            "シャツ",
+            "を",
+            "着ました"
+          ],
+          "distractors": [
+            "黒い",
+            "に",
+            "が"
+          ],
+          "explanation": "今朝 (this morning, 朝 now available N4.3) + 赤い (red) + シャツ + を + 着ました (wore, N4.1). 黒い means 'black.'"
+        },
+        {
+          "q": "I can wear that black jacket.",
+          "segments": [
+            "あの",
+            "黒い",
+            "ジャケット",
+            "を",
+            "着られます"
+          ],
+          "distractors": [
+            "白い",
+            "に",
+            "が"
+          ],
+          "explanation": "あの + 黒い (black, N4.4) + ジャケット + を + 着られます (can wear, potential G13). 白い means 'white.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I went to the shop and bought a new white bag.",
+          "segments": [
+            "店",
+            "に",
+            "行って",
+            "新しい",
+            "白い",
+            "かばん",
+            "を",
+            "買いました"
+          ],
+          "distractors": [
+            "古い",
+            "で",
+            "が",
+            "黒い"
+          ],
+          "explanation": "店 (shop) + に + 行って (went, te-form chain) + 新しい (new) + 白い (white) + かばん (bag) + を + 買いました (bought). 古い means 'old.'"
+        },
+        {
+          "q": "I bought a new brown bag at the shop and also drank tea.",
+          "segments": [
+            "店",
+            "で",
+            "新しい",
+            "茶色い",
+            "かばん",
+            "を",
+            "買って",
+            "お茶",
+            "も",
+            "飲みました"
+          ],
+          "distractors": [
+            "に",
+            "青い",
+            "が",
+            "は"
+          ],
+          "explanation": "店 (shop) + で (at) + 新しい (new) + 茶色い (brown, N4.4) + かばん (bag) + を + 買って (bought, te-form) + お茶 (tea) + も (also) + 飲みました (drank). Two actions chained with te-form."
+        },
+        {
+          "q": "The red dress in that shop can be bought cheaply.",
+          "segments": [
+            "あの",
+            "店",
+            "の",
+            "赤い",
+            "ドレス",
+            "は",
+            "安く",
+            "買えます"
+          ],
+          "distractors": [
+            "この",
+            "高く",
+            "が",
+            "を"
+          ],
+          "explanation": "あの + 店 + の + 赤い (red) + ドレス + は + 安く (cheaply) + 買えます (can buy, potential G13). 高く means 'expensively.'"
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-3",
+      "title": "Cooking Dinner",
+      "requires": [
+        "N4.6"
+      ],
+      "warmup": [
+        {
+          "q": "I went to buy vegetables.",
+          "segments": [
+            "野菜",
+            "を",
+            "買いに",
+            "行きました"
+          ],
+          "distractors": [
+            "が",
+            "に"
+          ],
+          "explanation": "野菜 (vegetables, N4.5) + を + 買いに (to buy, purpose) + 行きました. に marks purpose of movement."
+        },
+        {
+          "q": "Today's dinner is rice and fish.",
+          "segments": [
+            "今日",
+            "の",
+            "晩ごはん",
+            "は",
+            "ご飯",
+            "と",
+            "魚",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "昼ごはん"
+          ],
+          "explanation": "今日 + の + 晩ごはん (dinner, 晩 N4.3) + は + ご飯 + と + 魚 + です. 昼ごはん is lunch."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "This beef is tastier than chicken.",
+          "segments": [
+            "この",
+            "牛肉",
+            "は",
+            "鳥",
+            "より",
+            "おいしい",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "まずい",
+            "を"
+          ],
+          "explanation": "この + 牛肉 (beef, N4.5) + は + 鳥 (chicken, N4.6) + より (than, G15) + おいしい + です. まずい means 'bad-tasting.'"
+        },
+        {
+          "q": "My mother gave me some vegetables.",
+          "segments": [
+            "母",
+            "が",
+            "野菜",
+            "を",
+            "くれました"
+          ],
+          "distractors": [
+            "に",
+            "は",
+            "あげました"
+          ],
+          "explanation": "母 + が + 野菜 + を + くれました (gave me, G14). あげました means 'I gave [to someone else]' — wrong direction."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I received vegetables from my mother and made dinner.",
+          "segments": [
+            "母",
+            "から",
+            "野菜",
+            "を",
+            "もらって",
+            "晩ごはん",
+            "を",
+            "作りました"
+          ],
+          "distractors": [
+            "に",
+            "あげて",
+            "が",
+            "で"
+          ],
+          "explanation": "母 + から (from) + 野菜 + を + もらって (received, te-form G14) + 晩ごはん + を + 作りました (made, N4.1)."
+        },
+        {
+          "q": "The kitchen was dark so I turned on the light.",
+          "segments": [
+            "キッチン",
+            "が",
+            "暗かった",
+            "ので",
+            "電気",
+            "を",
+            "つけました"
+          ],
+          "distractors": [
+            "は",
+            "明るかった",
+            "に",
+            "で"
+          ],
+          "explanation": "キッチン + が + 暗かった (was dark, 暗 N4.6) + ので (because) + 電気 + を + つけました. 明るかった means 'was bright.'"
+        },
+        {
+          "q": "It tastes the same as the food my mother makes.",
+          "segments": [
+            "母",
+            "が",
+            "作る",
+            "料理",
+            "と",
+            "同じ",
+            "味",
+            "です"
+          ],
+          "distractors": [
+            "の",
+            "を",
+            "に",
+            "ちがう"
+          ],
+          "explanation": "母 + が + 作る (makes, relative clause) + 料理 (cooking, N4.5) + と + 同じ (same, N4.6) + 味 (taste, N4.6) + です."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-4",
+      "title": "Seasons & Family",
+      "requires": [
+        "N4.8"
+      ],
+      "warmup": [
+        {
+          "q": "Summer in Japan is hot.",
+          "segments": [
+            "日本",
+            "の",
+            "夏",
+            "は",
+            "暑い",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "寒い"
+          ],
+          "explanation": "日本 + の + 夏 (summer, N4.8) + は + 暑い (hot, N4.8) + です. 寒い (cold) is the opposite."
+        },
+        {
+          "q": "My father likes winter.",
+          "segments": [
+            "父",
+            "は",
+            "冬",
+            "が",
+            "好き",
+            "です"
+          ],
+          "distractors": [
+            "を",
+            "夏"
+          ],
+          "explanation": "父 + は + 冬 (winter, N4.8) + が + 好き + です. 夏 (summer) is a different season."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "My older brother goes to the mountains every autumn.",
+          "segments": [
+            "兄",
+            "は",
+            "毎年",
+            "秋",
+            "に",
+            "山",
+            "に",
+            "行きます"
+          ],
+          "distractors": [
+            "が",
+            "で",
+            "冬"
+          ],
+          "alts": [
+            [
+              "毎年",
+              "兄",
+              "は",
+              "秋",
+              "に",
+              "山",
+              "に",
+              "行きます"
+            ]
+          ],
+          "explanation": "兄 (older brother, N4.7) + は + 毎年 (every year) + 秋 (autumn, N4.8) + に + 山 + に + 行きます. 冬 (winter) is a different season."
+        },
+        {
+          "q": "My family is talking about spring flowers.",
+          "segments": [
+            "家族",
+            "は",
+            "春",
+            "の",
+            "花",
+            "の",
+            "話",
+            "を",
+            "しています"
+          ],
+          "distractors": [
+            "冬",
+            "が",
+            "に"
+          ],
+          "explanation": "家族 (family, N4.7) + は + 春 (spring, N4.8) + の + 花 (flowers, N5.11) + の + 話 (talk) + を + しています (are talking about). 冬 (winter) is a different season."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "My older sister says she wants to see cherry blossoms this spring.",
+          "segments": [
+            "姉",
+            "は",
+            "今年",
+            "の",
+            "春",
+            "に",
+            "さくら",
+            "を",
+            "見たい",
+            "と",
+            "言っています"
+          ],
+          "distractors": [
+            "弟",
+            "が",
+            "で",
+            "秋"
+          ],
+          "explanation": "姉 (older sister, N4.7) + は + 今年 + の + 春 + に + さくら + を + 見たい + と + 言っています."
+        },
+        {
+          "q": "In winter it is cold so my mother stays at home.",
+          "segments": [
+            "冬",
+            "は",
+            "寒い",
+            "から",
+            "母",
+            "は",
+            "家",
+            "に",
+            "います"
+          ],
+          "distractors": [
+            "暑い",
+            "が",
+            "で",
+            "も"
+          ],
+          "explanation": "冬 (winter, N4.8) + は + 寒い (cold, N4.8) + から (because, G10) + 母 + は + 家 + に + います (stays). 暑い (hot) is the opposite."
+        },
+        {
+          "q": "This summer my whole family is going to the sea for the first time.",
+          "segments": [
+            "今年",
+            "の",
+            "夏",
+            "家族",
+            "で",
+            "はじめて",
+            "うみ",
+            "に",
+            "行きます"
+          ],
+          "distractors": [
+            "冬",
+            "が",
+            "を",
+            "は"
+          ],
+          "alts": [
+            [
+              "家族",
+              "で",
+              "今年",
+              "の",
+              "夏",
+              "はじめて",
+              "うみ",
+              "に",
+              "行きます"
+            ]
+          ],
+          "explanation": "今年 + の + 夏 + 家族で (with family) + はじめて (for the first time) + うみ (sea, 海 not yet taught) + に + 行きます."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-5",
+      "title": "Movie Night",
+      "requires": [
+        "N4.10"
+      ],
+      "warmup": [
+        {
+          "q": "The movie starts at seven.",
+          "segments": [
+            "映画",
+            "は",
+            "七時",
+            "に",
+            "始まります"
+          ],
+          "distractors": [
+            "が",
+            "終わります"
+          ],
+          "explanation": "映画 (movie, N4.10) + は + 七時 + に + 始まります (starts, intransitive N4.10). 終わります means 'ends.'"
+        },
+        {
+          "q": "Let's go to the cinema together.",
+          "segments": [
+            "いっしょに",
+            "映画館",
+            "に",
+            "行きましょう"
+          ],
+          "distractors": [
+            "で",
+            "を"
+          ],
+          "explanation": "いっしょに (together) + 映画館 (cinema, N4.10) + に + 行きましょう (let's go)."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "After buying tickets, we entered the cinema.",
+          "segments": [
+            "チケット",
+            "を",
+            "買ってから",
+            "映画館",
+            "に",
+            "入りました"
+          ],
+          "distractors": [
+            "が",
+            "買う前に",
+            "で"
+          ],
+          "explanation": "チケット + を + 買ってから (after buying, G19 てから) + 映画館 + に + 入りました. 前に means 'before.'"
+        },
+        {
+          "q": "The movie ended and everyone stood up.",
+          "segments": [
+            "映画",
+            "が",
+            "終わって",
+            "みんな",
+            "が",
+            "立ちました"
+          ],
+          "distractors": [
+            "は",
+            "始まって",
+            "を"
+          ],
+          "explanation": "映画 + が + 終わって (ended, te-form N4.10) + みんな + が + 立ちました (stood up). 始まって means 'started.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "While watching the movie I ate popcorn.",
+          "segments": [
+            "映画",
+            "を",
+            "見ながら",
+            "ポップコーン",
+            "を",
+            "食べました"
+          ],
+          "distractors": [
+            "が",
+            "見てから",
+            "に",
+            "飲みました"
+          ],
+          "explanation": "映画 + を + 見ながら (while watching, G19 ながら) + ポップコーン + を + 食べました."
+        },
+        {
+          "q": "Before the movie started, we talked about the story.",
+          "segments": [
+            "映画",
+            "が",
+            "始まる前に",
+            "話",
+            "の",
+            "ことを",
+            "はなしました"
+          ],
+          "distractors": [
+            "始まってから",
+            "は",
+            "を",
+            "で"
+          ],
+          "explanation": "映画 + が + 始まる前に (before starting, G19 まえに) + 話 + の + ことを + はなしました."
+        },
+        {
+          "q": "On days off we did things like go to the cinema and eat at restaurants.",
+          "segments": [
+            "休み",
+            "の",
+            "日",
+            "に",
+            "映画館",
+            "に",
+            "行ったり",
+            "レストラン",
+            "で",
+            "食べたり",
+            "しました"
+          ],
+          "distractors": [
+            "が",
+            "を",
+            "は",
+            "で"
+          ],
+          "explanation": "休みの日に + 映画館に + 行ったり + レストランで + 食べたり + しました. たり…たりする = 'do things like X and Y' (G19)."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-6",
+      "title": "Travel Snapshots",
+      "requires": [
+        "N4.12"
+      ],
+      "warmup": [
+        {
+          "q": "I took a photo of the mountain.",
+          "segments": [
+            "山",
+            "の",
+            "写真",
+            "を",
+            "とりました"
+          ],
+          "distractors": [
+            "が",
+            "に"
+          ],
+          "explanation": "山 + の + 写真 (photo, N4.11) + を + とりました (took)."
+        },
+        {
+          "q": "My whole body is tired.",
+          "segments": [
+            "体",
+            "が",
+            "つかれています"
+          ],
+          "distractors": [
+            "を",
+            "頭"
+          ],
+          "explanation": "体 (body, N4.12) + が + つかれています (is tired). 頭 means 'head.'"
+        }
+      ],
+      "buildup": [
+        {
+          "q": "After taking photos I rested my feet.",
+          "segments": [
+            "写真",
+            "を",
+            "とってから",
+            "足",
+            "を",
+            "休めました"
+          ],
+          "distractors": [
+            "が",
+            "とる前に",
+            "に"
+          ],
+          "explanation": "写真 + を + とってから (after taking, G19 てから) + 足 (feet) + を + 休めました (rested)."
+        },
+        {
+          "q": "The world is big so there are many places I want to see.",
+          "segments": [
+            "世界",
+            "は",
+            "大きい",
+            "ので",
+            "見たい",
+            "ところ",
+            "が",
+            "たくさん",
+            "あります"
+          ],
+          "distractors": [
+            "が",
+            "小さい",
+            "を"
+          ],
+          "explanation": "世界 (world, N4.11) + は + 大きい (big, N5.7) + ので (because) + 見たい (want to see) + ところ (places) + が + たくさん (many) + あります. 小さい means 'small.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I walked a lot and my head hurts.",
+          "segments": [
+            "たくさん",
+            "歩いて",
+            "頭",
+            "が",
+            "いたい",
+            "です"
+          ],
+          "distractors": [
+            "歩いてから",
+            "首",
+            "を",
+            "は"
+          ],
+          "explanation": "たくさん (a lot) + 歩いて (walked, te-form of 歩く N4.2) + 頭 (head, N4.12) + が + いたい (hurts) + です. Te-form connects cause and result. 首 means 'neck.'"
+        },
+        {
+          "q": "In order to see the whole world, I want to travel every year.",
+          "segments": [
+            "世界中",
+            "を",
+            "見るために",
+            "毎年",
+            "旅行したい",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "見てから",
+            "に",
+            "は"
+          ],
+          "explanation": "世界中 + を + 見るために (in order to see, G19 ために) + 毎年 + 旅行したいです."
+        },
+        {
+          "q": "While taking photos of the scenery, my heart felt at peace.",
+          "segments": [
+            "けしき",
+            "の",
+            "写真",
+            "を",
+            "とりながら",
+            "心",
+            "が",
+            "おちつきました"
+          ],
+          "distractors": [
+            "で",
+            "とってから",
+            "顔",
+            "は"
+          ],
+          "explanation": "けしき (scenery) + の + 写真 + を + とりながら (while taking, G19 ながら) + 心 (heart, N4.12) + が + おちつきました."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-7",
+      "title": "A Busy Workday",
+      "requires": [
+        "N4.14"
+      ],
+      "warmup": [
+        {
+          "q": "Today I will go to work early.",
+          "segments": [
+            "今日",
+            "は",
+            "早く",
+            "仕事",
+            "に",
+            "行きます"
+          ],
+          "distractors": [
+            "おそく",
+            "が"
+          ],
+          "alts": [
+            [
+              "早く",
+              "今日",
+              "は",
+              "仕事",
+              "に",
+              "行きます"
+            ]
+          ],
+          "explanation": "今日 (today) + は + 早く (early, N4.14) + 仕事 (work, N4.14) + に + 行きます (will go). おそく means 'late.'"
+        },
+        {
+          "q": "That company employee sings well.",
+          "segments": [
+            "あの",
+            "社員",
+            "は",
+            "歌",
+            "が",
+            "上手",
+            "です"
+          ],
+          "distractors": [
+            "を",
+            "下手"
+          ],
+          "explanation": "あの + 社員 (employee, N4.14) + は + 歌 (song, N4.13) + が + 上手 (good at) + です. 下手 means 'bad at.'"
+        }
+      ],
+      "buildup": [
+        {
+          "q": "Even though I started work early, there is still a lot left.",
+          "segments": [
+            "早く",
+            "仕事",
+            "を",
+            "始めた",
+            "のに",
+            "まだ",
+            "たくさん",
+            "あります"
+          ],
+          "distractors": [
+            "が",
+            "ので",
+            "は"
+          ],
+          "explanation": "早く + 仕事 + を + 始めた + のに (even though, G20) + まだ + たくさん + あります. のに expresses frustration."
+        },
+        {
+          "q": "Work is busy so I listen to music.",
+          "segments": [
+            "仕事",
+            "が",
+            "いそがしい",
+            "ので",
+            "音楽",
+            "を",
+            "聞きます"
+          ],
+          "distractors": [
+            "は",
+            "のに",
+            "に"
+          ],
+          "explanation": "仕事 (work, N4.14) + が + いそがしい (busy, N4.14) + ので (because) + 音楽 (music, N4.13) + を + 聞きます (listen). のに means 'even though' — wrong direction."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "My voice is low, but I like singing.",
+          "segments": [
+            "声",
+            "は",
+            "低い",
+            "けど",
+            "歌う",
+            "の",
+            "が",
+            "好き",
+            "です"
+          ],
+          "distractors": [
+            "高い",
+            "を",
+            "に",
+            "は"
+          ],
+          "explanation": "声 (voice, N4.13) + は + 低い (low, N4.13) + けど (but) + 歌うのが (singing) + 好き + です. 高い means 'high.'"
+        },
+        {
+          "q": "Work is busy, and the mornings are early, and I'm tired.",
+          "segments": [
+            "仕事",
+            "は",
+            "いそがしいし",
+            "朝",
+            "も",
+            "早いし",
+            "つかれています"
+          ],
+          "distractors": [
+            "が",
+            "を",
+            "に",
+            "おそいし"
+          ],
+          "explanation": "仕事 (work) + は + いそがしいし (busy, and also, し G20) + 朝 (morning, N4.3) + も (also) + 早いし (early, and also) + つかれています (am tired). し…し stacks reasons (G20). おそいし means 'and late.'"
+        },
+        {
+          "q": "Even though I hurried, I could not arrive at the company early.",
+          "segments": [
+            "急いだ",
+            "のに",
+            "会社",
+            "に",
+            "早く",
+            "着けませんでした"
+          ],
+          "distractors": [
+            "ので",
+            "が",
+            "は",
+            "に"
+          ],
+          "explanation": "急いだ (hurried, plain past of 急ぐ N4.14) + のに (even though, G20) + 会社 + に + 早く (early) + 着けませんでした (could not arrive, potential negative past of 着く N4.1, potential G13). のに expresses frustration."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-8",
+      "title": "At the Vet",
+      "requires": [
+        "N4.16"
+      ],
+      "warmup": [
+        {
+          "q": "The dog is not moving.",
+          "segments": [
+            "犬",
+            "が",
+            "動きません"
+          ],
+          "distractors": [
+            "は",
+            "走りません"
+          ],
+          "explanation": "犬 (dog, N4.16) + が + 動きません (not moving, 動 N4.16). 走りません means 'not running.'"
+        },
+        {
+          "q": "I will go to the hospital with the dog.",
+          "segments": [
+            "犬",
+            "と",
+            "病院",
+            "に",
+            "行きます"
+          ],
+          "distractors": [
+            "が",
+            "で"
+          ],
+          "explanation": "犬 (dog, N4.16) + と (with) + 病院 (hospital, N4.15) + に + 行きます (will go)."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "The doctor gave the dog some medicine.",
+          "segments": [
+            "医者",
+            "が",
+            "犬",
+            "に",
+            "薬",
+            "を",
+            "あげました"
+          ],
+          "distractors": [
+            "は",
+            "で",
+            "もらいました"
+          ],
+          "explanation": "医者 (doctor, N4.15) + が + 犬 + に (recipient) + 薬 (medicine, N4.15) + を + あげました (gave, G14)."
+        },
+        {
+          "q": "Even if the medicine is bitter, the dog will drink it.",
+          "segments": [
+            "薬",
+            "が",
+            "にがくても",
+            "犬",
+            "は",
+            "飲みます"
+          ],
+          "distractors": [
+            "を",
+            "に",
+            "おいしくても"
+          ],
+          "explanation": "薬 (medicine, N4.15) + が + にがくても (even if bitter, ても G20, available from N4.14) + 犬 (dog) + は + 飲みます (will drink). おいしくても means 'even if tasty.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I carried the dog to the car and drove to the hospital.",
+          "segments": [
+            "犬",
+            "を",
+            "車",
+            "まで",
+            "運んで",
+            "病院",
+            "に",
+            "行きました"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "から",
+            "で"
+          ],
+          "explanation": "犬 + を + 車 + まで + 運んで (carried, 運 N4.16) + 病院 + に + 行きました. Te-form chain connects two actions."
+        },
+        {
+          "q": "After taking the medicine, the dog started running again.",
+          "segments": [
+            "薬",
+            "を",
+            "飲んでから",
+            "犬",
+            "が",
+            "また",
+            "走り始めました"
+          ],
+          "distractors": [
+            "飲む前に",
+            "は",
+            "に",
+            "歩き始めました"
+          ],
+          "explanation": "薬 + を + 飲んでから (after taking, G19 てから) + 犬 + が + また (again) + 走り始めました (started running, 走 N4.16). 飲む前に means 'before taking.'"
+        },
+        {
+          "q": "The dog is energetic, and likes to run, and is alright.",
+          "segments": [
+            "犬",
+            "は",
+            "元気だし",
+            "走る",
+            "の",
+            "も",
+            "好きだし",
+            "だいじょうぶ",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "を",
+            "に",
+            "弱い"
+          ],
+          "explanation": "犬 + は + 元気だし (healthy, and also) + 走るのも + 好きだし (likes running too, and also) + だいじょうぶ (all right) + です. し…し stacks qualities (G20). 弱い means 'weak.'"
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-9",
+      "title": "Cycling by the Sea",
+      "requires": [
+        "N4.18"
+      ],
+      "warmup": [
+        {
+          "q": "The wind at the sea is strong.",
+          "segments": [
+            "海",
+            "の",
+            "風",
+            "は",
+            "強い",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "弱い"
+          ],
+          "explanation": "海 (sea, N4.17) + の + 風 (wind, N4.18) + は + 強い (strong, N4.18) + です. 弱い (weak) is the opposite."
+        },
+        {
+          "q": "I ride a bicycle to the sea.",
+          "segments": [
+            "自転車",
+            "で",
+            "海",
+            "に",
+            "行きます"
+          ],
+          "distractors": [
+            "を",
+            "から"
+          ],
+          "explanation": "自転車 (bicycle, 転 N4.17) + で (by means of) + 海 + に + 行きます."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "It looks like it will rain soon.",
+          "segments": [
+            "もうすぐ",
+            "雨",
+            "が",
+            "ふりそう",
+            "です"
+          ],
+          "distractors": [
+            "は",
+            "ふらなそう",
+            "に"
+          ],
+          "explanation": "もうすぐ (soon) + 雨 + が + ふりそう (looks like it will rain, そうだ appearance G22) + です. ふらなそう means 'looks like it won't rain.'"
+        },
+        {
+          "q": "The sea wind was strong so my body got tired.",
+          "segments": [
+            "海",
+            "の",
+            "風",
+            "が",
+            "強かった",
+            "ので",
+            "体",
+            "が",
+            "つかれました"
+          ],
+          "distractors": [
+            "弱かった",
+            "は",
+            "に"
+          ],
+          "explanation": "海 (sea, N4.17) + の + 風 (wind, N4.18) + が + 強かった (was strong, past adj, N4.18) + ので (because) + 体 (body, N4.12) + が + つかれました (got tired). 弱かった means 'was weak.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "Even though the wind was strong, the light of the sea was beautiful.",
+          "segments": [
+            "風",
+            "が",
+            "強かった",
+            "のに",
+            "海",
+            "の",
+            "光",
+            "は",
+            "きれいでした"
+          ],
+          "distractors": [
+            "弱かった",
+            "は",
+            "を",
+            "ので"
+          ],
+          "explanation": "風 (wind, N4.18) + が + 強かった (was strong) + のに (even though, G20) + 海 (sea) + の + 光 (light, N4.18) + は + きれいでした (was beautiful). のに expresses a surprising contrast. ので means 'because' — wrong direction."
+        },
+        {
+          "q": "Even though the wind was weak, the bicycle did not move.",
+          "segments": [
+            "風",
+            "が",
+            "弱かった",
+            "のに",
+            "自転車",
+            "が",
+            "動きませんでした"
+          ],
+          "distractors": [
+            "強かった",
+            "は",
+            "を",
+            "で"
+          ],
+          "explanation": "風 (wind, N4.18) + が + 弱かった (was weak, N4.18) + のに (even though, G20) + 自転車 (bicycle, N4.17) + が + 動きませんでした (did not move, 動く N4.16). 強かった means 'was strong.'"
+        },
+        {
+          "q": "I went around the rice fields three times by bicycle.",
+          "segments": [
+            "自転車",
+            "で",
+            "田んぼ",
+            "の",
+            "まわり",
+            "を",
+            "三回",
+            "回りました"
+          ],
+          "distractors": [
+            "に",
+            "が",
+            "は",
+            "一回"
+          ],
+          "explanation": "自転車 + で + 田んぼ (rice field, 田 N4.17) + の + まわり + を (path) + 三回 (three times, 回 N4.17) + 回りました."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-10",
+      "title": "Night Market",
+      "requires": [
+        "N4.20"
+      ],
+      "warmup": [
+        {
+          "q": "Let's go shopping tonight.",
+          "segments": [
+            "今夜",
+            "買い物",
+            "に",
+            "行きましょう"
+          ],
+          "distractors": [
+            "で",
+            "を"
+          ],
+          "explanation": "今夜 (tonight, 夜 N4.20) + 買い物 + に (purpose) + 行きましょう (let's go)."
+        },
+        {
+          "q": "That clothes shop is cheap.",
+          "segments": [
+            "あの",
+            "洋服屋",
+            "は",
+            "安い",
+            "です"
+          ],
+          "distractors": [
+            "高い",
+            "が"
+          ],
+          "explanation": "あの + 洋服屋 (clothing store, 洋服 N4.20 + 屋 N4.20) + は + 安い + です. 高い (expensive) is the opposite."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "I heard that this shop's food is delicious.",
+          "segments": [
+            "この",
+            "店",
+            "の",
+            "食べ物",
+            "は",
+            "おいしい",
+            "そうです"
+          ],
+          "distractors": [
+            "が",
+            "まずい",
+            "に"
+          ],
+          "explanation": "この + 店 + の + 食べ物 (food) + は + おいしいそうです (I heard it's delicious, そうだ hearsay G22). まずい means 'bad-tasting.'"
+        },
+        {
+          "q": "Please explain the problem on this map.",
+          "segments": [
+            "この",
+            "地図",
+            "の",
+            "問題",
+            "を",
+            "説明してください"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "は"
+          ],
+          "explanation": "この + 地図 (map, N4.19) + の + 問題 (problem, N4.19) + を + 説明してください (please explain, 説 N4.19)."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "At night the market looks fun.",
+          "segments": [
+            "夜",
+            "の",
+            "マーケット",
+            "は",
+            "たのしそう",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "たのしい",
+            "に",
+            "を"
+          ],
+          "explanation": "夜 (night, N4.20) + の + マーケット + は + たのしそう (looks fun, そうだ appearance G22) + です."
+        },
+        {
+          "q": "I bought cheap Western clothes and ate delicious food.",
+          "segments": [
+            "安い",
+            "洋服",
+            "を",
+            "買ったり",
+            "おいしい",
+            "物",
+            "を",
+            "食べたり",
+            "しました"
+          ],
+          "distractors": [
+            "高い",
+            "が",
+            "に",
+            "で"
+          ],
+          "explanation": "安い + 洋服 (Western clothes, N4.20) + を + 買ったり + おいしい + 物 + を + 食べたり + しました. たり…たり lists activities (G19)."
+        },
+        {
+          "q": "Before going home, I looked at the map and checked the way.",
+          "segments": [
+            "帰る前に",
+            "地図",
+            "を",
+            "見て",
+            "道",
+            "を",
+            "たしかめました"
+          ],
+          "distractors": [
+            "帰ってから",
+            "が",
+            "に",
+            "で"
+          ],
+          "explanation": "帰る前に (before going home, G19 まえに) + 地図 (map, N4.19) + を + 見て + 道 + を + たしかめました (confirmed)."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-11",
+      "title": "Calligraphy Class",
+      "requires": [
+        "N4.22"
+      ],
+      "warmup": [
+        {
+          "q": "Please write kanji on paper.",
+          "segments": [
+            "紙",
+            "に",
+            "漢字",
+            "を",
+            "書いてください"
+          ],
+          "distractors": [
+            "で",
+            "が"
+          ],
+          "explanation": "紙 (paper, N4.22) + に (target surface) + 漢字 (kanji, N4.22) + を + 書いてください. に marks where you write."
+        },
+        {
+          "q": "You may borrow this pen.",
+          "segments": [
+            "この",
+            "ペン",
+            "を",
+            "借りてもいいです"
+          ],
+          "distractors": [
+            "が",
+            "に"
+          ],
+          "explanation": "この + ペン + を + 借りてもいいです (may borrow, G23 てもいい). 借りる = borrow (N4.1)."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "You must not sell other people's characters.",
+          "segments": [
+            "別の",
+            "人",
+            "の",
+            "字",
+            "を",
+            "売ってはいけません"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "売ってもいいです"
+          ],
+          "explanation": "別の (other, 別 N4.9) + 人 + の + 字 (character/handwriting, N4.22) + を + 売ってはいけません (must not sell, G23 てはいけない). 売ってもいいです means 'may sell.'"
+        },
+        {
+          "q": "The meaning of this character is interesting.",
+          "segments": [
+            "この",
+            "字",
+            "の",
+            "意味",
+            "は",
+            "おもしろい",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "つまらない",
+            "を"
+          ],
+          "explanation": "この + 字 (character, N4.22) + の + 意味 (meaning, N4.22) + は + おもしろい + です. つまらない means 'boring.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "You may use this ink, but you must not take it home.",
+          "segments": [
+            "この",
+            "インク",
+            "を",
+            "使ってもいいですが",
+            "持って帰ってはいけません"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "使ってはいけません",
+            "持って帰ってもいいです"
+          ],
+          "explanation": "この + インク + を + 使ってもいいですが (may use, but) + 持って帰ってはいけません (must not take home). G23 permissions and prohibitions combined."
+        },
+        {
+          "q": "I wrote my name in kanji on the paper and showed it to the teacher.",
+          "segments": [
+            "紙",
+            "に",
+            "漢字",
+            "で",
+            "名前",
+            "を",
+            "書いて",
+            "先生",
+            "に",
+            "見せました"
+          ],
+          "distractors": [
+            "を",
+            "が",
+            "は",
+            "から"
+          ],
+          "explanation": "紙 + に (on) + 漢字 + で (in/using) + 名前 + を + 書いて (wrote, te-form) + 先生 + に (to) + 見せました (showed)."
+        },
+        {
+          "q": "I lent goods to a friend, but the friend sold them.",
+          "segments": [
+            "友だち",
+            "に",
+            "品物",
+            "を",
+            "貸したのに",
+            "友だち",
+            "が",
+            "売りました"
+          ],
+          "distractors": [
+            "借りたのに",
+            "は",
+            "で",
+            "を"
+          ],
+          "explanation": "友だち + に + 品物 (goods, N4.21) + を + 貸したのに (even though I lent, のに G20 concessive, 貸 N4.21) + 友だち + が + 売りました (sold, 売 N4.21). 借りたのに means 'even though I borrowed.' のに expresses frustration at the unexpected outcome."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-12",
+      "title": "Exam Week",
+      "requires": [
+        "N4.24"
+      ],
+      "warmup": [
+        {
+          "q": "The test is tomorrow.",
+          "segments": [
+            "試験",
+            "は",
+            "明日",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "きのう"
+          ],
+          "explanation": "試験 (test, N4.24) + は + 明日 (tomorrow, 明 N4.3) + です. きのう means 'yesterday.'"
+        },
+        {
+          "q": "This bag is heavy.",
+          "segments": [
+            "この",
+            "かばん",
+            "は",
+            "重い",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "軽い"
+          ],
+          "explanation": "この + かばん + は + 重い (heavy, N4.23) + です. 軽い (light) is the opposite."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "I am studying in the classroom for the test.",
+          "segments": [
+            "試験",
+            "の",
+            "ために",
+            "教室",
+            "で",
+            "勉強しています"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "は"
+          ],
+          "explanation": "試験 + のために (for the purpose of, G19) + 教室 (classroom, N4.24) + で + 勉強しています."
+        },
+        {
+          "q": "The homework has been getting harder.",
+          "segments": [
+            "しゅくだい",
+            "が",
+            "むずかしく",
+            "なってきました"
+          ],
+          "distractors": [
+            "は",
+            "やさしく",
+            "を"
+          ],
+          "explanation": "しゅくだい (homework) + が + むずかしくなってきました (has been getting harder, てくる G24 = change approaching present). やさしく means 'easier.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I carried heavy books to the classroom and studied.",
+          "segments": [
+            "重い",
+            "本",
+            "を",
+            "教室",
+            "に",
+            "持っていって",
+            "勉強しました"
+          ],
+          "distractors": [
+            "軽い",
+            "で",
+            "が",
+            "から"
+          ],
+          "explanation": "重い + 本 + を + 教室 + に + 持っていって (carried and went, ていく G24) + 勉強しました. 軽い means 'light.'"
+        },
+        {
+          "q": "Since I started studying, my grades have been getting better.",
+          "segments": [
+            "勉強",
+            "を",
+            "始めてから",
+            "せいせき",
+            "が",
+            "よく",
+            "なってきました"
+          ],
+          "distractors": [
+            "始める前に",
+            "は",
+            "わるく",
+            "に"
+          ],
+          "explanation": "勉強 + を + 始めてから (since starting, G19 てから) + せいせき (grades) + が + よくなってきました (have been getting better, てくる G24). わるく means 'worse.'"
+        },
+        {
+          "q": "The test is short, but the questions are difficult and I am making progress slowly.",
+          "segments": [
+            "試験",
+            "は",
+            "短い",
+            "けど",
+            "問題",
+            "が",
+            "むずかしくて",
+            "ゆっくり",
+            "進んでいます"
+          ],
+          "distractors": [
+            "長い",
+            "を",
+            "に",
+            "やさしくて"
+          ],
+          "explanation": "試験 + は + 短い (short, N4.23) + けど + 問題 + が + むずかしくて + ゆっくり + 進んでいます (progressing slowly, 進 N4.23). 長い means 'long.'"
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-13",
+      "title": "Research & Opinions",
+      "requires": [
+        "N4.26"
+      ],
+      "warmup": [
+        {
+          "q": "Please write an English sentence.",
+          "segments": [
+            "英文",
+            "を",
+            "書いてください"
+          ],
+          "distractors": [
+            "が",
+            "に"
+          ],
+          "explanation": "英文 (English text, N4.25) + を + 書いてください (please write)."
+        },
+        {
+          "q": "That person's way of thinking is correct.",
+          "segments": [
+            "あの",
+            "方",
+            "の",
+            "考え方",
+            "は",
+            "正しい",
+            "です"
+          ],
+          "distractors": [
+            "悪い",
+            "が"
+          ],
+          "explanation": "あの + 方 (person, polite, N4.26) + の + 考え方 (way of thinking, N4.26) + は + 正しい (correct, N4.26) + です. 悪い means 'bad.'"
+        }
+      ],
+      "buildup": [
+        {
+          "q": "If it rains tomorrow, I will study at home.",
+          "segments": [
+            "明日",
+            "雨",
+            "が",
+            "ふったら",
+            "家",
+            "で",
+            "勉強します"
+          ],
+          "distractors": [
+            "は",
+            "に",
+            "ふったのに"
+          ],
+          "explanation": "明日 + 雨 + が + ふったら (if it rains, たら conditional N4.25) + 家 + で + 勉強します. ふったのに means 'even though it rained.'"
+        },
+        {
+          "q": "I ordered food and paid attention to the caution sign.",
+          "segments": [
+            "注文して",
+            "注意",
+            "の",
+            "サイン",
+            "を",
+            "見ました"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "は"
+          ],
+          "explanation": "注文して (ordered, 注 N4.25) + 注意 (caution, N4.25) + の + サイン + を + 見ました."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "If I think about it carefully, that idea is bad.",
+          "segments": [
+            "よく",
+            "考えたら",
+            "その",
+            "考え",
+            "は",
+            "悪い",
+            "です"
+          ],
+          "distractors": [
+            "正しい",
+            "が",
+            "を",
+            "に"
+          ],
+          "explanation": "よく + 考えたら (if I think carefully, たら conditional + 考 N4.26) + その + 考え (idea, N4.26) + は + 悪い (bad, N4.26) + です."
+        },
+        {
+          "q": "The researcher wrote a composition about literature.",
+          "segments": [
+            "研究者",
+            "が",
+            "文学",
+            "について",
+            "作文",
+            "を",
+            "書きました"
+          ],
+          "distractors": [
+            "は",
+            "に",
+            "を",
+            "で"
+          ],
+          "explanation": "研究者 (researcher, N4.25) + が + 文学 (literature, N4.25) + について (about) + 作文 (composition, N4.25) + を + 書きました."
+        },
+        {
+          "q": "If my essay is correct, the researcher will notice it.",
+          "segments": [
+            "作文",
+            "が",
+            "正しかったら",
+            "研究者",
+            "が",
+            "注目します"
+          ],
+          "distractors": [
+            "は",
+            "に",
+            "正しいのに",
+            "を"
+          ],
+          "explanation": "作文 + が + 正しかったら (if correct, たら + 正 N4.26) + 研究者 + が + 注目します (will notice, 注 N4.25). 正しいのに means 'even though correct.'"
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-14",
+      "title": "Evening at the Village",
+      "requires": [
+        "N4.28"
+      ],
+      "warmup": [
+        {
+          "q": "Let's wait at the gate.",
+          "segments": [
+            "門",
+            "で",
+            "待ちましょう"
+          ],
+          "distractors": [
+            "に",
+            "が"
+          ],
+          "explanation": "門 (gate, N4.28) + で (at) + 待ちましょう (let's wait, 待 N4.27)."
+        },
+        {
+          "q": "There is a pond in the village.",
+          "segments": [
+            "村",
+            "に",
+            "池",
+            "が",
+            "あります"
+          ],
+          "distractors": [
+            "は",
+            "で"
+          ],
+          "explanation": "村 (village, N4.28) + に + 池 (pond, N4.28) + が + あります."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "This time, I will eat dinner in the evening.",
+          "segments": [
+            "今度",
+            "は",
+            "夕方",
+            "に",
+            "夕飯",
+            "を",
+            "食べます"
+          ],
+          "distractors": [
+            "が",
+            "で",
+            "朝"
+          ],
+          "explanation": "今度 (this time, N4.27) + は + 夕方 (evening, N4.27) + に + 夕飯 (dinner, N4.27) + を + 食べます."
+        },
+        {
+          "q": "The evening light in the village is beautiful.",
+          "segments": [
+            "村",
+            "の",
+            "夕方",
+            "の",
+            "光",
+            "は",
+            "きれいです"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "悪い"
+          ],
+          "explanation": "村 (village, N4.28) + の + 夕方 (evening, N4.27) + の + 光 (light, N4.18) + は + きれいです (beautiful). 悪い means 'bad.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I walked through the forest and arrived at the village gate.",
+          "segments": [
+            "林",
+            "を",
+            "歩いて",
+            "村",
+            "の",
+            "門",
+            "に",
+            "着きました"
+          ],
+          "distractors": [
+            "が",
+            "で",
+            "から",
+            "は"
+          ],
+          "explanation": "林 (grove, N4.28) + を (through) + 歩いて + 村 + の + 門 + に + 着きました (arrived)."
+        },
+        {
+          "q": "I waited many times at the meeting gate, but my friend did not come.",
+          "segments": [
+            "何度",
+            "も",
+            "待ち合わせ",
+            "の",
+            "門",
+            "で",
+            "待ちましたが",
+            "友だち",
+            "は",
+            "来ませんでした"
+          ],
+          "distractors": [
+            "に",
+            "一度",
+            "が",
+            "を"
+          ],
+          "explanation": "何度 + も (many times, N4.27) + 待ち合わせ (meeting arrangement, N4.27) + の + 門 (gate, N4.28) + で + 待ちましたが (waited, but, 待 N4.27) + 友だち + は + 来ませんでした (did not come). 一度 means 'once.'"
+        },
+        {
+          "q": "The battery died, so I rested by the pond in the evening.",
+          "segments": [
+            "電池",
+            "が",
+            "なくなったので",
+            "夕方",
+            "に",
+            "池",
+            "の",
+            "そば",
+            "で",
+            "休みました"
+          ],
+          "distractors": [
+            "は",
+            "を",
+            "朝",
+            "から"
+          ],
+          "explanation": "電池 (battery, N4.28) + が + なくなったので (because it ran out) + 夕方 (evening, N4.27) + に + 池 (pond, N4.28) + の + そば + で + 休みました."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-15",
+      "title": "Gathering Answers",
+      "requires": [
+        "N4.30"
+      ],
+      "warmup": [
+        {
+          "q": "I think this answer is correct.",
+          "segments": [
+            "この",
+            "答え",
+            "は",
+            "正しい",
+            "と",
+            "思います"
+          ],
+          "distractors": [
+            "が",
+            "悪い"
+          ],
+          "explanation": "この + 答え (answer, N4.30) + は + 正しい (correct, N4.26) + と思います (I think, G27). 悪い means 'bad.'"
+        },
+        {
+          "q": "Everyone gathered at the meeting.",
+          "segments": [
+            "みんな",
+            "が",
+            "集会",
+            "に",
+            "集まりました"
+          ],
+          "distractors": [
+            "は",
+            "で"
+          ],
+          "explanation": "みんな + が + 集会 (meeting, N4.30) + に + 集まりました (gathered, N4.30)."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "I think that limited express train is especially early.",
+          "segments": [
+            "あの",
+            "特急",
+            "は",
+            "特に",
+            "早い",
+            "と",
+            "思います"
+          ],
+          "distractors": [
+            "おそい",
+            "が",
+            "を"
+          ],
+          "explanation": "あの + 特急 (limited express, N4.30) + は + 特に (especially, N4.30) + 早い (early, 早 N4.14) + と思います (I think, G27). おそい means 'slow/late.'"
+        },
+        {
+          "q": "I recalled the answer and concentrated.",
+          "segments": [
+            "答え",
+            "を",
+            "思い出して",
+            "集中しました"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "わすれて"
+          ],
+          "explanation": "答え + を + 思い出して (recalled, N4.30) + 集中しました (concentrated, N4.30). わすれて means 'forgot.'"
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I collected special writings and made a feature anthology.",
+          "segments": [
+            "特別な",
+            "文",
+            "を",
+            "集めて",
+            "特集",
+            "を",
+            "作りました"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "は",
+            "で"
+          ],
+          "explanation": "特別な (special, N4.30) + 文 (writing, N4.25) + を + 集めて (collected, 集 N4.30) + 特集 (feature, N4.30) + を + 作りました."
+        },
+        {
+          "q": "I think the researcher's answer is particularly interesting.",
+          "segments": [
+            "研究者",
+            "の",
+            "答え",
+            "は",
+            "特に",
+            "おもしろい",
+            "と",
+            "思います"
+          ],
+          "distractors": [
+            "が",
+            "つまらない",
+            "を",
+            "に"
+          ],
+          "explanation": "研究者 (researcher, N4.25) + の + 答え (answer, N4.30) + は + 特に (especially, N4.30) + おもしろいと思います (I think it's interesting, G27)."
+        },
+        {
+          "q": "I thought the answers were bad, but I recalled a good idea.",
+          "segments": [
+            "答え",
+            "が",
+            "悪い",
+            "と",
+            "思いましたが",
+            "いい",
+            "考え",
+            "を",
+            "思い出しました"
+          ],
+          "distractors": [
+            "は",
+            "正しい",
+            "に",
+            "で"
+          ],
+          "explanation": "答え + が + 悪いと思いましたが (thought they were bad, G27) + いい + 考え (idea, N4.26) + を + 思い出しました (recalled, N4.30)."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-16",
+      "title": "Opening Day",
+      "requires": [
+        "N4.32"
+      ],
+      "warmup": [
+        {
+          "q": "I opened the door of the hall.",
+          "segments": [
+            "堂",
+            "の",
+            "ドア",
+            "を",
+            "開けました"
+          ],
+          "distractors": [
+            "が",
+            "に"
+          ],
+          "explanation": "堂 (hall, N4.31) + の + ドア + を + 開けました (opened, 開 N4.31)."
+        },
+        {
+          "q": "I have errands in the city.",
+          "segments": [
+            "市",
+            "に",
+            "用事",
+            "が",
+            "あります"
+          ],
+          "distractors": [
+            "で",
+            "は"
+          ],
+          "explanation": "市 (city, N4.32) + に + 用事 (errands, N4.32) + が + あります."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "I pulled open the drawer and took out the paper.",
+          "segments": [
+            "引き出し",
+            "を",
+            "引いて",
+            "紙",
+            "を",
+            "出しました"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "おして"
+          ],
+          "explanation": "引き出し (drawer, N4.32) + を + 引いて (pulled, 引 N4.32) + 紙 (paper, N4.22) + を + 出しました. おして means 'pushed.'"
+        },
+        {
+          "q": "The mayor held the opening ceremony of the shop.",
+          "segments": [
+            "市長",
+            "が",
+            "開店",
+            "の",
+            "セレモニー",
+            "を",
+            "開きました"
+          ],
+          "distractors": [
+            "は",
+            "に",
+            "を"
+          ],
+          "explanation": "市長 (mayor, N4.32) + が + 開店 (opening of a shop, N4.31) + の + セレモニー + を + 開きました (held, 開 N4.31)."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I learned calligraphy at the training school in the city.",
+          "segments": [
+            "市",
+            "の",
+            "教習",
+            "で",
+            "習字",
+            "を",
+            "習いました"
+          ],
+          "distractors": [
+            "が",
+            "に",
+            "は",
+            "から"
+          ],
+          "explanation": "市 (city, N4.32) + の + 教習 (training, N4.32) + で + 習字 (calligraphy, N4.32) + を + 習いました (learned, 習 N4.32)."
+        },
+        {
+          "q": "The mayor opened the doors and many people entered the hall.",
+          "segments": [
+            "市長",
+            "が",
+            "ドア",
+            "を",
+            "開けて",
+            "たくさん",
+            "の",
+            "人",
+            "が",
+            "堂",
+            "に",
+            "入りました"
+          ],
+          "distractors": [
+            "は",
+            "で",
+            "を",
+            "から"
+          ],
+          "explanation": "市長 (mayor, N4.32) + が + ドア + を + 開けて (opened, te-form chain, 開 N4.31) + たくさん + の + 人 + が + 堂 (hall, N4.31) + に + 入りました (entered). An Opening Day scene: the mayor opens up and the crowd enters."
+        },
+        {
+          "q": "A generation changed and a new dining hall opened in the morning market.",
+          "segments": [
+            "世代",
+            "が",
+            "代わって",
+            "朝市",
+            "に",
+            "新しい",
+            "食堂",
+            "が",
+            "開きました"
+          ],
+          "distractors": [
+            "は",
+            "を",
+            "で",
+            "古い"
+          ],
+          "explanation": "世代 (generation, N4.31) + が + 代わって (changed, 代 N4.31) + 朝市 (morning market, N4.32) + に + 新しい + 食堂 (dining hall, N4.31) + が + 開きました."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-17",
+      "title": "Building the City",
+      "requires": [
+        "N4.34"
+      ],
+      "warmup": [
+        {
+          "q": "The factory is in a wide place.",
+          "segments": [
+            "工場",
+            "は",
+            "広い",
+            "場所",
+            "に",
+            "あります"
+          ],
+          "distractors": [
+            "が",
+            "で"
+          ],
+          "explanation": "工場 (factory, N4.33) + は + 広い (wide, N4.33) + 場所 (place, N4.33) + に + あります."
+        },
+        {
+          "q": "I commute to the ward office by train.",
+          "segments": [
+            "電車",
+            "で",
+            "区",
+            "の",
+            "やくしょ",
+            "に",
+            "通います"
+          ],
+          "distractors": [
+            "を",
+            "が",
+            "から"
+          ],
+          "explanation": "電車 + で + 区 (ward, N4.34) + の + やくしょ (office) + に + 通います (commute, 通 N4.34)."
+        }
+      ],
+      "buildup": [
+        {
+          "q": "They built a big building in the plaza.",
+          "segments": [
+            "広場",
+            "に",
+            "大きい",
+            "建物",
+            "を",
+            "建てました"
+          ],
+          "distractors": [
+            "で",
+            "が",
+            "小さい"
+          ],
+          "explanation": "広場 (plaza, N4.33) + に + 大きい + 建物 (building, N4.33) + を + 建てました (built, 建 N4.33). 小さい is the opposite."
+        },
+        {
+          "q": "I discovered a new district on the main street.",
+          "segments": [
+            "大通り",
+            "で",
+            "新しい",
+            "地区",
+            "を",
+            "発見しました"
+          ],
+          "distractors": [
+            "に",
+            "が",
+            "古い"
+          ],
+          "explanation": "大通り (main street, N4.34) + で + 新しい + 地区 (district, N4.34) + を + 発見しました (discovered, 発 N4.34)."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "A carpenter built a wide venue in the case of this prefecture.",
+          "segments": [
+            "この",
+            "県",
+            "の",
+            "場合",
+            "は",
+            "大工",
+            "が",
+            "広い",
+            "会場",
+            "を",
+            "建てました"
+          ],
+          "distractors": [
+            "に",
+            "で",
+            "を",
+            "せまい"
+          ],
+          "explanation": "この + 県 (prefecture, N4.34) + の + 場合 (in the case of, N4.33) + は + 大工 (carpenter, N4.33) + が + 広い + 会場 (venue, N4.33) + を + 建てました."
+        },
+        {
+          "q": "I departed from the prefecture and passed through the city.",
+          "segments": [
+            "県",
+            "を",
+            "出発して",
+            "市",
+            "を",
+            "通りました"
+          ],
+          "distractors": [
+            "に",
+            "が",
+            "から",
+            "で"
+          ],
+          "explanation": "県 (prefecture, N4.34) + を + 出発して (departed, 発 N4.34) + 市 (city, N4.32) + を + 通りました (passed through, 通 N4.34)."
+        },
+        {
+          "q": "The factory worker commutes to the factory early and works until the evening.",
+          "segments": [
+            "工員",
+            "は",
+            "早く",
+            "工場",
+            "に",
+            "通って",
+            "夕方",
+            "まで",
+            "はたらきます"
+          ],
+          "distractors": [
+            "が",
+            "おそく",
+            "で",
+            "から"
+          ],
+          "explanation": "工員 (factory worker, N4.33) + は + 早く + 工場 (factory, N4.33) + に + 通って (commuting, 通 N4.34) + 夕方 (evening, N4.27) + まで + はたらきます."
+        }
+      ]
+    },
+    {
+      "id": "n4-mar-18",
+      "title": "Life & Industry",
+      "requires": [
+        "N4.36"
+      ],
+      "warmup": [
+        {
+          "q": "Please stop the car and wash it.",
+          "segments": [
+            "車",
+            "を",
+            "止めて",
+            "洗ってください"
+          ],
+          "distractors": [
+            "が",
+            "に"
+          ],
+          "explanation": "車 + を + 止めて (stop, 止 N4.35) + 洗ってください (please wash, 洗 N4.35)."
+        },
+        {
+          "q": "This place is inconvenient.",
+          "segments": [
+            "ここ",
+            "は",
+            "不便",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "便利"
+          ],
+          "explanation": "ここ + は + 不便 (inconvenient, N4.36) + です. 便利 means 'convenient.'"
+        }
+      ],
+      "buildup": [
+        {
+          "q": "The citizens mainly work in industry.",
+          "segments": [
+            "国民",
+            "は",
+            "主に",
+            "産業",
+            "で",
+            "はたらいています"
+          ],
+          "distractors": [
+            "が",
+            "を",
+            "に"
+          ],
+          "explanation": "国民 (citizens, N4.35) + は + 主に (mainly, N4.35) + 産業 (industry, N4.36) + で + はたらいています."
+        },
+        {
+          "q": "The event was cancelled and everyone stopped.",
+          "segments": [
+            "イベント",
+            "が",
+            "中止",
+            "に",
+            "なって",
+            "みんな",
+            "が",
+            "止まりました"
+          ],
+          "distractors": [
+            "は",
+            "を",
+            "で"
+          ],
+          "explanation": "イベント + が + 中止 (cancellation, N4.35) + になって + みんな + が + 止まりました (stopped, 止 N4.35)."
+        }
+      ],
+      "challenge": [
+        {
+          "q": "I washed my hands and went to the owner's private house.",
+          "segments": [
+            "手",
+            "を",
+            "洗って",
+            "主",
+            "の",
+            "民家",
+            "に",
+            "行きました"
+          ],
+          "distractors": [
+            "が",
+            "で",
+            "を",
+            "から"
+          ],
+          "explanation": "手 + を + 洗って (washed, 洗 N4.35) + 主 (owner, N4.35) + の + 民家 (private house, N4.35) + に + 行きました."
+        },
+        {
+          "q": "The factory is far, and the work is heavy, and the sound is also loud.",
+          "segments": [
+            "工場",
+            "は",
+            "遠いし",
+            "仕事",
+            "は",
+            "重いし",
+            "音",
+            "も",
+            "大きい",
+            "です"
+          ],
+          "distractors": [
+            "を",
+            "近いし",
+            "に",
+            "軽いし"
+          ],
+          "explanation": "工場 (factory, N4.33) + は + 遠いし (far, and also, し G20) + 仕事 (work, N4.14) + は + 重いし (heavy, and also, 重 N4.23) + 音 (sound, N4.13) + も + 大きいです (loud/big). 近いし means 'near, and...' 軽いし means 'light, and...' し stacks reasons additively (G20)."
+        },
+        {
+          "q": "The contractor stopped the inconvenient service and the people became healthy.",
+          "segments": [
+            "業者",
+            "が",
+            "不便な",
+            "便",
+            "を",
+            "止めて",
+            "民",
+            "が",
+            "元気",
+            "に",
+            "なりました"
+          ],
+          "distractors": [
+            "は",
+            "を",
+            "便利な",
+            "悪く"
+          ],
+          "explanation": "業者 (contractor, N4.36) + が + 不便な (inconvenient, N4.36) + 便 (service, N4.36) + を + 止めて (stopped, 止 N4.35) + 民 (people, N4.35) + が + 元気になりました (became healthy/energetic, になる G26). 便利な means 'convenient.'"
+        }
+      ]
+    }
+  ]
+}

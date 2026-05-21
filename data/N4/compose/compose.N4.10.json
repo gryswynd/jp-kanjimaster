@@ -1,0 +1,178 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.10",
+  "lesson": "N4.10",
+  "level": "N4",
+  "title": "Movie Night",
+  "titleJp": "映画の 夜",
+  "emoji": "🎬",
+  "theme": "Write a short essay about your relationship with movies and English: describe what kinds of movies you like, when and how you watch them, whether movies help you study, and what you think of learning English through film.",
+  "prompts": [
+    {
+      "prompt": "Open your essay by saying you love movies. Tell the reader what kind of movies you like, using 映画 and 好き.",
+      "targets": [
+        { "id": "v_eiga", "count": 1 },
+        { "id": "v_suki", "count": 1 }
+      ],
+      "model": "私は 映画が 大好きです。画家の 映画が とても 好きです。",
+      "vocabPool": [
+        "v_watashi", "v_eiga", "v_suki", "v_daisuki", "v_gaka",
+        "v_ichiban", "v_omoshiroi", "v_furui", "v_atarashii", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe when and how often you go to the movie theater. Use 映画館 and a time expression.",
+      "targets": [
+        { "id": "v_eigakan", "count": 1 }
+      ],
+      "model": "毎週 土ようびに 映画館へ 行きます。",
+      "vocabPool": [
+        "v_eigakan", "v_mainichi", "v_iku", "v_issho", "v_tomodachi",
+        "v_eki", "v_chikai", "v_kyou", "v_sengetsu", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe how you watch movies at home. Do you eat while watching? Do you take notes? Use ながら to show two things happening at once.",
+      "targets": [
+        { "id": "v_eiga", "count": 1 }
+      ],
+      "model": "食べながら 映画を 見ます。英語の メモを 書きながら 見る ことも あります。",
+      "vocabPool": [
+        "v_taberu", "v_eiga", "v_miru", "v_nomu", "v_kaku",
+        "v_memo", "v_eigo", "v_issho", "v_mainichi", "v_ima"
+      ]
+    },
+    {
+      "prompt": "Talk about the kinds of things you do related to movies and English. Use たり to list two or more activities.",
+      "targets": [
+        { "id": "v_miru", "count": 1 },
+        { "id": "v_manabu", "count": 1 }
+      ],
+      "model": "映画を 見たり、英語の 本を 読んだり します。",
+      "vocabPool": [
+        "v_eiga", "v_miru", "v_yomu", "v_manabu", "v_eigo",
+        "v_kiku", "v_kaku", "v_aruku", "v_suru", "v_issho"
+      ]
+    },
+    {
+      "prompt": "Explain why movies are a good way to study English. Use ので or から to give a reason. Use 学べます (can learn) to express ability.",
+      "targets": [
+        { "id": "v_eigo", "count": 1 },
+        { "id": "v_manabu", "count": 1 }
+      ],
+      "model": "映画で 英語が 学べます。映画が 好きなので、英語を 毎日 学べます。",
+      "vocabPool": [
+        "v_eiga", "v_eigo", "v_manabu", "v_suki", "v_omoshiroi",
+        "v_mainichi", "v_kurasu", "v_gakkou", "p_node", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your English teacher or someone who taught you English. Where did they come from? What are they like? Use 始まる or 英語 naturally.",
+      "targets": [
+        { "id": "v_eigo", "count": 1 },
+        { "id": "v_hajimaru", "count": 1 }
+      ],
+      "model": "ジョエル先生は アメリカから 来た 英語の 先生 です。英語の クラスは 三時に 始まります。",
+      "vocabPool": [
+        "char_joel", "v_eigo", "v_sensei", "v_hajimaru", "v_kurasu",
+        "v_kuru", "v_gakusei", "v_nihongo", "v_ii", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write a closing sentence about what you want to do going forward. Use 英語 and たい to express your desire. What are you going to start?",
+      "targets": [
+        { "id": "v_eigo", "count": 1 },
+        { "id": "v_hajimeru", "count": 1 }
+      ],
+      "model": "もっと 英語を 学びたいです。今日から 英語の 映画を 見始めます。",
+      "vocabPool": [
+        "v_eigo", "v_hajimeru", "v_manabu", "v_miru", "v_eiga",
+        "v_kyou", "v_ima", "v_issho", "v_suki", "v_mainichi"
+      ]
+    },
+    {
+      "prompt": "Challenge prompt: Add a sentence about something ending and a new thing beginning. Use 終わる and 始まる naturally.",
+      "targets": [
+        { "id": "v_owaru", "count": 1 },
+        { "id": "v_hajimaru", "count": 1 }
+      ],
+      "model": "映画が 終わった 後、英語を 学び始めます。",
+      "vocabPool": [
+        "v_owaru", "v_hajimaru", "v_eiga", "v_eigo", "v_manabu",
+        "v_ato", "v_atarashii", "v_kyou", "v_ima", "v_mainichi"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Write a paragraph describing a specific movie you watched: when it started, when it ended, and what you did while watching.",
+      "targets": [
+        { "id": "v_eiga", "count": 1 },
+        { "id": "v_owaru", "count": 1 }
+      ],
+      "model": "先週、映画館で 映画を 見ました。二時に 始まって、四時に 終わりました。英語の メモを 書きながら 見ました。",
+      "vocabPool": [
+        "v_eiga", "v_eigakan", "v_miru", "v_hajimaru", "v_owaru",
+        "v_memo", "v_kaku", "v_eigo", "v_issho", "v_sengetsu"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne", "p_dewa",
+    "p_ya", "p_ga_but", "p_kara_because", "p_kedo", "p_yori",
+    "p_node", "p_nagara", "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["始まります", "終わりました", "見ました", "学びました"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["行きません", "見ませんでした", "終わりませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["学んで います", "話して います"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["学びたいです", "見たいです", "行きたくないです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["学べます", "話せます", "見られます"]
+    },
+    {
+      "pattern": "verb masu-stem + ながら",
+      "meaning": "while doing (simultaneous actions)",
+      "examples": ["食べながら 見ます", "歩きながら 話します"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["映画を 見たり、本を 読んだりします", "学んだり、歩いたりします"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["好きなので 見ます", "おもしろいから 見ます"]
+    },
+    {
+      "pattern": "い-adj + かったです / くないです",
+      "meaning": "was [adj] / is not [adj] (past / negative adjective)",
+      "examples": ["おもしろかったです", "よかったです", "長くないです"]
+    },
+    {
+      "pattern": "A は B より [adj]",
+      "meaning": "A is more [adj] than B",
+      "examples": ["映画は 本より おもしろいです"]
+    }
+  ]
+}

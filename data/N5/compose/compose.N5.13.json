@@ -1,0 +1,134 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.13",
+  "lesson": "N5.13",
+  "level": "N5",
+  "title": "My Japanese Communication",
+  "titleJp": "日本語で 話す",
+  "emoji": "📞",
+  "theme": "Write about your Japanese communication habits — speaking, reading, writing, and phone calls.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about speaking Japanese — do you speak it every day?",
+      "targets": [
+        { "id": "v_hanasu", "count": 1 }
+      ],
+      "model": "わたしは 毎日 日本語を 話します。日本語は おもしろいです。",
+      "vocabPool": [
+        "v_hanasu", "v_nihongo", "v_mainichi", "v_kyou",
+        "v_omoshiroi", "v_ii", "v_totemo",
+        "v_watashi", "v_sensei", "v_tomodachi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about reading Japanese books — are they interesting?",
+      "targets": [
+        { "id": "v_yomu", "count": 1 }
+      ],
+      "model": "日本語の 本は おもしろいです。毎日 本を 読みます。",
+      "vocabPool": [
+        "v_yomu", "v_hon", "v_nihongo", "v_gakkou",
+        "v_omoshiroi", "v_ii", "v_takai", "v_yasui", "v_atarashii",
+        "v_mainichi", "v_kyou", "v_senshuu",
+        "v_takusan", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about writing in Japanese — do you write in a notebook, slowly by hand?",
+      "targets": [
+        { "id": "v_kaku", "count": 1 }
+      ],
+      "model": "わたしは ノートに 書きます。手で ゆっくり 書きます。",
+      "vocabPool": [
+        "v_kaku", "v_nooto", "v_hon", "v_te",
+        "v_yukkuri", "v_mainichi", "v_watashi",
+        "v_ii", "v_totemo", "v_takusan",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about speaking on the phone in Japanese.",
+      "targets": [
+        { "id": "v_denwa", "count": 1 }
+      ],
+      "model": "毎日 電話で 友だちと 話します。日本語で 言います。",
+      "vocabPool": [
+        "v_denwa", "v_hanasu", "v_iu", "v_tomodachi",
+        "v_nihongo", "v_sensei", "v_mainichi", "v_kyou",
+        "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about what you want to do with Japanese — reading, speaking, or something new like karate?",
+      "targets": [
+        { "id": "v_karate", "count": 1 }
+      ],
+      "model": "日本語を たくさん 話したいです。空手の 本も 読みたいです。",
+      "vocabPool": [
+        "v_karate", "v_yomu", "v_hanasu", "v_kaku",
+        "v_nihongo", "v_hon", "v_denwa",
+        "v_mainichi", "v_takusan", "v_totemo", "v_yukkuri",
+        "v_ii", "v_omoshiroi",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made",
+    "p_ni", "p_de", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます",
+      "meaning": "polite present — speaks / reads / writes",
+      "examples": ["話します", "読みます", "書きます"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ました",
+      "meaning": "polite past — spoke / read / wrote",
+      "examples": ["話しました", "読みました", "書きました"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません",
+      "meaning": "polite negative — does not speak / read / write",
+      "examples": ["話しません", "読みません", "書きません"]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do — polite request",
+      "examples": ["話してください", "読んでください", "書いてください"]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing — ongoing action or state",
+      "examples": ["話しています", "読んでいます", "書いています"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": ["話したいです", "読みたいです", "書きたいです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do — invitation or suggestion",
+      "examples": ["話しましょう", "読みましょう", "書きましょう"]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past adjective — was interesting / good",
+      "examples": ["おもしろかったです", "よかったです", "長かったです"]
+    },
+    {
+      "pattern": "[い-adj stem] + そうです",
+      "meaning": "looks / seems — appearance",
+      "examples": ["おもしろそうです", "よさそうです"]
+    }
+  ]
+}

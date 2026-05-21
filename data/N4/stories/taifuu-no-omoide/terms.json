@@ -1,0 +1,149 @@
+{
+  "contentVersion": "1.0.0",
+  "storyFile": "story.md",
+  "title": "台風の思い出",
+  "englishTitle": "Memories of the Typhoon",
+  "terms": {
+
+    "りきぞ": { "id": "char_rikizo", "form": null },
+    "やまかわ": { "id": "char_yamakawa", "form": null },
+
+    "は": { "id": "p_wa", "form": null },
+    "が": { "id": "p_ga", "form": null },
+    "を": { "id": "p_wo", "form": null },
+    "の": { "id": "p_no", "form": null },
+    "に": { "id": "p_ni", "form": null },
+    "で": { "id": "p_de", "form": null },
+    "も": { "id": "p_mo", "form": null },
+    "と": { "id": "p_to_quote", "form": null },
+    "より": { "id": "p_yori", "form": null },
+    "まで": { "id": "p_made", "form": null },
+    "から": { "id": "p_kara_because", "form": null },
+    "よ": { "id": "p_yo", "form": null },
+    "ね": { "id": "p_ne", "form": null },
+    "か": { "id": "p_ka", "form": null },
+    "んだ": { "id": "p_nda", "form": null },
+
+    "です": { "id": "g_desu", "form": null },
+    "だ": { "id": "g_da", "form": null },
+
+    "台風": { "id": "v_taifuu", "form": null },
+    "計画": { "id": "v_keikaku", "form": null },
+    "台所": { "id": "v_daidokoro", "form": null },
+    "時計": { "id": "v_tokei", "form": null },
+    "以上": { "id": "v_ijou", "form": null },
+    "以下": { "id": "v_ika", "form": null },
+    "以外": { "id": "v_igai2", "form": null },
+    "思い出": { "id": "v_omoide", "form": null },
+    "集中": { "id": "v_shuuchuu", "form": null },
+    "答え": { "id": "v_kotae", "form": null },
+    "特別": { "id": "v_tokubetsu", "form": null },
+    "特に": { "id": "v_tokuni", "form": null },
+
+    "時": { "id": "v_toki", "form": null },
+    "朝": { "id": "v_asa", "form": null },
+    "夜": { "id": "v_yoru", "form": null },
+    "今日": { "id": "v_kyou", "form": null },
+    "去年": { "id": "v_kyonen", "form": null },
+    "今": { "id": "v_ima", "form": null },
+    "つぎ": { "id": "v_tsugi", "form": null },
+    "電話": { "id": "v_denwa", "form": null },
+    "食べ物": { "id": "v_tabemono", "form": null },
+    "時間": { "id": "v_jikan", "form": null },
+    "風": { "id": "v_kaze", "form": null },
+    "物": { "id": "v_mono", "form": null },
+    "近所": { "id": "v_kinjo", "form": null },
+    "人": { "id": "v_hito", "form": null },
+    "質問": { "id": "v_shitsumon", "form": null },
+    "外": { "id": "v_soto", "form": null },
+    "家": { "id": "v_ie", "form": null },
+    "心": { "id": "v_kokoro", "form": null },
+    "中": { "id": "v_naka", "form": null },
+    "前": { "id": "v_mae", "form": null },
+    "こと": { "id": "v_koto", "form": null },
+    "ため": { "id": "v_tame", "form": null },
+    "よう": { "id": "v_you_manner", "form": null },
+    "二人": { "id": "v_futari", "form": null },
+    "この": { "id": "v_kono", "form": null },
+    "その": { "id": "v_sono", "form": null },
+    "もう": { "id": "v_mou", "form": null },
+    "もっと": { "id": "v_motto", "form": null },
+    "すぐ": { "id": "v_sugu", "form": null },
+    "うん": { "id": "v_un", "form": null },
+    "とても": { "id": "v_totemo", "form": null },
+    "たくさん": { "id": "v_takusan", "form": null },
+    "ゆっくり": { "id": "v_yukkuri", "form": null },
+
+    "大切": { "id": "v_taisetsu", "form": null },
+    "色々な": { "id": "v_iroiro", "form": "attributive_na" },
+    "だいじょうぶ": { "id": "v_daijoubu", "form": null },
+    "だいじょうぶだった": { "id": "v_daijoubu", "form": "plain_past_adj" },
+
+    "知った": { "id": "v_shiru", "form": "plain_past" },
+    "知らせる": { "id": "v_shiraseru", "form": "plain_form" },
+    "知って": { "id": "v_shiru", "form": "te_form" },
+
+    "来る": { "id": "v_kuru", "form": "plain_form" },
+    "来たら": { "id": "v_kuru", "form": "conditional_tara" },
+    "きた": { "id": "v_kuru", "form": "plain_past" },
+
+    "言った": { "id": "v_iu", "form": "plain_past" },
+
+    "思った": { "id": "v_omou", "form": "plain_past" },
+    "思う": { "id": "v_omou", "form": "plain_form" },
+    "思い出した": { "id": "v_omoidasu", "form": "plain_past" },
+
+    "答えた": { "id": "v_kotaeru", "form": "plain_past" },
+
+    "考えれば": { "id": "v_kangaeru", "form": "conditional_ba" },
+    "考えながら": { "id": "v_kangaeru", "form": "nagara_form" },
+    "考えた": { "id": "v_kangaeru", "form": "plain_past" },
+    "考えられる": { "id": "v_kangaeru", "form": "potential" },
+    "考える": { "id": "v_kangaeru", "form": "plain_form" },
+
+    "集まった": { "id": "v_atsumaru", "form": "plain_past" },
+    "集まって": { "id": "v_atsumaru", "form": "te_form" },
+    "集めたり": { "id": "v_atsumeru", "form": "tari_form" },
+    "集めなければ": { "id": "v_atsumeru", "form": "nakereba" },
+    "集めて": { "id": "v_atsumeru", "form": "te_form" },
+    "集める": { "id": "v_atsumeru", "form": "plain_form" },
+
+    "行った": { "id": "v_iku", "form": "plain_past" },
+    "いった": { "id": "v_iku", "form": "plain_past" },
+
+    "した": { "id": "v_suru", "form": "plain_past" },
+    "しながら": { "id": "v_suru", "form": "nagara_form" },
+    "しなければ": { "id": "v_suru", "form": "nakereba" },
+    "しよう": { "id": "v_suru", "form": "plain_volitional" },
+
+    "見ながら": { "id": "v_miru", "form": "nagara_form" },
+    "見たら": { "id": "v_miru", "form": "conditional_tara" },
+
+    "答えながら": { "id": "v_kotaeru", "form": "nagara_form" },
+
+    "計ったり": { "id": "v_hakaru", "form": "tari_form" },
+
+    "なる": { "id": "v_naru", "form": "plain_form" },
+    "ならない": { "id": "v_naru", "form": "plain_negative" },
+    "なって": { "id": "v_naru", "form": "te_form" },
+    "なった": { "id": "v_naru", "form": "plain_past" },
+
+    "終わったら": { "id": "v_owaru", "form": "conditional_tara" },
+
+    "出た": { "id": "v_deru", "form": "plain_past" },
+
+    "聞いた": { "id": "v_kiku", "form": "plain_past" },
+
+    "いる": { "id": "v_iru", "form": "plain_form" },
+    "いた": { "id": "v_iru", "form": "plain_past" },
+
+    "いけない": { "id": "v_ikeru", "form": "plain_negative" },
+
+    "できた": { "id": "v_dekiru", "form": "plain_past" },
+
+    "大きく": { "id": "v_ookii", "form": "adverbial" },
+    "強く": { "id": "v_tsuyoi", "form": "adverbial" },
+    "よく": { "id": "v_ii", "form": "adverbial" }
+
+  }
+}

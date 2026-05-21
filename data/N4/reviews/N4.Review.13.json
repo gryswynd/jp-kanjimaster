@@ -1,0 +1,1149 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.13",
+  "title": "Phase 4 Review: Research, Literature & Correct Thinking",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons N4.25–N4.26.",
+    "kanji": ["文", "注", "研", "究", "正", "考", "方", "悪"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer to the comprehension question.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "りきぞ visits やまもと先生 in her research room to ask about her current project.",
+          "lines": [
+            {
+              "spk": "りきぞ",
+              "jp": "やまもと先生、今は どんな 研究を して いますか。",
+              "terms": [
+                "char_rikizo",
+                "char_yamamoto",
+                "v_sensei",
+                "v_ima",
+                "p_wa",
+                "v_donna",
+                "v_kenkyuu",
+                "p_wo",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまもと先生",
+              "jp": "日本の 文学に 注目して います。古い 文書を 読んで いますよ。",
+              "terms": [
+                "char_yamamoto",
+                "v_nihon",
+                "p_no",
+                "v_bungaku",
+                "p_ni",
+                "v_chuumoku",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_furui",
+                "v_bunsho",
+                "p_wo",
+                {
+                  "id": "v_yomu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "文学の 研究は むずかしいですか。",
+              "terms": [
+                "char_rikizo",
+                "v_bungaku",
+                "p_no",
+                "v_kenkyuu",
+                "p_wa",
+                {
+                  "id": "v_muzukashii",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまもと先生",
+              "jp": "そうですね。でも、文学を 研究するなら、注意して 読む 方が いいですよ。",
+              "terms": [
+                "char_yamamoto",
+                "v_sou",
+                "g_desu",
+                "p_ne",
+                "p_demo_but",
+                "v_bungaku",
+                "p_wo",
+                "v_kenkyuu",
+                {
+                  "id": "v_suru",
+                  "form": "plain_form"
+                },
+                "p_nara",
+                "v_chuui",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_yomu",
+                  "form": "plain_form"
+                },
+                "v_hou",
+                "p_ga",
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What is やまもと先生 currently researching?",
+          "choices": [
+            "She is researching Japanese history.",
+            "She is focused on Japanese literature and reading old documents.",
+            "She is studying English writing.",
+            "She is doing research on grammar."
+          ],
+          "answer": "She is focused on Japanese literature and reading old documents.",
+          "explanation": "やまもと先生 says she is paying attention to Japanese literature (日本の文学に注目) and is reading old documents (古い文書を読んでいます)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "A university student, けん, asks a library staff member about submitting a composition.",
+          "lines": [
+            {
+              "spk": "けん",
+              "jp": "すみません。作文は どこに 出せば いいですか。",
+              "terms": [
+                "char_ken",
+                "p_sumimasen",
+                "v_sakubun",
+                "p_wa",
+                "v_doko",
+                "p_ni",
+                {
+                  "id": "v_dasu",
+                  "form": "conditional_ba"
+                },
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "図書館に 出して ください。",
+              "terms": [
+                "v_toshokan",
+                "p_ni",
+                {
+                  "id": "v_dasu",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            },
+            {
+              "spk": "けん",
+              "jp": "分かりました。注意する ことは ありますか。",
+              "terms": [
+                "char_ken",
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_mashita"
+                },
+                "v_chuui",
+                {
+                  "id": "v_suru",
+                  "form": "plain_form"
+                },
+                "v_koto",
+                "p_wa",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "はい。正しい 名前を 書いて ください。",
+              "terms": [
+                "p_hai",
+                "v_tadashii",
+                "v_namae",
+                "p_wo",
+                {
+                  "id": "v_kaku",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            }
+          ],
+          "question": "What must the student write on the composition?",
+          "choices": [
+            "The title and subject.",
+            "The correct name.",
+            "The date and page number.",
+            "The teacher's name and room number."
+          ],
+          "answer": "The correct name.",
+          "explanation": "The staff member says to write the correct name (正しい名前を書いてください)."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two university friends, けん and りきぞ, talk casually after a difficult exam.",
+          "lines": [
+            {
+              "spk": "けん",
+              "jp": "あの 試験、むずかしかったね。考え方が 悪かったよ。",
+              "terms": [
+                "char_ken",
+                "v_ano",
+                "v_shiken",
+                {
+                  "id": "v_muzukashii",
+                  "form": "plain_past_adj"
+                },
+                "p_ne",
+                "v_kangaekata",
+                "p_ga",
+                {
+                  "id": "v_warui",
+                  "form": "plain_past_adj"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "うん。でも 注意して 考えれば よかったよね。",
+              "terms": [
+                "char_rikizo",
+                "v_un",
+                "p_demo_but",
+                "v_chuui",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_kangaeru",
+                  "form": "conditional_ba"
+                },
+                {
+                  "id": "v_ii",
+                  "form": "plain_past_adj"
+                },
+                "p_ne",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "けん",
+              "jp": "そう だね。つぎは 正しい 考え方で 研究を 進もうよ。",
+              "terms": [
+                "char_ken",
+                "v_sou",
+                "p_ne",
+                "g_da",
+                "v_tsugi",
+                "p_wa",
+                "v_tadashii",
+                "v_kangaekata",
+                "p_de",
+                "v_kenkyuu",
+                "p_wo",
+                {
+                  "id": "v_susumu",
+                  "form": "plain_volitional"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "うん！毎日 少しずつ 注意して 勉強すれば、できるよ。",
+              "terms": [
+                "char_rikizo",
+                "v_un",
+                "v_mainichi",
+                "v_sukoshi",
+                "p_zutsu",
+                "v_chuui",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                "v_benkyou",
+                {
+                  "id": "v_suru",
+                  "form": "conditional_ba"
+                },
+                {
+                  "id": "v_dekiru",
+                  "form": "plain_form"
+                },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "How does りきぞ say they should approach their next exam?",
+          "choices": [
+            "Give up and relax.",
+            "Pay careful attention and advance with the correct way of thinking.",
+            "Ask the teacher for help immediately.",
+            "Only review the English writing sections."
+          ],
+          "answer": "Pay careful attention and advance with the correct way of thinking.",
+          "explanation": "りきぞ says if they pay careful attention (注意して考えれば) next time, and けん agrees they should advance with the correct way of thinking (正しい考え方で研究を進もう)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "If you pay attention, you will understand the meaning.",
+          "segments": ["注意すれば", "意味が", "分かります"],
+          "distractors": ["注意したら", "意味を", "分かりません"],
+          "alts": [],
+          "explanation": "<b>～ば</b> expresses a conditional: 'if you do X, then Y.' 注意すれば = 'if you pay attention.' The result follows naturally."
+        },
+        {
+          "kind": "scramble",
+          "q": "When New Year comes, I have to correct bad ways of thinking.",
+          "segments": ["正月が", "来たら", "悪い", "考え方を", "正さなければ", "いけません"],
+          "distractors": ["来れば", "考え方は", "正して"],
+          "alts": [],
+          "explanation": "<b>～たら</b> expresses a conditional in time sequence: 'when/if X happens.' <b>～なければいけません</b> expresses obligation: 'must / have to.'"
+        },
+        {
+          "kind": "scramble",
+          "q": "If you are going to study literature, this document is important.",
+          "segments": ["文学を", "勉強するなら", "この", "文書が", "大切です"],
+          "distractors": ["文学は", "勉強すれば", "文書を"],
+          "alts": [],
+          "explanation": "<b>～なら</b> is a contextual conditional: 'if that is the case / given that you plan to do X.' It responds to a known situation or stated plan."
+        },
+        {
+          "kind": "scramble",
+          "q": "If you want to correct your way of thinking, it is better to read good literature.",
+          "segments": ["考え方を", "正したいなら", "いい 文学を", "読む 方が", "いいです"],
+          "distractors": ["考え方は", "正すなら", "読んだ 方が"],
+          "alts": [],
+          "explanation": "<b>～たいなら</b> combines the desire form (～たい) with the contextual conditional (～なら): 'if you want to do X.' 考え方を 正したいなら = 'if you want to correct your way of thinking.' The correct order puts the goal condition first, then the recommendation."
+        },
+        {
+          "kind": "scramble",
+          "q": "Researchers must carefully read documents.",
+          "segments": ["研究者は", "文書を", "注意して", "読まなければ", "いけません"],
+          "distractors": ["研究者が", "文書が", "読んで"],
+          "alts": [],
+          "explanation": "<b>～なければいけません</b> expresses obligation: 'must / have to.' Researchers (研究者) are obligated to read documents carefully."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading 1 — A Research Project",
+      "instructions": "Read the passage and answer the comprehension questions.",
+      "passage": [
+        {
+          "jp": "やまもと先生は 日本の 文学を 研究して います。",
+          "en": "Professor Yamamoto is researching Japanese literature.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_nihon",
+            "p_no",
+            "v_bungaku",
+            "p_wo",
+            "v_kenkyuu",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先生は 古い 文書を 読んだり、作文を 書いたり して います。",
+          "en": "The professor reads old documents and writes compositions, among other things.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_furui",
+            "v_bunsho",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "tari_form"
+            },
+            "v_sakubun",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "正しい 考え方で 研究すれば、いい 文書が できます。",
+          "en": "If you do research with the correct way of thinking, good documents can be produced.",
+          "terms": [
+            "v_tadashii",
+            "v_kangaekata",
+            "p_de",
+            "v_kenkyuu",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            "v_ii",
+            "v_bunsho",
+            "p_ga",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞは 先生の 考え方に 注目して、毎日 研究に 注意を 注いで います。",
+          "en": "Rikizo pays attention to the professor's way of thinking and carefully devotes his attention to research every day.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_sensei",
+            "p_no",
+            "v_kangaekata",
+            "p_ni",
+            "v_chuumoku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_mainichi",
+            "v_kenkyuu",
+            "p_ni",
+            "v_chuui",
+            "p_wo",
+            {
+              "id": "v_sosogu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまもと先生は 何を 研究して いますか。",
+          "a": "日本の 文学",
+          "choices": [
+            "日本の 文学",
+            "英語の 文書",
+            "日本の 注文",
+            "英文の 作文"
+          ],
+          "explanation": "The passage states やまもと先生は 日本の 文学を 研究して います (sentence 1) — Professor Yamamoto is researching Japanese literature.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            "v_kenkyuu",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_nihon",
+            "p_no",
+            "v_bungaku"
+          ]
+        },
+        {
+          "q": "どんな 考え方で 研究すれば、いい 文書が できますか。",
+          "a": "正しい 考え方",
+          "choices": [
+            "正しい 考え方",
+            "悪い 考え方",
+            "古い 考え方",
+            "英語の 考え方"
+          ],
+          "explanation": "Sentence 3 states 正しい 考え方で 研究すれば、いい 文書が できます — if you do research with the correct way of thinking, good documents can be produced.",
+          "terms": [
+            "v_donna",
+            "v_kangaekata",
+            "p_de",
+            "v_kenkyuu",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            "v_ii",
+            "v_bunsho",
+            "p_ga",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_tadashii",
+            "v_warui",
+            "v_furui"
+          ]
+        },
+        {
+          "q": "りきぞは 毎日 何を して いますか。",
+          "a": "研究に 注意を 注いで います",
+          "choices": [
+            "研究に 注意を 注いで います",
+            "文学の 本を 注文して います",
+            "作文を 読んで います",
+            "英文を 書いて います"
+          ],
+          "explanation": "Sentence 4 says りきぞは … 毎日 研究に 注意を 注いで います — Rikizo carefully devotes his attention to research every day.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_kenkyuu",
+            "p_ni",
+            "v_chuui",
+            "p_wo",
+            {
+              "id": "v_sosogu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 4: Reading 2 — Good and Bad Ways of Thinking",
+      "instructions": "Read the passage and answer the comprehension questions.",
+      "passage": [
+        {
+          "jp": "人は 正しい 考え方と 悪い 考え方を 持って います。",
+          "en": "People have both correct ways of thinking and bad ways of thinking.",
+          "terms": [
+            "v_hito",
+            "p_wa",
+            "v_tadashii",
+            "v_kangaekata",
+            "p_to",
+            "v_warui",
+            "v_kangaekata",
+            "p_wo",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "悪い 考え方に 注目して いれば、問題が 大きく なります。",
+          "en": "If you are focused on bad ways of thinking, problems grow bigger.",
+          "terms": [
+            "v_warui",
+            "v_kangaekata",
+            "p_ni",
+            "v_chuumoku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "conditional_ba"
+            },
+            "v_mondai",
+            "p_ga",
+            {
+              "id": "v_ookii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "でも、正しい 考え方を 持てば、悪い ことも 正せます。",
+          "en": "But if you have the correct way of thinking, you can also correct bad things.",
+          "terms": [
+            "p_demo_but",
+            "v_tadashii",
+            "v_kangaekata",
+            "p_wo",
+            {
+              "id": "v_motsu",
+              "form": "conditional_ba"
+            },
+            "v_warui",
+            "v_koto",
+            "p_mo",
+            {
+              "id": "v_tadasu",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "jp": "毎日 注意して 考えれば、正しい 見方が 分かって きますよ。",
+          "en": "If you think carefully every day, you will gradually come to understand the correct way of seeing things.",
+          "terms": [
+            "v_mainichi",
+            "v_chuui",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kangaeru",
+              "form": "conditional_ba"
+            },
+            "v_tadashii",
+            "v_mikata",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "悪い 考え方に 注目して いれば、どうなりますか。",
+          "a": "問題が 大きく なります",
+          "choices": [
+            "問題が 大きく なります",
+            "研究が 進みます",
+            "文学が 分かります",
+            "意味が 分かります"
+          ],
+          "explanation": "Sentence 2 states 悪い 考え方に 注目して いれば、問題が 大きく なります — if you are focused on bad ways of thinking, problems grow bigger.",
+          "terms": [
+            "v_warui",
+            "v_kangaekata",
+            "p_ni",
+            "v_chuumoku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "conditional_ba"
+            },
+            "v_dou",
+            "p_ka",
+            "v_mondai",
+            "p_ga",
+            {
+              "id": "v_ookii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "正しい 考え方を 持てば、何が できますか。",
+          "a": "悪い ことも 正せます",
+          "choices": [
+            "悪い ことも 正せます",
+            "文書を 書けます",
+            "注文できます",
+            "研究者に なれます"
+          ],
+          "explanation": "Sentence 3 states でも、正しい 考え方を 持てば、悪い ことも 正せます — but if you have the correct way of thinking, you can also correct bad things.",
+          "terms": [
+            "v_tadashii",
+            "v_kangaekata",
+            "p_wo",
+            {
+              "id": "v_motsu",
+              "form": "conditional_ba"
+            },
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_warui",
+            "v_koto",
+            "p_mo",
+            {
+              "id": "v_tadasu",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "q": "毎日 注意して 考えれば、何が 分かって きますか。",
+          "a": "正しい 見方",
+          "choices": [
+            "正しい 見方",
+            "悪い 考え方",
+            "古い 文書",
+            "英文の 書き方"
+          ],
+          "explanation": "Sentence 4 states 毎日 注意して 考えれば、正しい 見方が 分かって きます — if you think carefully every day, you will gradually come to understand the correct way of seeing things.",
+          "terms": [
+            "v_mainichi",
+            "v_chuui",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kangaeru",
+              "form": "conditional_ba"
+            },
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_tadashii",
+            "v_mikata"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[文学]を 研究して います。",
+          "choices": ["ぶんがく", "もんがく", "ふみがく", "ぶんか"],
+          "answer": "ぶんがく",
+          "explanation": "文学 (literature) is read as <b>bungaku</b>. 文 reads ぶん; 学 reads がく."
+        },
+        {
+          "kind": "mcq",
+          "q": "[注意]して 聞いて ください。",
+          "choices": ["ちゅうい", "ちゅうもく", "じゅうい", "ちゅうもん"],
+          "answer": "ちゅうい",
+          "explanation": "注意 (caution / careful attention) is read as <b>chuui</b>. 注 reads ちゅう; 意 reads い."
+        },
+        {
+          "kind": "mcq",
+          "q": "[研究]は むずかしいです。",
+          "choices": ["けんきゅう", "けんか", "けんこう", "けんぶつ"],
+          "answer": "けんきゅう",
+          "explanation": "研究 (research) is read as <b>kenkyuu</b>. 研 reads けん; 究 reads きゅう."
+        },
+        {
+          "kind": "mcq",
+          "q": "[究明]が 大切です。",
+          "choices": ["きゅうめい", "くめい", "けんめい", "きゅうしん"],
+          "answer": "きゅうめい",
+          "explanation": "究明 (investigation / clarification) is read as <b>kyuumei</b>. 究 reads きゅう; 明 reads めい."
+        },
+        {
+          "kind": "mcq",
+          "q": "[正しい] 考え方が 大切です。",
+          "choices": ["ただしい", "まさしい", "せいしい", "しょうしい"],
+          "answer": "ただしい",
+          "explanation": "正しい (correct) is read as <b>tadashii</b>. This is the kun-reading of 正."
+        },
+        {
+          "kind": "mcq",
+          "q": "[考え方]が 大切です。",
+          "choices": ["かんがえかた", "かんがいかた", "こうかた", "かんがえほう"],
+          "answer": "かんがえかた",
+          "explanation": "考え方 (way of thinking) is read as <b>kangaekata</b>. 考え reads かんがえ; 方 reads かた."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生の [見方]に 注目します。",
+          "choices": ["みかた", "けんかた", "みほう", "けんほう"],
+          "answer": "みかた",
+          "explanation": "見方 (way of seeing / perspective) is read as <b>mikata</b>. 見 reads み; 方 reads かた."
+        },
+        {
+          "kind": "mcq",
+          "q": "[悪質]な 行動は よくないです。",
+          "choices": ["あくしつ", "わるしつ", "あくしち", "わるちつ"],
+          "answer": "あくしつ",
+          "explanation": "悪質 (malicious / of bad quality) is read as <b>akushitsu</b>. 悪 reads あく (on-reading); 質 reads しつ."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Context & Vocabulary",
+      "instructions": "Select the best word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "図書館で 本を ______ して、大学に 持って きた。",
+          "choices": ["注文", "注意", "注目", "文学"],
+          "answer": "注文",
+          "explanation": "注文 (order / request for an item) fits the context of ordering a book from the library. 注目 means 'attention/focus'; 注意 means 'careful attention/caution.'",
+          "terms": [
+            "v_toshokan",
+            "p_de",
+            "v_hon",
+            "p_wo",
+            "v_chuumon",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_chuui",
+            "v_chuumoku",
+            "v_bungaku",
+            "v_daigaku",
+            "p_ni",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "plain_past"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "その 研究者は 大学に 長い ______ を 出しました。",
+          "choices": ["文書", "作文", "英文", "注文"],
+          "answer": "文書",
+          "explanation": "文書 (document / written paper) is what a researcher formally submits to a university. 作文 is a student composition essay; 英文 is English text.",
+          "terms": [
+            "v_sono",
+            "v_kenkyuusha",
+            "p_wa",
+            "v_daigaku",
+            "p_ni",
+            "v_nagai",
+            "v_bunsho",
+            "v_sakubun",
+            "v_eibun",
+            "v_chuumon",
+            {
+              "id": "v_dasu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生は 学生に 正しい ______ を 教えて います。",
+          "choices": ["考え方", "悪質", "注文", "文書"],
+          "answer": "考え方",
+          "explanation": "考え方 (way of thinking) is what a teacher would guide students to develop. 悪質 means malicious/bad quality, which doesn't fit.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_gakusei",
+            "p_ni",
+            "v_tadashii",
+            "v_kangaekata",
+            "v_akushitsu",
+            "v_chuumon",
+            "v_bunsho",
+            {
+              "id": "v_oshieru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "研究者は 文書の 問題を 正しく ______ しなければ いけません。",
+          "choices": ["究明", "注文", "作文", "注目"],
+          "answer": "究明",
+          "explanation": "究明 (investigation / clarification) is what a researcher must do with problems in documents. 注文 means 'order'; 作文 means 'composition essay.'",
+          "terms": [
+            "v_kenkyuusha",
+            "p_wa",
+            "v_bunsho",
+            "p_no",
+            "v_mondai",
+            "p_wo",
+            "v_kyuumei",
+            "v_chuumon",
+            "v_sakubun",
+            "v_chuumoku",
+            {
+              "id": "v_tadashii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_suru",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 7: Grammar Check",
+      "instructions": "Choose the correct word or form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 注意して 勉強______ 、日本語が 上手に なりますよ。",
+          "choices": ["すれば", "したら", "するなら", "するとき"],
+          "answer": "すれば",
+          "explanation": "<b>～ば</b> and ～たら can both express this conditional, but ～ば is preferred for stating a general, reliable cause-and-effect: 'whenever you do X, Y will result.' ～するなら requires a pre-stated context or plan. ～するとき means 'when' (a specific time), not 'if.'",
+          "terms": [
+            "v_mainichi",
+            "v_chuui",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            "v_nihongo",
+            "p_ga",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "作文を 出し______ 、先生に 見て もらいました。",
+          "choices": ["てから", "ながら", "たり", "ように"],
+          "answer": "てから",
+          "explanation": "<b>てから</b> means 'after doing.' The student submitted the composition and then had the teacher look at it — a clear time sequence.",
+          "terms": [
+            "v_sakubun",
+            "p_wo",
+            {
+              "id": "v_dasu",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_sensei",
+            "p_ni",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "研究者に なる______ 、毎日 注意して 勉強しなければ いけません。",
+          "choices": ["なら", "ために", "ながら", "てから"],
+          "answer": "なら",
+          "explanation": "<b>～なら</b> is a contextual conditional: 'if that is the case / if you intend to become a researcher, you must study carefully every day.' It responds to a goal or stated intention.",
+          "terms": [
+            "v_kenkyuusha",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "p_nara",
+            "v_mainichi",
+            "v_chuui",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "悪質な 考え方を 持って ______ いけません。",
+          "choices": ["は", "が", "を", "に"],
+          "answer": "は",
+          "explanation": "<b>てはいけない</b> expresses prohibition: 'must not / should not.' The particle は connects the て-form verb to いけない. 悪質な 考え方を 持ってはいけません means 'must not hold malicious ways of thinking.'",
+          "terms": [
+            {
+              "id": "v_akushitsu",
+              "form": "attributive_na"
+            },
+            "v_kangaekata",
+            "p_wo",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "文学を 勉強するなら、古い ______ を 注意して 読む 方が いいです。",
+          "choices": ["文書", "注文", "考え方", "注目"],
+          "answer": "文書",
+          "explanation": "文書 (document) is what a literature student should read carefully. 注文 means 'order'; 考え方 means 'way of thinking'; 注目 means 'attention/focus'.",
+          "terms": [
+            "v_bungaku",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "p_nara",
+            "v_furui",
+            "v_bunsho",
+            "v_chuumon",
+            "v_kangaekata",
+            "v_chuumoku",
+            "p_wo",
+            "v_chuui",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_yomu",
+              "form": "plain_form"
+            },
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

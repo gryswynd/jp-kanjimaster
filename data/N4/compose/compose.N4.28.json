@@ -1,0 +1,392 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.28",
+  "lesson": "N4.28",
+  "level": "N4",
+  "title": "A Walk Through the Mountain Village",
+  "titleJp": "山村を 歩く",
+  "emoji": "🌿",
+  "theme": "Write about visiting a mountain village for the day — entering through the school gate, walking through a grove, discovering a pond, meeting a villager, and reflecting on life in the countryside. Use pond, grove, gate, and village vocabulary in a natural narrative.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you went to a mountain village today. Use 山村.",
+      "targets": [
+        {
+          "id": "v_sanson",
+          "count": 1
+        }
+      ],
+      "model": "今日、山村に 行きました。",
+      "vocabPool": [
+        "v_sanson",
+        "v_iku",
+        "v_kuru",
+        "v_mainichi",
+        "v_ashita",
+        "v_kyou",
+        "v_yama",
+        "v_mura",
+        "g_desu",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Describe the mountain village. Write that there is a grove and a pond. Use 山林 and 池.",
+      "targets": [
+        {
+          "id": "v_sanrin",
+          "count": 1
+        },
+        {
+          "id": "v_ike",
+          "count": 1
+        }
+      ],
+      "model": "山村には 山林と 池が あります。",
+      "vocabPool": [
+        "v_sanrin",
+        "v_ike",
+        "v_sanson",
+        "v_aru",
+        "v_kirei",
+        "v_ookii",
+        "v_chiisai",
+        "v_totemo",
+        "g_desu",
+        "p_ni",
+        "p_to",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that you entered through the school gate. Use 校門.",
+      "targets": [
+        {
+          "id": "v_koumon",
+          "count": 1
+        }
+      ],
+      "model": "まず、校門から 中に 入りました。",
+      "vocabPool": [
+        "v_koumon",
+        "v_seimon",
+        "v_mon",
+        "v_hairu",
+        "v_naka",
+        "v_mae",
+        "v_iku",
+        "v_soto",
+        "g_desu",
+        "p_kara",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you walked through the grove and took photos. Use 林 and 写真を とる.",
+      "targets": [
+        {
+          "id": "v_hayashi",
+          "count": 1
+        },
+        {
+          "id": "v_shashin",
+          "count": 1
+        }
+      ],
+      "model": "林の 中を 歩いて、写真を とりました。",
+      "vocabPool": [
+        "v_hayashi",
+        "v_shashin",
+        "v_toru",
+        "v_aruku",
+        "v_naka",
+        "v_sanrin",
+        "v_ike",
+        "v_totemo",
+        "v_kirei",
+        "g_desu",
+        "p_no",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that the pond was beautiful and the water was clean. Use 池 and 水.",
+      "targets": [
+        {
+          "id": "v_ike",
+          "count": 1
+        },
+        {
+          "id": "v_mizu",
+          "count": 1
+        }
+      ],
+      "model": "池は とても きれいで、水も 冷たかったです。",
+      "vocabPool": [
+        "v_ike",
+        "v_mizu",
+        "v_kirei",
+        "v_totemo",
+        "v_ookii",
+        "v_chiisai",
+        "v_hayashi",
+        "v_ki",
+        "g_desu",
+        "p_wa",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that you met a villager there. Use 村人 and a conditional たら form.",
+      "targets": [
+        {
+          "id": "v_murabito",
+          "count": 1
+        }
+      ],
+      "model": "池の そばに 着いたら、村人に 会いました。",
+      "vocabPool": [
+        "v_murabito",
+        "v_ike",
+        "v_tsuku",
+        "v_aruku",
+        "v_mura",
+        "v_sonchou",
+        "v_hayashi",
+        "v_tomodachi",
+        "g_desu",
+        "p_ni",
+        "p_de"
+      ]
+    },
+    {
+      "prompt": "Write what the villager said. Use 門 and a quoting expression with そうです.",
+      "targets": [
+        {
+          "id": "v_mon",
+          "count": 1
+        }
+      ],
+      "model": "村人によると、門は 正門より 古い そうです。",
+      "vocabPool": [
+        "v_mon",
+        "v_seimon",
+        "v_koumon",
+        "v_murabito",
+        "v_sonchou",
+        "v_iu",
+        "v_mura",
+        "v_totemo",
+        "g_desu",
+        "p_wa",
+        "p_to_quote",
+        "p_sou_da_hearsay"
+      ]
+    },
+    {
+      "prompt": "Write that you want to come back again and get better at taking nature photos. Use ようになる.",
+      "targets": [
+        {
+          "id": "v_shashin",
+          "count": 1
+        },
+        {
+          "id": "v_you_manner",
+          "count": 1
+        }
+      ],
+      "model": "また 来て、林や 池の 写真が 上手に とれる ように なりたいです。",
+      "vocabPool": [
+        "v_shashin",
+        "v_you_manner",
+        "v_toru",
+        "v_kuru",
+        "v_naru",
+        "v_jouzu",
+        "v_motto",
+        "v_mata",
+        "v_ike",
+        "v_hayashi",
+        "g_desu",
+        "p_no",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "You realize today's visit has inspired you. Write that, since meeting the villager, you have made an effort to read your Japanese introductory book every day. Use 入門 and ようにする.",
+      "targets": [
+        {
+          "id": "v_nyuumon",
+          "count": 1
+        },
+        {
+          "id": "v_you_manner",
+          "count": 1
+        }
+      ],
+      "model": "村人に 会って から、毎日、日本語の 入門から 勉強する ように して います。",
+      "vocabPool": [
+        "v_nyuumon",
+        "v_you_manner",
+        "v_nihongo",
+        "v_benkyou",
+        "v_mainichi",
+        "v_murabito",
+        "v_suru",
+        "v_iru",
+        "v_yomu",
+        "v_au",
+        "g_desu",
+        "p_no",
+        "p_kara",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write about what you have to do before you return home. Use なければいけない and 帰る.",
+      "targets": [
+        {
+          "id": "v_kaeru",
+          "count": 1
+        }
+      ],
+      "model": "家に 帰る 前に、電池を 買わなければ いけません。",
+      "vocabPool": [
+        "v_kaeru",
+        "v_denchi",
+        "v_ie",
+        "v_mae",
+        "v_iku",
+        "v_kau",
+        "v_suru",
+        "v_eki",
+        "v_owaru",
+        "g_desu",
+        "p_ni",
+        "p_wo"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "On a different day, text a friend casually. Tell them that if they come to the mountain village, they will be able to see a beautiful grove and pond. Use 山村, 林, and 池.",
+      "targets": [
+        {
+          "id": "v_sanson",
+          "count": 1
+        },
+        {
+          "id": "v_hayashi",
+          "count": 1
+        },
+        {
+          "id": "v_ike",
+          "count": 1
+        }
+      ],
+      "model": "山村に 来たら、きれいな 林と 池が 見られる よ。",
+      "vocabPool": [
+        "v_sanson",
+        "v_hayashi",
+        "v_ike",
+        "v_kuru",
+        "v_miru",
+        "v_kirei",
+        "v_totemo",
+        "v_sanrin",
+        "v_mura",
+        "v_tomodachi",
+        "g_desu",
+        "p_to",
+        "p_ga",
+        "p_ni"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_ni",
+    "p_de",
+    "p_no",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_made_ni",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_dewa",
+    "p_ga_but",
+    "p_kedo",
+    "p_node",
+    "p_hodo",
+    "p_yori",
+    "p_sou_da_hearsay",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-た] + ら",
+      "meaning": "when / after [verb] (conditional — event sequence)",
+      "examples": [
+        "池に 着いたら、村人に 会いました",
+        "校門に 入ったら、林が 見えました",
+        "家に 帰ったら、電池を 買います"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + する",
+      "meaning": "make an effort to / try to [verb]",
+      "examples": [
+        "毎日 日本語を 勉強する ように して います",
+        "早く 帰る ように して ください",
+        "写真を とる ように して います"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + なる",
+      "meaning": "come to / become able to [verb] (change of state)",
+      "examples": [
+        "山村の 写真が 上手に とれる ように なりました",
+        "日本語が 分かる ように なりました",
+        "林の 中を 歩ける ように なりたいです"
+      ]
+    },
+    {
+      "pattern": "[verb-なければ] + いけない",
+      "meaning": "must [verb] / have to [verb] (obligation)",
+      "examples": [
+        "家に 帰る 前に、電池を 買わなければ いけません",
+        "校門を 出なければ いけません",
+        "毎日 運動しなければ いけません"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + から",
+      "meaning": "after doing [verb] (sequential actions)",
+      "examples": [
+        "林を 歩いて から、池に 行きました",
+        "校門に 入って から、林を 歩きました",
+        "仕事が 終わって から、家に 帰ります"
+      ]
+    },
+    {
+      "pattern": "[plain past] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay)",
+      "examples": [
+        "門は 正門より 古い そうです",
+        "山村が とても きれい だった そうです",
+        "村人が 親切 だった そうです"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1218 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.21",
+  "title": "Commerce & Possessions",
+  "meta": {
+    "level": "N4",
+    "lesson_number": 21,
+    "focus": "Selling goods, lending items, holding and carrying things, and the feeling of quality.",
+    "estimated_minutes": 35,
+    "kanji": [
+      "売",
+      "品",
+      "持",
+      "貸"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "売",
+      "on": "ばい",
+      "kun": "う(る)",
+      "meaning": "Sell",
+      "termId": "k_bai"
+    },
+    {
+      "kanji": "品",
+      "on": "ひん",
+      "kun": "しな",
+      "meaning": "Item / Goods",
+      "termId": "k_hin"
+    },
+    {
+      "kanji": "持",
+      "on": "じ",
+      "kun": "も(つ)",
+      "meaning": "Hold / Have",
+      "termId": "k_ji_hold"
+    },
+    {
+      "kanji": "貸",
+      "on": "たい",
+      "kun": "か(す)",
+      "meaning": "Lend",
+      "termId": "k_tai"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Practice with these questions using vocabulary you already know.",
+      "items": [
+        {
+          "jp": "この 本を 借りても いいですか。",
+          "en": "Is it okay to borrow this book?",
+          "terms": [
+            "v_kono",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kariru",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "高いのに、たくさん 買いましたね。",
+          "en": "Even though it's expensive, you bought a lot, didn't you?",
+          "terms": [
+            "v_takai",
+            "p_noni",
+            "v_takusan",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "jp": "今、何を して いますか。",
+          "en": "What are you doing right now?",
+          "terms": [
+            "v_ima",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "仕事が 終わってから、どこに 行きますか。",
+          "en": "Where do you go after work finishes?",
+          "terms": [
+            "v_shigoto",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい漢字）",
+      "items": [
+        {
+          "kanji": "売",
+          "on": "ばい",
+          "kun": "う(る)",
+          "meaning": "Sell",
+          "terms": [
+            "k_bai",
+            "v_uru",
+            "v_uridasu",
+            "v_urimono"
+          ]
+        },
+        {
+          "kanji": "品",
+          "on": "ひん",
+          "kun": "しな",
+          "meaning": "Item / Goods",
+          "terms": [
+            "k_hin",
+            "v_shinamono",
+            "v_hinmei",
+            "v_jouhin",
+            "v_tejina"
+          ]
+        },
+        {
+          "kanji": "持",
+          "on": "じ",
+          "kun": "も(つ)",
+          "meaning": "Hold / Have",
+          "terms": [
+            "k_ji_hold",
+            "v_motsu",
+            "v_kimochi",
+            "v_mochiaji",
+            "v_mochidasu",
+            "v_mochikaeru"
+          ]
+        },
+        {
+          "kanji": "貸",
+          "on": "たい",
+          "kun": "か(す)",
+          "meaning": "Lend",
+          "terms": [
+            "k_tai",
+            "v_kasu",
+            "v_ikeru"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "New Vocabulary（新しい言葉）",
+      "groups": [
+        {
+          "label": "🏪 Selling & Lending",
+          "items": [
+            "v_uru",
+            "v_uridasu",
+            "v_urimono",
+            "v_kasu",
+            "v_furi_maaketto",
+            "v_okyakusan",
+            "v_hoka"
+          ]
+        },
+        {
+          "label": "📦 Goods & Quality",
+          "items": [
+            "v_shinamono",
+            "v_hinmei",
+            "v_jouhin",
+            "v_tejina"
+          ]
+        },
+        {
+          "label": "🤲 Holding & Feeling",
+          "items": [
+            "v_motsu",
+            "v_kimochi",
+            "v_mochiaji",
+            "v_mochidasu",
+            "v_mochikaeru",
+            "v_ikeru"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: At the Market",
+      "context": "Rikizo is browsing an open-air market and examines goods for sale.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "この 品物は 売り物ですか。",
+          "en": "Is this item for sale?",
+          "terms": [
+            "v_kono",
+            "v_shinamono",
+            "p_wa",
+            "v_urimono",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "店員",
+          "jp": "おきゃくさん、はい。今日 売り出しました。とても 上品な 品物ですよ。",
+          "en": "Welcome, customer. Yes — we put it on sale today. It's a very refined item.",
+          "terms": [
+            "v_okyakusan",
+            "p_hai",
+            "v_kyou",
+            {
+              "id": "v_uridasu",
+              "form": "polite_mashita"
+            },
+            "v_totemo",
+            {
+              "id": "v_jouhin",
+              "form": "attributive_na"
+            },
+            "v_shinamono",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "品名は 何ですか。どこで 作りましたか。",
+          "en": "What is the product name? Where was it made?",
+          "terms": [
+            "v_hinmei",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka",
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "店員",
+          "jp": "外国で 作りました。洋風で、いい 持ち味の 品物です。ほかの 品物も 上品ですよ。",
+          "en": "It was made abroad. It's Western-style, with a distinctive quality. Other items are refined too.",
+          "terms": [
+            "v_gaikoku",
+            "p_de",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            },
+            "v_youfuu",
+            "p_de",
+            "v_ii",
+            "v_mochiaji",
+            "p_no",
+            "v_shinamono",
+            "g_desu",
+            "v_hoka",
+            "p_no",
+            "v_shinamono",
+            "p_mo",
+            {
+              "id": "v_jouhin",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Lending a Pen",
+      "context": "In the school corridor, Rikizo asks to borrow a pen from Yamakawa and asks about taking it outside.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "すみません。ペンを 貸して ください。",
+          "en": "Excuse me. Please lend me a pen.",
+          "terms": [
+            "p_sumimasen",
+            "v_pen",
+            "p_wo",
+            {
+              "id": "v_kasu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "どうぞ。たくさん 持って いますから。",
+          "en": "Here you go. Because I have many.",
+          "terms": [
+            "p_douzo",
+            "v_takusan",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ありがとうございます。外へ 持ち出しても いいですか。",
+          "en": "Thank you. Is it okay if I take it outside?",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_soto",
+            "p_e",
+            {
+              "id": "v_mochidasu",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "いいえ、外へ 持ち出しては だめです。ここは 学校ですから、中で 使って ください。",
+          "en": "No, you must not take it outside. Since this is school, please use it inside.",
+          "terms": [
+            "v_iie",
+            "v_soto",
+            "p_e",
+            {
+              "id": "v_mochidasu",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_dame",
+              "form": "polite_adj"
+            },
+            "v_koko",
+            "p_wa",
+            "v_gakkou",
+            "g_desu",
+            "p_kara_because",
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: At the Food Stall",
+      "context": "Rikizo is at a market food stall and asks about taking food home.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "この 料理を 持ち帰っても いいですか。",
+          "en": "May I take this dish home?",
+          "terms": [
+            "v_kono",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_mochikaeru",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "店員",
+          "jp": "はい、どうぞ。この 店の 持ち味は 洋風の 料理ですよ。",
+          "en": "Yes, go ahead. The distinctive quality of our shop is Western-style cooking.",
+          "terms": [
+            "p_hai",
+            "p_douzo",
+            "v_kono",
+            "v_mise",
+            "p_no",
+            "v_mochiaji",
+            "p_wa",
+            "v_youfuu",
+            "p_no",
+            "v_ryouri",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "わかりました。今 お金を 出さなくても いいですか。",
+          "en": "Understood. Do I not have to pay now?",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_ima",
+            "v_okane",
+            "p_wo",
+            {
+              "id": "v_dasu",
+              "form": "plain_negative"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "店員",
+          "jp": "洋風の 料理です。食べた あと、いい 気持ちに なりますよ。",
+          "en": "Western-style cooking. After eating, you will feel good.",
+          "terms": [
+            "v_youfuu",
+            "p_no",
+            "v_ryouri",
+            "g_desu",
+            {
+              "id": "v_taberu",
+              "form": "plain_past"
+            },
+            "v_ato",
+            "v_ii",
+            "v_kimochi",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Friends at the Market (Casual)",
+      "context": "けん and りきぞ are strolling through an open-air market together after work.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "あの 手品、見た？すごく おもしろかったな。",
+          "en": "Did you see that magic trick? It was incredibly interesting!",
+          "terms": [
+            "v_ano",
+            "v_tejina",
+            {
+              "id": "v_miru",
+              "form": "plain_past"
+            },
+            "p_ka",
+            {
+              "id": "v_sugoi",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_omoshiroi",
+              "form": "plain_past_adj"
+            },
+            "p_na"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "見たよ。すごく 楽しかったな。",
+          "en": "Yeah, I saw it. It was incredibly fun!",
+          "terms": [
+            {
+              "id": "v_miru",
+              "form": "plain_past"
+            },
+            "p_yo",
+            {
+              "id": "v_sugoi",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_tanoshii",
+              "form": "plain_past_adj"
+            },
+            "p_na"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "また こないかな。売り物も おもしろかったし、気持ちも よかったよ。",
+          "en": "I wonder if they'll come again. The goods were interesting too, and it felt great.",
+          "terms": [
+            "v_mata",
+            {
+              "id": "v_kuru",
+              "form": "plain_negative"
+            },
+            "p_kana",
+            "v_urimono",
+            "p_mo",
+            {
+              "id": "v_omoshiroi",
+              "form": "plain_past_adj"
+            },
+            "p_shi",
+            "v_kimochi",
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そうだね。また 来よう。楽しかったから。",
+          "en": "Yeah. Let's come again. Because it was fun!",
+          "terms": [
+            "v_sou",
+            "p_ne",
+            "g_da",
+            "v_mata",
+            {
+              "id": "v_kuru",
+              "form": "plain_volitional"
+            },
+            {
+              "id": "v_tanoshii",
+              "form": "plain_past_adj"
+            },
+            "p_kara_because"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: The Antique Shop",
+      "passage": [
+        {
+          "jp": "私の 父は 古い 品物を 売って います。",
+          "en": "My father sells old goods.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_chichi",
+            "p_wa",
+            "v_furui",
+            "v_shinamono",
+            "p_wo",
+            {
+              "id": "v_uru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "店には 上品な 洋服や 外国の 本が あります。",
+          "en": "In the shop there are elegant Western clothes and foreign books.",
+          "terms": [
+            "v_mise",
+            "p_wa",
+            "p_ni",
+            {
+              "id": "v_jouhin",
+              "form": "attributive_na"
+            },
+            "v_youfuku",
+            "p_ya",
+            "v_gaikoku",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "父は 「これは 売り物では ありません」と 言います。",
+          "en": "Father says, 'This is not for sale.'",
+          "terms": [
+            "v_chichi",
+            "p_wa",
+            "v_kore",
+            "p_wa",
+            "v_urimono",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "でも、時々 人に 貸すんです。",
+          "en": "But sometimes he does lend them to people.",
+          "terms": [
+            "p_demo_but",
+            "v_tokidoki",
+            "v_hito",
+            "p_ni",
+            {
+              "id": "v_kasu",
+              "form": "plain_form"
+            },
+            "p_ndesu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "父は 何を 売って いますか。",
+          "q_en": "What is the father selling?",
+          "a": "古い 品物を 売って います。",
+          "a_en": "He is selling old items.",
+          "terms": [
+            "v_chichi",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_uru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_furui",
+            "v_shinamono",
+            "p_wo",
+            {
+              "id": "v_uru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "店には どんな 品物が ありますか。",
+          "q_en": "What kind of items are in the shop?",
+          "a": "上品な 洋服や 外国の 本が あります。",
+          "a_en": "There are refined Western clothes and foreign books.",
+          "terms": [
+            "v_mise",
+            "p_wa",
+            "p_ni",
+            "v_donna",
+            "v_shinamono",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_jouhin",
+              "form": "attributive_na"
+            },
+            "v_youfuku",
+            "p_ya",
+            "v_gaikoku",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "父は 本を 人に 貸しますか。",
+          "q_en": "Does the father lend books to people?",
+          "a": "はい、時々 人に 貸します。",
+          "a_en": "Yes, he sometimes lends them.",
+          "terms": [
+            "v_chichi",
+            "p_wa",
+            "v_hon",
+            "p_wo",
+            "v_hito",
+            "p_ni",
+            {
+              "id": "v_kasu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_tokidoki",
+            "v_hito",
+            "p_ni",
+            {
+              "id": "v_kasu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: A Fun Day",
+      "passage": [
+        {
+          "jp": "日曜日に、フリーマーケットで 手品を 見たり、売り物を 見たり しました。",
+          "en": "On Sunday, at the flea market, I did things like watching magic tricks and looking at goods for sale.",
+          "terms": [
+            "v_nichiyoubi",
+            "p_ni",
+            "v_furi_maaketto",
+            "p_de",
+            "v_tejina",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            "v_urimono",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "とても おもしろくて、いい 気持ちでした。",
+          "en": "It was very interesting, and I felt wonderful.",
+          "terms": [
+            "v_totemo",
+            {
+              "id": "v_omoshiroi",
+              "form": "te_form"
+            },
+            "v_ii",
+            "v_kimochi",
+            {
+              "id": "g_desu",
+              "form": "copula_past"
+            }
+          ]
+        },
+        {
+          "jp": "帰りに ケーキを 持ち帰りました。",
+          "en": "On the way home, I took home a cake.",
+          "terms": [
+            "v_kaeri",
+            "p_ni",
+            "v_keeki",
+            "p_wo",
+            {
+              "id": "v_mochikaeru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "家族と 食べました。",
+          "en": "I ate it with my family.",
+          "terms": [
+            "v_kazoku",
+            "p_to",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "日曜日に 何を しましたか。",
+          "q_en": "What did you do on Sunday?",
+          "a": "手品を 見たり、売り物を 見たり しました。",
+          "a_en": "I watched magic tricks and looked at things for sale.",
+          "terms": [
+            "v_nichiyoubi",
+            "p_ni",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_tejina",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            "v_urimono",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "どんな 気持ちでしたか。",
+          "q_en": "How did you feel?",
+          "a": "とても いい 気持ちでした。",
+          "a_en": "I felt very good.",
+          "terms": [
+            "v_donna",
+            "v_kimochi",
+            {
+              "id": "g_desu",
+              "form": "copula_past"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_totemo",
+            "v_ii",
+            "v_kimochi",
+            {
+              "id": "g_desu",
+              "form": "copula_past"
+            }
+          ]
+        },
+        {
+          "q": "何を 持ち帰りましたか。",
+          "q_en": "What did you bring home?",
+          "a": "ケーキを 持ち帰りました。",
+          "a_en": "I brought home a cake.",
+          "terms": [
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_mochikaeru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_keeki",
+            "p_wo",
+            {
+              "id": "v_mochikaeru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた",
+      "instructions": "Choose the correct reading for each kanji word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[品物] の よみかたは？",
+          "choices": [
+            "しなもの",
+            "ひんぶつ",
+            "しなぶつ",
+            "ひなもの"
+          ],
+          "answer": "しなもの"
+        },
+        {
+          "kind": "mcq",
+          "q": "[売り出す] の よみかたは？",
+          "choices": [
+            "うりだす",
+            "うりいだす",
+            "うれだす",
+            "うりでる"
+          ],
+          "answer": "うりだす"
+        },
+        {
+          "kind": "mcq",
+          "q": "[持ち帰る] の よみかたは？",
+          "choices": [
+            "もちかえる",
+            "もちがえる",
+            "もつかえる",
+            "もちいれる"
+          ],
+          "answer": "もちかえる"
+        },
+        {
+          "kind": "mcq",
+          "q": "[貸す] の よみかたは？",
+          "choices": [
+            "かす",
+            "かしす",
+            "たいす",
+            "たす"
+          ],
+          "answer": "かす"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ",
+      "instructions": "Choose the word that best completes each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この（　）は 外国で 作りました。とても 上品です。",
+          "choices": [
+            "品物",
+            "品名",
+            "気持ち",
+            "手品"
+          ],
+          "answer": "品物",
+          "terms": [
+            "v_kono",
+            "v_shinamono",
+            "p_wa",
+            "v_gaikoku",
+            "p_de",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            },
+            "v_totemo",
+            {
+              "id": "v_jouhin",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "手品を 見て、いい（　）に なりました。",
+          "choices": [
+            "気持ち",
+            "品物",
+            "売り物",
+            "品名"
+          ],
+          "answer": "気持ち",
+          "terms": [
+            "v_tejina",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_ii",
+            "v_kimochi",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 本を 友だちに（　）も いいですか。",
+          "choices": [
+            "貸して",
+            "持ち帰って",
+            "売って",
+            "持ち出して"
+          ],
+          "answer": "貸して",
+          "terms": [
+            "v_kono",
+            "v_hon",
+            "p_wo",
+            "v_tomodachi",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_kasu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 料理を 家に（　）も いいですか。",
+          "choices": [
+            "持ち帰って",
+            "持ち出して",
+            "売って",
+            "貸して"
+          ],
+          "answer": "持ち帰って",
+          "terms": [
+            "v_kono",
+            "v_ryouri",
+            "p_wo",
+            "v_ie",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_mochikaeru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる",
+      "instructions": "Choose the correct particle or grammar form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "外で 食べ______いいですか。",
+          "choices": [
+            "ても",
+            "ては",
+            "てから",
+            "ながら"
+          ],
+          "answer": "ても",
+          "terms": [
+            "v_soto",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "学校の 中で 走っ______いけません。",
+          "choices": [
+            "ては",
+            "ても",
+            "てから",
+            "てに"
+          ],
+          "answer": "ては",
+          "terms": [
+            "v_gakkou",
+            "p_no",
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_hashiru",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 品物は 外国（　）作りました。",
+          "choices": [
+            "で",
+            "に",
+            "を",
+            "が"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_kono",
+            "v_shinamono",
+            "p_wa",
+            "v_gaikoku",
+            "p_de",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "洋服を 買いに 行った（　）、いい 洋服が ありませんでした。",
+          "choices": [
+            "のに",
+            "から",
+            "ので",
+            "し"
+          ],
+          "answer": "のに",
+          "terms": [
+            "v_youfuku",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "masu_stem"
+            },
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_past"
+            },
+            "p_noni",
+            "v_ii",
+            "v_youfuku",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_past_negative"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

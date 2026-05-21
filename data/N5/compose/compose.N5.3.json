@@ -1,0 +1,120 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.3",
+  "lesson": "N5.3",
+  "level": "N5",
+  "title": "My Calendar",
+  "titleJp": "わたしの かれんだー",
+  "emoji": "📅",
+  "theme": "Write about what month and day it is, how many people are in your life, and your birthday.",
+  "prompts": [
+    {
+      "prompt": "Begin your composition. Write what month this is and what the date is today.",
+      "targets": [
+        { "counter": "gatsu", "n": 3, "count": 1 },
+        { "id": "v_mikka", "count": 1 }
+      ],
+      "model": "今月は 三月です。今日は 三日です。",
+      "vocabPool": [
+        "v_kongetsu", "v_kyou", "v_mainichi", "v_maigetsu", "v_nan",
+        "v_ichinichitsuitachi", "v_futsuka", "v_mikka", "v_yokka",
+        "v_itsuka", "v_muika", "v_nanoka", "v_youka", "v_kokonoka", "v_tooka",
+        "v_watashi", "v_totemo", "v_ii", "v_ureshii", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write how many people are in your family or friend group. Name them if you can.",
+      "targets": [
+        { "counter": "nin", "n": 2, "count": 1 }
+      ],
+      "model": "かぞくは 二人 です。父と わたしです。",
+      "vocabPool": [
+        "v_nannin", "v_ikutsu",
+        "v_chichi", "v_haha", "v_otousan", "v_okaasan",
+        "v_tomodachi", "v_sensei", "v_watashi",
+        "v_iru", "v_issho", "v_mainichi", "v_totemo", "v_ii", "g_desu",
+        "v_kore", "v_sore", "v_are", "v_dore"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write when your birthday is, how much money you have this month, and how you feel about it.",
+      "targets": [
+        { "counter": "gatsu", "n": 5, "count": 1 },
+        { "id": "v_okane", "count": 1 },
+        { "id": "v_en", "count": 1 }
+      ],
+      "model": "たんじょうびは 五月 五日です。今月は 千円 あります。うれしいです。",
+      "vocabPool": [
+        "v_ichinichitsuitachi", "v_futsuka", "v_mikka", "v_yokka",
+        "v_itsuka", "v_muika", "v_nanoka", "v_youka", "v_kokonoka", "v_tooka",
+        "v_okane", "v_hyaku", "v_sen", "v_man", "v_en",
+        "v_kongetsu", "v_maigetsu", "v_kyou",
+        "v_aru", "v_ii", "v_ureshii", "v_totemo", "v_takusan", "g_desu",
+        "v_ikura", "v_kore", "v_dore"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_kara", "p_made", "p_ya", "p_made_ni", "p_ni"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["今月は 三月です", "今日は 五日です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite)",
+      "examples": ["今月は 二月でした", "今日は 一日でした"]
+    },
+    {
+      "pattern": "[noun] + ではありません",
+      "meaning": "is not (polite formal)",
+      "examples": ["今月は 三月ではありません"]
+    },
+    {
+      "pattern": "[noun] + じゃありません",
+      "meaning": "is not (polite casual)",
+      "examples": ["今日は 五日じゃありません"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is adj (polite)",
+      "examples": ["いいです", "うれしいです", "やさしいです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was adj (polite)",
+      "examples": ["よかったです", "うれしかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜くないです",
+      "meaning": "is not adj (polite)",
+      "examples": ["よくないです", "うれしくないです"]
+    },
+    {
+      "pattern": "[noun/thing] + が + あります",
+      "meaning": "there is / I have (inanimate things)",
+      "examples": ["お金が あります", "たんじょうびが あります"]
+    },
+    {
+      "pattern": "[noun/thing] + が + ありません",
+      "meaning": "there is not / I don't have (inanimate things)",
+      "examples": ["お金が ありません"]
+    },
+    {
+      "pattern": "[person] + が + います",
+      "meaning": "there is / [person] is here (animate beings)",
+      "examples": ["友だちが います", "先生が います"]
+    },
+    {
+      "pattern": "[person] + が + いません",
+      "meaning": "there is not / [person] is not here",
+      "examples": ["友だちが いません", "先生が いません"]
+    }
+  ]
+}

@@ -1,0 +1,1233 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.18",
+  "title": "Phase 4 Lesson 18: Strength & Nature",
+  "meta": {
+    "phase": 4,
+    "lesson": 18,
+    "focus": "Describing strength, nature, study, wind, light, and power.; G22 inference そうだ (looks like ~) and hearsay そうだ (I heard ~)",
+    "kanji": [
+      "弱",
+      "強",
+      "勉",
+      "風",
+      "光",
+      "力"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "弱",
+      "on": "じゃく",
+      "kun": "よわ(い)",
+      "meaning": "Weak",
+      "termId": "k_yowa"
+    },
+    {
+      "kanji": "強",
+      "on": "きょう",
+      "kun": "つよ(い)",
+      "meaning": "Strong",
+      "termId": "k_tsuyo"
+    },
+    {
+      "kanji": "勉",
+      "on": "べん",
+      "kun": "(なし)",
+      "meaning": "Exertion / Endeavor",
+      "termId": "k_ben"
+    },
+    {
+      "kanji": "風",
+      "on": "ふう",
+      "kun": "かぜ",
+      "meaning": "Wind",
+      "termId": "k_kaze"
+    },
+    {
+      "kanji": "光",
+      "on": "こう",
+      "kun": "ひかり",
+      "meaning": "Light",
+      "termId": "k_hikari"
+    },
+    {
+      "kanji": "力",
+      "on": "りょく",
+      "kun": "ちから",
+      "meaning": "Power / Strength",
+      "termId": "k_chikara"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Answer these questions using vocabulary from previous lessons.",
+      "items": [
+        {
+          "jp": "今、どんな 旅行が したいですか。",
+          "en": "What kind of trip do you want to take now?",
+          "terms": [
+            "v_ima",
+            "v_donna",
+            "v_ryokou",
+            "p_ga",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "山や 川へ 行けますか。",
+          "en": "Are you able to go to the mountains or rivers?",
+          "terms": [
+            "v_yama",
+            "p_ya",
+            "v_kawa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "今日の 天気は 明るいですか。",
+          "en": "Is today's weather bright?",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_tenki",
+            "p_wa",
+            {
+              "id": "v_akarui",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "海外へ 行ったことが ありますか。",
+          "en": "Have you ever been overseas?",
+          "terms": [
+            "v_kaigai",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "弱",
+          "on": "じゃく",
+          "kun": "よわ(い)",
+          "meaning": "Weak",
+          "terms": [
+            "k_yowa",
+            "v_yowai",
+            "v_yowaki"
+          ]
+        },
+        {
+          "kanji": "強",
+          "on": "きょう",
+          "kun": "つよ(い)",
+          "meaning": "Strong",
+          "terms": [
+            "k_tsuyo",
+            "v_tsuyoi",
+            "v_tsuyoki",
+            "v_kyoufuu"
+          ]
+        },
+        {
+          "kanji": "勉",
+          "on": "べん",
+          "kun": "(なし)",
+          "meaning": "Endeavor",
+          "terms": [
+            "k_ben",
+            "v_benkyou"
+          ]
+        },
+        {
+          "kanji": "風",
+          "on": "ふう",
+          "kun": "かぜ",
+          "meaning": "Wind",
+          "terms": [
+            "k_kaze",
+            "v_kaze",
+            "v_kyoufuu"
+          ]
+        },
+        {
+          "kanji": "光",
+          "on": "こう",
+          "kun": "ひかり",
+          "meaning": "Light",
+          "terms": [
+            "k_hikari",
+            "v_hikari",
+            "v_nikkou",
+            "v_gekkou",
+            "v_denkou"
+          ]
+        },
+        {
+          "kanji": "力",
+          "on": "りょく",
+          "kun": "ちから",
+          "meaning": "Power",
+          "terms": [
+            "k_chikara",
+            "v_chikara",
+            "v_denryoku",
+            "v_yuuryokusha"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Strength & Study",
+          "items": [
+            "v_tsuyoi",
+            "v_yowai",
+            "v_tsuyoki",
+            "v_yowaki",
+            "v_chikara",
+            "v_benkyou",
+            "v_yuuryokusha"
+          ]
+        },
+        {
+          "label": "Wind & Nature",
+          "items": [
+            "v_kaze",
+            "v_kyoufuu"
+          ]
+        },
+        {
+          "label": "Light & Power",
+          "items": [
+            "v_hikari",
+            "v_nikkou",
+            "v_gekkou",
+            "v_denkou",
+            "v_denryoku"
+          ]
+        },
+        {
+          "label": "Suffixes",
+          "items": [
+            "v_kun",
+            "v_tachi"
+          ]
+        },
+        {
+          "label": "Inference & Hearsay",
+          "items": [
+            "p_sou_da",
+            "p_sou_da_hearsay"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: The Windy Day",
+      "context": "Two colleagues outside a train station during a storm.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "今日は 風が 強いですね。",
+          "en": "The wind is strong today, isn't it?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kaze",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "強風で、空が とても 暗いです。雨に なりそうですね。",
+          "en": "With this strong wind, the sky is very dark. It looks like it'll rain.",
+          "terms": [
+            "v_kyoufuu",
+            "p_de",
+            "v_sora",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_kurai",
+              "form": "polite_adj"
+            },
+            "v_ame",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "appearance_sou"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "えっ、そうですか。何で 帰りますか。",
+          "en": "Eh, is that so? How will you get home?",
+          "terms": [
+            "v_e",
+            "v_sou",
+            "g_desu",
+            "p_ka",
+            "v_nan",
+            "p_de",
+            {
+              "id": "v_kaeru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "車で 帰ります。いっしょに 乗りませんか。",
+          "en": "I'll go home by car. Would you like to ride together?",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_kaeru",
+              "form": "polite_masu"
+            },
+            "v_issho",
+            "p_ni",
+            {
+              "id": "v_noru",
+              "form": "polite_negative"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Studying Hard",
+      "context": "A student and teacher talking about study habits in the classroom.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "毎日 日本語を 勉強していますか。",
+          "en": "Are you studying Japanese every day?",
+          "terms": [
+            "v_mainichi",
+            "v_nihongo",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい。でも、日本語は とても むずかしいですね。",
+          "en": "Yes. But Japanese is very difficult.",
+          "terms": [
+            "p_hai",
+            "p_demo_but",
+            "v_nihongo",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_muzukashii",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうですね。私は 少し 弱気ですが、毎日 勉強しています。",
+          "en": "That's right. I am a little faint-hearted, but I keep studying every day.",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_watashi",
+            "p_wa",
+            "v_sukoshi",
+            {
+              "id": "v_yowaki",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "元気を 出してください。いっしょに 勉強しましょう。",
+          "en": "Please cheer up. Let's study together.",
+          "terms": [
+            "v_genki",
+            "p_wo",
+            {
+              "id": "v_dasu",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_issho",
+            "p_ni",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Moonlight & Electric Power",
+      "context": "Two neighbours talking during an evening power outage.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "電力が ありませんから、家の中が 暗いですね。",
+          "en": "Because there is no electric power, inside the house is dark.",
+          "terms": [
+            "v_denryoku",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_kara_because",
+            "v_ie",
+            "p_no",
+            "v_naka",
+            "p_ga",
+            {
+              "id": "v_kurai",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "でも、見てください。月光が きれいですよ。",
+          "en": "But look. The moonlight is beautiful!",
+          "terms": [
+            "p_demo_but",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_gekkou",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうですね。電光より 月光の ほうが 好きです。",
+          "en": "That's true. I like moonlight more than electric light.",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_denkou",
+            "p_yori",
+            "v_gekkou",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "私もです。月光は 強いですが、やさしいですよね。",
+          "en": "Me too. Moonlight is strong, but it's gentle, isn't it.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "g_desu",
+            "v_gekkou",
+            "p_wa",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            {
+              "id": "v_yasashii",
+              "form": "polite_adj"
+            },
+            "p_ne",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Study Habits (Casual)",
+      "context": "Two classmates walking home from school, talking about their study routines.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "田中くん、毎日 勉強して いる？",
+          "en": "Hey Tanaka, are you studying every day?",
+          "terms": [
+            "v_tanaka",
+            "v_kun",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん。まあ、むずかしいけど、楽しいよ。",
+          "en": "Yeah. Well, it's difficult, but it's fun.",
+          "terms": [
+            "v_un",
+            "v_maa",
+            "v_muzukashii",
+            "p_kedo",
+            "v_tanoshii",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "ほんとう？ 私も 弱気に なるけど、力を 出して いる。",
+          "en": "Really? I get faint-hearted too, but I'm putting in strength.",
+          "terms": [
+            "p_hontou",
+            "v_watashi",
+            "p_mo",
+            "v_yowaki",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "p_kedo",
+            "v_chikara",
+            "p_wo",
+            {
+              "id": "v_dasu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "だね。強気で 勉強したほうが いいよ。",
+          "en": "Yeah. It's better to study with confidence!",
+          "terms": [
+            "p_ne",
+            "g_da",
+            "v_tsuyoki",
+            "p_de",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_past"
+            },
+            "v_hou",
+            "p_ga",
+            "v_ii",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: A Hike in the Mountains",
+      "passage": [
+        {
+          "jp": "日曜日に、私は 近くの 山へ 行きました。",
+          "en": "On Sunday, I went to a nearby mountain.",
+          "terms": [
+            "v_nichiyoubi",
+            "p_ni",
+            "v_watashi",
+            "p_wa",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_no",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "天気が よかったですから、日光が とても 明るかったです。",
+          "en": "Because the weather was good, the sunlight was very bright.",
+          "terms": [
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_kara_because",
+            "v_nikkou",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_akarui",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "でも、山の 上は 風が 強かったです。",
+          "en": "But, at the top of the mountain, the wind was strong.",
+          "terms": [
+            "p_demo_but",
+            "v_yama",
+            "p_no",
+            "v_ue",
+            "p_wa",
+            "v_kaze",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "私は 足が 弱いですから、長い 時間 休みました。",
+          "en": "Because my legs are weak, I rested for a long time.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_ashi",
+            "p_ga",
+            {
+              "id": "v_yowai",
+              "form": "polite_adj"
+            },
+            "p_kara_because",
+            "v_nagai",
+            "v_jikan",
+            {
+              "id": "v_yasumu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "友だちが、来週も 天気が いいそうです。また 山へ 行けます。",
+          "en": "My friend says next week's weather will be good too. I can go to the mountain again.",
+          "terms": [
+            "v_tomodachi",
+            "p_ga",
+            "v_raishuu",
+            "p_mo",
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_form"
+            },
+            "p_sou_da_hearsay",
+            "v_mata",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_potential"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "日曜日の 天気は どうでしたか。",
+          "q_en": "How was the weather on Sunday?",
+          "a": "よかったです。日光が 明るかったです。",
+          "a_en": "It was good. The sunlight was bright.",
+          "terms": [
+            "v_nichiyoubi",
+            "p_no",
+            "v_tenki",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "v_nikkou",
+            "p_ga",
+            {
+              "id": "v_akarui",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "山の 上は どうでしたか。",
+          "q_en": "How was the mountain top?",
+          "a": "風が 強かったです。",
+          "a_en": "The wind was strong.",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_ue",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kaze",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "どうして 長い 時間 休みましたか。",
+          "q_en": "Why did you rest for a long time?",
+          "a": "足が 弱いですから。",
+          "a_en": "Because my feet are weak.",
+          "terms": [
+            "v_doushite",
+            "v_nagai",
+            "v_jikan",
+            {
+              "id": "v_yasumu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ashi",
+            "p_ga",
+            {
+              "id": "v_yowai",
+              "form": "polite_adj"
+            },
+            "p_kara_because"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: Electricity and Study",
+      "passage": [
+        {
+          "jp": "電力は 私たちに 大切です。",
+          "en": "Electric power is important to us.",
+          "terms": [
+            "v_denryoku",
+            "p_wa",
+            "v_watashi",
+            "v_tachi",
+            "p_ni",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "電力が ありませんから、電光も ありません。",
+          "en": "Because there is no electric power, there is also no electric light.",
+          "terms": [
+            "v_denryoku",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_kara_because",
+            "v_denkou",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "晩、家の 中が 暗いです。",
+          "en": "In the evening, inside the house is dark.",
+          "terms": [
+            "v_ban",
+            "v_ie",
+            "p_no",
+            "v_naka",
+            "p_ga",
+            {
+              "id": "v_kurai",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "でも、本を 読みたいですから、月光で 勉強しています。",
+          "en": "But, because I want to read a book, I am studying by moonlight.",
+          "terms": [
+            "p_demo_but",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_kara_because",
+            "v_gekkou",
+            "p_de",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "月光の 光は やさしいですが、勉強に 力を 使っています。",
+          "en": "The light of the moonlight is gentle, but I am using strength for my studies.",
+          "terms": [
+            "v_gekkou",
+            "p_no",
+            "v_hikari",
+            "p_wa",
+            {
+              "id": "v_yasashii",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            "v_benkyou",
+            "p_ni",
+            "v_chikara",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "何が 大切ですか。",
+          "q_en": "What is important?",
+          "a": "電力が 大切です。",
+          "a_en": "Electricity is important.",
+          "terms": [
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_denryoku",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "q": "電力が ない 時、何で 勉強しますか。",
+          "q_en": "When there is no electricity, what do you study with?",
+          "a": "月光で 勉強します。",
+          "a_en": "You study using moonlight.",
+          "terms": [
+            "v_denryoku",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "v_toki",
+            "v_nan",
+            "p_de",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_gekkou",
+            "p_de",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "どうして 家の 中が 暗いですか。",
+          "q_en": "Why is the inside of the house dark?",
+          "a": "電力が ありませんから。",
+          "a_en": "Because there is no electricity.",
+          "terms": [
+            "v_doushite",
+            "v_ie",
+            "p_no",
+            "v_naka",
+            "p_ga",
+            "v_kurai",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_denryoku",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_kara_because"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Select the correct reading for each kanji word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[強風] の よみかたは？",
+          "choices": [
+            "きょうふう",
+            "つよかぜ",
+            "じゃくふう",
+            "きょうかぜ"
+          ],
+          "answer": "きょうふう"
+        },
+        {
+          "kind": "mcq",
+          "q": "[月光] の よみかたは？",
+          "choices": [
+            "げっこう",
+            "つきひかり",
+            "つきこう",
+            "げつひかり"
+          ],
+          "answer": "げっこう"
+        },
+        {
+          "kind": "mcq",
+          "q": "[電力] の よみかたは？",
+          "choices": [
+            "でんりょく",
+            "でんちから",
+            "でんき",
+            "てんりょく"
+          ],
+          "answer": "でんりょく"
+        },
+        {
+          "kind": "mcq",
+          "q": "[勉強] の よみかたは？",
+          "choices": [
+            "べんきょう",
+            "もときょう",
+            "べんこう",
+            "どりょく"
+          ],
+          "answer": "べんきょう"
+        },
+        {
+          "kind": "mcq",
+          "q": "[日光] の よみかたは？",
+          "choices": [
+            "にっこう",
+            "にちひかり",
+            "にちこう",
+            "にっひかり"
+          ],
+          "answer": "にっこう"
+        },
+        {
+          "kind": "mcq",
+          "q": "[弱気] の よみかたは？",
+          "choices": [
+            "よわき",
+            "じゃくき",
+            "よわぎ",
+            "じゃっき"
+          ],
+          "answer": "よわき"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Select the correct meaning for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "有力者",
+          "choices": [
+            "influential person",
+            "weak person",
+            "student",
+            "teacher"
+          ],
+          "answer": "influential person",
+          "terms": [
+            "v_yuuryokusha"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "弱気",
+          "choices": [
+            "timid / faint-hearted",
+            "strong-minded",
+            "confident",
+            "happy"
+          ],
+          "answer": "timid / faint-hearted",
+          "terms": [
+            "v_yowaki"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "日光",
+          "choices": [
+            "sunlight",
+            "moonlight",
+            "electric light",
+            "starlight"
+          ],
+          "answer": "sunlight",
+          "terms": [
+            "v_nikkou"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "電光",
+          "choices": [
+            "lightning / electric light",
+            "moonlight",
+            "sunlight",
+            "electric power"
+          ],
+          "answer": "lightning / electric light",
+          "terms": [
+            "v_denkou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Select the correct word or form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "あの 人は 力が ______ です。",
+          "choices": [
+            "強い",
+            "強気",
+            "勉強",
+            "風"
+          ],
+          "answer": "強い",
+          "terms": [
+            "v_chikara",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "明日、日本語を ______。",
+          "choices": [
+            "勉強します",
+            "勉強でした",
+            "勉強だった",
+            "勉強ません"
+          ],
+          "answer": "勉強します",
+          "terms": [
+            "v_nihongo",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "風が 強いですから、電車が ______。",
+          "choices": [
+            "来ていません",
+            "来ません",
+            "来ました",
+            "来ています"
+          ],
+          "answer": "来ていません",
+          "terms": [
+            "v_kaze",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_adj"
+            },
+            "p_kara_because",
+            "v_densha",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "______ で 勉強するのが 好きです。",
+          "choices": [
+            "月光",
+            "月力",
+            "月風",
+            "月強"
+          ],
+          "answer": "月光",
+          "terms": [
+            "v_gekkou",
+            "p_de",
+            "v_benkyou",
+            "v_suki",
+            "g_desu"
+          ]
+        }
+      ]
+    }
+  ]
+}

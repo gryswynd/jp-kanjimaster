@@ -1,0 +1,1432 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G2",
+  "type": "grammar",
+  "title": "Ko-so-a-do Demonstratives",
+  "meta": {
+    "level": "N5",
+    "unlocksAfter": "G1",
+    "focus": "Japanese demonstrative system — こ/そ/あ/ど series for things, places, directions, and qualities",
+    "estimatedMinutes": 25,
+    "particles": [],
+    "grammarForms": [],
+    "icon": "👉"
+  },
+  "targetVocab": [
+    "v_kore",
+    "v_sore",
+    "v_are",
+    "v_dore",
+    "v_kono",
+    "v_sono",
+    "v_ano",
+    "v_dono",
+    "v_koko",
+    "v_soko",
+    "v_asoko",
+    "v_doko",
+    "v_kochira",
+    "v_sochira",
+    "v_achira",
+    "v_dochira",
+    "v_kou",
+    "v_sou",
+    "v_aa",
+    "v_dou",
+    "v_konna",
+    "v_sonna",
+    "v_anna",
+    "v_donna"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Pointing in Japanese",
+      "icon": "👉",
+      "summary": "English has two sets of pointing words: 'this' (near) and 'that' (far). Japanese has four: こ (near me), そ (near you), あ (far from both), and ど (question). Once you learn the pattern, you unlock dozens of useful words.",
+      "whyItMatters": "Every time you point at something, talk about a place, or ask 'which one?', you use the ko-so-a-do system. It is one of the most frequently used patterns in daily Japanese.",
+      "youWillLearn": [
+        "これ / それ / あれ / どれ — standalone words for 'this thing / that thing / which thing'",
+        "この / その / あの / どの + noun — words that attach to a noun: 'this person / that person / which person'",
+        "ここ / そこ / あそこ / どこ — place words: 'here / there / over there / where'",
+        "こちら / そちら / あちら / どちら — polite direction words used in shops and formal situations",
+        "こんな / そんな / あんな / どんな + noun — 'this kind of / that kind of / what kind of' (describing type, not pointing at a specific thing)",
+        "こう / そう / ああ / どう — manner adverbs: 'like this / like that / how?' (standalone — no noun follows)",
+        "The difference between これ (standalone) and この (must attach to a noun)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kore_sore_are",
+      "pattern": [
+        {
+          "label": "DEMONSTRATIVE",
+          "color": "subject",
+          "text": "これ / それ / あれ"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "predicate",
+          "text": "Y"
+        },
+        {
+          "label": "COPULA",
+          "color": "verb",
+          "text": "です"
+        }
+      ],
+      "meaning": "'This / That / That over there is Y'",
+      "explanation": "これ, それ, and あれ are standalone pronouns — they point at something without naming it. The noun comes after は to identify what the thing is: これはテレビです ('this is a TV'). どれ is the question form: 'which one?'",
+      "notes": [
+        "これ — near the speaker (something I am holding or next to me)",
+        "それ — near the listener (something you are holding or next to you)",
+        "あれ — far from both speaker and listener (something in the distance)",
+        "どれ — which one? (question, when there are 3+ options)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "これ",
+              "role": "subject",
+              "gloss": "this"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "テレビ",
+              "role": "predicate",
+              "gloss": "TV"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "This is a TV.",
+          "breakdown": "これ points at something near the speaker."
+        },
+        {
+          "parts": [
+            {
+              "text": "それ",
+              "role": "subject",
+              "gloss": "that"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "パソコン",
+              "role": "predicate",
+              "gloss": "computer"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "That is a computer.",
+          "breakdown": "それ points at something near the listener."
+        },
+        {
+          "parts": [
+            {
+              "text": "あれ",
+              "role": "subject",
+              "gloss": "that over there"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "トイレ",
+              "role": "predicate",
+              "gloss": "toilet"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "That over there is the toilet.",
+          "breakdown": "あれ points at something far from both speaker and listener."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kono_sono_ano",
+      "pattern": [
+        {
+          "label": "MODIFIER",
+          "color": "modifier",
+          "text": "この / その / あの"
+        },
+        {
+          "label": "NOUN",
+          "color": "object",
+          "text": "NOUN"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "predicate",
+          "text": "Y"
+        },
+        {
+          "label": "COPULA",
+          "color": "verb",
+          "text": "です"
+        }
+      ],
+      "meaning": "'This / That / That (far) NOUN is Y'",
+      "explanation": "この, その, and あの are modifiers — they must always be followed by a noun. They specify which noun you are talking about. どの is the question form: 'which (noun)?'",
+      "notes": [
+        "この + noun — this (noun near me): この人 = this person",
+        "その + noun — that (noun near you): その人 = that person (near you)",
+        "あの + noun — that (noun over there): あの人 = that person (over there)",
+        "どの + noun — which (noun)?: どの人 = which person?",
+        "These words can NEVER stand alone — この is wrong by itself. Say この人 or これ."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "この",
+              "role": "modifier",
+              "gloss": "this"
+            },
+            {
+              "text": "人",
+              "role": "object",
+              "gloss": "person"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "This person is a teacher.",
+          "breakdown": "この attaches to 人 to specify which person."
+        },
+        {
+          "parts": [
+            {
+              "text": "あの",
+              "role": "modifier",
+              "gloss": "that (over there)"
+            },
+            {
+              "text": "先生",
+              "role": "object",
+              "gloss": "teacher"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "やさしい",
+              "role": "predicate",
+              "gloss": "kind"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "That teacher (over there) is kind.",
+          "breakdown": "あの specifies a teacher who is far from both speakers."
+        },
+        {
+          "parts": [
+            {
+              "text": "どの",
+              "role": "modifier",
+              "gloss": "which"
+            },
+            {
+              "text": "パソコン",
+              "role": "object",
+              "gloss": "computer"
+            },
+            {
+              "text": "が",
+              "role": "connector"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "good"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "Which computer is good?",
+          "breakdown": "どの asks the listener to identify which one. が marks the subject in a question."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_koko_soko_asoko",
+      "pattern": [
+        {
+          "label": "PLACE",
+          "color": "topic",
+          "text": "ここ / そこ / あそこ"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "predicate",
+          "text": "Y"
+        },
+        {
+          "label": "COPULA",
+          "color": "verb",
+          "text": "です"
+        }
+      ],
+      "meaning": "'Here / There / Over there is Y'",
+      "explanation": "ここ, そこ, and あそこ are place words. They follow the same distance pattern as これ/それ/あれ but refer to locations instead of things. どこ is the question: 'where?'",
+      "notes": [
+        "ここ — here (where I am)",
+        "そこ — there (where you are / near you)",
+        "あそこ — over there (far from both of us)",
+        "どこ — where? (question)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "ここ",
+              "role": "topic",
+              "gloss": "here"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "トイレ",
+              "role": "predicate",
+              "gloss": "toilet"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "This place is the toilet. / The toilet is here.",
+          "breakdown": "ここ refers to the location where the speaker is."
+        },
+        {
+          "parts": [
+            {
+              "text": "トイレ",
+              "role": "topic",
+              "gloss": "toilet"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "あそこ",
+              "role": "predicate",
+              "gloss": "over there"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "The toilet is over there.",
+          "breakdown": "あそこ points to a distant location."
+        },
+        {
+          "parts": [
+            {
+              "text": "テレビ",
+              "role": "topic",
+              "gloss": "TV"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "どこ",
+              "role": "predicate",
+              "gloss": "where"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "Where is the TV?",
+          "breakdown": "どこ asks for the location of the topic."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kochira_sochira",
+      "pattern": [
+        {
+          "label": "POLITE DIRECTION",
+          "color": "topic",
+          "text": "こちら / そちら / あちら"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "predicate",
+          "text": "Y"
+        },
+        {
+          "label": "COPULA",
+          "color": "verb",
+          "text": "です"
+        }
+      ],
+      "meaning": "'This way / That way / Over that way is Y' (polite / formal)",
+      "explanation": "こちら, そちら, あちら, and どちら indicate direction or side — 'this way / that way / which way'. They are used in shops, at work, and when introducing people. こちら also means 'this person' in introductions, and どちら means 'which of the two' when choosing between options.",
+      "notes": [
+        "こちらは田中さんです — 'This is Mr. Tanaka' (polite introduction of a person near you)",
+        "トイレはあちらです — 'The toilet is that way' (polite direction in a store or restaurant)",
+        "どちらがいいですか — 'Which one is good?' (polite, when choosing between two)",
+        "In shops, staff often say こちらです ('It's this way / Here it is') to guide you"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "こちら",
+              "role": "topic",
+              "gloss": "this person (polite)"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "やまもと",
+              "role": "predicate",
+              "gloss": "Yamamoto"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "This is Teacher Yamamoto. (polite introduction)",
+          "breakdown": "こちら is the polite way to introduce someone standing near you."
+        },
+        {
+          "parts": [
+            {
+              "text": "トイレ",
+              "role": "topic",
+              "gloss": "toilet"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "あちら",
+              "role": "predicate",
+              "gloss": "that way (polite)"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "The toilet is that way.",
+          "breakdown": "あちら is the polite version of あそこ — common in stores and public places."
+        },
+        {
+          "parts": [
+            {
+              "text": "どちら",
+              "role": "subject",
+              "gloss": "which (polite)"
+            },
+            {
+              "text": "が",
+              "role": "connector"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "good"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "Which one would you prefer?",
+          "breakdown": "どちら is the polite version of どれ, especially when choosing between two options."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_konna_sonna",
+      "pattern": [
+        {
+          "label": "KIND MODIFIER",
+          "color": "modifier",
+          "text": "こんな / そんな / あんな"
+        },
+        {
+          "label": "NOUN",
+          "color": "object",
+          "text": "NOUN"
+        }
+      ],
+      "meaning": "'This kind of / That kind of / That kind of (shared) NOUN'",
+      "explanation": "こんな/そんな/あんな describe the TYPE or QUALITY of a noun — not which specific one, but what kind. どんな is the question form. Like この/その/あの, these must always be followed by a noun.",
+      "notes": [
+        "こんな + noun — this kind of (noun): こんな先生 = a teacher like this",
+        "そんな + noun — that kind of (noun, near listener)",
+        "あんな + noun — that kind of (noun, distant/shared memory)",
+        "どんな + noun — what kind of (noun)? [question]",
+        "Key difference from この/その/あの: この先生 = 'this (specific) teacher'; こんな先生 = 'a teacher like this' (describing type/character)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "どんな",
+              "role": "modifier",
+              "gloss": "what kind of"
+            },
+            {
+              "text": "人",
+              "role": "object",
+              "gloss": "person"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "What kind of person is (he/she)?",
+          "breakdown": "どんな asks about type/character. Common in everyday conversation."
+        },
+        {
+          "parts": [
+            {
+              "text": "こんな",
+              "role": "modifier",
+              "gloss": "this kind of"
+            },
+            {
+              "text": "先生",
+              "role": "object",
+              "gloss": "teacher"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "great / good"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "A teacher like this is great.",
+          "breakdown": "こんな describes the type of teacher, not pointing at a specific one."
+        },
+        {
+          "parts": [
+            {
+              "text": "そんな",
+              "role": "modifier",
+              "gloss": "that kind of"
+            },
+            {
+              "text": "人",
+              "role": "object",
+              "gloss": "person"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "では",
+              "role": "connector"
+            },
+            {
+              "text": "ありません。",
+              "role": "predicate"
+            }
+          ],
+          "en": "That kind of person is not a teacher.",
+          "breakdown": "そんな describes the type being referred to (near listener's context)."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kou_sou",
+      "pattern": [
+        {
+          "label": "MANNER",
+          "color": "adverb",
+          "text": "こう / そう / ああ"
+        },
+        {
+          "label": "VERB/ADJ",
+          "color": "predicate",
+          "text": "VERB / ADJ"
+        }
+      ],
+      "meaning": "'Like this / Like that / Like that (over there)'",
+      "explanation": "こう/そう/ああ/どう are adverbs describing HOW something is done or is. Unlike other ko-so-a-do words, these are standalone adverbs — no noun follows them.",
+      "notes": [
+        "こう — like this / in this way (demonstrating an action or state)",
+        "そう — like that / in that way (near listener); also: 'That's right / I see'",
+        "ああ — like that (distant/shared knowledge); often expresses recognition: 'Oh, I see'",
+        "どう — how? / in what way? [question]",
+        "そうです is one of the most useful phrases: 'That's right / Yes, exactly'"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "こう",
+              "role": "adverb",
+              "gloss": "like this / this way"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "Like this? / Is it this way?",
+          "breakdown": "こうですか asks for confirmation you're doing something the right way."
+        },
+        {
+          "parts": [
+            {
+              "text": "そう",
+              "role": "adverb",
+              "gloss": "that's right / like that"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "That's right. / Yes, exactly.",
+          "breakdown": "そうです is one of the most common responses in Japanese."
+        },
+        {
+          "parts": [
+            {
+              "text": "テレビ",
+              "role": "topic",
+              "gloss": "TV"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "どう",
+              "role": "adverb",
+              "gloss": "how / what do you think"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "How is the TV? / What do you think of the TV?",
+          "breakdown": "どうですか asks for opinion or status — very common in daily conversation."
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "The Ko-so-a-do Chart",
+      "description": "All Japanese demonstratives follow the same four-way pattern. The こ row is near the speaker, そ is near the listener, あ is far from both, and ど is the question word.",
+      "tableType": "reference",
+      "headers": [
+        "",
+        "こ (near me)",
+        "そ (near you)",
+        "あ (far)",
+        "ど (question)"
+      ],
+      "rows": [
+        {
+          "label": "Thing",
+          "cells": [
+            "これ",
+            "それ",
+            "あれ",
+            "どれ"
+          ],
+          "meaning": "this / that / that over there / which one"
+        },
+        {
+          "label": "Modifier + Noun",
+          "cells": [
+            "この＋",
+            "その＋",
+            "あの＋",
+            "どの＋"
+          ],
+          "meaning": "this ~ / that ~ / that ~ (far) / which ~"
+        },
+        {
+          "label": "Place",
+          "cells": [
+            "ここ",
+            "そこ",
+            "あそこ",
+            "どこ"
+          ],
+          "meaning": "here / there / over there / where"
+        },
+        {
+          "label": "Direction (polite)",
+          "cells": [
+            "こちら",
+            "そちら",
+            "あちら",
+            "どちら"
+          ],
+          "meaning": "this way / that way / that way (far) / which way"
+        },
+        {
+          "label": "Kind of",
+          "cells": [
+            "こんな＋",
+            "そんな＋",
+            "あんな＋",
+            "どんな＋"
+          ],
+          "meaning": "this kind / that kind / that kind (far) / what kind"
+        },
+        {
+          "label": "Manner",
+          "cells": [
+            "こう",
+            "そう",
+            "ああ",
+            "どう"
+          ],
+          "meaning": "like this / like that / like that (far) / how"
+        }
+      ],
+      "notes": [
+        "The pattern is consistent: replace the first syllable to change the distance. Learn one row and you can predict the rest.",
+        "Modifier forms (この, その, あの, どの, こんな, そんな, あんな, どんな) must always be followed by a noun. They cannot stand alone."
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "これ vs この — Standalone vs Modifier",
+      "items": [
+        {
+          "label": "これ — Standalone Pronoun",
+          "color": "subject",
+          "points": [
+            "Stands alone — no noun follows it",
+            "Use when pointing at something without naming it",
+            "Works like English 'this (one)' or 'this thing'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "これ",
+                "role": "subject",
+                "gloss": "this"
+              },
+              {
+                "text": "は",
+                "role": "connector"
+              },
+              {
+                "text": "テレビ",
+                "role": "predicate",
+                "gloss": "TV"
+              },
+              {
+                "text": "です。",
+                "role": "verb"
+              }
+            ],
+            "en": "This is a TV."
+          }
+        },
+        {
+          "label": "この — Must Attach to a Noun",
+          "color": "modifier",
+          "points": [
+            "Always followed by a noun — この人, この先生, このパソコン",
+            "Specifies which noun: 'this particular person'",
+            "Cannot stand alone — この by itself is incomplete"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "この",
+                "role": "modifier",
+                "gloss": "this"
+              },
+              {
+                "text": "人",
+                "role": "object",
+                "gloss": "person"
+              },
+              {
+                "text": "は",
+                "role": "connector"
+              },
+              {
+                "text": "先生",
+                "role": "predicate",
+                "gloss": "teacher"
+              },
+              {
+                "text": "です。",
+                "role": "verb"
+              }
+            ],
+            "en": "This person is a teacher."
+          }
+        }
+      ],
+      "tip": "If you can replace it with 'this thing' → use これ. If you need to say 'this [specific noun]' → use この + noun."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Ko-so-a-do in Daily Life",
+      "examples": [
+        {
+          "context": "Pointing at something in your hand",
+          "parts": [
+            {
+              "text": "これ",
+              "role": "subject",
+              "gloss": "this"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "いい",
+              "role": "modifier",
+              "gloss": "good"
+            },
+            {
+              "text": "パソコン",
+              "role": "predicate",
+              "gloss": "computer"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "This is a good computer.",
+          "note": "これ — the computer is near the speaker."
+        },
+        {
+          "context": "Asking about something near the listener",
+          "parts": [
+            {
+              "text": "それ",
+              "role": "subject",
+              "gloss": "that"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "なに",
+              "role": "predicate",
+              "gloss": "what"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "What is that? (thing near you)",
+          "note": "それ — the object is near the listener, not the speaker."
+        },
+        {
+          "context": "Identifying a distant person",
+          "parts": [
+            {
+              "text": "あの",
+              "role": "modifier",
+              "gloss": "that (over there)"
+            },
+            {
+              "text": "人",
+              "role": "object",
+              "gloss": "person"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "That person over there is a teacher.",
+          "note": "あの + 人 — the person is far from both speakers."
+        },
+        {
+          "context": "Asking for directions",
+          "parts": [
+            {
+              "text": "トイレ",
+              "role": "topic",
+              "gloss": "toilet"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "どこ",
+              "role": "predicate",
+              "gloss": "where"
+            },
+            {
+              "text": "ですか。",
+              "role": "verb"
+            }
+          ],
+          "en": "Where is the toilet?",
+          "note": "どこ — asking for a location."
+        },
+        {
+          "context": "Polite introduction at a meeting",
+          "parts": [
+            {
+              "text": "こちら",
+              "role": "topic",
+              "gloss": "this person (polite)"
+            },
+            {
+              "text": "は",
+              "role": "connector"
+            },
+            {
+              "text": "友だち",
+              "role": "predicate",
+              "gloss": "friend"
+            },
+            {
+              "text": "の",
+              "role": "connector"
+            },
+            {
+              "text": "ゆき",
+              "role": "predicate",
+              "gloss": "Yuki"
+            },
+            {
+              "text": "さん",
+              "role": "predicate",
+              "gloss": "Mr./Ms."
+            },
+            {
+              "text": "です。",
+              "role": "verb"
+            }
+          ],
+          "en": "This is my friend Yuki.",
+          "note": "こちら is the polite way to introduce someone. Much more natural than この人."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: これはなんですか（What Is This?）",
+      "context": "A student and teacher in a classroom, looking at objects on the desk.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "先生、これは なんですか。",
+          "en": "Teacher, what is this?",
+          "terms": [
+            "v_sensei",
+            "v_kore",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "それはパソコンです。",
+          "en": "That is a computer.",
+          "terms": [
+            "v_sore",
+            "p_wa",
+            "v_pasokon",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "あれはテレビですか。",
+          "en": "Is that over there a TV?",
+          "terms": [
+            "v_are",
+            "p_wa",
+            "v_terebi",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "いいえ、あれはテレビではありません。パソコンです。",
+          "en": "No, that is not a TV. It's a computer.",
+          "terms": [
+            "v_iie",
+            "v_are",
+            "p_wa",
+            "v_terebi",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_pasokon",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "この人はだれですか。",
+          "en": "Who is this person?",
+          "terms": [
+            "v_kono",
+            "v_hito",
+            "p_wa",
+            "v_dare",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "こちらはゆきさんです。",
+          "en": "This is Ms. Yuki.",
+          "terms": [
+            "v_kochira",
+            "p_wa",
+            "char_yuki",
+            "v_san",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "あの人の名まえは なんですか。",
+          "en": "What is that person's name over there?",
+          "terms": [
+            "v_ano",
+            "v_hito",
+            "p_no",
+            "v_namae",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "あの人はけんさんです。",
+          "en": "That person is Ken.",
+          "terms": [
+            "v_ano",
+            "v_hito",
+            "p_wa",
+            "char_ken",
+            "v_san",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: トイレはどこですか（Where Is the Toilet?）",
+      "context": "Rikizo arrives at a building and asks for directions.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "すみません、トイレはどこですか。",
+          "en": "Excuse me, where is the toilet?",
+          "terms": [
+            "p_sumimasen",
+            "v_toire",
+            "p_wa",
+            "v_doko",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "トイレはあちらです。",
+          "en": "The toilet is that way.",
+          "terms": [
+            "v_toire",
+            "p_wa",
+            "v_achira",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ありがとうございます。あの人はだれですか。",
+          "en": "Thank you. Who is that person over there?",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_ano",
+            "v_hito",
+            "p_wa",
+            "v_dare",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "あの人は先生です。とてもやさしい先生です。",
+          "en": "That person is a teacher. A very kind teacher.",
+          "terms": [
+            "v_ano",
+            "v_hito",
+            "p_wa",
+            "v_sensei",
+            "g_desu",
+            "v_totemo",
+            "v_yasashii",
+            "v_sensei",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そうですか。どの先生ですか。",
+          "en": "Is that so? Which teacher?",
+          "terms": [
+            "p_soudesuka",
+            "v_dono",
+            "v_sensei",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "やまもと先生です。",
+          "en": "Teacher Yamamoto.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Choose the Right Demonstrative",
+      "instructions": "Fill in the blank with the correct ko-so-a-do word.",
+      "items": [
+        {
+          "before": "",
+          "after": "はテレビです。(pointing at something in your hand)",
+          "translation": "This is a TV.",
+          "choices": [
+            "これ",
+            "それ",
+            "あれ",
+            "この"
+          ],
+          "answer": "これ",
+          "explanation": "The thing is near the speaker (in your hand), so use これ. この would need a noun after it."
+        },
+        {
+          "before": "",
+          "after": "人は先生です。(pointing at someone far away)",
+          "translation": "That person over there is a teacher.",
+          "choices": [
+            "この",
+            "その",
+            "あの",
+            "あれ"
+          ],
+          "answer": "あの",
+          "explanation": "The person is far from both speakers → あの. Because a noun (人) follows, use the modifier あの, not the standalone あれ."
+        },
+        {
+          "before": "トイレは",
+          "after": "ですか。(asking for a location)",
+          "translation": "Where is the toilet?",
+          "choices": [
+            "どこ",
+            "どれ",
+            "どの",
+            "どちら"
+          ],
+          "answer": "どこ",
+          "explanation": "どこ asks for a place. どれ asks 'which thing' and どの needs a noun."
+        },
+        {
+          "before": "",
+          "after": "はなんですか。(asking about something near the listener)",
+          "translation": "What is that?",
+          "choices": [
+            "これ",
+            "それ",
+            "あれ",
+            "この"
+          ],
+          "answer": "それ",
+          "explanation": "The thing is near the listener → それ. これ would mean it is near the speaker."
+        },
+        {
+          "before": "",
+          "after": "はやまもと先生です。(politely introducing someone)",
+          "translation": "This is Teacher Yamamoto.",
+          "choices": [
+            "この人",
+            "こちら",
+            "ここ",
+            "これ"
+          ],
+          "answer": "こちら",
+          "explanation": "こちら is the polite way to introduce a person. この人 is grammatically correct but less polite."
+        },
+        {
+          "before": "",
+          "after": "パソコンがいいですか。(asking which computer is good)",
+          "translation": "Which computer is good?",
+          "choices": [
+            "どの",
+            "どれ",
+            "どこ",
+            "どちら"
+          ],
+          "answer": "どの",
+          "explanation": "A noun (パソコン) follows, so use the modifier どの. どれ stands alone without a noun."
+        },
+        {
+          "before": "",
+          "after": "先生はいいです。(describing what kind of teacher they are, not pointing at a specific one)",
+          "translation": "A teacher like this is great.",
+          "choices": [
+            "こんな",
+            "この",
+            "ここ",
+            "こちら"
+          ],
+          "answer": "こんな",
+          "explanation": "こんな describes the TYPE or character of the teacher. この先生 would point at a specific teacher — こんな先生 means 'a teacher of this kind.'"
+        },
+        {
+          "before": "テレビは",
+          "after": "ですか。(asking for an opinion)",
+          "translation": "How is the TV?",
+          "choices": [
+            "どう",
+            "どこ",
+            "どれ",
+            "どんな"
+          ],
+          "answer": "どう",
+          "explanation": "どう asks HOW something is — for opinions or status. どこ asks WHERE. どれ asks WHICH. どんな must be followed by a noun."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Ko-so-a-do Practice",
+      "instructions": "Choose the correct answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which word means 'that over there' (far from both speakers) as a standalone pronoun?",
+          "choices": [
+            "これ",
+            "それ",
+            "あれ",
+            "どれ"
+          ],
+          "answer": "あれ",
+          "explanation": "あれ is the standalone pronoun for something far from both the speaker and the listener. これ = near speaker, それ = near listener, どれ = which one."
+        },
+        {
+          "kind": "mcq",
+          "q": "Choose the correct sentence: 'This person is a friend.'",
+          "choices": [
+            "この人は友だちです。",
+            "これ人は友だちです。",
+            "この友だちです。",
+            "ここ人は友だちです。"
+          ],
+          "answer": "この人は友だちです。",
+          "terms": [],
+          "explanation": "この + noun is the correct pattern. これ is a standalone pronoun and cannot attach to 人 directly. ここ is a place word."
+        },
+        {
+          "kind": "mcq",
+          "q": "A shop clerk tells you 'トイレはあちらです。' What does あちら mean here?",
+          "choices": [
+            "here",
+            "this way",
+            "that way (polite)",
+            "where"
+          ],
+          "answer": "that way (polite)",
+          "terms": [],
+          "explanation": "あちら is the polite form of あそこ, meaning 'that way' or 'over there'. It is commonly used in shops and formal settings."
+        },
+        {
+          "kind": "mcq",
+          "q": "You want to ask 'Where is the TV?' Which is correct?",
+          "choices": [
+            "テレビはどこですか。",
+            "テレビはどれですか。",
+            "テレビはどのですか。",
+            "テレビはここですか。"
+          ],
+          "answer": "テレビはどこですか。",
+          "terms": [],
+          "explanation": "どこ asks for a location. どれ asks 'which one' (choosing from options). どの must be followed by a noun. ここ means 'here' — not a question word."
+        },
+        {
+          "kind": "mcq",
+          "q": "What is the difference between これ and この?",
+          "choices": [
+            "これ = standalone, この = needs a noun after it",
+            "これ = far, この = near",
+            "これ = polite, この = casual",
+            "これ = place, この = thing"
+          ],
+          "answer": "これ = standalone, この = needs a noun after it",
+          "explanation": "これ stands alone as a noun ('this thing'). この modifies a noun that follows ('this ~'). Same distance (near speaker), different grammar function."
+        },
+        {
+          "kind": "mcq",
+          "q": "Someone asks あの先生はだれですか。 Where is the teacher?",
+          "choices": [
+            "Near the speaker",
+            "Near the listener",
+            "Far from both speaker and listener",
+            "Right here"
+          ],
+          "answer": "Far from both speaker and listener",
+          "terms": [],
+          "explanation": "あの indicates something or someone far from both the speaker and the listener. It is the 'a-series' demonstrative for distance."
+        },
+        {
+          "kind": "mcq",
+          "q": "What is the difference between この先生 and こんな先生?",
+          "choices": [
+            "この = 'this teacher' (specific); こんな = 'a teacher like this' (type/quality)",
+            "この = near; こんな = far",
+            "この = polite; こんな = casual",
+            "They mean the same thing"
+          ],
+          "answer": "この = 'this teacher' (specific); こんな = 'a teacher like this' (type/quality)",
+          "explanation": "この + noun identifies WHICH one. こんな + noun describes WHAT KIND. Both must attach to a noun, but they answer different questions: 'which?' vs 'what kind of?'"
+        },
+        {
+          "kind": "mcq",
+          "q": "Someone replies そうです to your question. What does it mean?",
+          "choices": [
+            "That's right. / Yes, exactly.",
+            "Like this.",
+            "Over there.",
+            "What kind?"
+          ],
+          "answer": "That's right. / Yes, exactly.",
+          "explanation": "そうです is the manner word そう + です. It confirms what the other person said. It is one of the most common conversational responses in Japanese."
+        }
+      ]
+    }
+  ]
+}

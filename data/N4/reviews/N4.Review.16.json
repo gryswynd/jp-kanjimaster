@@ -1,0 +1,685 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.16",
+  "title": "Phase 4 Review: Times, Openings & City Life",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons N4.31 (Times & Openings: 代・森・堂・開) and N4.32 (Use, Learn, & The City: 引・用・習・市).",
+    "kanji": ["代","森","堂","開","引","用","習","市"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and choose the best answer to the question.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "A manager and a new staff member discuss a community gathering being held at the assembly hall in the forest.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "来週、森の 会堂で 会合が 開かれます。",
+              "terms": [
+                "v_raishuu",
+                "v_mori",
+                "p_no",
+                "v_kaidou",
+                "p_de",
+                "v_kaigou",
+                "p_ga",
+                { "id": "v_hiraku", "form": "polite_passive" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "開始は 何時ですか。代金も ありますか。",
+              "terms": [
+                "v_kaishi",
+                "p_wa",
+                "v_nanji",
+                "g_desu",
+                "p_ka",
+                "v_daikin",
+                "p_mo",
+                { "id": "v_aru", "form": "polite_masu" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "午前 十時に 開始します。食堂に 人を 集めさせました。",
+              "terms": [
+                "v_gozen",
+                { "counter": "ji", "n": 10 },
+                "p_ni",
+                "v_kaishi",
+                { "id": "v_suru", "form": "polite_masu" },
+                "v_shokudou",
+                "p_ni",
+                "v_hito",
+                "p_wo",
+                { "id": "v_atsumeru", "form": "polite_causative_past" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "人が 集まれる いい 時代 だと 思います ね。",
+              "terms": [
+                "v_hito",
+                "p_ga",
+                { "id": "v_atsumaru", "form": "potential" },
+                "v_ii",
+                "v_jidai",
+                "p_to_quote",
+                "g_da",
+                { "id": "v_omou", "form": "polite_masu" },
+                "p_ne"
+              ]
+            }
+          ],
+          "question": "What is A organizing at the assembly hall in the forest?",
+          "choices": [
+            "A community gathering (会合) starting at 10 a.m.",
+            "A music concert with a ticket booth.",
+            "A calligraphy class for the new staff.",
+            "A morning market in the city."
+          ],
+          "answer": "A community gathering (会合) starting at 10 a.m.",
+          "explanation": "A says 森の会堂で会合が開かれます (a meeting will be held at the assembly hall in the forest) and 午前十時に開始します (it starts at 10 a.m.)."
+        },
+        {
+          "title": "Conversation 2 (Casual)",
+          "context": "Two friends discuss plans to visit the morning market this weekend.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "週まつ、都市の 朝市に 行くんだけど、いっしょに こない？",
+              "terms": [
+                "v_shuumatsu",
+                "v_toshi",
+                "p_no",
+                "v_asaichi",
+                "p_ni",
+                { "id": "v_iku", "form": "plain_form" },
+                "p_nda",
+                "p_kedo",
+                "v_issho",
+                "p_ni",
+                { "id": "v_kuru", "form": "plain_negative" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいね。でも、急用が あって、朝は 行けないんだ。",
+              "terms": [
+                "v_ii",
+                "p_ne",
+                "p_demo_but",
+                "v_kyuuyou",
+                "p_ga",
+                { "id": "v_aru", "form": "te_form" },
+                "v_asa",
+                "p_wa",
+                { "id": "v_iku", "form": "plain_potential_negative" },
+                "p_nda"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "午後から 来られるように なったら、電話して。",
+              "terms": [
+                "v_gogo",
+                "p_kara",
+                { "id": "v_kuru", "form": "potential" },
+                "v_you_manner",
+                "p_ni",
+                { "id": "v_naru", "form": "conditional_tara" },
+                "v_denwa",
+                { "id": "v_suru", "form": "te_form" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "分かった。あの 食堂に 行ったことが あるよ。代金が 安くて おいしかった。",
+              "terms": [
+                { "id": "v_wakaru", "form": "plain_past" },
+                "v_ano",
+                "v_shokudou",
+                "p_ni",
+                { "id": "v_iku", "form": "plain_past" },
+                "v_koto",
+                "p_ga",
+                { "id": "v_aru", "form": "plain_form" },
+                "p_yo",
+                "v_daikin",
+                "p_ga",
+                { "id": "v_yasui", "form": "te_form" },
+                { "id": "v_oishii", "form": "plain_past_adj" }
+              ]
+            }
+          ],
+          "question": "Why can B not come in the morning?",
+          "choices": [
+            "B has urgent business in the morning.",
+            "B is studying calligraphy all morning.",
+            "B has already visited the morning market.",
+            "B does not like the city dining hall."
+          ],
+          "answer": "B has urgent business in the morning.",
+          "explanation": "B says 急用があって、朝は行けないんだ — B has urgent business (急用) and cannot go in the morning."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two siblings talk at home about learning a new skill.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "日本語の 習字を 習って いるんだ。先生を 見習って 毎日 書いて いる。",
+              "terms": [
+                "v_nihongo",
+                "p_no",
+                "v_shuuji",
+                "p_wo",
+                { "id": "v_narau", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_form" },
+                "p_nda",
+                "v_sensei",
+                "p_wo",
+                { "id": "v_minarau", "form": "te_form" },
+                "v_mainichi",
+                { "id": "v_kaku", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_form" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "へえ。むずかしいけど、毎日 勉強すれば 上手に なれると 思う。",
+              "terms": [
+                "v_hee",
+                "v_muzukashii",
+                "p_kedo",
+                "v_mainichi",
+                "v_benkyou",
+                { "id": "v_suru", "form": "conditional_ba" },
+                { "id": "v_jouzu", "form": "adverbial" },
+                { "id": "v_naru", "form": "potential" },
+                "p_to_quote",
+                { "id": "v_omou", "form": "plain_form" }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "うん。引き出しの 中に 習字の 本が あるから、それも 使おう と 思って いる。",
+              "terms": [
+                "v_un",
+                "v_hikidashi",
+                "p_no",
+                "v_naka",
+                "p_ni",
+                "v_shuuji",
+                "p_no",
+                "v_hon",
+                "p_ga",
+                { "id": "v_aru", "form": "plain_form" },
+                "p_kara_because",
+                "v_sore",
+                "p_mo",
+                { "id": "v_tsukau", "form": "plain_volitional" },
+                "p_to_quote",
+                { "id": "v_omou", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_form" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "前の 世代の 人から 習ったことが あるって 言って いたよね。",
+              "terms": [
+                "v_mae",
+                "p_no",
+                "v_sedai",
+                "p_no",
+                "v_hito",
+                "p_kara",
+                { "id": "v_narau", "form": "plain_past" },
+                "v_koto",
+                "p_ga",
+                { "id": "v_aru", "form": "plain_form" },
+                "p_tte_quote",
+                { "id": "v_iu", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_past" },
+                "p_ne",
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What is A planning to use to help with learning calligraphy?",
+          "choices": [
+            "A calligraphy book found in a drawer.",
+            "A manual from the city office.",
+            "Lessons from a previous-generation teacher.",
+            "A guide from the morning market."
+          ],
+          "answer": "A calligraphy book found in a drawer.",
+          "explanation": "A says 引き出しの中に習字の本があるから、それも使おうと思っている — there is a calligraphy book (習字の本) in the drawer (引き出し), and A plans to use it."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Put the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "A music event was held in the main hall.",
+          "segments": ["音楽の 会が", "本堂で", "開かれました"],
+          "distractors": ["森で", "開きました", "音楽を"],
+          "explanation": "'Ongaku no kai ga hondou de hirakaremashita' — 開く (to hold/open) in polite passive past (開かれました) is used because the hall is where the event was held. 本堂 = main hall (堂 N4.31)."
+        },
+        {
+          "kind": "scramble",
+          "q": "The teacher made the students learn calligraphy.",
+          "segments": ["先生は", "学生に", "習字を", "習わせました"],
+          "distractors": ["習いました", "先生を", "書かせました"],
+          "explanation": "'Sensei wa gakusei ni shuuji wo narawasemashita' — causative past form 習わせました (made to learn) of 習う (to learn). This is the polite causative past form introduced in N4.31."
+        },
+        {
+          "kind": "scramble",
+          "q": "People can now use the city market.",
+          "segments": ["市の 朝市を", "使えるように", "なりました"],
+          "distractors": ["使います", "市を", "なれました"],
+          "alts": [["市の 朝市が", "使えるように", "なりました"]],
+          "explanation": "'Ichi no asaichi wo tsukaeru you ni narimashita' — ようになる (came to be able to) expresses the change in state. 使える is the potential form of 使う."
+        },
+        {
+          "kind": "scramble",
+          "q": "I have been into the forest before.",
+          "segments": ["前に", "森の 中に", "入ったことが", "あります"],
+          "distractors": ["入りました", "森を", "ありました"],
+          "explanation": "'Mae ni mori no naka ni haitta koto ga arimasu' — たことがある (have done / have experienced) uses the plain past form 入った of 入る. 森 = forest (N4.31)."
+        },
+        {
+          "kind": "scramble",
+          "q": "I think the way of using things has changed with the era.",
+          "segments": ["時代と", "いっしょに", "使い方が", "代わったと 思います"],
+          "distractors": ["思いました", "時代が", "代わります"],
+          "explanation": "'Jidai to issho ni tsukaikata ga kawatta to omoimasu' — と思います (I think) after a plain past clause. 代わる = to change/substitute (代 N4.31), 使い方 = way of using (使 N4.1)."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — A Forest Dining Hall",
+      "instructions": "Read the passage and answer the questions below.",
+      "passage": [
+        {
+          "jp": "森の 中に 古い 食堂が あります。",
+          "en": "There is an old dining hall inside the forest.",
+          "terms": [
+            "v_mori",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_furui",
+            "v_shokudou",
+            "p_ga",
+            { "id": "v_aru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "この 食堂の 代金は 安くて、毎日 多くの 人が 来ます。",
+          "en": "The fee at this dining hall is cheap, and many people come every day.",
+          "terms": [
+            "v_kono",
+            "v_shokudou",
+            "p_no",
+            "v_daikin",
+            "p_wa",
+            { "id": "v_yasui", "form": "te_form" },
+            "v_mainichi",
+            { "id": "v_ooi", "form": "adverbial" },
+            "p_no",
+            "v_hito",
+            "p_ga",
+            { "id": "v_kuru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "食堂の 入り口では 用紙が 使われます。来た 人は 名前を 書かせられます。",
+          "en": "A form is used at the dining hall entrance. People who come are made to write their name.",
+          "terms": [
+            "v_shokudou",
+            "p_no",
+            "v_iriguchi",
+            "p_dewa",
+            "v_youshi",
+            "p_ga",
+            { "id": "v_tsukau", "form": "polite_passive" },
+            { "id": "v_kuru", "form": "plain_past" },
+            "v_hito",
+            "p_wa",
+            "v_namae",
+            "p_wo",
+            { "id": "v_kaku", "form": "polite_causative_passive" }
+          ]
+        },
+        {
+          "jp": "この 食堂で 食事をしたことが ある 人は、また 来たいと 思うと 言います。",
+          "en": "People who have eaten at this dining hall say they think they want to come again.",
+          "terms": [
+            "v_kono",
+            "v_shokudou",
+            "p_de",
+            "v_shokuji",
+            "p_wo",
+            { "id": "v_suru", "form": "plain_past" },
+            "v_koto",
+            "p_ga",
+            { "id": "v_aru", "form": "plain_form" },
+            "v_hito",
+            "p_wa",
+            "v_mata",
+            { "id": "v_kuru", "form": "plain_desire_tai" },
+            "p_to_quote",
+            { "id": "v_omou", "form": "plain_form" },
+            "p_to_quote",
+            { "id": "v_iu", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "森林の 中の 食堂が 都市の 人々に 知られるように なりました。",
+          "en": "The dining hall in the forest has come to be known by people in the city.",
+          "terms": [
+            "v_shinrin",
+            "p_no",
+            "v_naka",
+            "p_no",
+            "v_shokudou",
+            "p_ga",
+            "v_toshi",
+            "p_no",
+            "v_hitobito",
+            "p_ni",
+            { "id": "v_shiru", "form": "passive" },
+            "v_you_manner",
+            "p_ni",
+            { "id": "v_naru", "form": "polite_mashita" }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "この 食堂は どこに ありますか。",
+          "a": "森の 中",
+          "choices": ["森の 中", "都市の 中", "駅の 近く", "山の 上"],
+          "terms": [
+            "v_kono",
+            "v_shokudou",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            { "id": "v_aru", "form": "polite_masu" },
+            "p_ka",
+            "v_mori",
+            "p_no",
+            "v_naka"
+          ],
+          "explanation": "The first sentence of the passage says 森の中に古い食堂があります — the dining hall is inside the forest (森の中)."
+        },
+        {
+          "q": "入り口で 何を させられますか。",
+          "a": "名前を 書かせられます",
+          "choices": [
+            "名前を 書かせられます",
+            "代金を 出します",
+            "用紙を 持ちます",
+            "用事を 話します"
+          ],
+          "terms": [
+            "v_iriguchi",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            { "id": "v_suru", "form": "polite_causative_passive" },
+            "p_ka",
+            "v_namae",
+            { "id": "v_kaku", "form": "polite_causative_passive" }
+          ],
+          "explanation": "The third sentence says 名前を書かせられます — people who come are made to write (書かせられます, full causative-passive) their name (名前) on the form."
+        },
+        {
+          "q": "この 食堂は どんな 人に 知られましたか。",
+          "a": "都市の 人々",
+          "choices": [
+            "都市の 人々",
+            "森の 動物",
+            "学校の 学生",
+            "食堂の 先生"
+          ],
+          "terms": [
+            "v_kono",
+            "v_shokudou",
+            "p_wa",
+            "v_donna",
+            "v_hito",
+            "p_ni",
+            { "id": "v_shiru", "form": "polite_passive_past" },
+            "p_ka",
+            "v_toshi",
+            "p_no",
+            "v_hitobito"
+          ],
+          "explanation": "The final sentence says 都市の人々に知られるようになりました — the dining hall has come to be known by people in the city (都市の人々)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今の[時代]は 前と 代わりましたね。",
+          "choices": ["じだい","しだい","ちだい","とくだい"],
+          "answer": "じだい",
+          "explanation": "時代 (era / period) is read as <b>jidai</b>. 時 (N5.2) = time; 代 (N4.31) = era/substitute."
+        },
+        {
+          "kind": "mcq",
+          "q": "山の 中に [森林]が あります。",
+          "choices": ["しんりん","もりりん","しんもり","もりはやし"],
+          "answer": "しんりん",
+          "explanation": "森林 (forest / woodland) is read as <b>shinrin</b>. 森 (N4.31) = forest; 林 (N4.25) = grove."
+        },
+        {
+          "kind": "mcq",
+          "q": "この [本堂]は 大きいです。",
+          "choices": ["ほんどう","ほんどく","もとどう","もとどく"],
+          "answer": "ほんどう",
+          "explanation": "本堂 (main hall of a temple) is read as <b>hondou</b>. 本 (N5.7) = main/book; 堂 (N4.31) = hall."
+        },
+        {
+          "kind": "mcq",
+          "q": "店が [開店]しました。",
+          "choices": ["かいてん","ひらてん","あいてん","かいかい"],
+          "answer": "かいてん",
+          "explanation": "開店 (opening a shop / shop opening) is read as <b>kaiten</b>. 開 (N4.31) = open; 店 (N5.4) = shop."
+        },
+        {
+          "kind": "mcq",
+          "q": "ゆっくり [引き]ます。",
+          "choices": ["ひき","いんき","びき","ちき"],
+          "answer": "ひき",
+          "explanation": "引きます (pull / draw a line) is read as <b>hikimasu</b>. 引 (N4.32) = pull/draw. The verb 引く is a godan verb."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生に [習字]を 習います。",
+          "choices": ["しゅうじ","なならじ","しゅうなら","しゅうもじ"],
+          "answer": "しゅうじ",
+          "explanation": "習字 (calligraphy) is read as <b>shuuji</b>. 習 (N4.32) = learn/practice; 字 (N4.22) = character/letter."
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は [用事] が あって、早く 帰ります。",
+          "choices": ["ようじ","よじ","もちごと","ようこと"],
+          "answer": "ようじ",
+          "explanation": "用事 (errand / business) is read as <b>youji</b>. 用 (N4.32) = use/service; 事 (N4.13) = thing/matter."
+        },
+        {
+          "kind": "mcq",
+          "q": "この [都市] は とても 大きいです。",
+          "choices": ["とし","とち","みやこし","とうし"],
+          "answer": "とし",
+          "explanation": "都市 (city / urban area) is read as <b>toshi</b>. 都 (N4.11) = capital/metropolis; 市 (N4.32) = city."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Choose the best word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "その 集会は 先週の 水曜日に ______。",
+          "choices": ["開かれました","代わりました","引きました","始まりました"],
+          "answer": "開かれました",
+          "explanation": "'Sono shuukai wa senshuu no suiyoubi ni hirakaremashita' — 開かれました is the polite passive past of 開く (to hold/open). The gathering was held (passive) last Wednesday. 集会 = gathering (N4.30).",
+          "terms": [
+            "v_sono",
+            "v_shuukai",
+            "p_wa",
+            "v_senshuu",
+            "p_no",
+            "v_suiyoubi",
+            "p_ni"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は ______ が あるので、早く 帰ります。",
+          "choices": ["用事","習字","代金","朝市"],
+          "answer": "用事",
+          "explanation": "'Kyou wa youji ga aru node, hayaku kaerimasu' — 用事 (errands / tasks / business) fits. The speaker has business to do and must leave early.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "p_ga",
+            { "id": "v_aru", "form": "plain_form" },
+            "p_node",
+            { "id": "v_hayai", "form": "adverbial" },
+            { "id": "v_kaeru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "______ の 中に 大切な 紙が 入って います。",
+          "choices": ["引き出し","食堂","開始","世代"],
+          "answer": "引き出し",
+          "explanation": "'Hikidashi no naka ni taisetsu na kami ga haitte imasu' — 引き出し (drawer) fits: important papers are stored inside the drawer. 引き出す = to pull out → 引き出し = drawer (N4.32).",
+          "terms": [
+            "p_no",
+            "v_naka",
+            "p_ni",
+            { "id": "v_taisetsu", "form": "attributive_na" },
+            "v_kami",
+            "p_ga",
+            { "id": "v_hairu", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生を ______ 毎日 書いて います。",
+          "choices": ["見習って","引き出して","学習して","代わって"],
+          "answer": "見習って",
+          "explanation": "'Sensei wo minaratte mainichi kaite imasu' — 見習う (to emulate / to follow an example) fits: the speaker is emulating the teacher and writing every day. 見習う = 見 (observe) + 習う (learn) (N4.32).",
+          "terms": [
+            "v_sensei",
+            "p_wo",
+            "v_mainichi",
+            { "id": "v_kaku", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct grammar form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この 森の 中で、大きい 音楽の 集会が ______。",
+          "choices": ["開かれました","開けました","開きました","開くました"],
+          "answer": "開かれました",
+          "explanation": "'Kono mori no naka de, ookii ongaku no shuukai ga hirakaremashita' — the event was held (passively, from the venue's perspective), so the passive form 開かれました is correct. 開ける (transitive active) and 開く (intransitive or active) are not correct here.",
+          "terms": [
+            "v_kono",
+            "v_mori",
+            "p_no",
+            "v_naka",
+            "p_de",
+            "v_ookii",
+            "v_ongaku",
+            "p_no",
+            "v_shuukai",
+            "p_ga"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生は 学生に 漢字を ______。",
+          "choices": ["書かせました","書かれました","書きました","書かせられました"],
+          "answer": "書かせました",
+          "explanation": "'Sensei wa gakusei ni kanji wo kakasemashita' — causative past 書かせました (made to write) is correct because the teacher is causing the student to do the action. 書かれました is passive (was written). 書かせられました is causative-passive (was made to write by someone — wrong subject). 書きました is simple past active.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_gakusei",
+            "p_ni",
+            "v_kanji",
+            "p_wo"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "都市の 朝市を 使えるように ______。",
+          "choices": ["なりました","しました","できました","はじめました"],
+          "answer": "なりました",
+          "explanation": "'Toshi no asaichi wo tsukaeru you ni narimashita' — ようになる (came to be able to / came to do) uses なる to express a natural change of state. ようにする (using する) expresses deliberate effort rather than change.",
+          "terms": [
+            "v_toshi",
+            "p_no",
+            "v_asaichi",
+            "p_wo",
+            { "id": "v_tsukau", "form": "potential" },
+            "v_you_manner",
+            "p_ni"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 時代は 大きく 代わった ______。",
+          "choices": ["と思います","と言います","だと思う","でしょう"],
+          "answer": "と思います",
+          "explanation": "'Kono jidai wa ookiku kawatta to omoimasu' — と思います (I think) follows a plain-past clause to express the speaker's opinion. The sentence means 'I think this era has changed greatly.' 代わる = to change/shift (代 N4.31) — its core sense is \"to substitute or take over for something\"; you will later meet 変わる for general state changes. と思う = I think (G27).",
+          "terms": [
+            "v_kono",
+            "v_jidai",
+            "p_wa",
+            { "id": "v_ookii", "form": "adverbial" },
+            { "id": "v_kawaru", "form": "plain_past" },
+            "p_to_quote",
+            { "id": "v_omou", "form": "polite_masu" }
+          ]
+        }
+      ]
+    }
+  ]
+}

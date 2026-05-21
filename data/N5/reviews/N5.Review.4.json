@@ -1,0 +1,851 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.4",
+  "title": "Size, Food & Shopping",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 7–8.",
+    "kanji": [
+      "大",
+      "小",
+      "食",
+      "飲",
+      "古",
+      "新",
+      "買",
+      "長",
+      "高",
+      "安"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo and Yamakawa are at the restaurant deciding what to order.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "何を 食べますか。",
+              "terms": [
+                "v_nani",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "カレーを 食べます。カレーは 大きいですよ。",
+              "terms": [
+                "v_karee",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "polite_masu"
+                },
+                "v_karee",
+                "p_wa",
+                "v_ookii",
+                "g_desu",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "コーヒーも 飲みますか。",
+              "terms": [
+                "v_koohii",
+                "p_mo",
+                {
+                  "id": "v_nomu",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "コーヒーは 飲みません。ジュースを 飲みます。",
+              "terms": [
+                "v_koohii",
+                "p_wa",
+                {
+                  "id": "v_nomu",
+                  "form": "polite_negative"
+                },
+                "v_juusu",
+                "p_wo",
+                {
+                  "id": "v_nomu",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "What does B want to drink?",
+          "choices": [
+            "Juice",
+            "Coffee",
+            "Salad",
+            "Tea"
+          ],
+          "answer": "Juice",
+          "explanation": "B says コーヒーは飲みません。ジュースを飲みたいです — 'I won't drink coffee. I want to drink juice.' 飲みません (polite negative of 飲む) rejects coffee. 飲みたいです (desire form, N5.8) expresses wanting to drink ジュース (juice, N5.7). The pattern verb-stem + たいです = 'want to ~'."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Yamakawa is at the department store, asking the station master about a purchase.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "デパートで 何を 買いましたか。",
+              "terms": [
+                "v_depaato",
+                "p_de",
+                "v_nani",
+                "p_wo",
+                {
+                  "id": "v_kau",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "友だちの プレゼントを 買いました。",
+              "terms": [
+                "v_tomodachi",
+                "p_no",
+                "v_purezento",
+                "p_wo",
+                {
+                  "id": "v_kau",
+                  "form": "polite_mashita"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "新しいですか、古いですか。",
+              "terms": [
+                "v_atarashii",
+                "g_desu",
+                "p_ka",
+                "v_furui",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "新しいです。長いですよ。安いですよ。",
+              "terms": [
+                "v_atarashii",
+                "g_desu",
+                "v_nagai",
+                "g_desu",
+                "p_yo",
+                "v_yasui",
+                "g_desu",
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "How does B describe the present?",
+          "choices": [
+            "New, long, and cheap",
+            "Old and short",
+            "New and expensive",
+            "Old and long"
+          ],
+          "answer": "New, long, and cheap",
+          "explanation": "B says 新しいです。長いですよ。安いですよ — 'It is new. It is long, you know. It is cheap, you know.' 新しい (new, N5.8), 長い (long, N5.8), and 安い (cheap, N5.8) all describe the present. 安い is the direct adjective for 'cheap/inexpensive' — the antonym of 高い (expensive)."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Yamamoto-sensei asks Rikizo about his lunch and afternoon plans.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今日 何を 食べましたか。",
+              "terms": [
+                "v_kyou",
+                "v_nani",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "レストランで サラダと パンを 食べました。",
+              "terms": [
+                "v_resutoran",
+                "p_de",
+                "v_sarada",
+                "p_to",
+                "v_pan",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "polite_mashita"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "おいしいですか。",
+              "terms": [
+                "v_oishii",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、とても おいしいです。いっしょに デパートへ 行きましょう。プレゼントを 買います。",
+              "terms": [
+                "p_hai",
+                "v_totemo",
+                "v_oishii",
+                "g_desu",
+                "v_issho",
+                "v_depaato",
+                "p_e",
+                {
+                  "id": "v_iku",
+                  "form": "polite_volitional_mashou"
+                },
+                "v_purezento",
+                "p_wo",
+                {
+                  "id": "v_kau",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "What does B suggest after eating?",
+          "choices": [
+            "Going to the department store to buy a present",
+            "Going to the restaurant again",
+            "Going to the mountain by car",
+            "Drinking coffee at the restaurant"
+          ],
+          "answer": "Going to the department store to buy a present",
+          "explanation": "B says いっしょにデパートへ行きましょう。プレゼントを買います — 'Let's go to the department store together. I will buy a present.' ましょう (polite volitional form of 行く, N5.8) makes an invitation: 'let's go.' いっしょに (together) + デパートへ (to the department store, direction) + 行きましょう = 'let's go to the department store together.'"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Rikizo ate salad and bread at the restaurant.",
+          "segments": [
+            "りきぞ",
+            "は",
+            "レストラン",
+            "で",
+            "サラダ",
+            "と",
+            "パン",
+            "を",
+            "食べました"
+          ],
+          "distractors": [
+            "に",
+            "飲みました",
+            "コーヒー"
+          ],
+          "explanation": "りきぞ + は (topic) + レストラン + で (at the restaurant, location of action) + サラダ + と (and, listing foods) + パン + を (object) + 食べました. で marks where the action takes place. と connects two items in a list: サラダとパン = 'salad and bread.'"
+        },
+        {
+          "kind": "scramble",
+          "q": "The gift is not very expensive.",
+          "segments": [
+            "プレゼント",
+            "は",
+            "あまり",
+            "高くない",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "高い",
+            "古い"
+          ],
+          "explanation": "プレゼント + は (topic) + あまり (not very) + 高くない (negative stem of 高い: not expensive) + です. あまり must pair with a negative form: あまり + adj-くない + です = 'not very ~'. Using 高い (affirmative) after あまり would be ungrammatical."
+        },
+        {
+          "kind": "scramble",
+          "q": "Yamakawa wants to buy a new present.",
+          "segments": [
+            "やまかわ",
+            "は",
+            "新しい",
+            "プレゼント",
+            "を",
+            "買いたいです"
+          ],
+          "distractors": [
+            "が",
+            "古い",
+            "食べたいです"
+          ],
+          "explanation": "やまかわ + は (topic) + 新しい (new, attributive adjective modifying noun directly) + プレゼント + を (object) + 買いたいです. 買いたいです (want to buy) = stem 買い + たいです (desire form, N5.8). い-adjectives like 新しい don't change form before nouns — 新しいプレゼント = 'new present.'"
+        },
+        {
+          "kind": "scramble",
+          "q": "Let's go to the department store together.",
+          "segments": [
+            "いっしょに",
+            "デパート",
+            "へ",
+            "行きましょう"
+          ],
+          "distractors": [
+            "で",
+            "来ましょう",
+            "を"
+          ],
+          "explanation": "いっしょに (together) + デパート + へ (to the department store, direction) + 行きましょう. ましょう (polite volitional of 行く, N5.8) = 'let's go' — an invitation. いっしょに means 'together.' へ marks direction of movement. 来ましょう means 'let's come' — the wrong direction."
+        },
+        {
+          "kind": "scramble",
+          "q": "Yamakawa ate bread and then drank coffee.",
+          "segments": [
+            "やまかわ",
+            "は",
+            "パン",
+            "を",
+            "食べて",
+            "コーヒー",
+            "を",
+            "飲みました"
+          ],
+          "distractors": [
+            "に",
+            "食べました",
+            "来ました"
+          ],
+          "explanation": "やまかわ + は (topic) + パン + を (object) + 食べて (te-form of 食べる, connecting sequential actions) + コーヒー + を (object) + 飲みました. The te-form connector (食べて飲みました) describes a sequence: 'ate bread and then drank coffee.' 食べました alone ends the sentence — it cannot chain into 飲みました."
+        },
+        {
+          "kind": "scramble",
+          "q": "I want to eat salad at the restaurant.",
+          "segments": [
+            "レストラン",
+            "で",
+            "サラダ",
+            "を",
+            "食べたいです"
+          ],
+          "distractors": [
+            "に",
+            "へ",
+            "飲みたいです"
+          ],
+          "explanation": "レストラン + で (at the restaurant, location of action) + サラダ + を (object) + 食べたいです. 食べたいです (want to eat) = stem 食べ + たいです (desire form, N5.8). で marks the place where eating happens. 飲みたいです (want to drink) is a plausible distractor but wrong — salad is eaten, not drunk."
+        },
+        {
+          "kind": "scramble",
+          "q": "Yamakawa bought a new present at the department store.",
+          "segments": [
+            "やまかわ",
+            "は",
+            "デパート",
+            "で",
+            "新しい",
+            "プレゼント",
+            "を",
+            "買いました"
+          ],
+          "distractors": [
+            "に",
+            "古い",
+            "食べました"
+          ],
+          "explanation": "やまかわ + は (topic) + デパート + で (at the department store, location of action) + 新しい (new, attributive adjective) + プレゼント + を (object) + 買いました. で marks where the purchase happened. 新しい modifies プレゼント directly. 買いました (bought) is the polite past of 買う (N5.8)."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Yamakawa's Day",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "やまかわは 今日 友だちと レストランへ 行きました。",
+          "en": "Yamakawa went to the restaurant with a friend today.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_kyou",
+            "v_tomodachi",
+            "p_to",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "カレーを 食べて、コーヒーを 飲みました。",
+          "en": "He ate curry and then drank coffee.",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "カレーは 大きいです。とても おいしいですよ。",
+          "en": "The curry is big. It is very delicious, you know.",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "v_totemo",
+            "v_oishii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "jp": "やまかわは デパートへも 行きました。",
+          "en": "Yamakawa also went to the department store.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_depaato",
+            "p_mo",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "友だちの プレゼントを 買いました。プレゼントは 新しいです。安いですよ。",
+          "en": "He bought a friend's present. The present is new. It is cheap, you know.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_purezento",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "v_purezento",
+            "p_no",
+            "v_atarashii",
+            "g_desu",
+            "v_yasui",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは レストランで 何を 食べましたか。",
+          "a": "カレーを 食べました。",
+          "choices": [
+            "カレーを 食べました。",
+            "サラダを 食べました。",
+            "パンを 食べました。",
+            "ジュースを 飲みました。"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_resutoran",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            "v_karee"
+          ],
+          "explanation": "The passage says カレーを食べて、コーヒーを飲みました — 'He ate curry and then drank coffee.' カレーを食べました answers 食べましたか. The other options list foods not eaten (サラダ, パン) or use the wrong verb (ジュースを飲みました uses 飲む not 食べる)."
+        },
+        {
+          "q": "デパートで 何を 買いましたか。",
+          "a": "プレゼントを 買いました。",
+          "choices": [
+            "プレゼントを 買いました。",
+            "コーヒーを 買いました。",
+            "カレーを 買いました。",
+            "サラダを 買いました。"
+          ],
+          "terms": [
+            "v_depaato",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            "v_purezento"
+          ],
+          "explanation": "The passage says 友だちのプレゼントを買いました — 'He bought a friend's present.' The question asks デパートで何を買いましたか (what did he buy at the department store?). プレゼントを買いました is the answer. Coffee, curry, and salad are consumed at the restaurant, not purchased as gifts."
+        },
+        {
+          "q": "プレゼントは どうですか。",
+          "a": "新しいです。",
+          "choices": [
+            "新しいです。",
+            "古いです。",
+            "高いです。",
+            "小さいです。"
+          ],
+          "terms": [
+            "v_purezento",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka",
+            "v_atarashii",
+            "g_desu"
+          ],
+          "explanation": "The passage says プレゼントは新しいです。安いですよ — 'The present is new. It is cheap, you know.' 新しいです (new) is confirmed. The other choices contradict the passage: 古いです (old) is the antonym of 新しい. 高いです (expensive) contradicts 安いです (cheap). 小さいです is never mentioned."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "レストランで カレーを [食べました]。",
+          "choices": [
+            "たべました",
+            "のみました",
+            "いきました",
+            "きました"
+          ],
+          "answer": "たべました",
+          "explanation": "食べる (to eat) is read as <b>taberu</b>. Past polite form: 食べました = <b>tabemashita</b>. 食 (shoku/ta, eat/food) — kun-reading た, as in 食べる. Introduced in N5.7 with food and drink vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "コーヒーを [飲みました]か。",
+          "choices": [
+            "のみました",
+            "たべました",
+            "いきました",
+            "かいました"
+          ],
+          "answer": "のみました",
+          "explanation": "飲む (to drink) is read as <b>nomu</b>. Past polite form: 飲みました = <b>nomimashita</b>. 飲 (in/no, drink) — kun-reading の, as in 飲む. On-reading いん. Introduced in N5.7 with food and drink vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "カレーは [大きい]ですよ。",
+          "choices": [
+            "おおきい",
+            "ちいさい",
+            "たかい",
+            "ながい"
+          ],
+          "answer": "おおきい",
+          "explanation": "大きい (big) is read as <b>ookii</b>. 大 (dai/oo, big/large) — kun-reading おお, as in 大きい. On-reading だい/たい. Introduced in N5.7 with size adjectives."
+        },
+        {
+          "kind": "mcq",
+          "q": "サラダは [小さい]ですよ。",
+          "choices": [
+            "ちいさい",
+            "おおきい",
+            "ふるい",
+            "あたらしい"
+          ],
+          "answer": "ちいさい",
+          "explanation": "小さい (small) is read as <b>chiisai</b>. 小 (shou/chii, small) — kun-reading ちい, as in 小さい. On-reading しょう. Compare: 大きい (ookii, big) is the antonym. Introduced in N5.7 with size adjectives."
+        },
+        {
+          "kind": "mcq",
+          "q": "その プレゼントは [新しい]ですか。",
+          "choices": [
+            "あたらしい",
+            "ふるい",
+            "たかい",
+            "ながい"
+          ],
+          "answer": "あたらしい",
+          "explanation": "新しい (new) is read as <b>atarashii</b>. 新 (shin/atara, new) — kun-reading あたら, as in 新しい. On-reading しん. The antonym is 古い (furui, old). Introduced in N5.8 with shopping and adjective vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "その 店は [古い]です。",
+          "choices": [
+            "ふるい",
+            "あたらしい",
+            "おおきい",
+            "ちいさい"
+          ],
+          "answer": "ふるい",
+          "explanation": "古い (old) is read as <b>furui</b>. 古 (ko/furu, old) — kun-reading ふる, as in 古い. On-reading こ. The antonym is 新しい (atarashii, new). Introduced in N5.8 with shopping and adjective vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "デパートで プレゼントを [買いました]。",
+          "choices": [
+            "かいました",
+            "たべました",
+            "のみました",
+            "いきました"
+          ],
+          "answer": "かいました",
+          "explanation": "買う (to buy) is read as <b>kau</b>. Past polite form: 買いました = <b>kaimashita</b>. 買 (bai/ka, buy) — kun-reading か, as in 買う. On-reading ばい. Introduced in N5.8 with shopping vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "その プレゼントは [高い]ですか。",
+          "choices": [
+            "たかい",
+            "ながい",
+            "ふるい",
+            "あたらしい"
+          ],
+          "answer": "たかい",
+          "explanation": "高い (expensive/tall/high) is read as <b>takai</b>. 高 (kou/taka, high/expensive) — kun-reading たか, as in 高い. On-reading こう. Used in shopping contexts for price: 高い = expensive, opposite of 安い (cheap). Introduced in N5.8 with shopping and adjective vocabulary."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "_______ を 飲みます。",
+          "choices": [
+            "コーヒー",
+            "カレー",
+            "パン",
+            "サラダ"
+          ],
+          "answer": "コーヒー",
+          "terms": [
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "コーヒー (coffee) is a drink — 飲む (to drink) takes liquid objects. カレー, パン, and サラダ are food items eaten with 食べる (to eat), not drunk with 飲む. This tests the eat/drink distinction introduced in N5.7: use 飲む for drinks, 食べる for food."
+        },
+        {
+          "kind": "mcq",
+          "q": "デパートで プレゼントを _______。",
+          "choices": [
+            "買いました",
+            "食べました",
+            "飲みました",
+            "来ました"
+          ],
+          "answer": "買いました",
+          "terms": [
+            "v_depaato",
+            "p_de",
+            "v_purezento",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "買いました (bought) is the polite past of 買う (to buy, N5.8). Presents (プレゼント) are bought, not eaten or drunk. 来ました (came) is a motion verb — wrong for purchasing. で marks the location of the action (at the department store)."
+        },
+        {
+          "kind": "mcq",
+          "q": "これは 新しいです。あれは _______。",
+          "choices": [
+            "古いです",
+            "新しいです",
+            "おいしいです",
+            "ほしいです"
+          ],
+          "answer": "古いです",
+          "terms": [
+            "v_kore",
+            "p_wa",
+            "v_atarashii",
+            "g_desu",
+            "v_are",
+            "v_furui",
+            "g_desu"
+          ],
+          "explanation": "古いです (is old, N5.8) is the natural antonym of 新しい (new). The sentence contrasts これ (this) being new with あれ (that thing over there) being its opposite. 新しいです repeats the same meaning. おいしいです and ほしいです introduce unrelated concepts not supported by the context."
+        },
+        {
+          "kind": "mcq",
+          "q": "プレゼントは あまり _______ です。",
+          "choices": [
+            "高くない",
+            "高い",
+            "新しい",
+            "おいしい"
+          ],
+          "answer": "高くない",
+          "terms": [
+            "v_purezento",
+            "p_wa",
+            "v_amari",
+            {
+              "id": "v_takai",
+              "form": "polite_negative"
+            }
+          ],
+          "explanation": "あまり (not very, N5.8) always pairs with a NEGATIVE form: あまり高くない = 'not very expensive.' Using あまり with an affirmative adjective (高い, 新しい, おいしい) is ungrammatical — あまり requires the negative. Full pattern: あまり + い-adj stem + くない + です."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "カレー _____ 食べました。",
+          "choices": [
+            "を",
+            "は",
+            "に",
+            "で"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "を marks the direct object of 食べる (transitive verb): カレーを食べました = 'ate curry.' は would make カレー the topic — implying contrast with something else (食べましたが…). に marks a destination or time point. で marks the location of an action or the means of doing it."
+        },
+        {
+          "kind": "mcq",
+          "q": "レストラン _____ 食べます。",
+          "choices": [
+            "で",
+            "へ",
+            "に",
+            "を"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "で marks the location where an action takes place: レストランで食べます = 'eat at the restaurant.' へ marks direction of movement toward a place — not the place where eating happens. に marks destination (with motion verbs) or existence location (with ある/いる). を marks a direct object — レストランは not what is eaten."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だち _____ プレゼントは 高いです。",
+          "choices": [
+            "の",
+            "に",
+            "を",
+            "が"
+          ],
+          "answer": "の",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_purezento",
+            "p_no",
+            "v_takai",
+            "g_desu"
+          ],
+          "explanation": "の marks possession or attribution between two nouns: 友だちのプレゼント = 'a friend's present.' の connects 友だち and プレゼント — the first noun modifies the second. に marks an indirect object or time point. を marks a direct object (プレゼントは is the topic here, not the object). が marks the subject, not possession."
+        },
+        {
+          "kind": "mcq",
+          "q": "デパート _____ 行きましょう。",
+          "choices": [
+            "へ",
+            "で",
+            "に",
+            "を"
+          ],
+          "answer": "へ",
+          "terms": [
+            "v_depaato",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ],
+          "explanation": "へ marks the direction of movement: デパートへ行きましょう = 'Let's go to the department store.' で marks the location of an action or the means — not direction with 行く. に also marks destination (デパートに行く is grammatical) but へ emphasizes direction and orientation, which is the better choice here. を marks a direct object — 行く is intransitive."
+        },
+        {
+          "kind": "mcq",
+          "q": "プレゼント _____ ほしいです。",
+          "choices": [
+            "が",
+            "を",
+            "は",
+            "に"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_purezento",
+            "p_ga",
+            "v_hoshii",
+            "g_desu"
+          ],
+          "explanation": "ほしい (wanted/desired, N5.8) is an adjective — its desired object takes が: プレゼントがほしいです = 'I want a present.' This is a key N5.8 pattern: noun + が + ほしいです. Compare: verb-stem + たいです for wanting to do actions (買いたいです = 'want to buy'). を is for verb objects (食べる, 飲む, 買う) — not for the adjective ほしい."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.17",
+  "lesson": "N4.17",
+  "level": "N4",
+  "title": "A Trip Through Japan",
+  "titleJp": "日本の 旅",
+  "emoji": "🗺️",
+  "theme": "Write about planning and taking a trip around Japan — visiting Tokyo, Kyoto, or Hokkaido, riding a bicycle, and seeing the sea.",
+  "prompts": [
+    {
+      "prompt": "Open by introducing your trip plan. Where in Japan do you want to go this time? Use 今回 and the destination.",
+      "targets": [
+        { "id": "v_konkai", "count": 1 },
+        { "id": "v_kyouto", "count": 1 }
+      ],
+      "model": "今回は 京都へ 行きます。古い 都を 見たいです。",
+      "vocabPool": [
+        "v_konkai", "v_kyouto", "v_toukyou", "v_hokkaidou", "v_miyako",
+        "v_furui", "v_iku", "v_miru", "v_watashi", "p_wa", "p_e", "p_wo"
+      ]
+    },
+    {
+      "prompt": "Explain why you chose this destination. What do you want to see or do there? Use たいです and 京都 or another destination.",
+      "targets": [
+        { "id": "v_toukyou", "count": 1 }
+      ],
+      "model": "来年は 東京にも 行きたいです。電車に 何回も 乗りたいです。",
+      "vocabPool": [
+        "v_toukyou", "v_kyouto", "v_hokkaidou", "v_kaigai", "v_densha",
+        "v_nankai", "v_noru", "v_miru", "v_iku", "v_rainen", "g_desu", "p_ni", "p_mo"
+      ]
+    },
+    {
+      "prompt": "Describe how you will get around. Will you ride a bicycle, drive a car, or take the train? Use 自転車 or 運転.",
+      "targets": [
+        { "id": "v_jitensha", "count": 1 },
+        { "id": "v_unten", "count": 1 }
+      ],
+      "model": "京都では 自転車に 乗ります。車の 運転は むずかしいですから。",
+      "vocabPool": [
+        "v_jitensha", "v_unten", "v_kuruma", "v_densha", "v_noru",
+        "v_mawaru", "v_norimawasu", "v_muzukashii", "p_de", "p_kara_because", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about arriving in Hokkaido. What did you see there? Describe the rice fields or the sea. Use 田 or 海.",
+      "targets": [
+        { "id": "v_hokkaidou", "count": 1 },
+        { "id": "v_umi", "count": 1 }
+      ],
+      "model": "北海道に 着きました。大きい 田が たくさん ありました。海も きれいでした。",
+      "vocabPool": [
+        "v_hokkaidou", "v_umi", "v_ta", "v_suiden", "v_ookii",
+        "v_kirei", "v_takusan", "v_aru", "v_miru", "p_wa", "p_ga", "p_mo"
+      ]
+    },
+    {
+      "prompt": "Describe activities you did during the trip. Use たり～たりする to list two things you did.",
+      "targets": [
+        { "id": "v_shashin", "count": 1 },
+        { "id": "v_tanoshimu", "count": 1 }
+      ],
+      "model": "写真を とったり、旅行を 楽しんだり しました。",
+      "vocabPool": [
+        "v_shashin", "v_tanoshimu", "v_ryokou", "v_aruku", "v_miru",
+        "v_toru", "v_issho", "v_tomodachi", "p_wo", "p_to", "p_de"
+      ]
+    },
+    {
+      "prompt": "Mention how many times you have traveled overseas or to a certain place. Use 回 frequency words.",
+      "targets": [
+        { "id": "v_kaigai", "count": 1 },
+        { "id": "v_nikai", "count": 1 }
+      ],
+      "model": "海外へ 行ったことが あります。二回 あります。",
+      "vocabPool": [
+        "v_kaigai", "v_nikai", "v_ikkai", "v_nankai", "v_koto",
+        "v_iku", "v_aru", "v_yoku", "p_e", "p_ga"
+      ]
+    },
+    {
+      "prompt": "Reflect on the trip. Was it fun or difficult? Use a past-tense adjective and express your feelings.",
+      "targets": [
+        { "id": "v_ryokou", "count": 1 }
+      ],
+      "model": "旅行は とても 楽しかったです。また 行きたいです。",
+      "vocabPool": [
+        "v_tanoshimu", "v_ryokou", "v_tanoshii", "v_totemo", "v_muzukashii",
+        "v_mata", "v_iku", "v_ii", "v_jikan", "g_desu", "p_wa", "p_ga"
+      ]
+    },
+    {
+      "prompt": "Close by expressing what you want to do on your next trip to Japan. Use ながら or たいです to express a desire.",
+      "targets": [
+        { "id": "v_umi", "count": 1 },
+        { "id": "v_jitensha", "count": 1 }
+      ],
+      "model": "つぎの 旅行では、自転車に 乗りながら 海を 見たいです。",
+      "vocabPool": [
+        "v_umi", "v_jitensha", "v_ryokou", "v_noru", "v_miru",
+        "v_norimawasu", "v_mawaru", "v_kaigai", "v_toukyou", "v_hokkaidou", "g_desu", "p_de"
+      ]
+    },
+    {
+      "prompt": "Imagine greeting a local or a friend when you arrive at your destination. Use at least one conversation expression (なるほど、そうそう、じつは、まあ、etc.) to make the exchange feel natural. Write 2–3 lines.",
+      "targets": [
+        { "id": "v_naruhodo", "count": 1 }
+      ],
+      "model": "じつは、はじめての 京都です。なるほど、古い 都ですね。",
+      "vocabPool": [
+        "v_naruhodo", "v_hee", "v_souso", "v_jitsuwa", "v_tsumari", "v_nanka", "v_maa",
+        "v_kyouto", "v_toukyou", "v_hokkaidou", "v_tomodachi", "v_miyako", "v_furui",
+        "g_desu", "p_wa", "p_ne", "p_yo"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Write about a time you fell off a bicycle. What happened, and how many times did it happen? Use 転ぶ and a frequency expression.",
+      "targets": [
+        { "id": "v_korobu", "count": 1 },
+        { "id": "v_nikai", "count": 1 }
+      ],
+      "model": "先週 雨で 自転車から 二回 転びました。むずかしかったです。",
+      "vocabPool": [
+        "v_korobu", "v_nikai", "v_ikkai", "v_jitensha", "v_ame",
+        "v_muzukashii", "v_senshuu", "v_totemo", "p_de", "p_kara"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_ka", "p_yo", "p_ne", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo", "p_node",
+    "p_to_quote", "g_desu", "g_da", "p_dake", "p_shika", "p_bakari", "p_noni", "p_demo",
+    "p_yori", "p_hodo", "p_ya", "p_na"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["行きます", "乗りました", "北海道へ 行きました", "自転車に 乗ります"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["運転できません", "東京には 行きませんでした", "海外に 行きませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["自転車に 乗っています", "旅行して います", "京都に 住んで います"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["海を 見たいです", "京都へ 行きたいです", "車を 運転したくないです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["運転できます", "乗れます", "自転車に 乗れます", "海外に 行けます"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["自転車に 乗ったり 歩いたり します", "写真を とったり 旅行したり します"]
+    },
+    {
+      "pattern": "verb-ながら (while doing)",
+      "meaning": "while doing [verb] simultaneously",
+      "examples": ["写真を とりながら 歩きます", "音楽を 聞きながら 自転車に 乗ります"]
+    },
+    {
+      "pattern": "い-adjective past + です (〜かったです / 〜くなかったです)",
+      "meaning": "was [adjective] / was not [adjective] (polite past)",
+      "examples": ["楽しかったです", "むずかしくなかったです", "北海道は 寒かったです"]
+    },
+    {
+      "pattern": "[place] + だけ",
+      "meaning": "only [place] / just [place]",
+      "examples": ["今回は 京都だけです", "海外だけ 行きます"]
+    },
+    {
+      "pattern": "[count] + 回 + あります / ありました",
+      "meaning": "have done [X] times",
+      "examples": ["二回 あります", "何回も 乗りました", "一回だけ 転びました"]
+    }
+  ]
+}

@@ -1,0 +1,967 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.2",
+  "title": "Numbers, Money & Time",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 3–4.",
+    "kanji": [
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六",
+      "七",
+      "八",
+      "九",
+      "十",
+      "百",
+      "千",
+      "万",
+      "円",
+      "時",
+      "分",
+      "年",
+      "週",
+      "半"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Yamakawa and Rikizo compare birthdays and talk about their friends.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "やまかわさん、今月は 三月ですね。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "v_kongetsu",
+                "p_wa",
+                {
+                  "counter": "gatsu",
+                  "n": 3
+                },
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうです。三月 三日は わたしのたんじょうびです。",
+              "terms": [
+                "p_soudesu",
+                {
+                  "counter": "gatsu",
+                  "n": 3
+                },
+                "v_mikka",
+                "p_wa",
+                "v_watashi",
+                "p_no",
+                "v_tanjoubi",
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "いいですね。友だちは 何人 いますか。",
+              "terms": [
+                "v_ii",
+                "g_desu",
+                "p_ne",
+                "v_tomodachi",
+                "p_wa",
+                "v_nannin",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "四人 います。",
+              "terms": [
+                {
+                  "counter": "nin",
+                  "n": 4
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "When is Yamakawa's birthday?",
+          "choices": [
+            "March 3rd",
+            "May 5th",
+            "January 4th",
+            "October 3rd"
+          ],
+          "answer": "March 3rd",
+          "explanation": "B says 三月三日はわたしのたんじょうびです — 'March 3rd is my birthday.' 三月 = March (3rd month), 三日 = the 3rd day."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Yamamoto-sensei asks Rikizo about his weekly attendance.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "りきぞさん、今週は 何よう日に いますか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "v_konshuu",
+                "p_wa",
+                "v_nanyoubi",
+                "p_ni",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "今週は 月よう日と 水よう日に います。",
+              "terms": [
+                "v_konshuu",
+                "p_wa",
+                "v_getsuyoubi",
+                "p_to",
+                "v_suiyoubi",
+                "p_ni",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "先週も 月よう日に いましたか。",
+              "terms": [
+                "v_senshuu",
+                "p_mo",
+                "v_getsuyoubi",
+                "p_ni",
+                {
+                  "id": "v_iru",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、先週は 月よう日と 金よう日に いました。",
+              "terms": [
+                "p_hai",
+                "v_senshuu",
+                "p_wa",
+                "v_getsuyoubi",
+                "p_to",
+                "v_kinyoubi",
+                "p_ni",
+                {
+                  "id": "v_iru",
+                  "form": "polite_mashita"
+                }
+              ]
+            }
+          ],
+          "question": "Which days was Rikizo here last week?",
+          "choices": [
+            "Monday and Friday",
+            "Monday and Wednesday",
+            "Monday only",
+            "Wednesday and Friday"
+          ],
+          "answer": "Monday and Friday",
+          "explanation": "B says 先週は月よう日と金よう日にいました — 'Last week I was here on Monday and Friday.' This week (今週) is different: Monday and Wednesday."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Rikizo and Yamakawa look at cake at a shop.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "やまかわさん、このケーキは いいですか。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "v_kono",
+                "v_keeki",
+                "p_wa",
+                "v_ii",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、とても いいです。きのうも ありましたよ。",
+              "terms": [
+                "p_hai",
+                "v_totemo",
+                "v_ii",
+                "g_desu",
+                "v_kinou",
+                "p_mo",
+                {
+                  "id": "v_aru",
+                  "form": "polite_mashita"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "そのケーキは 半分 ありますか。",
+              "terms": [
+                "v_sono",
+                "v_keeki",
+                "p_wa",
+                "v_hanbun",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうです。ちょっと ありますね。",
+              "terms": [
+                "p_soudesu",
+                "v_chotto",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ne"
+              ]
+            }
+          ],
+          "question": "Was there cake yesterday?",
+          "choices": [
+            "Yes, there was some",
+            "No, there was none",
+            "Only this cake today",
+            "There was none yesterday"
+          ],
+          "answer": "Yes, there was some",
+          "explanation": "B says きのうもありましたよ — 'There was some yesterday too.' The も particle shows it applies to yesterday as well as today."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Yamakawa's birthday is March 3rd.",
+          "segments": [
+            "やまかわさん",
+            "の",
+            "たんじょうび",
+            "は",
+            "三月",
+            "三日",
+            "です"
+          ],
+          "distractors": [
+            "が",
+            "毎月",
+            "四月"
+          ],
+          "explanation": "やまかわさんの (Yamakawa's) + たんじょうび + は (topic) + 三月 (March) + 三日 (3rd) + です. の connects the possessor to the thing possessed. は marks たんじょうび as the topic."
+        },
+        {
+          "kind": "scramble",
+          "q": "Yamamoto-sensei is here every week at three o'clock.",
+          "segments": [
+            "やまもと先生",
+            "は",
+            "毎週",
+            "三時",
+            "に",
+            "います"
+          ],
+          "distractors": [
+            "が",
+            "二時",
+            "いません"
+          ],
+          "alts": [
+            [
+              "毎週",
+              "やまもと先生",
+              "は",
+              "三時",
+              "に",
+              "います"
+            ]
+          ],
+          "explanation": "やまもと先生 + は (topic) + 毎週 + 三時 + に (time marker) + います. に marks the specific time 'at 3 o'clock'. 毎週 can also move to the sentence start: 毎週やまもと先生は三時にいます."
+        },
+        {
+          "kind": "scramble",
+          "q": "Rikizo sometimes understands Japanese.",
+          "segments": [
+            "りきぞさん",
+            "は",
+            "にほんご",
+            "が",
+            "時々",
+            "分かります"
+          ],
+          "distractors": [
+            "を",
+            "毎日",
+            "分かりません"
+          ],
+          "explanation": "りきぞさんは + にほんご + が (marks what is understood) + 時々 (sometimes) + 分かります. が marks the subject of 分かる. を marks direct objects of transitive verbs, but 分かる is an intransitive verb of understanding."
+        },
+        {
+          "kind": "scramble",
+          "q": "This cake was here yesterday.",
+          "segments": [
+            "この",
+            "ケーキ",
+            "は",
+            "きのう",
+            "ありました"
+          ],
+          "distractors": [
+            "が",
+            "その",
+            "ありませんでした"
+          ],
+          "alts": [
+            [
+              "きのう",
+              "この",
+              "ケーキ",
+              "は",
+              "ありました"
+            ]
+          ],
+          "explanation": "この (this) + ケーキ + は (topic) + きのう (yesterday) + ありました (past of ある, for inanimate things). きのう can also move to the sentence start: きのうこのケーキはありました."
+        },
+        {
+          "kind": "scramble",
+          "q": "Last week, three friends were here.",
+          "segments": [
+            "先週",
+            "友だち",
+            "が",
+            "三人",
+            "いました"
+          ],
+          "distractors": [
+            "は",
+            "四人",
+            "います"
+          ],
+          "explanation": "先週 + 友だち + が (existence subject) + 三人 + いました (past of いる, for animate beings). が marks who was present. は would make 友だち a contrasting topic. いました is the correct past form — います is present tense."
+        },
+        {
+          "kind": "scramble",
+          "q": "Every year in March there is a birthday.",
+          "segments": [
+            "毎年",
+            "三月",
+            "に",
+            "たんじょうび",
+            "が",
+            "あります"
+          ],
+          "distractors": [
+            "は",
+            "五月",
+            "ありません"
+          ],
+          "alts": [
+            [
+              "三月",
+              "に",
+              "毎年",
+              "たんじょうび",
+              "が",
+              "あります"
+            ]
+          ],
+          "explanation": "毎年 (every year) + 三月 + に (in March, time marker) + たんじょうび + が (existence subject) + あります. に marks the month when the event occurs. 毎年 can also follow 三月に at the start."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Yamakawa's Schedule",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "やまかわは 今年 よく います。",
+          "en": "Yamakawa is here often this year.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_kotoshi",
+            "v_yoku",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今週は 月よう日と 水よう日に います。",
+          "en": "This week he is here on Monday and Wednesday.",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先週も 三時に いました。",
+          "en": "Last week too he was here at three o'clock.",
+          "terms": [
+            "v_senshuu",
+            "p_mo",
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわのたんじょうびは 三月 三日です。",
+          "en": "Yamakawa's birthday is March 3rd.",
+          "terms": [
+            "char_yamakawa",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "今月は 三月です。",
+          "en": "This month is March.",
+          "terms": [
+            "v_kongetsu",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎年 三月に たんじょうびが あります。",
+          "en": "Every year in March there is a birthday.",
+          "terms": [
+            "v_mainen",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "p_ni",
+            "v_tanjoubi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "とても うれしいですね。",
+          "en": "How wonderful!",
+          "terms": [
+            "v_totemo",
+            "v_ureshii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは 今週 何よう日に いますか。",
+          "a": "月よう日と 水よう日",
+          "choices": [
+            "月よう日と 水よう日",
+            "月よう日と 金よう日",
+            "火よう日と 水よう日",
+            "毎日"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_konshuu",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi"
+          ],
+          "explanation": "The passage says 今週は月よう日と水よう日にいます — 'This week he is here on Monday and Wednesday.' と connects two days in an exhaustive list."
+        },
+        {
+          "q": "先週は 何時に いましたか。",
+          "a": "三時",
+          "choices": [
+            "三時",
+            "四時",
+            "一時",
+            "五時"
+          ],
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            {
+              "counter": "ji",
+              "n": 3
+            }
+          ],
+          "explanation": "The passage says 先週も三時にいました — 'Last week too he was here at 3 o'clock.' 三時 uses 三 (three, N5.3) + 時 (hour, N5.4), read as <b>sanji</b>."
+        },
+        {
+          "q": "やまかわのたんじょうびは いつですか。",
+          "a": "三月 三日",
+          "choices": [
+            "三月 三日",
+            "五月 五日",
+            "一月 一日",
+            "十月 十日"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            "v_itsu",
+            "g_desu",
+            "p_ka",
+            "v_sangatsu",
+            "v_mikka"
+          ],
+          "explanation": "The passage says やまかわのたんじょうびは三月三日です — 'Yamakawa's birthday is March 3rd.' 三月 = March, 三日 = the 3rd (read as <b>mikka</b>)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この スマホは [千円] ですか。",
+          "choices": [
+            "せんえん",
+            "まんえん",
+            "ひゃくえん",
+            "じゅうえん"
+          ],
+          "answer": "せんえん",
+          "explanation": "千円 (1000 yen) is read as <b>sen-en</b>. 千 (thousand, N5.3) + 円 (yen, N5.3). Common values: 百円 (hyaku-en, ¥100), 千円 (sen-en, ¥1,000), 万円 (man-en, ¥10,000)."
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は [何時] に いますか。",
+          "choices": [
+            "なんじ",
+            "いつじ",
+            "なんとき",
+            "なにじ"
+          ],
+          "answer": "なんじ",
+          "explanation": "何時 (what time) is read as <b>nanji</b>. 何 (what, N5.2) + 時 (hour, N5.4). Use this to ask what o'clock: 何時ですか = What time is it?"
+        },
+        {
+          "kind": "mcq",
+          "q": "[今年] のたんじょうびは 三月です。",
+          "choices": [
+            "ことし",
+            "こんねん",
+            "まいとし",
+            "いまどし"
+          ],
+          "answer": "ことし",
+          "explanation": "今年 (this year) has the special irregular reading <b>kotoshi</b>. 今 (now, N5.2) + 年 (year, N5.4). Like 今日 (きょう) and 今月 (こんげつ), the reading uses native Japanese rather than on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "[先週] は 月よう日に いました。",
+          "choices": [
+            "せんしゅう",
+            "まいしゅう",
+            "こんしゅう",
+            "らいしゅう"
+          ],
+          "answer": "せんしゅう",
+          "explanation": "先週 (last week) is read as <b>senshuu</b>. 先 (previous, N5.1) + 週 (week, N5.4). Compare: 今週 (konshuu, this week), 毎週 (maishuu, every week)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[毎週] います。とても うれしいです。",
+          "choices": [
+            "まいしゅう",
+            "まいにち",
+            "まいつき",
+            "まいとし"
+          ],
+          "answer": "まいしゅう",
+          "explanation": "毎週 (every week) is read as <b>maishuu</b>. 毎 (every, N5.2) + 週 (week, N5.4). Compare: 毎日 (mainichi, every day), 毎月 (maigetsu, every month), 毎年 (mainen, every year)."
+        },
+        {
+          "kind": "mcq",
+          "q": "ケーキが [半分] あります。",
+          "choices": [
+            "はんぶん",
+            "はんわ",
+            "なかぶん",
+            "はんにん"
+          ],
+          "answer": "はんぶん",
+          "explanation": "半分 (half) is read as <b>hanbun</b>. 半 (half, N5.4) + 分 (part/portion, N5.4). 半 also appears in time expressions: 三時半 (sanji-han = half past three / 3:30)."
+        },
+        {
+          "kind": "mcq",
+          "q": "たんじょうびは [三日] です。",
+          "choices": [
+            "みっか",
+            "さんにち",
+            "みんか",
+            "さんか"
+          ],
+          "answer": "みっか",
+          "explanation": "三日 (the 3rd day) is read as <b>mikka</b> — an irregular reading using the native Japanese counting system. The dates from 1–10 use native (kun) numbers rather than on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "[今月] は 三月です。",
+          "choices": [
+            "こんげつ",
+            "こんにち",
+            "まいつき",
+            "せんげつ"
+          ],
+          "answer": "こんげつ",
+          "explanation": "今月 (this month) is read as <b>kongetsu</b>. 今 (now, N5.2) + 月 (month, on-reading げつ). Compare: 先月 (sengetsu, last month), 毎月 (maigetsu, every month)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "_______ は 何時に いますか。",
+          "choices": [
+            "先生",
+            "毎日",
+            "きのう",
+            "ありません"
+          ],
+          "answer": "先生",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "explanation": "先生 (teacher) fits as the topic of います — 'What time is the teacher here?' います describes an animate being's presence. 毎日 and きのう are time adverbs, not topic subjects. ありません is a negative verb."
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ スマホは 先生のですか。",
+          "choices": [
+            "どの",
+            "この",
+            "その",
+            "あの"
+          ],
+          "answer": "どの",
+          "terms": [
+            "v_dono",
+            "v_sumaho",
+            "p_wa",
+            "v_sensei",
+            "p_no",
+            "g_desu",
+            "p_ka"
+          ],
+          "explanation": "どの (which) asks which one among options — 'Which smartphone is the teacher's?' この (this, near me), その (that, near you), and あの (that, over there) point to specific items rather than asking which one."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちのたんじょうびは _______ 三日です。",
+          "choices": [
+            "三月",
+            "三日",
+            "三人",
+            "三時"
+          ],
+          "answer": "三月",
+          "terms": [
+            "v_tomodachi",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu"
+          ],
+          "explanation": "三月 (March) correctly precedes 三日 to form the date 三月三日 (March 3rd). 三日 alone would repeat the day unit. 三人 counts people (three people). 三時 tells clock time (three o'clock)."
+        },
+        {
+          "kind": "mcq",
+          "q": "にほんごが _______ 分かります。",
+          "choices": [
+            "時々",
+            "いつ",
+            "だれ",
+            "どの"
+          ],
+          "answer": "時々",
+          "terms": [
+            "p_ga",
+            "v_tokidoki",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "時々 (sometimes) is a frequency adverb that pairs naturally with 分かります: 'understand sometimes.' いつ (when?), だれ (who?), and どの (which?) are question words, not adverbs of frequency."
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ は いくらですか。",
+          "choices": [
+            "これ",
+            "だれ",
+            "なに",
+            "いつ"
+          ],
+          "answer": "これ",
+          "terms": [
+            "v_kore",
+            "p_wa",
+            "v_ikura",
+            "g_desu",
+            "p_ka"
+          ],
+          "explanation": "これ (this) works as the topic when asking the price of a nearby item: これはいくらですか = 'How much is this?' いくら (how much) already asks about price. だれ (who), なに (what), and いつ (when) are different question words."
+        },
+        {
+          "kind": "mcq",
+          "q": "先週も 月よう日と 水よう日に _______。",
+          "choices": [
+            "いました",
+            "います",
+            "ありました",
+            "ありません"
+          ],
+          "answer": "いました",
+          "terms": [
+            "v_senshuu",
+            "p_mo",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "いました is the polite past form of いる (to be present, for animate beings). 先週 (last week) signals past tense — います (present) is wrong. ありました is past of ある, used for inanimate objects. ありません is negative present."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "先生 _____ 三時に います。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "に"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "は marks 先生 as the TOPIC — 'As for the teacher, she is here at 3 o'clock.' が would emphasise that it is specifically the teacher (new information). を marks a direct object. に marks a time point — neither fits after 先生 here."
+        },
+        {
+          "kind": "mcq",
+          "q": "三時 _____ います。",
+          "choices": [
+            "に",
+            "は",
+            "が",
+            "を"
+          ],
+          "answer": "に",
+          "terms": [
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "に marks a specific point in time: 三時に = 'at 3 o'clock.' Rule: use に after clock times, days (月よう日に), dates (三日に), and months (三月に). は would make it a topic. が marks a subject. を marks an object."
+        },
+        {
+          "kind": "mcq",
+          "q": "ケーキ _____ ありました。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "が marks the subject of ある (to exist): ケーキがありました = 'There was cake.' を marks a direct object, but ある is not transitive. は introduces a topic (often with contrast: ケーキはありましたが…). も means 'also' — ケーキもありました ('cake too') is possible but the neutral existence statement uses が."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だち _____ 先生も います。",
+          "choices": [
+            "と",
+            "は",
+            "が",
+            "の"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            "v_sensei",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "と exhaustively lists two nouns together: 友だちと先生も = 'both friends and also the teacher.' と (and) connects nouns in a complete list. は and が mark different grammatical roles. の marks possession."
+        },
+        {
+          "kind": "mcq",
+          "q": "たんじょうびは 毎年 三月 _____ あります。",
+          "choices": [
+            "に",
+            "は",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_tanjoubi",
+            "p_wa",
+            "v_mainen",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "に marks the specific month when the birthday occurs: 三月に = 'in March.' The full pattern: 毎年三月にたんじょうびがあります = 'every year in March there is a birthday.' は interrupts the time phrase. を marks objects. が marks the existence subject (たんじょうびが)."
+        }
+      ]
+    }
+  ]
+}

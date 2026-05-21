@@ -1,0 +1,1513 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.7",
+  "title": "Family Members and Relationships",
+  "meta": {
+    "level": "Phase 4",
+    "lesson_number": 7,
+    "focus": "Family members — siblings, parents, and relationship vocabulary; polite vs. plain family terms; limiting particles だけ/ばかり/しか/でも (G17)",
+    "estimated_minutes": 45,
+    "kanji": [
+      "族",
+      "親",
+      "兄",
+      "姉",
+      "妹",
+      "弟"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "族",
+      "kun": "(なし)",
+      "on": "ぞく",
+      "meaning": "Family / Tribe"
+    },
+    {
+      "kanji": "親",
+      "kun": "おや / した(しい)",
+      "on": "しん",
+      "meaning": "Parent / Intimacy"
+    },
+    {
+      "kanji": "兄",
+      "kun": "あに",
+      "on": "けい / きょう",
+      "meaning": "Older Brother"
+    },
+    {
+      "kanji": "姉",
+      "kun": "あね",
+      "on": "し",
+      "meaning": "Older Sister"
+    },
+    {
+      "kanji": "妹",
+      "kun": "いもうと",
+      "on": "まい",
+      "meaning": "Younger Sister"
+    },
+    {
+      "kanji": "弟",
+      "kun": "おとうと",
+      "on": "だい",
+      "meaning": "Younger Brother"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Review vocabulary and grammar from prior lessons with these questions:",
+      "items": [
+        {
+          "jp": "鳥肉は 野菜より おいしいですか。",
+          "en": "Is chicken more delicious than vegetables?",
+          "terms": [
+            "v_toriniku",
+            "p_wa",
+            "v_yasai",
+            "p_yori",
+            "v_oishii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "きのう 昼ご飯に 何を 食べましたか。",
+          "en": "What did you eat for lunch yesterday?",
+          "terms": [
+            "v_kinou",
+            "v_hirugohan",
+            "p_ni",
+            "v_nan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "毎日、料理を 作って いますか。",
+          "en": "Do you cook every day?",
+          "terms": [
+            "v_mainichi",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先月、友だちと どこへ 行きましたか。",
+          "en": "Where did you go with your friend last month?",
+          "terms": [
+            "v_sengetsu",
+            "v_tomodachi",
+            "p_to",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "族",
+          "meaning": "family / tribe",
+          "terms": [
+            "k_zoku"
+          ],
+          "on": "ぞく",
+          "kun": "(なし)"
+        },
+        {
+          "kanji": "親",
+          "meaning": "parent; intimacy",
+          "terms": [
+            "k_oya"
+          ],
+          "on": "しん",
+          "kun": "おや / した(しい)"
+        },
+        {
+          "kanji": "兄",
+          "meaning": "older brother",
+          "terms": [
+            "k_ani"
+          ],
+          "on": "けい / きょう",
+          "kun": "あに"
+        },
+        {
+          "kanji": "姉",
+          "meaning": "older sister",
+          "terms": [
+            "k_ane"
+          ],
+          "on": "し",
+          "kun": "あね"
+        },
+        {
+          "kanji": "妹",
+          "meaning": "younger sister",
+          "terms": [
+            "k_imouto"
+          ],
+          "on": "まい",
+          "kun": "いもうと"
+        },
+        {
+          "kanji": "弟",
+          "meaning": "younger brother",
+          "terms": [
+            "k_otouto"
+          ],
+          "on": "だい",
+          "kun": "おとうと"
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds",
+      "groups": [
+        {
+          "label": "Family (General)",
+          "items": [
+            "v_kazoku",
+            "v_kyoudai",
+            "v_oya"
+          ]
+        },
+        {
+          "label": "Older Siblings (Own / Polite)",
+          "items": [
+            "v_ani",
+            "v_oniisan",
+            "v_ane",
+            "v_oneesan"
+          ]
+        },
+        {
+          "label": "Younger Siblings",
+          "items": [
+            "v_imouto",
+            "v_otouto"
+          ]
+        },
+        {
+          "label": "Personality",
+          "items": [
+            "v_shinsetsu"
+          ]
+        },
+        {
+          "label": "Expressions",
+          "items": [
+            "v_yatta"
+          ]
+        },
+        {
+          "label": "Limiting Particles",
+          "items": [
+            "p_bakari",
+            "p_dake",
+            "p_demo",
+            "p_shika"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: How Many Are in Your Family?",
+      "context": "Rikizo and Yamakawa chat before class about their families.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞさんは 何人 家族ですか。",
+          "en": "How many people are in your family, Rikizo?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_nannin",
+            "v_kazoku",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "四人 家族です。親と 兄が います。",
+          "en": "We're a family of four. I have parents and an older brother.",
+          "terms": [
+            {
+              "counter": "nin",
+              "n": 4
+            },
+            "v_kazoku",
+            "g_desu",
+            "v_oya",
+            "p_to",
+            "v_ani",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "お兄さんは どんな 人ですか。",
+          "en": "What kind of person is your older brother?",
+          "terms": [
+            "v_oniisan",
+            "p_wa",
+            "v_donna",
+            "v_hito",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "兄は とても 親切です。会社で 働いて います。",
+          "en": "My older brother is very kind. He works at a company.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_totemo",
+            "v_shinsetsu",
+            "g_desu",
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうですか。私の 家族は 五人です。親と 姉と 弟が います。",
+          "en": "I see. My family has five people. I have parents, an older sister, and a younger brother.",
+          "terms": [
+            "p_soudesuka",
+            "v_watashi",
+            "p_no",
+            "v_kazoku",
+            "p_wa",
+            {
+              "counter": "nin",
+              "n": 5
+            },
+            "g_desu",
+            "v_oya",
+            "p_to",
+            "v_ane",
+            "p_to",
+            "v_otouto",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "きょうだいが いますね！",
+          "en": "You have siblings!",
+          "terms": [
+            "v_kyoudai",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい。でも、私は 兄弟が 一人しか いません。姉が 一人 だけです。",
+          "en": "Yes. But I have only one sibling. Just one older sister.",
+          "terms": [
+            "p_hai",
+            "p_demo_but",
+            "v_watashi",
+            "p_wa",
+            "v_kyoudai",
+            "p_ga",
+            "v_hitori",
+            "p_shika",
+            {
+              "id": "v_iru",
+              "form": "polite_negative"
+            },
+            "v_ane",
+            "p_ga",
+            "v_hitori",
+            "p_dake",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Comparing Siblings",
+      "context": "Two students compare their siblings during lunch break.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "お姉さんと お兄さんと どちらが 親切ですか。",
+          "en": "Between your older sister and older brother, which one is kinder?",
+          "terms": [
+            "v_oneesan",
+            "p_to",
+            "v_oniisan",
+            "p_to",
+            "v_dochira",
+            "p_ga",
+            "v_shinsetsu",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "姉は 兄より 親切です。毎日 私に 料理を 作って くれます。",
+          "en": "My older sister is kinder than my older brother. She makes food for me every day.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_ani",
+            "p_yori",
+            "v_shinsetsu",
+            "g_desu",
+            "v_mainichi",
+            "v_watashi",
+            "p_ni",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "家族の 中で いちばん 料理が 上手な 人は だれですか。",
+          "en": "Who is the most skilled at cooking in your family?",
+          "terms": [
+            "v_kazoku",
+            "p_no",
+            "v_naka",
+            "p_de",
+            "v_ichiban",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_jouzu",
+              "form": "attributive_na"
+            },
+            "v_hito",
+            "p_wa",
+            "v_dare",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "姉が いちばん 上手です。姉の 料理は とても おいしいですよ。",
+          "en": "My older sister is the most skilled. Her cooking is really delicious!",
+          "terms": [
+            "v_ane",
+            "p_ga",
+            "v_ichiban",
+            "v_jouzu",
+            "g_desu",
+            "p_no",
+            "v_ryouri",
+            "p_wa",
+            "v_totemo",
+            "v_oishii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "いいですね。妹や 弟は いますか。",
+          "en": "That's nice. Do you have any younger siblings?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_imouto",
+            "p_ya",
+            "v_otouto",
+            "p_wa",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "妹が 一人 います。まだ 小さいですが、とても かわいいです。",
+          "en": "I have one younger sister. She's still small, but very cute.",
+          "terms": [
+            "v_imouto",
+            "p_ga",
+            "v_hitori",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_mada",
+            "v_chiisai",
+            "g_desu",
+            "p_ga_but",
+            "v_totemo",
+            "v_kawaii",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "私の 兄は 姉より おもしろいです。兄の ほうが よく 話しますよ。",
+          "en": "My older brother is funnier than my older sister. My brother talks more.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_ani",
+            "p_wa",
+            "v_ane",
+            "p_yori",
+            {
+              "id": "v_omoshiroi",
+              "form": "polite_adj"
+            },
+            "v_ani",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            "v_yoku",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうですか。私の 妹は まだ 小さいですよ。私の 半分 くらい 小さいです。",
+          "en": "I see. My younger sister is still small. About half my size.",
+          "terms": [
+            "p_soudesuka",
+            "v_watashi",
+            "p_no",
+            "v_imouto",
+            "p_wa",
+            "v_mada",
+            {
+              "id": "v_chiisai",
+              "form": "polite_adj"
+            },
+            "p_yo",
+            "v_watashi",
+            "p_no",
+            "v_hanbun",
+            "p_kurai",
+            {
+              "id": "v_chiisai",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "char_rikizo",
+          "jp": "先生も いつも 料理を 作って くださいます。",
+          "en": "My teacher also always makes food for me.",
+          "terms": [
+            "v_sensei",
+            "p_mo",
+            "v_itsumo",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            "v_kudasaru"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: My Older Brother",
+      "context": "Two classmates talk about their older brothers after school.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "けんさんの お兄さんは どんな 人ですか。",
+          "en": "What is your older brother like, Ken?",
+          "terms": [
+            "char_ken",
+            "v_san",
+            "p_no",
+            "v_oniisan",
+            "p_wa",
+            "v_donna",
+            "v_hito",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "兄は とても 親切です。私に ご飯を 作って くれます。",
+          "en": "My brother is really kind. He makes food for me.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_totemo",
+            "v_shinsetsu",
+            "g_desu",
+            "v_watashi",
+            "p_ni",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "いいですね。私の 兄は あまり 家に 帰りません。",
+          "en": "That's nice. My older brother doesn't come home much.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_watashi",
+            "p_no",
+            "v_ani",
+            "p_wa",
+            "v_amari",
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_kaeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そうですか。会社で 毎日 働いて いますか。",
+          "en": "Really? Does he work at a company every day?",
+          "terms": [
+            "p_soudesuka",
+            "v_kaisha",
+            "p_de",
+            "v_mainichi",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい。兄と いっしょに ご飯を 食べたいです。",
+          "en": "Yes. I want to eat together with my brother.",
+          "terms": [
+            "p_hai",
+            "v_ani",
+            "p_to",
+            "v_issho",
+            "p_ni",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "家族と ご飯を 食べるのは いいですね。",
+          "en": "Eating together with family is nice.",
+          "terms": [
+            "v_kazoku",
+            "p_to",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_form"
+            },
+            "p_wa",
+            "p_no",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "兄は 毎日 会社で 働いて ばかり います。家で あまり 話しません。",
+          "en": "My older brother does nothing but work at the company every day. He doesn't talk much at home.",
+          "terms": [
+            "v_ani",
+            "p_wa",
+            "v_mainichi",
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            "p_bakari",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_ie",
+            "p_de",
+            "v_amari",
+            {
+              "id": "v_hanasu",
+              "form": "polite_negative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Siblings at Home (Casual)",
+      "context": "An older sister and younger brother chatting at home on a weekend evening.",
+      "lines": [
+        {
+          "spk": "姉",
+          "jp": "弟、今日 何か 食べたい？",
+          "en": "Little brother, is there anything you want to eat today?",
+          "terms": [
+            "v_otouto",
+            "v_kyou",
+            "v_nani",
+            "p_ka",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "弟",
+          "jp": "お姉さんの カレーが いちばん 好き！",
+          "en": "I like your curry the best!",
+          "terms": [
+            "v_oneesan",
+            "p_no",
+            "v_karee",
+            "p_ga",
+            "v_ichiban",
+            "v_suki"
+          ]
+        },
+        {
+          "spk": "姉",
+          "jp": "じゃあ、いっしょに 作ろうか。",
+          "en": "Then, shall we make it together?",
+          "terms": [
+            "p_jaa",
+            "v_issho",
+            "p_ni",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_volitional"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "弟",
+          "jp": "やった！お姉さんの 料理、いちばん おいしいから 好き。",
+          "en": "Yes! I love your cooking because it's the most delicious.",
+          "terms": [
+            "v_yatta",
+            "v_oneesan",
+            "p_no",
+            "v_ryouri",
+            "v_ichiban",
+            "v_oishii",
+            "p_kara_because",
+            "v_suki"
+          ]
+        },
+        {
+          "spk": "姉",
+          "jp": "もう、うれしいよ！",
+          "en": "Goodness, I'm so happy!",
+          "terms": [
+            "v_mou",
+            "v_ureshii",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "弟",
+          "jp": "いつも おいしいから！",
+          "en": "Because it's always delicious!",
+          "terms": [
+            "v_itsumo",
+            "v_oishii",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "姉",
+          "jp": "今日は カレーだけ 作るね。野菜は 少しだけ 入れる。",
+          "en": "Today I'll just make curry. I'll only put in a little bit of vegetables.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_karee",
+            "p_dake",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_form"
+            },
+            "p_ne",
+            "v_yasai",
+            "p_wa",
+            "v_sukoshi",
+            "p_dake",
+            {
+              "id": "v_ireru",
+              "form": "plain_form"
+            }
+          ]
+        },
+        {
+          "spk": "弟",
+          "jp": "じゃあ、ジュースでも 飲もうか。お姉さん、何でも いいよ。",
+          "en": "Then, shall we drink juice or something? Anything is fine, sis.",
+          "terms": [
+            "p_jaa",
+            "v_juusu",
+            "p_demo",
+            {
+              "id": "v_nomu",
+              "form": "plain_volitional"
+            },
+            "p_ka",
+            "v_oneesan",
+            "v_nani",
+            "p_demo",
+            "v_ii",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: My Family",
+      "passage": [
+        {
+          "jp": "私の 家族は 五人です。親と 兄と 姉と 妹と 私です。",
+          "en": "There are five people in my family: my parents, older brother, older sister, younger sister, and me.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_kazoku",
+            "p_wa",
+            {
+              "counter": "nin",
+              "n": 5
+            },
+            "g_desu",
+            "v_oya",
+            "p_to",
+            "v_ani",
+            "p_to",
+            "v_ane",
+            "p_to",
+            "v_imouto",
+            "p_to",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "兄と 姉は 今、会社で 働いて います。親は 家に います。",
+          "en": "My older brother and sister are now working at a company. My parents are at home.",
+          "terms": [
+            "v_ani",
+            "p_to",
+            "v_ane",
+            "p_wa",
+            "v_ima",
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_oya",
+            "p_wa",
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "姉は 兄より 料理が 上手です。家族の 中で いちばん 上手です。",
+          "en": "My older sister is better at cooking than my older brother. She is the most skilled in the family.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_ani",
+            "p_yori",
+            "v_ryouri",
+            "p_ga",
+            "v_jouzu",
+            "g_desu",
+            "v_kazoku",
+            "p_no",
+            "v_naka",
+            "p_de",
+            "v_ichiban",
+            "v_jouzu",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "妹は まだ 小さいですが、とても かわいいです。",
+          "en": "My younger sister is still small, but she is very cute.",
+          "terms": [
+            "v_imouto",
+            "p_wa",
+            "v_mada",
+            "v_chiisai",
+            "g_desu",
+            "p_ga_but",
+            "v_totemo",
+            "v_kawaii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "週まつは みんなで 会って、いっしょに ご飯を 食べます。",
+          "en": "On weekends, everyone gets together and eats a meal together.",
+          "terms": [
+            "v_shuumatsu",
+            "p_wa",
+            "v_minna",
+            "p_de",
+            {
+              "id": "v_au",
+              "form": "te_form"
+            },
+            "v_issho",
+            "p_ni",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "妹は とても かわいいですから、私は 弟も ほしいです。",
+          "en": "Because my younger sister is very cute, I want a younger brother too.",
+          "terms": [
+            "v_imouto",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_kawaii",
+              "form": "polite_adj"
+            },
+            "p_kara_because",
+            "v_watashi",
+            "p_wa",
+            "v_otouto",
+            "p_mo",
+            "v_hoshii",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "家族は 何人ですか。",
+          "q_en": "How many people are in the family?",
+          "a": "五人です。",
+          "a_en": "There are five people.",
+          "terms": [
+            "v_kazoku",
+            "p_wa",
+            "v_nannin",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "counter": "nin",
+              "n": 5
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "姉と 兄と どちらが 料理が 上手ですか。",
+          "q_en": "Between older sister and older brother, who is better at cooking?",
+          "a": "姉が 上手です。",
+          "a_en": "Older sister is better.",
+          "terms": [
+            "v_ane",
+            "p_to",
+            "v_ani",
+            "v_dochira",
+            "p_ga",
+            "v_ryouri",
+            "v_jouzu",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ane",
+            "p_ga",
+            "v_jouzu",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "週まつ、家族は 何を しますか。",
+          "q_en": "What does the family do on weekends?",
+          "a": "みんなで 会って、いっしょに ご飯を 食べます。",
+          "a_en": "They all meet and eat a meal together.",
+          "terms": [
+            "v_shuumatsu",
+            "v_kazoku",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_minna",
+            "p_de",
+            {
+              "id": "v_au",
+              "form": "te_form"
+            },
+            "v_issho",
+            "p_ni",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: A Kind Older Sister",
+      "passage": [
+        {
+          "jp": "私の 姉は とても 親切で、やさしい 人です。",
+          "en": "My older sister is very kind and gentle.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_ane",
+            "p_wa",
+            "v_totemo",
+            "v_shinsetsu",
+            "p_de",
+            "v_yasashii",
+            "v_hito",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "姉は 私より 料理が 上手で、時々 カレーを 作って くれます。",
+          "en": "My older sister is better at cooking than me, and sometimes she makes curry for me.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_watashi",
+            "p_yori",
+            "v_ryouri",
+            "p_ga",
+            "v_jouzu",
+            "p_de",
+            "v_tokidoki",
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "姉は 今、会社で 働いて います。",
+          "en": "My older sister is working at a company now.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_ima",
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日 電話で 話します。姉と 話すのが 大好きです。",
+          "en": "Every day we talk on the phone. I love talking with my older sister.",
+          "terms": [
+            "v_mainichi",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "v_ane",
+            "p_to",
+            {
+              "id": "v_hanasu",
+              "form": "plain_form"
+            },
+            "p_ga",
+            "p_no",
+            "v_daisuki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "来週、姉が 帰って きます。いっしょに 買い物に 行きたいです。",
+          "en": "Next week, my older sister is coming home. I want to go shopping together.",
+          "terms": [
+            "v_raishuu",
+            "v_ane",
+            "p_ga",
+            {
+              "id": "v_kaeru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "v_issho",
+            "p_ni",
+            "v_kaimono",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "姉は お母さん みたいです。やさしくて、とても 親切な 人です。",
+          "en": "My older sister is like our mother. She is gentle and very kind.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_okaasan",
+            {
+              "id": "v_mitai",
+              "form": "polite_adj"
+            },
+            {
+              "id": "v_yasashii",
+              "form": "te_form"
+            },
+            "v_totemo",
+            {
+              "id": "v_shinsetsu",
+              "form": "attributive_na"
+            },
+            "v_hito",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "姉は 料理が 上手ですか。",
+          "q_en": "Is older sister good at cooking?",
+          "a": "はい、とても 上手です。",
+          "a_en": "Yes, she is very good.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_ryouri",
+            "p_ga",
+            "v_jouzu",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_totemo",
+            "v_jouzu",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "姉は 今 何を して いますか。",
+          "q_en": "What is older sister doing now?",
+          "a": "会社で 働いて います。",
+          "a_en": "She is working at a company.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_ima",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "来週、何を したいですか。",
+          "q_en": "What do you want to do next week?",
+          "a": "いっしょに 買い物に 行きたいです。",
+          "a_en": "I want to go shopping together.",
+          "terms": [
+            "v_raishuu",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_issho",
+            "p_ni",
+            "v_kaimono",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drills — Set 1 (Kanji Readings)",
+      "instructions": "Choose the correct reading for the kanji word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[兄] の よみかたは？",
+          "choices": [
+            "あに",
+            "おとうと",
+            "おにいさん",
+            "いもうと"
+          ],
+          "answer": "あに"
+        },
+        {
+          "kind": "mcq",
+          "q": "[妹] の よみかたは？",
+          "choices": [
+            "いもうと",
+            "おとうと",
+            "あね",
+            "あに"
+          ],
+          "answer": "いもうと"
+        },
+        {
+          "kind": "mcq",
+          "q": "[親切] の よみかたは？",
+          "choices": [
+            "しんせつ",
+            "おやせつ",
+            "しんきり",
+            "おやきり"
+          ],
+          "answer": "しんせつ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[兄弟] の よみかたは？",
+          "choices": [
+            "きょうだい",
+            "あにおとうと",
+            "おにいさん",
+            "かぞく"
+          ],
+          "answer": "きょうだい"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drills — Set 2 (Vocabulary in Context)",
+      "instructions": "Choose the correct word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "私の _______ は 四人です。父と 母と 兄と 私です。",
+          "choices": [
+            "家族",
+            "兄弟",
+            "親切",
+            "姉妹"
+          ],
+          "answer": "家族",
+          "terms": [
+            "v_kazoku"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "父と 母は 私の _______ です。",
+          "choices": [
+            "親",
+            "兄",
+            "弟",
+            "家族"
+          ],
+          "answer": "親",
+          "terms": [
+            "v_oya"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ さんは どんな 人ですか。（だれかの 姉について 聞く）",
+          "choices": [
+            "お姉",
+            "姉",
+            "お兄",
+            "妹"
+          ],
+          "answer": "お姉",
+          "terms": [
+            "v_oneesan"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "中川さんは とても _______ な 人です。",
+          "choices": [
+            "親切",
+            "家族",
+            "兄弟",
+            "親"
+          ],
+          "answer": "親切",
+          "terms": [
+            {
+              "id": "v_shinsetsu",
+              "form": "attributive_na"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drills — Set 3 (Grammar and Particles)",
+      "instructions": "Choose the correct particle or grammar form.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "姉 ______ 兄より 料理が 上手です。",
+          "choices": [
+            "は",
+            "が",
+            "の",
+            "を"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_ane",
+            "v_ani",
+            "p_yori",
+            "v_ryouri",
+            "v_jouzu",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "妹は 私 ______ 料理を 作って くれます。",
+          "choices": [
+            "に",
+            "を",
+            "で",
+            "と"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_imouto",
+            "v_watashi",
+            "v_ryouri",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "家族の 中で、兄が _______ 親切です。",
+          "choices": [
+            "いちばん",
+            "より",
+            "ほど",
+            "もっと"
+          ],
+          "answer": "いちばん",
+          "terms": [
+            "v_kazoku",
+            "v_naka",
+            "v_ani",
+            "v_ichiban",
+            "v_shinsetsu",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "カレーは ご飯 ______ 好きです。",
+          "choices": [
+            "ほど",
+            "より",
+            "だけ",
+            "まで"
+          ],
+          "answer": "ほど",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            "v_gohan",
+            "p_hodo",
+            "v_suki",
+            "g_desu"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.6",
+  "lesson": "N4.6",
+  "level": "N4",
+  "title": "My Favorite Lunch",
+  "titleJp": "私の 好きな 昼ご飯",
+  "emoji": "🍗",
+  "theme": "Write a short personal essay about your lunchtime habits — your favorite lunch, the flavors you love, how you feel about chicken dishes, and what your ideal lunch break looks like.",
+  "prompts": [
+    {
+      "prompt": "Begin your essay by describing what you usually eat for lunch. Do you eat rice, chicken, or vegetables? When do you usually eat lunch?",
+      "targets": [
+        { "id": "v_hirugohan", "count": 1 }
+      ],
+      "model": "昼ご飯は いつも 大好きです。ご飯と 野菜の 料理を よく 食べます。",
+      "vocabPool": [
+        "v_hirugohan", "v_gohan", "v_toriniku", "v_yasai", "v_ryouri",
+        "v_mainichi", "v_itsumo", "v_yoku", "v_suki", "v_daisuki",
+        "v_watashi", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe the taste or flavor of your favorite lunch food. Is the taste good? Is it similar to another food you enjoy? Use 味 in your description.",
+      "targets": [
+        { "id": "v_aji", "count": 1 }
+      ],
+      "model": "鳥肉の 味は とても いいです。野菜の 料理の 味も 好きです。",
+      "vocabPool": [
+        "v_aji", "v_oishii", "v_toriniku", "v_gyuuniku", "v_yasai",
+        "v_ryouri", "v_suki", "v_daisuki", "v_totemo", "v_ichiban",
+        "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about chicken as one of your favorite lunch foods. How does chicken compare to beef or vegetables? Use より or いちばん to make a comparison.",
+      "targets": [
+        { "id": "v_toriniku", "count": 1 }
+      ],
+      "model": "鳥肉は 牛肉より おいしいです。鳥肉の 料理が いちばん 好きです。",
+      "vocabPool": [
+        "v_toriniku", "v_gyuuniku", "v_yasai", "v_ryouri", "v_aji",
+        "v_oishii", "v_suki", "v_daisuki", "v_ichiban", "v_totemo",
+        "v_watashi", "p_yori", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Tell us about rice (ご飯) in your meals. Do you eat rice every day? Does someone make rice for you, or do you make it yourself?",
+      "targets": [
+        { "id": "v_gohan", "count": 1 }
+      ],
+      "model": "毎日 ご飯を 食べます。かぞくに ご飯を 作って もらいます。とても おいしいです。",
+      "vocabPool": [
+        "v_gohan", "v_hirugohan", "v_kazoku", "v_mainichi", "v_itsumo",
+        "v_taberu", "v_tsukuru", "v_ageru", "v_morau", "v_oishii",
+        "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe a time you ate in a dim or dark restaurant. Was the atmosphere good? Was the food delicious? Write about the experience using 暗い.",
+      "targets": [
+        { "id": "v_kurai", "count": 1 }
+      ],
+      "model": "暗い レストランで 鳥肉の 料理を 食べました。少し 暗いですが、味が とても いいです。",
+      "vocabPool": [
+        "v_kurai", "v_resutoran", "v_mise", "v_ryouri", "v_toriniku",
+        "v_aji", "v_oishii", "v_taberu", "v_sukoshi", "v_suki",
+        "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about eating the same food as someone you care about. Do you and your friends or family share the same favorite lunch? Use 同じ in your description.",
+      "targets": [
+        { "id": "v_onaji", "count": 1 }
+      ],
+      "model": "友だちと 同じ 昼ご飯を 食べます。同じ 鳥肉の 料理が 大好きです。",
+      "vocabPool": [
+        "v_onaji", "v_tomodachi", "v_kazoku", "v_hirugohan", "v_gohan",
+        "v_ryouri", "v_toriniku", "v_taberu", "v_suki", "v_daisuki",
+        "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Wrap up your essay by describing your ideal lunch break. What would you eat? Who would you eat with? What would make the perfect 昼休み?",
+      "targets": [
+        { "id": "v_hiruyasumi", "count": 1 }
+      ],
+      "model": "昼休みに 友だちと 昼ご飯を 食べたいです。鳥肉の 料理が いちばん 好きですから、昼ご飯に 食べたいです。",
+      "vocabPool": [
+        "v_hiruyasumi", "v_hirugohan", "v_gohan", "v_toriniku", "v_ryouri",
+        "v_tomodachi", "v_taberu", "v_suki", "v_daisuki", "v_ichiban",
+        "v_oishii", "v_watashi", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "p_yori", "p_hodo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["昼ご飯です", "鳥肉です", "昼休みです"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["昼ご飯でした", "大好きでした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["おいしいです", "暗いです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["おいしかったです", "暗かったです", "よかったです"]
+    },
+    {
+      "pattern": "[な-adj] + です",
+      "meaning": "is [na-adj] (polite predicate)",
+      "examples": ["好きです", "大好きです", "同じです"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["食べます", "作ります", "もらいます"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["食べました", "作りました", "もらいました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["食べません", "作りません", "もらいません"]
+    },
+    {
+      "pattern": "[RU-verb]〜られます / [U-verb]〜えます",
+      "meaning": "can do [verb] (potential polite)",
+      "examples": ["食べられます", "作れます", "もらえます"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing / habitual (progressive)",
+      "examples": ["食べています", "作っています", "もらっています"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["食べたいです", "作りたいです", "もらいたいです"]
+    },
+    {
+      "pattern": "[verb]〜ましょう",
+      "meaning": "let's [verb]",
+      "examples": ["いっしょに 食べましょう", "作りましょう"]
+    },
+    {
+      "pattern": "[verb-te] + あげます / もらいます / くれます",
+      "meaning": "give / receive the action of [verb]",
+      "examples": ["作って あげます", "作って もらいます", "作って くれます"]
+    },
+    {
+      "pattern": "[noun A] + より [noun B] + の ほうが ～",
+      "meaning": "[B] is more ～ than [A] (comparison)",
+      "examples": ["牛肉より 鳥肉の ほうが 好きです", "野菜より 鳥肉の ほうが おいしいです"]
+    },
+    {
+      "pattern": "いちばん ～",
+      "meaning": "the most ～ (superlative)",
+      "examples": ["いちばん 好きな 料理", "いちばん おいしいです"]
+    }
+  ]
+}

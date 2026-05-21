@@ -1,0 +1,336 @@
+{
+  "contentVersion": "1.0.0",
+  "storyFile": "story.md",
+  "title": "昼ご飯の物語",
+  "englishTitle": "The Story of Lunch",
+  "terms": {
+    "りきぞ": {
+      "id": "char_rikizo",
+      "form": null
+    },
+    "けん": {
+      "id": "char_ken",
+      "form": null
+    },
+    "は": {
+      "id": "p_wa",
+      "form": null
+    },
+    "が": {
+      "id": "p_ga",
+      "form": null
+    },
+    "を": {
+      "id": "p_wo",
+      "form": null
+    },
+    "の": {
+      "id": "p_no",
+      "form": null
+    },
+    "に": {
+      "id": "p_ni",
+      "form": null
+    },
+    "で": {
+      "id": "p_de",
+      "form": null
+    },
+    "も": {
+      "id": "p_mo",
+      "form": null
+    },
+    "と": {
+      "id": "p_to",
+      "form": null
+    },
+    "か": {
+      "id": "p_ka_or",
+      "form": null
+    },
+    "よ": {
+      "id": "p_yo",
+      "form": null
+    },
+    "ね": {
+      "id": "p_ne",
+      "form": null
+    },
+    "より": {
+      "id": "p_yori",
+      "form": null
+    },
+    "けど": {
+      "id": "p_kedo",
+      "form": null
+    },
+    "です": {
+      "id": "g_desu",
+      "form": null
+    },
+    "でした": {
+      "id": "g_desu",
+      "form": null
+    },
+    "だ": {
+      "id": "g_da",
+      "form": null
+    },
+    "今日": {
+      "id": "v_kyou",
+      "form": null
+    },
+    "休み": {
+      "id": "v_yasumi",
+      "form": null
+    },
+    "昼ご飯": {
+      "id": "v_hirugohan",
+      "form": null
+    },
+    "昼休み": {
+      "id": "v_hiruyasumi",
+      "form": null
+    },
+    "買い物": {
+      "id": "v_kaimono",
+      "form": null
+    },
+    "スーパー": {
+      "id": "v_suupaa",
+      "form": null
+    },
+    "食べ物": {
+      "id": "v_tabemono",
+      "form": null
+    },
+    "たくさん": {
+      "id": "v_takusan",
+      "form": null
+    },
+    "野菜": {
+      "id": "v_yasai",
+      "form": null
+    },
+    "魚": {
+      "id": "v_sakana",
+      "form": null
+    },
+    "牛肉": {
+      "id": "v_gyuuniku",
+      "form": null
+    },
+    "鳥肉": {
+      "id": "v_toriniku",
+      "form": null
+    },
+    "家": {
+      "id": "v_ie",
+      "form": null
+    },
+    "料理": {
+      "id": "v_ryouri",
+      "form": null
+    },
+    "味": {
+      "id": "v_aji",
+      "form": null
+    },
+    "ご飯": {
+      "id": "v_gohan",
+      "form": null
+    },
+    "いっしょに": {
+      "id": "v_issho",
+      "form": null
+    },
+    "どう": {
+      "id": "v_dou",
+      "form": null
+    },
+    "外": {
+      "id": "v_soto",
+      "form": null
+    },
+    "飲み物": {
+      "id": "v_nomimono",
+      "form": null
+    },
+    "気分": {
+      "id": "v_kibun",
+      "form": null
+    },
+    "物語": {
+      "id": "v_monogatari",
+      "form": null
+    },
+    "これ": {
+      "id": "v_kore",
+      "form": null
+    },
+    "つぎ": {
+      "id": "v_tsugi",
+      "form": null
+    },
+    "いちばん": {
+      "id": "v_ichiban",
+      "form": null
+    },
+    "とても": {
+      "id": "v_totemo",
+      "form": null
+    },
+    "また": {
+      "id": "v_mata",
+      "form": null
+    },
+    "少し": {
+      "id": "v_sukoshi",
+      "form": null
+    },
+    "えー": {
+      "id": "v_ee",
+      "form": null
+    },
+    "いい": {
+      "id": "v_ii",
+      "form": null
+    },
+    "ほう": {
+      "id": "v_hou",
+      "form": null
+    },
+    "この": {
+      "id": "v_kono",
+      "form": null
+    },
+    "すごい": {
+      "id": "v_sugoi",
+      "form": null
+    },
+    "二人": {
+      "id": "v_futari",
+      "form": null
+    },
+    "高い": {
+      "id": "v_takai",
+      "form": null
+    },
+    "安い": {
+      "id": "v_yasui",
+      "form": null
+    },
+    "おいしい": {
+      "id": "v_oishii",
+      "form": null
+    },
+    "暗く": {
+      "id": "v_kurai",
+      "form": "adverbial"
+    },
+    "ような": {
+      "id": "v_you_manner",
+      "form": "attributive_na"
+    },
+    "同じ": {
+      "id": "v_onaji",
+      "form": null
+    },
+    "作って": {
+      "id": "v_tsukuru",
+      "form": "te_form"
+    },
+    "作りました": {
+      "id": "v_tsukuru",
+      "form": "polite_mashita"
+    },
+    "作れる": {
+      "id": "v_tsukuru",
+      "form": "potential"
+    },
+    "作ろう": {
+      "id": "v_tsukuru",
+      "form": "plain_volitional"
+    },
+    "あげよう": {
+      "id": "v_ageru",
+      "form": "plain_volitional"
+    },
+    "行きました": {
+      "id": "v_iku",
+      "form": "polite_mashita"
+    },
+    "行って": {
+      "id": "v_iku",
+      "form": "te_form"
+    },
+    "ありました": {
+      "id": "v_aru",
+      "form": "polite_mashita"
+    },
+    "見ました": {
+      "id": "v_miru",
+      "form": "polite_mashita"
+    },
+    "しよう": {
+      "id": "v_suru",
+      "form": "plain_volitional"
+    },
+    "買いました": {
+      "id": "v_kau",
+      "form": "polite_mashita"
+    },
+    "帰りました": {
+      "id": "v_kaeru",
+      "form": "polite_mashita"
+    },
+    "切りました": {
+      "id": "v_kiru_2",
+      "form": "polite_mashita"
+    },
+    "来ました": {
+      "id": "v_kuru",
+      "form": "polite_mashita"
+    },
+    "食べよう": {
+      "id": "v_taberu",
+      "form": "plain_volitional"
+    },
+    "言いました": {
+      "id": "v_iu",
+      "form": "polite_mashita"
+    },
+    "食べました": {
+      "id": "v_taberu",
+      "form": "polite_mashita"
+    },
+    "聞きました": {
+      "id": "v_kiku",
+      "form": "polite_mashita"
+    },
+    "する": {
+      "id": "v_suru",
+      "form": null
+    },
+    "なって": {
+      "id": "v_naru",
+      "form": "te_form"
+    },
+    "いました": {
+      "id": "v_iru",
+      "form": "polite_mashita"
+    },
+    "飲みました": {
+      "id": "v_nomu",
+      "form": "polite_mashita"
+    },
+    "食べたい": {
+      "id": "v_taberu",
+      "form": "plain_desire_tai"
+    },
+    "うれしかった": {
+      "id": "v_ureshii",
+      "form": "plain_past_adj"
+    }
+  }
+}

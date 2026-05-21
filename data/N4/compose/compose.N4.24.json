@@ -1,0 +1,359 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.24",
+  "lesson": "N4.24",
+  "level": "N4",
+  "title": "Education & Experience",
+  "titleJp": "教育と 体験",
+  "emoji": "📚",
+  "theme": "Write a short essay about your learning journey. Describe the classrooms you have studied in, exams you have prepared for, and hands-on experiences you have had — from food tastings to personal attempts at something new.",
+  "prompts": [
+    {
+      "prompt": "Open your essay by describing the classroom where you study. Use 教室 and ています.",
+      "targets": [
+        {
+          "id": "v_kyoushitsu",
+          "count": 1
+        }
+      ],
+      "model": "毎日、学校の 教室で 日本語を 勉強して います。",
+      "vocabPool": [
+        "v_kyoushitsu",
+        "v_gakkou",
+        "v_nihongo",
+        "v_eigo",
+        "v_benkyou",
+        "v_suru",
+        "v_iru",
+        "v_mainichi",
+        "v_ookii",
+        "v_atarashii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about a teacher who teaches you. Use 教える and てもらっています.",
+      "targets": [
+        {
+          "id": "v_oshieru",
+          "count": 1
+        }
+      ],
+      "model": "先生に 日本語を 教えて もらって います。",
+      "vocabPool": [
+        "v_oshieru",
+        "v_sensei",
+        "v_nihongo",
+        "v_morau",
+        "v_iru",
+        "v_mainichi",
+        "v_issho",
+        "v_benkyou",
+        "v_suru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe the teacher's instruction. Use 教え and やさしくて.",
+      "targets": [
+        {
+          "id": "v_oshie",
+          "count": 1
+        }
+      ],
+      "model": "先生の 教えは やさしくて、よく 分かります。",
+      "vocabPool": [
+        "v_oshie",
+        "v_sensei",
+        "v_yasashii",
+        "v_wakaru",
+        "v_muzukashii",
+        "v_totemo",
+        "v_yoku",
+        "v_tanoshii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about preparing for an important exam. Use 試験 and ために.",
+      "targets": [
+        {
+          "id": "v_shiken",
+          "count": 1
+        }
+      ],
+      "model": "試験の ために、毎日 勉強して います。",
+      "vocabPool": [
+        "v_shiken",
+        "v_benkyou",
+        "v_suru",
+        "v_iru",
+        "v_mainichi",
+        "v_tame",
+        "v_taisetsu",
+        "v_ii",
+        "v_muzukashii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Have you been studying more as the exam approaches? Use てきました to show a growing effort.",
+      "targets": [
+        {
+          "id": "v_shiken",
+          "count": 1
+        }
+      ],
+      "model": "試験の まえに、もっと 勉強して きました。",
+      "vocabPool": [
+        "v_shiken",
+        "v_benkyou",
+        "v_kuru",
+        "v_suru",
+        "v_iru",
+        "v_mae",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_mainichi",
+        "v_taisetsu"
+      ]
+    },
+    {
+      "prompt": "Write about a food tasting you tried. Use 試食 and ことができました.",
+      "targets": [
+        {
+          "id": "v_shishoku",
+          "count": 1
+        }
+      ],
+      "model": "お店で 試食を する ことが できました。",
+      "vocabPool": [
+        "v_shishoku",
+        "v_mise",
+        "v_suru",
+        "v_dekiru",
+        "v_koto",
+        "v_oishii",
+        "v_tanoshii",
+        "v_mata",
+        "v_iroiro",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Did you make a personal attempt at something? Use 試み and しました.",
+      "targets": [
+        {
+          "id": "v_kokoromi",
+          "count": 1
+        }
+      ],
+      "model": "新しい 試みを しましたが、むずかしかったです。",
+      "vocabPool": [
+        "v_kokoromi",
+        "v_atarashii",
+        "v_suru",
+        "v_muzukashii",
+        "v_tanoshii",
+        "v_iroiro",
+        "v_taisetsu",
+        "v_ii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about a place you went to for a hands-on experience. Use 体験 and てきました.",
+      "targets": [
+        {
+          "id": "v_taiken",
+          "count": 1
+        }
+      ],
+      "model": "いい 体験が できて、楽しんで きました。",
+      "vocabPool": [
+        "v_taiken",
+        "v_dekiru",
+        "v_kuru",
+        "v_iku",
+        "v_suru",
+        "v_tanoshii",
+        "v_ii",
+        "v_iroiro",
+        "v_mata",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Close your essay by reflecting on how studying in the basement helped you. Use 地下室 and 勉強して いきます.",
+      "targets": [
+        {
+          "id": "v_chikaishitsu",
+          "count": 1
+        }
+      ],
+      "model": "今夜も 地下室で 大切な ことを 勉強して いきます。",
+      "vocabPool": [
+        "v_chikaishitsu",
+        "v_benkyou",
+        "v_iku",
+        "v_suru",
+        "v_taisetsu",
+        "v_koto",
+        "v_mainichi",
+        "v_yoru",
+        "v_konya",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Compare your Japanese ability now with how it was before. Use 教室 and なってきました.",
+      "targets": [
+        {
+          "id": "v_kyoushitsu",
+          "count": 1
+        },
+        {
+          "id": "v_oshie",
+          "count": 1
+        }
+      ],
+      "model": "教室で 先生の 教えを 聞いて、日本語が 上手に なって きました。",
+      "vocabPool": [
+        "v_kyoushitsu",
+        "v_oshie",
+        "v_sensei",
+        "v_nihongo",
+        "v_jouzu",
+        "v_naru",
+        "v_kuru",
+        "v_kiku",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_benkyou",
+        "v_taisetsu"
+      ]
+    },
+    {
+      "prompt": "Write about planning to keep making attempts even when things are difficult. Use 試み and ていきます.",
+      "targets": [
+        {
+          "id": "v_kokoromi",
+          "count": 1
+        },
+        {
+          "id": "v_taiken",
+          "count": 1
+        }
+      ],
+      "model": "むずかしくても、いろいろな 試みと 体験を やって いきます。",
+      "vocabPool": [
+        "v_kokoromi",
+        "v_taiken",
+        "v_iku",
+        "v_suru",
+        "v_muzukashii",
+        "v_iroiro",
+        "v_taisetsu",
+        "v_koto",
+        "v_mainichi",
+        "g_desu"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_ni",
+    "p_de",
+    "p_no",
+    "p_mo",
+    "p_to",
+    "p_kara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_dewa",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo",
+    "p_yori",
+    "p_noni",
+    "p_node",
+    "p_zutsu",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-て] + きました",
+      "meaning": "has been gradually changing / came to [verb] (direction toward speaker)",
+      "examples": [
+        "上手に なって きました",
+        "勉強して きました",
+        "分かって きました"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + います",
+      "meaning": "currently doing / ongoing state",
+      "examples": [
+        "勉強して います",
+        "教えて もらって います",
+        "練習して います"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + いきます",
+      "meaning": "will keep doing / direction away from speaker (ongoing action going forward)",
+      "examples": [
+        "勉強して いきます",
+        "試みを やって いきます",
+        "少しずつ やって いきます"
+      ]
+    },
+    {
+      "pattern": "[verb] + ために",
+      "meaning": "in order to [verb] (purpose)",
+      "examples": [
+        "試験の ために 勉強します",
+        "上手に なる ために 練習します"
+      ]
+    },
+    {
+      "pattern": "[verb / adj - plain] + のに",
+      "meaning": "even though / despite (concessive, with emotional nuance)",
+      "examples": [
+        "むずかしいのに 楽しいです",
+        "大変なのに 続けて います"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + もらう",
+      "meaning": "to have someone do something for you / to receive the action",
+      "examples": [
+        "教えて もらいます",
+        "手伝って もらいました"
+      ]
+    },
+    {
+      "pattern": "[verb/noun] + ことが できる",
+      "meaning": "to be able to / it is possible to",
+      "examples": [
+        "試食を する ことが できました",
+        "体験を する ことが できます"
+      ]
+    },
+    {
+      "pattern": "な-adj stem + に + なる",
+      "meaning": "to become [na-adj]",
+      "examples": [
+        "上手に なって きました",
+        "大切に なりました"
+      ]
+    }
+  ]
+}

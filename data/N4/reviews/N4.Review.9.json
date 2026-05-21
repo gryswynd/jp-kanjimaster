@@ -1,0 +1,1043 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.9",
+  "title": "Phase 4 Review: Travel, Nature & Strength",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 17–18.",
+    "kanji": [
+      "京",
+      "都",
+      "転",
+      "回",
+      "田",
+      "海",
+      "弱",
+      "強",
+      "勉",
+      "風",
+      "光",
+      "力"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Two friends planning a trip.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今回は 京都だけに 行きますか。",
+              "terms": [
+                "v_konkai",
+                "p_wa",
+                "v_kyouto",
+                "p_dake",
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。東京には 行きません。古い おてらを 見たいですから。",
+              "terms": [
+                "p_hai",
+                "v_toukyou",
+                "p_wa",
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "polite_negative"
+                },
+                "v_furui",
+                "v_otera",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu",
+                "p_kara_because"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "京都は 海外から 来た 人が 多いですね。",
+              "terms": [
+                "v_kyouto",
+                "p_wa",
+                "v_kaigai",
+                "p_kara",
+                {
+                  "id": "v_kuru",
+                  "form": "plain_past"
+                },
+                "v_hito",
+                "p_ga",
+                {
+                  "id": "v_ooi",
+                  "form": "polite_adj"
+                },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうですね。来年は 東京と 北海道にも 行きたいです。",
+              "terms": [
+                "v_sou",
+                "g_desu",
+                "p_ne",
+                "v_rainen",
+                "p_wa",
+                "v_toukyou",
+                "p_to",
+                "v_hokkaidou",
+                "p_mo",
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "Why is B going to Kyoto this time?",
+          "choices": [
+            "To see old temples.",
+            "To visit Tokyo and Hokkaido.",
+            "To meet overseas visitors.",
+            "To go cycling in the mountains."
+          ],
+          "answer": "To see old temples.",
+          "explanation": "B says 古いおてらを見たいですから (because I want to see old temples) as the reason for going only to Kyoto this time."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Two people talking about cycling and falling.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "自転車で 乗り回すのは むずかしいですか。",
+              "terms": [
+                "v_jitensha",
+                "p_de",
+                {
+                  "id": "v_norimawasu",
+                  "form": "plain_form"
+                },
+                "p_wa",
+                "p_no",
+                {
+                  "id": "v_muzukashii",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。先週 一回 転びました。雨で 運転が むずかしかったです。",
+              "terms": [
+                "p_hai",
+                "v_senshuu",
+                "v_ikkai",
+                {
+                  "id": "v_korobu",
+                  "form": "polite_mashita"
+                },
+                "v_ame",
+                "p_de",
+                "v_unten",
+                "p_ga",
+                {
+                  "id": "v_muzukashii",
+                  "form": "polite_past_adj"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "だいじょうぶでしたか。雨の日は 運転が むずかしいですね。",
+              "terms": [
+                {
+                  "id": "v_daijoubu",
+                  "form": "polite_past_adj"
+                },
+                "p_ka",
+                "v_ame",
+                "p_no",
+                "v_hi",
+                "p_wa",
+                "v_unten",
+                "p_ga",
+                {
+                  "id": "v_muzukashii",
+                  "form": "polite_adj"
+                },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうですね。でも、いつも 音楽を 聞きながら 乗っています。",
+              "terms": [
+                "v_sou",
+                "g_desu",
+                "p_ne",
+                "p_demo_but",
+                "v_itsumo",
+                "v_ongaku",
+                "p_wo",
+                {
+                  "id": "v_kiku",
+                  "form": "nagara_form"
+                },
+                {
+                  "id": "v_noru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "Why did B fall from the bicycle last week?",
+          "choices": [
+            "Because the rain made driving difficult.",
+            "Because B was listening to music while riding.",
+            "Because B was riding too fast.",
+            "Because the road was too narrow."
+          ],
+          "answer": "Because the rain made driving difficult.",
+          "explanation": "B says 雨で運転がむずかしかったです (driving was difficult because of the rain), and mentions falling 一回 (once) last week."
+        },
+        {
+          "title": "Conversation 3: Wind & Moonlight (Casual)",
+          "context": "Two close classmates talking after school on a windy day.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今日は 風が 強かったね。",
+              "terms": [
+                "v_kyou",
+                "p_wa",
+                "v_kaze",
+                "p_ga",
+                {
+                  "id": "v_tsuyoi",
+                  "form": "plain_past_adj"
+                },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうだね。強風の 日は 弱気に なるね。",
+              "terms": [
+                "v_sou",
+                "p_ne",
+                "g_da",
+                "v_kyoufuu",
+                "p_no",
+                "v_hi",
+                "p_wa",
+                "v_yowaki",
+                "p_ni",
+                {
+                  "id": "v_naru",
+                  "form": "plain_form"
+                },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "でも、月光で 勉強したことが あるよ。とても きれいだったよ。",
+              "terms": [
+                "p_demo_but",
+                "v_gekkou",
+                "p_de",
+                "v_benkyou",
+                {
+                  "id": "v_suru",
+                  "form": "plain_past"
+                },
+                "v_koto",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "plain_form"
+                },
+                "p_yo",
+                "v_totemo",
+                {
+                  "id": "v_kirei",
+                  "form": "plain_past_adj"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "月光で？ いいね。勉強しながら 月を 見るの？",
+              "terms": [
+                "v_gekkou",
+                "p_de",
+                "p_ka",
+                "v_ii",
+                "p_ne",
+                "v_benkyou",
+                {
+                  "id": "v_suru",
+                  "form": "nagara_form"
+                },
+                "v_tsuki",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": "plain_form"
+                },
+                "p_no_question",
+                "p_ka"
+              ]
+            }
+          ],
+          "question": "What has speaker A done that they found beautiful?",
+          "choices": [
+            "Studied by moonlight.",
+            "Cycled in the strong wind.",
+            "Walked along the sea in sunlight.",
+            "Taken photos in Kyoto."
+          ],
+          "answer": "Studied by moonlight.",
+          "explanation": "A says 月光で勉強したことがあります (I have studied by moonlight before) and adds とてもきれいでしたよ (it was very beautiful)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I did things like walk along the sea and take photos.",
+          "segments": [
+            "海",
+            "を",
+            "歩いたり",
+            "写真",
+            "を",
+            "とったり",
+            "しました"
+          ],
+          "distractors": [
+            "に",
+            "歩きながら",
+            "しません"
+          ],
+          "explanation": "The ～たり～たりする pattern lists representative actions: 歩いたり (walked, among other things) + とったり (took photos, etc.) + しました (past). Use を for both objects (海を, 写真を). The pattern shows a sampling of activities, not an exhaustive list."
+        },
+        {
+          "kind": "scramble",
+          "q": "I travelled while taking photos.",
+          "segments": [
+            "写真",
+            "を",
+            "とりながら",
+            "旅行しました"
+          ],
+          "distractors": [
+            "に",
+            "とったり",
+            "旅行します"
+          ],
+          "explanation": "The ～ながら pattern expresses simultaneous actions: 写真をとりながら (while taking photos) + 旅行しました (I travelled). ながら attaches to the masu-stem of the sub-action verb (とり). を marks 写真 as the object."
+        },
+        {
+          "kind": "scramble",
+          "q": "I have been to Hokkaido before.",
+          "segments": [
+            "北海道",
+            "へ",
+            "行ったことが",
+            "あります"
+          ],
+          "distractors": [
+            "に",
+            "行きたいことが",
+            "ありません"
+          ],
+          "explanation": "The ～たことがある pattern expresses past experience: 行った (plain past of 行く) + ことが + あります. The plain past form is required — not the polite past ました. へ marks Hokkaido as the destination."
+        },
+        {
+          "kind": "scramble",
+          "q": "Sunlight is brighter than moonlight.",
+          "segments": [
+            "月光",
+            "より",
+            "日光",
+            "の",
+            "ほうが",
+            "明るいです"
+          ],
+          "distractors": [
+            "を",
+            "日光より",
+            "明るくないです"
+          ],
+          "explanation": "The X より Y の ほうが ～ pattern: 月光より (than moonlight) + 日光のほうが (sunlight is more) + 明るいです (bright). より marks the standard of comparison; ほうが marks the winning side."
+        },
+        {
+          "kind": "scramble",
+          "q": "The wind is strong, so the trains are not running.",
+          "segments": [
+            "風",
+            "が",
+            "強くて",
+            "電車",
+            "が",
+            "来ていません"
+          ],
+          "distractors": [
+            "は",
+            "強いですから",
+            "来ません"
+          ],
+          "explanation": "強くて is the adverbial te-form of the い-adjective 強い, connecting the cause (strong wind) to the result. 来ていません is the negative progressive (trains are in a state of not running). が marks both 風 and 電車 as subjects. 来ません would mean 'won't come' (intentional), while 来ていません describes the current state."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — A Cycling Trip to the Sea",
+      "passage": [
+        {
+          "jp": "先月、私は 自転車で 海へ 行きました。",
+          "en": "Last month, I went to the sea by bicycle.",
+          "terms": [
+            "v_sengetsu",
+            "v_watashi",
+            "p_wa",
+            "v_jitensha",
+            "p_de",
+            "v_umi",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "日光が とても 明るくて、海が きれいでした。",
+          "en": "The sunlight was very bright, and the sea was beautiful.",
+          "terms": [
+            "v_nikkou",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_akarui",
+              "form": "te_form"
+            },
+            "v_umi",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "polite_past_adj"
+            }
+          ]
+        },
+        {
+          "jp": "でも、海の 近くは 風が 強かったです。",
+          "en": "But near the sea, the wind was strong.",
+          "terms": [
+            "p_demo_but",
+            "v_umi",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_wa",
+            "v_kaze",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_past_adj"
+            }
+          ]
+        },
+        {
+          "jp": "海を 歩いたり、写真を とったり しました。",
+          "en": "I did things like walk along the sea and take photos.",
+          "terms": [
+            "v_umi",
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "また 海へ 行きたいです。来年も 自転車で 行きます。",
+          "en": "I want to go to the sea again. Next year I will also go by bicycle.",
+          "terms": [
+            "v_mata",
+            "v_umi",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_rainen",
+            "p_mo",
+            "v_jitensha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "先月、どこへ 行きましたか。",
+          "a": "海へ 行きました。",
+          "choices": [
+            "海へ 行きました。",
+            "京都へ 行きました。",
+            "山へ 行きました。",
+            "北海道へ 行きました。"
+          ],
+          "terms": [
+            "v_sengetsu",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            "v_umi",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "The passage says 私は自転車で海へ行きました (I went to the sea by bicycle) last month."
+        },
+        {
+          "q": "海の 近くの 風は どうでしたか。",
+          "a": "風が 強かったです。",
+          "choices": [
+            "風が 強かったです。",
+            "日光が 弱かったです。",
+            "雨が 多かったです。",
+            "風が やさしかったです。"
+          ],
+          "terms": [
+            "v_umi",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_no",
+            "v_kaze",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_ka",
+            "v_kaze",
+            "p_ga",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_past_adj"
+            }
+          ],
+          "explanation": "The passage says でも、海の近くは風が強かったです (but near the sea, the wind was strong)."
+        },
+        {
+          "q": "海で 何を しましたか。",
+          "a": "歩いたり、写真を とったり しました。",
+          "choices": [
+            "歩いたり、写真を とったり しました。",
+            "自転車に 乗ったり、泳いだり しました。",
+            "月光を 見たり、勉強したり しました。",
+            "田を 回ったり、山に 登ったり しました。"
+          ],
+          "terms": [
+            "v_umi",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "The passage says 海を歩いたり、写真をとったりしました — walking along the sea and taking photos."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "来週、[京都]へ 行きます。",
+          "choices": [
+            "きょうと",
+            "とうきょう",
+            "みやこと",
+            "きょうつ"
+          ],
+          "answer": "きょうと",
+          "explanation": "京都 (Kyoto) is read as <b>kyouto</b>. 京 (capital, きょう) + 都 (metropolis, と)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[自転車]で 海へ 行きました。",
+          "choices": [
+            "じてんしゃ",
+            "じどうしゃ",
+            "じてんき",
+            "てんしゃ"
+          ],
+          "answer": "じてんしゃ",
+          "explanation": "自転車 (bicycle) is read as <b>jitensha</b>. 自 (self) + 転 (revolve, てん) + 車 (vehicle)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[海外]へ 行ったことが あります。",
+          "choices": [
+            "かいがい",
+            "うみそと",
+            "かいそと",
+            "うみがい"
+          ],
+          "answer": "かいがい",
+          "explanation": "海外 (overseas) is read as <b>kaigai</b>. 海 (sea, かい) + 外 (outside)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[強風]で 電車が 来ていません。",
+          "choices": [
+            "きょうふう",
+            "つよかぜ",
+            "じゃくふう",
+            "きょうかぜ"
+          ],
+          "answer": "きょうふう",
+          "explanation": "強風 (strong wind) is read as <b>kyoufuu</b>. 強 (strong, きょう) + 風 (wind, ふう)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[月光]が とても きれいでした。",
+          "choices": [
+            "げっこう",
+            "つきひかり",
+            "つきこう",
+            "げつひかり"
+          ],
+          "answer": "げっこう",
+          "explanation": "月光 (moonlight) is read as <b>gekkō</b>. 月 (moon, げつ→げっ) + 光 (light, こう). Note the double consonant (っ)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[電力]は 大切です。",
+          "choices": [
+            "でんりょく",
+            "でんちから",
+            "でんき",
+            "てんりょく"
+          ],
+          "answer": "でんりょく",
+          "explanation": "電力 (electric power) is read as <b>denryoku</b>. 電 (electricity) + 力 (power, りょく)."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 [勉強]して います。",
+          "choices": [
+            "べんきょう",
+            "もときょう",
+            "べんこう",
+            "どりょく"
+          ],
+          "answer": "べんきょう",
+          "explanation": "勉強 (study) is read as <b>benkyou</b>. 勉 (endeavor, べん) + 強 (exert/strong, きょう)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[日光]が 明るい 日に 旅行しました。",
+          "choices": [
+            "にっこう",
+            "にちひかり",
+            "にちこう",
+            "にっひかり"
+          ],
+          "answer": "にっこう",
+          "explanation": "日光 (sunlight) is read as <b>nikkou</b>. 日 (sun, にち→にっ) + 光 (light, こう). Note the double consonant (っ)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "きのう、______ に 転びました。",
+          "choices": [
+            "一回",
+            "今回",
+            "二回",
+            "何回"
+          ],
+          "answer": "一回",
+          "terms": [
+            "v_kinou",
+            "p_ni",
+            "v_ikkai",
+            {
+              "id": "v_korobu",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "一回 (ikkai, once) fits: I fell once yesterday. 今回 means 'this time', 二回 means 'twice', 何回 is the question word 'how many times'."
+        },
+        {
+          "kind": "mcq",
+          "q": "テストが むずかしくて、______ に なりました。",
+          "choices": [
+            "弱気",
+            "強気",
+            "有力者",
+            "強風"
+          ],
+          "answer": "弱気",
+          "terms": [
+            "v_tesuto",
+            "p_ga",
+            {
+              "id": "v_muzukashii",
+              "form": "te_form"
+            },
+            "v_yowaki",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "弱気 (yowaki, faint-hearted/timid) fits: the difficult test made me feel discouraged. 強気 (tsuyoki) means confident/bold — the opposite. 有力者 is 'influential person', 強風 is 'strong wind'."
+        },
+        {
+          "kind": "mcq",
+          "q": "夜、電力が ないので、______ で 本を 読みました。",
+          "choices": [
+            "月光",
+            "日光",
+            "電光",
+            "強風"
+          ],
+          "answer": "月光",
+          "terms": [
+            "v_yoru",
+            "v_denryoku",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "p_node",
+            "v_gekkou",
+            "p_de",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "月光 (moonlight) fits: at night with no electric power, I read a book by moonlight. 日光 is sunlight (daytime only), 電光 is electric light (unavailable without 電力), 強風 is strong wind."
+        },
+        {
+          "kind": "mcq",
+          "q": "北海道へ 行ったことが ______。",
+          "choices": [
+            "あります",
+            "います",
+            "できます",
+            "なります"
+          ],
+          "answer": "あります",
+          "terms": [
+            "v_hokkaidou",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "The ～たことがある pattern uses あります: 行ったことがあります (I have been to Hokkaido before). います is for animate existence, できます means 'can do', なります means 'to become'."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちが おどろく ことを 言いました。何と 言いますか。",
+          "choices": [
+            "へえ",
+            "なるほど",
+            "じつは",
+            "つまり"
+          ],
+          "answer": "へえ",
+          "terms": [
+            "v_tomodachi",
+            "p_ga",
+            "v_odoroku",
+            "v_koto",
+            "p_wo",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            },
+            "v_nani",
+            "p_to",
+            {
+              "id": "v_iu",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_hee"
+          ],
+          "explanation": "へえ (hee) is a natural surprised/impressed reaction — 'Oh! Is that so?' なるほど means 'I see / that makes sense' (used after an explanation). じつは introduces unexpected information. つまり means 'in other words'."
+        },
+        {
+          "kind": "mcq",
+          "q": "おどろいた ことを 言いたい 時、どれを 使いますか。",
+          "choices": [
+            "じつは",
+            "そうそう",
+            "まあ",
+            "なんか"
+          ],
+          "answer": "じつは",
+          "terms": [
+            {
+              "id": "v_odoroku",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_wo",
+            {
+              "id": "v_iu",
+              "form": "plain_desire_tai"
+            },
+            "v_toki",
+            "v_dore",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_jitsuwa"
+          ],
+          "explanation": "じつは (jitsu wa) means 'Actually / To tell the truth' — it frames a revelation or unexpected fact. そうそう is a confirmation ('right right'). まあ is a softening filler ('well...'). なんか is a casual filler ('like / kinda')."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "海を 歩いたり、写真を とったり ______。",
+          "choices": [
+            "しました",
+            "しながら",
+            "してください",
+            "しているから"
+          ],
+          "answer": "しました",
+          "terms": [
+            "v_umi",
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "The ～たり～たりする pattern ends with する in the appropriate tense — here しました (past). The pattern X-たり Y-たりする/した shows representative actions. ながら would require a masu-stem, not a た-form."
+        },
+        {
+          "kind": "mcq",
+          "q": "写真を とり ______ 旅行しました。",
+          "choices": [
+            "ながら",
+            "たり",
+            "てから",
+            "ために"
+          ],
+          "answer": "ながら",
+          "terms": [
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "nagara_form"
+            },
+            "v_ryokou",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "ながら attaches to the masu-stem (とり) to express simultaneous actions: while taking photos + travelled. たり requires a た-form and a paired verb. てから means 'after doing', ために means 'in order to'."
+        },
+        {
+          "kind": "mcq",
+          "q": "月光 ______ 日光の ほうが 明るいです。",
+          "choices": [
+            "より",
+            "から",
+            "ので",
+            "ながら"
+          ],
+          "answer": "より",
+          "terms": [
+            "v_gekkou",
+            "p_yori",
+            "v_nikkou",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_akarui",
+              "form": "polite_adj"
+            }
+          ],
+          "explanation": "より marks the standard of comparison in the X より Y の ほうが ～ pattern: moonlight より, sunlight is brighter. から means 'from' or 'because', ので means 'because', ながら means 'while'."
+        },
+        {
+          "kind": "mcq",
+          "q": "北海道へ 行った ______ が あります。",
+          "choices": [
+            "こと",
+            "もの",
+            "ほう",
+            "とき"
+          ],
+          "answer": "こと",
+          "terms": [
+            "v_hokkaidou",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "The ～たことがある pattern specifically uses こと (nominalizer): 行ったことがあります = 'I have been'. もの refers to a physical thing, ほう is used for comparison (～のほうが), とき means 'when / the time when'."
+        },
+        {
+          "kind": "mcq",
+          "q": "きのうの 風は とても ______。",
+          "choices": [
+            "強かったです",
+            "強いです",
+            "強くないです",
+            "強かったですか"
+          ],
+          "answer": "強かったです",
+          "terms": [
+            "v_kinou",
+            "p_no",
+            "v_kaze",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_tsuyoi",
+              "form": "polite_past_adj"
+            }
+          ],
+          "explanation": "強かったです is the polite past form of the い-adjective 強い: 強い → 強かった + です. Use this to describe how something WAS in the past. 強いです = is strong (present); 強くないです = is not strong (present negative); 強かったですか = was it strong? (question, not a statement)."
+        }
+      ]
+    }
+  ]
+}

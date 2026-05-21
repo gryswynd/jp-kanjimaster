@@ -1,0 +1,98 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.5",
+  "lesson": "N5.5",
+  "level": "N5",
+  "title": "Going Places",
+  "titleJp": "おでかけ",
+  "emoji": "🚌",
+  "theme": "Write about where you go, how you get there, and your plans for next week.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write where you go every day or every week, and how you get there.",
+      "targets": [
+        { "id": "v_iku", "count": 1 }
+      ],
+      "model": "毎日 バスで 駅へ 行きます。コンビニにも 行きます。",
+      "vocabPool": [
+        "v_iku", "v_kuru", "v_mainichi", "v_maishuu", "v_kyou",
+        "v_eki", "v_mise", "v_konbini", "v_suupaa", "v_uchi", "v_ie",
+        "v_basu", "v_takushii", "v_koko", "v_soko", "v_doko",
+        "v_sensei", "v_tomodachi", "g_desu", "v_ii",
+        "v_totemo", "v_sugu", "v_chotto"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write where you went last week and how you got there.",
+      "targets": [
+        { "id": "v_mise", "count": 1 }
+      ],
+      "model": "先週は 店へ 行きました。うちから バスで 来ました。駅から スーパーへも 行きました。",
+      "vocabPool": [
+        "v_iku", "v_kuru", "v_senshuu", "v_kinou", "v_mainichi",
+        "v_eki", "v_mise", "v_konbini", "v_suupaa", "v_uchi",
+        "v_basu", "v_takushii", "v_koko", "v_asoko",
+        "v_tomodachi", "v_sensei", "v_ii", "v_totemo",
+        "v_getsuyoubi", "v_suiyoubi"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about your plans for next week — where you will go and who you will go with.",
+      "targets": [
+        { "id": "v_raishuu", "count": 1 }
+      ],
+      "model": "来週は スーパーへ 行きます。友だちと 行きます。来月も 行きます。",
+      "vocabPool": [
+        "v_iku", "v_kuru", "v_mata", "v_raishuu", "v_raigetsu", "v_rainen",
+        "v_eki", "v_mise", "v_konbini", "v_suupaa", "v_uchi",
+        "v_basu", "v_takushii", "v_koko",
+        "v_tomodachi", "v_sensei", "v_ii", "v_ureshii", "v_totemo",
+        "v_mainichi", "v_maishuu", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_kara", "p_made", "p_ya", "p_made_ni",
+    "p_ni", "p_de", "p_e"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[godan verb]: 〜く → 〜きます",
+      "meaning": "present / future polite",
+      "examples": ["行きます", "行きました", "行きません", "行きませんでした"]
+    },
+    {
+      "pattern": "[irregular] 来る → 来ます",
+      "meaning": "come (polite forms of 来る)",
+      "examples": ["来ます (きます)", "来ました (きました)", "来ません (きません)", "来ませんでした (きませんでした)"]
+    },
+    {
+      "pattern": "[ichidan] いる → います",
+      "meaning": "to be / exist (animate, polite forms)",
+      "examples": ["います", "いました", "いません", "いませんでした"]
+    },
+    {
+      "pattern": "[て-form] verb + て — connect sequential actions",
+      "meaning": "AてB = 'did A, then B' — tense set by final verb",
+      "examples": ["行って (godan く→って — EXCEPTION, not 行いて)", "来て (きて — irregular)", "分かって (godan る→って)", "いて (ichidan: drop る + て)"]
+    },
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["駅です", "スーパーです"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite)",
+      "examples": ["店でした", "コンビニでした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is adj (polite)",
+      "examples": ["いいです", "うれしいです"]
+    }
+  ]
+}

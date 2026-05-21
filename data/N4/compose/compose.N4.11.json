@@ -1,0 +1,180 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.11",
+  "lesson": "N4.11",
+  "level": "N4",
+  "title": "My Travel Journal",
+  "titleJp": "私の 旅日記",
+  "emoji": "✈️",
+  "theme": "Write a travel journal about your love of travel: describe a past trip, the photos you took, activities you did along the way, and your dream of seeing the whole world.",
+  "prompts": [
+    {
+      "prompt": "Open your journal by saying you love travel. Tell the reader what country or place you most want to visit. Use 旅行 and 好き or 大好き.",
+      "targets": [
+        { "id": "v_ryokou", "count": 1 },
+        { "id": "v_sekai", "count": 1 }
+      ],
+      "model": "私は 旅行が 大好きです。いつか、世界中を 旅したいです。",
+      "vocabPool": [
+        "v_watashi", "v_ryokou", "v_tabi", "v_sekai", "v_sekaijuu",
+        "v_suki", "v_daisuki", "v_iku", "v_naru", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your last trip or a trip you remember well. Where did you go? What was the town like? Use 旅先 and at least one past-tense verb.",
+      "targets": [
+        { "id": "v_tabisaki", "count": 1 },
+        { "id": "v_aruku", "count": 1 }
+      ],
+      "model": "先月、旅先の まちを 歩きました。とても きれいで、よかったです。",
+      "vocabPool": [
+        "v_tabisaki", "v_machi", "v_aruku", "v_iku", "v_kuru",
+        "v_kyonen", "v_sengetsu", "v_kotoshi", "v_kirei", "v_ii"
+      ]
+    },
+    {
+      "prompt": "Describe how you take photos while traveling. Use 写す and ながら to show two things happening at once.",
+      "targets": [
+        { "id": "v_shashin", "count": 1 },
+        { "id": "v_toru", "count": 1 }
+      ],
+      "model": "旅先を 歩きながら、カメラで 写真を とります。山の 真ん中では 必ず とります。",
+      "vocabPool": [
+        "v_shashin", "v_kamera", "v_toru", "v_aruku", "v_tabisaki", "v_ryokou",
+        "v_tabi", "v_mannaka", "v_yama", "v_ii", "v_totemo"
+      ]
+    },
+    {
+      "prompt": "List two or three activities you enjoy doing on trips. Use たり to show a non-exhaustive list of things you typically do.",
+      "targets": [
+        { "id": "v_ryokou", "count": 1 },
+        { "id": "v_toru", "count": 1 }
+      ],
+      "model": "旅行中は、写真を とったり、まちを 歩いたり します。",
+      "vocabPool": [
+        "v_ryokou", "v_toru", "v_shashin", "v_aruku", "v_miru",
+        "v_taberu", "v_yomu", "v_tabi", "v_tabisaki", "v_eiga"
+      ]
+    },
+    {
+      "prompt": "Write about your dream of traveling the whole world. Use 世界中 and express your desire with たいです. What kind of traveler do you want to become?",
+      "targets": [
+        { "id": "v_sekaijuu", "count": 1 },
+        { "id": "v_tabibito", "count": 1 }
+      ],
+      "model": "世界中を 旅したいです。いつか、旅人に なりたいです。",
+      "vocabPool": [
+        "v_sekaijuu", "v_sekai", "v_tabibito", "v_tabi", "v_ryokou",
+        "v_naru", "v_iku", "v_miru", "v_suki", "v_daisuki"
+      ]
+    },
+    {
+      "prompt": "Describe staying at a traditional Japanese inn. What did it look like? Use 旅館 and 真っ白 or 真ん中 in your description.",
+      "targets": [
+        { "id": "v_ryokan", "count": 1 },
+        { "id": "v_masshiro", "count": 1 }
+      ],
+      "model": "旅館へ 行きました。真っ白で、とても きれいでした。部屋の 真ん中に 大きい テーブルが ありました。",
+      "vocabPool": [
+        "v_ryokan", "v_masshiro", "v_mannaka", "v_kirei", "v_ii",
+        "v_iku", "v_totemo", "v_ookii", "v_chiisai", "v_tabi"
+      ]
+    },
+    {
+      "prompt": "Reflect on yourself as a traveler. Use 旅人 and 自分 to describe what kind of traveler you are or want to be.",
+      "targets": [
+        { "id": "v_jibun", "count": 1 },
+        { "id": "v_tabibito", "count": 1 }
+      ],
+      "model": "自分は 旅人です。旅先で いつも 写真を とります。",
+      "vocabPool": [
+        "v_jibun", "v_tabibito", "v_tabi", "v_tabisaki", "v_shashin",
+        "v_toru", "v_ii", "v_suki", "v_watashi", "v_iku"
+      ]
+    },
+    {
+      "prompt": "Close your journal with a reflection on why you love travel. Use 旅 and express your feelings. What will you do next?",
+      "targets": [
+        { "id": "v_tabi", "count": 1 },
+        { "id": "v_sekai", "count": 1 }
+      ],
+      "model": "旅は 大好きです。これからも 世界を 旅したいです。",
+      "vocabPool": [
+        "v_tabi", "v_ryokou", "v_sekai", "v_sekaijuu", "v_watashi",
+        "v_tabibito", "v_shashin", "v_ii", "v_suki", "v_daisuki"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Write a paragraph about a memorable photo you took on a trip: where you were, what the scene looked like (use 真っ白 or 真ん中), and what made it special.",
+      "targets": [
+        { "id": "v_shashin", "count": 1 },
+        { "id": "v_tabisaki", "count": 1 }
+      ],
+      "model": "旅先で とった 写真が あります。山の 真ん中で、ゆきが 真っ白でした。とても きれいな 写真です。",
+      "vocabPool": [
+        "v_shashin", "v_tabisaki", "v_toru", "v_mannaka", "v_masshiro",
+        "v_yuki", "v_yama", "v_kirei", "v_tabi", "v_ii"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne", "p_dewa",
+    "p_ya", "p_ga_but", "p_kara_because", "p_kedo", "p_yori",
+    "p_node", "p_nagara", "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["旅行します", "歩きました", "とりました", "行きました"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["行きません", "とりませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["旅行して います", "歩いて います"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["旅行したいです", "行きたいです", "とりたくないです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["旅行できます", "歩けます", "見られます"]
+    },
+    {
+      "pattern": "verb masu-stem + ながら",
+      "meaning": "while doing (simultaneous actions)",
+      "examples": ["歩きながら とります", "旅行しながら 学びます"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["旅行したり、写真を とったりします", "歩いたり、食べたりします"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["旅行が 好きなので 行きます", "きれいだから とります"]
+    },
+    {
+      "pattern": "い-adj + かったです / くないです",
+      "meaning": "was [adj] / is not [adj] (past / negative adjective)",
+      "examples": ["よかったです", "よくないです", "大きくなかったです"]
+    },
+    {
+      "pattern": "A は B より [adj]",
+      "meaning": "A is more [adj] than B",
+      "examples": ["旅行は 映画より 好きです"]
+    }
+  ]
+}

@@ -1,0 +1,1582 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.5",
+  "title": "Going & Places",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 5,
+    "focus": "Motion verbs 行く and 来る with destination particles に and へ, means particle で, polite verb conjugation forms ます/ました/ません/ませんでした, and te-form/ta-form for connecting and past actions",
+    "estimated_minutes": 55,
+    "kanji": [
+      "行",
+      "来",
+      "店",
+      "駅",
+      "家"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "行",
+      "on": "こう/ぎょう",
+      "kun": "い/こ",
+      "meaning": "Go",
+      "termId": "k_i"
+    },
+    {
+      "kanji": "来",
+      "on": "らい",
+      "kun": "く/き/こ",
+      "meaning": "Come",
+      "termId": "k_ku"
+    },
+    {
+      "kanji": "店",
+      "on": "てん",
+      "kun": "みせ",
+      "meaning": "Shop / Store",
+      "termId": "k_mise"
+    },
+    {
+      "kanji": "駅",
+      "on": "えき",
+      "kun": "",
+      "meaning": "Station",
+      "termId": "k_u99c5"
+    },
+    {
+      "kanji": "家",
+      "on": "か",
+      "kun": "いえ/や/うち",
+      "meaning": "House / Home",
+      "termId": "k_ie"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "先週は 何よう日に いましたか。",
+          "en": "What day of the week were you here last week?",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "今週は 毎日 いますか。",
+          "en": "Are you here every day this week?",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "きのう 友だちは いましたか。",
+          "en": "Were your friends here yesterday?",
+          "terms": [
+            "v_kinou",
+            "v_tomodachi",
+            "p_wa",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "友だちは 今日 いますか。",
+          "en": "Is your friend here today?",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_kyou",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "行",
+          "on": "こう/ぎょう",
+          "kun": "い/こ",
+          "meaning": "go",
+          "terms": [
+            "k_i"
+          ]
+        },
+        {
+          "kanji": "来",
+          "on": "らい",
+          "kun": "く/き/こ",
+          "meaning": "come",
+          "terms": [
+            "k_ku"
+          ]
+        },
+        {
+          "kanji": "店",
+          "on": "てん",
+          "kun": "みせ",
+          "meaning": "shop / store",
+          "terms": [
+            "k_mise"
+          ]
+        },
+        {
+          "kanji": "駅",
+          "on": "えき",
+          "kun": "",
+          "meaning": "station",
+          "terms": [
+            "k_u99c5"
+          ]
+        },
+        {
+          "kanji": "家",
+          "on": "か",
+          "kun": "いえ/や/うち",
+          "meaning": "house / home",
+          "terms": [
+            "k_ie"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_i",
+            "k_ku",
+            "k_mise",
+            "k_u99c5",
+            "k_ie"
+          ]
+        },
+        {
+          "label": "Motion Verbs",
+          "items": [
+            "v_iku",
+            "v_kuru"
+          ]
+        },
+        {
+          "label": "Places",
+          "items": [
+            "v_eki",
+            "v_ie",
+            "v_uchi",
+            "v_mise",
+            "v_konbini",
+            "v_suupaa"
+          ]
+        },
+        {
+          "label": "Transport",
+          "items": [
+            "v_basu",
+            "v_takushii"
+          ]
+        },
+        {
+          "label": "Future Time",
+          "items": [
+            "v_raishuu",
+            "v_raigetsu",
+            "v_rainen"
+          ]
+        },
+        {
+          "label": "Family",
+          "items": [
+            "v_kazoku"
+          ]
+        },
+        {
+          "label": "Expressions",
+          "items": [
+            "v_dame",
+            "v_mata"
+          ]
+        },
+        {
+          "label": "New Particles",
+          "items": [
+            "p_ni",
+            "p_de",
+            "p_e"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: どこに 行きますか（Where Are You Going?）",
+      "context": "Yamakawa runs into Rikizo near the bus stop and asks where he is going.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞさん、今日 どこに 行きますか。",
+          "en": "Rikizo-san, where are you going today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "駅に 行きます。",
+          "en": "I am going to the station.",
+          "terms": [
+            "v_eki",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "バスで 行きますか。",
+          "en": "Are you going by bus?",
+          "terms": [
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、毎日 バスで 行きます。",
+          "en": "Yes, I go by bus every day.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "先週も 駅に 行きましたか。",
+          "en": "Did you also go to the station last week?",
+          "terms": [
+            "v_senshuu",
+            "p_mo",
+            "v_eki",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、先週は 店にも 行きました。",
+          "en": "Yes, last week I also went to the store.",
+          "terms": [
+            "p_hai",
+            "v_senshuu",
+            "p_wa",
+            "v_mise",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: コンビニに 来ましたか（Did You Come to the Convenience Store?）",
+      "context": "Yamamoto-sensei meets Rikizo at the convenience store near the station.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "りきぞさん！今日 コンビニに 来ましたか。",
+          "en": "Rikizo-san! Did you come to the convenience store today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "v_konbini",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、コンビニに 来ました。先生も ここに 来ましたか。",
+          "en": "Yes, I came to the convenience store. Did you also come here, sensei?",
+          "terms": [
+            "p_hai",
+            "v_konbini",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "v_sensei",
+            "p_mo",
+            "v_koko",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "はい、毎週 来ます。スーパーにも 行きますか。",
+          "en": "Yes, I come every week. Do you also go to the supermarket?",
+          "terms": [
+            "p_hai",
+            "v_maishuu",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "v_suupaa",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、来週 スーパーへ 行きます。",
+          "en": "Yes, I will go to the supermarket next week.",
+          "terms": [
+            "p_hai",
+            "v_raishuu",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "いいですね。バスで 行きますか。",
+          "en": "That's nice. Are you going by bus?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "もちろんです。バスで 行きます。",
+          "en": "Of course. I am going by bus.",
+          "terms": [
+            "v_mochiron",
+            "g_desu",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: うちから 来ます（Coming from Home）",
+      "context": "Rikizo asks Yamakawa about his daily commute.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "やまかわさん、毎日 バスで 来ますか。",
+          "en": "Yamakawa-san, do you come by bus every day?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "v_mainichi",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、毎日 バスで 来ます。うちから 来ます。",
+          "en": "Yes, I come by bus every day. I come from home.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "v_uchi",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "タクシーで 来ませんか。",
+          "en": "Don't you come by taxi?",
+          "terms": [
+            "v_takushii",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "タクシーは だめです。",
+          "en": "Taxis are no good.",
+          "terms": [
+            "v_takushii",
+            "p_wa",
+            {
+              "id": "v_dame",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ああ、そうですか。",
+          "en": "Ah, I see.",
+          "terms": [
+            "v_aa",
+            "p_soudesuka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "タクシーでは 来ません。バスは いいですよ。",
+          "en": "I don't come by taxi. The bus is good, you know.",
+          "terms": [
+            "v_takushii",
+            "p_wa",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_negative"
+            },
+            "v_basu",
+            "p_wa",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "先週も バスで 来ましたか。",
+          "en": "Did you also come by bus last week?",
+          "terms": [
+            "v_senshuu",
+            "p_mo",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、先週も バスで 来ました。来週も バスで 来ます。",
+          "en": "Yes, I also came by bus last week. I will come by bus next week too.",
+          "terms": [
+            "p_hai",
+            "v_senshuu",
+            "p_mo",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "v_raishuu",
+            "p_mo",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: 来週 どこに 行きますか（Where Are You Going Next Week?）",
+      "context": "Yamamoto-sensei asks Rikizo about his plans for next week.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "りきぞさん、来週 どこに 行きますか。",
+          "en": "Rikizo-san, where are you going next week?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_raishuu",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "来週は スーパーへ 行きます。友だちと 行きます。",
+          "en": "Next week I will go to the supermarket. I will go with a friend.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "かぞくと 行きますか。",
+          "en": "Are you going with your family?",
+          "terms": [
+            "v_kazoku",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "いいえ、友だちと 行きます。",
+          "en": "No, I am going with my friend.",
+          "terms": [
+            "v_iie",
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "いいですね。どこの スーパーですか。",
+          "en": "That's nice. Which supermarket is it?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_doko",
+            "p_no",
+            "v_suupaa",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "駅の スーパーです。",
+          "en": "It is the supermarket by the station.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_suupaa",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "来月も 行きますか。",
+          "en": "Will you also go next month?",
+          "terms": [
+            "v_raigetsu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、来月も 行きます。来年も 行きます。",
+          "en": "Yes, I will also go next month. I will go next year too.",
+          "terms": [
+            "p_hai",
+            "v_raigetsu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_rainen",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: りきぞのいっしゅう（Rikizo's Week）",
+      "passage": [
+        {
+          "jp": "りきぞは 毎日 バスで 来ます。",
+          "en": "Rikizo comes by bus every day.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_mainichi",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今週は 月よう日と 水よう日に 来ました。",
+          "en": "This week he came on Monday and Wednesday.",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "きのう コンビニへ 行きました。",
+          "en": "Yesterday he went to the convenience store.",
+          "terms": [
+            "v_kinou",
+            "v_konbini",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "スーパーにも 行きました。",
+          "en": "He also went to the supermarket.",
+          "terms": [
+            "v_suupaa",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "また コンビニへ 行きました。",
+          "en": "He also went to the convenience store again.",
+          "terms": [
+            "v_mata",
+            "v_konbini",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "来週は 駅へ 行きます。",
+          "en": "Next week he will go to the station.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "来週は 友だちと 行きます。",
+          "en": "Next week he will go with a friend.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "今週は 何よう日に 来ましたか。",
+          "q_en": "On which days this week did you come?",
+          "a": "月よう日と 水よう日に 来ました。",
+          "a_en": "I came on Monday and Wednesday.",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "きのう どこへ 行きましたか。",
+          "q_en": "Where did you go yesterday?",
+          "a": "コンビニへ 行きました。",
+          "a_en": "I went to the convenience store.",
+          "terms": [
+            "v_kinou",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_konbini",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "来週は どこへ 行きますか。",
+          "q_en": "Where will you go next week?",
+          "a": "駅へ 行きます。",
+          "a_en": "I will go to the station.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "来週は だれと 行きますか。",
+          "q_en": "Who will you go with next week?",
+          "a": "友だちと 行きます。",
+          "a_en": "I will go with my friends.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_dare",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: やまかわのおでかけ（Yamakawa's Outing）",
+      "passage": [
+        {
+          "jp": "やまかわは 家から 駅まで バスで 来ます。",
+          "en": "Yamakawa comes from home to the station by bus.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_ie",
+            "p_kara",
+            "v_eki",
+            "p_made",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわは 先週 店へ 行きました。",
+          "en": "Yamakawa went to the store last week.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_senshuu",
+            "v_mise",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "うちから バスで 来ました。",
+          "en": "He came from home by bus.",
+          "terms": [
+            "v_uchi",
+            "p_kara",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "駅へ 行って、コンビニにも 行きました。",
+          "en": "He went to the station and also went to the convenience store.",
+          "terms": [
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_konbini",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "駅に コンビニが あります。",
+          "en": "There is a convenience store at the station.",
+          "terms": [
+            "v_eki",
+            "p_ni",
+            "v_konbini",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先週は スーパーへ 来ませんでした。",
+          "en": "Last week he did not come to the supermarket.",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "jp": "来週は スーパーへ 行きます。",
+          "en": "Next week he will go to the supermarket.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "来月も 来ます。",
+          "en": "He will come next month too.",
+          "terms": [
+            "v_raigetsu",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは 先週 どこへ 行きましたか。",
+          "q_en": "Where did Yamakawa go last week?",
+          "a": "店へ 行きました。",
+          "a_en": "He went to the shop.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_senshuu",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mise",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "バスで 来ましたか。",
+          "q_en": "Did you come by bus?",
+          "a": "はい、バスで 来ました。",
+          "a_en": "Yes, I came by bus.",
+          "terms": [
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "先週 スーパーへ 来ましたか。",
+          "q_en": "Did you come to the supermarket last week?",
+          "a": "いいえ、来ませんでした。",
+          "a_en": "No, I did not come.",
+          "terms": [
+            "v_senshuu",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_iie",
+            {
+              "id": "v_kuru",
+              "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "q": "来週は どこへ 行きますか。",
+          "q_en": "Where will you go next week?",
+          "a": "スーパーへ 行きます。",
+          "a_en": "I will go to the supermarket.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each kanji.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[行] の よみかたは？",
+          "choices": [
+            "い",
+            "くる",
+            "みせ",
+            "えき"
+          ],
+          "answer": "い"
+        },
+        {
+          "kind": "mcq",
+          "q": "[来] の よみかたは？",
+          "choices": [
+            "く",
+            "いく",
+            "てん",
+            "うち"
+          ],
+          "answer": "く"
+        },
+        {
+          "kind": "mcq",
+          "q": "[店] の よみかたは？",
+          "choices": [
+            "みせ",
+            "えき",
+            "いえ",
+            "てん"
+          ],
+          "answer": "みせ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[駅] の よみかたは？",
+          "choices": [
+            "えき",
+            "てん",
+            "いく",
+            "でん"
+          ],
+          "answer": "えき"
+        },
+        {
+          "kind": "mcq",
+          "q": "[家] の よみかたは？",
+          "choices": [
+            "いえ",
+            "か",
+            "こ",
+            "い"
+          ],
+          "answer": "いえ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[来週] の よみかたは？",
+          "choices": [
+            "らいしゅう",
+            "こんしゅう",
+            "せんしゅう",
+            "まいしゅう"
+          ],
+          "answer": "らいしゅう"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 _______ に 行きます。",
+          "choices": [
+            "駅",
+            "今日",
+            "来年",
+            "バス"
+          ],
+          "answer": "駅",
+          "terms": [
+            "v_mainichi",
+            "v_eki",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "きのう コンビニに _______。",
+          "choices": [
+            "行きました",
+            "行きます",
+            "来ません",
+            "います"
+          ],
+          "answer": "行きました",
+          "terms": [
+            "v_kinou",
+            "v_konbini",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ で 来ますか。",
+          "choices": [
+            "バス",
+            "駅",
+            "うち",
+            "来週"
+          ],
+          "answer": "バス",
+          "terms": [
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "来週は _______ へ 行きます。",
+          "choices": [
+            "スーパー",
+            "バス",
+            "どこ",
+            "毎日"
+          ],
+          "answer": "スーパー",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "うちから 駅 _______ バスで 行きます。",
+          "choices": [
+            "まで",
+            "に",
+            "の",
+            "を"
+          ],
+          "answer": "まで",
+          "terms": [
+            "v_uchi",
+            "p_kara",
+            "v_eki",
+            "p_made",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だち _______ 行きます。",
+          "choices": [
+            "と",
+            "を",
+            "は",
+            "に"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週は スーパーへ _______。",
+          "choices": [
+            "来ませんでした",
+            "行きます",
+            "来ます",
+            "います"
+          ],
+          "answer": "来ませんでした",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "来週 どこ _______ 行きますか。",
+          "choices": [
+            "に",
+            "は",
+            "が",
+            "を"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_raishuu",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "バス _______ 来ます。",
+          "choices": [
+            "で",
+            "に",
+            "の",
+            "は"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "うち _______ 駅まで バスで 行きます。",
+          "choices": [
+            "から",
+            "まで",
+            "に",
+            "は"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_uchi",
+            "p_kara",
+            "v_eki",
+            "p_made",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "来週 友だち _______ スーパーへ 行きます。",
+          "choices": [
+            "と",
+            "に",
+            "の",
+            "を"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_raishuu",
+            "v_tomodachi",
+            "p_to",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "駅 _______ タクシーで 来ました。",
+          "choices": [
+            "から",
+            "に",
+            "の",
+            "で"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_eki",
+            "p_kara",
+            "v_takushii",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週は 店 _______ 行きました。",
+          "choices": [
+            "へ",
+            "の",
+            "と",
+            "は"
+          ],
+          "answer": "へ",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_mise",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 コンビニ _______ 来ますか。",
+          "choices": [
+            "に",
+            "は",
+            "が",
+            "の"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_mainichi",
+            "v_konbini",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "来月 _______ 行きますか。",
+          "choices": [
+            "も",
+            "は",
+            "の",
+            "を"
+          ],
+          "answer": "も",
+          "terms": [
+            "v_raigetsu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "きのう スーパー _______ 行きましたか。",
+          "choices": [
+            "に",
+            "は",
+            "の",
+            "と"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_kinou",
+            "v_suupaa",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    }
+  ]
+}

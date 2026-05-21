@@ -1,0 +1,819 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.18",
+  "title": "Phase 4 Review: Owners, Business & Production",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 35–36.",
+    "kanji": [
+      "主",
+      "止",
+      "民",
+      "洗",
+      "不",
+      "便",
+      "業",
+      "産"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "A car wash owner calls a contractor about a water problem.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "洗車が 中止に なりましたね。",
+              "terms": [
+                "v_sensha",
+                "p_ga",
+                "v_chuushi",
+                "p_ni",
+                { "id": "v_naru", "form": "polite_mashita" },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。水が 止まって います。業者が 来て います。",
+              "terms": [
+                "p_hai",
+                "v_mizu",
+                "p_ga",
+                {
+                  "id": "v_tomaru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_gyousha",
+                {
+                  "id": "v_kuru",
+                  "form": "te_form"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "主に 洗車を する 業者 ですから、不運ですね。",
+              "terms": [
+                "v_omoni",
+                "v_sensha",
+                "p_wo",
+                { "id": "v_suru", "form": "plain_form" },
+                "v_gyousha",
+                "g_desu",
+                "p_kara_because",
+                "v_fuun",
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "水を 止めて くれます。少し 待って ください。",
+              "terms": [
+                "v_mizu",
+                "p_wo",
+                {
+                  "id": "v_tomeru",
+                  "form": "te_form"
+                },
+                { "id": "v_kureru", "form": "polite_masu" },
+                "v_sukoshi",
+                {
+                  "id": "v_matsu",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            }
+          ],
+          "question": "What happened to the car wash service?",
+          "choices": [
+            "The water stopped and the car wash was cancelled.",
+            "The contractor refused to wash cars.",
+            "Citizens moved the car wash to another district.",
+            "The owner washed cars alone all day."
+          ],
+          "answer": "The water stopped and the car wash was cancelled.",
+          "explanation": "A says 洗車が中止になりました (the car wash was cancelled) and B says 水が止まっています (the water has stopped)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Two colleagues discuss the limited bus service in their area.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "バスの 便は 不便ですね。",
+              "terms": [
+                "v_basu",
+                "p_no",
+                "v_bin",
+                "p_wa",
+                "v_fuben",
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうですね。主に 夕方だけ 動いて います。",
+              "terms": [
+                "p_soudesu",
+                "p_ne",
+                "v_omoni",
+                "v_yuugata",
+                "p_dake",
+                {
+                  "id": "v_ugoku",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "もっと 便が ほしいですね。",
+              "terms": [
+                "v_motto",
+                "v_bin",
+                "p_ga",
+                { "id": "v_hoshii", "form": "polite_adj" },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "産業も 少なく なりました。不運ですね。",
+              "terms": [
+                "v_sangyou",
+                "p_mo",
+                {
+                  "id": "v_sukunai",
+                  "form": "adverbial"
+                },
+                { "id": "v_naru", "form": "polite_mashita" },
+                "v_fuun",
+                "g_desu",
+                "p_ne"
+              ]
+            }
+          ],
+          "question": "How is the bus service described?",
+          "choices": [
+            "It mainly runs in the evening only.",
+            "It stops completely in winter.",
+            "The contractor refuses to drive.",
+            "Citizens pay extra for the service."
+          ],
+          "answer": "It mainly runs in the evening only.",
+          "explanation": "B says 主に夕方だけ動いています (it mainly runs only in the evening)."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Two neighbors discuss the industrial products of their district.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "この 地区の 産業は 何ですか。",
+              "terms": [
+                "v_kono",
+                "v_chiku",
+                "p_no",
+                "v_sangyou",
+                "p_wa",
+                "v_nan",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "主に 工業です。業者が 産物を 作って います。",
+              "terms": [
+                "v_omoni",
+                "v_kougyou",
+                "g_desu",
+                "v_gyousha",
+                "p_ga",
+                "v_sanbutsu",
+                "p_wo",
+                {
+                  "id": "v_tsukuru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "不正な ことは ないですか。",
+              "terms": [
+                {
+                  "id": "v_fusei",
+                  "form": "attributive_na"
+                },
+                "v_koto",
+                "p_wa",
+                {
+                  "id": "v_aru",
+                  "form": "plain_negative"
+                },
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいえ。国民は 産業を 大切に して います。",
+              "terms": [
+                "v_iie",
+                "v_kokumin",
+                "p_wa",
+                "v_sangyou",
+                "p_wo",
+                "v_taisetsu",
+                "p_ni",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "What do the citizens do with the industry?",
+          "choices": [
+            "They value and care for the industry.",
+            "They stop industrial production.",
+            "They wash industrial products daily.",
+            "They mainly work outside the district."
+          ],
+          "answer": "They value and care for the industry.",
+          "explanation": "B says 国民は産業を大切にしています (the citizens value the industry)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "This district's industry mainly produces goods.",
+          "segments": [
+            "この",
+            "地区",
+            "の",
+            "産業",
+            "は",
+            "主に",
+            "産物",
+            "を",
+            "作ります"
+          ],
+          "distractors": [
+            "が",
+            "業者",
+            "作りません"
+          ],
+          "explanation": "この + 地区の + 産業 + は (topic) + 主に + 産物 + を (object) + 作ります. Use は to mark the topic (industry), を to mark the object of 作る (goods). が marks a grammatical subject, not a topic."
+        },
+        {
+          "kind": "scramble",
+          "q": "Citizens wash their cars every day.",
+          "segments": [
+            "国民",
+            "は",
+            "毎日",
+            "車",
+            "を",
+            "洗います"
+          ],
+          "alts": [
+            [
+              "毎日",
+              "国民",
+              "は",
+              "車",
+              "を",
+              "洗います"
+            ]
+          ],
+          "distractors": [
+            "に",
+            "洗車",
+            "洗いません"
+          ],
+          "explanation": "国民 + は (topic) + 毎日 + 車 + を (object) + 洗います. Time words like 毎日 can also go at the start: 毎日 + 国民は + 車を + 洗います. Use を to mark 車 as the thing being washed. に marks a destination or result, not a direct object."
+        },
+        {
+          "kind": "scramble",
+          "q": "The contractor said the bus service is inconvenient.",
+          "segments": [
+            "業者",
+            "は",
+            "バス",
+            "の",
+            "便",
+            "が",
+            "不便",
+            "だと",
+            "言いました"
+          ],
+          "distractors": [
+            "を",
+            "産業",
+            "言います"
+          ],
+          "explanation": "業者 + は (topic) + バスの + 便 + が (subject of embedded clause) + 不便だと + 言いました (past tense). Inside a quoted clause ～と言う, が marks the grammatical subject. を marks a direct object, which doesn't apply here."
+        },
+        {
+          "kind": "scramble",
+          "q": "The contractor stopped the car wash water and went home.",
+          "segments": [
+            "業者",
+            "は",
+            "洗車",
+            "の",
+            "水",
+            "を",
+            "止めて",
+            "帰りました"
+          ],
+          "distractors": [
+            "に",
+            "産業",
+            "止まって"
+          ],
+          "explanation": "業者 + は (topic) + 洗車の + 水 + を (object) + 止めて (transitive te-form) + 帰りました. 止める is transitive — someone stops something. 止まる/止まって is intransitive — something stops by itself. The contractor actively stops the water, so 止めて is correct."
+        },
+        {
+          "kind": "scramble",
+          "q": "The bus service was cancelled because it was inconvenient.",
+          "segments": [
+            "バス",
+            "の",
+            "便",
+            "が",
+            "不便",
+            "で",
+            "中止に",
+            "なりました"
+          ],
+          "distractors": [
+            "を",
+            "国民",
+            "なります"
+          ],
+          "explanation": "バスの + 便 + が (subject) + 不便で (conjunctive na-adj form) + 中止に + なりました (past tense). が marks 便 as the subject of the change. 不便で connects the cause to the result. なりました is past — the cancellation already happened."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Working in the Industrial District",
+      "passage": [
+        {
+          "jp": "私は 工業の 地区に 住んで います。",
+          "en": "I live in an industrial district.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_kougyou",
+            "p_no",
+            "v_chiku",
+            "p_ni",
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "主に 洗車と 産業の 仕事が あります。",
+          "en": "There is mainly car wash and industrial work here.",
+          "terms": [
+            "v_omoni",
+            "v_sensha",
+            "p_to",
+            "v_sangyou",
+            "p_no",
+            "v_shigoto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "民家の 主人が 業者に 来て もらいます。",
+          "en": "The owner of the private house has the contractor come.",
+          "terms": [
+            "v_minka",
+            "p_no",
+            "v_shujin",
+            "p_ga",
+            "v_gyousha",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "業者は 水を 止めて から、洗車を します。",
+          "en": "The contractor stops the water, then does the car wash.",
+          "terms": [
+            "v_gyousha",
+            "p_wa",
+            "v_mizu",
+            "p_wo",
+            {
+              "id": "v_tomeru",
+              "form": "te_form"
+            },
+            "p_kara",
+            "v_sensha",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "不便な ことも ありますが、国民は 産業を 大切に して います。",
+          "en": "There are inconvenient things too, but citizens value the industry.",
+          "terms": [
+            {
+              "id": "v_fuben",
+              "form": "attributive_na"
+            },
+            "v_koto",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ga_but",
+            "v_kokumin",
+            "p_wa",
+            "v_sangyou",
+            "p_wo",
+            "v_taisetsu",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "どこに 住んで いますか。",
+          "a": "工業の 地区",
+          "choices": [
+            "大きい 民家",
+            "国民の 工場",
+            "工業の 地区",
+            "不便な 場所"
+          ],
+          "terms": [
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_kougyou",
+            "p_no",
+            "v_chiku"
+          ]
+        },
+        {
+          "q": "業者は 何を して から、洗車を しますか。",
+          "a": "水を 止めます",
+          "choices": [
+            "産物を 作ります",
+            "水を 止めます",
+            "主人に 来ます",
+            "業者に 帰ります"
+          ],
+          "terms": [
+            "v_gyousha",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "p_kara",
+            "v_sensha",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_mizu",
+            "p_wo",
+            {
+              "id": "v_tomeru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "国民は 産業を どう して いますか。",
+          "a": "大切に して います",
+          "choices": [
+            "中止に して います",
+            "不便に して います",
+            "大切に して います",
+            "止めて います"
+          ],
+          "terms": [
+            "v_kokumin",
+            "p_wa",
+            "v_sangyou",
+            "p_wo",
+            "v_dou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_taisetsu",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 [洗車]を します。",
+          "choices": [
+            "せんしゃ",
+            "あらくるま",
+            "せんそう",
+            "せいしゃ"
+          ],
+          "answer": "せんしゃ",
+          "explanation": "洗車 (car wash) is read as <b>sensha</b>. 洗 (N4.35) + 車 (N5)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[主]に 産業の 仕事を します。",
+          "choices": [
+            "おもに",
+            "ぬしに",
+            "しゅに",
+            "もにに"
+          ],
+          "answer": "おもに",
+          "explanation": "主に (mainly) uses the kun-reading おも of 主, read as <b>omoni</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "バスが [中止]に なりました。",
+          "choices": [
+            "ちゅうし",
+            "なかとめ",
+            "ちゅうとめ",
+            "ちゅうしゃ"
+          ],
+          "answer": "ちゅうし",
+          "explanation": "中止 (cancellation) is read as <b>chuushi</b>. 中 (N5) + 止 (N4.35)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[不便]な 地区に 住んで います。",
+          "choices": [
+            "ふべん",
+            "ふびん",
+            "ぶべん",
+            "ふへん"
+          ],
+          "answer": "ふべん",
+          "explanation": "不便 (inconvenient) is read as <b>fuben</b>. 不 (N4.36) + 便 (N4.36)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[工業]は この 地区の 主な 産業です。",
+          "choices": [
+            "こうぎょう",
+            "くぎょう",
+            "こうごう",
+            "こうぎょ"
+          ],
+          "answer": "こうぎょう",
+          "explanation": "工業 (manufacturing industry) is read as <b>kougyou</b>. 工 (N4.33) + 業 (N4.36)."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 地区の [産物]を 作って います。",
+          "choices": [
+            "さんぶつ",
+            "うみもの",
+            "さんもの",
+            "せいぶつ"
+          ],
+          "answer": "さんぶつ",
+          "explanation": "産物 (product / output) is read as <b>sanbutsu</b>. 産 (N4.36) + 物 (N4.5)."
+        },
+        {
+          "kind": "mcq",
+          "q": "水を [止めて] ください。",
+          "choices": [
+            "とめて",
+            "やめて",
+            "しめて",
+            "どめて"
+          ],
+          "answer": "とめて",
+          "explanation": "止める (to stop, transitive) is read とめる; in て-form, <b>tomete</b>. 止 (N4.35)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[国民]が 産業を 大切に します。",
+          "choices": [
+            "こくみん",
+            "くにたみ",
+            "こくじん",
+            "くにびと"
+          ],
+          "answer": "こくみん",
+          "explanation": "国民 (citizen / national) is read as <b>kokumin</b>. 国 (N5) + 民 (N4.35)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今日 ______ を して、車が きれいに なりました。",
+          "choices": [
+            "洗車",
+            "中止",
+            "不正",
+            "産業"
+          ],
+          "answer": "洗車",
+          "explanation": "洗車 (sensha, car wash) fits: I did a car wash on the weekend and the car became clean. 洗 (wash) + 車 (car)."
+        },
+        {
+          "kind": "mcq",
+          "q": "不便な 地区の 業者は ______ でした。",
+          "choices": [
+            "不運",
+            "不正",
+            "産物",
+            "国民"
+          ],
+          "answer": "不運",
+          "explanation": "不運 (fuun, bad luck) fits: the contractor in the inconvenient district had bad luck. 不 (negative prefix) + 運 (luck, N4.16)."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 地区の ______ は 工業と 産物 ビジネス です。",
+          "choices": [
+            "産業",
+            "民族",
+            "中止",
+            "主人"
+          ],
+          "answer": "産業",
+          "explanation": "産業 (sangyou, industry) fits: the industry of this district is manufacturing and product businesses. 産 (produce) + 業 (business)."
+        },
+        {
+          "kind": "mcq",
+          "q": "水が 止まったので、洗車が ______ に なりました。",
+          "choices": [
+            "中止",
+            "主語",
+            "産物",
+            "民家"
+          ],
+          "answer": "中止",
+          "explanation": "中止 (chuushi, cancellation) fits: the car wash was cancelled because the water stopped. 中止になる means 'to be called off'."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "水 ______ 止めて ください。",
+          "choices": [
+            "を",
+            "に",
+            "が",
+            "で"
+          ],
+          "answer": "を",
+          "explanation": "Use を to mark the object of the transitive verb 止める (to stop something). 水を止める = 'stop the water'."
+        },
+        {
+          "kind": "mcq",
+          "q": "業者が 洗車 ______ して います。",
+          "choices": [
+            "を",
+            "に",
+            "が",
+            "で"
+          ],
+          "answer": "を",
+          "explanation": "Use を to mark the object of する; 洗車をする = 'to do a car wash'. する takes an object with を."
+        },
+        {
+          "kind": "mcq",
+          "q": "水が 止まりました。だから、洗車が 中止 ______ なりました。",
+          "choices": [
+            "に",
+            "を",
+            "が",
+            "で"
+          ],
+          "answer": "に",
+          "explanation": "Use に with なる to indicate the result of a change: 中止になる = 'to become cancelled / to be called off'."
+        },
+        {
+          "kind": "mcq",
+          "q": "新しい 民家を ______。",
+          "choices": [
+            "建てます",
+            "建ちます",
+            "建っています",
+            "建てて"
+          ],
+          "answer": "建てます",
+          "explanation": "To build (transitive) a house uses 建てる → 建てます (tateru/tatemasu). 建つ/建ちます is intransitive and does not take an object with を."
+        }
+      ]
+    }
+  ]
+}

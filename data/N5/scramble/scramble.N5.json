@@ -1,0 +1,338 @@
+{
+  "sets": [
+    {
+      "id": "n5-scr-1",
+      "title": "People & Days",
+      "requires": ["N5.1", "N5.2"],
+      "items": [
+        {
+          "q": "My mother is a teacher.",
+          "segments": ["母", "は", "先生", "です"],
+          "distractors": ["が", "父", "の"],
+          "explanation": "母 + は (topic marker) + 先生 + です. は marks 母 as the topic of the sentence."
+        },
+        {
+          "q": "Today is Monday.",
+          "segments": ["今日", "は", "月よう日", "です"],
+          "distractors": ["が", "毎日", "火よう日"],
+          "explanation": "今日 + は (topic) + 月よう日 + です. 今日 is a time word meaning 'today.' 毎日 means 'every day' — different from 'today.'"
+        },
+        {
+          "q": "What day is today?",
+          "segments": ["今日", "は", "何よう日", "です", "か"],
+          "distractors": ["が", "の", "毎日"],
+          "explanation": "今日 + は + 何よう日 + です + か. 何よう日 = 'what day of the week.' か makes the sentence a question."
+        },
+        {
+          "q": "My father and mother are friends.",
+          "segments": ["父", "と", "母", "は", "友だち", "です"],
+          "distractors": ["が", "の", "か"],
+          "explanation": "父 + と (and) + 母 + は (topic) + 友だち + です. と connects two nouns exhaustively ('father and mother')."
+        },
+        {
+          "q": "That person is Mr. Yamamoto.",
+          "segments": ["あの", "人", "は", "やまもとさん", "です"],
+          "distractors": ["が", "この", "の"],
+          "explanation": "あの (that, over there) + 人 + は (topic) + やまもとさん + です. あの points to someone at a distance. この means 'this' — near the speaker."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-2",
+      "title": "Numbers & Time",
+      "requires": ["N5.3", "N5.4"],
+      "items": [
+        {
+          "q": "It is three o'clock now.",
+          "segments": ["今", "は", "三時", "です"],
+          "distractors": ["が", "に", "四時"],
+          "explanation": "今 + は (topic) + 三時 + です. 今 means 'now.' 三時 = three o'clock."
+        },
+        {
+          "q": "This is 500 yen.",
+          "segments": ["これ", "は", "五百円", "です"],
+          "distractors": ["が", "千円", "の"],
+          "explanation": "これ (this thing) + は (topic) + 五百円 + です. 五百円 = 500 yen. 千円 would be 1000 yen."
+        },
+        {
+          "q": "From Monday to Friday.",
+          "segments": ["月よう日", "から", "金よう日", "まで"],
+          "distractors": ["は", "に", "と"],
+          "explanation": "月よう日 + から (from) + 金よう日 + まで (until). から…まで marks a range."
+        },
+        {
+          "q": "The test is at 10:30.",
+          "segments": ["テスト", "は", "十時半", "です"],
+          "distractors": ["が", "に", "の"],
+          "explanation": "テスト + は (topic) + 十時半 (10:30) + です. 半 means 'half' — 十時半 = half past ten."
+        },
+        {
+          "q": "Every week, there is also a test.",
+          "segments": ["毎週", "テスト", "も", "あります"],
+          "distractors": ["は", "が", "です"],
+          "explanation": "毎週 (every week) + テスト + も (also) + あります. も replaces は/が to mean 'also.' あります = exists (for inanimate things)."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-3",
+      "title": "Going Places",
+      "requires": ["N5.5", "N5.6"],
+      "items": [
+        {
+          "q": "I go to the station.",
+          "segments": ["わたし", "は", "駅", "に", "行きます"],
+          "distractors": ["を", "で", "来ます"],
+          "explanation": "わたし + は (topic) + 駅 + に (destination) + 行きます. に marks the destination with 行く. で marks where an action happens, not a destination."
+        },
+        {
+          "q": "A friend comes to my house.",
+          "segments": ["友だち", "が", "家", "に", "来ます"],
+          "distractors": ["は", "で", "行きます"],
+          "explanation": "友だち + が (subject) + 家 + に (destination) + 来ます. が marks the friend as the subject. 来ます = comes (toward the speaker)."
+        },
+        {
+          "q": "I go to the mountain by car.",
+          "segments": ["車", "で", "山", "に", "行きます"],
+          "distractors": ["を", "は", "来ます"],
+          "alts": [["山", "に", "車", "で", "行きます"]],
+          "explanation": "車 + で (by means of) + 山 + に (destination) + 行きます. で marks the means of transport. The order of 車で and 山に can be swapped."
+        },
+        {
+          "q": "There is a store near the station.",
+          "segments": ["駅", "の", "ちかく", "に", "店", "が", "あります"],
+          "distractors": ["で", "は", "います"],
+          "explanation": "駅 + の + ちかく (near) + に (location of existence) + 店 + が (subject) + あります. に marks where something exists. います is for living things; あります is for inanimate things like stores."
+        },
+        {
+          "q": "I go from the house to the station.",
+          "segments": ["家", "から", "駅", "まで", "行きます"],
+          "distractors": ["に", "で", "は"],
+          "explanation": "家 + から (from) + 駅 + まで (to/until) + 行きます. から marks the starting point; まで marks the endpoint."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-4",
+      "title": "Food & Shopping",
+      "requires": ["N5.7", "N5.8"],
+      "items": [
+        {
+          "q": "I eat a big lunch.",
+          "segments": ["大きい", "おひるごはん", "を", "食べます"],
+          "distractors": ["が", "は", "飲みます"],
+          "explanation": "大きい (big) + おひるごはん (lunch) + を (object marker) + 食べます (eat). を marks what is being eaten. 飲みます means 'drink,' not 'eat.'"
+        },
+        {
+          "q": "I buy a new, cheap book.",
+          "segments": ["新しい", "安い", "本", "を", "買います"],
+          "distractors": ["が", "高い", "は"],
+          "explanation": "新しい (new) + 安い (cheap) + 本 (book) + を (object) + 買います (buy). Multiple adjectives can stack before the noun. 高い means 'expensive' — the opposite of 安い."
+        },
+        {
+          "q": "I drink coffee and eat bread.",
+          "segments": ["コーヒー", "を", "飲んで", "パン", "を", "食べます"],
+          "distractors": ["が", "に", "と"],
+          "explanation": "コーヒー + を + 飲んで (te-form of 飲む) + パン + を + 食べます. Te-form (飲んで) connects two actions in sequence: 'drink [and then] eat.'"
+        },
+        {
+          "q": "This store is not expensive.",
+          "segments": ["この", "店", "は", "高くないです"],
+          "distractors": ["が", "安い", "の"],
+          "explanation": "この (this) + 店 + は (topic) + 高くないです (not expensive). i-adjective negative: 高い → 高くない + です."
+        },
+        {
+          "q": "The old book is long.",
+          "segments": ["古い", "本", "は", "長い", "です"],
+          "distractors": ["が", "新しい", "を"],
+          "explanation": "古い (old) + 本 + は (topic) + 長い (long) + です. 古い modifies the noun 本 (attributive); 長い is the predicate (predicative). 新しい is the opposite of 古い."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-5",
+      "title": "Position & Weather",
+      "requires": ["N5.9", "N5.10"],
+      "items": [
+        {
+          "q": "The cat is in front of the house.",
+          "segments": ["ねこ", "は", "家", "の", "前", "に", "います"],
+          "distractors": ["で", "後ろ", "あります"],
+          "explanation": "ねこ + は (topic) + 家 + の + 前 (front) + に (location) + います. います is for living things. あります is for inanimate things. 後ろ means 'behind.'"
+        },
+        {
+          "q": "Today the weather is good.",
+          "segments": ["今日", "は", "天気", "が", "いい", "です"],
+          "distractors": ["を", "に", "よくない"],
+          "explanation": "今日 + は (topic) + 天気 + が (subject) + いい + です. Double-は avoidance: 今日は marks the topic, then が marks 天気 as the subject within that topic. よくない is the negative form."
+        },
+        {
+          "q": "There is a park behind the station.",
+          "segments": ["駅", "の", "後ろ", "に", "こうえん", "が", "あります"],
+          "distractors": ["で", "前", "います"],
+          "explanation": "駅 + の + 後ろ (behind) + に (location) + こうえん (park) + が (subject) + あります. A park is inanimate, so あります. 前 means 'front' — the opposite of 後ろ."
+        },
+        {
+          "q": "I am resting today.",
+          "segments": ["今日", "は", "休んでいます"],
+          "distractors": ["が", "を", "休みます"],
+          "explanation": "今日 + は (topic) + 休んでいます (progressive of 休む). 休んでいます = te-form 休んで + います = 'am resting' (ongoing). 休みます is simple present, not progressive."
+        },
+        {
+          "q": "Please turn on the light.",
+          "segments": ["電気", "を", "つけてください"],
+          "distractors": ["が", "に", "けしてください"],
+          "explanation": "電気 (electricity/light) + を (object) + つけてください (please turn on). Te-form + ください = polite request. けしてください means 'please turn off' — the opposite."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-6",
+      "title": "Nature & Study",
+      "requires": ["N5.11", "N5.12"],
+      "items": [
+        {
+          "q": "I study Japanese at school.",
+          "segments": ["学校", "で", "日本語", "を", "べんきょうします"],
+          "distractors": ["に", "は", "が"],
+          "explanation": "学校 + で (location of action) + 日本語 + を (object) + べんきょうします. で marks where the action of studying takes place. に marks static location, not action location."
+        },
+        {
+          "q": "There are pretty flowers in the garden.",
+          "segments": ["にわ", "に", "きれいな", "花", "が", "あります"],
+          "distractors": ["で", "は", "います"],
+          "explanation": "にわ (garden) + に (location of existence) + きれいな (pretty, na-adjective) + 花 + が (subject) + あります. Flowers are inanimate → あります, not います."
+        },
+        {
+          "q": "This book is interesting.",
+          "segments": ["この", "本", "は", "おもしろい", "です"],
+          "distractors": ["が", "を", "の"],
+          "explanation": "この + 本 + は (topic) + おもしろい (interesting, i-adjective) + です."
+        },
+        {
+          "q": "It is raining today. There are no fish.",
+          "segments": ["今日", "は", "雨", "です", "が", "魚", "は", "いません"],
+          "distractors": ["を", "ありません", "と"],
+          "explanation": "今日 + は + 雨 + です + が (but) + 魚 + は + いません (negative of います). が here means 'but,' connecting two clauses. Fish are living things → います/いません."
+        },
+        {
+          "q": "What country are you from?",
+          "segments": ["どこ", "の", "国", "から", "来ました", "か"],
+          "distractors": ["に", "は", "行きました"],
+          "explanation": "どこ (where) + の + 国 (country) + から (from) + 来ました (came) + か (question). から marks the origin. 行きました means 'went' — wrong direction."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-7",
+      "title": "Communication",
+      "requires": ["N5.13", "N5.14"],
+      "items": [
+        {
+          "q": "I read a book and write a letter.",
+          "segments": ["本", "を", "読んで", "手がみ", "を", "書きます"],
+          "distractors": ["が", "に", "と"],
+          "explanation": "本 + を + 読んで (te-form of 読む) + 手がみ (letter) + を + 書きます (write). Te-form connects sequential actions."
+        },
+        {
+          "q": "There are many people outside.",
+          "segments": ["外", "に", "人", "が", "多い", "です"],
+          "distractors": ["で", "少ない", "は"],
+          "explanation": "外 (outside) + に (location) + 人 + が (subject) + 多い (many) + です. 少ない (few) is the opposite of 多い."
+        },
+        {
+          "q": "Please speak a little slowly.",
+          "segments": ["少し", "ゆっくり", "話してください"],
+          "distractors": ["を", "が", "たくさん"],
+          "explanation": "少し (a little) + ゆっくり (slowly) + 話してください (please speak). たくさん means 'a lot' — the opposite of 少し."
+        },
+        {
+          "q": "That white building is a school.",
+          "segments": ["あの", "白い", "たてもの", "は", "学校", "です"],
+          "distractors": ["が", "この", "の"],
+          "explanation": "あの (that, far) + 白い (white) + たてもの (building) + は (topic) + 学校 + です. この means 'this' — different distance."
+        },
+        {
+          "q": "I want to read many books.",
+          "segments": ["本", "を", "たくさん", "読みたいです"],
+          "distractors": ["が", "に", "少し"],
+          "explanation": "本 + を (object) + たくさん (many/a lot) + 読みたいです (want to read). たい-form: 読み + たいです = 'want to read.' 少し means 'a little' — opposite meaning."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-8",
+      "title": "Directions",
+      "requires": ["N5.15", "N5.16"],
+      "items": [
+        {
+          "q": "Please go to the right.",
+          "segments": ["右", "に", "行ってください"],
+          "distractors": ["左", "で", "は"],
+          "explanation": "右 (right) + に (direction) + 行ってください (please go). 左 means 'left' — the opposite direction."
+        },
+        {
+          "q": "The station is to the north.",
+          "segments": ["駅", "は", "北", "に", "あります"],
+          "distractors": ["南", "で", "が"],
+          "explanation": "駅 + は (topic) + 北 (north) + に (location) + あります. 南 means 'south' — the opposite direction."
+        },
+        {
+          "q": "There is a mountain to the east and a river to the west.",
+          "segments": ["東", "に", "山", "が", "あって", "西", "に", "川", "が", "あります"],
+          "distractors": ["北", "は", "で"],
+          "explanation": "東 + に + 山 + が + あって (te-form of ある, connecting clauses) + 西 + に + 川 + が + あります. あって connects two existence statements."
+        },
+        {
+          "q": "The book on top is big.",
+          "segments": ["上", "の", "本", "は", "大きい", "です"],
+          "distractors": ["下", "が", "に"],
+          "explanation": "上 (top/above) + の + 本 + は (topic) + 大きい + です. 上の本 = 'the book on top.' 下 means 'below' — opposite."
+        },
+        {
+          "q": "Please go to the left and then go south.",
+          "segments": ["左", "に", "行って", "南", "に", "行ってください"],
+          "distractors": ["右", "で", "は"],
+          "explanation": "左 + に + 行って (te-form, sequential) + 南 + に + 行ってください. Te-form connects two directions: first go left, then go south."
+        }
+      ]
+    },
+    {
+      "id": "n5-scr-9",
+      "title": "Work & Body",
+      "requires": ["N5.17", "N5.18"],
+      "items": [
+        {
+          "q": "I enter the company at 9 AM.",
+          "segments": ["午前", "九時", "に", "会社", "に", "入ります"],
+          "distractors": ["で", "午後", "出ます"],
+          "explanation": "午前 (AM) + 九時 + に (time) + 会社 + に (destination) + 入ります (enter). 午後 means PM. 出ます means 'leave/exit' — the opposite of 入ります."
+        },
+        {
+          "q": "I see a friend at the entrance.",
+          "segments": ["入り口", "で", "友だち", "に", "会います"],
+          "distractors": ["出口", "を", "は"],
+          "explanation": "入り口 (entrance) + で (location of action) + 友だち + に (target of meeting) + 会います (meet). 出口 means 'exit' — the opposite of 入り口."
+        },
+        {
+          "q": "My eyes are tired.",
+          "segments": ["目", "が", "つかれています"],
+          "distractors": ["は", "を", "耳"],
+          "explanation": "目 (eyes) + が (subject) + つかれています (are tired, progressive). 耳 means 'ears' — a different body part."
+        },
+        {
+          "q": "Please listen with your ears and look with your eyes.",
+          "segments": ["耳", "で", "聞いて", "目", "で", "見てください"],
+          "distractors": ["に", "を", "は"],
+          "explanation": "耳 + で (with/using) + 聞いて (te-form of 聞く) + 目 + で (with) + 見てください. で marks the instrument/means: 'using ears' and 'using eyes.'"
+        },
+        {
+          "q": "Please stand up and go outside.",
+          "segments": ["立って", "外", "に", "出てください"],
+          "distractors": ["で", "中", "は"],
+          "explanation": "立って (te-form of 立つ, stand up) + 外 + に (destination) + 出てください (please exit). Te-form connects: 'stand up [and then] go outside.' 中 means 'inside' — the opposite of 外."
+        }
+      ]
+    }
+  ]
+}

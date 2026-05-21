@@ -1,0 +1,1609 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.4",
+  "title": "Time & Duration",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 4,
+    "focus": "Telling time in hours, weekly and yearly time expressions, demonstrative adnominals (この/その/あの/どの), and the verb 分かる",
+    "estimated_minutes": 50,
+    "kanji": [
+      "時",
+      "分",
+      "年",
+      "週",
+      "半"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "時",
+      "on": "じ",
+      "kun": "とき",
+      "meaning": "Time / Hour",
+      "termId": "k_toki"
+    },
+    {
+      "kanji": "分",
+      "on": "ふん/ぶん",
+      "kun": "わ",
+      "meaning": "Minute / Part",
+      "termId": "k_wa"
+    },
+    {
+      "kanji": "年",
+      "on": "ねん",
+      "kun": "とし",
+      "meaning": "Year",
+      "termId": "k_toshi"
+    },
+    {
+      "kanji": "週",
+      "on": "しゅう",
+      "kun": "",
+      "meaning": "Week",
+      "termId": "k_u9031"
+    },
+    {
+      "kanji": "半",
+      "on": "はん",
+      "kun": "",
+      "meaning": "Half",
+      "termId": "k_u534a"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "今日は 何よう日ですか。",
+          "en": "What day of the week is today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_nanyoubi",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "お母さんの たんじょうびは 三月ですか。",
+          "en": "Is your mother's birthday in March?",
+          "terms": [
+            "v_okaasan",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "友だちは 何人 いますか。",
+          "en": "How many friends do you have?",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "お父さんは 毎日 いますか。",
+          "en": "Is your father here every day?",
+          "terms": [
+            "v_otousan",
+            "p_wa",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "時",
+          "on": "じ",
+          "kun": "とき",
+          "meaning": "time / hour",
+          "terms": [
+            "k_toki"
+          ]
+        },
+        {
+          "kanji": "分",
+          "on": "ふん/ぶん",
+          "kun": "わ",
+          "meaning": "minute / part",
+          "terms": [
+            "k_wa"
+          ]
+        },
+        {
+          "kanji": "年",
+          "on": "ねん",
+          "kun": "とし",
+          "meaning": "year",
+          "terms": [
+            "k_toshi"
+          ]
+        },
+        {
+          "kanji": "週",
+          "on": "しゅう",
+          "kun": "",
+          "meaning": "week",
+          "terms": [
+            "k_u9031"
+          ]
+        },
+        {
+          "kanji": "半",
+          "on": "はん",
+          "kun": "",
+          "meaning": "half",
+          "terms": [
+            "k_u534a"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_toki",
+            "k_wa",
+            "k_toshi",
+            "k_u9031",
+            "k_u534a"
+          ]
+        },
+        {
+          "label": "Telling Time",
+          "items": [
+            "v_toki",
+            "v_nanji",
+            "v_tokidoki"
+          ]
+        },
+        {
+          "label": "This / Last / Every — Week",
+          "items": [
+            "v_konshuu",
+            "v_senshuu",
+            "v_maishuu",
+            "v_shuumatsu"
+          ]
+        },
+        {
+          "label": "This / Last / Every — Month & Year",
+          "items": [
+            "v_sengetsu",
+            "v_kotoshi",
+            "v_mainen"
+          ]
+        },
+        {
+          "label": "Verbs",
+          "items": [
+            "v_wakaru"
+          ]
+        },
+        {
+          "label": "Half",
+          "items": [
+            "v_hanbun"
+          ]
+        },
+        {
+          "label": "Adverbs",
+          "items": [
+            "v_sugu",
+            "v_chotto",
+            "v_tsugi"
+          ]
+        },
+        {
+          "label": "Yesterday",
+          "items": [
+            "v_kinou"
+          ]
+        },
+        {
+          "label": "Everyday Objects",
+          "items": [
+            "v_sumaho",
+            "v_keeki"
+          ]
+        },
+        {
+          "label": "Expressions",
+          "items": [
+            "p_irasshaimase"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: 今日 何時ですか（What Time Today?）",
+      "context": "Yamakawa asks Rikizo what time he is here, then asks when Yamamoto-sensei arrives.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、今日 何時に いますか。",
+          "en": "Rikizo-san, what time are you here today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "三時に います。",
+          "en": "I am here at three o'clock.",
+          "terms": [
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "何時から 何時まで いますか。",
+          "en": "From what time until what time are you here?",
+          "terms": [
+            "v_nanji",
+            "p_kara",
+            "v_nanji",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "一時から 三時まで います。",
+          "en": "I am here from one o'clock until three o'clock.",
+          "terms": [
+            {
+              "counter": "ji",
+              "n": 1
+            },
+            "p_kara",
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "先生は 何時に いますか。",
+          "en": "What time is the teacher here?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "先生は 四時に います。",
+          "en": "The teacher is here at four o'clock.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            {
+              "counter": "ji",
+              "n": 4
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "毎日 四時ですか。",
+          "en": "Every day at four o'clock?",
+          "terms": [
+            "v_mainichi",
+            {
+              "counter": "ji",
+              "n": 4
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、毎日 四時に います。",
+          "en": "Yes, every day at four o'clock.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            {
+              "counter": "ji",
+              "n": 4
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 今週と 先週（This Week and Last Week）",
+      "context": "Yamamoto-sensei asks Rikizo about his attendance this week compared to last week.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、今週は いますか。",
+          "en": "Rikizo-san, are you here this week?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_konshuu",
+            "p_wa",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、今週は 毎日 います。",
+          "en": "Yes, I am here every day this week.",
+          "terms": [
+            "p_hai",
+            "v_konshuu",
+            "p_wa",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "先週も 毎日 いましたか。",
+          "en": "Were you here every day last week too?",
+          "terms": [
+            "v_senshuu",
+            "p_mo",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いいえ、先週は 月よう日と 水よう日に いました。",
+          "en": "No, last week I was here on Monday and Wednesday.",
+          "terms": [
+            "v_iie",
+            "v_senshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "先月も いましたか。",
+          "en": "Were you here last month too?",
+          "terms": [
+            "v_sengetsu",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "先月は 火よう日と 木よう日に いました。",
+          "en": "Last month I was here on Tuesdays and Thursdays.",
+          "terms": [
+            "v_sengetsu",
+            "p_wa",
+            "v_kayoubi",
+            "p_to",
+            "v_mokuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうですか。毎週 います ね。",
+          "en": "I see. You come every week, don't you.",
+          "terms": [
+            "p_soudesuka",
+            "v_maishuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、毎週 います。いいですね。",
+          "en": "Yes, I am here every week. That's great!",
+          "terms": [
+            "p_hai",
+            "v_maishuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: 分かりますか（Do You Understand?）",
+      "context": "Yamamoto-sensei checks if Rikizo understands Japanese, and encourages him.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、にほんごは 分かりますか。",
+          "en": "Rikizo-san, do you understand Japanese?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_nihongo",
+            "p_wa",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "時々 分かります。",
+          "en": "I understand sometimes.",
+          "terms": [
+            "v_tokidoki",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうですか。半分 分かりますか。",
+          "en": "I see. Do you understand about half of it?",
+          "terms": [
+            "p_soudesuka",
+            "v_hanbun",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、半分 分かります。",
+          "en": "Yes, I understand about half of it.",
+          "terms": [
+            "p_hai",
+            "v_hanbun",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "毎週 います ね。すぐ 分かりますよ。",
+          "en": "You are here every week. You will understand right away!",
+          "terms": [
+            "v_maishuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ne",
+            "v_sugu",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いいです。毎週 分かります。",
+          "en": "That's good. I understand more every week.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "v_maishuu",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: このケーキ（This Cake）",
+      "context": "Rikizo and Yamakawa spot cake at a shop and talk about it using demonstratives.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "いらっしゃいませ。",
+          "en": "Welcome!",
+          "terms": [
+            "p_irasshaimase"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "このケーキは いいですか。",
+          "en": "Is this cake good?",
+          "terms": [
+            "v_kono",
+            "v_keeki",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、このケーキは とても いいです。",
+          "en": "Yes, this cake is very good.",
+          "terms": [
+            "p_hai",
+            "v_kono",
+            "v_keeki",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "そのケーキも いいですか。",
+          "en": "Is that cake also good?",
+          "terms": [
+            "v_sono",
+            "v_keeki",
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうですね。 そのケーキも いいです。",
+          "en": "That's right. That cake is also good.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_sono",
+            "v_keeki",
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "きのう ケーキが ありましたか。",
+          "en": "Was there cake yesterday?",
+          "terms": [
+            "v_kinou",
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、きのうも ちょっと ありました。",
+          "en": "Yes, there was a little yesterday too.",
+          "terms": [
+            "p_hai",
+            "v_kinou",
+            "p_mo",
+            "v_chotto",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: やまかわのスケジュール（Yamakawa's Schedule）",
+      "passage": [
+        {
+          "jp": "やまかわは 今週 います。",
+          "en": "Yamakawa is here this week.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_konshuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今週は 月よう日と 水よう日に います。",
+          "en": "This week he is here on Monday and Wednesday.",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先週は 月よう日に いました。",
+          "en": "Last week he was here on Monday.",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "やまもと先生は 毎週 三時に います。",
+          "en": "Yamamoto-sensei is here every week at three o'clock.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_maishuu",
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞさんも 毎週 います。",
+          "en": "Rikizo-san is also here every week.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_mo",
+            "v_maishuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "やまもと先生は 火よう日や 木よう日に います。",
+          "en": "Yamamoto-sensei is here on days like Tuesday and Thursday.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_kayoubi",
+            "p_ya",
+            "v_mokuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "週まつも います。",
+          "en": "He is here on weekends too.",
+          "terms": [
+            "v_shuumatsu",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞさんは 毎週 ゲームを します。",
+          "en": "Rikizo-san plays games every week.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_maishuu",
+            "v_geemu",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎週 います ね。とても うれしいです。",
+          "en": "They are here every week — how wonderful!",
+          "terms": [
+            "v_maishuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ne",
+            "v_totemo",
+            "v_ureshii",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは 今週 いますか。",
+          "q_en": "Is Yamakawa here this week?",
+          "a": "はい、います。",
+          "a_en": "Yes, he is here.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_konshuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "今週は 何よう日に いますか。",
+          "q_en": "On which days this week is he here?",
+          "a": "月よう日と 水よう日に います。",
+          "a_en": "He is here on Monday and Wednesday.",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "先週は 何よう日に いましたか。",
+          "q_en": "On which day last week was he here?",
+          "a": "月よう日に いました。",
+          "a_en": "He was here on Monday.",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_getsuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "先生は 何時に いますか。",
+          "q_en": "What time is the teacher here?",
+          "a": "三時に います。",
+          "a_en": "He is here at three o'clock.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: りきぞのたんじょうび（Rikizo's Birthday）",
+      "passage": [
+        {
+          "jp": "今年のたんじょうびは 三月 三日です。",
+          "en": "This year's birthday is March 3rd.",
+          "terms": [
+            "v_kotoshi",
+            "p_no",
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎年 三月に たんじょうびが あります。",
+          "en": "Every year in March there is a birthday.",
+          "terms": [
+            "v_mainen",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "p_ni",
+            "v_tanjoubi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "きのう ケーキが ありました。",
+          "en": "Yesterday there was cake.",
+          "terms": [
+            "v_kinou",
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "このケーキは とても いいです。",
+          "en": "This cake is very good.",
+          "terms": [
+            "v_kono",
+            "v_keeki",
+            "p_wa",
+            "v_totemo",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "友だちは 今週 います。",
+          "en": "Friends are here this week.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_konshuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "子どもの 時、 たんじょうびに ケーキが ありました。",
+          "en": "When I was a child, there was cake on my birthday.",
+          "terms": [
+            "v_kodomo",
+            "p_no",
+            "v_toki",
+            "v_tanjoubi",
+            "p_ni",
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "つぎの たんじょうびまでに、 にほんごが すぐ 分かります。",
+          "en": "By my next birthday, I will understand Japanese right away.",
+          "terms": [
+            "v_tsugi",
+            "p_no",
+            "v_tanjoubi",
+            "p_made_ni",
+            "v_nihongo",
+            "p_ga",
+            "v_sugu",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎年 とても うれしいです。",
+          "en": "Every year it is very joyful.",
+          "terms": [
+            "v_mainen",
+            "v_totemo",
+            "v_ureshii",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "たんじょうびは 三月 三日ですか。",
+          "q_en": "Is the birthday on March 3rd?",
+          "a": "はい、そうです。三月 三日です。",
+          "a_en": "Yes, that's right. It is March 3rd.",
+          "terms": [
+            "v_tanjoubi",
+            "p_wa",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "p_soudesu",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "v_mikka",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "きのう 何が ありましたか。",
+          "q_en": "What was there yesterday?",
+          "a": "ケーキが ありました。",
+          "a_en": "There was a cake.",
+          "terms": [
+            "v_kinou",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "このケーキは どうですか。",
+          "q_en": "How is this cake?",
+          "a": "とても いいです。",
+          "a_en": "It is very good.",
+          "terms": [
+            "v_kono",
+            "v_keeki",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_totemo",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "友だちは 今週 いますか。",
+          "q_en": "Are your friends here this week?",
+          "a": "はい、います。",
+          "a_en": "Yes, they are here.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_konshuu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each kanji.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[時] の よみかたは？",
+          "choices": [
+            "じ",
+            "ふん",
+            "ねん",
+            "しゅう"
+          ],
+          "answer": "じ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[分] の よみかたは？",
+          "choices": [
+            "ふん",
+            "じ",
+            "ねん",
+            "はん"
+          ],
+          "answer": "ふん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[年] の よみかたは？",
+          "choices": [
+            "ねん",
+            "しゅう",
+            "はん",
+            "じ"
+          ],
+          "answer": "ねん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[週] の よみかたは？",
+          "choices": [
+            "しゅう",
+            "ねん",
+            "じ",
+            "ふん"
+          ],
+          "answer": "しゅう"
+        },
+        {
+          "kind": "mcq",
+          "q": "[半] の よみかたは？",
+          "choices": [
+            "はん",
+            "じ",
+            "ふん",
+            "ねん"
+          ],
+          "answer": "はん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[今週] の よみかたは？",
+          "choices": [
+            "こんしゅう",
+            "こんがつ",
+            "まいしゅう",
+            "せんしゅう"
+          ],
+          "answer": "こんしゅう"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "_______ は 月よう日と 水よう日に います。",
+          "choices": [
+            "今週",
+            "先週",
+            "今年",
+            "きのう"
+          ],
+          "answer": "今週",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ 月よう日に いました。",
+          "choices": [
+            "先週は",
+            "今週は",
+            "毎週は",
+            "今年は"
+          ],
+          "answer": "先週は",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "たんじょうびは _______ 三月です。",
+          "choices": [
+            "毎年",
+            "今日",
+            "先週",
+            "きのう"
+          ],
+          "answer": "毎年",
+          "terms": [
+            "v_tanjoubi",
+            "p_wa",
+            "v_mainen",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "にほんごは _______ 分かります。",
+          "choices": [
+            "時々",
+            "毎週",
+            "先週",
+            "きのう"
+          ],
+          "answer": "時々",
+          "terms": [
+            "p_wa",
+            "v_tokidoki",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ ケーキが ありました。",
+          "choices": [
+            "きのう",
+            "今日",
+            "今週",
+            "毎週"
+          ],
+          "answer": "きのう",
+          "terms": [
+            "v_kinou",
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ スマホは 先生のですか。",
+          "choices": [
+            "どの",
+            "この",
+            "その",
+            "あの"
+          ],
+          "answer": "どの",
+          "terms": [
+            "v_dono",
+            "v_sumaho",
+            "p_wa",
+            "v_sensei",
+            "p_no",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ 分かりますよ。",
+          "choices": [
+            "すぐ",
+            "時々",
+            "毎週",
+            "先週"
+          ],
+          "answer": "すぐ",
+          "terms": [
+            "v_sugu",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この スマホは _______ ですか。",
+          "choices": [
+            "だれの",
+            "どれ",
+            "どの",
+            "なに"
+          ],
+          "answer": "だれの",
+          "terms": [
+            "v_kono",
+            "v_sumaho",
+            "p_wa",
+            "v_dare",
+            "p_no",
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今週 _______ 月よう日に います。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "に"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "三時 _______ います。",
+          "choices": [
+            "に",
+            "は",
+            "が",
+            "を"
+          ],
+          "answer": "に",
+          "terms": [
+            {
+              "counter": "ji",
+              "n": 3
+            },
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎週 友だち _______ います。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "に"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_maishuu",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "きのう ケーキ _______ ありましたか。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_kinou",
+            "v_keeki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この スマホ _______ 先生のです。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "に"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_kono",
+            "v_sumaho",
+            "p_wa",
+            "v_sensei",
+            "p_no",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎年 三月 _______ たんじょうびが あります。",
+          "choices": [
+            "に",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_mainen",
+            {
+              "counter": "gatsu",
+              "n": 3
+            },
+            "p_ni",
+            "v_tanjoubi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "どの ケーキ _______ いいですか。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "に"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_dono",
+            "v_keeki",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週 月よう日 _______ いましたか。",
+          "choices": [
+            "に",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_senshuu",
+            "v_getsuyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1246 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.4",
+  "title": "Phase 4 Lesson 4: Colors & Preferences",
+  "meta": {
+    "phase": 4,
+    "lesson": 4,
+    "focus": "Color vocabulary (赤, 青, 黒, 茶色) and their adjective and noun forms; 好き for expressing preferences; 色 and 色々; お茶.",
+    "kanji": [
+      "色",
+      "茶",
+      "好",
+      "赤",
+      "青",
+      "黒"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "色",
+      "on": "しょく / しき",
+      "kun": "いろ",
+      "meaning": "Color",
+      "termId": "k_iro"
+    },
+    {
+      "kanji": "茶",
+      "on": "ちゃ / さ",
+      "kun": "",
+      "meaning": "Tea / Brown",
+      "termId": "k_u8336"
+    },
+    {
+      "kanji": "好",
+      "on": "こう",
+      "kun": "す",
+      "meaning": "Like / Fond of",
+      "termId": "k_su"
+    },
+    {
+      "kanji": "赤",
+      "on": "せき",
+      "kun": "あか",
+      "meaning": "Red",
+      "termId": "k_aka_2"
+    },
+    {
+      "kanji": "青",
+      "on": "せい",
+      "kun": "あお",
+      "meaning": "Blue",
+      "termId": "k_ao"
+    },
+    {
+      "kanji": "黒",
+      "on": "こく",
+      "kun": "くろ",
+      "meaning": "Black",
+      "termId": "k_kuro"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Review vocabulary and grammar from prior lessons with these questions:",
+      "items": [
+        {
+          "jp": "今朝 は 何時に 起きましたか。",
+          "en": "What time did you wake up this morning?",
+          "terms": [
+            "v_kesa",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_okiru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "毎朝 朝ごはんを 食べて 学校に 来られますか。",
+          "en": "Can you eat breakfast and come to school every morning?",
+          "terms": [
+            "v_maiasa",
+            "v_asagohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "今日 は 電車に 乗って 学校に 来ましたか。",
+          "en": "Did you come to school by train today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_densha",
+            "p_ni",
+            {
+              "id": "v_noru",
+              "form": "te_form"
+            },
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "明日 も 学校に 来られますか。",
+          "en": "Can you come to school tomorrow too?",
+          "terms": [
+            "v_ashita",
+            "p_mo",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "色",
+          "on": "しょく / しき",
+          "kun": "いろ",
+          "meaning": "Color",
+          "terms": [
+            "k_iro",
+            "v_iro",
+            "v_iroiro"
+          ]
+        },
+        {
+          "kanji": "茶",
+          "on": "ちゃ / さ",
+          "kun": "",
+          "meaning": "Tea / Brown",
+          "terms": [
+            "k_u8336",
+            "v_ocha",
+            "v_chairo",
+            "v_chairoi"
+          ]
+        },
+        {
+          "kanji": "好",
+          "on": "こう",
+          "kun": "す",
+          "meaning": "Like / Fond of",
+          "terms": [
+            "k_su",
+            "v_suki",
+            "v_daisuki"
+          ]
+        },
+        {
+          "kanji": "赤",
+          "on": "せき",
+          "kun": "あか",
+          "meaning": "Red",
+          "terms": [
+            "k_aka_2",
+            "v_aka",
+            "v_akai"
+          ]
+        },
+        {
+          "kanji": "青",
+          "on": "せい",
+          "kun": "あお",
+          "meaning": "Blue",
+          "terms": [
+            "k_ao",
+            "v_ao",
+            "v_aoi"
+          ]
+        },
+        {
+          "kanji": "黒",
+          "on": "こく",
+          "kun": "くろ",
+          "meaning": "Black",
+          "terms": [
+            "k_kuro",
+            "v_kuro",
+            "v_kuroi"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Color Adjectives",
+          "items": [
+            "v_akai",
+            "v_aoi",
+            "v_kuroi",
+            "v_chairoi"
+          ]
+        },
+        {
+          "label": "Color Nouns",
+          "items": [
+            "v_aka",
+            "v_ao",
+            "v_kuro",
+            "v_chairo",
+            "v_iro",
+            "v_iroiro"
+          ]
+        },
+        {
+          "label": "Preferences & Drinks",
+          "items": [
+            "v_suki",
+            "v_daisuki",
+            "v_ocha"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 1（会話）: Shopping for a Shirt",
+      "context": "Rikizo is at a clothing store and asks a shop assistant about shirt colors.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "何色の シャツが 好きですか。",
+          "en": "What color shirt do you like?",
+          "terms": [
+            "v_nan",
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "青い シャツが 好きです。赤い シャツも 見たいです。",
+          "en": "I like blue shirts. I also want to see red shirts.",
+          "terms": [
+            "v_aoi",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "v_akai",
+            "v_shatsu",
+            "p_mo",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "この 青い シャツは どうですか。色々な 色が あります。",
+          "en": "How about this blue shirt? We have various colors.",
+          "terms": [
+            "v_kono",
+            "v_aoi",
+            "v_shatsu",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka",
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "きれいですね。この 青い シャツを 着られますか。",
+          "en": "It's pretty. Can I try on this blue shirt?",
+          "terms": [
+            "v_kirei",
+            "g_desu",
+            "p_ne",
+            "v_kono",
+            "v_aoi",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい。あちらで 着てみてください。",
+          "en": "Yes. Please try it on over there.",
+          "terms": [
+            "p_hai",
+            "v_achira",
+            "p_de",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 2（会話）: Tea at the Café",
+      "context": "Yamakawa and Rikizo are at a café deciding what to drink.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、何を 飲みますか。",
+          "en": "Rikizo, what will you drink?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "お茶が 大好きです。お茶を 飲みたいです。",
+          "en": "I love green tea. I want to drink green tea.",
+          "terms": [
+            "v_ocha",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "v_ocha",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "私 も お茶が 好きです。いっしょに 飲みましょう。",
+          "en": "I like green tea too. Let's drink together.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_ocha",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "v_issho",
+            {
+              "id": "v_nomu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "やまかわさんは 何色の シャツが 好きですか。",
+          "en": "Yamakawa, what color shirt do you like?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_nan",
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "黒い シャツが 好きです。茶色い シャツも いいですね。",
+          "en": "I like black shirts. Brown shirts are nice too.",
+          "terms": [
+            "v_kuroi",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "v_chairoi",
+            "v_shatsu",
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 3（会話）: Which Color?",
+      "context": "Miku and Rikizo browse a store together and compare color preferences.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞさん、どんな 色が 好きですか。",
+          "en": "Rikizo, what kind of colors do you like?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_donna",
+            "v_iro",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "青が 大好きです！黒も 好きですが、赤は あまり 好きじゃありません。",
+          "en": "I love blue! I like black too, but I don't really like red.",
+          "terms": [
+            "v_ao",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "v_kuro",
+            "p_mo",
+            "v_suki",
+            "g_desu",
+            "p_ga_but",
+            "v_aka",
+            "p_wa",
+            "v_amari",
+            {
+              "id": "v_suki",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "私は 赤が 大好きです。かわいいですから。",
+          "en": "I love red. Because it's cute.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_aka",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "v_kawaii",
+            "g_desu",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "茶色の シャツも 好きです。",
+          "en": "I like brown shirts too.",
+          "terms": [
+            "v_chairo",
+            "p_no",
+            "v_shatsu",
+            "p_mo",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、茶色の シャツも できますよ。",
+          "en": "Yes, brown shirts are also available.",
+          "terms": [
+            "p_hai",
+            "v_chairo",
+            "p_no",
+            "v_shatsu",
+            "p_mo",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "あの 茶色い シャツも いいですね。色々な 色が あって いいですね。",
+          "en": "That brown shirt is nice too. It's great that there are so many colors.",
+          "terms": [
+            "v_ano",
+            "v_chairoi",
+            "v_shatsu",
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 4（会話）: Ken's New Shirt (Casual)",
+      "context": "Ken and Rikizo are hanging out casually. Ken is wearing a new shirt.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "けん、その 黒い シャツ、きれいだね。",
+          "en": "Ken, that black shirt is nice.",
+          "terms": [
+            "char_ken",
+            "v_sono",
+            "v_kuroi",
+            "v_shatsu",
+            "v_kirei",
+            "p_ne",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "今日 新しく 買ったよ。赤い シャツも 着られるけど、黒が 好きだから。",
+          "en": "I just bought it today. I can wear red shirts too, but because I like black.",
+          "terms": [
+            "v_kyou",
+            {
+              "id": "v_atarashii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_kau",
+              "form": "plain_past"
+            },
+            "p_yo",
+            "v_akai",
+            "v_shatsu",
+            "p_mo",
+            {
+              "id": "v_kiru",
+              "form": "potential"
+            },
+            "p_kedo",
+            "v_kuro",
+            "p_ga",
+            "v_suki",
+            "g_da",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "私 は 青い シャツが 好きだな。今日 着ている シャツも 青いよ。",
+          "en": "I like blue shirts. The shirt I'm wearing today is blue too.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_aoi",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "p_na",
+            "g_da",
+            "v_kyou",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "v_shatsu",
+            "p_mo",
+            "v_aoi",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん、青も いい色だよ。お茶を 飲まない？",
+          "en": "Yeah, blue is also a nice color. Want some tea?",
+          "terms": [
+            "v_un",
+            "v_ao",
+            "p_mo",
+            "v_ii",
+            "v_iro",
+            "p_yo",
+            "g_da",
+            "v_ocha",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "plain_negative"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 1: Rikizo Goes Shopping",
+      "passage": [
+        {
+          "jp": "りきぞ は 今日 店に 行きました。",
+          "en": "Rikizo went to the store today.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_kyou",
+            "v_mise",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞ は 青い シャツが 大好きです。",
+          "en": "Rikizo loves blue shirts.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_aoi",
+            "v_shatsu",
+            "p_ga",
+            "v_daisuki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "店 に は 色々な 色の シャツが あります。赤い シャツ、黒い シャツ、茶色い シャツも あります。",
+          "en": "The store has various colors of shirts. There are red shirts, black shirts, and brown shirts too.",
+          "terms": [
+            "v_mise",
+            "p_ni",
+            "p_wa",
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_akai",
+            "v_shatsu",
+            "v_kuroi",
+            "v_shatsu",
+            "v_chairoi",
+            "v_shatsu",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞ は 青い シャツを 着てみました。とても 好きです。",
+          "en": "Rikizo tried on a blue shirt. He likes it very much.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_aoi",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "polite_mashita"
+            },
+            "v_totemo",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "買って 帰って、お茶を 飲みました。",
+          "en": "He bought it, returned home, and drank green tea.",
+          "terms": [
+            {
+              "id": "v_kau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kaeru",
+              "form": "te_form"
+            },
+            "v_ocha",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞ は 今日 どこに 行きましたか。",
+          "q_en": "Where did Rikizo go today?",
+          "a": "店に 行きました。",
+          "a_en": "He went to the shop.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_kyou",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mise",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "りきぞ は 何色の シャツが 大好きですか。",
+          "q_en": "What color shirt does Rikizo love most?",
+          "a": "青い シャツが 大好きです。",
+          "a_en": "He loves blue shirts.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_nan",
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_aoi",
+            "v_shatsu",
+            "p_ga",
+            "v_daisuki",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "りきぞ は 何を 着てみましたか。",
+          "q_en": "What did Rikizo try on?",
+          "a": "青い シャツを 着てみました。",
+          "a_en": "He tried on a blue shirt.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_aoi",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 2: Miki's Color Preferences",
+      "passage": [
+        {
+          "jp": "ミキ は 色が 大好きです。",
+          "en": "Miki loves colors.",
+          "terms": [
+            "char_miki",
+            "p_wa",
+            "v_iro",
+            "p_ga",
+            "v_daisuki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "赤い 色が いちばん 好きです。",
+          "en": "She likes the color red the most.",
+          "terms": [
+            "v_akai",
+            "v_iro",
+            "p_ga",
+            "v_ichiban",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎日 赤い シャツや 青い シャツを 着ています。",
+          "en": "Every day she wears red and blue shirts.",
+          "terms": [
+            "v_mainichi",
+            "v_akai",
+            "v_shatsu",
+            "p_ya",
+            "v_aoi",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "黒い シャツは あまり 好きじゃありません。",
+          "en": "She doesn't really like black shirts.",
+          "terms": [
+            "v_kuroi",
+            "v_shatsu",
+            "p_wa",
+            "v_amari",
+            {
+              "id": "v_suki",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "今朝 は 赤い シャツを 着て 学校に 来られました。",
+          "en": "This morning she put on her red shirt and was able to come to school.",
+          "terms": [
+            "v_kesa",
+            "p_wa",
+            "v_akai",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_potential_past"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミキ は 何色が いちばん 好きですか。",
+          "q_en": "What color does Miki like best?",
+          "a": "赤い 色が いちばん 好きです。",
+          "a_en": "She likes red best.",
+          "terms": [
+            "char_miki",
+            "p_wa",
+            "v_nan",
+            "v_iro",
+            "p_ga",
+            "v_ichiban",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_akai",
+            "v_iro",
+            "p_ga",
+            "v_ichiban",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "ミキ は 毎日 何を 着ていますか。",
+          "q_en": "What does Miki wear every day?",
+          "a": "赤い シャツや 青い シャツを 着ています。",
+          "a_en": "She wears red shirts and blue shirts.",
+          "terms": [
+            "char_miki",
+            "p_wa",
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_akai",
+            "v_shatsu",
+            "p_ya",
+            "v_aoi",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "ミキ は 黒い シャツが 好きですか。",
+          "q_en": "Does Miki like black shirts?",
+          "a": "黒い シャツは あまり 好きじゃありません。",
+          "a_en": "She does not like black shirts very much.",
+          "terms": [
+            "char_miki",
+            "p_wa",
+            "v_kuroi",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kuroi",
+            "v_shatsu",
+            "p_wa",
+            "v_amari",
+            {
+              "id": "v_suki",
+              "form": "polite_negative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Choose the correct reading for the kanji word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[赤い] の よみかたは？",
+          "choices": [
+            "あかい",
+            "あおい",
+            "くろい",
+            "しろい"
+          ],
+          "answer": "あかい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[黒い] の よみかたは？",
+          "choices": [
+            "くろい",
+            "あかい",
+            "あおい",
+            "きいろい"
+          ],
+          "answer": "くろい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[茶色い] の よみかたは？",
+          "choices": [
+            "ちゃいろい",
+            "くろい",
+            "あかい",
+            "みどりい"
+          ],
+          "answer": "ちゃいろい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[色々] の よみかたは？",
+          "choices": [
+            "いろいろ",
+            "しきしき",
+            "いろな",
+            "さまざま"
+          ],
+          "answer": "いろいろ"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Select the correct meaning for the word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "赤い [あかい]",
+          "choices": [
+            "red",
+            "blue",
+            "black",
+            "brown"
+          ],
+          "answer": "red",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "茶色い [ちゃいろい]",
+          "choices": [
+            "brown",
+            "red",
+            "green",
+            "black"
+          ],
+          "answer": "brown",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "好き [すき]",
+          "choices": [
+            "like / fond of",
+            "hate / dislike",
+            "want",
+            "try"
+          ],
+          "answer": "like / fond of",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "色々 [いろいろ]",
+          "choices": [
+            "various",
+            "colorful",
+            "beautiful",
+            "important"
+          ],
+          "answer": "various",
+          "terms": []
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Choose the correct form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "青い シャツを ______。",
+          "choices": [
+            "着られます",
+            "着ます",
+            "着ました",
+            "着てください"
+          ],
+          "answer": "着られます",
+          "terms": [
+            "v_aoi",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "お茶が ______。毎日 飲んでいます。",
+          "choices": [
+            "大好きです",
+            "大好きません",
+            "大好きでした",
+            "大好きましょう"
+          ],
+          "answer": "大好きです",
+          "terms": [
+            "v_ocha",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "v_mainichi",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "黒い シャツと 青い シャツと、どちらが ______。",
+          "choices": [
+            "好きですか",
+            "好きません",
+            "好きましょう",
+            "好きでした"
+          ],
+          "answer": "好きですか",
+          "terms": [
+            "v_kuroi",
+            "v_shatsu",
+            "p_to",
+            "v_aoi",
+            "v_shatsu",
+            "p_to",
+            "v_dochira",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "色々な ______ の シャツが あります。",
+          "choices": [
+            "色",
+            "色い",
+            "色く",
+            "色な"
+          ],
+          "answer": "色",
+          "terms": [
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

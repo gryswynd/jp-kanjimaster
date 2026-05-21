@@ -1,0 +1,1353 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.19",
+  "title": "Phase 4 Lesson 19: Maps, Libraries, and Questions",
+  "meta": {
+    "phase": 4,
+    "lesson": 19,
+    "focus": "Geography and location (地図, 地下, 地上, 地名), the library (図書館), asking questions and explaining (質問, 問題, 説明), and types of writing (小説, 学説, 水質).",
+    "kanji": [
+      "地",
+      "図",
+      "質",
+      "問",
+      "題",
+      "説"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "地",
+      "on": "ち / じ",
+      "kun": "(なし)",
+      "meaning": "Ground / Earth",
+      "termId": "k_chi_2"
+    },
+    {
+      "kanji": "図",
+      "on": "ず / と",
+      "kun": "(なし)",
+      "meaning": "Map / Drawing",
+      "termId": "k_zu"
+    },
+    {
+      "kanji": "質",
+      "on": "しつ",
+      "kun": "(なし)",
+      "meaning": "Quality / Matter",
+      "termId": "k_shitsu"
+    },
+    {
+      "kanji": "問",
+      "on": "もん",
+      "kun": "と(う)",
+      "meaning": "Question / Ask",
+      "termId": "k_mon"
+    },
+    {
+      "kanji": "題",
+      "on": "だい",
+      "kun": "(なし)",
+      "meaning": "Topic / Subject",
+      "termId": "k_dai"
+    },
+    {
+      "kanji": "説",
+      "on": "せつ",
+      "kun": "と(く)",
+      "meaning": "Theory / Explain",
+      "termId": "k_setsu"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Think about these questions using words you already know:",
+      "items": [
+        {
+          "jp": "物語を 読んだ ことが ありますか。",
+          "en": "Have you ever read a story?",
+          "terms": [
+            "v_monogatari",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "毎日 勉強して いますか。",
+          "en": "Are you studying every day?",
+          "terms": [
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "自分で 日本語を 勉強して いますか。",
+          "en": "Are you studying Japanese by yourself?",
+          "terms": [
+            "v_jibun",
+            "p_de",
+            "v_nihongo",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "旅行の 写真を とりたいですか。",
+          "en": "Do you want to take travel photos?",
+          "terms": [
+            "v_ryokou",
+            "p_no",
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "地",
+          "on": "ち / じ",
+          "kun": "(なし)",
+          "meaning": "Ground / Earth",
+          "terms": [
+            "k_chi_2",
+            "v_chijou",
+            "v_chika",
+            "v_chimei",
+            "v_chizu"
+          ]
+        },
+        {
+          "kanji": "図",
+          "on": "ず / と",
+          "kun": "(なし)",
+          "meaning": "Map / Drawing",
+          "terms": [
+            "k_zu",
+            "v_chizu",
+            "v_toshokan"
+          ]
+        },
+        {
+          "kanji": "質",
+          "on": "しつ",
+          "kun": "(なし)",
+          "meaning": "Quality / Matter",
+          "terms": [
+            "k_shitsu",
+            "v_shitsumon",
+            "v_suishitsu"
+          ]
+        },
+        {
+          "kanji": "問",
+          "on": "もん",
+          "kun": "と(う)",
+          "meaning": "Question / Ask",
+          "terms": [
+            "k_mon",
+            "v_shitsumon",
+            "v_mondai",
+            "v_jimon"
+          ]
+        },
+        {
+          "kanji": "題",
+          "on": "だい",
+          "kun": "(なし)",
+          "meaning": "Topic / Subject",
+          "terms": [
+            "k_dai",
+            "v_mondai"
+          ]
+        },
+        {
+          "kanji": "説",
+          "on": "せつ",
+          "kun": "と(く)",
+          "meaning": "Theory / Explain",
+          "terms": [
+            "k_setsu",
+            "v_setsumei",
+            "v_gakusetsu",
+            "v_shousetsu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Geography & Location 地ー",
+          "items": [
+            "v_chijou",
+            "v_chika",
+            "v_chimei",
+            "v_chizu"
+          ]
+        },
+        {
+          "label": "Questions & Explanations",
+          "items": [
+            "v_shitsumon",
+            "v_mondai",
+            "v_setsumei",
+            "v_jimon"
+          ]
+        },
+        {
+          "label": "Library & Writing",
+          "items": [
+            "v_toshokan",
+            "v_shousetsu",
+            "v_gakusetsu",
+            "v_suishitsu",
+            "v_jimi"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 1（会話）: At the Library",
+      "context": "A university student visits the library and asks a librarian for help finding a section.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "すみません。小説は どこに ありますか。",
+          "en": "Excuse me. Where are the novels?",
+          "terms": [
+            "p_sumimasen",
+            "v_shousetsu",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "地図を 見て ください。図書館の 上に あります。",
+          "en": "Please look at the map. It is upstairs in the library.",
+          "terms": [
+            "v_chizu",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_toshokan",
+            "p_no",
+            "v_ue",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "地図に 地名が 書いて ありますね。",
+          "en": "Place names are written on the map, aren't they.",
+          "terms": [
+            "v_chizu",
+            "p_ni",
+            "v_chimei",
+            "p_ga",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "小説は 地下にも あります。地上にも 本が あります。",
+          "en": "Novels are also in the basement. There are also books above ground.",
+          "terms": [
+            "v_shousetsu",
+            "p_wa",
+            "v_chika",
+            "p_ni",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_chijou",
+            "p_ni",
+            "p_mo",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "ありがとうございます。本を 借りに 来ました。",
+          "en": "Thank you very much. I came to borrow a book.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kariru",
+              "form": null
+            },
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 2（会話）: A Difficult Problem",
+      "context": "Two university students study together. One cannot understand a problem and asks for help.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "この 問題が ぜんぜん 分かりません。説明して もらえますか。",
+          "en": "I don't understand this problem at all. Could I have it explained?",
+          "terms": [
+            "v_kono",
+            "v_mondai",
+            "p_ga",
+            "v_zenzen",
+            {
+              "id": "v_wakaru",
+              "form": "polite_negative"
+            },
+            "v_setsumei",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いいですよ。この 問題は むずかしそうですね。",
+          "en": "Sure. This problem looks difficult, doesn't it.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_yo",
+            "v_kono",
+            "v_mondai",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "appearance_sou"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "先生に 質問できますか。",
+          "en": "Can I ask the teacher a question?",
+          "terms": [
+            "v_sensei",
+            "p_ni",
+            "v_shitsumon",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、どうぞ。先生だけが 説明できます。",
+          "en": "Yes, please do. Only the teacher can explain it.",
+          "terms": [
+            "p_hai",
+            "p_douzo",
+            "v_sensei",
+            "p_dake",
+            "p_ga",
+            "v_setsumei",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 3（会話）: Talking About Novels",
+      "context": "Two friends chat about the novels they have been reading at the library.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "今、図書館で 小説を 読んで います。",
+          "en": "I have been reading novels at the library lately.",
+          "terms": [
+            "v_ima",
+            "v_toshokan",
+            "p_de",
+            "v_shousetsu",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "どんな 小説を 読みたいですか。",
+          "en": "What kind of novel do you want to read?",
+          "terms": [
+            "v_donna",
+            "v_shousetsu",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "地味な 小説より、楽しい 物語が 好きです。",
+          "en": "I prefer enjoyable stories over plain novels.",
+          "terms": [
+            {
+              "id": "v_jimi",
+              "form": "attributive_na"
+            },
+            "v_shousetsu",
+            "p_yori",
+            "v_tanoshii",
+            "v_monogatari",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "私も 同じです。本を 読んだり、地図を 見たりしましょう。",
+          "en": "Me too. Let's read books and look at maps.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_onaji",
+            "g_desu",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "tari_form"
+            },
+            "v_chizu",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 4（会話）: After a Study Session (Casual)",
+      "context": "Two university classmates talk after studying together. They complain about a hard problem and share their novel preferences.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "あの 問題、ぜんぜん 分からなかった。",
+          "en": "That problem — I didn't get it at all.",
+          "terms": [
+            "v_ano",
+            "v_mondai",
+            "v_zenzen",
+            {
+              "id": "v_wakaru",
+              "form": "plain_past_negative"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "私も だよ。説明が むずかしかったけど、おもしろかった。",
+          "en": "Me too. The explanation was difficult, but it was interesting.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "p_yo",
+            "g_da",
+            "v_setsumei",
+            "p_ga",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_past_adj"
+            },
+            "p_kedo",
+            {
+              "id": "v_omoshiroi",
+              "form": "plain_past_adj"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "自問して みたけど、ぜんぜん 分からなかった。",
+          "en": "I tried asking myself, but I still didn't understand.",
+          "terms": [
+            "v_jimon",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "plain_past"
+            },
+            "p_kedo",
+            "v_zenzen",
+            {
+              "id": "v_wakaru",
+              "form": "plain_past_negative"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "私は 小説だけ 読みたい。地味な 学説より 楽しいよ。",
+          "en": "I just want to read novels. Way more fun than boring academic theories.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_shousetsu",
+            "p_dake",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            {
+              "id": "v_jimi",
+              "form": "attributive_na"
+            },
+            "v_gakusetsu",
+            "p_yori",
+            "v_tanoshii",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうだね。あの 小説、有名だそうだよ。",
+          "en": "Right. I heard that novel is quite famous.",
+          "terms": [
+            "v_sou",
+            "g_da",
+            "p_ne",
+            "v_ano",
+            "v_shousetsu",
+            "v_yuumei",
+            "g_da",
+            "p_sou_da_hearsay",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 1: The Town Library",
+      "passage": [
+        {
+          "jp": "私の 町に 大きい 図書館が あります。",
+          "en": "There is a large library in my town.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_machi",
+            "p_ni",
+            "v_ookii",
+            "v_toshokan",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "入り口に 地図が あって、地名も 書いて あります。",
+          "en": "At the entrance there is a map, and place names are also written on it.",
+          "terms": [
+            "v_iriguchi",
+            "p_ni",
+            "v_chizu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_chimei",
+            "p_mo",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "地上に 小説と 学説の 本が たくさん あります。",
+          "en": "Above ground there are many novels and academic books.",
+          "terms": [
+            "v_chijou",
+            "p_ni",
+            "v_shousetsu",
+            "p_to",
+            "v_gakusetsu",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "地下には 子どもの 本が 多いです。",
+          "en": "Underground there are many children's books.",
+          "terms": [
+            "v_chika",
+            "p_wa",
+            "p_ni",
+            "v_kodomo",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_ooi",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "図書館に 来て、本を 借りる ことが できます。",
+          "en": "You can come to the library and borrow books.",
+          "terms": [
+            "v_toshokan",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kariru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "図書館の 入り口に 何が ありますか。",
+          "q_en": "What is at the library entrance?",
+          "a": "地図が あります。",
+          "a_en": "There is a map.",
+          "terms": [
+            "v_toshokan",
+            "p_no",
+            "v_iriguchi",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_chizu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "地上には 何の 本が ありますか。",
+          "q_en": "What books are on the ground floor?",
+          "a": "小説と 学説の 本が あります。",
+          "a_en": "There are novels and academic theory books.",
+          "terms": [
+            "v_chijou",
+            "p_wa",
+            "p_ni",
+            "v_nani",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_shousetsu",
+            "p_to",
+            "v_gakusetsu",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "地下には どんな 本が 多いですか。",
+          "q_en": "What kind of books are most common in the basement?",
+          "a": "子どもの 本が 多いです。",
+          "a_en": "Children's books are the most common.",
+          "terms": [
+            "v_chika",
+            "p_wa",
+            "p_ni",
+            "v_donna",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_ooi",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kodomo",
+            "p_no",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_ooi",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 2: Water Quality Research",
+      "passage": [
+        {
+          "jp": "ある 先生が 川の 水質の 問題を 勉強して います。",
+          "en": "A teacher is studying the problem of river water quality.",
+          "terms": [
+            "v_aru",
+            "v_sensei",
+            "p_ga",
+            "v_kawa",
+            "p_no",
+            "v_suishitsu",
+            "p_no",
+            "v_mondai",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "その 先生は 水質の 問題を 学生に 説明して います。",
+          "en": "That teacher is explaining water quality problems to students.",
+          "terms": [
+            "v_sono",
+            "v_sensei",
+            "p_wa",
+            "v_suishitsu",
+            "p_no",
+            "v_mondai",
+            "p_wo",
+            "v_gakusei",
+            "p_ni",
+            "v_setsumei",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "学生が 先生に 質問しました。川の 水質は きれいですか。",
+          "en": "A student asked the teacher: Is the river's water quality clean?",
+          "terms": [
+            "v_gakusei",
+            "p_ga",
+            "v_sensei",
+            "p_ni",
+            "v_shitsumon",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "v_kawa",
+            "p_no",
+            "v_suishitsu",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先生は 説明しました。水質の 問題は まだ むずかしいです。",
+          "en": "The teacher explained: The water quality problem is still difficult.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_setsumei",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "v_suishitsu",
+            "p_no",
+            "v_mondai",
+            "p_wa",
+            "v_mada",
+            {
+              "id": "v_muzukashii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "先生は 何を 勉強して いますか。",
+          "q_en": "What is the teacher studying?",
+          "a": "川の 水質の 問題を 勉強して います。",
+          "a_en": "He is studying the problem of river water quality.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kawa",
+            "p_no",
+            "v_suishitsu",
+            "p_no",
+            "v_mondai",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "学生は 先生に 何を しましたか。",
+          "q_en": "What did the student do with the teacher?",
+          "a": "質問しました。",
+          "a_en": "They asked a question.",
+          "terms": [
+            "v_gakusei",
+            "p_wa",
+            "v_sensei",
+            "p_ni",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_shitsumon",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "水質の 問題は どうですか。",
+          "q_en": "How is the water quality problem?",
+          "a": "まだ むずかしいです。",
+          "a_en": "It is still difficult.",
+          "terms": [
+            "v_suishitsu",
+            "p_no",
+            "v_mondai",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mada",
+            {
+              "id": "v_muzukashii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[地図] の よみかたは？",
+          "choices": [
+            "ちず",
+            "じず",
+            "ちと",
+            "じと"
+          ],
+          "answer": "ちず"
+        },
+        {
+          "kind": "mcq",
+          "q": "[図書館] の よみかたは？",
+          "choices": [
+            "としょかん",
+            "ずしょかん",
+            "としょうかん",
+            "とちょかん"
+          ],
+          "answer": "としょかん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[質問] の よみかたは？",
+          "choices": [
+            "しつもん",
+            "しちもん",
+            "しつぶん",
+            "しとうもん"
+          ],
+          "answer": "しつもん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[問題] の よみかたは？",
+          "choices": [
+            "もんだい",
+            "ぶんだい",
+            "もんたい",
+            "ぼんだい"
+          ],
+          "answer": "もんだい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[説明] の よみかたは？",
+          "choices": [
+            "せつめい",
+            "さつめい",
+            "そつめい",
+            "せいめい"
+          ],
+          "answer": "せつめい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[水質] の よみかたは？",
+          "choices": [
+            "すいしつ",
+            "みずしつ",
+            "すいしち",
+            "すいじつ"
+          ],
+          "answer": "すいしつ"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "図書館の 入り口に ______ が あります。",
+          "choices": [
+            "地図",
+            "地名",
+            "地下",
+            "地上"
+          ],
+          "answer": "地図",
+          "terms": [
+            "v_toshokan",
+            "p_no",
+            "v_iriguchi",
+            "p_ni",
+            "v_chizu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この ______ は むずかしくて、ぜんぜん 分かりません。",
+          "choices": [
+            "問題",
+            "地図",
+            "小説",
+            "水質"
+          ],
+          "answer": "問題",
+          "terms": [
+            "v_kono",
+            "v_mondai",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "te_form"
+            },
+            "v_zenzen",
+            {
+              "id": "v_wakaru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生に ______ して もらいました。",
+          "choices": [
+            "説明",
+            "質問",
+            "自問",
+            "学説"
+          ],
+          "answer": "説明",
+          "terms": [
+            "v_sensei",
+            "p_ni",
+            "v_setsumei",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "図書館では 本を ______ ことが できます。",
+          "choices": [
+            "借りる",
+            "書く",
+            "説明する",
+            "作る"
+          ],
+          "answer": "借りる",
+          "terms": [
+            "v_toshokan",
+            "p_dewa",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kariru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "川の ______ が きれいです。",
+          "choices": [
+            "水質",
+            "地名",
+            "地上",
+            "地下"
+          ],
+          "answer": "水質",
+          "terms": [
+            "v_kawa",
+            "p_no",
+            "v_suishitsu",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "先生 ______ 質問しました。",
+          "choices": [
+            "に",
+            "を",
+            "が",
+            "で"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_sensei",
+            "p_ni",
+            "v_shitsumon",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "図書館 ______ 本を 借りて います。",
+          "choices": [
+            "で",
+            "に",
+            "を",
+            "から"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_toshokan",
+            "p_de",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kariru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "地味な 小説 ______ 、楽しい 物語が 好きです。",
+          "choices": [
+            "より",
+            "だけ",
+            "ので",
+            "から"
+          ],
+          "answer": "より",
+          "terms": [
+            {
+              "id": "v_jimi",
+              "form": "attributive_na"
+            },
+            "v_shousetsu",
+            "p_yori",
+            "v_tanoshii",
+            "v_monogatari",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生 ______ が 説明できます。",
+          "choices": [
+            "だけ",
+            "より",
+            "ので",
+            "ても"
+          ],
+          "answer": "だけ",
+          "terms": [
+            "v_sensei",
+            "p_dake",
+            "p_ga",
+            "v_setsumei",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "川の 水質の 問題を 勉強して ______。",
+          "choices": [
+            "います",
+            "あります",
+            "なります",
+            "できます"
+          ],
+          "answer": "います",
+          "terms": [
+            "v_kawa",
+            "p_no",
+            "v_suishitsu",
+            "p_no",
+            "v_mondai",
+            "p_wo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

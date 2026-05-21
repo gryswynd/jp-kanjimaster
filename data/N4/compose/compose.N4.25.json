@@ -1,0 +1,364 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.25",
+  "lesson": "N4.25",
+  "level": "N4",
+  "title": "A Scholar's Day",
+  "titleJp": "研究者の 一日",
+  "emoji": "📜",
+  "theme": "Write about a day of academic research. Describe visiting the library, ordering books, reading difficult documents with care, focusing on literature, and composing an essay — as if you were a scholar in training.",
+  "prompts": [
+    {
+      "prompt": "Open by introducing the place you are going for research. Use 図書館 and ために.",
+      "targets": [
+        {
+          "id": "v_toshokan",
+          "count": 1
+        }
+      ],
+      "model": "研究の ために、大学の 図書館に 行きました。",
+      "vocabPool": [
+        "v_toshokan",
+        "v_daigaku",
+        "v_kenkyuu",
+        "v_tame",
+        "v_iku",
+        "v_mainichi",
+        "v_kyou",
+        "v_benkyou",
+        "v_suru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about the kind of research you are doing. Use 文学 and 研究.",
+      "targets": [
+        {
+          "id": "v_bungaku",
+          "count": 1
+        },
+        {
+          "id": "v_kenkyuu",
+          "count": 1
+        }
+      ],
+      "model": "日本の 文学を 研究して います。",
+      "vocabPool": [
+        "v_bungaku",
+        "v_kenkyuu",
+        "v_nihon",
+        "v_suru",
+        "v_iru",
+        "v_ima",
+        "v_mainichi",
+        "v_tanoshii",
+        "v_taisetsu",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "You ordered a book on literature. Use 注文 and ことができました.",
+      "targets": [
+        {
+          "id": "v_chuumon",
+          "count": 1
+        }
+      ],
+      "model": "文学の 本を 注文する ことが できました。",
+      "vocabPool": [
+        "v_chuumon",
+        "v_bungaku",
+        "v_hon",
+        "v_suru",
+        "v_dekiru",
+        "v_koto",
+        "v_toshokan",
+        "v_mise",
+        "v_ii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe reading old documents carefully. Use 文書 and 注意して.",
+      "targets": [
+        {
+          "id": "v_bunsho",
+          "count": 1
+        },
+        {
+          "id": "v_chuui",
+          "count": 1
+        }
+      ],
+      "model": "古い 文書を 注意して 読みました。",
+      "vocabPool": [
+        "v_bunsho",
+        "v_chuui",
+        "v_furui",
+        "v_yomu",
+        "v_suru",
+        "v_muzukashii",
+        "v_iroiro",
+        "v_yoku",
+        "v_mainichi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "A famous researcher wrote the book you are reading. Use 研究者 and そうです.",
+      "targets": [
+        {
+          "id": "v_kenkyuusha",
+          "count": 1
+        }
+      ],
+      "model": "有名な 研究者が 書いた そうです。",
+      "vocabPool": [
+        "v_kenkyuusha",
+        "v_yuumei",
+        "v_kaku",
+        "v_hon",
+        "v_bungaku",
+        "v_sensei",
+        "v_ii",
+        "v_sekai",
+        "p_sou_da_hearsay",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about paying close attention to the literature content. Use 注目 and ています.",
+      "targets": [
+        {
+          "id": "v_chuumoku",
+          "count": 1
+        }
+      ],
+      "model": "大切な 文学に 注目して います。",
+      "vocabPool": [
+        "v_chuumoku",
+        "v_bungaku",
+        "v_taisetsu",
+        "v_suru",
+        "v_iru",
+        "v_taisetsu",
+        "v_ima",
+        "v_yoku",
+        "v_hon",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about what you will do when you finish reading. Use 読んだら and 作文.",
+      "targets": [
+        {
+          "id": "v_sakubun",
+          "count": 1
+        }
+      ],
+      "model": "本を 読んだら、作文を 書いて いきます。",
+      "vocabPool": [
+        "v_sakubun",
+        "v_yomu",
+        "v_kaku",
+        "v_iku",
+        "v_hon",
+        "v_tame",
+        "v_ato",
+        "v_sugu",
+        "v_mainichi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Reflect on how your research skills have been growing. Use てきました.",
+      "targets": [
+        {
+          "id": "v_kenkyuu",
+          "count": 1
+        }
+      ],
+      "model": "少しずつ 研究が 上手に なって きました。",
+      "vocabPool": [
+        "v_kenkyuu",
+        "v_jouzu",
+        "v_naru",
+        "v_kuru",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_mainichi",
+        "v_benkyou",
+        "v_suru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Express your goal of becoming a literary scholar one day. Use 文学者 and なりたいです.",
+      "targets": [
+        {
+          "id": "v_bungakusha",
+          "count": 1
+        }
+      ],
+      "model": "いつか 有名な 文学者に なりたいです。",
+      "vocabPool": [
+        "v_bungakusha",
+        "v_yuumei",
+        "v_naru",
+        "v_tame",
+        "v_benkyou",
+        "v_suru",
+        "v_ii",
+        "v_mainichi",
+        "v_tanoshii",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "On another day, you had a researcher check your essay. Use 作文 and てもらいました and 研究者.",
+      "targets": [
+        {
+          "id": "v_sakubun",
+          "count": 1
+        },
+        {
+          "id": "v_kenkyuusha",
+          "count": 1
+        }
+      ],
+      "model": "研究者に 作文を 見て もらいました。",
+      "vocabPool": [
+        "v_sakubun",
+        "v_kenkyuusha",
+        "v_miru",
+        "v_morau",
+        "v_sensei",
+        "v_ii",
+        "v_taisetsu",
+        "v_kaku",
+        "v_oshieru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "You found a difficult passage in the documents and worked hard to understand its meaning. Use 究明 and ために.",
+      "targets": [
+        {
+          "id": "v_kyuumei",
+          "count": 1
+        }
+      ],
+      "model": "大切な 文書の 意味を 究明する ために、注意して 読みました。",
+      "vocabPool": [
+        "v_kyuumei",
+        "v_bunsho",
+        "v_imi",
+        "v_yomu",
+        "v_chuui",
+        "v_taisetsu",
+        "v_tame",
+        "v_suru",
+        "v_muzukashii",
+        "g_desu"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_ni",
+    "p_de",
+    "p_no",
+    "p_mo",
+    "p_to",
+    "p_kara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_dewa",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo",
+    "p_yori",
+    "p_noni",
+    "p_node",
+    "p_zutsu",
+    "p_sou_da_hearsay",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-た] + ら",
+      "meaning": "when / after [verb] (conditional — event sequence)",
+      "examples": [
+        "本を 読んだら、作文を 書きます",
+        "研究が 終わったら、先生に 話します",
+        "分かったら、教えて ください"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + きました",
+      "meaning": "has been gradually changing / came to [verb]",
+      "examples": [
+        "研究が 上手に なって きました",
+        "少しずつ 分かって きました",
+        "勉強して きました"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + います",
+      "meaning": "currently doing / ongoing state",
+      "examples": [
+        "文学を 研究して います",
+        "文書を 読んで います",
+        "注目して います"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + いきます",
+      "meaning": "will keep doing / ongoing action going forward",
+      "examples": [
+        "注意して 読んで いきます",
+        "勉強して いきます",
+        "毎日 勉強して いきます"
+      ]
+    },
+    {
+      "pattern": "[verb] + ために",
+      "meaning": "in order to [verb] (purpose)",
+      "examples": [
+        "研究の ために 図書館に 行きます",
+        "文学者に なる ために 勉強します"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + もらいました",
+      "meaning": "had someone do [verb] for you / received the action",
+      "examples": [
+        "作文を 見て もらいました",
+        "先生に 教えて もらいました"
+      ]
+    },
+    {
+      "pattern": "[plain past verb] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay)",
+      "examples": [
+        "有名な 研究者が 書いた そうです",
+        "図書館に 古い 文書が ある そうです"
+      ]
+    },
+    {
+      "pattern": "[verb/noun] + ことが できる",
+      "meaning": "to be able to / it is possible to",
+      "examples": [
+        "注文する ことが できました",
+        "文書を 読む ことが できます"
+      ]
+    }
+  ]
+}

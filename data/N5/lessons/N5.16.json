@@ -1,0 +1,1437 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.16",
+  "title": "Sides & Vertical",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 16,
+    "focus": "Spatial position words right (右), left (左), above (上), and below (下) used to give directions, describe positions, and express skill (上手/下手)",
+    "estimated_minutes": 30,
+    "kanji": [
+      "右",
+      "左",
+      "上",
+      "下"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "右",
+      "on": "ゆう",
+      "kun": "みぎ",
+      "meaning": "right",
+      "termId": "k_migi"
+    },
+    {
+      "kanji": "左",
+      "on": "さ",
+      "kun": "ひだり",
+      "meaning": "left",
+      "termId": "k_hidari"
+    },
+    {
+      "kanji": "上",
+      "on": "じょう",
+      "kun": "うえ",
+      "meaning": "above",
+      "termId": "k_ue"
+    },
+    {
+      "kanji": "下",
+      "on": "か/げ",
+      "kun": "した",
+      "meaning": "below",
+      "termId": "k_shita"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up: Quick Review",
+      "instructions": "Read each sentence and choose the correct English meaning.",
+      "items": [
+        {
+          "jp": "北の 山は 大きそうです。",
+          "en": "The mountains in the north look large.",
+          "terms": [
+            "v_kita",
+            "p_wa",
+            "v_yama",
+            "p_no",
+            {
+              "id": "v_ookii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎日、本を 少し 読んでいます。",
+          "en": "I read a book a little every day.",
+          "terms": [
+            "v_mainichi",
+            "v_hon",
+            "p_wo",
+            "v_sukoshi",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先週、南の 天気は よかったです。",
+          "en": "The weather in the south was good last week.",
+          "terms": [
+            "v_senshuu",
+            "v_minami",
+            "p_wa",
+            "v_tenki",
+            "p_no",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "学校の 前に 長い 道が あります。",
+          "en": "There is a long road in front of the school.",
+          "terms": [
+            "v_gakkou",
+            "p_ga",
+            "v_mae",
+            "p_ni",
+            "v_nagai",
+            "v_michi",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji",
+      "items": [
+        {
+          "kanji": "右",
+          "on": "ゆう",
+          "kun": "みぎ",
+          "meaning": "right",
+          "terms": [
+            "k_migi"
+          ]
+        },
+        {
+          "kanji": "左",
+          "on": "さ",
+          "kun": "ひだり",
+          "meaning": "left",
+          "terms": [
+            "k_hidari"
+          ]
+        },
+        {
+          "kanji": "上",
+          "on": "じょう",
+          "kun": "うえ",
+          "meaning": "above",
+          "terms": [
+            "k_ue"
+          ]
+        },
+        {
+          "kanji": "下",
+          "on": "か/げ",
+          "kun": "した",
+          "meaning": "below",
+          "terms": [
+            "k_shita"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary",
+      "groups": [
+        {
+          "label": "Position Words",
+          "items": [
+            "v_migi",
+            "v_hidari",
+            "v_ue",
+            "v_shita"
+          ]
+        },
+        {
+          "label": "Skill",
+          "items": [
+            "v_jouzu",
+            "v_heta"
+          ]
+        },
+        {
+          "label": "Kanji",
+          "items": [
+            "k_migi",
+            "k_hidari",
+            "k_ue",
+            "k_shita"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Which Way is the Shop?",
+      "context": "Rikizo asks Lee for directions to a shop inside a station building with multiple floors.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "すみません。店は どちらですか。",
+          "en": "Excuse me, which way is the shop?",
+          "terms": [
+            "p_sumimasen",
+            "v_mise",
+            "p_wa",
+            "v_dochira",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "右の 上に ありますよ。",
+          "en": "It's above and to the right.",
+          "terms": [
+            "v_migi",
+            "p_no",
+            "v_ue",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "上の 右ですね。左と 下には ありませんか。",
+          "en": "Above and to the right, I see. It's not to the left or below?",
+          "terms": [
+            "v_ue",
+            "p_wa",
+            "v_migi",
+            "g_desu",
+            "p_ne",
+            "v_hidari",
+            "p_to",
+            "v_shita",
+            "p_no",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "はい、左と 下には ありません。上に 行ってください。",
+          "en": "Right, it's not to the left or below. Please go up.",
+          "terms": [
+            "p_hai",
+            "v_hidari",
+            "p_to",
+            "v_shita",
+            "p_wa",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_ue",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "上に 行って、右に 行きます。ありがとうございます。",
+          "en": "I'll go up and then to the right. Thank you.",
+          "terms": [
+            "v_ue",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_migi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_arigatou_gozaimasu"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "右の 店は 大きそうですよ。また 来てください。",
+          "en": "The shop to the right looks large. Please come again.",
+          "terms": [
+            "v_migi",
+            "p_wa",
+            "v_mise",
+            "p_no",
+            {
+              "id": "v_ookii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_yo",
+            "v_mata",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Looking at the Map",
+      "context": "Ken shows Rikizo a simple map and they discuss what is in each direction from the road.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "学校は 道の 右に あります。駅は 左に あります。",
+          "en": "The school is to the right of the road. The station is to the left.",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_michi",
+            "p_wa",
+            "v_migi",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_eki",
+            "p_ni",
+            "v_hidari",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "学校は 右ですね。上には 何が ありますか。",
+          "en": "The school is to the right, I see. What is above?",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_migi",
+            "g_desu",
+            "p_ne",
+            "v_ue",
+            "p_wa",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "上には 山が あります。山の 右に 川も あります。",
+          "en": "Above, there are mountains. And there's a river to the right of the mountains.",
+          "terms": [
+            "v_ue",
+            "p_wa",
+            "p_mo",
+            "v_yama",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_yama",
+            "p_no",
+            "v_migi",
+            "p_ni",
+            "v_kawa",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "下には 何が ありますか。",
+          "en": "What is below?",
+          "terms": [
+            "v_shita",
+            "p_wa",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "下には 道が あります。道の 左に 家も あります。長い 道ですね。",
+          "en": "Below, there's a road. There's also a house to the left of the road. It's a long road, isn't it.",
+          "terms": [
+            "v_shita",
+            "p_wa",
+            "p_mo",
+            "v_michi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_michi",
+            "p_no",
+            "v_hidari",
+            "p_ni",
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_nagai",
+            "g_desu",
+            "v_michi",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "上の 山も 下の 道も いいですね。北東にも 山が あります。",
+          "en": "Mountains above and roads below are both nice, aren't they. There are also mountains to the northeast.",
+          "terms": [
+            "v_ue",
+            "p_ga",
+            "v_yama",
+            "p_mo",
+            "v_shita",
+            "p_mo",
+            "v_michi",
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_hokutou",
+            "p_no",
+            "p_ni",
+            "v_yama",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Getting Better",
+      "context": "Yamakawa encourages Rikizo about his progress in Japanese.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞさんの 日本語は 上手ですよ。",
+          "en": "Rikizo, your Japanese is skilled!",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_nihongo",
+            "p_no",
+            "v_jouzu",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ありがとうございます。まだ 上手ではありません。",
+          "en": "Thank you. I'm not skilled yet.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_mada",
+            "v_jouzu",
+            "g_desu",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "毎日 日本語を 読んでいますか。",
+          "en": "Are you reading Japanese every day?",
+          "terms": [
+            "v_mainichi",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、毎日 読んでいます。まだ 下手です。",
+          "en": "Yes, I read every day. I'm still not very good.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_mada",
+            "v_heta",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "毎日 少し 上手に なっていますよ。いっしょに 読みましょう。",
+          "en": "You're getting a little better every day. Let's read together!",
+          "terms": [
+            "v_mainichi",
+            "v_sukoshi",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_yo",
+            "v_issho",
+            "p_ni",
+            {
+              "id": "v_yomu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、上手に なりたいです。毎日 右から 左まで 読みます。",
+          "en": "Yes, I want to become skilled. I read from right to left every day.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_mainichi",
+            "v_migi",
+            "p_kara",
+            "v_hidari",
+            "p_made",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: After School Plans (Casual)",
+      "context": "Close friends Miki and Ren casually plan where to go after school.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "れん、学校の 後、右に 行かない？",
+          "en": "Ren, after school, want to go right (that way)?",
+          "terms": [
+            "char_ren",
+            "v_gakkou",
+            "p_no",
+            "v_ato",
+            "v_migi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいよ！どこに 行く？",
+          "en": "Sure! Where are we going?",
+          "terms": [
+            "v_ii",
+            "p_yo",
+            "v_doko",
+            "p_ni",
+            "v_iku",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "駅の 右の 上に 大きい 店が あるよ。行きたい！",
+          "en": "There's a big shop above on the right side of the station. I want to go!",
+          "terms": [
+            "v_eki",
+            "p_ga",
+            "v_migi",
+            "p_no",
+            "v_ue",
+            "p_ni",
+            "v_ookii",
+            "v_mise",
+            "p_no",
+            "v_aru",
+            "p_yo",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいね！左の 下には 何も ないけど。",
+          "en": "Sounds good! There's nothing to the lower left, though.",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            "v_hidari",
+            "p_wa",
+            "v_shita",
+            "p_mo",
+            "p_no",
+            "v_nani",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "p_kedo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "上の 右の 店に 行こうよ！いっしょに！",
+          "en": "Let's go to the shop above on the right! Together!",
+          "terms": [
+            "v_ue",
+            "p_no",
+            "v_migi",
+            "p_no",
+            "v_mise",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_volitional"
+            },
+            "p_yo",
+            "v_issho"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいね！右に 行って、上の 店で 食べよう！",
+          "en": "Sounds good! Let's go right and eat at the shop above!",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            "v_migi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_ue",
+            "p_no",
+            "v_mise",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "plain_volitional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: The Station Area",
+      "passage": [
+        {
+          "jp": "駅の 上に 大きい 店が あります。右の 道には 長い 川が あります。",
+          "en": "Above the station there is a large shop. To the right, there is a long river along the road.",
+          "terms": [
+            "v_eki",
+            "p_ga",
+            "v_ue",
+            "p_wa",
+            "v_ookii",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_migi",
+            "p_no",
+            "v_michi",
+            "p_ni",
+            "p_ni",
+            "v_nagai",
+            "v_kawa",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "左の 道には きれいな 花が あります。川は 長くて きれいです。",
+          "en": "To the left, there are beautiful flowers along the road. The river is long and beautiful.",
+          "terms": [
+            "v_hidari",
+            "p_ga",
+            "v_michi",
+            "p_wa",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "attributive_na"
+            },
+            "v_hana",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_kawa",
+            "p_ni",
+            {
+              "id": "v_nagai",
+              "form": "te_form"
+            },
+            "v_kirei",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "下の 道は 古いですが、毎日 電車で 行っています。電車は 右から 左まで 行きます。",
+          "en": "The road below is old, but I go by train every day. The train goes from right to left.",
+          "terms": [
+            "v_shita",
+            "p_wa",
+            "v_michi",
+            "p_wa",
+            "v_furui",
+            "g_desu",
+            "p_ga_but",
+            "v_mainichi",
+            "v_densha",
+            "p_no",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_densha",
+            "p_de",
+            "v_migi",
+            "p_kara",
+            "v_hidari",
+            "p_made",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "上の 店は 大きくて いいですよ。友だちと 上の 店に 行きたいです。",
+          "en": "The shop above is large and nice. I want to go to the shop above with friends.",
+          "terms": [
+            "v_ue",
+            "p_wa",
+            "v_mise",
+            "p_no",
+            {
+              "id": "v_ookii",
+              "form": "te_form"
+            },
+            "v_ii",
+            "g_desu",
+            "p_yo",
+            "v_tomodachi",
+            "p_to",
+            "v_ue",
+            "p_no",
+            "v_mise",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "駅の 上に 何が ありますか。",
+          "q_en": "What is above the station?",
+          "a": "大きい 店が あります。",
+          "a_en": "There is a large shop.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_ue",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ookii",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "毎日 何で 行っていますか。",
+          "q_en": "How does the narrator travel every day?",
+          "a": "電車で 行っています。",
+          "a_en": "They travel by train.",
+          "terms": [
+            "v_mainichi",
+            "v_nani",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "だれと 上の 店に 行きたいですか。",
+          "q_en": "Who does the narrator want to go to the shop with?",
+          "a": "友だちと 行きたいです。",
+          "a_en": "They want to go with their friends.",
+          "terms": [
+            "v_dare",
+            "p_to",
+            "v_ue",
+            "p_no",
+            "v_mise",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: Rikizo Practices Japanese",
+      "passage": [
+        {
+          "jp": "りきぞさんは 毎日 日本語を 読んでいます。まだ 下手ですが、上手に なりたいです。",
+          "en": "Rikizo reads Japanese every day. He is still not skilled, but wants to become skilled.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_mada",
+            "v_heta",
+            "g_desu",
+            "p_ga_but",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "やまかわさんは「上手ですよ」と 言いました。りきぞさんは とても うれしかったです。",
+          "en": "Yamakawa said 'You're skilled!' Rikizo was very happy.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_jouzu",
+            "g_desu",
+            "p_yo",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            },
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_ureshii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "りきぞさんは 店で 日本語の 本を 買いました。本は 右から 左まで 読みます。",
+          "en": "Rikizo bought a Japanese book at the shop. Japanese books are read from right to left.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_mise",
+            "p_wa",
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "v_hon",
+            "p_de",
+            "v_migi",
+            "p_kara",
+            "v_hidari",
+            "p_made",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日 少し 上手に なっています。上手に 日本語を 話したいです。",
+          "en": "I am getting a little better every day. I want to speak Japanese skillfully.",
+          "terms": [
+            "v_mainichi",
+            "v_sukoshi",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_hanasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞさんは 毎日 何を 読んでいますか。",
+          "q_en": "What does Rikizo read every day?",
+          "a": "日本語を 読んでいます。",
+          "a_en": "They read Japanese every day.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "だれが「上手ですよ」と 言いましたか。",
+          "q_en": "Who said 'You're skilled!'?",
+          "a": "やまかわさんが 言いました。",
+          "a_en": "Yamakawa said it.",
+          "terms": [
+            "v_dare",
+            "p_ga",
+            "v_jouzu",
+            "g_desu",
+            "p_yo",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_ga",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "りきぞさんは いつか 何を したいですか。",
+          "q_en": "What does Rikizo someday want to do?",
+          "a": "上手に 日本語を 話したいです。",
+          "a_en": "They want to speak Japanese skillfully.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_itsuka",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_hanasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Vocabulary",
+      "instructions": "Choose the correct English meaning for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "右",
+          "choices": [
+            "right",
+            "left",
+            "above",
+            "below"
+          ],
+          "answer": "right"
+        },
+        {
+          "kind": "mcq",
+          "q": "左",
+          "choices": [
+            "left",
+            "right",
+            "below",
+            "above"
+          ],
+          "answer": "left"
+        },
+        {
+          "kind": "mcq",
+          "q": "上",
+          "choices": [
+            "above",
+            "below",
+            "right",
+            "left"
+          ],
+          "answer": "above"
+        },
+        {
+          "kind": "mcq",
+          "q": "下",
+          "choices": [
+            "below",
+            "above",
+            "left",
+            "right"
+          ],
+          "answer": "below"
+        },
+        {
+          "kind": "mcq",
+          "q": "上手",
+          "choices": [
+            "skilled",
+            "unskilled",
+            "large",
+            "right"
+          ],
+          "answer": "skilled"
+        },
+        {
+          "kind": "mcq",
+          "q": "下手",
+          "choices": [
+            "unskilled",
+            "skilled",
+            "below",
+            "left"
+          ],
+          "answer": "unskilled"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Position in Context",
+      "instructions": "Choose the correct word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "店は 駅の ___ に あります。（The shop is above the station.）",
+          "choices": [
+            "上",
+            "北",
+            "前",
+            "新しい"
+          ],
+          "answer": "上",
+          "terms": [
+            "v_mise",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_ue",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "___ に 行ってください。（Please go to the right.）",
+          "choices": [
+            "右",
+            "左",
+            "下",
+            "外"
+          ],
+          "answer": "右",
+          "terms": [
+            "v_migi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語は ___ に 読みます。（Japanese is read from right to left.）",
+          "choices": [
+            "右から 左まで",
+            "左から 右まで",
+            "上から 下まで",
+            "下から 上まで"
+          ],
+          "answer": "右から 左まで",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_migi",
+            "p_kara",
+            "v_hidari",
+            "p_made",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 少し 上手に ___。（I am getting a little better every day.）",
+          "choices": [
+            "なっています",
+            "なりたいです",
+            "なります",
+            "ありません"
+          ],
+          "answer": "なっています",
+          "terms": [
+            "v_mainichi",
+            "v_sukoshi",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Verb and Adjective Forms",
+      "instructions": "Choose the correct form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "日本語が ___。（He is skilled at Japanese.）",
+          "choices": [
+            "上手です",
+            "上手な",
+            "上手に",
+            "上手だ"
+          ],
+          "answer": "上手です",
+          "terms": [
+            "v_nihongo",
+            "p_ga",
+            "v_jouzu",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "上手に ___。（I want to become skilled.）",
+          "choices": [
+            "なりたいです",
+            "なっています",
+            "なります",
+            "なりましょう"
+          ],
+          "answer": "なりたいです",
+          "terms": [
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "右の 上の 店は ___。（The shop above on the right was large.）",
+          "choices": [
+            "大きかったです",
+            "大きいです",
+            "大きくなります",
+            "大きそうです"
+          ],
+          "answer": "大きかったです",
+          "terms": [
+            "v_migi",
+            "p_wa",
+            "v_ue",
+            "p_no",
+            "v_mise",
+            "p_no",
+            {
+              "id": "v_ookii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "右に ___、上に 行きます。（Go right, then go up.）",
+          "choices": [
+            "行って",
+            "行きます",
+            "行きましょう",
+            "行きません"
+          ],
+          "answer": "行って",
+          "terms": [
+            "v_migi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_ue",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

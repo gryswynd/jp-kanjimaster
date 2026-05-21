@@ -1,0 +1,1116 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G14",
+  "type": "grammar",
+  "title": "Give & Receive — あげる / もらう / くれる",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.5",
+    "focus": "The three directional giving verbs あげる (give outward), くれる (give to me/in-group), and もらう (receive), plus te-form extensions for expressing favors. Includes honorific/humble variants さしあげる, いただく, くださる as reference.",
+    "estimatedMinutes": 25,
+    "particles": [],
+    "grammarForms": [
+      "te_form"
+    ],
+    "icon": "🎁"
+  },
+  "targetVocab": [
+    "v_ageru",
+    "v_morau",
+    "v_kureru",
+    "v_hoshii"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "The Japanese Gift Economy of Verbs",
+      "icon": "🎁",
+      "summary": "In English, 'give' and 'receive' cover most situations. In Japanese, the verb you choose depends entirely on who is giving to whom — and whether you are the giver, the receiver, or an observer. The three core verbs are あげる (I give to someone), くれる (someone gives to me), and もらう (I receive from someone). They describe the same physical act of transferring something, but each verb takes a different perspective on that transfer. Getting them right is essential for natural Japanese.",
+      "whyItMatters": "Choosing the wrong giving verb is one of the most noticeable mistakes in Japanese. Saying 「友だちはわたしにあげました」 when you mean 「友だちはわたしにくれました」 (my friend gave it to me) sounds unnatural and confusing. These verbs also extend to actions: saying てあげる (do something as a favour for someone), てもらう (have someone do something for you), and てくれる (someone kindly does something for me) are essential in daily life — for asking for help, expressing gratitude, and describing kindnesses received.",
+      "youWillLearn": [
+        "あげる — give (speaker/in-group gives OUT to someone else): 友だちにプレゼントをあげました (I gave a present to my friend)",
+        "くれる — give (someone gives IN to me/in-group): 友だちがわたしにプレゼントをくれました (My friend gave me a present)",
+        "もらう — receive (I receive FROM someone): 友だちにプレゼントをもらいました (I received a present from my friend)",
+        "Key rule: The same gift event seen from three angles — あげる is the giver's outward action; くれる is the receiver's inward perspective (benefiting me); もらう is the receiver actively acquiring something",
+        "Te-form extensions for favors: てあげる (I do X for you), てくれる (you/they do X for me), てもらう (I have someone do X for me)",
+        "Honorific/humble reference: さしあげる (humble あげる), いただく (humble もらう), くださる → ください (honorific くれる — already known from G7)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_ageru",
+      "pattern": [
+        {
+          "label": "Giver (は/が)",
+          "color": "topic",
+          "text": "わたしは"
+        },
+        {
+          "label": "Recipient (に)",
+          "color": "object",
+          "text": "友だちに"
+        },
+        {
+          "label": "Gift (を)",
+          "color": "subject",
+          "text": "プレゼントを"
+        },
+        {
+          "label": "あげる",
+          "color": "predicate",
+          "text": "あげます。"
+        }
+      ],
+      "meaning": "あげる — give OUT (speaker or in-group gives to someone else)",
+      "explanation": "あげる is used when the speaker (or someone in the speaker's in-group) gives something **to** another person. The direction is **outward** — away from the speaker toward the recipient.\n\n**Pattern:** [Giver は/が] [Recipient に] [Gift を] あげる\n\n**Examples:**\n- わたしは友だちにプレゼントをあげました。(I gave a present to my friend.)\n- お母さんは先生に花をあげます。(Mom gives flowers to the teacher.)\n- 兄は妹にケーキをあげました。(My older brother gave cake to his younger sister.)\n\n**When to use あげる:**\n- The giver is the speaker (わたし)\n- The giver is someone in your in-group (family, close group) giving to an outsider\n- You are narrating a scene where someone gives to a third party\n\n**Who is NOT the recipient:** You (the speaker) or your in-group. If the speaker receives something, use くれる or もらう instead.\n\n**Verb class:** ichidan (RU-verb). あげ→あげます / あげた / あげて",
+      "notes": [
+        "に marks the recipient in this pattern — the person who receives the gift. This is the same に you know from 'going to a place' (行きます) but here it marks the target person.",
+        "The giver は/が and recipient に can swap positions in a sentence, but both must be present: 友だちにわたしはプレゼントをあげました is grammatical (though は-initial is more natural).",
+        "あげる can also be used between third parties: すずきさんはやまかわさんにペンをあげました (Suzuki gave a pen to Yamakawa)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたしは",
+              "role": "topic",
+              "gloss": "I (topic: は)"
+            },
+            {
+              "text": "友だちに",
+              "role": "object",
+              "gloss": "to my friend (recipient: に)"
+            },
+            {
+              "text": "プレゼントを",
+              "role": "object",
+              "gloss": "a present (direct object: を)"
+            },
+            {
+              "text": "あげました。",
+              "role": "predicate",
+              "gloss": "gave (あげる → あげました, polite past)"
+            }
+          ],
+          "en": "I gave a present to my friend.",
+          "breakdown": "Speaker gives outward to another person → あげる. The gift (プレゼント) is marked with を; the recipient (友だち) is marked with に."
+        },
+        {
+          "parts": [
+            {
+              "text": "お母さんは",
+              "role": "topic",
+              "gloss": "Mom (topic: は)"
+            },
+            {
+              "text": "先生に",
+              "role": "object",
+              "gloss": "to the teacher (recipient: に)"
+            },
+            {
+              "text": "花を",
+              "role": "object",
+              "gloss": "flowers (object: を)"
+            },
+            {
+              "text": "あげます。",
+              "role": "predicate",
+              "gloss": "gives (あげる, polite present — in-group giving to outsider)"
+            }
+          ],
+          "en": "Mom gives flowers to the teacher.",
+          "breakdown": "Mom is part of the speaker's in-group; the teacher is an outsider → あげる. Same outward direction."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kureru",
+      "pattern": [
+        {
+          "label": "Giver (は/が)",
+          "color": "subject",
+          "text": "友だちが"
+        },
+        {
+          "label": "Recipient (に)",
+          "color": "topic",
+          "text": "わたしに"
+        },
+        {
+          "label": "Gift (を)",
+          "color": "object",
+          "text": "プレゼントを"
+        },
+        {
+          "label": "くれる",
+          "color": "predicate",
+          "text": "くれました。"
+        }
+      ],
+      "meaning": "くれる — give IN (someone gives to me / in-group — benefiting the speaker)",
+      "explanation": "くれる is used when someone gives something **to the speaker** (わたし) or to a member of the speaker's in-group. The direction is **inward** — toward the speaker. The key feeling is that the speaker is the beneficiary.\n\n**Pattern:** [Giver は/が] [Recipient に (= わたし or in-group)] [Gift を] くれる\n\n**Examples:**\n- 友だちがわたしにプレゼントをくれました。(My friend gave me a present.)\n- 先生がわたしに本をくれました。(The teacher gave me a book.)\n- お父さんが妹にお小遣いをくれました。(Dad gave my little sister some pocket money.)\n\n**When to use くれる:**\n- Someone else gives to YOU (the speaker)\n- Someone gives to a member of your in-group (family, close people)\n- The speaker is the beneficiary — even indirectly\n\n**Important:** The recipient に is often omitted when it is obvious (the speaker). 「友だちがプレゼントをくれました」is natural — わたしに is understood.\n\n**Verb class:** ichidan (RU-verb). くれ→くれます / くれた / くれて",
+      "notes": [
+        "The biggest confusion point: あげる and くれる describe the SAME physical transfer but from different perspectives. 「友だちにプレゼントをあげた」= I gave my friend a present (my action). 「友だちがプレゼントをくれた」= My friend gave me a present (their kindness).",
+        "You CANNOT say ×わたしはあなたにプレゼントをくれました (using くれる with わたし as the subject). くれる always has someone OTHER than the speaker as the giver. The speaker receives but does not くれる.",
+        "くれる is related to ください (please give me) — ください is actually the request form of くださる, the honorific of くれる. You already know this form from G7."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "友だちが",
+              "role": "subject",
+              "gloss": "my friend (subject: が — the giver)"
+            },
+            {
+              "text": "わたしに",
+              "role": "object",
+              "gloss": "to me (recipient: に — the speaker receives)"
+            },
+            {
+              "text": "プレゼントを",
+              "role": "object",
+              "gloss": "a present (object: を)"
+            },
+            {
+              "text": "くれました。",
+              "role": "predicate",
+              "gloss": "gave (to me) — くれる, polite past"
+            }
+          ],
+          "en": "My friend gave me a present.",
+          "breakdown": "The speaker (わたし) receives from someone else → くれる. Compare with あげる: 友だちにプレゼントをあげた (I gave my friend a present) — entirely different roles."
+        },
+        {
+          "parts": [
+            {
+              "text": "先生が",
+              "role": "subject",
+              "gloss": "the teacher (subject: が — giver)"
+            },
+            {
+              "text": "わたしに",
+              "role": "object",
+              "gloss": "to me (recipient: に)"
+            },
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "a book (object: を)"
+            },
+            {
+              "text": "くれました。",
+              "role": "predicate",
+              "gloss": "gave (to me) — polite past of くれる"
+            }
+          ],
+          "en": "The teacher gave me a book.",
+          "breakdown": "Teacher gives → speaker receives → くれる. The speaker is the beneficiary."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "あげる vs くれる — Same Gift, Two Perspectives",
+      "items": [
+        {
+          "label": "あげる",
+          "color": "verb",
+          "points": [
+            "The speaker (I) is the GIVER",
+            "Direction: outward — away from speaker",
+            "Focus: the speaker's action of giving",
+            "Used when the gift goes from me/in-group → to someone else"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "わたしは",
+                "role": "topic",
+                "gloss": "I (topic: は — the giver)"
+              },
+              {
+                "text": "友だちに",
+                "role": "object",
+                "gloss": "to my friend (recipient: に)"
+              },
+              {
+                "text": "プレゼントを",
+                "role": "object",
+                "gloss": "a present (object: を)"
+              },
+              {
+                "text": "あげた。",
+                "role": "predicate",
+                "gloss": "gave (あげる, plain past — outward direction)"
+              }
+            ],
+            "en": "I gave a present to my friend."
+          }
+        },
+        {
+          "label": "くれる",
+          "color": "modifier",
+          "points": [
+            "The speaker (I) is the RECEIVER",
+            "Direction: inward — toward speaker",
+            "Focus: the other person's kindness toward me",
+            "Used when someone gives to me/in-group"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "友だちが",
+                "role": "subject",
+                "gloss": "my friend (subject: が — the giver)"
+              },
+              {
+                "text": "わたしに",
+                "role": "object",
+                "gloss": "to me (recipient: に)"
+              },
+              {
+                "text": "プレゼントを",
+                "role": "object",
+                "gloss": "a present (object: を)"
+              },
+              {
+                "text": "くれた。",
+                "role": "predicate",
+                "gloss": "gave (to me) — くれる, plain past — inward direction"
+              }
+            ],
+            "en": "My friend gave me a present."
+          }
+        }
+      ],
+      "tip": "Both sentences describe the exact same gift-giving event. あげる tells it from the giver's side ('I gave'). くれる tells it from the receiver's side ('they gave to me'). Japanese forces you to choose the perspective that matches your role in the exchange."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_morau",
+      "pattern": [
+        {
+          "label": "Receiver (は/が)",
+          "color": "topic",
+          "text": "わたしは"
+        },
+        {
+          "label": "Giver (に / から)",
+          "color": "subject",
+          "text": "友だちに"
+        },
+        {
+          "label": "Gift (を)",
+          "color": "object",
+          "text": "プレゼントを"
+        },
+        {
+          "label": "もらう",
+          "color": "predicate",
+          "text": "もらいました。"
+        }
+      ],
+      "meaning": "もらう — receive (speaker actively gets something from someone)",
+      "explanation": "もらう is used when the speaker (or their in-group) **receives** something from another person. Unlike くれる (which focuses on the giver's kindness), もらう focuses on the **receiver's active acquisition** — the speaker is getting something.\n\n**Pattern:** [Receiver は/が] [Giver に or から] [Gift を] もらう\n\n**Examples:**\n- わたしは友だちにプレゼントをもらいました。(I received a present from my friend.)\n- りきぞは先生に本をもらいました。(Rikizo received a book from the teacher.)\n- お母さんにセーターをもらいました。(I received a sweater from my mom.)\n\n**に vs から with もらう:**\n- に marks the source person when there is a close relationship or direct transfer: 友だちにもらった\n- から marks the source with more distance, formality, or abstract source: 会社からもらった (received from the company)\n- Both are correct; に is more common in daily speech\n\n**Verb class:** godan (U-verb). もらい→もらいます / もらった / もらって\n\n**The three-verb summary:**\n| Verb | Who gives | Who receives | Focus |\n|---|---|---|---|\n| あげる | Speaker / in-group | Outside | Giver's action |\n| くれる | Outside | Speaker / in-group | Giver's kindness |\n| もらう | Outside | Speaker / in-group | Receiver's acquisition |",
+      "notes": [
+        "もらう can also be used between third parties: すずきさんはやまかわさんにプレゼントをもらった (Suzuki received a present from Yamakawa). The receiver is the subject.",
+        "The difference between くれる and もらう: くれた emphasizes the giver's act ('they gave me'); もらった emphasizes the receiver's acquisition ('I got'). Both are correct for the same situation. Japanese speakers choose based on what they want to highlight.",
+        "もらう can also express having someone do something for you — see the te-form extensions in the next section."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたしは",
+              "role": "topic",
+              "gloss": "I (topic: は — the receiver)"
+            },
+            {
+              "text": "友だちに",
+              "role": "subject",
+              "gloss": "from my friend (source: に)"
+            },
+            {
+              "text": "プレゼントを",
+              "role": "object",
+              "gloss": "a present (object: を)"
+            },
+            {
+              "text": "もらいました。",
+              "role": "predicate",
+              "gloss": "received (もらう → もらいました, polite past)"
+            }
+          ],
+          "en": "I received a present from my friend.",
+          "breakdown": "Speaker is the receiver → もらう. Compare with くれる: 友だちがプレゼントをくれた (friend gave me) — same event but もらう focuses on the speaker's receiving."
+        },
+        {
+          "parts": [
+            {
+              "text": "りきぞは",
+              "role": "topic",
+              "gloss": "Rikizo (topic: は — receiver)"
+            },
+            {
+              "text": "先生に",
+              "role": "subject",
+              "gloss": "from the teacher (source: に)"
+            },
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "a book (object: を)"
+            },
+            {
+              "text": "もらいました。",
+              "role": "predicate",
+              "gloss": "received — polite past of もらう"
+            }
+          ],
+          "en": "Rikizo received a book from the teacher.",
+          "breakdown": "Rikizo is the receiver; the teacher is the source marked by に → もらう."
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "Give & Receive — Complete Reference Chart",
+      "description": "The three core verbs plus their honorific and humble variants. Focus on the top three rows for daily use; the bottom three are reference for recognition.",
+      "tableType": "reference",
+      "headers": [
+        "Verb",
+        "Direction",
+        "Who uses it",
+        "Polite form",
+        "Casual past"
+      ],
+      "rows": [
+        {
+          "label": "★ あげる",
+          "cells": [
+            "outward →",
+            "Speaker/in-group gives to outsider",
+            "あげます",
+            "あげた"
+          ],
+          "meaning": "give (to someone else)"
+        },
+        {
+          "label": "★ くれる",
+          "cells": [
+            "inward ←",
+            "Someone gives to speaker/in-group",
+            "くれます",
+            "くれた"
+          ],
+          "meaning": "give (to me/in-group)"
+        },
+        {
+          "label": "★ もらう",
+          "cells": [
+            "receiver's view",
+            "Speaker receives from someone",
+            "もらいます",
+            "もらった"
+          ],
+          "meaning": "receive (from someone)"
+        },
+        {
+          "label": "さしあげる",
+          "cells": [
+            "outward → (humble)",
+            "Speaker humbly gives to a superior",
+            "さしあげます",
+            "さしあげた"
+          ],
+          "meaning": "give (humble あげる — N3+)"
+        },
+        {
+          "label": "いただく",
+          "cells": [
+            "receiver's (humble)",
+            "Speaker humbly receives from a superior",
+            "いただきます",
+            "いただいた"
+          ],
+          "meaning": "receive (humble もらう — N3+); also said before eating"
+        },
+        {
+          "label": "くださる",
+          "cells": [
+            "inward ← (honorific)",
+            "Superior gives to speaker/in-group",
+            "くださいます / ください",
+            "くださった"
+          ],
+          "meaning": "give (honorific くれる); ください = please give me (already known from G7)"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_teform_giving",
+      "pattern": [
+        {
+          "label": "Verb て-form",
+          "color": "connector",
+          "text": "書いて"
+        },
+        {
+          "label": "+ あげる / くれる / もらう",
+          "color": "predicate",
+          "text": "あげます / くれます / もらいます"
+        }
+      ],
+      "meaning": "Te-form + あげる/くれる/もらう — doing something as a favor",
+      "explanation": "Just as you can give an object, you can give an **action** — doing something for someone's benefit. Attach the て-form of any verb to あげる, くれる, or もらう to express favors and received kindnesses.\n\n**The three patterns:**\n\n**1. て + あげる** — I do X for you/them (I give the action outward)\n- 本を読んであげます。(I'll read the book for you [as a favor].)\n- かばんを持ってあげました。(I carried the bag for him/her.)\n- Direction: my action benefits someone else\n\n**2. て + くれる** — You/they do X for me (they give the action to me)\n- 友だちが本を読んでくれました。(My friend read the book for me [for my benefit].)\n- 先生が日本語を話してくれました。(The teacher spoke Japanese for me.)\n- Direction: their action benefits the speaker\n\n**3. て + もらう** — I have someone do X for me (I receive the action)\n- 先生に日本語を話してもらいました。(I had the teacher speak Japanese for me.)\n- 友だちに本を読んでもらいました。(I had my friend read the book for me.)\n- Direction: the speaker is the beneficiary; emphasis on receiving the favor\n\n**The key difference between てくれた and てもらった:**\n- てくれた emphasizes the other person's kindness: 「先生が話してくれた」= The teacher spoke for me (how kind!)\n- てもらった emphasizes what the speaker received: 「先生に話してもらった」= I got the teacher to speak for me (I obtained the favor)",
+      "notes": [
+        "てあげる can sometimes sound condescending — like you're doing someone a favour they didn't ask for. Use it carefully in polite contexts. Between friends it's natural; with superiors, てさしあげます is more appropriate.",
+        "The te-form of くれる for requests is already part of your vocabulary: 書いてください (please write). This is the request form of 書いてくださる. This lesson shows you where ください actually comes from.",
+        "てもらえますか / てもらえませんか — potential + もらう — is a very polite request pattern: 書いてもらえますか (could you write it for me?). This combines potential form (G12) with てもらう."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "the book (object: を)"
+            },
+            {
+              "text": "読んで",
+              "role": "connector",
+              "gloss": "read — て-form of 読む (godan: む → んで)"
+            },
+            {
+              "text": "あげます。",
+              "role": "predicate",
+              "gloss": "will give (= I'll read it for you)"
+            }
+          ],
+          "en": "I'll read the book for you.",
+          "breakdown": "読む (read) → 読んで (te-form) + あげます = I give the action of reading outward, benefiting the listener."
+        },
+        {
+          "parts": [
+            {
+              "text": "友だちが",
+              "role": "subject",
+              "gloss": "my friend (subject: が — the giver of the action)"
+            },
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "a book (object: を)"
+            },
+            {
+              "text": "読んで",
+              "role": "connector",
+              "gloss": "read — te-form of 読む"
+            },
+            {
+              "text": "くれました。",
+              "role": "predicate",
+              "gloss": "gave to me (くれる, polite past) — friend's kindness benefits speaker"
+            }
+          ],
+          "en": "My friend read the book for me.",
+          "breakdown": "Friend's action benefits the speaker → てくれました. The speaker is the beneficiary."
+        },
+        {
+          "parts": [
+            {
+              "text": "友だちに",
+              "role": "object",
+              "gloss": "from my friend (source: に)"
+            },
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "a book (object: を)"
+            },
+            {
+              "text": "読んで",
+              "role": "connector",
+              "gloss": "read — te-form"
+            },
+            {
+              "text": "もらいました。",
+              "role": "predicate",
+              "gloss": "received (もらう, polite past) — speaker received the favor"
+            }
+          ],
+          "en": "I had my friend read the book for me.",
+          "breakdown": "Speaker receives the favor of reading → てもらいました. Compare with てくれました: same event, but focus shifts from friend's kindness to speaker's acquisition."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_tehoshii",
+      "pattern": [
+        {
+          "label": "Verb て-form",
+          "color": "connector",
+          "text": "教えて"
+        },
+        {
+          "label": "+ ほしい",
+          "color": "predicate",
+          "text": "= 教えてほしい"
+        }
+      ],
+      "meaning": "てほしい — 'I want someone (else) to do ~'",
+      "explanation": "てほしい expresses the speaker's desire for **someone else** to perform an action. It combines the て-form of the verb with ほしい (want).\n\n**Key contrast with たい:**\n- たい = I want to do something myself (食べたい = I want to eat)\n- てほしい = I want SOMEONE ELSE to do something (食べてほしい = I want you/them to eat)\n\n**Pattern:** [Person に] Verb て-form + ほしい\n\nThe person you want to act is marked with に:\n- 先生に教えてほしい (I want the teacher to teach me)\n- 友だちに来てほしい (I want my friend to come)\n\n**Forms:**\n- Plain: てほしい (食べてほしい — I want you to eat)\n- Polite: てほしいです (食べてほしいです)\n- Negative: てほしくない (食べてほしくない — I don't want you to eat)\n- Polite request softener: てほしいんですが... (I'd like you to... [trailing off politely])\n\n**Progression from てもらう:**\n- てもらった = I received the favor (past — it happened)\n- てほしい = I want the favor (desire — it hasn't happened yet)\n\nThis forms a natural pair: てほしい is the 'wanting' stage, てもらう is the 'receiving' stage of the same favor.",
+      "notes": [
+        "ほしい conjugates as an い-adjective: ほしい → ほしくない (negative) → ほしかった (past) → ほしくなかった (past negative).",
+        "てほしい is more direct than てもらえますか (could you do ~ for me?). Use てほしいです in semi-formal contexts; use てほしいんですが... for polite requests.",
+        "You can also use てほしくない to express 'I don't want someone to do that': 行ってほしくない (I don't want you to go).",
+        "In casual speech, てほしい is natural between friends: 来てほしいんだけど (I want you to come, but...). The んだけど adds a softening nuance.",
+        "Do NOT confuse ほしい (want an object/action) with たい (want to do). ほしい takes が: 本がほしい (I want a book). てほしい takes a verb: 読んでほしい (I want someone to read it)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "先生に",
+              "role": "object",
+              "gloss": "the teacher (に — the person I want to act)"
+            },
+            {
+              "text": "教えて",
+              "role": "connector",
+              "gloss": "teach — て-form of 教える"
+            },
+            {
+              "text": "ほしいです。",
+              "role": "predicate",
+              "gloss": "want (someone to do) — polite"
+            }
+          ],
+          "en": "I want the teacher to teach me.",
+          "breakdown": "教える → 教えて (て-form) + ほしいです. に marks the person the speaker wants to perform the action."
+        },
+        {
+          "parts": [
+            {
+              "text": "友だちに",
+              "role": "object",
+              "gloss": "my friend (に — desired actor)"
+            },
+            {
+              "text": "来て",
+              "role": "connector",
+              "gloss": "come — て-form of 来る (irregular: きて)"
+            },
+            {
+              "text": "ほしい。",
+              "role": "predicate",
+              "gloss": "want (someone to do) — plain"
+            }
+          ],
+          "en": "I want my friend to come.",
+          "breakdown": "来る → 来て (きて, て-form) + ほしい (plain). Casual/direct expression of desire for someone else's action."
+        },
+        {
+          "parts": [
+            {
+              "text": "そこに",
+              "role": "modifier",
+              "gloss": "there (location)"
+            },
+            {
+              "text": "行って",
+              "role": "connector",
+              "gloss": "go — て-form of 行く (行って)"
+            },
+            {
+              "text": "ほしくない。",
+              "role": "predicate",
+              "gloss": "don't want (someone to do)"
+            }
+          ],
+          "en": "I don't want you to go there.",
+          "breakdown": "行く → 行って + ほしくない (negative of ほしい — い-adjective conjugation: ほしい → ほしくない)."
+        }
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Give & Receive in Context — Birthday Gifts",
+      "examples": [
+        {
+          "context": "あげる — Rikizo gives outward (speaker's in-group → outsider)",
+          "parts": [
+            {
+              "text": "りきぞは",
+              "role": "topic",
+              "gloss": "Rikizo (topic: は — the giver)"
+            },
+            {
+              "text": "友だちに",
+              "role": "object",
+              "gloss": "to his friend (recipient: に)"
+            },
+            {
+              "text": "花を",
+              "role": "object",
+              "gloss": "flowers (object: を)"
+            },
+            {
+              "text": "あげました。",
+              "role": "predicate",
+              "gloss": "gave (あげる, polite past) — Rikizo's action, directed outward"
+            }
+          ],
+          "en": "Rikizo gave flowers to his friend.",
+          "note": "あげる: the giver is the topic. Direction is outward — away from the speaker's in-group toward someone else."
+        },
+        {
+          "context": "くれる — friend gives inward (outsider → Rikizo's in-group)",
+          "parts": [
+            {
+              "text": "友だちも",
+              "role": "subject",
+              "gloss": "his friend also (も = also — the giver)"
+            },
+            {
+              "text": "りきぞに",
+              "role": "object",
+              "gloss": "to Rikizo (recipient: に — in-group)"
+            },
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "a book (object: を)"
+            },
+            {
+              "text": "くれました。",
+              "role": "predicate",
+              "gloss": "gave (to him) — くれる, polite past — outsider gives to in-group"
+            }
+          ],
+          "en": "His friend also gave Rikizo a book.",
+          "note": "くれる: someone outside gives TO the in-group. Direction is inward — the in-group (Rikizo) is the beneficiary."
+        },
+        {
+          "context": "もらう — same event, Rikizo as the active receiver",
+          "parts": [
+            {
+              "text": "りきぞは",
+              "role": "topic",
+              "gloss": "Rikizo (topic: は — now the active receiver)"
+            },
+            {
+              "text": "友だちから",
+              "role": "subject",
+              "gloss": "from his friend (source: から — slightly more distance than に)"
+            },
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "a book (object: を)"
+            },
+            {
+              "text": "もらいました。",
+              "role": "predicate",
+              "gloss": "received (もらう, polite past) — Rikizo actively acquired it"
+            }
+          ],
+          "en": "Rikizo received a book from his friend.",
+          "note": "もらう: same event as くれました above, but focus shifts from the friend's kindness to Rikizo's acquisition."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: たんじょうびのプレゼント — Birthday Present",
+      "context": "りきぞ and けん are talking at school. けん gave Rikizo a gift for his birthday.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "りきぞさん、これ、どうぞ。たんじょうびのプレゼントです。",
+          "en": "Rikizo, here you go. It's a birthday present.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kore",
+            "p_douzo",
+            "v_tanjoubi",
+            "p_no",
+            "v_purezento",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "わあ！ありがとうございます。けんさんがくれましたか。",
+          "en": "Wow! Thank you so much. Did you give this to me, Ken?",
+          "terms": [
+            "v_waa",
+            "p_arigatou_gozaimasu",
+            "char_ken",
+            "v_san",
+            "p_ga",
+            {
+              "id": "v_kureru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "はい！りきぞさんにあげたいです。",
+          "en": "Yes! I want to give it to you, Rikizo.",
+          "terms": [
+            "p_hai",
+            "char_rikizo",
+            "v_san",
+            "p_ni",
+            {
+              "id": "v_ageru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "うれしいです！本をもらいました。毎日読みます。",
+          "en": "I'm so happy! I received a book. I'll read it every day.",
+          "terms": [
+            {
+              "id": "v_ureshii",
+              "form": "polite_adj"
+            },
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            },
+            "v_mainichi",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "よかった！読んでくれてありがとう。",
+          "en": "Great! Thanks for reading it.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "te_form"
+            },
+            "p_arigatou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 本を読んで — Reading a Book Together (Casual)",
+      "context": "やまかわ and りきぞ are at home. They speak casually as close friends.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞ、この本、読める？",
+          "en": "Rikizo, can you read this book?",
+          "terms": [
+            "char_rikizo",
+            "v_kono",
+            "v_hon",
+            {
+              "id": "v_yomu",
+              "form": "potential"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "うん、読めるよ。読んであげようか？",
+          "en": "Yeah, I can. Want me to read it for you?",
+          "terms": [
+            "v_un",
+            {
+              "id": "v_yomu",
+              "form": "potential"
+            },
+            "p_yo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ageru",
+              "form": "plain_volitional"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "ありがとう！読んでくれてよかった。",
+          "en": "Thanks! I'm glad you read it for me.",
+          "terms": [
+            "p_arigatou",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "いいよ。先生にも読んでもらおうか。",
+          "en": "Sure. Should we also have the teacher read it?",
+          "terms": [
+            "v_ii",
+            "p_yo",
+            "v_sensei",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "plain_volitional"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "いいね。先生に読んでもらいたい。",
+          "en": "Sounds good. I want the teacher to read it for us.",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            "v_sensei",
+            "p_ni",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "plain_desire_tai"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Fill in the Blank — あげる / くれる / もらう",
+      "instructions": "Choose the correct giving or receiving verb to complete each sentence naturally.",
+      "items": [
+        {
+          "before": "わたしは母に花を",
+          "after": "。",
+          "translation": "I gave flowers to my mother.",
+          "choices": [
+            "あげました",
+            "くれました",
+            "もらいました",
+            "くれてあげました"
+          ],
+          "answer": "あげました",
+          "explanation": "The speaker (わたし) gives outward to someone else (母) → あげる. The recipient に marks お母さん as the receiver."
+        },
+        {
+          "before": "先生がわたしに本を",
+          "after": "。",
+          "translation": "The teacher gave me a book.",
+          "choices": [
+            "あげました",
+            "くれました",
+            "もらいました",
+            "あげてもらいました"
+          ],
+          "answer": "くれました",
+          "explanation": "Someone else (先生) gives to the speaker (わたし) → くれる. The teacher is the subject (が), the speaker receives."
+        },
+        {
+          "before": "わたしは友だちにプレゼントを",
+          "after": "。",
+          "translation": "I received a present from my friend.",
+          "choices": [
+            "あげました",
+            "くれました",
+            "もらいました",
+            "くれてもらいました"
+          ],
+          "answer": "もらいました",
+          "explanation": "The speaker (わたし) is the receiver; the friend is the source (に) → もらう. Focus is on the speaker getting something."
+        },
+        {
+          "before": "りきぞさんが本を",
+          "after": "くれました。",
+          "translation": "Rikizo read the book for me.",
+          "choices": [
+            "読んで",
+            "読みて",
+            "読くて",
+            "読けて"
+          ],
+          "answer": "読んで",
+          "explanation": "読む (read) is a godan verb. む → んで (te-form: 読んで). The full pattern is 読んでくれました = read (it) for me — someone's kind action benefiting the speaker."
+        },
+        {
+          "before": "友だちに本を",
+          "after": "もらいました。",
+          "translation": "I had my friend read the book for me.",
+          "choices": [
+            "読んで",
+            "読みて",
+            "読くて",
+            "読けて"
+          ],
+          "answer": "読んで",
+          "explanation": "読んでもらいました = 'I received the favor of reading' = 'I had someone read it for me'. The te-form 読んで connects to もらいました. に marks the source person (friend)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "G14 Practice — Give & Receive",
+      "instructions": "Choose the correct answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which verb means 'I give something to my friend' (outward, from speaker)?",
+          "choices": [
+            "あげる",
+            "くれる",
+            "もらう",
+            "くださる"
+          ],
+          "answer": "あげる",
+          "terms": [
+            "v_ageru"
+          ],
+          "explanation": "あげる is used when the SPEAKER gives to someone else — action goes outward from the speaker/in-group. くれる = someone gives TO me. もらう = I receive. くださる = honorific くれる (a superior gives to me)."
+        },
+        {
+          "kind": "mcq",
+          "q": "Friend gives me a gift. Which sentence is most natural?",
+          "choices": [
+            "友だちが私にプレゼントをくれました。",
+            "友だちが私にプレゼントをあげました。",
+            "私が友だちにプレゼントをもらいました。",
+            "友だちが私にプレゼントをもらいました。"
+          ],
+          "answer": "友だちが私にプレゼントをくれました。",
+          "terms": [
+            "v_tomodachi",
+            "p_ga",
+            "v_watashi",
+            "p_ni",
+            "v_purezento",
+            "p_wo",
+            {
+              "id": "v_kureru",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "When someone gives TO you (the speaker), use くれる. The friend (subject: が) gives to me (に) → くれました. あげました would mean the friend gave to a third party, not you."
+        },
+        {
+          "kind": "mcq",
+          "q": "What does 「友だちに本を読んでもらいました」mean?",
+          "choices": [
+            "I had my friend read the book for me.",
+            "My friend gave me a book.",
+            "I read the book for my friend.",
+            "My friend received a book."
+          ],
+          "answer": "I had my friend read the book for me.",
+          "terms": [
+            "v_tomodachi",
+            "p_ni",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "読む → て-form 読んで + もらいました = 'I received the favor of reading' = 'I had (someone) read it for me'. に marks the source (the friend). This is the てもらう pattern — I am the beneficiary."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which pattern means 'I'll do X for you (as a favour)'?",
+          "choices": [
+            "Verb te-form + あげる",
+            "Verb te-form + くれる",
+            "Verb te-form + もらう",
+            "Verb te-form + くださる"
+          ],
+          "answer": "Verb te-form + あげる",
+          "terms": [
+            "v_ageru"
+          ],
+          "explanation": "てあげる = I give the action (as a favour) to you/them — outward direction from speaker. てくれる = someone gives the action to me. てもらう = I receive the action from someone. All three use te-form + a giving/receiving verb."
+        },
+        {
+          "kind": "mcq",
+          "q": "What is the difference between 「先生が書いてくれた」 and 「先生に書いてもらった」?",
+          "choices": [
+            "Both mean the same thing: the teacher wrote it for me. くれた focuses on the teacher's kindness; もらった focuses on receiving the favor.",
+            "くれた means the teacher wrote; もらった means I wrote.",
+            "くれた is polite; もらった is rude.",
+            "くれた uses the teacher as subject; もらった means the teacher refused."
+          ],
+          "answer": "Both mean the same thing: the teacher wrote it for me. くれた focuses on the teacher's kindness; もらった focuses on receiving the favor.",
+          "terms": [
+            "v_sensei",
+            "p_ga",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "plain_past"
+            },
+            {
+              "id": "v_morau",
+              "form": "plain_past"
+            }
+          ],
+          "explanation": "Both sentences describe the same event: the teacher wrote something for the speaker. 書いてくれた (teacher gave the action of writing to me) emphasizes the teacher's kindness. 書いてもらった (I received the favor of writing) emphasizes the speaker's acquisition. Both are natural and correct."
+        }
+      ]
+    }
+  ]
+}

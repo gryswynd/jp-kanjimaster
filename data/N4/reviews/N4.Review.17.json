@@ -1,0 +1,729 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.17",
+  "title": "Phase 4 Review: Districts, Departure & City Life",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 32-34.",
+    "kanji": [
+      "引",
+      "用",
+      "習",
+      "市",
+      "場",
+      "工",
+      "広",
+      "建",
+      "区",
+      "発",
+      "県",
+      "通"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "At the train station.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "出発は 何時ですか。",
+              "terms": [
+                "v_shuppatsu",
+                "p_wa",
+                "v_nanji",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "八時 発です。",
+              "terms": [
+                {
+                  "counter": "ji",
+                  "n": 8
+                },
+                "v_hatsu",
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "電車は この 市を 通りますか。",
+              "terms": [
+                "v_densha",
+                "p_wa",
+                "v_kono",
+                "v_shi",
+                "p_wo",
+                {
+                  "id": "v_tooru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。大きい 都市を 通ります。",
+              "terms": [
+                "p_hai",
+                "v_ookii",
+                "v_toshi",
+                "p_wo",
+                {
+                  "id": "v_tooru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "What does the train do?",
+          "choices": [
+            "Stops at the morning market.",
+            "Passes through a big city.",
+            "Departs from the prefecture.",
+            "Arrives at the factory."
+          ],
+          "answer": "Passes through a big city.",
+          "explanation": "B says the train passes through a big city (toshi wo toorimasu)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Touring a new neighborhood.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "この 地区に 大きい 工場が ありますね。",
+              "terms": [
+                "v_kono",
+                "v_chiku",
+                "p_ni",
+                "v_ookii",
+                "v_koujou",
+                "p_ga",
+                { "id": "v_aru", "form": "polite_masu" },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。広い 場所に 建って います。",
+              "terms": [
+                "p_hai",
+                "v_hiroi",
+                "v_basho",
+                "p_ni",
+                {
+                  "id": "v_tatsu_build",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "工員は 何人 いますか。",
+              "terms": [
+                "v_kouin",
+                "p_wa",
+                "v_nannin",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "多く います。この 地区に 広場も あります。",
+              "terms": [
+                {
+                  "id": "v_ooi",
+                  "form": "adverbial"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_kono",
+                "v_chiku",
+                "p_ni",
+                "v_hiroba",
+                "p_mo",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "What is in the district?",
+          "choices": [
+            "A morning market.",
+            "A big factory.",
+            "A new prefecture.",
+            "A calligraphy school."
+          ],
+          "answer": "A big factory.",
+          "explanation": "A says there is a big factory (koujou) in the district."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Talking about daily routine.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "毎日、どこへ 通って いますか。",
+              "terms": [
+                "v_mainichi",
+                "v_doko",
+                "p_e",
+                {
+                  "id": "v_kayou",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "習字の 教習に 通って います。",
+              "terms": [
+                "v_shuuji",
+                "p_no",
+                "v_kyoushuu",
+                "p_ni",
+                {
+                  "id": "v_kayou",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "先生を 見習いますか。",
+              "terms": [
+                "v_sensei",
+                "p_wo",
+                {
+                  "id": "v_minarau",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。学習が 楽しいです。",
+              "terms": [
+                "p_hai",
+                "v_gakushuu",
+                "p_ga",
+                { "id": "v_tanoshii", "form": "polite_adj" }
+              ]
+            }
+          ],
+          "question": "What does B commute to?",
+          "choices": [
+            "Calligraphy lessons.",
+            "Engineering school.",
+            "The city market.",
+            "The factory."
+          ],
+          "answer": "Calligraphy lessons.",
+          "explanation": "B commutes to calligraphy lessons (shuuji no kyoushuu)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Every day, I commute to the factory from outside the prefecture.",
+          "segments": [
+            "毎日",
+            "県外",
+            "から",
+            "工場",
+            "に",
+            "通います"
+          ],
+          "distractors": [
+            "を",
+            "で",
+            "地区",
+            "発見します"
+          ],
+          "explanation": "Every day (Mainichi) + Outside prefecture (Kengai) + kara + Factory (Koujou) + ni + Commute (Kayoimasu)."
+        },
+        {
+          "kind": "scramble",
+          "q": "A new building was built in the district.",
+          "segments": [
+            "地区",
+            "に",
+            "新しい",
+            "建物",
+            "が",
+            "建ちました"
+          ],
+          "distractors": [
+            "を",
+            "で",
+            "工場",
+            "建てました"
+          ],
+          "explanation": "District (Chiku) + ni + New (Atarashii) + Building (Tatemono) + ga + Was built (Tachimashita). Note: 建てました (transitive) is wrong here — 建ちました (intransitive) is correct."
+        },
+        {
+          "kind": "scramble",
+          "q": "The first train passes through the wide main street.",
+          "segments": [
+            "始発",
+            "の",
+            "電車",
+            "は",
+            "広い",
+            "大通り",
+            "を",
+            "通ります"
+          ],
+          "distractors": [
+            "に",
+            "が",
+            "市",
+            "通学"
+          ],
+          "explanation": "First train (Shihatsu no Densha) + wa + Wide (Hiroi) + Main street (Oodoori) + wo + Passes through (Toorimasu). Use を for the path, not に."
+        },
+        {
+          "kind": "scramble",
+          "q": "The workers gather in the wide square.",
+          "segments": [
+            "工員",
+            "は",
+            "広い",
+            "広場",
+            "に",
+            "集まります"
+          ],
+          "distractors": [
+            "を",
+            "が",
+            "工場",
+            "通います"
+          ],
+          "explanation": "Workers (Kouin) + wa + Wide (Hiroi) + Square (Hiroba) + ni + Gather (Atsumarimasu). 広場 (square) not 工場 (factory); に not を for location of gathering."
+        },
+        {
+          "kind": "scramble",
+          "q": "I want to discover a new place in Akita.",
+          "segments": [
+            "秋田",
+            "で",
+            "新しい",
+            "場所",
+            "を",
+            "発見したいです"
+          ],
+          "distractors": [
+            "に",
+            "が",
+            "建物",
+            "通いたいです"
+          ],
+          "explanation": "Akita + de + New (Atarashii) + Place (Basho) + wo + Want to discover (Hakken shitai desu). Use で for the location of activity, not に; 場所 (place) not 建物 (building)."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading - Commuting to the New City",
+      "passage": [
+        {
+          "jp": "私は 青森県に 住んで います。",
+          "en": "I live in Aomori Prefecture.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_aomoriken",
+            "p_ni",
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日、電車で 都市に 通います。",
+          "en": "Every day, I commute to the city by train.",
+          "terms": [
+            "v_mainichi",
+            "v_densha",
+            "p_de",
+            "v_toshi",
+            "p_ni",
+            {
+              "id": "v_kayou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "始発の 電車は 広い 大通りを 通ります。",
+          "en": "The first train passes through the wide main street.",
+          "terms": [
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_wa",
+            "v_hiroi",
+            "v_oodoori",
+            "p_wo",
+            {
+              "id": "v_tooru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "大学の 地区に 大きい 工場が あります。",
+          "en": "There is a big factory in the university district.",
+          "terms": [
+            "v_daigaku",
+            "p_no",
+            "v_chiku",
+            "p_ni",
+            "v_ookii",
+            "v_koujou",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "大学では 工学を 習って います。",
+          "en": "At university, I am learning engineering.",
+          "terms": [
+            "v_daigaku",
+            "p_dewa",
+            "v_kougaku",
+            "p_wo",
+            {
+              "id": "v_narau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "どこに 住んで いますか。",
+          "a": "青森県",
+          "choices": [
+            "秋田県",
+            "青森県",
+            "大きい 市",
+            "新しい 区"
+          ],
+          "terms": [
+            "v_doko",
+            "p_ni",
+            { "id": "v_sumu", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" },
+            "p_ka",
+            "v_aomoriken"
+          ]
+        },
+        {
+          "q": "始発の 電車は どこを 通りますか。",
+          "a": "広い 大通り",
+          "choices": [
+            "地区の 工場",
+            "広い 大通り",
+            "市の 広場",
+            "大学の 建物"
+          ],
+          "terms": [
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_wa",
+            "v_doko",
+            "p_wo",
+            { "id": "v_tooru", "form": "polite_masu" },
+            "p_ka",
+            "v_hiroi",
+            "v_oodoori"
+          ]
+        },
+        {
+          "q": "大学で 何を 習って いますか。",
+          "a": "工学",
+          "choices": [
+            "習字",
+            "工学",
+            "引用",
+            "建築"
+          ],
+          "terms": [
+            "v_daigaku",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            { "id": "v_narau", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" },
+            "p_ka",
+            "v_kougaku"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "机の [引き出し]に あります。",
+          "choices": [
+            "ひきだし",
+            "いんだし",
+            "ひいだし",
+            "いんしゅつ"
+          ],
+          "answer": "ひきだし",
+          "explanation": "引き出し (Drawer) is read as <b>hikidashi</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "本から 文を [引用]する。",
+          "choices": [
+            "いんよう",
+            "ひきよう",
+            "いんもち",
+            "ひんよう"
+          ],
+          "answer": "いんよう",
+          "explanation": "引用 (Quotation) is read as <b>inyou</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生を [見習う]。",
+          "choices": [
+            "みならう",
+            "みしゅう",
+            "けんしゅう",
+            "けんならう"
+          ],
+          "answer": "みならう",
+          "explanation": "見習う (To emulate) is read as <b>minarau</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[工場]は 広い 場所に あります。",
+          "choices": [
+            "こうじょう",
+            "こうば",
+            "くじょう",
+            "こうしょ"
+          ],
+          "answer": "こうじょう",
+          "explanation": "工場 (Factory) is read as <b>koujou</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "新しい [建物]が 建ちます。",
+          "choices": [
+            "たてもの",
+            "けんぶつ",
+            "たてぶつ",
+            "けんもの"
+          ],
+          "answer": "たてもの",
+          "explanation": "建物 (Building) is read as <b>tatemono</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[出発]の 時間です。",
+          "choices": [
+            "しゅっぱつ",
+            "でぱつ",
+            "でははつ",
+            "はつぱつ"
+          ],
+          "answer": "しゅっぱつ",
+          "explanation": "出発 (Departure) is read as <b>shuppatsu</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "電車で [通学]します。",
+          "choices": [
+            "つうがく",
+            "かようがく",
+            "とおがく",
+            "つうこう"
+          ],
+          "answer": "つうがく",
+          "explanation": "通学 (Commuting to school) is read as <b>tsuugaku</b>."
+        },
+        {
+          "kind": "mcq",
+          "q": "[県外]から 来ます。",
+          "choices": [
+            "けんがい",
+            "けんそと",
+            "きんがい",
+            "けんほか"
+          ],
+          "answer": "けんがい",
+          "explanation": "県外 (Outside the prefecture) is read as <b>kengai</b>."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 学校に ______。県外から 来ます。",
+          "choices": [
+            "通学します",
+            "出発します",
+            "発見します",
+            "区別します"
+          ],
+          "answer": "通学します",
+          "explanation": "通学 (Tsuugaku) means commuting to school. The person commutes from outside the prefecture."
+        },
+        {
+          "kind": "mcq",
+          "q": "午後 二時 ______ の 電車に 乗ります。",
+          "choices": [
+            "発",
+            "通",
+            "区",
+            "習"
+          ],
+          "answer": "発",
+          "explanation": "The character 発 (hatsu) placed after a time indicates departure."
+        },
+        {
+          "kind": "mcq",
+          "q": "古い お金を ______ しました。",
+          "choices": [
+            "発見",
+            "出発",
+            "発言",
+            "発電"
+          ],
+          "answer": "発見",
+          "explanation": "発見 (Hakken) means discovery. I discovered old money."
+        },
+        {
+          "kind": "mcq",
+          "q": "電車は 広い 大通りを ______ います。",
+          "choices": [
+            "通って",
+            "建って",
+            "習って",
+            "引いて"
+          ],
+          "answer": "通って",
+          "explanation": "通って (tootte, te-form of 通る) describes passing through a route."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "工場 ______ 工員が 多く います。",
+          "choices": [
+            "に",
+            "を",
+            "で",
+            "が"
+          ],
+          "answer": "に",
+          "explanation": "Use 'ni' to indicate the location where workers exist."
+        },
+        {
+          "kind": "mcq",
+          "q": "新しい 建物を ______。",
+          "choices": [
+            "建てます",
+            "建ちます",
+            "建っています",
+            "建って"
+          ],
+          "answer": "建てます",
+          "explanation": "To build (transitive) a building uses Tateru → Tatemasu (建てます). 建つ / 建ちます is intransitive."
+        },
+        {
+          "kind": "mcq",
+          "q": "大通り ______ 通ります。",
+          "choices": [
+            "を",
+            "に",
+            "が",
+            "へ"
+          ],
+          "answer": "を",
+          "explanation": "Use 'wo' to mark the route or path that is passed through."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生に 習字 ______ 習います。",
+          "choices": [
+            "を",
+            "に",
+            "が",
+            "で"
+          ],
+          "answer": "を",
+          "explanation": "Use 'wo' to mark the object being learned — calligraphy (習字)."
+        }
+      ]
+    }
+  ]
+}

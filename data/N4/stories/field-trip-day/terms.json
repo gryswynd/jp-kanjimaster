@@ -1,0 +1,448 @@
+{
+  "contentVersion": "1.0.0",
+  "storyFile": "story.md",
+  "title": "遠足の日",
+  "englishTitle": "The Day of the Field Trip",
+  "terms": {
+    "りきぞ": {
+      "id": "char_rikizo",
+      "form": null
+    },
+    "けん": {
+      "id": "char_ken",
+      "form": null
+    },
+    "は": {
+      "id": "p_wa",
+      "form": null
+    },
+    "が": {
+      "id": "p_ga",
+      "form": null
+    },
+    "ですが": {
+      "id": "p_ga_but",
+      "form": null
+    },
+    "ましたが": {
+      "id": "p_ga_but",
+      "form": null
+    },
+    "を": {
+      "id": "p_wo",
+      "form": null
+    },
+    "の": {
+      "id": "p_no",
+      "form": null
+    },
+    "に": {
+      "id": "p_ni",
+      "form": null
+    },
+    "で": {
+      "id": "p_de",
+      "form": null
+    },
+    "へ": {
+      "id": "p_e",
+      "form": null
+    },
+    "も": {
+      "id": "p_mo",
+      "form": null
+    },
+    "と": {
+      "id": "p_to",
+      "form": null
+    },
+    "と言いました": {
+      "id": "p_to_quote",
+      "form": null
+    },
+    "か": {
+      "id": "p_ka",
+      "form": null
+    },
+    "よ": {
+      "id": "p_yo",
+      "form": null
+    },
+    "ね": {
+      "id": "p_ne",
+      "form": null
+    },
+    "から": {
+      "id": "p_kara",
+      "form": null
+    },
+    "おいしいですから": {
+      "id": "p_kara_because",
+      "form": null
+    },
+    "借りましたから": {
+      "id": "p_kara_because",
+      "form": null
+    },
+    "まで": {
+      "id": "p_made",
+      "form": null
+    },
+    "では": {
+      "id": "p_dewa_then",
+      "form": null
+    },
+    "おはよう": {
+      "id": "p_ohayou_casual",
+      "form": null
+    },
+    "ありがとうございました": {
+      "id": "p_arigatou_gozaimasu",
+      "form": null
+    },
+    "はい": {
+      "id": "p_hai",
+      "form": null
+    },
+    "です": {
+      "id": "g_desu",
+      "form": null
+    },
+    "でした": {
+      "id": "g_desu",
+      "form": null
+    },
+    "いいシャツだ": {
+      "id": "g_da",
+      "form": null
+    },
+    "毎日": {
+      "id": "v_mainichi",
+      "form": null
+    },
+    "会社": {
+      "id": "v_kaisha",
+      "form": null
+    },
+    "働いて": {
+      "id": "v_hataraku",
+      "form": "te_form"
+    },
+    "います": {
+      "id": "v_iru",
+      "form": "polite_masu"
+    },
+    "今日": {
+      "id": "v_kyou",
+      "form": null
+    },
+    "休み": {
+      "id": "v_yasumi",
+      "form": null
+    },
+    "遠足": {
+      "id": "v_ensoku",
+      "form": null
+    },
+    "日": {
+      "id": "v_hi",
+      "form": null
+    },
+    "山": {
+      "id": "v_yama",
+      "form": null
+    },
+    "行きます": {
+      "id": "v_iku",
+      "form": "polite_masu"
+    },
+    "行きましょう": {
+      "id": "v_iku",
+      "form": "polite_volitional_mashou"
+    },
+    "午前": {
+      "id": "v_gozen",
+      "form": null
+    },
+    "起きました": {
+      "id": "v_okiru",
+      "form": "polite_mashita"
+    },
+    "すぐに": {
+      "id": "v_sugu",
+      "form": null
+    },
+    "シャツ": {
+      "id": "v_shatsu",
+      "form": null
+    },
+    "着ました": {
+      "id": "v_kiru",
+      "form": "polite_mashita"
+    },
+    "ここ": {
+      "id": "v_koko",
+      "form": null
+    },
+    "この": {
+      "id": "v_kono",
+      "form": null
+    },
+    "きのう": {
+      "id": "v_kinou",
+      "form": null
+    },
+    "借りた": {
+      "id": "v_kariru",
+      "form": "plain_past"
+    },
+    "借りました": {
+      "id": "v_kariru",
+      "form": "polite_mashita"
+    },
+    "大きい": {
+      "id": "v_ookii",
+      "form": null
+    },
+    "いい": {
+      "id": "v_ii",
+      "form": null
+    },
+    "カレー": {
+      "id": "v_karee",
+      "form": null
+    },
+    "作りました": {
+      "id": "v_tsukuru",
+      "form": "polite_mashita"
+    },
+    "作ります": {
+      "id": "v_tsukuru",
+      "form": "polite_masu"
+    },
+    "パン": {
+      "id": "v_pan",
+      "form": null
+    },
+    "切りました": {
+      "id": "v_kiru_2",
+      "form": "polite_mashita"
+    },
+    "駅": {
+      "id": "v_eki",
+      "form": null
+    },
+    "着きました": {
+      "id": "v_tsuku",
+      "form": "polite_mashita"
+    },
+    "着いて": {
+      "id": "v_tsuku",
+      "form": "te_form"
+    },
+    "来ました": {
+      "id": "v_kuru",
+      "form": "polite_mashita"
+    },
+    "二人": {
+      "id": "v_futari",
+      "form": null
+    },
+    "電車": {
+      "id": "v_densha",
+      "form": null
+    },
+    "乗りました": {
+      "id": "v_noru",
+      "form": "polite_mashita"
+    },
+    "遠い": {
+      "id": "v_tooi",
+      "form": null
+    },
+    "きれい": {
+      "id": "v_kirei",
+      "form": null
+    },
+    "言いました": {
+      "id": "v_iu",
+      "form": "polite_mashita"
+    },
+    "中": {
+      "id": "v_naka",
+      "form": null
+    },
+    "食べました": {
+      "id": "v_taberu",
+      "form": "polite_mashita"
+    },
+    "おいしい": {
+      "id": "v_oishii",
+      "form": null
+    },
+    "時間": {
+      "id": "v_jikan",
+      "form": null
+    },
+    "後": {
+      "id": "v_ato",
+      "form": null
+    },
+    "歩きます": {
+      "id": "v_aruku",
+      "form": "polite_masu"
+    },
+    "歩きました": {
+      "id": "v_aruku",
+      "form": "polite_mashita"
+    },
+    "道": {
+      "id": "v_michi",
+      "form": null
+    },
+    "長くて": {
+      "id": "v_nagai",
+      "form": "te_form"
+    },
+    "長かったですが": {
+      "id": "p_ga_but",
+      "form": null
+    },
+    "まだ": {
+      "id": "v_mada",
+      "form": null
+    },
+    "着きません": {
+      "id": "v_tsuku",
+      "form": "polite_negative"
+    },
+    "すぐ": {
+      "id": "v_sugu",
+      "form": null
+    },
+    "近い": {
+      "id": "v_chikai",
+      "form": null
+    },
+    "上": {
+      "id": "v_ue",
+      "form": null
+    },
+    "空": {
+      "id": "v_sora",
+      "form": null
+    },
+    "とても": {
+      "id": "v_totemo",
+      "form": null
+    },
+    "すごい": {
+      "id": "v_sugoi",
+      "form": null
+    },
+    "小さい": {
+      "id": "v_chiisai",
+      "form": null
+    },
+    "店": {
+      "id": "v_mise",
+      "form": null
+    },
+    "あります": {
+      "id": "v_aru",
+      "form": "polite_masu"
+    },
+    "ありました": {
+      "id": "v_aru",
+      "form": "polite_mashita"
+    },
+    "ありますよ": {
+      "id": "v_aru",
+      "form": "polite_masu"
+    },
+    "その": {
+      "id": "v_sono",
+      "form": null
+    },
+    "切手": {
+      "id": "v_kitte",
+      "form": null
+    },
+    "ペン": {
+      "id": "v_pen",
+      "form": null
+    },
+    "使って": {
+      "id": "v_tsukau",
+      "form": "te_form"
+    },
+    "こと": {
+      "id": "v_koto",
+      "form": null
+    },
+    "書きました": {
+      "id": "v_kaku",
+      "form": "polite_mashita"
+    },
+    "うち": {
+      "id": "v_uchi",
+      "form": null
+    },
+    "送りました": {
+      "id": "v_okuru",
+      "form": "polite_mashita"
+    },
+    "聞きました": {
+      "id": "v_kiku",
+      "form": "polite_mashita"
+    },
+    "帰り": {
+      "id": "v_kaeri",
+      "form": null
+    },
+    "帰り道": {
+      "id": "v_kaerimichi",
+      "form": null
+    },
+    "気分": {
+      "id": "v_kibun",
+      "form": null
+    },
+    "わかりました": {
+      "id": "v_wakaru",
+      "form": "polite_mashita"
+    },
+    "借金": {
+      "id": "v_shakkin",
+      "form": null
+    },
+    "だめ": {
+      "id": "v_dame",
+      "form": null
+    },
+    "家": {
+      "id": "v_ie",
+      "form": null
+    },
+    "帰りました": {
+      "id": "v_kaeru",
+      "form": "polite_mashita"
+    },
+    "遠かった": {
+      "id": "v_tooi",
+      "form": "plain_past_adj"
+    },
+    "長かった": {
+      "id": "v_nagai",
+      "form": "plain_past_adj"
+    },
+    "うれしかった": {
+      "id": "v_ureshii",
+      "form": "plain_past_adj"
+    },
+    "よかった": {
+      "id": "v_ii",
+      "form": "plain_past_adj"
+    }
+  }
+}

@@ -1,0 +1,900 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.7",
+  "title": "Phase 4 Review: Music, Sound & Work Rhythms",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 13–14.",
+    "kanji": ["音","楽","歌","声","低","軽","仕","事","曜","早","急","員"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo and Yamakawa are chatting at school about music they enjoy.",
+          "lines": [
+            {
+              "spk": "りきぞ",
+              "jp": "やまかわさんは どの 歌手が 好きですか。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "p_wa",
+                "v_dono",
+                "v_kashu",
+                "p_ga",
+                {
+                  "id": "v_suki",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "低い 声の 歌手が 好きです。軽音楽を 聞きながら 仕事を します。",
+              "terms": [
+                "v_hikui",
+                "v_koe",
+                "p_no",
+                "v_kashu",
+                "p_ga",
+                {
+                  "id": "v_suki",
+                  "form": "polite_adj"
+                },
+                "v_keiongaku",
+                "p_wo",
+                {
+                  "id": "v_kiku",
+                  "form": "nagara_form"
+                },
+                "v_shigoto",
+                "p_wo",
+                {
+                  "id": "v_suru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "そうですか。私も 音楽が 好きで、歌ったり 聞いたり します。",
+              "terms": [
+                "v_sou",
+                "g_desu",
+                "p_ka",
+                "v_watashi",
+                "p_mo",
+                "v_ongaku",
+                "p_ga",
+                "v_suki",
+                "p_de",
+                {
+                  "id": "v_utau",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_kiku",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_suru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "声楽も いいですよ。気軽に 聞けますね。",
+              "terms": [
+                "v_seigaku",
+                "p_mo",
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_yo",
+                "v_kigaru",
+                "p_ni",
+                {
+                  "id": "v_kiku",
+                  "form": "polite_potential"
+                },
+                "p_ne"
+              ]
+            }
+          ],
+          "question": "What does Yamakawa say about listening to light music?",
+          "choices": [
+            "Yamakawa listens to light music while working.",
+            "Yamakawa only listens to vocal music at the office.",
+            "Yamakawa sings light music songs every morning.",
+            "Yamakawa teaches light music at school."
+          ],
+          "answer": "Yamakawa listens to light music while working.",
+          "explanation": "Yamakawa says 軽音楽を聞きながら仕事をします (I listen to light music while working). ながら attaches to the ます-stem of a verb (聞き + ながら) to express two simultaneous actions."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Rikizo approaches a station attendant to ask about the express train.",
+          "lines": [
+            {
+              "spk": "りきぞ",
+              "jp": "すみません。この 急行に 乗れますか。",
+              "terms": [
+                "p_sumimasen",
+                "v_kono",
+                "v_kyuukou",
+                "p_ni",
+                {
+                  "id": "v_noru",
+                  "form": "polite_potential"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "えきいん",
+              "jp": "はい、乗れますよ。急行は 早い 電車ですから、急いで ください。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_noru",
+                  "form": "polite_potential"
+                },
+                "p_yo",
+                "v_kyuukou",
+                "p_wa",
+                "v_hayai",
+                "v_densha",
+                "g_desu",
+                "p_kara_because",
+                {
+                  "id": "v_isogu",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            },
+            {
+              "spk": "りきぞ",
+              "jp": "どこで 仕事を して いますか。",
+              "terms": [
+                "v_doko",
+                "p_de",
+                "v_shigoto",
+                "p_wo",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "えきいん",
+              "jp": "入り口の 前に しか いません。仕事は 朝だけ です。",
+              "terms": [
+                "v_iriguchi",
+                "p_no",
+                "v_mae",
+                "p_ni",
+                "p_shika",
+                {
+                  "id": "v_iru",
+                  "form": "polite_negative"
+                },
+                "v_shigoto",
+                "p_wa",
+                "v_asa",
+                "p_dake",
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "What does the station attendant say about where they are stationed?",
+          "choices": [
+            "They are only near the entrance.",
+            "They are near the express platform.",
+            "They can be found all day near the exit.",
+            "They are always at the information desk."
+          ],
+          "answer": "They are only near the entrance.",
+          "explanation": "The attendant says 入り口の前にしかいません (I am nowhere except in front of the entrance). しか + negative verb = 'only / nothing but'. しかいません is the polite negative of いる preceded by the limiting particle しか."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Close friends Ken and Yuki chat about their busy schedules and music.",
+          "lines": [
+            {
+              "spk": "けん",
+              "jp": "今週は 仕事ばかりで いそがしいよ。",
+              "terms": [
+                "v_konshuu",
+                "p_wa",
+                "v_shigoto",
+                "p_bakari",
+                "p_de",
+                "v_isogashii",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "わかる。私も 音楽を 聞く 時間が ないけど、歌だけは 毎日 聞いてる。",
+              "terms": [
+                {
+                  "id": "v_wakaru",
+                  "form": "plain_form"
+                },
+                "v_watashi",
+                "p_mo",
+                "v_ongaku",
+                "p_wo",
+                {
+                  "id": "v_kiku",
+                  "form": "plain_form"
+                },
+                "v_jikan",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "plain_negative"
+                },
+                "p_kedo",
+                "v_uta",
+                "p_dake",
+                "p_wa",
+                "v_mainichi",
+                {
+                  "id": "v_kiku",
+                  "form": "casual_te_iru"
+                }
+              ]
+            },
+            {
+              "spk": "けん",
+              "jp": "そうだよ。音楽は どこでも 聞けるから いい。",
+              "terms": [
+                "v_sou",
+                "p_yo",
+                "g_da",
+                "v_ongaku",
+                "p_wa",
+                "v_doko",
+                "p_demo",
+                {
+                  "id": "v_kiku",
+                  "form": "potential"
+                },
+                "p_kara_because",
+                "v_ii"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "早起きして、朝ご飯を 食べながら 歌を 聞くのが 好き。",
+              "terms": [
+                "v_hayaoki",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                "v_asagohan",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "nagara_form"
+                },
+                "v_uta",
+                "p_wo",
+                {
+                  "id": "v_kiku",
+                  "form": "plain_form"
+                },
+                "p_ga",
+                "p_no",
+                "v_suki"
+              ]
+            }
+          ],
+          "question": "What does Yuki say about her daily music habit?",
+          "choices": [
+            "She listens to songs every day even though she has no time for music.",
+            "She only listens to vocal music in the morning while working.",
+            "She sings songs every day because she is not busy.",
+            "She only listens to light music at school."
+          ],
+          "answer": "She listens to songs every day even though she has no time for music.",
+          "explanation": "Yuki says 音楽を聞く時間がないけど、歌だけは毎日聞いてる (I have no time to listen to music, but I listen to songs every day). けど is a casual connector meaning 'but'. だけ is a limiting particle meaning 'only / just'."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Arrange the word chips into the correct Japanese sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I listen to music while eating breakfast.",
+          "segments": [
+            "朝ご飯を",
+            "食べながら",
+            "音楽を",
+            "聞きます"
+          ],
+          "distractors": [
+            "歌いながら",
+            "仕事して",
+            "声楽を"
+          ],
+          "alts": [
+            ["音楽を", "聞きながら", "朝ご飯を", "食べます"]
+          ],
+          "explanation": "ながら (while doing) attaches to the ます-stem: 食べ + ながら or 聞き + ながら. Both orderings are natural: 朝ご飯を食べながら音楽を聞きます (listening to music while eating breakfast) or 音楽を聞きながら朝ご飯を食べます (eating breakfast while listening to music). The main action comes at the end."
+        },
+        {
+          "kind": "scramble",
+          "q": "I arrived early by riding the express train.",
+          "segments": [
+            "急行に",
+            "乗って",
+            "早く",
+            "着きました"
+          ],
+          "distractors": [
+            "駅員に",
+            "急いで",
+            "仕事で"
+          ],
+          "explanation": "急行に乗って (rode the express train — te-form linking sequential actions) + 早く (early/fast — adverbial form of 早い: 早 + く) + 着きました (arrived — polite past of 着く). に marks what you board/ride. The て-form connects the two actions: boarding and then arriving."
+        },
+        {
+          "kind": "scramble",
+          "q": "That singer only sings vocal music.",
+          "segments": [
+            "あの 歌手は",
+            "声楽しか",
+            "歌いません"
+          ],
+          "distractors": [
+            "軽音楽も",
+            "歌ったり",
+            "聞きながら"
+          ],
+          "explanation": "しか + negative verb = 'only / nothing but'. あの歌手は (that singer — topic) + 声楽しか (nothing but vocal music) + 歌いません (does not sing — polite negative of 歌う). しか always requires the predicate verb to be in negative form. 声楽しか歌いません = 'only sings vocal music'."
+        },
+        {
+          "kind": "scramble",
+          "q": "My only day off is Sunday.",
+          "segments": [
+            "私の",
+            "休みは",
+            "日曜日だけです"
+          ],
+          "distractors": [
+            "月曜日から",
+            "仕事ばかり",
+            "曜日しか"
+          ],
+          "explanation": "だけ = 'only / just'. わたしの (my — possession) + 休みは (days off — topic) + 日曜日だけです (it's only Sunday). だけ directly follows the noun it restricts. 日曜日 can now be written in full kanji because 曜 was taught in N4.14."
+        },
+        {
+          "kind": "scramble",
+          "q": "I did things like singing and working hard.",
+          "segments": [
+            "歌ったり",
+            "仕事したり",
+            "しました"
+          ],
+          "distractors": [
+            "声楽しか",
+            "聞きながら",
+            "歌手だけ"
+          ],
+          "explanation": "～たり～たりする lists representative actions from a set. 歌ったり (tari-form of 歌う) + 仕事したり (tari-form of 仕事する) + しました (completing the pattern with the past polite of する). This implies other activities too — not just singing and working. The ～たり pattern requires each verb to take the たり suffix."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — 音楽が 好きな やまかわさん",
+      "passage": [
+        {
+          "jp": "やまかわさんは 毎日 仕事を して、とても いそがしいです。",
+          "en": "Yamakawa-san works every day and is very busy.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_shigoto",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_totemo",
+            {
+              "id": "v_isogashii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわさんは 音楽が 大好きで、軽音楽しか 聞きません。",
+          "en": "Yamakawa-san loves music and only listens to light music.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_ongaku",
+            "p_ga",
+            "v_daisuki",
+            "p_de",
+            "v_keiongaku",
+            "p_shika",
+            {
+              "id": "v_kiku",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "朝は 早起きして、朝ご飯を 食べながら 歌を 聞きます。",
+          "en": "In the morning, Yamakawa gets up early and listens to songs while eating breakfast.",
+          "terms": [
+            "v_asa",
+            "p_wa",
+            "v_hayaoki",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_asagohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "nagara_form"
+            },
+            "v_uta",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "仕事を する 時も 音楽を 聞きます。声が 低い 歌手の 歌だけを 聞きます。",
+          "en": "When working, Yamakawa also listens to music. Yamakawa listens only to songs by singers with low voices.",
+          "terms": [
+            "v_shigoto",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_toki",
+            "p_mo",
+            "v_ongaku",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "polite_masu"
+            },
+            "v_koe",
+            "p_ga",
+            "v_hikui",
+            "v_kashu",
+            "p_no",
+            "v_uta",
+            "p_dake",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "休みは 日曜日だけですから、月曜日から また いそがしく なります。",
+          "en": "Since the day off is only Sunday, from Monday it gets busy again.",
+          "terms": [
+            "v_yasumi",
+            "p_wa",
+            "v_nichiyoubi",
+            "p_dake",
+            "g_desu",
+            "p_kara_because",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_mata",
+            {
+              "id": "v_isogashii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわさんは どんな 音楽を 聞きますか。",
+          "a": "軽音楽しか 聞きません。",
+          "choices": [
+            "軽音楽しか 聞きません。",
+            "声楽だけを 歌います。",
+            "音楽を 聞いたり 歌ったり します。",
+            "朝だけ 音楽を 聞きます。"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_donna",
+            "v_ongaku",
+            "p_wo",
+            {"id": "v_kiku", "form": "polite_masu"},
+            "p_ka",
+            "v_keiongaku",
+            "p_shika",
+            {"id": "v_kiku", "form": "polite_negative"}
+          ],
+          "explanation": "Sentence 2 says 軽音楽しか聞きません (only listens to light music). しか + negative form = exclusive 'only / nothing but'. The answer matches the passage exactly."
+        },
+        {
+          "q": "やまかわさんは 朝 何を しますか。",
+          "a": "早起きして、朝ご飯を 食べながら 歌を 聞きます。",
+          "choices": [
+            "早起きして、朝ご飯を 食べながら 歌を 聞きます。",
+            "早く 起きて、声楽を 歌います。",
+            "朝ご飯を 食べたり、仕事したり します。",
+            "朝だけ 歌手の 音楽を 聞きます。"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_asa",
+            "v_nani",
+            "p_wo",
+            {"id": "v_suru", "form": "polite_masu"},
+            "p_ka",
+            "v_hayaoki",
+            {"id": "v_suru", "form": "te_form"},
+            "v_asagohan",
+            "p_wo",
+            {"id": "v_taberu", "form": "nagara_form"},
+            "v_uta",
+            "p_wo",
+            {"id": "v_kiku", "form": "polite_masu"}
+          ],
+          "explanation": "Sentence 3 says 早起きして、朝ご飯を食べながら歌を聞きます (gets up early and listens to songs while eating breakfast). 食べながら uses ながら to express two simultaneous actions. 早起き means 'early rising'."
+        },
+        {
+          "q": "やまかわさんの 休みは いつ ですか。",
+          "a": "日曜日だけ です。",
+          "choices": [
+            "日曜日だけ です。",
+            "月曜日と 日曜日 です。",
+            "週まつだけ 休みます。",
+            "仕事の 後だけ 休みます。"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_no",
+            "v_yasumi",
+            "p_wa",
+            "v_itsu",
+            "g_desu",
+            "p_ka",
+            "v_nichiyoubi",
+            "p_dake",
+            "g_desu"
+          ],
+          "explanation": "Sentence 5 says 休みは日曜日だけ (the day off is only Sunday). だけ = 'only / just', restricting the day off to Sunday alone. 日曜日 can now be written in full kanji because 曜 is taught in N4.14."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the word in brackets.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "やまかわさんは [音楽] が 大好きです。",
+          "choices": [
+            "おんがく",
+            "おとがく",
+            "おんらく",
+            "いんがく"
+          ],
+          "answer": "おんがく",
+          "explanation": "音楽 (music) is read as <b>ongaku</b>. 音 (おん, on-reading) + 楽 (がく, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "あの [歌手] は 声が 低いです。",
+          "choices": [
+            "かしゅ",
+            "うたて",
+            "かいしゅ",
+            "かしゅう"
+          ],
+          "answer": "かしゅ",
+          "explanation": "歌手 (singer) is read as <b>kashu</b>. 歌 (か, on-reading) + 手 (しゅ, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 歌は [声楽] の スタイルです。",
+          "choices": [
+            "せいがく",
+            "こえがく",
+            "しょうがく",
+            "こえらく"
+          ],
+          "answer": "せいがく",
+          "explanation": "声楽 (vocal music) is read as <b>seigaku</b>. 声 (せい, on-reading) + 楽 (がく, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "やまかわさんは [軽音楽] を 聞きながら 仕事を します。",
+          "choices": [
+            "けいおんがく",
+            "かるおんがく",
+            "けいおんらく",
+            "けいいんがく"
+          ],
+          "answer": "けいおんがく",
+          "explanation": "軽音楽 (light music / pop music) is read as <b>keiongaku</b>. 軽 (けい, on-reading) + 音 (おん, on-reading) + 楽 (がく, on-reading). All three kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 [仕事] を して います。",
+          "choices": [
+            "しごと",
+            "つかえごと",
+            "しこと",
+            "しごど"
+          ],
+          "answer": "しごと",
+          "explanation": "仕事 (work / job) is read as <b>shigoto</b>. 仕 (し, on-reading) + 事 (ごと, kun-reading). This is a mixed reading compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 [早起き] を する 人は 元気です。",
+          "choices": [
+            "はやおき",
+            "そうき",
+            "はやうき",
+            "そうおき"
+          ],
+          "answer": "はやおき",
+          "explanation": "早起き (early rising) is read as <b>hayaoki</b>. 早 (はや, kun-reading) + 起き (おき, kun-reading of 起). Both kanji use their kun-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅から [急行] に 乗って 早く 来て ください。",
+          "choices": [
+            "きゅうこう",
+            "いそぎこう",
+            "きゅうこ",
+            "いそぐこう"
+          ],
+          "answer": "きゅうこう",
+          "explanation": "急行 (express train) is read as <b>kyuukou</b>. 急 (きゅう, on-reading) + 行 (こう, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は 何 [曜日] ですか。",
+          "choices": [
+            "ようび",
+            "よびび",
+            "ようにち",
+            "ようか"
+          ],
+          "answer": "ようび",
+          "explanation": "曜日 (day of the week) is read as <b>youbi</b>. 曜 (よう, on-reading) + 日 (び, kun-reading). This is a mixed reading compound."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Choose the word that best completes each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "やまかわさんは 会社で 毎日 ______ を して います。",
+          "choices": [
+            "仕事",
+            "音楽",
+            "早起き",
+            "曜日"
+          ],
+          "answer": "仕事",
+          "terms": [
+            "v_kaisha",
+            "v_mainichi",
+            "v_shigoto"
+          ],
+          "explanation": "仕事 (work / job) fits naturally — doing work (仕事をする) at the company every day. 音楽 (music) and 早起き (early rising) are activities but not typical company actions with する. 曜日 (day of the week) is a time word, not an activity."
+        },
+        {
+          "kind": "mcq",
+          "q": "あの 歌手の ______ は とても きれいですね。",
+          "choices": [
+            "低音",
+            "音楽",
+            "声楽",
+            "軽口"
+          ],
+          "answer": "低音",
+          "terms": [
+            "v_kashu",
+            "v_teion",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ],
+          "explanation": "低音 (low tone / bass) fits — あの歌手の低音はとてもきれいですね = 'That singer's bass tone is very beautiful'. きれい is a な-adjective meaning 'beautiful / clean'. 音楽 (music) and 声楽 (vocal music) are genres, not specific voice qualities belonging to the singer. 軽口 (witty remark) is unrelated to voice."
+        },
+        {
+          "kind": "mcq",
+          "q": "今週は いそがしくて、______ しか 会えません。",
+          "choices": [
+            "日曜日",
+            "仕事",
+            "歌手",
+            "早起き"
+          ],
+          "answer": "日曜日",
+          "terms": [
+            "v_konshuu",
+            "v_isogashii",
+            "v_nichiyoubi",
+            "p_shika"
+          ],
+          "explanation": "日曜日 (Sunday) fits — this week is too busy and I can only meet on Sunday. しか + negative (会えません) = 'nothing but / only'. A day name (日曜日) is a natural noun to be limited with しか. 仕事, 歌手, and 早起き do not fit a context of 'can only meet on ___'."
+        },
+        {
+          "kind": "mcq",
+          "q": "その 店員さんは ______ な 人で、話し声も 小さいです。",
+          "choices": [
+            "手軽",
+            "低音",
+            "急行",
+            "早口"
+          ],
+          "answer": "手軽",
+          "terms": [
+            "v_tenin",
+            "v_san",
+            "v_tegaru",
+            "v_hanashigoe"
+          ],
+          "explanation": "手軽 (easy-going / informal / approachable — な-adjective) fits here — a store clerk described as 手軽な人 is easygoing and approachable. 低音 (bass/low tone) and 急行 (express train) do not describe a person's character. 早口 (fast talker) contradicts the following clause 話し声も小さい (speaking voice is also quiet)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the answer that correctly completes the sentence or identifies the grammar pattern.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この 歌手は 声楽 ______ 歌いません。",
+          "choices": [
+            "しか",
+            "だけ",
+            "ばかり",
+            "でも"
+          ],
+          "answer": "しか",
+          "terms": [
+            "v_kashu",
+            "v_seigaku",
+            "v_utau"
+          ],
+          "explanation": "しか + negative verb = 'nothing but / only'. 声楽しか歌いません = 'only sings vocal music (sings nothing but vocal music)'. だけ (only) uses a positive verb: 声楽だけ歌います. ばかり (nothing but — overuse nuance) also takes a positive form. でも (even/any~) has a different meaning. When the predicate is negative, use しか."
+        },
+        {
+          "kind": "mcq",
+          "q": "音楽を 聞き ______ 仕事を します。",
+          "choices": [
+            "ながら",
+            "たり",
+            "てから",
+            "たくて"
+          ],
+          "answer": "ながら",
+          "terms": [
+            "v_ongaku",
+            "v_kiku",
+            "v_shigoto"
+          ],
+          "explanation": "ながら (nagara form) attaches to the ます-stem to express two simultaneous actions: 聞き + ながら + 仕事をする = 'working while listening to music'. たり requires a matching ～たり to complete the ～たり～たりする pattern. てから means 'after doing'. たくて expresses desire and changes the meaning entirely."
+        },
+        {
+          "kind": "mcq",
+          "q": "急行に 乗れますか。— 「乗れます」は どんな form ですか。",
+          "choices": [
+            "potential (can do)",
+            "te-form (connector)",
+            "desire (want to do)",
+            "tari-form (representative action)"
+          ],
+          "answer": "potential (can do)",
+          "terms": [
+            "v_kyuukou",
+            "p_ni",
+            {"id": "v_noru", "form": "polite_potential"},
+            "p_ka",
+            "p_wa",
+            "v_donna",
+            "g_desu"
+          ],
+          "explanation": "乗れます is the polite potential form of 乗る (to ride/board): polite_potential. It means 'can ride / am able to board'. The potential form of godan verbs uses the え-column (乗る → 乗れる), then ます suffix. 乗れますか asks 'Can I board this (express)?'"
+        },
+        {
+          "kind": "mcq",
+          "q": "______ でも 聞けるから、音楽は いいですね。",
+          "choices": [
+            "どこ",
+            "どれ",
+            "どの",
+            "どう"
+          ],
+          "answer": "どこ",
+          "terms": [
+            "v_doko",
+            "p_demo",
+            "v_kiku",
+            "v_ongaku"
+          ],
+          "explanation": "どこでも = 'anywhere / everywhere'. でも after a question word (どこ, 何, いつ, だれ) creates an 'any~' inclusive meaning: どこでも (anywhere), 何でも (anything), いつでも (anytime). どこでも聞けるから = 'because you can listen anywhere'. どれでも (any one of those) and どのでも are not natural here; どうでも (doesn't matter) has a different nuance."
+        },
+        {
+          "kind": "mcq",
+          "q": "今週は 仕事 ______ で、いそがしかったです。",
+          "choices": [
+            "ばかり",
+            "しか",
+            "だけ",
+            "でも"
+          ],
+          "answer": "ばかり",
+          "terms": [
+            "v_konshuu",
+            "v_shigoto",
+            "p_bakari",
+            {
+              "id": "v_isogashii",
+              "form": "polite_past_adj"
+            }
+          ],
+          "explanation": "ばかり after a noun = 'nothing but / all I do is ~' — with a nuance of excess or weariness. 仕事ばかりで = 'nothing but work' (implying overwork or complaint). しか requires a negative predicate (しか + ません). だけ is neutral restriction without the complaint nuance. でも = 'even / any~'. When expressing that something is too much or exhausting, ばかり is the natural choice."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G25",
+  "type": "grammar",
+  "title": "Obligations & Conditionals — なければ / ば / たら / なら / と",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.25",
+    "focus": "Express necessity with なければいけない and ないといけない, and contrast four conditional forms — ば (hypothetical), と (automatic result), たら (completed-event trigger), and なら (contextual). Also covers ば〜ほど for 'the more ~, the more ~'.",
+    "estimatedMinutes": 30,
+    "particles": [
+      "なければいけない",
+      "ないといけない",
+      "〜ば",
+      "〜と",
+      "〜たら",
+      "〜なら",
+      "〜ば〜ほど"
+    ],
+    "grammarForms": [
+      "conditional_ba",
+      "nakereba",
+      "conditional_tara"
+    ],
+    "icon": "🔀"
+  },
+  "targetVocab": [
+    "p_to_conditional",
+    "p_nara",
+    "p_nakereba",
+    "p_hodo",
+    "v_ikeru"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Obligations & Conditionals",
+      "icon": "🔀",
+      "summary": "Japanese expresses obligation with two interchangeable patterns — なければいけない and ないといけない — both meaning 'must' or 'have to'. For conditions, Japanese uses four distinct forms: ば for general hypotheticals, と for automatic or inevitable results, たら for conditions triggered when an event completes, and なら for responses to context already established in conversation. Finally, the ば〜ほど pattern expresses 'the more ~, the more ~'.",
+      "whyItMatters": "These patterns are essential for natural Japanese conversation. You'll use なければいけない constantly to talk about obligations, and you'll hear all four conditional forms every day — each carrying a different shade of meaning. Mastering the distinctions between them is one of the biggest steps toward sounding natural at the N4 level.",
+      "youWillLearn": [
+        "なければいけない and ないといけない — expressing 'must' or 'have to'",
+        "ば conditional — general 'if' for hypothetical conditions",
+        "と conditional — automatic or inevitable result ('when X, Y always follows')",
+        "たら conditional — condition triggered when an action is completed ('when X is done')",
+        "なら conditional — contextual 'if', responding to something already in the conversation",
+        "ば〜ほど — 'the more ~, the more ~' for degree escalation"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_obligation",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[なければ form]"
+        },
+        {
+          "label": "MUST",
+          "color": "connector",
+          "text": "いけない"
+        }
+      ],
+      "meaning": "must / have to ~ (obligation)",
+      "explanation": "なければいけない is the standard obligation construction: 'must do ~'. It's formed by taking a verb's negative stem (the same stem used for plain_negative) and replacing ない with なければ, then adding いけない or なりません. The alternative ないといけない uses the plain negative + と + いけない and carries the same meaning with a slightly more casual feel.",
+      "notes": [
+        "Formation (なければ form): Godan verbs — same stem as plain_negative (u→a) + なければ: 帰る→帰らなければ, 飲む→飲まなければ. Ichidan verbs — drop る + なければ: 食べる→食べなければ. Irregular: する→しなければ, くる→来なければ.",
+        "Politeness: casual = なければいけない; formal = なければなりません. Both express obligation.",
+        "Alternative form: ないといけない (plain_negative + と + いけない). 食べないと いけない = 食べなければ いけない. ないといけない is slightly more conversational.",
+        "In very casual speech, なければ contracts to なきゃ: 帰らなきゃ (I gotta go home). This contraction is common but not formally introduced until later.",
+        "いけない in obligation constructions is the plain negative of the verb いける. なりません is the polite negative of なる."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "今日は",
+              "role": "topic",
+              "gloss": "today (topic marker)"
+            },
+            {
+              "text": "早く",
+              "role": "adverb",
+              "gloss": "early (adverbial form of 早い)"
+            },
+            {
+              "text": "帰らなければ",
+              "role": "predicate",
+              "gloss": "go home (なければ form of 帰る — godan: 帰ら + なければ)"
+            },
+            {
+              "text": "いけない。",
+              "role": "connector",
+              "gloss": "must — obligation marker (plain negative of いける)"
+            }
+          ],
+          "en": "I must go home early today.",
+          "breakdown": "帰る (godan, -ru) → u_to_a stem 帰ら + なければ = 帰らなければ. Full construction: 帰らなければ いけない = must go home."
+        },
+        {
+          "parts": [
+            {
+              "text": "薬を",
+              "role": "object",
+              "gloss": "medicine (を)"
+            },
+            {
+              "text": "飲まなければ",
+              "role": "predicate",
+              "gloss": "drink (なければ form of 飲む — godan: 飲ま + なければ)"
+            },
+            {
+              "text": "なりません。",
+              "role": "connector",
+              "gloss": "must — polite obligation marker (polite negative of なる)"
+            }
+          ],
+          "en": "I must take medicine. (polite)",
+          "breakdown": "飲む (godan) → u_to_a stem 飲ま + なければ = 飲まなければ. なりません (polite) is more formal than いけない (casual)."
+        },
+        {
+          "parts": [
+            {
+              "text": "野菜を",
+              "role": "object",
+              "gloss": "vegetables (を)"
+            },
+            {
+              "text": "食べないと",
+              "role": "predicate",
+              "gloss": "not eat + と (plain negative + conditional と)"
+            },
+            {
+              "text": "いけない。",
+              "role": "connector",
+              "gloss": "must — obligation marker"
+            }
+          ],
+          "en": "I have to eat vegetables.",
+          "breakdown": "食べる (ichidan) → plain negative 食べない + と + いけない = ないといけない pattern. Interchangeable with 食べなければいけない."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_ba",
+      "pattern": [
+        {
+          "label": "VERB / ADJ",
+          "color": "predicate",
+          "text": "[ば form]"
+        },
+        {
+          "label": "RESULT",
+          "color": "modifier",
+          "text": "～"
+        }
+      ],
+      "meaning": "if ~ (general hypothetical condition)",
+      "explanation": "The ば conditional expresses a general 'if' — if this condition holds, then that result follows. It is hypothetical and open-ended, often used for advice, general truths, or speaker wishes. Unlike たら, the result does not need to be a completed event. Unlike と, the result is not automatic or inevitable.",
+      "notes": [
+        "Formation — Godan verbs: u_to_e stem + ば: 行く→行けば, 話す→話せば, 飲む→飲めば, 帰る→帰れば.",
+        "Formation — Ichidan verbs: drop る + れば: 食べる→食べれば, 起きる→起きれば.",
+        "Formation — Irregular: する→すれば, くる→来れば, ある→あれば.",
+        "Formation — い-adjectives: drop い + ければ: 早い→早ければ, 高い→高ければ.",
+        "Use ば for general advice or open hypotheticals: 毎日 練習すれば、上手になる (if you practice every day, you'll get better). The speaker doesn't know if you will practice — it's a general condition.",
+        "ば is NOT used for one-time past events as triggers. Use たら for completed-event triggers: ✗ 試験が 終われば instead use ✓ 試験が 終わったら。"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "毎日",
+              "role": "adverb",
+              "gloss": "every day"
+            },
+            {
+              "text": "話せば、",
+              "role": "predicate",
+              "gloss": "speak (ば form of 話す — godan: 話せ + ば)"
+            },
+            {
+              "text": "上手に",
+              "role": "adverb",
+              "gloss": "skilled (adverbial form of 上手)"
+            },
+            {
+              "text": "なる。",
+              "role": "predicate",
+              "gloss": "become (plain form of なる)"
+            }
+          ],
+          "en": "If you speak every day, you'll get better.",
+          "breakdown": "話す (godan) → u_to_e stem 話せ + ば = 話せば. Open hypothetical: the condition is general advice, not tied to a specific completed event."
+        },
+        {
+          "parts": [
+            {
+              "text": "時間が",
+              "role": "subject",
+              "gloss": "time (が)"
+            },
+            {
+              "text": "あれば、",
+              "role": "predicate",
+              "gloss": "exist (ば form of ある — irregular: あれば)"
+            },
+            {
+              "text": "映画を",
+              "role": "object",
+              "gloss": "movie (を)"
+            },
+            {
+              "text": "見よう。",
+              "role": "predicate",
+              "gloss": "let's watch (plain volitional of 見る)"
+            }
+          ],
+          "en": "If there's time, let's watch a movie.",
+          "breakdown": "ある (irr_aru) → irregular ば form あれば. The condition (having time) is hypothetical — the speaker doesn't know yet if time will exist."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_to",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[plain form]"
+        },
+        {
+          "label": "AUTO",
+          "color": "connector",
+          "text": "と"
+        },
+        {
+          "label": "RESULT",
+          "color": "modifier",
+          "text": "～"
+        }
+      ],
+      "meaning": "when / if ~ (automatic or inevitable result)",
+      "explanation": "The と conditional expresses a result that always follows automatically from the condition — a natural law, a fixed fact, or an inevitable consequence. It is used after plain-form verbs and adjectives. Unlike ば and たら, the result clause cannot express the speaker's requests, suggestions, or intentions (no volitional forms, no commands, no てください).",
+      "notes": [
+        "Formation: plain form (dictionary form) verb/adjective + と. 行く→行くと, 押す→押すと, 寒い→寒いと.",
+        "Use と for: directions ('go right and the station is there'), natural laws ('spring comes and it warms up'), mechanical results ('press the button and the door opens'), and habitual truths.",
+        "と cannot be followed by volitional forms (〜よう), requests (〜てください), or suggestions. Use たら or ば for those: ✗ 終わると 行こう → ✓ 終わったら 行こう.",
+        "Contrast with たら: と describes automatic / always-true results; たら describes a one-time event that triggers the next action after completion."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "駅を",
+              "role": "object",
+              "gloss": "station (を)"
+            },
+            {
+              "text": "出ると、",
+              "role": "predicate",
+              "gloss": "exit (plain form of 出る + と — automatic result)"
+            },
+            {
+              "text": "右に",
+              "role": "modifier",
+              "gloss": "on the right (に)"
+            },
+            {
+              "text": "コンビニが",
+              "role": "subject",
+              "gloss": "convenience store (が)"
+            },
+            {
+              "text": "ある。",
+              "role": "predicate",
+              "gloss": "there is (plain form of ある)"
+            }
+          ],
+          "en": "Exit the station and there's a convenience store on the right.",
+          "breakdown": "出る (ichidan) → plain form 出る + と. The result is automatic and always true — every time you exit, the store is there. Classic use of と for directions."
+        },
+        {
+          "parts": [
+            {
+              "text": "春に",
+              "role": "modifier",
+              "gloss": "in spring (に)"
+            },
+            {
+              "text": "なると、",
+              "role": "predicate",
+              "gloss": "become (plain form of なる + と — automatic result)"
+            },
+            {
+              "text": "花が",
+              "role": "subject",
+              "gloss": "flowers (が)"
+            },
+            {
+              "text": "さく。",
+              "role": "predicate",
+              "gloss": "bloom (plain form of さく)"
+            }
+          ],
+          "en": "When spring comes, the flowers bloom.",
+          "breakdown": "なる → plain form なる + と. A natural, inevitable result: every spring, flowers bloom. This kind of always-true statement is a hallmark of と."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_tara",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[たら form]"
+        },
+        {
+          "label": "RESULT",
+          "color": "modifier",
+          "text": "～"
+        }
+      ],
+      "meaning": "when ~ / if ~ (after the action is completed)",
+      "explanation": "The たら conditional is formed from the plain past (た/だ) + ら. It expresses a condition that is triggered once the preceding action or event is completed. Unlike と, the result can be a request, suggestion, or intention. Unlike ば, たら links to a specific event completing, not a general hypothetical.",
+      "notes": [
+        "Formation — Godan verbs: same euphonic changes as plain past + ら: 行く→行ったら, 終わる→終わったら, 飲む→飲んだら, 話す→話したら.",
+        "Formation — Ichidan verbs: drop る + たら: 食べる→食べたら, 起きる→起きたら.",
+        "Formation — Irregular: する→したら, くる→来たら.",
+        "Formation — い-adjectives: drop い + かったら: 早い→早かったら, いい→よかったら (irregular — stem is よ-).",
+        "たら can express: (1) a sequenced trigger — 試験が 終わったら、遊ぼう (when the exam is done, let's play); (2) a discovered result — 家に 帰ったら、手紙が あった (when I got home, there was a letter); (3) a hypothetical wish — 時間が あったら、行きたい (if I had time, I'd want to go).",
+        "Unlike と, the result after たら can be volitional (〜よう, 〜ましょう) or a request (〜てください)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "仕事が",
+              "role": "subject",
+              "gloss": "work (が)"
+            },
+            {
+              "text": "終わったら、",
+              "role": "predicate",
+              "gloss": "finish (たら form of 終わる — godan: 終わった + ら)"
+            },
+            {
+              "text": "電話して。",
+              "role": "predicate",
+              "gloss": "call (te-form of 電話する — request)"
+            }
+          ],
+          "en": "When work is done, give me a call.",
+          "breakdown": "終わる (godan, -ru) → plain past 終わった + ら = 終わったら. The result (call me) is a request — possible with たら but not with と."
+        },
+        {
+          "parts": [
+            {
+              "text": "日本に",
+              "role": "modifier",
+              "gloss": "to Japan (に)"
+            },
+            {
+              "text": "行ったら、",
+              "role": "predicate",
+              "gloss": "go (たら form of 行く — godan: 行った + ら)"
+            },
+            {
+              "text": "すしを",
+              "role": "object",
+              "gloss": "sushi (を)"
+            },
+            {
+              "text": "食べたい。",
+              "role": "predicate",
+              "gloss": "want to eat (plain desire form of 食べる)"
+            }
+          ],
+          "en": "If I go to Japan, I want to eat sushi.",
+          "breakdown": "行く (godan) → plain past 行った + ら = 行ったら. Here たら is hypothetical (if I were to go) with a personal wish as the result."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_nara",
+      "pattern": [
+        {
+          "label": "VERB / NOUN",
+          "color": "predicate",
+          "text": "[plain form]"
+        },
+        {
+          "label": "CONTEXT",
+          "color": "connector",
+          "text": "なら"
+        },
+        {
+          "label": "RESPONSE",
+          "color": "modifier",
+          "text": "～"
+        }
+      ],
+      "meaning": "if ~ / in that case (contextual — based on established information)",
+      "explanation": "なら is the contextual conditional. Unlike ば, と, and たら which introduce new conditions, なら always responds to something already in the conversation — what the other person just said, a plan they mentioned, or an assumption that's already been established. The nuance is 'given what you just told me' or 'if that's the case'.",
+      "notes": [
+        "Formation: plain form verb/noun/adjective + なら. 行く→行くなら, 学生→学生なら, 上手→上手なら.",
+        "なら responds to established context. If someone says 東京に 行く, you respond: 東京に 行くなら、渋谷に 寄ってみて (if you're going to Tokyo [as you just said], try stopping by Shibuya).",
+        "Do not use なら for brand-new hypotheticals. Use ば or たら: ✗ 時間が あるなら (introducing new info) → ✓ 時間が あれば / あったら.",
+        "なら is also the ば-conditional form of な-adjectives (from conditional_ba rules for na_adj: add なら). Context usually makes the meaning clear.",
+        "Common pattern: noun + なら for topic-based conditions — 東京なら (if it's Tokyo / speaking of Tokyo). This carries a strong sense of 'given this topic'."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "日本語を",
+              "role": "object",
+              "gloss": "Japanese (を)"
+            },
+            {
+              "text": "勉強するなら、",
+              "role": "predicate",
+              "gloss": "study (plain form of 勉強する + なら — contextual)"
+            },
+            {
+              "text": "この",
+              "role": "modifier",
+              "gloss": "this"
+            },
+            {
+              "text": "本が",
+              "role": "subject",
+              "gloss": "book (が)"
+            },
+            {
+              "text": "いい。",
+              "role": "predicate",
+              "gloss": "is good"
+            }
+          ],
+          "en": "If you're studying Japanese, this book is good.",
+          "breakdown": "勉強する → plain form + なら = 勉強するなら. なら responds to context — perhaps someone just mentioned wanting to study Japanese. The response 'this book is good' is a recommendation based on that established fact."
+        },
+        {
+          "parts": [
+            {
+              "text": "映画を",
+              "role": "object",
+              "gloss": "movie (を)"
+            },
+            {
+              "text": "見るなら、",
+              "role": "predicate",
+              "gloss": "watch (plain form of 見る + なら — contextual)"
+            },
+            {
+              "text": "この",
+              "role": "modifier",
+              "gloss": "this"
+            },
+            {
+              "text": "映画館が",
+              "role": "subject",
+              "gloss": "movie theater (が)"
+            },
+            {
+              "text": "いい。",
+              "role": "predicate",
+              "gloss": "is good"
+            }
+          ],
+          "en": "If you're going to watch a movie (as you've mentioned), this theater is good.",
+          "breakdown": "見る → plain form + なら = 見るなら. The speaker is reacting to something already said (e.g., 'I want to watch a movie'). なら picks up that context and makes a recommendation."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "Four Conditionals — ば / と / たら / なら",
+      "items": [
+        {
+          "label": "ば",
+          "color": "predicate",
+          "points": [
+            "General hypothetical — 'if this condition holds'",
+            "Used for advice, general truths, and open-ended conditions",
+            "Result can be volitional (let's ~) or a statement",
+            "NOT used for one-time completed-event triggers"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "毎日",
+                "role": "adverb",
+                "gloss": "every day"
+              },
+              {
+                "text": "話せば、",
+                "role": "predicate",
+                "gloss": "speak (ば form)"
+              },
+              {
+                "text": "上手に なる。",
+                "role": "predicate",
+                "gloss": "you'll get better"
+              }
+            ],
+            "en": "If you speak every day, you'll get better."
+          }
+        },
+        {
+          "label": "と",
+          "color": "connector",
+          "points": [
+            "Automatic or inevitable result — 'when X, Y always follows'",
+            "Natural laws, directions, mechanical results, habitual facts",
+            "Result clause CANNOT be a request, suggestion, or intention",
+            "The result always follows — no exceptions"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "駅を 出ると、",
+                "role": "predicate",
+                "gloss": "exit the station (plain + と)"
+              },
+              {
+                "text": "右に コンビニが ある。",
+                "role": "predicate",
+                "gloss": "there's a convenience store on the right"
+              }
+            ],
+            "en": "Exit the station and there's a convenience store on the right."
+          }
+        },
+        {
+          "label": "たら",
+          "color": "modifier",
+          "points": [
+            "Completed-event trigger — 'when/if [action] is done'",
+            "Works for both one-time events and hypotheticals",
+            "Result CAN be a request (〜て), suggestion (〜よう), or intention",
+            "Most versatile conditional — the safe default when unsure"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "仕事が 終わったら、",
+                "role": "predicate",
+                "gloss": "when work is done (たら form)"
+              },
+              {
+                "text": "電話して。",
+                "role": "predicate",
+                "gloss": "give me a call (request)"
+              }
+            ],
+            "en": "When work is done, give me a call."
+          }
+        },
+        {
+          "label": "なら",
+          "color": "adverb",
+          "points": [
+            "Contextual — responds to something already established",
+            "Reacts to what the other person said or implied",
+            "Condition must already be in the conversation/context",
+            "NOT used to introduce brand-new hypotheticals"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "日本語を 勉強するなら、",
+                "role": "predicate",
+                "gloss": "if you're studying Japanese (as you said)"
+              },
+              {
+                "text": "この 本が いい。",
+                "role": "predicate",
+                "gloss": "this book is good"
+              }
+            ],
+            "en": "If you're studying Japanese (as you mentioned), this book is good."
+          }
+        }
+      ],
+      "tip": "Quick rule: と = always automatic (no requests); たら = after completion (most flexible); ば = general if (advice/truths); なら = reacting to context (must already be established)."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_bahodo",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[ば form]"
+        },
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[plain form]"
+        },
+        {
+          "label": "DEGREE",
+          "color": "connector",
+          "text": "ほど"
+        },
+        {
+          "label": "RESULT",
+          "color": "modifier",
+          "text": "～"
+        }
+      ],
+      "meaning": "the more ~, the more ~ (escalating degree)",
+      "explanation": "ば〜ほど expresses that as one thing increases, another increases proportionally. The verb appears twice — first in the ば conditional form, then again in its plain form before ほど. The result clause describes what increases or changes in proportion.",
+      "notes": [
+        "Formation: [verb-ば] + [same verb plain form] + ほど + [result]. 読む→読めば 読むほど (the more you read). 勉強する→勉強すれば するほど (the more you study).",
+        "The verb repeats: ば form + plain form + ほど. Both uses of the verb refer to the same action increasing in frequency or degree.",
+        "The result clause often uses adjective adverbial forms with なる: おもしろく なる (becomes more interesting), 上手に なる (becomes more skilled).",
+        "い-adjective pattern: 早ければ 早いほど、いい (the earlier the better). The adjective appears in ければ form then its plain form.",
+        "ほど here is the degree particle (p_hodo) meaning 'to the extent of'. It marks the proportional degree to which the result follows."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "読めば",
+              "role": "predicate",
+              "gloss": "read (ば form of 読む — godan: 読め + ば)"
+            },
+            {
+              "text": "読むほど、",
+              "role": "predicate",
+              "gloss": "read (plain form of 読む) + ほど (to that extent)"
+            },
+            {
+              "text": "おもしろく",
+              "role": "adverb",
+              "gloss": "interesting (adverbial form of おもしろい)"
+            },
+            {
+              "text": "なる。",
+              "role": "predicate",
+              "gloss": "become (plain form of なる)"
+            }
+          ],
+          "en": "The more you read, the more interesting it becomes.",
+          "breakdown": "読む (godan) → ば form 読めば + plain form 読む + ほど. The verb repeats to express proportional escalation. Result: おもしろく なる = becomes more interesting."
+        },
+        {
+          "parts": [
+            {
+              "text": "勉強すれば",
+              "role": "predicate",
+              "gloss": "study (ば form of する — irregular: すれば) — with 勉強 noun"
+            },
+            {
+              "text": "するほど、",
+              "role": "predicate",
+              "gloss": "do (plain form of する) + ほど"
+            },
+            {
+              "text": "よく",
+              "role": "adverb",
+              "gloss": "well / better"
+            },
+            {
+              "text": "分かる。",
+              "role": "predicate",
+              "gloss": "understand (plain form of 分かる)"
+            }
+          ],
+          "en": "The more you study, the better you understand.",
+          "breakdown": "勉強する suru compound: 勉強 (noun) + する → すれば (ば form) for the condition, する (plain) + ほど for the degree marker. よく 分かる = understand well/better."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Exam Crunch and Movie Plans (Casual)",
+      "context": "りきぞ and けん are chatting the day before an exam. りきぞ is stressed about studying; けん tries to be encouraging and they make plans for after the exam.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "明日 試験が あるから、今日は 勉強 しなければ いけないよ。",
+          "en": "I have an exam tomorrow, so I have to study today.",
+          "terms": [
+            "char_rikizo",
+            "v_ashita",
+            "v_shiken",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "plain_form"
+            },
+            "p_kara_because",
+            "v_kyou",
+            "p_wa",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "plain_negative"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そうか。毎日 勉強 すれば、試験は よく 分かるよ。",
+          "en": "Is that so. If you study every day, you'll understand the material well.",
+          "terms": [
+            "char_ken",
+            "v_sou",
+            "p_ka",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            "v_shiken",
+            "p_wa",
+            "v_yoku",
+            {
+              "id": "v_wakaru",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "試験が 終わったら、映画を 見ようよ！",
+          "en": "When the exam is done, let's watch a movie!",
+          "terms": [
+            "char_rikizo",
+            "v_shiken",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "conditional_tara"
+            },
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "plain_volitional"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "映画を 見るなら、この 映画館に 行こう！",
+          "en": "If you're going to watch a movie, let's go to this theater!",
+          "terms": [
+            "char_ken",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "plain_form"
+            },
+            "p_nara",
+            "v_kono",
+            "v_eigakan",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_volitional"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そうだね。でも、今は 勉強 しないと いけないんだ。",
+          "en": "You're right. But I have to study now.",
+          "terms": [
+            "char_rikizo",
+            "v_sou",
+            "p_ne",
+            "g_da",
+            "p_demo_but",
+            "v_ima",
+            "p_wa",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_negative"
+            },
+            "p_to_conditional",
+            {
+              "id": "v_ikeru",
+              "form": "plain_negative"
+            },
+            "p_nda"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "id": "fill_1",
+      "instructions": "Choose the correct form or word to complete each sentence.",
+      "items": [
+        {
+          "before": "右に 行く",
+          "after": "、駅が ある。",
+          "translation": "Go right and the station is there (automatic result).",
+          "choices": [
+            "と",
+            "たら",
+            "ば",
+            "なら"
+          ],
+          "answer": "と",
+          "explanation": "と expresses an automatic, always-true result: 行くと、駅が ある — every time you go right, the station is there. たら would imply 'after you've gone right, you'll find a station', which is less natural for fixed directions."
+        },
+        {
+          "before": "仕事が 終わっ",
+          "after": "、電話して。",
+          "translation": "When work is done, give me a call.",
+          "choices": [
+            "たら",
+            "と",
+            "ば",
+            "なら"
+          ],
+          "answer": "たら",
+          "explanation": "たら is the completed-event conditional: 終わったら = when/if work is done. と cannot be used here because the result is a request (電話して) — と does not allow request or intention forms in the result."
+        },
+        {
+          "before": "薬を 飲まなければ",
+          "after": "。",
+          "translation": "I have to take medicine.",
+          "choices": [
+            "いけない",
+            "いい",
+            "なる",
+            "できる"
+          ],
+          "answer": "いけない",
+          "explanation": "なければ いけない is the obligation construction meaning 'must' or 'have to'. 飲まなければ いけない = must drink (the medicine). いい would mean 'it's fine not to drink', which is the opposite meaning."
+        },
+        {
+          "before": "勉強すれば する",
+          "after": "、よく 分かる。",
+          "translation": "The more you study, the better you understand.",
+          "choices": [
+            "ほど",
+            "のに",
+            "から",
+            "ため"
+          ],
+          "answer": "ほど",
+          "explanation": "ば〜ほど is the 'the more ~, the more ~' pattern. すれば する ほど = the more you do (study), the [more you understand]. ほど marks the proportional degree."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: Obligations & Conditionals",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "映画を 見る____、この 映画館に 行こう。",
+          "choices": [
+            "なら",
+            "と",
+            "ば",
+            "たら"
+          ],
+          "answer": "なら",
+          "explanation": "なら responds to context already established — e.g., someone just said they want to watch a movie. 見るなら (if you're going to watch one, as you mentioned) → recommendation. と would require an automatic result; ば is for new hypotheticals; たら implies after watching.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "帰らなければ いけない。— What form of 帰る is 帰らなければ?",
+          "choices": [
+            "Nakereba form (obligation stem — 帰ら + なければ)",
+            "Plain negative (帰らない without the ない)",
+            "Te-form (帰って)",
+            "Conditional ば form (帰れば)"
+          ],
+          "answer": "Nakereba form (obligation stem — 帰ら + なければ)",
+          "explanation": "帰る (godan) → u_to_a stem 帰ら + なければ = 帰らなければ. This is the nakereba form, used in obligation constructions なければいけない and なければなりません. The stem is identical to the plain_negative stem (帰ら), but adds なければ instead of ない.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence uses と correctly?",
+          "choices": [
+            "駅を 出ると、右に コンビニが ある。",
+            "試験が 終わると、映画を 見よう。",
+            "日本語を 勉強すると、この 本が いい。",
+            "映画を 見ると、この 映画館に 行こう。"
+          ],
+          "answer": "駅を 出ると、右に コンビニが ある。",
+          "explanation": "と requires an automatic result that cannot be a request or intention. 駅を 出ると、コンビニが ある = automatic/always-true (the store is always there). The others fail: 終わると 見よう uses a volitional (✗ with と); 勉強すると この本が いい is a recommendation (not automatic); 見ると 行こう is a suggestion (✗ with と).",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "読めば 読むほど、おもしろくなる。— What does this sentence mean?",
+          "choices": [
+            "The more you read, the more interesting it becomes.",
+            "If you read, it will become interesting.",
+            "Reading is interesting, so read more.",
+            "You should read until it becomes interesting."
+          ],
+          "answer": "The more you read, the more interesting it becomes.",
+          "explanation": "読めば 読むほど is the ば〜ほど pattern: the verb repeats (ば form + plain form + ほど) to express proportional escalation. おもしろくなる = becomes interesting. The whole sentence means: as reading increases, interestingness increases proportionally.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "What is the key difference between ば and たら?",
+          "choices": [
+            "ば is for general hypotheticals and advice; たら is for completed-event triggers and allows requests",
+            "ば is for past events; たら is for future events",
+            "ば requires a negative result; たら requires a positive result",
+            "ば is polite; たら is casual"
+          ],
+          "answer": "ば is for general hypotheticals and advice; たら is for completed-event triggers and allows requests",
+          "explanation": "ば expresses open, general conditions (毎日 話せば、上手になる = if you speak every day, you'll improve — general advice). たら links to a specific event completing and allows requests/intentions in the result (仕事が 終わったら、電話して = when work is done, call me — specific trigger + request). たら is the most versatile conditional.",
+          "terms": []
+        }
+      ]
+    }
+  ],
+  "unlocksAfter": "N4.25"
+}

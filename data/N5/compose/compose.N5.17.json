@@ -1,0 +1,156 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.17",
+  "lesson": "N5.17",
+  "level": "N5",
+  "title": "Work and Society",
+  "titleJp": "会社と 社会",
+  "emoji": "🏢",
+  "theme": "Write about a day at a company — describe the entrance and exit, morning and afternoon activities, meeting the company president, and your thoughts on work and society.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Introduce the company — write about where the entrance and exit are.",
+      "targets": [
+        { "id": "v_iriguchi", "count": 1 },
+        { "id": "v_deguchi", "count": 1 }
+      ],
+      "model": "会社の 入り口は 右に あります。出口は 左に あります。",
+      "vocabPool": [
+        "v_iriguchi", "v_deguchi", "v_kaisha", "v_migi", "v_hidari", "v_ue", "v_shita",
+        "v_aru", "v_iku", "v_kuru",
+        "v_eki", "v_mise", "v_michi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the morning at the company — what happens in the morning (午前)?",
+      "targets": [
+        { "id": "v_gozen", "count": 1 },
+        { "id": "v_kaisha", "count": 1 }
+      ],
+      "model": "午前に 会社に 入ります。社長と 会います。",
+      "vocabPool": [
+        "v_gozen", "v_kaisha", "v_shachou", "v_iriguchi", "v_au", "v_hairu", "v_kuru",
+        "v_kaiwa", "v_nihongo", "v_hanasu", "v_yomu",
+        "v_mainichi", "v_issho", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about meeting someone at the company — use 会う (to meet) and describe who you met and what conversation took place.",
+      "targets": [
+        { "id": "v_au", "count": 1 },
+        { "id": "v_kaiwa", "count": 1 }
+      ],
+      "model": "社長と 会いました。会社の 中で 日本語の 会話を しました。",
+      "vocabPool": [
+        "v_au", "v_kaiwa", "v_shachou", "v_kaisha", "v_nihongo", "v_hanasu",
+        "v_naka", "v_suru", "v_jouzu", "v_heta", "v_mada", "v_totemo",
+        "v_mainichi", "v_sukoshi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the afternoon (午後) — what did you do? Use 出す or 入れる in your answer.",
+      "targets": [
+        { "id": "v_gogo", "count": 1 },
+        { "id": "v_dasu", "count": 1 }
+      ],
+      "model": "午後に 本を 出して、中に 入れました。社会の ことを たくさん 話しました。",
+      "vocabPool": [
+        "v_gogo", "v_dasu", "v_ireru", "v_hon", "v_naka", "v_shakai",
+        "v_hanasu", "v_yomu", "v_kaku", "v_takusan",
+        "v_shachou", "v_kaiwa", "v_koto",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about leaving the company — use 出る (to exit) and 出口 (exit) in your answer.",
+      "targets": [
+        { "id": "v_deru", "count": 1 },
+        { "id": "v_deguchi", "count": 1 }
+      ],
+      "model": "左の 出口から 出ました。会社の 外は きれいでした。",
+      "vocabPool": [
+        "v_deru", "v_deguchi", "v_iriguchi", "v_hidari", "v_migi", "v_soto",
+        "v_kaisha", "v_kirei", "v_ookii", "v_ii",
+        "v_iku", "v_kuru", "v_aru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Reflect on work and society — write about アルバイト (part-time work) or 社会 (society) and how you feel about it.",
+      "targets": [
+        { "id": "v_shakai", "count": 1 }
+      ],
+      "model": "社会に 出て、たくさん 話したいです。アルバイトも いいですよ。",
+      "vocabPool": [
+        "v_shakai", "v_arubaito", "v_kaisha", "v_shachou", "v_kaiwa",
+        "v_deru", "v_hairu", "v_au", "v_hanasu",
+        "v_ii", "v_totemo", "v_takusan", "v_mainichi",
+        "v_jouzu", "v_naru", "v_iru",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made",
+    "p_ni", "p_de", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます",
+      "meaning": "polite present — enters / exits / meets",
+      "examples": ["入ります", "出ます", "会います"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ました",
+      "meaning": "polite past — entered / exited / met",
+      "examples": ["入りました", "出ました", "会いました"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません",
+      "meaning": "polite negative — does not enter / exit",
+      "examples": ["入りません", "出ません", "会いません"]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do — polite request",
+      "examples": ["入ってください", "出してください", "話してください"]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing / ongoing state",
+      "examples": ["話しています", "上手に なっています"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": ["会いたいです", "入りたいです", "出たくないです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do — invitation or suggestion",
+      "examples": ["会いましょう", "出ましょう", "話しましょう"]
+    },
+    {
+      "pattern": "[verb て-form] + [verb て-form] + ...",
+      "meaning": "sequential actions — do A, then do B",
+      "examples": ["入り口から 入って、社長に 会います", "本を 出して、中に 入れました"]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past adjective — was long / was good (irregular: いい → よかったです)",
+      "examples": ["長かったです", "よかったです", "大きかったです"]
+    },
+    {
+      "pattern": "[な-adj] + でした",
+      "meaning": "polite past for な-adjectives — was skilled / was beautiful",
+      "examples": ["上手でした", "きれいでした"]
+    }
+  ]
+}

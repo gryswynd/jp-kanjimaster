@@ -1,0 +1,741 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G23",
+  "type": "grammar",
+  "title": "Permissions & Prohibitions — てもいい / てはいけない / なくてもいい",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.21",
+    "focus": "Express what is allowed (てもいい — may / it's okay to), what is forbidden (てはいけない — must not), and what is not required (なくてもいい — don't have to).",
+    "estimatedMinutes": 20,
+    "particles": [
+      "てもいい",
+      "てはいけない",
+      "なくてもいい"
+    ],
+    "grammarForms": [
+      "te_form"
+    ],
+    "icon": "🚦"
+  },
+  "targetVocab": [
+    "v_ii",
+    "v_ikeru",
+    "v_dame"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Permissions & Prohibitions",
+      "icon": "🚦",
+      "summary": "Japanese has a clean three-way system for expressing rules and social permission: てもいい says an action is allowed, てはいけない says it is forbidden, and なくてもいい says it is not required. Together they form the core of the Japanese permission and obligation system.",
+      "whyItMatters": "These patterns appear constantly in schools, workplaces, hospitals, signs, and everyday conversation. Whether you are asking a teacher for permission, reading a notice board, or telling someone they don't need to worry, these constructions are indispensable.",
+      "youWillLearn": [
+        "てもいい — 'may / it's okay to' for giving or asking permission",
+        "てはいけない — 'must not / it is not okay to' for stating prohibitions",
+        "なくてもいい — 'don't have to / it's not necessary to' for removing obligation",
+        "Informal variants: ていい / ちゃいけない / ちゃだめ",
+        "The full permission/obligation quadrant (preview of G22: なければいけない)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_temo_ii",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "PERMISSION",
+          "color": "connector",
+          "text": "もいい"
+        },
+        {
+          "label": "COPULA",
+          "color": "modifier",
+          "text": "（です）"
+        }
+      ],
+      "meaning": "may ~ / it's okay to ~ / you can ~",
+      "explanation": "てもいい (te-form + もいい) expresses that an action is permitted or acceptable. It is used to grant permission, state that something is fine, or ask whether an action is allowed. Adding です makes it polite.",
+      "notes": [
+        "Formation: conjugate the verb to its て-form, then add もいい. 食べる → 食べて + もいい → 食べてもいい.",
+        "Polite permission: 食べてもいいです (it's okay to eat). Asking: 食べてもいいですか (may I eat?).",
+        "Informal: drop the い → ていい is a casual shorthand. 食べていい？ is natural in casual speech between friends.",
+        "The construction literally reads 'even if [you do X], it is good' — the もいい frames the action as acceptable regardless.",
+        "To grant enthusiastic permission: てもいいですよ (you're welcome to / of course you can)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "ここに",
+              "role": "modifier",
+              "gloss": "here (に)"
+            },
+            {
+              "text": "すわっ",
+              "role": "predicate",
+              "gloss": "sit (te-form of すわる)"
+            },
+            {
+              "text": "てもいいですか。",
+              "role": "connector",
+              "gloss": "may I ~ / is it okay to ~? (permission question)"
+            }
+          ],
+          "en": "May I sit here?",
+          "breakdown": "すわる (godan: to sit) → te-form すわって + もいいですか = polite permission question."
+        },
+        {
+          "parts": [
+            {
+              "text": "まどを",
+              "role": "object",
+              "gloss": "window (を)"
+            },
+            {
+              "text": "あけ",
+              "role": "predicate",
+              "gloss": "open (te-form of あける)"
+            },
+            {
+              "text": "てもいいですよ。",
+              "role": "connector",
+              "gloss": "it's okay to ~ / please feel free to ~ (permission granted)"
+            }
+          ],
+          "en": "You may open the window.",
+          "breakdown": "あける (ichidan: to open) → te-form あけて + もいいですよ = permission granted, polite."
+        },
+        {
+          "parts": [
+            {
+              "text": "帰っ",
+              "role": "predicate",
+              "gloss": "go home (te-form)"
+            },
+            {
+              "text": "ていい",
+              "role": "connector",
+              "gloss": "it's fine to ~ (casual: drop the い from いい)"
+            },
+            {
+              "text": "よ。",
+              "role": "modifier",
+              "gloss": "sentence-final emphatic particle"
+            }
+          ],
+          "en": "You can go home. (casual)",
+          "breakdown": "帰る (godan: to go home) → te-form 帰って + ていい (casual shorthand of てもいい) + よ for light emphasis."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_tewa_ikenai",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "FOCUS",
+          "color": "topic",
+          "text": "は"
+        },
+        {
+          "label": "PROHIBITION",
+          "color": "connector",
+          "text": "いけない"
+        },
+        {
+          "label": "COPULA",
+          "color": "modifier",
+          "text": "（です）"
+        }
+      ],
+      "meaning": "must not ~ / it is not okay to ~ / [you] are not allowed to ~",
+      "explanation": "てはいけない (te-form + は + いけない) expresses that an action is prohibited or not acceptable. It is the standard way to state rules and prohibitions in Japanese. Adding です or using いけません makes it polite.",
+      "notes": [
+        "Formation: te-form + は + いけない. 食べる → 食べて + は + いけない → 食べてはいけない.",
+        "Polite prohibition: 食べてはいけません (you must not eat). The は after て acts as a focus/contrast marker.",
+        "The て can contract with the following は in fast speech: てはいけない → ちゃいけない. 食べてはいけない → 食べちゃいけない (casual).",
+        "Even more casual/emphatic: てはだめ / ちゃだめ. 食べちゃだめ is very common in casual speech.",
+        "Signs and notices often use the shorter form: きんし (prohibited) or 入るな (do not enter — command form)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "ここで",
+              "role": "modifier",
+              "gloss": "here (で)"
+            },
+            {
+              "text": "写真を",
+              "role": "object",
+              "gloss": "photo (を)"
+            },
+            {
+              "text": "とっ",
+              "role": "predicate",
+              "gloss": "take (te-form of とる)"
+            },
+            {
+              "text": "てはいけません。",
+              "role": "connector",
+              "gloss": "must not ~ / not allowed to ~ (polite prohibition)"
+            }
+          ],
+          "en": "You must not take photos here.",
+          "breakdown": "とる (godan: to take) → te-form とって + はいけません = prohibition, polite form."
+        },
+        {
+          "parts": [
+            {
+              "text": "じゅぎょうちゅうに",
+              "role": "modifier",
+              "gloss": "during class (に)"
+            },
+            {
+              "text": "スマホを",
+              "role": "object",
+              "gloss": "smartphone (を)"
+            },
+            {
+              "text": "使っ",
+              "role": "predicate",
+              "gloss": "use (te-form of 使う)"
+            },
+            {
+              "text": "てはいけません。",
+              "role": "connector",
+              "gloss": "must not ~ (polite prohibition)"
+            }
+          ],
+          "en": "You must not use your smartphone during class.",
+          "breakdown": "使う (godan: to use) → te-form 使って + はいけません = classroom rule stated politely. (じゅぎょうちゅう = during class/lesson time)"
+        },
+        {
+          "parts": [
+            {
+              "text": "そこに",
+              "role": "modifier",
+              "gloss": "there (に)"
+            },
+            {
+              "text": "入っ",
+              "role": "predicate",
+              "gloss": "enter (te-form of 入る)"
+            },
+            {
+              "text": "ちゃいけない",
+              "role": "connector",
+              "gloss": "must not ~ (casual: てはいけない → ちゃいけない)"
+            },
+            {
+              "text": "よ。",
+              "role": "modifier",
+              "gloss": "sentence-final emphatic particle"
+            }
+          ],
+          "en": "You can't go in there! (casual)",
+          "breakdown": "入る (godan: to enter) → te-form 入って + は → ちゃいけないよ (fast casual contraction of てはいけない)."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_nakutemo_ii",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[plain negative stem]"
+        },
+        {
+          "label": "CONJ",
+          "color": "connector",
+          "text": "くてもいい"
+        },
+        {
+          "label": "COPULA",
+          "color": "modifier",
+          "text": "（です）"
+        }
+      ],
+      "meaning": "don't have to ~ / it's not necessary to ~ / you don't need to ~",
+      "explanation": "なくてもいい expresses that an action is NOT required — the speaker is releasing someone from an obligation. It is formed from the plain negative stem (ない → remove い → なく) + てもいい. Literally: 'even without doing it, it is fine.'",
+      "notes": [
+        "Formation: plain negative of the verb (行かない), remove the final い → 行かなく, add てもいい → 行かなくてもいい (don't have to go).",
+        "Polite: 行かなくてもいいです. Very casual: 行かなくていい (drop も, same as てもいい → ていい shorthand).",
+        "This is the 'relief' pattern — use it to tell someone they can stop worrying about a task. 'ぜんぶ食べなくてもいいですよ' = You don't have to eat all of it.",
+        "Contrast with てはいけない: てはいけない FORBIDS an action; なくてもいい REMOVES the obligation to do it. They are opposite in direction.",
+        "All verb types follow the same pattern: godan, ichidan, and irregular verbs all form the plain negative first, then apply the same なくてもいい construction."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "今日は",
+              "role": "topic",
+              "gloss": "today (は)"
+            },
+            {
+              "text": "来なく",
+              "role": "predicate",
+              "gloss": "not come (stem of 来ない — plain negative of 来る)"
+            },
+            {
+              "text": "てもいいですよ。",
+              "role": "connector",
+              "gloss": "it's fine even without ~ / don't have to ~ (permission to skip)"
+            }
+          ],
+          "en": "You don't have to come today.",
+          "breakdown": "来る (irregular) → plain negative 来ない → remove い → 来なく + てもいいですよ = it's fine if you don't come."
+        },
+        {
+          "parts": [
+            {
+              "text": "ぜんぶ",
+              "role": "modifier",
+              "gloss": "all / everything"
+            },
+            {
+              "text": "食べなく",
+              "role": "predicate",
+              "gloss": "not eat (stem of 食べない — plain negative of 食べる)"
+            },
+            {
+              "text": "てもいいです。",
+              "role": "connector",
+              "gloss": "it's okay even without ~ / don't have to ~"
+            }
+          ],
+          "en": "You don't have to eat everything.",
+          "breakdown": "食べる (ichidan) → plain negative 食べない → remove い → 食べなく + てもいいです."
+        },
+        {
+          "parts": [
+            {
+              "text": "お金を",
+              "role": "object",
+              "gloss": "money (を)"
+            },
+            {
+              "text": "はらわなく",
+              "role": "predicate",
+              "gloss": "not pay (stem of はらわない — plain negative of はらう)"
+            },
+            {
+              "text": "ていい",
+              "role": "connector",
+              "gloss": "it's fine without ~ (casual shorthand of なくてもいい)"
+            },
+            {
+              "text": "よ。",
+              "role": "modifier",
+              "gloss": "emphatic particle"
+            }
+          ],
+          "en": "You don't have to pay. (casual)",
+          "breakdown": "はらう (godan: to pay) → plain negative はらわない → はらわなく + ていいよ (casual shorthand)."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "てもいい vs てはいけない — Permission vs Prohibition",
+      "items": [
+        {
+          "label": "てもいい",
+          "color": "predicate",
+          "points": [
+            "Grants or asks for permission",
+            "The action IS acceptable — it's okay to do it",
+            "Asking: てもいいですか？ (May I ~?)",
+            "Granting: てもいいですよ (You may ~ / of course)",
+            "Casual short form: ていい"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "ここに",
+                "role": "modifier",
+                "gloss": "here (に)"
+              },
+              {
+                "text": "すわっ",
+                "role": "predicate",
+                "gloss": "sit"
+              },
+              {
+                "text": "てもいいですか。",
+                "role": "connector",
+                "gloss": "May I sit here?"
+              }
+            ],
+            "en": "May I sit here?"
+          }
+        },
+        {
+          "label": "てはいけない",
+          "color": "connector",
+          "points": [
+            "States a prohibition or rule",
+            "The action is NOT acceptable — it must not be done",
+            "Polite: てはいけません",
+            "Casual contractions: ちゃいけない / ちゃだめ",
+            "Used for rules, signs, warnings, and social norms"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "ここに",
+                "role": "modifier",
+                "gloss": "here (に)"
+              },
+              {
+                "text": "すわっ",
+                "role": "predicate",
+                "gloss": "sit"
+              },
+              {
+                "text": "てはいけません。",
+                "role": "connector",
+                "gloss": "You must not sit here."
+              }
+            ],
+            "en": "You must not sit here."
+          }
+        }
+      ],
+      "tip": "Same verb, opposite meaning: てもいい = 'the action is fine.' てはいけない = 'the action is forbidden.' The difference is もいい (good even if) vs はいけない (not acceptable that)."
+    },
+    {
+      "type": "grammarTable",
+      "title": "The Permission & Obligation Quadrant",
+      "description": "Japanese expresses four positions in a permission/obligation grid. G21 teaches the left column and the upper right. G22 will complete the lower right.",
+      "tableType": "conjugation",
+      "headers": [
+        "",
+        "Positive (do the action)",
+        "Negative (skip the action)"
+      ],
+      "rows": [
+        {
+          "label": "PERMITTED / OKAY",
+          "cells": [
+            "てもいい — May do / It's okay to do\n食べてもいいです (You may eat.)",
+            "なくてもいい — Don't have to / Not necessary\n食べなくてもいいです (You don't have to eat.)"
+          ],
+          "meaning": "Both express acceptance — one for doing, one for not doing."
+        },
+        {
+          "label": "REQUIRED / FORBIDDEN",
+          "cells": [
+            "なければいけない — Must do (G22)\n食べなければいけません (You must eat.)",
+            "てはいけない — Must not do\n食べてはいけません (You must not eat.)"
+          ],
+          "meaning": "Both express requirement — one to act, one to refrain. なければいけない is taught in G22."
+        }
+      ],
+      "notes": [
+        "Memory tip: いい always signals 'acceptable.' いけない always signals 'not acceptable.'",
+        "Direction: てもいい (do → okay), なくてもいい (don't do → okay), てはいけない (do → NOT okay), なければいけない (don't do → NOT okay)."
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Real Contexts: Permission, Prohibition, and No Obligation",
+      "examples": [
+        {
+          "context": "Library notice board — prohibition",
+          "parts": [
+            {
+              "text": "図書館では、",
+              "role": "topic",
+              "gloss": "in the library (では — topic + location)"
+            },
+            {
+              "text": "飲み物を",
+              "role": "object",
+              "gloss": "drinks (を)"
+            },
+            {
+              "text": "飲ん",
+              "role": "predicate",
+              "gloss": "drink (te-form of 飲む)"
+            },
+            {
+              "text": "てはいけません。",
+              "role": "connector",
+              "gloss": "must not ~ (polite prohibition)"
+            }
+          ],
+          "en": "You must not drink beverages in the library.",
+          "note": "てはいけません is the standard polite prohibition form — exactly what you'd see on a notice board."
+        },
+        {
+          "context": "Doctor to patient — permission",
+          "parts": [
+            {
+              "text": "もう",
+              "role": "adverb",
+              "gloss": "already / now (indicating a change of state)"
+            },
+            {
+              "text": "運動し",
+              "role": "predicate",
+              "gloss": "exercise (te-form of 運動する)"
+            },
+            {
+              "text": "てもいいですよ。",
+              "role": "connector",
+              "gloss": "it's okay to ~ now / you may ~ (permission granted)"
+            }
+          ],
+          "en": "You may exercise now.",
+          "note": "てもいいですよ sounds reassuring when the patient was not allowed to exercise before. The よ softens it with a warm tone."
+        },
+        {
+          "context": "Teacher to student — no obligation",
+          "parts": [
+            {
+              "text": "しゅくだいは",
+              "role": "topic",
+              "gloss": "homework (は — topic)"
+            },
+            {
+              "text": "ぜんぶ",
+              "role": "adverb",
+              "gloss": "all / everything"
+            },
+            {
+              "text": "しなく",
+              "role": "predicate",
+              "gloss": "not do (stem of しない — plain negative of する)"
+            },
+            {
+              "text": "てもいいです。",
+              "role": "connector",
+              "gloss": "it's fine without ~ / don't have to ~"
+            }
+          ],
+          "en": "You don't have to do all the homework.",
+          "note": "なくてもいい lifts an obligation rather than forbidding or granting. The は after しゅくだい marks it as the topic being discussed."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Rules at the Library",
+      "context": "りきぞ and けん ask やまかわ-sensei about the rules in the school library.",
+      "lines": [
+        {
+          "spk": "りきぞ",
+          "jp": "先生、図書館でスマホを使ってもいいですか。",
+          "en": "Sensei, may we use our smartphones in the library?",
+          "terms": [
+            "char_rikizo",
+            "v_sensei",
+            "v_toshokan",
+            "p_de",
+            "v_sumaho",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "いいえ、図書館ではスマホを使ってはいけません。",
+          "en": "No, you must not use smartphones in the library.",
+          "terms": [
+            "char_yamakawa",
+            "v_iie",
+            "v_toshokan",
+            "p_dewa",
+            "v_sumaho",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "飲み物を持ってきてもいいですか。",
+          "en": "May we bring drinks?",
+          "terms": [
+            "char_ken",
+            "v_nomimono",
+            "p_wo",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "水だけ飲んでもいいですよ。コーヒーを飲んではいけません。",
+          "en": "You may drink water only. You must not drink coffee.",
+          "terms": [
+            "char_yamakawa",
+            "v_mizu",
+            "p_dake",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_yo",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "patternMatch",
+      "title": "Permission or Prohibition?",
+      "instructions": "Read each sentence carefully. Decide if the sentence expresses PERMISSION (てもいい — the action is okay) or NOT (either prohibition or no-obligation). Select true if the sentence expresses permission.",
+      "items": [
+        {
+          "sentence": "ここで食べてもいいです。",
+          "answer": true,
+          "explanation": "てもいい expresses permission — 'it is okay to eat here.' This is a permission sentence."
+        },
+        {
+          "sentence": "走ってはいけません。",
+          "answer": false,
+          "explanation": "てはいけない expresses prohibition — 'you must not run.' This is a prohibition, not permission."
+        },
+        {
+          "sentence": "今日は来なくてもいいですよ。",
+          "answer": false,
+          "explanation": "なくてもいい removes an obligation — 'you don't have to come today.' This is a no-obligation statement, not a permission grant."
+        },
+        {
+          "sentence": "写真をとってもいいですか。",
+          "answer": true,
+          "explanation": "てもいいですか is a permission question — 'may I take a photo?' The speaker is asking if the action is permitted."
+        },
+        {
+          "sentence": "このへやに入ってはいけません。",
+          "answer": false,
+          "explanation": "てはいけない expresses prohibition — 'you must not enter this room.' The は after て marks the action as the topic of the prohibition."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: てもいい / てはいけない / なくてもいい",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which phrase correctly says 'May I use this computer?'",
+          "choices": [
+            "このパソコンを使ってはいけますか。",
+            "このパソコンを使ってもいいですか。",
+            "このパソコンを使わなくてもいいですか。",
+            "このパソコンを使ってだめですか。"
+          ],
+          "answer": "このパソコンを使ってもいいですか。",
+          "terms": [],
+          "explanation": "てもいいですか is the standard polite way to ask for permission. 使って (te-form of 使う) + もいいですか = 'may I use?' The other options either use the wrong pattern (てはいけます is not a real form) or change the meaning (使わなくてもいい means 'don't have to use')."
+        },
+        {
+          "kind": "mcq",
+          "q": "What does 今日は来なくてもいいですよ mean?",
+          "choices": [
+            "You must come today.",
+            "You must not come today.",
+            "You don't have to come today.",
+            "You may not come today."
+          ],
+          "answer": "You don't have to come today.",
+          "terms": [],
+          "explanation": "なくてもいい removes obligation — it says an action is NOT required. 来なくてもいい = 'don't have to come.' It does NOT mean forbidden (that would be 来てはいけない) or required (来なければいけない)."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which is the casual/contracted form of 食べてはいけない?",
+          "choices": [
+            "食べていい",
+            "食べちゃいけない",
+            "食べなくてもいい",
+            "食べてもだめ"
+          ],
+          "answer": "食べちゃいけない",
+          "terms": [],
+          "explanation": "In casual speech, て + は contracts to ちゃ: 食べてはいけない → 食べちゃいけない. This is very common in natural spoken Japanese. 食べていい is the casual form of 食べてもいい (permission), not prohibition."
+        },
+        {
+          "kind": "mcq",
+          "q": "How do you form なくてもいい?",
+          "choices": [
+            "te-form + もいい",
+            "dictionary form + いい",
+            "plain negative stem (ない → なく) + てもいい",
+            "masu-stem + くてもいい"
+          ],
+          "answer": "plain negative stem (ない → なく) + てもいい",
+          "terms": [],
+          "explanation": "Formation: (1) make the plain negative form (行く → 行かない), (2) remove the final い (行かない → 行かなく), (3) add てもいい → 行かなくてもいい. The key is taking the plain negative as the base, not the te-form."
+        },
+        {
+          "kind": "mcq",
+          "q": "A teacher posts a notice: 「スマホを使ってはいけません」. What does this mean?",
+          "choices": [
+            "You may use your smartphone.",
+            "You don't have to use your smartphone.",
+            "You must not use your smartphone.",
+            "Please use your smartphone."
+          ],
+          "answer": "You must not use your smartphone.",
+          "terms": [],
+          "explanation": "使ってはいけません = te-form of 使う (to use) + はいけません = prohibition. This is a common school or workplace rule. The polite いけません form is appropriate for formal notices and signs."
+        }
+      ]
+    }
+  ]
+}

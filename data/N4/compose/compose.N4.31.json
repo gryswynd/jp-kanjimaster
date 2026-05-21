@@ -1,0 +1,438 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.31",
+  "lesson": "N4.31",
+  "level": "N4",
+  "title": "The Forest Temple Opening",
+  "titleJp": "森の お寺の 開堂",
+  "emoji": "🏯",
+  "theme": "Write about attending the opening ceremony of a restored forest temple — from first hearing about it, to arriving in the forest, seeing the magnificent main hall, learning about the temple's long history, watching the ceremony begin, and reflecting on why places like this matter.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you heard there will be an opening ceremony at a forest temple. Use 森 and 開始.",
+      "targets": [
+        {
+          "id": "v_mori",
+          "count": 1
+        },
+        {
+          "id": "v_kaishi",
+          "count": 1
+        }
+      ],
+      "model": "森の 中の お寺で 開始の 式が あると 聞きました。",
+      "vocabPool": [
+        "v_mori",
+        "v_kaishi",
+        "v_otera",
+        "v_kiku",
+        "v_aru",
+        "v_naka",
+        "v_kyou",
+        "v_raishuu",
+        "p_de",
+        "p_no",
+        "p_ga",
+        "p_to_quote",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you thought it would be a gathering of the new generation and that many people would come. Use 世代 and と思う.",
+      "targets": [
+        {
+          "id": "v_sedai",
+          "count": 1
+        },
+        {
+          "id": "v_omou",
+          "count": 1
+        }
+      ],
+      "model": "新しい 世代の 人たちが たくさん 来ると 思いました。",
+      "vocabPool": [
+        "v_sedai",
+        "v_omou",
+        "v_hitobito",
+        "v_atarashii",
+        "v_ooi",
+        "v_kuru",
+        "v_atsumaru",
+        "p_ga",
+        "p_no",
+        "p_to_quote",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that the forest path was long, and that you had been to the forest once before. Use 森林 and たことがある.",
+      "targets": [
+        {
+          "id": "v_shinrin",
+          "count": 1
+        },
+        {
+          "id": "v_aru",
+          "count": 1,
+          "matches": ["ある", "あり", "あった"]
+        }
+      ],
+      "model": "森林の 道は 長かったです。前に 一度 来たことが あります。",
+      "vocabPool": [
+        "v_shinrin",
+        "v_aru",
+        "v_mori",
+        "v_michi",
+        "v_mae",
+        "v_ichido",
+        "v_kuru",
+        "v_nagai",
+        "v_koto",
+        "p_wa",
+        "p_no",
+        "p_ga",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that the main hall in the forest looked magnificent. Use 本堂 and 堂々.",
+      "targets": [
+        {
+          "id": "v_hondou",
+          "count": 1
+        },
+        {
+          "id": "v_doudou",
+          "count": 1
+        }
+      ],
+      "model": "森の 中の 本堂は 堂々として 見えました。",
+      "vocabPool": [
+        "v_hondou",
+        "v_doudou",
+        "v_mori",
+        "v_naka",
+        "v_mieru",
+        "v_ookii",
+        "v_kirei",
+        "g_desu",
+        "p_wa",
+        "p_no",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write about the temple's history — that this era has changed greatly, but the temple has been there for a long time. Use 時代 and 代わる.",
+      "targets": [
+        {
+          "id": "v_jidai",
+          "count": 1
+        },
+        {
+          "id": "v_kawaru",
+          "count": 1
+        }
+      ],
+      "model": "時代は 大きく 代わりましたが、このお寺は 古い 時代から あります。",
+      "vocabPool": [
+        "v_jidai",
+        "v_kawaru",
+        "v_otera",
+        "v_furui",
+        "v_aru",
+        "v_nagai",
+        "p_wa",
+        "p_ga",
+        "p_kedo",
+        "p_kara",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that before the opening ceremony, the entrance to the assembly hall was opened. Use 会堂, 入り口, and 開ける.",
+      "targets": [
+        {
+          "id": "v_kaidou",
+          "count": 1
+        },
+        {
+          "id": "v_iriguchi",
+          "count": 1
+        },
+        {
+          "id": "v_akeru",
+          "count": 1
+        }
+      ],
+      "model": "式の 前に、会堂の 入り口を 開けました。",
+      "vocabPool": [
+        "v_kaidou",
+        "v_iriguchi",
+        "v_akeru",
+        "v_mae",
+        "v_kaishi",
+        "v_hayai",
+        "p_no",
+        "p_wo",
+        "p_ni",
+        "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that the gathering was held at the assembly hall and that it was opened. Use 会合 and 開く.",
+      "targets": [
+        {
+          "id": "v_kaigou",
+          "count": 1
+        },
+        {
+          "id": "v_hiraku",
+          "count": 1
+        }
+      ],
+      "model": "会合は 会堂で 開かれました。",
+      "vocabPool": [
+        "v_kaigou",
+        "v_hiraku",
+        "v_kaidou",
+        "v_hondou",
+        "v_atsumaru",
+        "v_mori",
+        "g_desu",
+        "p_wa",
+        "p_de",
+        "p_ga",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that many people from the new generation gathered, and that this generation values such places. Use 世代 and 大切.",
+      "targets": [
+        {
+          "id": "v_sedai",
+          "count": 1
+        },
+        {
+          "id": "v_taisetsu",
+          "count": 1
+        }
+      ],
+      "model": "新しい 世代の 人々が 集まり、この 世代には 大切な 場所だと 思いました。",
+      "vocabPool": [
+        "v_sedai",
+        "v_taisetsu",
+        "v_hitobito",
+        "v_atsumaru",
+        "v_omou",
+        "v_atarashii",
+        "v_tokoro",
+        "g_da",
+        "p_ga",
+        "p_no",
+        "p_to_quote",
+        "p_ni",
+        "p_wa"
+      ]
+    },
+    {
+      "prompt": "Write that the cafeteria in the hall had just opened and that the fee was not expensive. Use 食堂, 開店, and 代金.",
+      "targets": [
+        {
+          "id": "v_shokudou",
+          "count": 1
+        },
+        {
+          "id": "v_kaiten",
+          "count": 1
+        },
+        {
+          "id": "v_daikin",
+          "count": 1
+        }
+      ],
+      "model": "堂の 食堂は 開店したばかりで、代金は 高くなかったです。",
+      "vocabPool": [
+        "v_shokudou",
+        "v_kaiten",
+        "v_daikin",
+        "v_suru",
+        "v_takai",
+        "v_yasui",
+        "v_kaidou",
+        "g_desu",
+        "p_wa",
+        "p_de",
+        "p_mo",
+        "p_no",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Close by writing your reflection — that even as eras change, you think places where people gather are important. Use 時代, 代わる, and と思う.",
+      "targets": [
+        {
+          "id": "v_jidai",
+          "count": 1
+        },
+        {
+          "id": "v_kawaru",
+          "count": 1
+        },
+        {
+          "id": "v_omou",
+          "count": 1
+        }
+      ],
+      "model": "時代が 代わっても、人々が 集まる 所は 大切だと 思います。",
+      "vocabPool": [
+        "v_jidai",
+        "v_kawaru",
+        "v_omou",
+        "v_hitobito",
+        "v_atsumaru",
+        "v_taisetsu",
+        "v_tokoro",
+        "g_da",
+        "p_ga",
+        "p_to_quote",
+        "p_mo",
+        "p_wa"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "A staff member was told to open the entrance by their manager. Write a casual note to a friend about it, saying you were made to open the entrance early and it was a lot of work. Use 開ける in the causative form and 入り口.",
+      "targets": [
+        {
+          "id": "v_akeru",
+          "count": 1
+        },
+        {
+          "id": "v_iriguchi",
+          "count": 1
+        }
+      ],
+      "model": "早く 入り口を 開けさせられたよ。一人で やったから 大変だったけど、まあ いいよ。",
+      "vocabPool": [
+        "v_akeru",
+        "v_iriguchi",
+        "v_hayai",
+        "v_hitori",
+        "v_suru",
+        "v_ii",
+        "v_iru",
+        "v_you_manner",
+        "v_naru",
+        "g_da",
+        "p_wo",
+        "p_yo",
+        "p_kedo",
+        "p_mo",
+        "p_kara_because"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_ya",
+    "p_dewa",
+    "p_ga_but",
+    "p_kedo",
+    "p_node",
+    "p_hodo",
+    "p_yori",
+    "p_dake",
+    "p_shika",
+    "p_made",
+    "p_made_ni",
+    "p_bakari",
+    "p_demo",
+    "p_shi",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_demo_but",
+    "p_sou_da",
+    "p_sou_da_hearsay",
+    "p_tte_quote",
+    "p_zutsu",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[plain form] + と + 思う",
+      "meaning": "I think that … / I feel that … (expressing opinions and thoughts)",
+      "examples": [
+        "新しい 世代の 人たちが 来ると 思いました",
+        "時代が 代わっても 大切だと 思います",
+        "また 来たいと 思います"
+      ]
+    },
+    {
+      "pattern": "[verb-た] + ことが + ある",
+      "meaning": "have done [verb] before / have had the experience of doing (experiential past)",
+      "examples": [
+        "前に 一度 来たことが あります",
+        "この 森に 入ったことが あります",
+        "本堂を 見たことが ありませんでした"
+      ]
+    },
+    {
+      "pattern": "[u-verb あ-row] + れる (passive)",
+      "meaning": "be done / be [verb]-ed (passive voice — focus on the subject being acted upon)",
+      "examples": [
+        "会合は 会堂で 開かれました",
+        "入り口が 開けられました",
+        "この お寺は 多くの 人に 大切に されています"
+      ]
+    },
+    {
+      "pattern": "[u-verb あ-row] + せる / [ru-verb] + させる (causative)",
+      "meaning": "make / let [someone] do [verb] (causative — expressing compulsion or permission)",
+      "examples": [
+        "入り口を 開けさせました",
+        "学生に 作文を 書かせました",
+        "子どもに 野菜を 食べさせました"
+      ]
+    },
+    {
+      "pattern": "[te-form] + も",
+      "meaning": "even if / even though (concessive — accepting a condition and moving past it)",
+      "examples": [
+        "時代が 代わっても 大切です",
+        "雨が 降っても 行きます",
+        "難しくても 諦めません"
+      ]
+    },
+    {
+      "pattern": "[plain past] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay — reporting what you were told)",
+      "examples": [
+        "会合は とても 楽しかった そうです",
+        "食堂が 開店した そうです",
+        "森林の 道は 長かった そうです"
+      ]
+    }
+  ]
+}

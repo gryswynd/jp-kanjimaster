@@ -1,0 +1,351 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.27",
+  "lesson": "N4.27",
+  "level": "N4",
+  "title": "An Evening Rendezvous",
+  "titleJp": "夕方の 待ち合わせ",
+  "emoji": "🌆",
+  "theme": "Write about arranging and attending an evening Tanabata gathering with friends. Describe setting a meeting point, waiting, enjoying the event, and reflecting on how the evening went — using waiting and meeting vocabulary in natural narrative sentences.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that next week's class meeting has been arranged. Use 会合 and 待ち合わせ.",
+      "targets": [
+        {
+          "id": "v_kaigou",
+          "count": 1
+        },
+        {
+          "id": "v_machiawase",
+          "count": 1
+        }
+      ],
+      "model": "来週の 会合の 待ち合わせを しました。",
+      "vocabPool": [
+        "v_kaigou",
+        "v_machiawase",
+        "v_raishuu",
+        "v_suru",
+        "v_aru",
+        "v_kondo",
+        "v_ashita",
+        "v_eki",
+        "g_desu",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Describe where you arranged to meet. Use 待ち合い室 and a conditional たら form.",
+      "targets": [
+        {
+          "id": "v_machiaishitsu",
+          "count": 1
+        }
+      ],
+      "model": "駅に 着いたら、待ち合い室で 待ちます。",
+      "vocabPool": [
+        "v_machiaishitsu",
+        "v_eki",
+        "v_matsu",
+        "v_tsuku",
+        "v_sugu",
+        "v_doko",
+        "v_soko",
+        "g_desu",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that the meeting time is 6 in the evening. Use 夕方 and に.",
+      "targets": [
+        {
+          "id": "v_yuugata",
+          "count": 1
+        }
+      ],
+      "model": "夕方の 六時に 待ち合わせ します。",
+      "vocabPool": [
+        "v_yuugata",
+        "v_machiawase",
+        "v_matsu",
+        "v_nanji",
+        "v_suru",
+        "v_kondo",
+        "v_eki",
+        "g_desu",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you have been looking forward to Tanabata. Use 心待ち and ようにする.",
+      "targets": [
+        {
+          "id": "v_kokoromachi",
+          "count": 1
+        },
+        {
+          "id": "v_you_manner",
+          "count": 1
+        }
+      ],
+      "model": "七夕を 心待ちに する ように して います。",
+      "vocabPool": [
+        "v_kokoromachi",
+        "v_you_manner",
+        "v_tanabata",
+        "v_suru",
+        "v_iru",
+        "v_kotoshi",
+        "v_yuugata",
+        "v_ii",
+        "g_desu",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you have to go early to the meeting rendezvous. Use 待ち合わせ and なければいけない.",
+      "targets": [
+        {
+          "id": "v_machiawase",
+          "count": 1
+        }
+      ],
+      "model": "待ち合わせに 早く 行かなければ いけません。",
+      "vocabPool": [
+        "v_machiawase",
+        "v_hayai",
+        "v_ikeru",
+        "v_iku",
+        "v_suru",
+        "v_mae",
+        "v_eki",
+        "v_sugu",
+        "g_desu",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Describe the evening with a degree expression. Use 度合い and よくなる.",
+      "targets": [
+        {
+          "id": "v_doai",
+          "count": 1
+        }
+      ],
+      "model": "七夕の 夜の 度合いが よく なりました。",
+      "vocabPool": [
+        "v_doai",
+        "v_tanabata",
+        "v_yuugata",
+        "v_ii",
+        "v_naru",
+        "v_yoru",
+        "v_totemo",
+        "v_nando",
+        "g_desu",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that the more you go, the more enjoyable it becomes. Use 何度も and ほど.",
+      "targets": [
+        {
+          "id": "v_nando",
+          "count": 1
+        }
+      ],
+      "model": "何度も 行けば 行く ほど、楽しく なります。",
+      "vocabPool": [
+        "v_nando",
+        "v_iku",
+        "v_naru",
+        "v_tanoshii",
+        "v_ichido",
+        "v_kondo",
+        "v_mata",
+        "v_yoku",
+        "g_desu",
+        "p_hodo"
+      ]
+    },
+    {
+      "prompt": "Write that the evening meal was delicious. Use 夕飯 and a past tense sentence.",
+      "targets": [
+        {
+          "id": "v_yuuhan",
+          "count": 1
+        }
+      ],
+      "model": "夕飯も おいしかったです。",
+      "vocabPool": [
+        "v_yuuhan",
+        "v_oishii",
+        "v_ii",
+        "v_taberu",
+        "v_resutoran",
+        "v_mise",
+        "v_kuchi",
+        "v_totemo",
+        "g_desu",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Close by writing that you want to go again next time. Use 今度 and 一度に.",
+      "targets": [
+        {
+          "id": "v_kondo",
+          "count": 1
+        },
+        {
+          "id": "v_ichido",
+          "count": 1
+        }
+      ],
+      "model": "今度は 一度に みんなで 行きたいです。",
+      "vocabPool": [
+        "v_kondo",
+        "v_ichido",
+        "v_iku",
+        "v_mata",
+        "v_tomodachi",
+        "v_issho",
+        "v_minna",
+        "v_nando",
+        "g_desu",
+        "p_de"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "You heard that the Tanabata event was wonderful. Report what someone said using 七夕 and そうです.",
+      "targets": [
+        {
+          "id": "v_tanabata",
+          "count": 1
+        }
+      ],
+      "model": "七夕が とても よかった そうです。",
+      "vocabPool": [
+        "v_tanabata",
+        "v_ii",
+        "v_totemo",
+        "v_iu",
+        "v_yuugata",
+        "v_kokoromachi",
+        "v_tanoshii",
+        "v_naru",
+        "p_sou_da_hearsay",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write a sentence saying the more times you go to an event, the better it gets. Use 度重なる and ほど.",
+      "targets": [
+        {
+          "id": "v_tabikasanaru",
+          "count": 1
+        }
+      ],
+      "model": "度重なる ほど、楽しく なって きます。",
+      "vocabPool": [
+        "v_tabikasanaru",
+        "v_tanoshii",
+        "v_naru",
+        "v_kuru",
+        "v_nando",
+        "v_ii",
+        "v_yoku",
+        "v_doai",
+        "p_hodo",
+        "g_desu"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_ni",
+    "p_de",
+    "p_no",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_nara",
+    "p_kara",
+    "p_made_ni",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_dewa",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo",
+    "p_node",
+    "p_hodo",
+    "p_sou_da_hearsay",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-た] + ら",
+      "meaning": "when / after [verb] (conditional — event sequence)",
+      "examples": [
+        "駅に 着いたら、すぐに 電話 します",
+        "夕方に なったら、待ち合わせ します",
+        "会合が 終わったら、夕飯を 食べます"
+      ]
+    },
+    {
+      "pattern": "[verb-え] + ば",
+      "meaning": "if [verb] (hypothetical conditional)",
+      "examples": [
+        "何度も 行けば、楽しく なります",
+        "早く 着けば、待たなくて いいです",
+        "一緒に 行けば、もっと 楽しいです"
+      ]
+    },
+    {
+      "pattern": "[verb-なければ] + いけない",
+      "meaning": "must [verb] / have to [verb] (obligation)",
+      "examples": [
+        "待ち合わせに 遅れなければ いけません",
+        "夕方に 帰らなければ いけません",
+        "電話しなければ いけません"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + する",
+      "meaning": "make an effort to / try to [verb]",
+      "examples": [
+        "早く 起きる ように して います",
+        "急ぐ ように して ください",
+        "毎日 歩く ように して います"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ほど",
+      "meaning": "the more … (degree expression)",
+      "examples": [
+        "何度も 行けば 行く ほど、楽しく なります",
+        "度重なる ほど、よく なります",
+        "強度が 高い ほど、難しいです"
+      ]
+    },
+    {
+      "pattern": "[plain past] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay)",
+      "examples": [
+        "七夕が よかった そうです",
+        "先生が 夕方に 来た そうです",
+        "試合が 合理的 だった そうです"
+      ]
+    }
+  ]
+}

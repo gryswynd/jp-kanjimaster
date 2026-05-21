@@ -1,0 +1,1099 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G29",
+  "type": "grammar",
+  "title": "The Causative Form — Making and Letting",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.31",
+    "focus": "Express that someone makes or lets another person do something. Covers causative form construction for RU-verbs, U-verbs, する, and くる, the make vs let distinction, causee particle patterns (に vs を), and a preview of the causative-passive (させられる).",
+    "estimatedMinutes": 25,
+    "particles": [
+      "〜させる",
+      "〜せる",
+      "〜させます",
+      "〜させた",
+      "〜させられる"
+    ],
+    "grammarForms": [
+      "causative",
+      "polite_causative",
+      "plain_causative_past",
+      "polite_causative_past",
+      "causative_passive"
+    ],
+    "icon": "🎭"
+  },
+  "targetVocab": [],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "The Causative Form — Making and Letting",
+      "icon": "🎭",
+      "summary": "The causative form expresses that one person causes another person to do something — either by forcing them (making them do it) or by giving them permission (letting them do it). Japanese uses a single causative suffix — 〜させる for RU-verbs and 〜せる for U-verbs — for both meanings. Context and the nature of the action determine whether 'make' or 'let' is the right translation.",
+      "whyItMatters": "The causative is everywhere in Japanese family life, school, and the workplace. Parents make children eat vegetables. Teachers let students leave early. Managers have employees write reports. Mastering the causative lets you describe authority, permission, and everyday power dynamics — essential for natural, adult-level Japanese.",
+      "youWillLearn": [
+        "How to form the causative for RU-verbs, U-verbs, する, and くる",
+        "Make vs let — the same form, two different readings (母は 子どもに 野菜を 食べさせる)",
+        "Causee particle patterns — intransitive verbs take に (子どもに 待たせる); transitive verbs use に for the causee",
+        "Causative-passive (させられる) — a preview of being made to do something against your will"
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "Causative Form — Conjugation Chart",
+      "description": "The causative suffix attaches differently depending on verb type. RU-verbs (ichidan) drop る and add させる. U-verbs (godan) shift the final mora to the あ-row and add せる. する and くる are irregular.",
+      "tableType": "conjugation",
+      "headers": [
+        "Verb type",
+        "Dictionary form",
+        "Causative (plain)",
+        "Causative (polite)",
+        "Causative past (plain)",
+        "Causative past (polite)"
+      ],
+      "rows": [
+        {
+          "label": "RU-verb (ichidan)",
+          "cells": [
+            "食べる (to eat)",
+            "食べさせる",
+            "食べさせます",
+            "食べさせた",
+            "食べさせました"
+          ],
+          "meaning": "make/let (someone) eat"
+        },
+        {
+          "label": "RU-verb (ichidan)",
+          "cells": [
+            "見る (to see/watch)",
+            "見させる",
+            "見させます",
+            "見させた",
+            "見させました"
+          ],
+          "meaning": "make/let (someone) watch"
+        },
+        {
+          "label": "RU-verb (ichidan)",
+          "cells": [
+            "起きる (to wake up)",
+            "起きさせる",
+            "起きさせます",
+            "起きさせた",
+            "起きさせました"
+          ],
+          "meaning": "make/let (someone) wake up"
+        },
+        {
+          "label": "U-verb (godan) — く",
+          "cells": [
+            "書く (to write)",
+            "書かせる",
+            "書かせます",
+            "書かせた",
+            "書かせました"
+          ],
+          "meaning": "make/let (someone) write"
+        },
+        {
+          "label": "U-verb (godan) — す",
+          "cells": [
+            "話す (to speak)",
+            "話させる",
+            "話させます",
+            "話させた",
+            "話させました"
+          ],
+          "meaning": "make/let (someone) speak"
+        },
+        {
+          "label": "U-verb (godan) — む",
+          "cells": [
+            "読む (to read)",
+            "読ませる",
+            "読ませます",
+            "読ませた",
+            "読ませました"
+          ],
+          "meaning": "make/let (someone) read"
+        },
+        {
+          "label": "U-verb (godan) — く",
+          "cells": [
+            "行く (to go)",
+            "行かせる",
+            "行かせます",
+            "行かせた",
+            "行かせました"
+          ],
+          "meaning": "make/let (someone) go"
+        },
+        {
+          "label": "U-verb (godan) — つ",
+          "cells": [
+            "待つ (to wait)",
+            "待たせる",
+            "待たせます",
+            "待たせた",
+            "待たせました"
+          ],
+          "meaning": "make (someone) wait"
+        },
+        {
+          "label": "Irregular — する",
+          "cells": [
+            "する (to do)",
+            "させる",
+            "させます",
+            "させた",
+            "させました"
+          ],
+          "meaning": "make/let (someone) do"
+        },
+        {
+          "label": "Irregular — くる",
+          "cells": [
+            "くる (to come)",
+            "こさせる",
+            "こさせます",
+            "こさせた",
+            "こさせました"
+          ],
+          "meaning": "make/let (someone) come"
+        }
+      ],
+      "notes": [
+        "U-verb あ-row shift for causative: く→か、ぐ→が、す→さ、つ→た、ぬ→な、ぶ→ば、む→ま、る→ら. Exception: う→わ (not うあ) — same as the passive.",
+        "The causative form ends in a RU-verb suffix (〜させる / 〜せる), so it conjugates further like a RU-verb in all other forms (て-form, polite, past, potential, etc.).",
+        "する → させる (not すさせる). くる → こさせる (not くさせる). These two irregular forms must be memorized.",
+        "The polite causative of する (させます) is extremely common: 先生は 学生に 勉強 させます (have students study)."
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_causative_make",
+      "pattern": [
+        {
+          "label": "CAUSER",
+          "color": "topic",
+          "text": "[person]は"
+        },
+        {
+          "label": "CAUSEE",
+          "color": "modifier",
+          "text": "[person]に"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "[causative form]"
+        }
+      ],
+      "meaning": "Subject makes/has [causee] do [verb]",
+      "explanation": "In the obligatory causative ('make'), the causer has authority over the causee and compels the action. The causer is the grammatical subject (marked by は or が). The causee — the person being made to act — is typically marked with に. The causative form itself is conjugated to match the tense and politeness of the sentence. The 'make' reading is natural when the causer clearly has authority or when the action is unpleasant for the causee.",
+      "notes": [
+        "Pattern: [causer]は [causee]に [verb-causative]. Example: 先生は 学生に 漢字を 書かせました。(The teacher made the students write kanji.)",
+        "Intransitive causee particle: when the original verb is intransitive (no direct object), the causee takes に. Example: 母は 子どもに 外で 待たせた。(Mom made the child wait outside.)",
+        "Transitive causee particle: when the original verb is transitive, the object takes を and the causee takes に. Example: 先生は 学生に 本を 読ませた。(The teacher made the students read the book.) — 学生に (causee), 本を (object).",
+        "The 'make' reading is typical when: the action benefits the causer, not the causee; when an authority figure (parent, teacher, boss) is the subject; or when the action is undesirable for the causee.",
+        "Politeness: causative forms conjugate like RU-verbs. Polite past: 〜させました / 〜せました."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "先生は",
+              "role": "topic",
+              "gloss": "the teacher (は — topic / causer)"
+            },
+            {
+              "text": "学生に",
+              "role": "modifier",
+              "gloss": "the students (に — causee marker)"
+            },
+            {
+              "text": "漢字を",
+              "role": "object",
+              "gloss": "kanji (を — object of writing)"
+            },
+            {
+              "text": "書かせました。",
+              "role": "predicate",
+              "gloss": "made them write (書く → 書かせる — U-verb causative, polite past)"
+            }
+          ],
+          "en": "The teacher made the students write kanji.",
+          "breakdown": "書く is a U-verb (く-ending). Causative: く → か + せる = 書かせる. Polite past: 書かせました. 学生に marks the causee (the students being made to write). 漢字を marks the object (what they wrote)."
+        },
+        {
+          "parts": [
+            {
+              "text": "母は",
+              "role": "topic",
+              "gloss": "mother (は — topic / causer)"
+            },
+            {
+              "text": "子どもに",
+              "role": "modifier",
+              "gloss": "the child (に — causee)"
+            },
+            {
+              "text": "野菜を",
+              "role": "object",
+              "gloss": "vegetables (を — object)"
+            },
+            {
+              "text": "食べさせた。",
+              "role": "predicate",
+              "gloss": "made them eat (食べる → 食べさせる — RU-verb causative, plain past)"
+            }
+          ],
+          "en": "Mom made the child eat vegetables.",
+          "breakdown": "食べる is a RU-verb (ichidan). Causative: drop る, add させる = 食べさせる. Plain past: 食べさせた. The 'make' reading is natural here — children don't typically volunteer to eat vegetables. The mother has authority."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_causative_let",
+      "pattern": [
+        {
+          "label": "CAUSER",
+          "color": "topic",
+          "text": "[person]は"
+        },
+        {
+          "label": "CAUSEE",
+          "color": "modifier",
+          "text": "[person]に"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "[causative form]"
+        }
+      ],
+      "meaning": "Subject lets/allows [causee] do [verb] (permissive causative)",
+      "explanation": "The same causative form that means 'make' can also mean 'let' or 'allow'. The permissive reading ('let') is natural when the action is positive for the causee — when the causee WANTS to do the action and the causer is granting that wish. The causer is still in a position of authority, but instead of compelling, they are giving permission. Context and the nature of the action are the only signals — the grammatical form is identical to the obligatory causative.",
+      "notes": [
+        "'Let' reading cues: the action is enjoyable or desired by the causee (好きなものを 食べさせる = let them eat what they like); the verb is a positive activity; the causer is granting a request.",
+        "'Make' reading cues: the action is unpleasant or undesired by the causee (野菜を 食べさせる = make them eat vegetables); the causer is exerting authority over an unwilling party.",
+        "When both readings are plausible, add context: 「好きな 本を 読ませました」(let them read their favorite book) vs 「むずかしい 本を 読ませました」(made them read a difficult book).",
+        "The 'let' causative is especially common in expressions of granting freedom or choice: 好きにさせる (let someone do as they please), 休ませる (let someone rest), 行かせる (let someone go).",
+        "Japanese often uses this permissive causative where English would say 'have someone do' in a neutral sense: 先生は 学生を 帰らせた (The teacher let/had the students go home)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "母は",
+              "role": "topic",
+              "gloss": "mother (は — topic / causer)"
+            },
+            {
+              "text": "子どもに",
+              "role": "modifier",
+              "gloss": "the child (に — causee)"
+            },
+            {
+              "text": "好きな ものを",
+              "role": "object",
+              "gloss": "things they like (好きな + もの + を — object of eating)"
+            },
+            {
+              "text": "食べさせた。",
+              "role": "predicate",
+              "gloss": "let them eat (食べる → 食べさせる — RU-verb causative, plain past; permissive reading)"
+            }
+          ],
+          "en": "Mom let the child eat whatever they liked.",
+          "breakdown": "The form 食べさせた is identical in both the 'make' and 'let' readings. Here the 'let' reading is natural: the child wants to eat their favorite food, and the mother is granting that wish. Compare with the previous rule's example (making the child eat vegetables — clearly obligatory)."
+        },
+        {
+          "parts": [
+            {
+              "text": "先生は",
+              "role": "topic",
+              "gloss": "the teacher (は — topic / causer)"
+            },
+            {
+              "text": "学生を",
+              "role": "object",
+              "gloss": "the students (を — marks the causee when the causative is used with intransitive homeward movement)"
+            },
+            {
+              "text": "早く",
+              "role": "adverb",
+              "gloss": "early (早い → 早く — adverbial form)"
+            },
+            {
+              "text": "帰らせました。",
+              "role": "predicate",
+              "gloss": "let them go home (帰る → 帰らせる — U-verb causative, polite past; permissive)"
+            }
+          ],
+          "en": "The teacher let the students go home early.",
+          "breakdown": "帰る is a U-verb (る-ending godan): る → ら + せる = 帰らせる. Polite past: 帰らせました. 学生を — note を here instead of に: when the causee IS the only participant (no transitive object), を occasionally appears as an alternative to に, especially with verbs of movement. The 'let' reading is clear: going home early is a positive outcome for the students."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "Make vs Let — Same Form, Different Meaning",
+      "items": [
+        {
+          "label": "Make (obligatory causative)",
+          "color": "predicate",
+          "points": [
+            "The causee is COMPELLED — they may not want to do the action",
+            "The causer has authority and exercises it",
+            "The action is typically unpleasant or neutral for the causee",
+            "Cue: undesirable activity (eating vegetables, waiting, writing reports)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "母は",
+                "role": "topic",
+                "gloss": "mother (は — topic)"
+              },
+              {
+                "text": "子どもに",
+                "role": "modifier",
+                "gloss": "the child (に — causee)"
+              },
+              {
+                "text": "野菜を",
+                "role": "object",
+                "gloss": "vegetables (を)"
+              },
+              {
+                "text": "食べさせた。",
+                "role": "predicate",
+                "gloss": "made eat (causative, plain past)"
+              }
+            ],
+            "en": "Mom MADE the child eat vegetables. (no choice)"
+          }
+        },
+        {
+          "label": "Let (permissive causative)",
+          "color": "verb",
+          "points": [
+            "The causee is ALLOWED — they want to do the action",
+            "The causer grants permission or choice",
+            "The action is typically positive or desired by the causee",
+            "Cue: enjoyable or chosen activity (eating favorites, going home, resting)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "母は",
+                "role": "topic",
+                "gloss": "mother (は — topic)"
+              },
+              {
+                "text": "子どもに",
+                "role": "modifier",
+                "gloss": "the child (に — causee)"
+              },
+              {
+                "text": "好きな ものを",
+                "role": "object",
+                "gloss": "things they like (を)"
+              },
+              {
+                "text": "食べさせた。",
+                "role": "predicate",
+                "gloss": "let eat (causative, plain past)"
+              }
+            ],
+            "en": "Mom LET the child eat what they liked. (permission given)"
+          }
+        }
+      ],
+      "tip": "The form is identical — 食べさせた — in both examples. Only context reveals the meaning. When in doubt, ask: 'Did the causee want to do this?' If yes → 'let'. If no → 'make'."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_causative_passive",
+      "pattern": [
+        {
+          "label": "SUFFERER",
+          "color": "topic",
+          "text": "[person]は"
+        },
+        {
+          "label": "AUTHORITY",
+          "color": "modifier",
+          "text": "[person]に"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "[causative-passive]"
+        }
+      ],
+      "meaning": "Subject is MADE to do [verb] (against their will)",
+      "explanation": "The causative-passive (させられる / せられる) combines two operations: first the causative (making someone do), then the passive (receiving the action). The result expresses that the subject was forced to do something they did not want to do. This is a key pattern for expressing compulsion, obligation, or complaint. While the full mechanics of the causative-passive will be explored in a later lesson, you already have all the building blocks — treat this as a preview.",
+      "notes": [
+        "Formation: RU-verb → 食べさせられる (drop る + させ + られる). U-verb → 話させられる (あ-row + せ + られる).",
+        "する → させられる. くる → こさせられる.",
+        "The nuance is always 'against one's will' or 'reluctantly'. This sets it apart from the plain passive (〜られる), which can be neutral.",
+        "Example: 私は 先生に 長い 文を 書かせられた。(I was made to write a long sentence by the teacher — I didn't want to.)",
+        "Tip: remember the pattern as causative (させ) + passive (られる). The causative comes first, then the passive suffix is added to the causative stem."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "りきぞは",
+              "role": "topic",
+              "gloss": "Rikizo (は — topic / sufferer)"
+            },
+            {
+              "text": "先生に",
+              "role": "modifier",
+              "gloss": "by the teacher (に — authority figure)"
+            },
+            {
+              "text": "長い 文を",
+              "role": "object",
+              "gloss": "a long sentence (長い + 文 + を)"
+            },
+            {
+              "text": "書かせられました。",
+              "role": "predicate",
+              "gloss": "was made to write (書く → 書かせられる — causative-passive, polite past)"
+            }
+          ],
+          "en": "Rikizo was made to write a long sentence by the teacher.",
+          "breakdown": "書く → causative: 書かせる → causative-passive: 書かせられる. Polite past: 書かせられました. The nuance: Rikizo was forced to write — he didn't choose to. Compare with the plain passive 書かれました (was written — something was written by the teacher) — a very different meaning."
+        },
+        {
+          "parts": [
+            {
+              "text": "私は",
+              "role": "topic",
+              "gloss": "I (は — topic / sufferer)"
+            },
+            {
+              "text": "毎日",
+              "role": "adverb",
+              "gloss": "every day"
+            },
+            {
+              "text": "野菜を",
+              "role": "object",
+              "gloss": "vegetables (を)"
+            },
+            {
+              "text": "食べさせられた。",
+              "role": "predicate",
+              "gloss": "was made to eat (食べる → 食べさせられる — causative-passive, plain past)"
+            }
+          ],
+          "en": "I was made to eat vegetables every day. (I didn't want to.)",
+          "breakdown": "食べる → causative stem: 食べさせ → add passive られる = 食べさせられる. Plain past: 食べさせられた. This is a common complaint pattern — expressing that something was imposed on you repeatedly."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: 先生と 学生 (Teacher and Student)",
+      "context": "やまもと先生 is speaking with りきぞ about the day's work. Polite register.",
+      "lines": [
+        {
+          "spk": "やまもと先生",
+          "jp": "りきぞさん、今日は この 本を 読ませます。終わったら、問題に 答えて ください。",
+          "en": "Rikizo, today I'll have you read this book. When you finish, please answer the questions.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "p_wa",
+            "v_kono",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "polite_causative"
+            },
+            {
+              "id": "v_owaru",
+              "form": "conditional_tara"
+            },
+            "v_mondai",
+            "p_ni",
+            {
+              "id": "v_kotaeru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "はい、分かりました。漢字も 書かせて もらえますか。",
+          "en": "Yes, understood. May I also be allowed to write the kanji?",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_kanji",
+            "p_mo",
+            {
+              "id": "v_kaku",
+              "form": "causative_te"
+            },
+            {
+              "id": "v_morau",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまもと先生",
+          "jp": "もちろんです。漢字を 書かせます。大切な 勉強ですから、よく して ください。",
+          "en": "Of course. I'll have you write the kanji. It's important study, so please do it well.",
+          "terms": [
+            "v_mochiron",
+            "g_desu",
+            "v_kanji",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "polite_causative"
+            },
+            {
+              "id": "v_taisetsu",
+              "form": "attributive_na"
+            },
+            "v_benkyou",
+            "g_desu",
+            "p_kara_because",
+            "v_yoku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "分かりました。先生、この 後で、友だちに 教室を 見させて あげても いいですか。",
+          "en": "Understood. Teacher, after this, is it okay if I let my friend look at the classroom?",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_sensei",
+            "v_kono",
+            "v_ato",
+            "p_de",
+            "v_tomodachi",
+            "p_ni",
+            "v_kyoushitsu",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "causative_te"
+            },
+            {
+              "id": "v_ageru",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまもと先生",
+          "jp": "いいですよ。友だちが 見たい と 思って いるなら、見させて あげて ください。",
+          "en": "That's fine. If your friend wants to see it, please let them have a look.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_yo",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_nara",
+            {
+              "id": "v_miru",
+              "form": "causative_te"
+            },
+            {
+              "id": "v_ageru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "ありがとうございます。先生が 毎日 みんなに 勉強 させて くださるから、よく 分かるように なりました。",
+          "en": "Thank you very much. Because you have everyone study every day, I've come to understand well.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_sensei",
+            "p_ga",
+            "v_mainichi",
+            "v_minna",
+            "p_ni",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "causative_te"
+            },
+            {
+              "id": "v_kudasaru",
+              "form": "plain_form"
+            },
+            "p_kara_because",
+            "v_yoku",
+            {
+              "id": "v_wakaru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: 子どもの ころ (Casual)",
+      "context": "りきぞ and けん are at the school cafeteria talking about what their parents made or let them do as children. Casual register.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "りきぞ、子どもの 時、親に 色々 させられた？",
+          "en": "Rikizo, when you were a kid, were you made to do all sorts of things by your parents?",
+          "terms": [
+            "char_rikizo",
+            "v_kodomo",
+            "p_no",
+            "v_toki",
+            "v_oya",
+            "p_ni",
+            "v_iroiro",
+            {
+              "id": "v_suru",
+              "form": "plain_causative_passive_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "うん。毎日 野菜を 食べさせられたよ。ぜんぜん 好きじゃなかったけど。",
+          "en": "Yeah. I was made to eat vegetables every day. I didn't like them at all though.",
+          "terms": [
+            "v_un",
+            "v_mainichi",
+            "v_yasai",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_causative_passive_past"
+            },
+            "p_yo",
+            "v_zenzen",
+            {
+              "id": "v_suki",
+              "form": "plain_past_negative"
+            },
+            "p_kedo"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そう な んだ。でも、体の ために させたんだよね。好きな 物も 食べさせて もらえた？",
+          "en": "Oh really. But they made you do it for your body's sake, right? Were you also let eat things you liked?",
+          "terms": [
+            "v_sou",
+            "p_na",
+            "p_nda",
+            "p_demo_but",
+            "v_karada",
+            "p_no",
+            "v_tame",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "plain_causative_past"
+            },
+            "p_nda",
+            "p_ne",
+            "p_yo",
+            {
+              "id": "v_suki",
+              "form": "attributive_na"
+            },
+            "v_mono",
+            "p_mo",
+            {
+              "id": "v_taberu",
+              "form": "causative_te"
+            },
+            {
+              "id": "v_morau",
+              "form": "plain_potential_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "うん、食堂で 好きな 物を 食べさせて もらえたことも あったよ。楽しかった。",
+          "en": "Yeah, there were times I was let eat whatever I liked at the cafeteria. It was fun.",
+          "terms": [
+            "v_un",
+            "v_shokudou",
+            "p_de",
+            {
+              "id": "v_suki",
+              "form": "attributive_na"
+            },
+            "v_mono",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "causative_te"
+            },
+            {
+              "id": "v_morau",
+              "form": "plain_potential_past"
+            },
+            "v_koto",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "plain_past"
+            },
+            "p_yo",
+            {
+              "id": "v_tanoshii",
+              "form": "plain_past_adj"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "いいな。私は 毎日 本を 読ませられたよ。むずかしかったけど、今は 読んで よかったと 思う。",
+          "en": "Lucky. I was made to read books every day. It was difficult, but now I think it was good.",
+          "terms": [
+            "v_ii",
+            "p_na",
+            "v_watashi",
+            "p_wa",
+            "v_mainichi",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_causative_passive_past"
+            },
+            "p_yo",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_past_adj"
+            },
+            "p_kedo",
+            "v_ima",
+            "p_wa",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "plain_form"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞ",
+          "jp": "そう だね。親が させたことは、今に なって 意味が 分かることが 多い よね。",
+          "en": "Yeah. The things parents made you do — now that time has passed, you often understand their meaning.",
+          "terms": [
+            "v_sou",
+            "p_ne",
+            "g_da",
+            "v_oya",
+            "p_ga",
+            {
+              "id": "v_suru",
+              "form": "plain_causative_past"
+            },
+            "v_koto",
+            "p_wa",
+            "v_ima",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            "v_imi",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            "v_ooi",
+            "p_ne",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conjugationDrill",
+      "title": "Build the Causative Form",
+      "manualProgression": true,
+      "instructions": "Change each verb from its dictionary form into the causative form requested. Pay attention to whether it is a RU-verb, U-verb, or irregular.",
+      "items": [
+        {
+          "verb": "食べる",
+          "type": "ru",
+          "reading": "たべる",
+          "targetForm": "causative (plain)",
+          "answer": "食べさせる",
+          "answerReading": "たべさせる",
+          "hint": "Drop る, add させる",
+          "choices": [
+            "食べさせる",
+            "食べせる",
+            "食べられる",
+            "食べさせた"
+          ]
+        },
+        {
+          "verb": "書く",
+          "type": "u",
+          "reading": "かく",
+          "targetForm": "causative (plain)",
+          "answer": "書かせる",
+          "answerReading": "かかせる",
+          "hint": "く → か + せる",
+          "choices": [
+            "書かせる",
+            "書けせる",
+            "書かれる",
+            "書きせる"
+          ]
+        },
+        {
+          "verb": "読む",
+          "type": "u",
+          "reading": "よむ",
+          "targetForm": "causative (plain)",
+          "answer": "読ませる",
+          "answerReading": "よませる",
+          "hint": "む → ま + せる",
+          "choices": [
+            "読ませる",
+            "読めせる",
+            "読まれる",
+            "読ませた"
+          ]
+        },
+        {
+          "verb": "話す",
+          "type": "u",
+          "reading": "はなす",
+          "targetForm": "causative (polite)",
+          "answer": "話させます",
+          "answerReading": "はなさせます",
+          "hint": "す → さ + せる → polite",
+          "choices": [
+            "話させます",
+            "話させる",
+            "話されます",
+            "話させました"
+          ]
+        },
+        {
+          "verb": "行く",
+          "type": "u",
+          "reading": "いく",
+          "targetForm": "causative past (plain)",
+          "answer": "行かせた",
+          "answerReading": "いかせた",
+          "hint": "く → か + せる → plain past",
+          "choices": [
+            "行かせた",
+            "行かれた",
+            "行きせた",
+            "行かせます"
+          ]
+        },
+        {
+          "verb": "見る",
+          "type": "ru",
+          "reading": "みる",
+          "targetForm": "causative (polite)",
+          "answer": "見させます",
+          "answerReading": "みさせます",
+          "hint": "Drop る, add させる → polite",
+          "choices": [
+            "見させます",
+            "見させる",
+            "見られます",
+            "見せます"
+          ]
+        },
+        {
+          "verb": "する",
+          "type": "irregular",
+          "reading": "する",
+          "targetForm": "causative (plain)",
+          "answer": "させる",
+          "answerReading": "させる",
+          "hint": "する is irregular: causative = させる",
+          "choices": [
+            "させる",
+            "せる",
+            "されます",
+            "させました"
+          ]
+        },
+        {
+          "verb": "飲む",
+          "type": "u",
+          "reading": "のむ",
+          "targetForm": "causative past (polite)",
+          "answer": "飲ませました",
+          "answerReading": "のませました",
+          "hint": "む → ま + せる → polite past",
+          "choices": [
+            "飲ませました",
+            "飲まれました",
+            "飲ませた",
+            "飲まさせました"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: The Causative Form",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly means 'The teacher made the students write kanji'?",
+          "choices": [
+            "先生は 学生に 漢字を 書かせました。",
+            "先生は 学生を 漢字が 書かせました。",
+            "先生に 学生は 漢字を 書きました。",
+            "先生は 学生が 漢字を 書きました。"
+          ],
+          "answer": "先生は 学生に 漢字を 書かせました。",
+          "explanation": "先生は (causer/topic) + 学生に (causee, marked with に) + 漢字を (object) + 書かせました (polite past causative of 書く). 書く → causative: く→か+せる = 書かせる → polite past: 書かせました. The causee of a transitive causative is marked with に; the object keeps を.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "母は 子どもに 野菜を 食べさせた。Which is the most natural English translation?",
+          "choices": [
+            "Mom made the child eat vegetables.",
+            "Mom let the child eat vegetables.",
+            "The child made mom eat vegetables.",
+            "The child let mom eat vegetables."
+          ],
+          "answer": "Mom made the child eat vegetables.",
+          "explanation": "母は (causer) + 子どもに (causee) + 野菜を (object: vegetables) + 食べさせた (plain past causative of 食べる). The 'make' reading is natural here — children typically don't choose to eat vegetables; the mother is compelling the action. 食べる → causative: drop る + させる = 食べさせる → plain past: 食べさせた.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence uses the PERMISSIVE ('let') causative most naturally?",
+          "choices": [
+            "先生は 学生を 早く 帰らせました。",
+            "母は 子どもに 薬を 飲ませた。",
+            "先生は 学生に 長い 文を 書かせた。",
+            "親は 子どもに 毎日 走らせた。"
+          ],
+          "answer": "先生は 学生を 早く 帰らせました。",
+          "explanation": "帰らせました = the teacher let the students go home early. Going home early is positive for the students, so the permissive 'let' reading is natural. The other choices are more naturally 'make': making a child take medicine (unpleasant), making students write long sentences (effort required), making children run daily (obligation). 帰る → causative: る→ら+せる = 帰らせる.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "話す is a U-verb ending in す. What is its causative form?",
+          "choices": [
+            "話させる",
+            "話さられる",
+            "話される",
+            "話させられる"
+          ],
+          "answer": "話させる",
+          "explanation": "U-verb す-ending causative rule: す → さ + せる = 話させる. 話される = passive (話す → 話される: す→さ+れる). 話させられる = causative-passive (being made to speak — a different form). The causative always uses せる (not れる). Remember: passive=れる, causative=せる.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "私は 毎日 野菜を 食べさせられた。What does this sentence mean?",
+          "choices": [
+            "I was made to eat vegetables every day.",
+            "I made someone eat vegetables every day.",
+            "I let someone eat vegetables every day.",
+            "I ate vegetables every day by myself."
+          ],
+          "answer": "I was made to eat vegetables every day.",
+          "explanation": "食べさせられた is the causative-passive of 食べる. Formation: 食べ (stem) + させ (causative) + られた (passive past) = 食べさせられた. The causative-passive always means 'was made to do something (against one's will)'. 私は is the subject — I am the one who was compelled. Compare: 食べさせた = made someone eat (active causative); 食べさせられた = was made to eat (causative-passive).",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "Which causative form correctly transforms くる (to come)?",
+          "choices": [
+            "こさせる",
+            "くさせる",
+            "こられる",
+            "くさせます"
+          ],
+          "answer": "こさせる",
+          "explanation": "くる is an irregular verb. Its causative is こさせる (not くさせる). The stem changes to こ before the causative suffix させる is added. This parallels the passive こられる (someone came — adversative). Polite: こさせます. Plain past: こさせた. The two irregular causatives to memorize: する→させる, くる→こさせる.",
+          "terms": []
+        }
+      ]
+    }
+  ],
+  "unlocksAfter": "N4.31"
+}

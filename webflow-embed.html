@@ -1,0 +1,586 @@
+<!-- ============================================================
+  JP Lessons — Webflow Custom Code Embed
+  Paste this into Webflow > Page Settings > Custom Code > Before </body>
+  (or into a Custom Code embed element on the page).
+
+  SERVING MODES — set window.RIKIZO_CONFIG before this script runs:
+    Gated page (new students):    window.RIKIZO_CONFIG = { mode: 'gated' };
+    Unlocked page (existing):     window.RIKIZO_CONFIG = { mode: 'free'  };
+  Default (no config set) = gated.
+
+  Load order enforced by this loader:
+    Eager (loaded in init, before menu renders):
+      1. app/shared/asset-loader.js   — URL builder, manifest, fetchJSON
+      2. app/shared/streak.js         — Streak tracking engine (localStorage only)
+    Deferred (loaded on first launch):
+      3. app/shared/tts.js            — Text-to-speech with voice selection
+      4. app/shared/stamp-settings.js — Character stamp picker (stamp selection)
+      5. app/shared/tts-settings.js   — Settings modal (stamp picker, voice, speed)
+      6. app/shared/progress.js       — localStorage: flags, scores, drafts
+      7. app/shared/unlock.js         — Content gating / progressive unlock engine
+      8. app/shared/text-processor.js — Conjugation engine, processText
+      9. app/shared/term-modal.js     — Shared term modal overlay
+     10. Feature module (on demand)   — Lesson / Practice / Review / Compose / Story / Grammar
+  ============================================================ -->
+
+<!-- Default serving mode — override on each Webflow page embed before this block -->
+<script>
+window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
+</script>
+
+<div id="app-main-container"></div>
+<script>
+window.JPApp = {
+  // --- CONFIGURATION ---
+  config: {
+    owner: "gryswynd",
+    repo: "jp-lessons",
+    branch: "main",
+    path: ""
+  },
+
+  // --- STATE ---
+  state: {
+    flags: JSON.parse(localStorage.getItem('k-flags') || '{}')
+  },
+
+  // --- INLINE GATE CHECK (works before unlock.js loads) ---
+  // Reads localStorage directly so the menu can be rendered immediately on init.
+  _isModuleVisible: function(module) {
+    var cfg = window.RIKIZO_CONFIG;
+    if (cfg && cfg.mode === 'free') return true;
+    // Delegate to unlock.js once loaded.
+    if (window.JPShared && window.JPShared.unlock) {
+      return window.JPShared.unlock.isModuleVisible(module);
+    }
+    // Inline fallback (mirrors unlock.js logic using raw localStorage).
+    var scores    = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}');
+    var completed = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}');
+    var pass = function(id) { return (scores[id] || 0) >= 75; };
+    var done = function(id) { return !!completed[id]; };
+    switch (module) {
+      case 'lesson':   return true;
+      case 'grammar':  return done('N5.1');
+      case 'practice': return done('N5.1');
+      case 'compose':  return pass('N5.1');
+      case 'game':     return pass('N5.1');
+      case 'story':    return pass('N5.2');
+      case 'review':   return pass('N5.2');
+      case 'custom':   return true;
+      default:         return false;
+    }
+  },
+
+  // --- HELPER: Fetch and inject a JS module from GitHub raw ---
+  loadModule: async function(fileName) {
+    var url = 'https://raw.githubusercontent.com/' +
+              this.config.owner + '/' + this.config.repo + '/' +
+              this.config.branch + '/' + fileName;
+    var cacheBuster = url + '?t=' + Date.now();
+    try {
+      var res = await fetch(cacheBuster);
+      if (!res.ok) throw new Error('Failed to load ' + fileName);
+      var code = await res.text();
+      var script = document.createElement('script');
+      script.textContent = code;
+      document.body.appendChild(script);
+      console.log('[JPApp] Loaded:', fileName);
+      return true;
+    } catch (err) {
+      console.error('[JPApp] Error loading ' + fileName + ':', err);
+      this.container.innerHTML =
+        '<div style="color:red;text-align:center;padding:20px;">' +
+        'Error loading ' + fileName + ':<br>' + err.message +
+        '</div>' +
+        '<button onclick="JPApp.renderMenu()" ' +
+        'style="margin:20px auto;display:block;">Back</button>';
+      return false;
+    }
+  },
+
+  // --- INIT ---
+  init: async function() {
+    this.container = document.getElementById('app-main-container');
+    if (!this.container) return console.error('Container #app-main-container not found');
+    // Load lightweight shared modules eagerly so the menu renders fully:
+    //   asset-loader — URL resolution needed by stamp-settings & streak belt images
+    //   streak       — streak bar in the main menu
+    await this.loadModule('app/shared/asset-loader.js');
+    await this.loadModule('app/shared/streak.js');
+    this.renderMenu();
+  },
+
+  // --- RENDER MENU ---
+  renderMenu: function() {
+    var self = this;
+    this.container.innerHTML = '';
+    var style = '<style>' +
+      '.jp-main-menu{width:100%;max-width:600px;margin:0 auto;' +
+      'font-family:"Poppins",sans-serif;text-align:center;display:grid;gap:15px;padding:20px;}' +
+      '.jp-menu-btn{background:white;padding:25px;border-radius:16px;' +
+      'box-shadow:0 4px 15px rgba(0,0,0,0.05);cursor:pointer;transition:transform 0.2s;' +
+      'border:1px solid rgba(0,0,0,0.05);display:flex;flex-direction:column;align-items:center;}' +
+      '.jp-menu-btn:active{transform:scale(0.98);}' +
+      '.jp-menu-title{font-size:1.2rem;font-weight:900;color:#4e54c8;margin-bottom:5px;}' +
+      '.jp-menu-desc{color:#747d8c;font-size:0.9rem;}' +
+      '.jp-game-wrap{position:relative;}' +
+      '.jp-construction-sticker{position:absolute;top:14px;right:14px;' +
+      'background:linear-gradient(135deg,#FF9800,#F44336);color:white;' +
+      'font-size:0.65rem;font-weight:700;padding:4px 10px;border-radius:20px;' +
+      'transform:rotate(8deg);box-shadow:0 2px 8px rgba(0,0,0,0.25);' +
+      'letter-spacing:0.3px;white-space:nowrap;pointer-events:none;}' +
+      '.jp-streak-bar{display:flex;align-items:center;justify-content:center;gap:10px;' +
+      'padding:12px 16px;border-radius:12px;background:white;' +
+      'box-shadow:0 2px 10px rgba(0,0,0,0.05);border:1px solid rgba(0,0,0,0.05);}' +
+      '.jp-streak-count{font-size:1.6rem;font-weight:900;}' +
+      '.jp-streak-label{font-size:0.85rem;color:#555;line-height:1.2;}' +
+      '.jp-streak-belt{display:block;width:120px;height:auto;margin-top:6px;' +
+      'filter:drop-shadow(0 1px 3px rgba(0,0,0,0.15));}' +
+      '.jp-streak-freeze{font-size:0.75rem;color:#2196F3;margin-left:6px;}' +
+      '.jp-return-overlay{position:fixed;top:0;left:0;right:0;bottom:0;' +
+      'background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;' +
+      'z-index:9999;animation:jpFadeIn 0.3s;}' +
+      '.jp-return-card{background:white;border-radius:20px;padding:30px;max-width:340px;' +
+      'text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.2);animation:jpFadeIn 0.4s;}' +
+      '.jp-return-jp{font-size:1.4rem;font-weight:700;margin-bottom:8px;color:#4e54c8;}' +
+      '.jp-return-text{font-size:1rem;color:#555;margin-bottom:16px;}' +
+      '.jp-return-belt{width:100px;height:auto;margin:8px auto 12px;display:block;' +
+      'filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));}' +
+      '.jp-rankup-card{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);' +
+      'border-radius:20px;padding:30px;max-width:360px;text-align:center;position:relative;' +
+      'box-shadow:0 10px 40px rgba(0,0,0,0.4);animation:jpFadeIn 0.4s;overflow:hidden;}' +
+      '.jp-rankup-rikizo{width:80px;height:80px;border-radius:50%;margin:0 auto 12px;' +
+      'border:3px solid rgba(255,255,255,0.3);animation:jpBounce 0.6s ease 0.3s both;}' +
+      '.jp-rankup-title{font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;' +
+      'color:rgba(255,255,255,0.6);margin-bottom:4px;}' +
+      '.jp-rankup-stage{font-size:1.8rem;font-weight:900;margin-bottom:4px;}' +
+      '.jp-rankup-stage-jp{font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:16px;}' +
+      '.jp-rankup-belt{width:140px;height:auto;margin:0 auto 16px;display:block;' +
+      'filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));animation:jpScaleIn 0.5s ease 0.2s both;}' +
+      '.jp-rankup-streak{font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:16px;}' +
+      '.jp-rankup-particles{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;}' +
+      '.jp-rankup-particle{position:absolute;border-radius:50%;opacity:0;}' +
+      '@keyframes jpFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}' +
+      '@keyframes jpBounce{0%{transform:scale(0)}60%{transform:scale(1.15)}100%{transform:scale(1)}}' +
+      '@keyframes jpScaleIn{0%{transform:scale(0) rotate(-10deg);opacity:0}' +
+      '60%{transform:scale(1.1) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}' +
+      '</style>';
+
+    // Helper — build a module button or nothing if gated+locked.
+    // clickMode: the mode string passed to JPApp.launch()
+    // Returns an HTML string or '' if the module is hidden.
+    function btn(clickMode, borderColor, titleColor, iconAndTitle, desc, wrap) {
+      if (!self._isModuleVisible(clickMode)) return '';
+      var inner =
+        '<div class="jp-menu-btn" onclick="JPApp.launch(\'' + clickMode + '\')" style="border-top:3px solid ' + borderColor + ';">' +
+          '<div class="jp-menu-title" style="color:' + titleColor + ';">' + iconAndTitle + '</div>' +
+          '<div class="jp-menu-desc">' + desc + '</div>' +
+        '</div>';
+      if (wrap) {
+        return '<div class="jp-game-wrap">' + inner + wrap + '</div>';
+      }
+      return inner;
+    }
+
+    var html = style +
+      '<div class="jp-main-menu" style="position:relative;">' +
+        '<div style="position:absolute;top:15px;right:15px;display:flex;gap:8px;">' +
+          '<button onclick="JPApp.openReminderSettings()" title="Daily Reminders" style="background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.1);color:#666;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;padding:0;position:relative;">\u2709\uFE0F' + (localStorage.getItem('k-reminder-student-id') ? '<span style="position:absolute;top:2px;right:2px;width:8px;height:8px;background:#4CAF50;border-radius:50%;border:2px solid white;"></span>' : '') + '</button>' +
+          '<button onclick="JPApp.openTtsSettings()" title="Voice Settings" style="background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.1);color:#666;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;padding:0;">\u2699</button>' +
+        '</div>' +
+        '<h1 style="color:#2f3542;font-weight:900;">\uD83C\uDDEF\uD83C\uDDF5 Japanese Master</h1>' +
+        this._buildStreakBar() +
+        // Lessons — always visible
+        '<div class="jp-menu-btn" onclick="JPApp.launch(\'lesson\')" style="border-top:3px solid #4e54c8;">' +
+          '<div class="jp-menu-title" style="color:#4e54c8;">\uD83D\uDCDA Lessons</div>' +
+          '<div class="jp-menu-desc">Structured paths &amp; reading</div>' +
+        '</div>' +
+        // Grammar Garden — unlocks on any N5.1 completion
+        btn('grammar', '#16A34A', '#16A34A', '\uD83C\uDF3F Grammar Garden', 'Particles, conjugation &amp; sentence patterns') +
+        // Dojo — unlocks on any N5.1 completion
+        btn('practice', '#5C3A21', '#5C3A21', '\uD83E\uDD4B Dojo', 'Flashcards &amp; Quizzes') +
+        // Compose — unlocks on N5.1 ≥75%
+        btn('compose', '#00897B', '#00897B', '\u270F\uFE0F Compose', 'Write Japanese with guided prompts') +
+        // Stories — unlocks on N5.2 ≥75%
+        btn('story', '#D97706', '#D97706', '\uD83D\uDCD6 Stories', 'Read Japanese stories with furigana') +
+        // Review — unlocks on N5.2 ≥75%
+        btn('review', '#7C3AED', '#7C3AED', '\uD83D\uDCDD Review', 'Assessment &amp; Drills') +
+        // Game — unlocks on N5.1 ≥75% (Under Construction sticker)
+        btn('game', '#F48FB1', '#C2185B', '\uD83C\uDFAE Rikizo\'s Adventures', 'Explore interactive Japanese adventures',
+            '<div class="jp-construction-sticker">\uD83D\uDEA7 Under Construction</div>') +
+        // Custom Content — always visible (Under Construction)
+        btn('custom', '#0891B2', '#0E7490', '✦ Custom Content', 'Personalized content for your learning journey',
+            '<div class="jp-construction-sticker">🚧 Under Construction</div>') +
+        // Teacher Bingo — always visible (teacher tool, no gate)
+        '<div class="jp-game-wrap">' +
+          '<div class="jp-menu-btn" onclick="JPApp.launch(\'teacher-bingo\')" style="border-top:3px solid #FF5722;background:linear-gradient(135deg,#fff 80%,#fff3e0);">' +
+            '<div class="jp-menu-title" style="color:#FF5722;">\uD83C\uDFB2 Kanji Bingo Caller</div>' +
+            '<div class="jp-menu-desc">Random kanji generator for bingo games</div>' +
+          '</div>' +
+          '<div class="jp-construction-sticker" style="background:linear-gradient(135deg,#FF9800,#E91E63);">\uD83C\uDFB2 Teacher\'s Tool</div>' +
+        '</div>' +
+      '</div>';
+    this.container.innerHTML = html;
+    this._showReturnMessage();
+  },
+
+  // --- STREAK BAR (shown in main menu) ---
+  _buildStreakBar: function() {
+    var streak = window.JPShared && window.JPShared.streak;
+    if (!streak) return '';
+    var s = streak.getState();
+    if (s.current === 0 && !s.lastActive) return ''; // never used
+
+    var stage = s.stage;
+
+    var fireSizes = {
+      beginner: '1.0rem', daily: '1.2rem', week: '1.5rem',
+      fortnight: '1.8rem', month: '2.1rem', season: '2.5rem', legend: '3.0rem'
+    };
+    var fireSize = fireSizes[stage.key] || '1.0rem';
+
+    var freezeHtml = s.freezes > 0
+      ? '<span class="jp-streak-freeze">\u2744\uFE0F ' + s.freezes + '</span>'
+      : '';
+
+    var beltMap = {
+      beginner: 'belt-white', daily: 'belt-yellow', week: 'belt-green',
+      fortnight: 'belt-blue', month: 'belt-purple', season: 'belt-brown', legend: 'belt-black'
+    };
+    var beltFile = (beltMap[stage.key] || 'belt-white') + '.png';
+    var beltSrc = 'https://raw.githubusercontent.com/' +
+      this.config.owner + '/' + this.config.repo + '/' +
+      this.config.branch + '/assets/ui/' + beltFile;
+    var beltHtml = '<img class="jp-streak-belt" src="' + beltSrc + '" alt="' + stage.en + ' belt">';
+
+    return '<div class="jp-streak-bar">' +
+      '<div class="jp-streak-count" style="color:' + stage.color + ';">' +
+        '<span style="font-size:' + fireSize + ';line-height:1;">\uD83D\uDD25</span> ' + s.current +
+      '</div>' +
+      '<div>' +
+        '<div class="jp-streak-label"><strong>' + stage.jp + '</strong> ' + stage.en + freezeHtml + '</div>' +
+        beltHtml +
+      '</div>' +
+    '</div>';
+  },
+
+  // --- RETURN MESSAGE (Rikizo greeting on app load) ---
+  _showReturnMessage: function() {
+    var streak = window.JPShared && window.JPShared.streak;
+    if (!streak) return;
+    var s = streak.getState();
+
+    // Fallback: show a pending rank-up if the inline handler didn't fire
+    // (e.g. activity completed in a previous session before the handler was registered).
+    // Only fire if an activity was completed this session to avoid showing on plain login.
+    if (window._jp_activity_this_session) {
+      var rankUp = streak.consumeRankUp();
+      if (rankUp) {
+        this._showRankUpPopup(rankUp, s);
+        return;
+      }
+    }
+
+    // Only show if user has been away (daysAway > 0)
+    if (s.daysAway === 0) return; // already active today
+    if (s.daysAway === -1) return; // brand new user, no message needed
+
+    // Load messages if not yet fetched, then show
+    if (!window.JPShared._rikizo_messages) {
+      var self = this;
+      var url = 'https://raw.githubusercontent.com/' +
+        this.config.owner + '/' + this.config.repo + '/' +
+        this.config.branch + '/data/shared/rikizo-messages.json?t=' + Date.now();
+      fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+        window.JPShared._rikizo_messages = data;
+        self._showReturnMessage(); // retry with messages loaded
+      }).catch(function() {}); // silently fail — messages are non-critical
+      return;
+    }
+
+    var msg = streak.getReturnMessage(s.daysAway);
+    if (!msg) return;
+
+    // Don't show more than once per session
+    if (window._rikizo_return_shown) return;
+    window._rikizo_return_shown = true;
+
+    // Belt image for streakAlive popup
+    var beltMap = {
+      beginner: 'belt-white', daily: 'belt-yellow', week: 'belt-green',
+      fortnight: 'belt-blue', month: 'belt-purple', season: 'belt-brown', legend: 'belt-black'
+    };
+    var beltFile = (beltMap[s.stage.key] || 'belt-white') + '.png';
+    var beltSrc = 'https://raw.githubusercontent.com/' +
+      this.config.owner + '/' + this.config.repo + '/' +
+      this.config.branch + '/assets/ui/' + beltFile;
+    var beltHtml = s.current > 0
+      ? '<img class="jp-return-belt" src="' + beltSrc + '" alt="' + s.stage.en + ' belt">'
+      : '';
+
+    var overlay = document.createElement('div');
+    overlay.className = 'jp-return-overlay';
+    overlay.innerHTML =
+      '<div class="jp-return-card">' +
+        '<div class="jp-return-jp">' + (msg.jp || '') + '</div>' +
+        '<div class="jp-return-text">' + msg.text + '</div>' +
+        beltHtml +
+        (s.current > 0
+          ? '<div style="font-size:0.9rem;color:#888;margin-bottom:12px;">\uD83D\uDD25 ' + s.current + ' day streak</div>'
+          : '') +
+        '<button onclick="this.closest(\'.jp-return-overlay\').remove()" ' +
+          'style="background:#4e54c8;color:white;border:none;padding:10px 28px;' +
+          'border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;">' +
+          'Let\'s Go!' +
+        '</button>' +
+      '</div>';
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) overlay.remove();
+    });
+    document.body.appendChild(overlay);
+    // Auto-dismiss after 5 seconds
+    setTimeout(function() { if (overlay.parentNode) overlay.remove(); }, 5000);
+  },
+
+  // --- RANK-UP CELEBRATION POPUP ---
+  _showRankUpPopup: function(stage, streakState) {
+    // No _rikizo_return_shown guard here — consumeRankUp() already ensures one-shot display.
+    // The normal return message guard must not block the rank-up popup.
+
+    var beltMap = {
+      beginner: 'belt-white', daily: 'belt-yellow', week: 'belt-green',
+      fortnight: 'belt-blue', month: 'belt-purple', season: 'belt-brown', legend: 'belt-black'
+    };
+    var beltFile = (beltMap[stage.key] || 'belt-white') + '.png';
+    var baseUrl = 'https://raw.githubusercontent.com/' +
+      this.config.owner + '/' + this.config.repo + '/' +
+      this.config.branch;
+    var beltSrc = baseUrl + '/assets/ui/' + beltFile;
+    var rikizoSrc = baseUrl + '/assets/characters/rikizo/rikizo_head.png';
+
+    var overlay = document.createElement('div');
+    overlay.className = 'jp-return-overlay';
+    overlay.innerHTML =
+      '<div class="jp-rankup-card">' +
+        '<div class="jp-rankup-particles" id="jp-rankup-particles"></div>' +
+        '<img class="jp-rankup-rikizo" src="' + rikizoSrc + '" alt="Rikizo">' +
+        '<div class="jp-rankup-title">Rank Up!</div>' +
+        '<div class="jp-rankup-stage" style="color:' + stage.color + ';">' + stage.en + '</div>' +
+        '<div class="jp-rankup-stage-jp">' + stage.jp + '</div>' +
+        '<img class="jp-rankup-belt" src="' + beltSrc + '" alt="' + stage.en + ' belt">' +
+        '<div class="jp-rankup-streak">\uD83D\uDD25 ' + streakState.current + ' day streak</div>' +
+        '<button onclick="this.closest(\'.jp-return-overlay\').remove()" ' +
+          'style="background:' + stage.color + ';color:white;border:none;padding:12px 32px;' +
+          'border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;' +
+          'box-shadow:0 4px 15px ' + stage.color + '66;position:relative;z-index:1;">' +
+          'Let\'s Go!' +
+        '</button>' +
+      '</div>';
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) overlay.remove();
+    });
+    document.body.appendChild(overlay);
+
+    // Launch hanabi particles
+    var container = document.getElementById('jp-rankup-particles');
+    if (container) {
+      var colors = [stage.color, '#FFD700', '#FF6B6B', '#4ECDC4', '#A78BFA'];
+      var burstPoints = [
+        { x: 0.2, y: 0.2 }, { x: 0.8, y: 0.2 },
+        { x: 0.5, y: 0.15 }, { x: 0.3, y: 0.8 }, { x: 0.7, y: 0.8 }
+      ];
+      burstPoints.forEach(function(bp, bIdx) {
+        for (var i = 0; i < 8; i++) {
+          var p = document.createElement('div');
+          p.className = 'jp-rankup-particle';
+          var angle = (Math.PI * 2 * i / 8) + (Math.random() * 0.3);
+          var dist = 40 + Math.random() * 80;
+          var color = colors[Math.floor(Math.random() * colors.length)];
+          var size = 4 + Math.random() * 6;
+          var delay = bIdx * 120 + Math.random() * 150;
+          var dx = Math.cos(angle) * dist;
+          var dy = Math.sin(angle) * dist;
+          p.style.cssText = 'left:' + (bp.x * 100) + '%;top:' + (bp.y * 100) + '%;' +
+            'width:' + size + 'px;height:' + size + 'px;background:' + color + ';' +
+            'box-shadow:0 0 ' + (size + 2) + 'px ' + color + ';' +
+            'transition:transform 1s cubic-bezier(0.25,0.46,0.45,0.94),opacity 1s ease-out;' +
+            'transition-delay:' + delay + 'ms;';
+          container.appendChild(p);
+          (function(particle, tdx, tdy) {
+            requestAnimationFrame(function() { requestAnimationFrame(function() {
+              particle.style.opacity = '1';
+              particle.style.transform = 'translate(' + tdx + 'px,' + tdy + 'px)';
+              setTimeout(function() { particle.style.opacity = '0'; }, delay + 400);
+            }); });
+          })(p, dx, dy);
+        }
+      });
+    }
+
+    // Auto-dismiss after 8 seconds (longer for celebration)
+    setTimeout(function() { if (overlay.parentNode) overlay.remove(); }, 8000);
+  },
+
+  // --- REMINDER SETTINGS (accessible from main menu before modules load) ---
+  openReminderSettings: async function() {
+    if (window.JPShared && window.JPShared.reminderSettings) {
+      window.JPShared.reminderSettings.open();
+      return;
+    }
+    try {
+      window.JPShared = window.JPShared || {};
+      await this.loadModule('app/shared/reminder-settings.js');
+      if (window.JPShared.reminderSettings) {
+        window.JPShared.reminderSettings.open();
+      }
+    } catch (e) {
+      console.error('Could not load reminder settings:', e);
+    }
+  },
+
+  // --- TTS SETTINGS (accessible from main menu before modules load) ---
+  openTtsSettings: async function() {
+    if (window.JPShared && window.JPShared.ttsSettings) {
+      window.JPShared.ttsSettings.open();
+      return;
+    }
+    // Load TTS modules on demand (silently — don't clobber menu on error)
+    try {
+      window.JPShared = window.JPShared || {};
+      var savedHtml = this.container.innerHTML;
+      await this.loadModule('app/shared/tts.js');
+      await this.loadModule('app/shared/stamp-settings.js');
+      if (window.JPShared.stampSettings) {
+        window.JPShared.stampSettings.setConfig(this.config);
+      }
+      await this.loadModule('app/shared/tts-settings.js');
+      // Restore menu if loadModule error-displayed something
+      if (!window.JPShared.ttsSettings) {
+        this.container.innerHTML = savedHtml;
+        return;
+      }
+      // Ensure stamp settings has repo config for URL resolution
+      if (window.JPShared.stampSettings) {
+        window.JPShared.stampSettings.setConfig(this.config);
+      }
+      this.container.innerHTML = savedHtml;
+      window.JPShared.ttsSettings.open();
+    } catch (e) {
+      console.error('Could not load TTS settings:', e);
+    }
+  },
+
+  // --- LAUNCHER ---
+  // Shared modules are loaded once per session (idempotent guard on JPShared.assets).
+  // Feature modules are loaded once per session (idempotent guard on their window global).
+  launch: async function(mode) {
+    this.container.innerHTML =
+      '<div style="padding:40px;text-align:center;color:#888;">' +
+      'Fetching latest code from GitHub...</div>';
+
+    // ── Step 1: Load shared modules (first launch only, in required order) ──
+    // Guard: text-processor.js sets window.JPShared.textProcessor when it runs.
+    // (asset-loader + streak load eagerly in init(), so we guard on a later module.)
+    if (!window.JPShared || !window.JPShared.textProcessor) {
+      var sharedModules = [
+        // asset-loader (1) and streak (6) load eagerly in init()
+        'app/shared/tts.js',            // 2. speak() / cancel() / voice selection
+        'app/shared/stamp-settings.js', // 3. Character stamp picker
+        'app/shared/tts-settings.js',   // 4. Settings modal (depends on 2, 3)
+        'app/shared/progress.js',       // 5. flags, scores, drafts via localStorage
+        'app/shared/unlock.js',         // 7. content gating / progressive unlock
+        'app/shared/text-processor.js', // 8. conjugate(), processText(), getRootTerm()
+        'app/shared/term-modal.js'      // 9. term overlay (depends on 2, 5, 7)
+      ];
+      for (var i = 0; i < sharedModules.length; i++) {
+        var ok = await this.loadModule(sharedModules[i]);
+        if (!ok) return; // loadModule already showed an error in the container
+      }
+      // Give stamp-settings the repo config for URL resolution
+      if (window.JPShared.stampSettings) {
+        window.JPShared.stampSettings.setConfig(this.config);
+      }
+    }
+
+    // ── Step 2: Load and start the requested feature module ──
+    var onExit = (function(self) { return function() { self.renderMenu(); }; })(this);
+
+    if (mode === 'lesson') {
+      if (!window.LessonModule) {
+        var ok = await this.loadModule('Lesson.js');
+        if (!ok) return;
+      }
+      if (window.LessonModule) window.LessonModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'practice') {
+      if (!window.PracticeModule) {
+        var ok = await this.loadModule('Practice.js');
+        if (!ok) return;
+      }
+      if (window.PracticeModule) window.PracticeModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'review') {
+      if (!window.ReviewModule) {
+        var ok = await this.loadModule('Review.js');
+        if (!ok) return;
+      }
+      if (window.ReviewModule) window.ReviewModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'compose') {
+      if (!window.ComposeModule) {
+        var ok = await this.loadModule('Compose.js');
+        if (!ok) return;
+      }
+      if (window.ComposeModule) window.ComposeModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'story') {
+      if (!window.StoryModule) {
+        var ok = await this.loadModule('Story.js');
+        if (!ok) return;
+      }
+      if (window.StoryModule) window.StoryModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'grammar') {
+      if (!window.GrammarModule) {
+        var ok = await this.loadModule('Grammar.js');
+        if (!ok) return;
+      }
+      if (window.GrammarModule) window.GrammarModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'game') {
+      if (!window.GameModule) {
+        var ok = await this.loadModule('Game.js');
+        if (!ok) return;
+      }
+      if (window.GameModule) window.GameModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'custom') {
+      if (!window.CustomStoriesModule) {
+        var ok = await this.loadModule('CustomStories.js');
+        if (!ok) return;
+      }
+      if (window.CustomStoriesModule) window.CustomStoriesModule.start(this.container, this.config, onExit);
+
+    } else if (mode === 'teacher-bingo') {
+      if (!window.KanjiBingoGeneratorModule) {
+        var ok = await this.loadModule('KanjiBingoGenerator.js');
+        if (!ok) return;
+      }
+      if (window.KanjiBingoGeneratorModule) window.KanjiBingoGeneratorModule.start(this.container, this.config, onExit);
+    }
+  }
+};
+
+// Register rank-up handler so the popup fires immediately on whatever screen the user is on,
+// without requiring a return to the main menu first.
+window.JPShared = window.JPShared || {};
+window.JPShared._rankUpHandler = function(stage) {
+  var streak = window.JPShared && window.JPShared.streak;
+  var s = streak ? streak.getState() : { current: 0 };
+  streak && streak.consumeRankUp(); // consume so the main-menu fallback doesn't double-fire
+  window.JPApp._showRankUpPopup(stage, s);
+};
+
+// Start App
+document.addEventListener('DOMContentLoaded', function() { window.JPApp.init(); });
+</script>
