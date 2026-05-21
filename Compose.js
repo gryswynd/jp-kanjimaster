@@ -19,44 +19,50 @@ window.ComposeModule = {
         style.id = 'jp-compose-style';
         style.textContent = `
             #compose-app-root {
-                --c-primary: #00897B; --c-primary-dark: #00695C;
-                --c-primary-light: #e0f2f1;
-                --c-bg-grad: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-                --c-text-main: #2f3542; --c-text-sub: #747d8c;
-                --c-success: #2ed573; --c-error: #ff4757;
-                --c-gold: #f39c12;
+                --c-primary: oklch(0.58 0.09 140); --c-primary-dark: oklch(0.50 0.09 140);
+                --c-primary-light: #E7EEE3;
+                --washi: oklch(0.97 0.008 80); --washi-2: oklch(0.94 0.012 75); --washi-3: oklch(0.90 0.015 75);
+                --ink: oklch(0.22 0.012 60); --ink-2: oklch(0.38 0.012 60); --ink-3: oklch(0.55 0.012 60);
+                --hairline: oklch(0.22 0.012 60 / 0.12); --hairline-2: oklch(0.22 0.012 60 / 0.06);
+                --vermilion: oklch(0.60 0.18 30); --moss: oklch(0.58 0.09 140); --indigo: oklch(0.42 0.08 250);
+                --font-jp-display: "Noto Serif JP","Shippori Mincho",serif;
+                --c-text-main: oklch(0.22 0.012 60); --c-text-sub: oklch(0.55 0.012 60);
+                --c-success: oklch(0.58 0.09 140); --c-error: oklch(0.60 0.18 30);
+                --c-gold: oklch(0.72 0.11 70);
 
-                font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-                background: var(--c-bg-grad); color: var(--c-text-main);
+                font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+                background:
+                  radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+                  radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+                  var(--washi);
+                color: var(--c-text-main);
                 display: flex; flex-direction: column;
-                width: 100%; max-width: 600px; margin: 0 auto;
-                height: 800px; border-radius: 20px;
-                border: 1px solid rgba(0,0,0,0.05); overflow: hidden; position: relative;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                width: 100%; min-height: 100vh; min-height: 100dvh; position: relative;
             }
             #compose-app-root * { box-sizing: border-box; }
 
             #compose-app-root header {
-                background: rgba(0, 137, 123, 0.95); color: white; padding: 1.2rem;
-                text-align: center; font-weight: 900; letter-spacing: 0.05em; font-size: 1.2rem;
+                background: var(--ink); color: var(--washi); padding: max(28px,env(safe-area-inset-top)) 18px 14px;
+                text-align: center; font-weight: 600; letter-spacing: 0.02em; font-size: 17px;
+                font-family: var(--font-jp-display);
                 cursor: pointer; user-select: none; z-index: 10;
-                box-shadow: 0 4px 15px rgba(0, 137, 123, 0.3); backdrop-filter: blur(5px);
-                display: flex; justify-content: space-between; align-items: center;
+                border-bottom: 1px solid oklch(1 0 0 / 0.1);
+                display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0;
             }
-            .c-exit-btn { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+            .c-exit-btn { background: transparent; border: 1px solid oklch(1 0 0 / 0.25); color: var(--washi); padding: 6px 14px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.8rem; }
 
-            #c-app-container { flex: 1; overflow-y: auto; padding: 1.2rem; display: flex; flex-direction: column; align-items: center; width: 100%; position: relative; z-index: 1; }
-            .c-card { background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 1.5rem; width: 100%; text-align: center; margin-bottom: 1rem; border: 1px solid rgba(0,0,0,0.02); }
-            .c-btn { background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-dark) 100%); color: white; border: none; padding: 14px; border-radius: 12px; font-size: 1rem; font-weight: 700; width: 100%; margin: 6px 0; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 6px rgba(0, 137, 123, 0.2); }
+            #c-app-container { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; align-items: center; width: 100%; position: relative; z-index: 1; }
+            .c-card { background: var(--washi); border-radius: var(--r-lg,22px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 1.5rem; width: 100%; text-align: center; margin-bottom: 1rem; border: 1px solid var(--hairline); }
+            .c-btn { background: var(--ink); color: var(--washi); border: none; padding: 14px; border-radius: 999px; font-size: 15px; font-weight: 600; width: 100%; margin: 6px 0; cursor: pointer; transition: all 0.2s; }
             .c-btn:active { transform: scale(0.98); }
-            .c-btn-sec { background: white; color: var(--c-text-sub); border: 2px solid #dfe4ea; box-shadow: none; }
+            .c-btn-sec { background: white; color: var(--c-text-sub); border: 2px solid #DCD5C7; box-shadow: none; }
             .c-btn-sm { padding: 8px 14px; font-size: 0.85rem; width: auto; margin: 4px; display: inline-block; }
             .c-hidden { display: none !important; }
             .c-lbl { font-size: 0.8rem; text-transform: uppercase; color: #a4b0be; font-weight: 700; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 8px; }
 
             /* MENU — LESSON CARDS */
-            .c-menu-card { background: white; border-radius: 14px; padding: 1.2rem; margin-bottom: 12px; border: 2px solid #e0f2f1; text-align: left; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; }
-            @media (hover: hover) { .c-menu-card:hover { border-color: var(--c-primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 137, 123, 0.1); } }
+            .c-menu-card { background: white; border-radius: 14px; padding: 1.2rem; margin-bottom: 12px; border: 2px solid #E7EEE3; text-align: left; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; }
+            @media (hover: hover) { .c-menu-card:hover { border-color: var(--c-primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); } }
             .c-menu-emoji { font-size: 2rem; flex-shrink: 0; }
             .c-menu-info { flex: 1; min-width: 0; }
             .c-menu-title { font-weight: 800; font-size: 1rem; color: var(--c-primary-dark); }
@@ -64,16 +70,16 @@ window.ComposeModule = {
             .c-menu-theme { font-size: 0.82rem; color: var(--c-text-sub); line-height: 1.4; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
             .c-menu-meta { display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
             .c-menu-tag { font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; }
-            .c-menu-tag-count { background: #fff3e0; color: #e65100; }
-            .c-menu-tag-done { background: #e8f5e9; color: #2e7d32; }
-            .c-menu-tag-draft { background: #e3f2fd; color: #1565c0; }
+            .c-menu-tag-count { background: #F1E7D6; color: #9A5A12; }
+            .c-menu-tag-done { background: #E7EFE3; color: #3A5A3C; }
+            .c-menu-tag-draft { background: #E4E7F0; color: #3F4E8C; }
 
             /* LEVEL PICKER */
             .c-level-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 8px; }
             .c-level-card {
                 background: white; padding: 28px 24px; border-radius: 20px; cursor: pointer;
                 box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s;
-                border: 2px solid #e0f2f1; text-align: center;
+                border: 2px solid #E7EEE3; text-align: center;
             }
             @media (hover: hover) { .c-level-card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,137,123,0.15); border-color: var(--c-primary); } }
             .c-level-name { font-weight: 900; font-size: 1.4rem; color: var(--c-primary); margin-bottom: 6px; }
@@ -83,7 +89,7 @@ window.ComposeModule = {
             .c-menu-empty { padding: 20px; text-align: center; color: #a4b0be; font-weight: 600; font-size: 0.9rem; }
 
             /* COMPOSE HEADER */
-            .c-compose-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 14px; border: 2px solid #e0f2f1; }
+            .c-compose-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding: 12px 16px; background: white; border-radius: 14px; border: 2px solid #E7EEE3; }
             .c-compose-header-emoji { font-size: 2.2rem; flex-shrink: 0; }
             .c-compose-header-info { flex: 1; min-width: 0; }
             .c-compose-header-title { font-weight: 900; font-size: 1.15rem; color: var(--c-primary-dark); }
@@ -103,36 +109,36 @@ window.ComposeModule = {
             .c-timeline-prompt { font-size: 0.88rem; color: var(--c-text-main); font-weight: 600; line-height: 1.4; flex: 1; }
             .c-timeline-step.done .c-timeline-prompt { text-decoration: line-through; color: var(--c-text-sub); }
             .c-timeline-step.locked .c-timeline-prompt { color: #bdbdbd; }
-            .c-timeline-challenge-tag { font-size: 0.68rem; padding: 2px 6px; border-radius: 4px; background: #fff3e0; color: #e65100; font-weight: 800; margin-left: 4px; }
+            .c-timeline-challenge-tag { font-size: 0.68rem; padding: 2px 6px; border-radius: 4px; background: #F1E7D6; color: #9A5A12; font-weight: 800; margin-left: 4px; }
 
             /* ACTIVE PROMPT BANNER */
-            .c-prompt-banner { background: linear-gradient(135deg, #e0f2f1, #b2dfdb); border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 12px; text-align: left; border-left: 5px solid var(--c-primary); }
+            .c-prompt-banner { background: linear-gradient(135deg, #E7EEE3, #D7E4CF); border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 12px; text-align: left; border-left: 5px solid var(--c-primary); }
             .c-prompt-banner-title { font-weight: 800; font-size: 1rem; color: var(--c-primary-dark); margin-bottom: 4px; }
             .c-prompt-banner-text { font-size: 0.92rem; color: #37474F; line-height: 1.5; font-weight: 600; }
 
             /* MODEL SENTENCE */
             .c-model-toggle { font-size: 0.8rem; color: var(--c-primary); cursor: pointer; font-weight: 700; margin-top: 8px; user-select: none; display: inline-block; }
             @media (hover: hover) { .c-model-toggle:hover { text-decoration: underline; } }
-            .c-model-sentence { font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; color: #546E7A; background: rgba(255,255,255,0.6); padding: 8px 12px; border-radius: 8px; margin-top: 6px; line-height: 1.6; display: none; }
+            .c-model-sentence { font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; color: #6b6356; background: rgba(255,255,255,0.6); padding: 8px 12px; border-radius: 8px; margin-top: 6px; line-height: 1.6; display: none; }
             .c-model-sentence.visible { display: block; }
 
             /* PROGRESS BAR */
             .c-progress-wrap { width: 100%; margin-bottom: 12px; }
             .c-progress-bar-outer { width: 100%; height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; }
-            .c-progress-bar-inner { height: 100%; background: linear-gradient(90deg, var(--c-primary), var(--c-success)); border-radius: 5px; transition: width 0.4s ease; }
+            .c-progress-bar-inner { height: 100%; background: var(--moss); border-radius: 5px; transition: width 0.4s ease; }
             .c-progress-text { display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; color: var(--c-text-sub); margin-top: 4px; }
 
             /* TEXTAREA */
-            .c-textarea { width: 100%; min-height: 120px; max-height: 200px; border: 2px solid #dfe4ea; border-radius: 12px; padding: 12px; font-size: 1.1rem; font-family: 'Noto Sans JP', 'Poppins', sans-serif; line-height: 1.8; resize: vertical; outline: none; transition: border-color 0.2s; color: var(--c-text-main); }
-            .c-textarea:focus { border-color: var(--c-primary); box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.1); }
+            .c-textarea { width: 100%; min-height: 120px; max-height: 200px; border: 2px solid #DCD5C7; border-radius: 12px; padding: 12px; font-size: 1.1rem; font-family: 'Noto Sans JP', 'Schibsted Grotesk','Work Sans',system-ui,sans-serif; line-height: 1.8; resize: vertical; outline: none; transition: border-color 0.2s; color: var(--c-text-main); }
+            .c-textarea:focus { border-color: var(--c-primary); box-shadow: 0 0 0 3px rgba(0,0,0,0.08); }
             .c-textarea::placeholder { color: #b0bec5; font-size: 0.95rem; }
             .c-char-count { text-align: right; font-size: 0.75rem; color: #a4b0be; font-weight: 600; margin-top: 4px; }
 
             /* WORD TARGETS */
             .c-target-list { text-align: left; margin-bottom: 8px; }
-            .c-target-item { display: flex; align-items: center; padding: 8px 10px; border-radius: 8px; margin-bottom: 4px; transition: all 0.3s; border: 1px solid #f1f2f6; }
-            .c-target-item.done { background: #e8f5e9; border-color: #c8e6c9; }
-            .c-target-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #dfe4ea; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.8rem; flex-shrink: 0; transition: all 0.3s; }
+            .c-target-item { display: flex; align-items: center; padding: 8px 10px; border-radius: 8px; margin-bottom: 4px; transition: all 0.3s; border: 1px solid #EBE5D8; }
+            .c-target-item.done { background: #E7EFE3; border-color: #c8e6c9; }
+            .c-target-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #DCD5C7; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 0.8rem; flex-shrink: 0; transition: all 0.3s; }
             .c-target-item.done .c-target-check { background: var(--c-success); border-color: var(--c-success); color: white; }
             .c-target-surface { font-family: 'Noto Sans JP', sans-serif; font-size: 1.1rem; font-weight: 700; margin-right: 6px; cursor: pointer; }
             @media (hover: hover) { .c-target-surface:hover { color: var(--c-primary); } }
@@ -166,11 +172,11 @@ window.ComposeModule = {
             @media (hover: hover) { .c-ref-item:hover { background: var(--c-primary-light); } }
             .c-ref-item .c-ref-jp { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 0.88rem; }
             .c-ref-item .c-ref-role { color: #78909C; font-size: 0.75rem; }
-            .c-conj-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid #f1f2f6; font-size: 0.85rem; }
+            .c-conj-item { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid #EBE5D8; font-size: 0.85rem; }
             .c-conj-item:last-child { border-bottom: none; }
             .c-conj-label { font-weight: 700; color: var(--c-text-main); }
             .c-conj-desc { color: var(--c-text-sub); font-size: 0.78rem; }
-            .c-conj-entry { padding: 10px 12px; border-bottom: 1px solid #f1f2f6; }
+            .c-conj-entry { padding: 10px 12px; border-bottom: 1px solid #EBE5D8; }
             .c-conj-entry:last-child { border-bottom: none; }
             .c-conj-pattern { font-weight: 800; font-size: 0.9rem; color: var(--c-primary-dark); }
             .c-conj-meaning { font-size: 0.78rem; color: var(--c-text-sub); margin-top: 2px; }
@@ -179,29 +185,29 @@ window.ComposeModule = {
             @media (hover: hover) { .c-conj-example:hover { background: var(--c-primary-light); } }
 
             /* NEXT PROMPT BUTTON */
-            .c-next-prompt-btn { background: linear-gradient(135deg, var(--c-success), #20bf6b); color: white; border: none; padding: 12px 20px; border-radius: 12px; font-size: 1rem; font-weight: 800; width: 100%; margin: 10px 0; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3); animation: c-celebrate 0.4s ease; }
+            .c-next-prompt-btn { background: var(--moss); color: white; border: none; padding: 12px 20px; border-radius: 12px; font-size: 1rem; font-weight: 800; width: 100%; margin: 10px 0; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.12); animation: c-celebrate 0.4s ease; }
             @media (hover: hover) { .c-next-prompt-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(46, 213, 115, 0.4); } }
             .c-next-prompt-btn:active { transform: scale(0.98); }
 
             /* COMPLETE BANNER */
-            .c-complete-banner { background: linear-gradient(135deg, #2ed573, #26de81); color: white; border-radius: 14px; padding: 1.2rem; text-align: center; margin-bottom: 12px; animation: c-celebrate 0.5s ease; }
+            .c-complete-banner { background: var(--moss); color: white; border-radius: 14px; padding: 1.2rem; text-align: center; margin-bottom: 12px; animation: c-celebrate 0.5s ease; }
             .c-complete-banner h3 { margin: 0 0 4px 0; font-size: 1.3rem; }
             .c-complete-banner p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
             @keyframes c-celebrate { 0% { transform: scale(0.9); opacity: 0; } 50% { transform: scale(1.03); } 100% { transform: scale(1); opacity: 1; } }
 
             /* COVERAGE INDICATOR */
-            .c-coverage { background: white; border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 12px; border: 2px solid #e0f2f1; text-align: center; }
+            .c-coverage { background: white; border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 12px; border: 2px solid #E7EEE3; text-align: center; }
             .c-coverage-title { font-weight: 800; font-size: 0.9rem; color: var(--c-primary-dark); margin-bottom: 8px; }
             .c-coverage-pct { font-size: 2.4rem; font-weight: 900; color: var(--c-primary); }
             .c-coverage-label { font-size: 0.78rem; color: var(--c-text-sub); font-weight: 600; }
             .c-coverage-bar { width: 100%; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; margin-top: 8px; }
-            .c-coverage-fill { height: 100%; background: linear-gradient(90deg, var(--c-primary), var(--c-success)); border-radius: 4px; transition: width 0.6s ease; }
+            .c-coverage-fill { height: 100%; background: var(--moss); border-radius: 4px; transition: width 0.6s ease; }
 
             /* ACTION BAR */
             .c-action-bar { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
 
             /* SCORE BUTTON */
-            .c-btn-score { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); box-shadow: 0 4px 6px rgba(243, 156, 18, 0.25); }
+            .c-btn-score { background: oklch(0.72 0.11 70); box-shadow: 0 4px 6px rgba(0,0,0,0.12); }
 
             /* SCORE OVERLAY */
             .c-score-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 40; display: flex; align-items: center; justify-content: center; animation: c-fade-in 0.2s ease; }
@@ -212,7 +218,7 @@ window.ComposeModule = {
             .c-score-label { font-size: 0.85rem; color: var(--c-text-sub); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
             .c-score-grade { font-size: 1.4rem; font-weight: 800; margin: 4px 0 12px 0; }
             .c-score-breakdown { text-align: left; margin: 12px 0; }
-            .c-score-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border-bottom: 1px solid #f1f2f6; }
+            .c-score-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border-bottom: 1px solid #EBE5D8; }
             .c-score-row:last-child { border-bottom: none; }
             .c-score-row-label { font-size: 0.85rem; font-weight: 600; color: var(--c-text-main); }
             .c-score-row-detail { font-size: 0.75rem; color: var(--c-text-sub); }
@@ -232,8 +238,8 @@ window.ComposeModule = {
     appRoot.innerHTML = `
         <div id="c-loader" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.98);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;">
             <div style="font-size:3rem;margin-bottom:15px;">✏️</div>
-            <div style="font-weight:800;color:#00897B;font-size:1.2rem">Loading Compositions...</div>
-            <div id="c-error-box" class="c-hidden" style="color:#ff4757;margin-top:10px;padding:10px;max-width:80%;font-size:0.9rem"></div>
+            <div style="font-weight:800;color:#5E8C5F;font-size:1.2rem">Loading Compositions...</div>
+            <div id="c-error-box" class="c-hidden" style="color:#C2410C;margin-top:10px;padding:10px;max-width:80%;font-size:0.9rem"></div>
         </div>
         <header>
             <span onclick="ComposeApp.showMenu()">Compose 作文</span>
@@ -1029,9 +1035,9 @@ window.ComposeModule = {
 
         const total = vocabScore + lengthScore + grammarScore;
         let grade = ''; let gradeColor = '';
-        if (total >= 85) { grade = 'S  Excellent!'; gradeColor = '#f39c12'; }
-        else if (total >= 68) { grade = 'A  Great Work!'; gradeColor = '#2ed573'; }
-        else if (total >= 50) { grade = 'B  Good Job!'; gradeColor = '#00897B'; }
+        if (total >= 85) { grade = 'S  Excellent!'; gradeColor = '#C7902F'; }
+        else if (total >= 68) { grade = 'A  Great Work!'; gradeColor = '#5E8C5F'; }
+        else if (total >= 50) { grade = 'B  Good Job!'; gradeColor = '#5E8C5F'; }
         else if (total >= 30) { grade = 'C  Keep Going!'; gradeColor = '#3498db'; }
         else { grade = 'D  Keep Practicing!'; gradeColor = '#78909C'; }
 
