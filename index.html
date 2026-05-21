@@ -900,8 +900,37 @@ window.JPApp = {
     }
   },
 
+  // --- ADVENTURE TEASER (web placeholder; the game ships on iOS/Android) ---
+  _showAdventureTeaser: function() {
+    var mapUrl = this._assetUrl('assets/backgrounds/map.png');
+    var rikizoUrl = this._assetUrl('assets/characters/rikizo/rikizo_convo.png');
+    this.container.innerHTML =
+      '<div style="position:relative;min-height:100vh;min-height:100dvh;background:var(--ink);color:var(--washi);overflow:hidden;display:flex;flex-direction:column;">' +
+        '<div style="position:absolute;inset:0;background-image:url(\'' + mapUrl + '\');background-size:cover;background-position:center;opacity:0.14;image-rendering:pixelated;pointer-events:none;"></div>' +
+        '<div style="position:absolute;right:-30px;top:-20px;font-family:var(--font-jp-display);font-size:300px;line-height:0.85;font-weight:500;color:oklch(0.97 0.008 80 / 0.04);pointer-events:none;">険</div>' +
+        '<div style="position:relative;z-index:1;padding:max(28px,env(safe-area-inset-top)) 18px 14px;display:flex;align-items:center;gap:12px;">' +
+          '<button onclick="JPApp.renderMenu()" style="width:32px;height:32px;border-radius:999px;border:1px solid oklch(1 0 0 / 0.25);background:transparent;color:var(--washi);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>' +
+          '<div class="mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.18em;font-weight:600;">N5 · ADVENTURE</div>' +
+        '</div>' +
+        '<div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 28px 60px;">' +
+          '<img src="' + rikizoUrl + '" alt="Rikizo" class="pixel" style="width:140px;height:auto;margin-bottom:24px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.4));" onerror="this.style.display=\'none\'">' +
+          '<div class="jp-serif" style="font-size:36px;font-weight:600;line-height:1.1;">ぼうけん</div>' +
+          '<div style="font-size:18px;font-weight:600;color:oklch(1 0 0 / 0.85);margin-top:4px;">Adventure</div>' +
+          '<div style="font-size:13px;color:oklch(1 0 0 / 0.6);margin-top:14px;line-height:1.5;max-width:280px;">A pixel-art RPG to practice Japanese in the wild. Coming to <strong style="color:var(--washi);">iOS &amp; Android</strong>.</div>' +
+          '<div style="margin-top:28px;width:100%;max-width:280px;">' +
+            '<div class="mono" style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(1 0 0 / 0.55);margin-bottom:6px;"><span>N5 Game Days</span><span>17 remaining</span></div>' +
+            '<div style="height:4px;border-radius:999px;background:oklch(1 0 0 / 0.15);overflow:hidden;"><div style="height:100%;width:6%;background:var(--vermilion);border-radius:999px;"></div></div>' +
+          '</div>' +
+          '<button onclick="JPApp.openReminderSettings()" class="rk-press" style="margin-top:28px;padding:13px 26px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">Notify me' +
+            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18V10a6 6 0 1112 0v8h1.5M4.5 18h15M10 21.5a2 2 0 004 0"/></svg>' +
+          '</button>' +
+        '</div>' +
+      '</div>';
+  },
+
   // --- LAUNCHER ---
   launch: async function(mode) {
+    if (mode === 'game') { this._showAdventureTeaser(); return; }
     this.container.innerHTML = '<div class="rk-loading">力 · loading ' + this._esc(mode) + '</div>';
 
     if (!window.JPShared || !window.JPShared.textProcessor) {
