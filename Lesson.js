@@ -10,177 +10,123 @@ window.LessonModule = {
     let totalSteps = 0;
     let lessonData = null;
     let termMapData = {};
-    let showEN = false; // Default OFF
+    let showEN = false;
     let showAnswers = false;
     let drillCorrect = 0;
     let drillTotal = 0;
     const drillAnswered = new Set();
     let CONJUGATION_RULES = null;
     let COUNTER_RULES = null;
-    let allLevelsData = null;     // [{ level, levelNum, lessons[] }]
-    let currentLevelId = null;    // e.g. "N4"
-    let currentLevelLessons = null; // lessons[] for selected level
-    let manifestData = null;      // cached manifest for unlock computations
+    let allLevelsData = null;
+    let currentLevelId = null;
+    let currentLevelLessons = null;
+    let manifestData = null;
+    let kanjiSel = 0; // selected kanji index in the kanji panel
 
-    // --- Setup UI Container (Mobile Look) ---
+    // --- Setup UI Container ---
     container.innerHTML = '';
     const root = document.createElement('div');
     root.id = 'jp-lesson-app-root';
     container.appendChild(root);
 
-    // --- Styles ---
-    if (!document.getElementById('jp-fonts')) {
-        const link = document.createElement('link');
-        link.id = 'jp-fonts';
-        link.rel = 'stylesheet';
-        link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap';
-        document.head.appendChild(link);
-    }
-
+    // --- Styles (washi / ink / vermilion design system) ---
     if (!document.getElementById('jp-lesson-style')) {
         const style = document.createElement("style");
         style.id = 'jp-lesson-style';
         style.textContent = `
           #jp-lesson-app-root {
-            --primary: #4e54c8; --primary-dark: #3f44a5;
-            --bg-grad: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            --text-main: #2f3542; --text-sub: #747d8c;
-            font-family: 'Poppins', 'Noto Sans JP', sans-serif;
-            background: var(--bg-grad); color: var(--text-main);
+            --washi: oklch(0.97 0.008 80); --washi-2: oklch(0.94 0.012 75); --washi-3: oklch(0.90 0.015 75);
+            --ink: oklch(0.22 0.012 60); --ink-2: oklch(0.38 0.012 60); --ink-3: oklch(0.55 0.012 60);
+            --hairline: oklch(0.22 0.012 60 / 0.12); --hairline-2: oklch(0.22 0.012 60 / 0.06);
+            --vermilion: oklch(0.60 0.18 30); --moss: oklch(0.58 0.09 140);
+            --indigo: oklch(0.42 0.08 250); --gold: oklch(0.78 0.10 85);
+            --font-ui: "Schibsted Grotesk","Work Sans",system-ui,sans-serif;
+            --font-jp: "Noto Sans JP",system-ui,sans-serif;
+            --font-jp-display: "Noto Serif JP","Shippori Mincho",serif;
+            --font-mono: "JetBrains Mono",ui-monospace,Menlo,monospace;
+            --r-sm:8px; --r-md:14px; --r-lg:22px; --r-xl:28px;
+            font-family: var(--font-ui); color: var(--ink);
+            background:
+              radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+              radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+              var(--washi);
             display: flex; flex-direction: column;
-            width: 100%; max-width: 600px; margin: 0 auto;
-            height: 800px; border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.05); overflow: hidden; position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%; min-height: 100vh; min-height: 100dvh; position: relative;
           }
           #jp-lesson-app-root * { box-sizing: border-box; }
+          #jp-lesson-app-root .jp-mono { font-family: var(--font-mono); }
+          #jp-lesson-app-root .jp-serif { font-family: var(--font-jp-display); }
+          #jp-lesson-app-root .jp-sans { font-family: var(--font-jp); }
 
-          /* Header & Footer */
-          .jp-header {
-            background: rgba(78, 84, 200, 0.95); padding: 1.2rem;
-            color: white; border-bottom: none;
-            display: flex; align-items: center; justify-content: space-between;
-            box-shadow: 0 4px 15px rgba(78, 84, 200, 0.3); backdrop-filter: blur(5px);
-            z-index: 10;
-          }
-          .jp-title { font-weight: 900; font-size: 1.1rem; color: white; }
-          .jp-progress-container { height: 6px; width: 100%; background: rgba(0,0,0,0.1); }
-          .jp-progress-bar { height: 100%; background: #2ed573; width: 0%; transition: width 0.3s ease; }
-          .jp-body { padding: 1.5rem; flex: 1; overflow-y: auto; background: transparent; display: flex; flex-direction: column; }
-          .jp-footer {
-            padding: 15px 20px; background: white; border-top: 1px solid rgba(0,0,0,0.05);
-            display: flex; gap: 10px; justify-content: space-between;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.03); z-index: 10;
-          }
+          /* Header */
+          .lh-header { padding: max(28px,env(safe-area-inset-top)) 18px 14px; background: var(--washi); border-bottom: 1px solid var(--hairline); position: sticky; top: 0; z-index: 10; }
+          .lh-row { display: flex; align-items: center; gap: 12px; }
+          .lh-x { width: 32px; height: 32px; border-radius: 999px; border: 1px solid var(--hairline); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink-2); flex-shrink: 0; }
+          .lh-code { font-family: var(--font-mono); font-size: 10px; color: var(--vermilion); letter-spacing: 0.18em; font-weight: 600; }
+          .lh-title { font-family: var(--font-jp-display); font-weight: 600; font-size: 17px; letter-spacing: -0.01em; margin-top: 1px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+          .lh-count { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); letter-spacing: 0.08em; padding: 4px 8px; border: 1px solid var(--hairline); border-radius: 4px; flex-shrink: 0; }
+          .lh-gear { background: transparent; border: 1px solid var(--hairline); color: var(--ink-2); width: 32px; height: 32px; border-radius: 999px; cursor: pointer; font-size: 15px; flex-shrink: 0; }
+          .lh-rail { display: flex; gap: 4px; margin-top: 14px; }
+          .lh-seg { flex: 1; height: 3px; background: transparent; border: none; padding: 0; cursor: pointer; }
+          .lh-seg > div { height: 3px; border-radius: 2px; transition: background 0.2s; }
 
-          /* Buttons */
-          .jp-nav-btn {
-            padding: 12px 24px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer;
-            font-size: 0.95rem; transition: transform 0.1s;
-          }
-          .jp-nav-btn:active { transform: scale(0.96); }
-          .jp-nav-btn.prev { background: #f1f2f6; color: #747d8c; }
-          .jp-nav-btn.next { background: var(--primary); color: #fff; box-shadow: 0 4px 10px rgba(78,84,200,0.3); }
-          .jp-nav-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+          /* Body + footer */
+          .lh-body { flex: 1; overflow-y: auto; overflow-x: hidden; animation: lhFade 0.3s ease; }
+          @keyframes lhFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+          .lh-footer { padding: 12px 16px calc(14px + env(safe-area-inset-bottom)); background: var(--washi); border-top: 1px solid var(--hairline); display: flex; gap: 10px; align-items: center; position: sticky; bottom: 0; z-index: 10; }
+          .lh-btn-back { height: 46px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--hairline); background: transparent; color: var(--ink-2); font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+          .lh-btn-next { flex: 1; height: 46px; border-radius: 999px; border: none; background: var(--ink); color: var(--washi); font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: -0.01em; }
+          .lh-btn-next.finish { background: var(--moss); }
+          .lh-btn-next:disabled { opacity: 0.5; cursor: not-allowed; }
+          .lh-next-sub { opacity: 0.55; font-weight: 400; }
 
-          .jp-exit-btn { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 5px 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
-          .jp-back-btn { background: transparent; color: rgba(255,255,255,0.8); border: none; cursor: pointer; font-weight: bold; font-size: 0.9rem; margin-right: 10px; }
-          @media (hover: hover) { .jp-back-btn:hover { color: white; } }
+          /* Atoms */
+          .lh-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+          .lh-h2 { font-family: var(--font-jp-display); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin: 6px 0; color: var(--ink); }
+          .lh-lead { color: var(--ink-2); font-size: 13.5px; line-height: 1.5; }
+          .lh-card { background: var(--washi); border: 1px solid var(--hairline); border-radius: var(--r-lg); }
 
-          /* Menu & Cards */
-          .jp-menu-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-          .jp-menu-item {
-              background: #fff; padding: 20px; border-radius: 16px; cursor: pointer;
-              box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s;
-              border: 1px solid rgba(0,0,0,0.02); text-align: left;
-              display: flex; justify-content: space-between; align-items: center;
-          }
-          @media (hover: hover) { .jp-menu-item:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(78,84,200,0.15); border-color: var(--primary); } }
-          .jp-menu-id { font-weight: 900; color: var(--primary); font-size: 1.1rem; min-width: 50px; flex-shrink: 0; }
-          .jp-menu-name { font-size: 0.85rem; color: #a4b0be; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; flex: 1; text-align: center; }
-          .jp-menu-stamp { width: 38px; height: 38px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-          .jp-menu-stamp img { width: 100%; height: 100%; object-fit: contain; opacity: 0.85; }
-          @keyframes jpStampPop { 0% { transform: scale(2) rotate(0deg); opacity: 0; } 60% { transform: scale(0.9); } 100% { transform: scale(1); opacity: 0.85; } }
-          .jp-menu-stamp img { animation: jpStampPop 0.3s ease; }
-          .jp-menu-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-          .jp-menu-score { font-size: 0.75rem; font-weight: 700; color: var(--primary); }
-          .jp-menu-badge { font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: 20px; background: #f1f2f6; color: #999; }
+          /* Term spans (from processText) restyled */
+          #jp-lesson-app-root .jp-term { color: var(--vermilion); font-weight: 600; cursor: pointer; border-bottom: 1.5px solid oklch(0.60 0.18 30 / 0.25); }
+          @media (hover:hover){ #jp-lesson-app-root .jp-term:hover { border-bottom-color: var(--vermilion); } }
+          #jp-lesson-app-root .jp-highlight { background: oklch(0.78 0.10 85 / 0.35); border-radius: 4px; padding: 0 4px; font-weight: 700; }
 
-          .jp-level-card {
-            background: #fff; padding: 28px 24px; border-radius: 20px; cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid rgba(0,0,0,0.02); text-align: center;
-          }
-          @media (hover: hover) { .jp-level-card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(78,84,200,0.15); border-color: var(--primary); } }
-          .jp-level-name { font-weight: 900; font-size: 1.4rem; color: var(--primary); margin-bottom: 6px; }
-          .jp-level-count { font-size: 0.85rem; color: #a4b0be; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+          /* Speaker / TTS buttons */
+          .lh-speak { background: var(--washi-2); border: 1px solid var(--hairline); color: var(--ink-2); width: 30px; height: 30px; border-radius: 999px; cursor: pointer; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+          .lh-playall { width: 100%; margin: 0 0 16px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--washi); color: var(--ink-2); font-size: 12px; font-weight: 600; font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+          .lh-playall.on { background: var(--vermilion); color: var(--washi); border-color: var(--vermilion); }
 
-          .jp-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.02); }
-          .jp-intro-card { text-align: center; padding: 40px 20px; justify-content: center; height: 100%; display: flex; flex-direction: column; }
-          .jp-intro-title { font-size: 2rem; color: var(--primary); margin-bottom: 20px; line-height: 1.2; }
-          .jp-intro-focus { font-size: 1rem; color: #747d8c; margin-bottom: 40px; background: #f8f9fa; padding: 12px 20px; border-radius: 50px; display: inline-block; }
-          .jp-intro-kanji-row { font-size: 2.5rem; font-weight: 900; color: #2f3542; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-          .jp-intro-dot { color: var(--primary); opacity: 0.4; }
+          /* Menu / level cards */
+          .lh-list { padding: 18px 18px 28px; display: flex; flex-direction: column; gap: 10px; }
+          .lh-item { background: var(--washi); border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 16px 18px; cursor: pointer; display: flex; align-items: center; gap: 14px; text-align: left; transition: transform 0.12s; }
+          .lh-item:active { transform: scale(0.99); }
+          .lh-item-id { font-family: var(--font-mono); font-weight: 600; color: var(--vermilion); font-size: 12px; letter-spacing: 0.08em; min-width: 54px; flex-shrink: 0; }
+          .lh-item-name { font-size: 15px; font-weight: 600; color: var(--ink); flex: 1; }
+          .lh-item--locked { opacity: 0.5; cursor: default; background: var(--washi-2); }
+          .lh-level { background: var(--ink); color: var(--washi); border-radius: var(--r-lg); padding: 24px 22px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+          .lh-level-name { font-family: var(--font-jp-display); font-weight: 600; font-size: 22px; }
+          .lh-level-count { font-family: var(--font-mono); font-size: 11px; color: oklch(1 0 0 / 0.6); letter-spacing: 0.1em; text-transform: uppercase; }
+          .lh-stamp { width: 34px; height: 34px; }
+          .lh-stamp img { width: 100%; height: 100%; object-fit: contain; }
 
-          /* Content Styles */
-          .jp-speaker-bubble { background: #f1f2f6; color: var(--primary-dark); font-weight: 900; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-          .jp-row { display: flex; gap: 12px; margin-bottom: 20px; align-items: flex-start; }
-          .jp-jp { font-size: 1.15rem; line-height: 1.6; font-family: 'Noto Sans JP', sans-serif; color: #2f3542; }
-          .jp-en { font-size: 0.9rem; color: #747d8c; margin-top: 6px; display: none; padding-left: 2px; }
-          .jp-term { color: var(--primary); font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid rgba(78,84,200,0.1); transition: 0.2s; }
-          @media (hover: hover) { .jp-term:hover { background: rgba(78,84,200,0.05); border-bottom-color: var(--primary); } }
+          /* Hanko */
+          .lh-hanko { font-family: var(--font-jp-display); font-weight: 700; color: #fff; background: var(--vermilion); display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; line-height: 1; box-shadow: 0 2px 0 oklch(0.45 0.18 30 / 0.4); position: relative; }
+          .lh-hanko::before { content:""; position:absolute; inset:2px; border:1px solid oklch(1 0 0 / 0.35); border-radius:4px; }
 
-          .jp-toggle-en { font-size: 0.75rem; font-weight: 700; color: #747d8c; background: #fff; border: 2px solid #f1f2f6; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 20px; width: 100%; }
-
-          .jp-kanji-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-          .jp-flip-container { perspective: 1000px; cursor: pointer; height: 180px; }
-          .jp-flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-          .jp-flip-container.flipped .jp-flip-inner { transform: rotateY(180deg); }
-          .jp-flip-front, .jp-flip-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); }
-          .jp-flip-front { z-index: 2; }
-          .jp-flip-back { transform: rotateY(180deg); background: #fdfdfd; padding: 10px; }
-          .jp-k-char { font-size: 3rem; font-weight: 900; color: #2f3542; line-height: 1; }
-          .jp-k-meaning { font-size: 0.9rem; font-weight: 800; color: var(--primary); margin-top: 5px;}
-
-          .jp-mcq-opt { display: block; width: 100%; text-align: left; padding: 15px; margin-bottom: 10px; background: #fff; border: 2px solid #eee; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 1rem; color: #2f3542; transition: 0.2s; }
-          @media (hover: hover) { .jp-mcq-opt:hover { border-color: var(--primary); background: #f8f9fa; } }
-          .jp-mcq-opt.correct { background: #d4edda; border-color: #c3e6cb; color: #155724; }
-          .jp-mcq-opt.wrong { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
-
-          /* RANK CELEBRATION - HANABI */
-          .jp-hanabi-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100; overflow: hidden; }
+          /* Hanabi */
+          .jp-hanabi-container { position: absolute; inset: 0; pointer-events: none; z-index: 100; overflow: hidden; }
           .jp-hanabi-particle { position: absolute; border-radius: 50%; }
-          .jp-hanabi-msg { position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%) scale(0); text-align: center; font-family: 'Noto Sans JP', sans-serif; animation: jp-hanabi-pop 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; white-space: nowrap; }
-          .jp-hanabi-jp { font-size: 3rem; font-weight: 900; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
-          .jp-hanabi-en { font-size: 1rem; color: #747d8c; font-weight: 600; margin-top: 5px; }
-          @keyframes jp-hanabi-pop {
-              0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0; }
-              20%  { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
-              40%  { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
-              80%  { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
-              100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0; }
-          }
+          .jp-hanabi-msg { position: absolute; top: 30%; left: 50%; transform: translate(-50%,-50%) scale(0); text-align: center; font-family: var(--font-jp-display); animation: jp-hanabi-pop 2s cubic-bezier(0.175,0.885,0.32,1.275) forwards; white-space: nowrap; }
+          .jp-hanabi-jp { font-size: 3rem; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+          .jp-hanabi-en { font-size: 1rem; color: var(--ink-3); font-weight: 600; margin-top: 5px; }
+          @keyframes jp-hanabi-pop { 0%{transform:translate(-50%,-50%) scale(0);opacity:0;} 20%{transform:translate(-50%,-50%) scale(1.3);opacity:1;} 40%{transform:translate(-50%,-50%) scale(1);opacity:1;} 80%{transform:translate(-50%,-50%) scale(1);opacity:1;} 100%{transform:translate(-50%,-50%) scale(1.1);opacity:0;} }
 
-          /* UNLOCK REVEAL CARDS */
-          .jp-unlock-reveal { padding: 4px 0 8px; }
-          .jp-unlock-card {
-              display: flex; align-items: center; gap: 10px;
-              background: white; border-radius: 12px;
-              padding: 10px 16px; margin-bottom: 8px;
-              border-left: 4px solid #4e54c8;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-              opacity: 0; transform: translateY(20px);
-              transition: opacity 0.4s ease, transform 0.4s ease;
-          }
+          /* Unlock reveal */
+          .jp-unlock-card { display: flex; align-items: center; gap: 10px; background: var(--washi); border: 1px solid var(--hairline); border-left: 3px solid var(--moss); border-radius: var(--r-md); padding: 10px 16px; margin-bottom: 8px; opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease; }
           .jp-unlock-card--animate { opacity: 1; transform: translateY(0); }
-          .jp-unlock-card--module { border-left-color: #FF9800; background: linear-gradient(135deg, #fff 80%, #fff8e1); }
-          .jp-unlock-card-icon { font-size: 1.4rem; flex-shrink: 0; }
-          .jp-unlock-card-label { font-size: 0.9rem; font-weight: 700; color: #2f3542; }
-
-          /* LOCKED LESSON ITEMS */
-          .jp-menu-item--locked { opacity: 0.5; cursor: default; }
-          @media (hover: hover) { .jp-menu-item--locked:hover { transform: none; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: transparent; } }
-
+          .jp-unlock-card--module { border-left-color: var(--vermilion); }
+          .jp-unlock-card-icon { font-size: 1.3rem; flex-shrink: 0; }
+          .jp-unlock-card-label { font-size: 0.9rem; font-weight: 700; color: var(--ink); }
         `;
         document.head.appendChild(style);
     }
@@ -190,25 +136,34 @@ window.LessonModule = {
         const e = document.createElement(tag);
         if (cls) e.className = cls;
         if (inner !== undefined) {
-          if(typeof inner === 'string') e.innerHTML = inner;
+          if (typeof inner === 'string') e.innerHTML = inner;
           else e.appendChild(inner);
         }
         return e;
     }
     function esc(s) { return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
-    function getCdnUrl(filepath) {
-        return window.getAssetUrl(REPO_CONFIG, filepath);
+    function getCdnUrl(filepath) { return window.getAssetUrl(REPO_CONFIG, filepath); }
+    function proc(text, terms) {
+        return window.JPShared.textProcessor.processText(text, terms, termMapData, CONJUGATION_RULES, COUNTER_RULES);
     }
 
+    const SVG_X = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M6 18L18 6"/></svg>';
+    const SVG_BACK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
+    const SVG_NEXT = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>';
+    const SVG_CHECK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>';
+    const SVG_PLAY = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+
+    const SECTION_LABELS = {
+        intro: 'Intro', warmup: 'Warmup', kanjiGrid: 'Kanji', vocabList: 'Vocab',
+        conversation: 'Conversation', reading: 'Reading', drills: 'Drill'
+    };
 
     async function loadResources() {
         const manifest = await window.getManifest(REPO_CONFIG);
-        const conjUrl     = getCdnUrl(manifest.globalFiles.conjugationRules);
-        const counterUrl  = getCdnUrl(manifest.globalFiles.counterRules);
-        const particleUrl  = getCdnUrl(manifest.shared.particles);
+        const conjUrl = getCdnUrl(manifest.globalFiles.conjugationRules);
+        const counterUrl = getCdnUrl(manifest.globalFiles.counterRules);
+        const particleUrl = getCdnUrl(manifest.shared.particles);
         const characterUrl = getCdnUrl(manifest.shared.characters);
-        console.log('[Lesson] Conjugation URL:', conjUrl);
-        console.log('[Lesson] Counter URL:', counterUrl);
         const [conj, counter, particleData, characterData, ...glossParts] = await Promise.all([
              fetch(conjUrl).then(r => r.json()),
              fetch(counterUrl).then(r => r.json()),
@@ -224,7 +179,6 @@ window.LessonModule = {
         (characterData.characters || []).forEach(c => {
             map[c.id] = Object.assign({}, c, { portraitUrl: getCdnUrl(c.portrait) });
         });
-        // Preload portrait images in the background so they appear instantly on first tap
         if (window.JPShared && window.JPShared.assets && window.JPShared.assets.preloadImages) {
             window.JPShared.assets.preloadImages(
                 (characterData.characters || []).map(c => getCdnUrl(c.portrait)).filter(Boolean)
@@ -286,315 +240,563 @@ window.LessonModule = {
     // --- Modal ---
     window.JPShared.termModal.inject();
 
-    // --- Renderers ---
+    // ===================================================================
+    //  SECTION RENDERERS
+    // ===================================================================
+
     function renderIntro(data) {
-        const div = el("div", "jp-intro-card");
-        div.appendChild(el("div", "jp-intro-title", data.title));
-        if (data.meta && data.meta.focus) div.appendChild(el("div", "jp-intro-focus", `<strong>Focus:</strong> ${data.meta.focus}`));
-        if (data.meta && data.meta.kanji) {
-            const row = el("div", "jp-intro-kanji-row");
-            data.meta.kanji.forEach((char, idx) => {
-                let termId = null;
-                for (const [key, val] of Object.entries(termMapData)) { if (val.surface === char && val.type === 'kanji') { termId = key; break; } }
-                // DISABLED FLAGGING FOR INTRO
-                if (termId) { const span = el("span", "jp-term", char); span.onclick = () => window.JP_OPEN_TERM(termId, false); row.appendChild(span); }
-                else { row.appendChild(el("span", "", char)); }
-                if (idx < data.meta.kanji.length - 1) row.appendChild(el("span", "jp-intro-dot", "•"));
+        const meta = data.meta || {};
+        const kanji = meta.kanji || [];
+        const n = (data.id || '').split('.')[1] || '';
+        const div = el("div", "");
+        div.style.cssText = "padding:28px 22px 40px;position:relative;";
+        const ghost = kanji[0] || (data.title || '本')[0];
+        let html = '';
+        html += '<div class="jp-serif" style="font-size:150px;line-height:0.9;font-weight:500;color:var(--washi-3);position:absolute;right:-10px;top:0;letter-spacing:-0.05em;pointer-events:none;">' + esc(ghost) + '</div>';
+        html += '<div class="lh-meta" style="position:relative;">N5 · Lesson ' + esc(n) + '</div>';
+        html += '<div class="jp-serif" style="font-size:34px;font-weight:600;letter-spacing:-0.02em;line-height:1.15;margin:8px 0 6px;color:var(--ink);position:relative;">' + esc(data.title) + '</div>';
+        if (meta.focus) html += '<div class="lh-lead" style="position:relative;">' + esc(meta.focus) + '</div>';
+        if (kanji.length) {
+            html += '<div style="height:30px;"></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">';
+            kanji.forEach((k, i) => {
+                const filled = i === 0;
+                html += '<div class="jp-serif" data-kidx="' + i + '" style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:' + (filled ? 'var(--ink)' : 'var(--washi-2)') + ';color:' + (filled ? 'var(--washi)' : 'var(--ink)') + ';border-radius:10px;border:1px solid var(--hairline);font-size:32px;font-weight:500;">' + esc(k) + '</div>';
             });
-            div.appendChild(row);
+            html += '</div>';
+        }
+        html += '<div style="height:24px;"></div>';
+        html += '<div style="padding:18px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;">' +
+            statCell('New kanji', kanji.length) +
+            statCell('Sections', (data.sections ? data.sections.length - 1 : 0)) +
+            statCell('Level', 'N5', 'var(--vermilion)') +
+        '</div>';
+        div.innerHTML = html;
+        // make intro kanji tappable to open term modal
+        if (kanji.length) {
+            div.querySelectorAll('[data-kidx]').forEach(node => {
+                const idx = parseInt(node.getAttribute('data-kidx'), 10);
+                const ch = kanji[idx];
+                let termId = null;
+                for (const [key, val] of Object.entries(termMapData)) { if (val.surface === ch && val.type === 'kanji') { termId = key; break; } }
+                if (termId) { node.style.cursor = 'pointer'; node.onclick = () => window.JP_OPEN_TERM(termId, false); }
+            });
         }
         return div;
     }
 
-    function createToggle() {
-        const btn = el("button", "jp-toggle-en", showEN ? "Hide English Translation" : "Show English Translation");
-        btn.onclick = function() { showEN = !showEN; renderCurrentStep(); };
+    function statCell(label, value, color) {
+        return '<div style="text-align:center;padding:2px 4px;">' +
+            '<div class="jp-serif" style="font-size:28px;font-weight:600;letter-spacing:-0.02em;color:' + (color || 'var(--ink)') + ';line-height:1;">' + value + '</div>' +
+            '<div class="lh-meta" style="font-size:9.5px;margin-top:6px;">' + label + '</div>' +
+        '</div>';
+    }
+
+    function sectionIntroBlock(meta, title, lead) {
+        return '<div style="padding:0 22px;">' +
+            '<div class="lh-meta">' + esc(meta) + '</div>' +
+            '<h2 class="lh-h2">' + esc(title) + '</h2>' +
+            (lead ? '<div class="lh-lead">' + esc(lead) + '</div>' : '') +
+        '</div>';
+    }
+
+    function makePlayAll(label, lines) {
+        const btn = el("button", "lh-playall", '🔊 ' + label);
+        function setPlaying(on) { btn.textContent = on ? '⏹ Stop' : '🔊 ' + label; btn.classList.toggle('on', on); }
+        btn.onclick = () => {
+            if (window.JPShared.tts.isSpeaking()) { window.JPShared.tts.cancel(); setPlaying(false); }
+            else { setPlaying(true); window.JPShared.tts.speakLines(lines, { termMap: termMapData, onFinish: () => setPlaying(false) }); }
+        };
         return btn;
     }
 
-    function renderConversation(sec) {
-        const div = el("div", ""); div.appendChild(createToggle());
-        const allLines = [];
-        // Play/Stop toggle button
-        const playAllBtn = el("button", "jp-speak-all-btn", "\uD83D\uDD0A Play Conversation");
-        div.appendChild(playAllBtn);
-        (sec.lines || []).forEach(line => {
-          allLines.push({ jp: line.jp, terms: line.terms });
-          const row = el("div", "jp-row");
-          row.innerHTML = `<div class="jp-speaker-bubble" translate="no">${line.spk}</div><div style="flex:1;display:flex;align-items:flex-start;"><div style="flex:1"><div class="jp-jp">${window.JPShared.textProcessor.processText(line.jp, line.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES)}</div><div class="jp-en" style="display:${showEN?'block':'none'}">${esc(line.en)}</div></div><button class="jp-speak-sentence" title="Listen">\uD83D\uDD0A</button></div>`;
-          const speakBtn = row.querySelector('.jp-speak-sentence');
-          speakBtn.onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
-          div.appendChild(row);
-        });
-        function setPlaying(playing) {
-          playAllBtn.textContent = playing ? '\u23F9 Stop' : '\uD83D\uDD0A Play Conversation';
-          playAllBtn.classList.toggle('jp-speak-all-active', playing);
-        }
-        playAllBtn.onclick = () => {
-          if (window.JPShared.tts.isSpeaking()) {
-            window.JPShared.tts.cancel();
-            setPlaying(false);
-          } else {
-            setPlaying(true);
-            window.JPShared.tts.speakLines(allLines, { termMap: termMapData, onFinish: () => setPlaying(false) });
-          }
-        };
-        return div;
-    }
-
     function renderWarmup(sec) {
-        const div = el("div", ""); div.appendChild(createToggle());
+        const div = el("div", "");
+        div.style.cssText = "padding:24px 0 32px;";
+        div.innerHTML = sectionIntroBlock('Warmup', 'What do you remember?', 'Try to read each sentence aloud, then tap to reveal the meaning.');
+        const wrap = el("div", "");
+        wrap.style.cssText = "padding:20px 22px 0;display:flex;flex-direction:column;gap:12px;";
         (sec.items || []).forEach((item, idx) => {
-            const row = el("div", "jp-row");
-            row.innerHTML = `<div class="jp-speaker-bubble" translate="no">${idx+1}</div><div style="flex:1;display:flex;align-items:flex-start;"><div style="flex:1"><div class="jp-jp">${window.JPShared.textProcessor.processText(item.jp, item.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES)}</div><div class="jp-en" style="display:${showEN?'block':'none'}">${esc(item.en)}</div></div><button class="jp-speak-sentence" title="Listen">\uD83D\uDD0A</button></div>`;
-            row.querySelector('.jp-speak-sentence').onclick = () => window.JPShared.tts.speak(item.jp, { terms: item.terms, termMap: termMapData });
-            div.appendChild(row);
+            const card = el("div", "");
+            card.style.cssText = "padding:16px 18px;border-radius:var(--r-md);background:var(--washi);border:1px solid var(--hairline);position:relative;";
+            const revealed = !!item._rev;
+            card.innerHTML =
+                '<div style="display:flex;align-items:flex-start;gap:10px;">' +
+                  '<div class="jp-serif" style="flex:1;font-size:19px;font-weight:500;color:var(--ink);line-height:1.5;">' + proc(item.jp, item.terms) + '</div>' +
+                  '<button class="lh-speak" title="Listen">🔊</button>' +
+                '</div>' +
+                (revealed
+                  ? '<div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--hairline);font-size:13px;color:var(--ink-2);line-height:1.5;">' + esc(item.en) + '</div>'
+                  : '<button class="lh-reveal jp-mono" style="margin-top:10px;background:none;border:none;padding:0;font-size:11px;color:var(--vermilion);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Tap to reveal →</button>');
+            card.querySelector('.lh-speak').onclick = (e) => { e.stopPropagation(); window.JPShared.tts.speak(item.jp, { terms: item.terms, termMap: termMapData }); };
+            const rev = card.querySelector('.lh-reveal');
+            if (rev) rev.onclick = () => { item._rev = true; renderCurrentStep(); };
+            wrap.appendChild(card);
         });
+        div.appendChild(wrap);
         return div;
     }
 
     function renderKanjiFlip(sec) {
-        const grid = el("div", "jp-kanji-grid");
-        (sec.items || []).forEach(k => {
-          const kanjiId = k.termId || (k.terms || []).find(id => termMapData[id]?.type === "kanji");
-          const t = kanjiId ? termMapData[kanjiId] : null;
-          const kanjiChar = t?.surface || k.kanji;
-          const card = el("div", "jp-flip-container");
-          card.onclick = function () { this.classList.toggle("flipped"); };
-          card.innerHTML = `<div class="jp-flip-inner"><div class="jp-flip-front"><div class="jp-k-char">${kanjiChar}</div><div class="jp-k-sub">Tap</div></div><div class="jp-flip-back"><div class="jp-k-readings">${t?.on||""}<br>${t?.kun||""}</div><div class="jp-k-meaning">${t?.meaning||""}</div></div></div>`;
-          grid.appendChild(card);
+        const items = sec.items || [];
+        if (kanjiSel >= items.length) kanjiSel = 0;
+        const div = el("div", "");
+        div.style.cssText = "padding:24px 0 32px;";
+        div.innerHTML = sectionIntroBlock('New Kanji · ' + items.length + ' characters', 'あたらしい かんじ', '');
+
+        // strip
+        const strip = el("div", "");
+        strip.style.cssText = "display:flex;gap:8px;padding:18px 22px 0;overflow-x:auto;";
+        strip.className = "noscroll";
+        items.forEach((k, i) => {
+            const kanjiId = k.termId || (k.terms || []).find(id => termMapData[id] && termMapData[id].type === "kanji");
+            const t = kanjiId ? termMapData[kanjiId] : null;
+            const ch = (t && t.surface) || k.kanji || '';
+            const on = i === kanjiSel;
+            const b = el("button", "jp-serif", ch);
+            b.style.cssText = "flex-shrink:0;width:66px;height:66px;padding:0;border-radius:10px;background:" + (on ? 'var(--ink)' : 'var(--washi)') + ";color:" + (on ? 'var(--washi)' : 'var(--ink)') + ";border:1px solid " + (on ? 'var(--ink)' : 'var(--hairline)') + ";font-size:36px;font-weight:500;cursor:pointer;transition:all 0.15s;";
+            b.onclick = () => { kanjiSel = i; renderCurrentStep(); };
+            strip.appendChild(b);
         });
-        return grid;
+        div.appendChild(strip);
+
+        // focus card
+        const sk = items[kanjiSel] || {};
+        const kanjiId = sk.termId || (sk.terms || []).find(id => termMapData[id] && termMapData[id].type === "kanji");
+        const t = kanjiId ? termMapData[kanjiId] : null;
+        const ch = (t && t.surface) || sk.kanji || '';
+        const card = el("div", "");
+        card.style.cssText = "margin:22px 22px 0;padding:24px 22px;background:var(--washi);border:1px solid var(--hairline);border-radius:var(--r-lg);position:relative;overflow:hidden;";
+        let exampleHtml = '';
+        if (t && (t.example || t.exampleJp)) {
+            exampleHtml = '<div style="margin-top:16px;position:relative;"><div class="lh-meta">Example</div>' +
+                '<div class="jp-serif" style="font-size:20px;font-weight:500;margin-top:6px;color:var(--ink);">' + esc(t.exampleJp || t.example) + '</div>' +
+                (t.exampleEn ? '<div style="font-size:12.5px;color:var(--ink-3);margin-top:3px;">' + esc(t.exampleEn) + '</div>' : '') +
+            '</div>';
+        }
+        card.innerHTML =
+            '<div class="jp-serif" style="position:absolute;right:-20px;top:-30px;font-size:220px;line-height:1;color:var(--washi-3);font-weight:500;pointer-events:none;user-select:none;">' + esc(ch) + '</div>' +
+            '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.18em;font-weight:600;position:relative;">' + String(kanjiSel + 1).padStart(2, "0") + ' / ' + String(items.length).padStart(2, "0") + '</div>' +
+            '<div class="jp-serif lh-kbig" style="font-size:76px;line-height:1;margin:6px 0 10px;color:var(--ink);font-weight:500;position:relative;cursor:' + (kanjiId ? 'pointer' : 'default') + ';">' + esc(ch) + '</div>' +
+            '<div style="font-size:16px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;position:relative;">' + esc((t && t.meaning) || '') + '</div>' +
+            '<div style="height:16px;"></div>' +
+            '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hairline);border-radius:6px;overflow:hidden;position:relative;">' +
+              readingCell("On'yomi", (t && t.on) || '—') +
+              readingCell("Kun'yomi", (t && t.kun) || '—') +
+            '</div>' +
+            exampleHtml;
+        if (kanjiId) { const big = card.querySelector('.lh-kbig'); big.onclick = () => window.JP_OPEN_TERM(kanjiId, false); }
+        div.appendChild(card);
+        const hint = el("div", "lh-meta");
+        hint.style.cssText = "text-align:center;margin-top:20px;";
+        hint.textContent = "Tap a character above";
+        div.appendChild(hint);
+        return div;
+    }
+
+    function readingCell(label, reading) {
+        return '<div style="background:var(--washi);padding:10px 12px;">' +
+            '<div class="lh-meta" style="font-size:9.5px;">' + label + '</div>' +
+            '<div class="jp-sans" style="font-size:16px;color:var(--ink);margin-top:3px;font-weight:500;">' + esc(reading) + '</div>' +
+        '</div>';
     }
 
     function renderVocab(sec) {
         const div = el("div", "");
-        (sec.groups || []).forEach(g => {
-            const group = el("div", "jp-card");
-            group.innerHTML = `<div style="font-weight:700; color:#888; margin-bottom:10px; text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">${g.label}</div>`;
-            const chips = el("div", "",""); chips.style.cssText="display:flex; flex-wrap:wrap; gap:8px;";
-            (g.items||[]).forEach(ref => {
-                 let t = (typeof ref === 'string') ? termMapData[ref] : null;
-                 if(t) {
-                     const chip = el("div","",t.surface); chip.style.cssText="background:#f1f2f6; padding:8px 15px; border-radius:20px; font-weight:bold; cursor:pointer; color:#4e54c8;";
-                     // DISABLED FLAGGING FOR VOCAB LIST
-                     chip.onclick = ()=>window.JP_OPEN_TERM(t.id, false);
-                     chips.appendChild(chip);
-                 }
+        div.style.cssText = "padding:24px 0 32px;";
+        const total = (sec.groups || []).reduce((a, g) => a + (g.items || []).length, 0);
+        div.innerHTML = sectionIntroBlock('Vocabulary · ' + total + ' words', 'ことば', 'Tap a word to hear it.');
+        const holder = el("div", "");
+        holder.style.cssText = "margin-top:22px;";
+        (sec.groups || []).forEach((g, gi) => {
+            const grp = el("div", "");
+            grp.style.cssText = "margin-bottom:18px;";
+            grp.innerHTML = '<div style="padding:0 22px;margin-bottom:8px;display:flex;align-items:center;gap:10px;">' +
+                '<div class="lh-meta" style="font-size:10px;">' + String(gi + 1).padStart(2, "0") + '</div>' +
+                '<div class="jp-serif" style="font-size:14px;font-weight:600;color:var(--ink);">' + esc(g.label || '') + '</div>' +
+                '<div style="flex:1;height:1px;background:var(--hairline);"></div></div>';
+            (g.items || []).forEach((ref, vi) => {
+                const t = (typeof ref === 'string') ? termMapData[ref] : null;
+                if (!t) return;
+                const row = el("button", "");
+                row.style.cssText = "width:100%;padding:12px 22px;border:none;border-bottom:1px solid var(--hairline-2);background:transparent;display:flex;align-items:center;gap:14px;cursor:pointer;text-align:left;";
+                row.innerHTML =
+                    '<span class="lh-speak">' + SVG_PLAY + '</span>' +
+                    '<span style="flex:1;min-width:0;">' +
+                      '<span style="display:flex;align-items:baseline;gap:8px;">' +
+                        '<span class="jp-serif lh-vword" style="font-size:20px;font-weight:500;color:var(--ink);">' + esc(t.surface) + '</span>' +
+                        '<span class="jp-sans" style="font-size:11.5px;color:var(--ink-3);">' + esc(t.reading || '') + '</span>' +
+                      '</span>' +
+                      '<span style="display:block;font-size:12.5px;color:var(--ink-2);margin-top:2px;">' + esc(t.meaning || '') + '</span>' +
+                    '</span>' +
+                    '<span class="jp-mono" style="font-size:10px;color:var(--ink-3);">' + String(vi + 1).padStart(2, "0") + '</span>';
+                row.onclick = () => window.JPShared.tts.speak(t.surface, { termMap: termMapData });
+                row.querySelector('.lh-vword').onclick = (e) => { e.stopPropagation(); window.JP_OPEN_TERM(t.id, false); };
+                grp.appendChild(row);
             });
-            group.appendChild(chips);
-            div.appendChild(group);
+            holder.appendChild(grp);
         });
+        div.appendChild(holder);
+        return div;
+    }
+
+    function renderConversation(sec) {
+        const div = el("div", "");
+        div.style.cssText = "padding:24px 0 32px;";
+        const head = el("div", "");
+        head.style.cssText = "padding:0 22px;";
+        head.innerHTML =
+            '<div class="lh-meta">Conversation</div>' +
+            (sec.title ? '<h2 class="lh-h2" style="font-size:24px;">' + esc(sec.title) + '</h2>' : '') +
+            (sec.context ? '<div style="display:flex;gap:10px;padding:10px 12px;margin-top:4px;border-left:2px solid var(--vermilion);background:var(--washi);"><div style="font-size:12.5px;color:var(--ink-2);line-height:1.5;font-style:italic;">' + esc(sec.context) + '</div></div>' : '');
+        const enToggle = el("button", "jp-mono");
+        enToggle.style.cssText = "margin-top:14px;padding:6px 12px;background:transparent;border:1px solid var(--hairline);border-radius:999px;color:var(--ink-2);font-size:11.5px;letter-spacing:0.06em;cursor:pointer;text-transform:uppercase;font-weight:500;";
+        enToggle.textContent = (showEN ? 'Hide' : 'Show') + ' English';
+        enToggle.onclick = () => { showEN = !showEN; renderCurrentStep(); };
+        head.appendChild(enToggle);
+        div.appendChild(head);
+
+        const allLines = [];
+        const msgWrap = el("div", "");
+        msgWrap.style.cssText = "padding:20px 14px 0;display:flex;flex-direction:column;gap:12px;";
+        (sec.lines || []).forEach(line => {
+            allLines.push({ jp: line.jp, terms: line.terms });
+            const spk = String(line.spk || '');
+            const isRikizo = /りき|リキ|rikizo|力/i.test(spk);
+            const wrap = el("div", "");
+            wrap.style.cssText = "display:flex;gap:8px;align-items:flex-end;flex-direction:" + (isRikizo ? 'row-reverse' : 'row') + ";";
+            const bubbleBg = isRikizo ? 'var(--ink)' : 'var(--washi)';
+            const bubbleColor = isRikizo ? 'var(--washi)' : 'var(--ink)';
+            const radius = isRikizo ? '16px 16px 3px 16px' : '16px 16px 16px 3px';
+            const labelColor = isRikizo ? 'oklch(0.97 0.008 80 / 0.6)' : 'var(--ink-3)';
+            const enColor = isRikizo ? 'oklch(0.97 0.008 80 / 0.7)' : 'var(--ink-3)';
+            wrap.innerHTML =
+                '<div style="width:32px;height:32px;border-radius:999px;background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-jp);font-size:13px;color:var(--ink-2);">' + esc(spk.slice(0, 1)) + '</div>' +
+                '<div style="max-width:78%;padding:10px 14px;background:' + bubbleBg + ';color:' + bubbleColor + ';border:' + (isRikizo ? 'none' : '1px solid var(--hairline)') + ';border-radius:' + radius + ';position:relative;">' +
+                  '<div class="jp-mono" style="font-size:9px;letter-spacing:0.1em;color:' + labelColor + ';text-transform:uppercase;font-weight:500;margin-bottom:3px;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>' + esc(spk) + '</span><button class="lh-speak-line" style="background:none;border:none;color:inherit;cursor:pointer;font-size:12px;padding:0;opacity:0.8;">🔊</button></div>' +
+                  '<div class="jp-serif" style="font-size:15px;line-height:1.5;font-weight:500;">' + proc(line.jp, line.terms) + '</div>' +
+                  (showEN ? '<div style="font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;">' + esc(line.en) + '</div>' : '') +
+                '</div>';
+            wrap.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
+            msgWrap.appendChild(wrap);
+        });
+        // play-all sits above messages
+        const playAll = makePlayAll('Play conversation', allLines);
+        const paWrap = el("div", ""); paWrap.style.cssText = "padding:16px 22px 0;"; paWrap.appendChild(playAll);
+        div.appendChild(paWrap);
+        div.appendChild(msgWrap);
+        return div;
+    }
+
+    function renderReading(sec) {
+        const passage = sec.passage || [];
+        const div = el("div", "");
+        div.style.cssText = "padding:24px 0 32px;";
+        const head = el("div", ""); head.style.cssText = "padding:0 22px;";
+        head.innerHTML =
+            '<div class="lh-meta">Reading</div>' +
+            (sec.title ? '<h2 class="lh-h2" style="font-size:24px;">' + esc(sec.title) + '</h2>' : '') +
+            '<div style="margin-top:12px;display:flex;align-items:center;gap:10px;" class="lh-meta"><span>Tap a line to translate</span><div style="flex:1;height:1px;background:var(--hairline);"></div></div>';
+        const revealAll = el("button", "jp-mono");
+        revealAll.style.cssText = "margin-top:8px;padding:4px 10px;border-radius:999px;background:transparent;border:1px solid var(--hairline);color:var(--vermilion);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;";
+        revealAll.textContent = 'Reveal all';
+        revealAll.onclick = () => { passage.forEach(p => { p._rev = true; }); renderCurrentStep(); };
+        head.appendChild(revealAll);
+        div.appendChild(head);
+
+        const playAll = makePlayAll('Play passage', passage.map(p => ({ jp: p.jp, terms: p.terms })));
+        const paWrap = el("div", ""); paWrap.style.cssText = "padding:16px 22px 0;"; paWrap.appendChild(playAll);
+        div.appendChild(paWrap);
+
+        const sheetWrap = el("div", ""); sheetWrap.style.cssText = "padding:0 22px;";
+        const sheet = el("div", "");
+        sheet.style.cssText = "position:relative;background:var(--washi);border:1px solid var(--hairline);border-radius:var(--r-lg);padding:22px 22px 20px;overflow:hidden;";
+        let lines = '<div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--vermilion);"></div>' +
+            '<div style="position:absolute;right:14px;top:14px;"><span class="lh-hanko jp-serif" style="width:40px;height:40px;font-size:19px;transform:rotate(-8deg);">読</span></div>' +
+            '<div class="lh-meta" style="font-size:9.5px;margin-bottom:12px;padding-left:6px;">Passage</div>' +
+            '<div style="display:flex;flex-direction:column;gap:2px;padding-left:6px;">';
+        passage.forEach((p, i) => {
+            const on = !!p._rev;
+            lines += '<button class="lh-pline" data-i="' + i + '" style="text-align:left;padding:10px 6px;background:transparent;border:none;border-bottom:' + (i < passage.length - 1 ? '1px dashed var(--hairline-2)' : 'none') + ';cursor:pointer;display:flex;gap:10px;align-items:flex-start;">' +
+                '<span class="jp-mono" style="font-size:10px;color:' + (on ? 'var(--vermilion)' : 'var(--ink-3)') + ';letter-spacing:0.1em;font-weight:600;width:18px;flex-shrink:0;padding-top:6px;">' + String(i + 1).padStart(2, "0") + '</span>' +
+                '<span style="flex:1;min-width:0;"><span class="jp-serif" style="display:block;font-size:18px;line-height:1.55;font-weight:500;color:var(--ink);">' + proc(p.jp, p.terms) + '</span>' +
+                (on ? '<span style="display:block;font-size:12.5px;line-height:1.5;color:var(--ink-2);margin-top:4px;font-style:italic;">' + esc(p.en) + '</span>' : '') +
+                '</span></button>';
+        });
+        lines += '</div>';
+        sheet.innerHTML = lines;
+        sheet.querySelectorAll('.lh-pline').forEach(btn => {
+            const i = parseInt(btn.getAttribute('data-i'), 10);
+            // term taps inside should not toggle; only toggle when tapping non-term area
+            btn.addEventListener('click', (e) => {
+                if (e.target.closest('.jp-term')) return;
+                passage[i]._rev = !passage[i]._rev; renderCurrentStep();
+            });
+        });
+        sheetWrap.appendChild(sheet);
+        div.appendChild(sheetWrap);
+
+        if (sec.questions && sec.questions.length) {
+            const qWrap = el("div", ""); qWrap.style.cssText = "padding:26px 22px 0;";
+            qWrap.innerHTML = '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;"><div class="lh-meta">Comprehension</div><div style="flex:1;height:1px;background:var(--hairline);"></div><div class="lh-meta" style="font-size:10px;">' + sec.questions.length + ' 問</div></div>';
+            const qList = el("div", ""); qList.style.cssText = "display:flex;flex-direction:column;gap:10px;";
+            sec.questions.forEach((q, i) => {
+                const card = el("div", "");
+                card.style.cssText = "border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--washi);overflow:hidden;";
+                const shown = !!q._ans;
+                const aHtml = q.a_terms ? proc(q.a, q.a_terms) : esc(q.a);
+                card.innerHTML =
+                    '<div style="padding:12px 14px 10px;">' +
+                      '<div style="display:flex;gap:10px;align-items:flex-start;">' +
+                        '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.1em;font-weight:700;width:20px;flex-shrink:0;padding-top:4px;">Q' + (i + 1) + '</div>' +
+                        '<div style="flex:1;"><div class="jp-serif" style="font-size:15.5px;line-height:1.5;font-weight:500;color:var(--ink);">' + proc(q.q, q.terms) + '</div>' +
+                          (q.q_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.q_en) + '</div>' : '') + '</div>' +
+                      '</div>' +
+                      (shown ? '' : '<button class="lh-showans jp-mono" style="margin-top:10px;margin-left:30px;padding:6px 12px;border-radius:999px;background:transparent;border:1px solid var(--hairline);color:var(--ink-2);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;">Show answer</button>') +
+                    '</div>' +
+                    (shown ? '<div style="padding:10px 14px 12px 44px;border-top:1px dashed var(--hairline-2);background:var(--washi-2);">' +
+                        '<div class="jp-mono" style="font-size:9.5px;color:var(--moss);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:3px;">答え · Answer</div>' +
+                        '<div class="jp-serif" style="font-size:15px;line-height:1.5;font-weight:500;color:var(--ink);">' + aHtml + '</div>' +
+                        (q.a_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.a_en) + '</div>' : '') +
+                    '</div>' : '');
+                const showBtn = card.querySelector('.lh-showans');
+                if (showBtn) showBtn.onclick = () => { q._ans = true; renderCurrentStep(); };
+                qList.appendChild(card);
+            });
+            qWrap.appendChild(qList);
+            div.appendChild(qWrap);
+        }
         return div;
     }
 
     function renderDrills(sec) {
-         const div = el("div", "");
-         (sec.items || []).forEach((item, itemIdx) => {
-           if (item.kind === 'mcq') {
-             const card = el("div", "jp-card");
-             // Don't make terms tappable in bracketed questions — the bracketed word IS the answer
-             const qTerms = /\[/.test(item.q) ? [] : item.terms;
-             card.innerHTML = `<div class="jp-jp" style="margin-bottom:15px; font-weight:bold;">${window.JPShared.textProcessor.processText(item.q, qTerms, termMapData, CONJUGATION_RULES, COUNTER_RULES).replace(/\[(.*?)\]/g, '<span class="jp-highlight">$1</span>')}</div>`;
-             const optsDiv = el("div");
-             let solved = false;
-             const itemKey = 'drill__' + itemIdx + '__' + item.q;
+        const div = el("div", "");
+        div.style.cssText = "padding:24px 22px 32px;";
+        const mcqs = (sec.items || []).filter(it => it.kind === 'mcq');
+        div.innerHTML = '<div class="lh-meta">Drill · ' + mcqs.length + ' question' + (mcqs.length !== 1 ? 's' : '') + '</div>' +
+            '<h2 class="lh-h2">Fill the slot</h2>' +
+            '<div class="lh-lead">Pick the choice that completes each sentence.</div><div style="height:24px;"></div>';
+        const list = el("div", ""); list.style.cssText = "display:flex;flex-direction:column;gap:24px;";
+        mcqs.forEach((item, itemIdx) => {
+            const block = el("div", "");
+            const itemKey = 'drill__' + itemIdx + '__' + item.q;
+            let solved = drillAnswered.has(itemKey);
 
-             // Randomize choices
-             const choices = [...item.choices].sort(() => Math.random() - 0.5);
+            // Build prompt with a blank slot from the bracketed answer
+            const hasBracket = /\[(.*?)\]/.test(item.q);
+            let promptHtml;
+            if (hasBracket) {
+                const m = item.q.match(/\[(.*?)\]/);
+                const before = item.q.slice(0, m.index);
+                const after = item.q.slice(m.index + m[0].length);
+                promptHtml = esc(before) +
+                    '<span class="lh-slot" style="display:inline-block;min-width:64px;padding:4px 14px;margin:0 6px;border-radius:8px;vertical-align:middle;background:var(--washi-3);border:2px dashed var(--ink-3);color:transparent;font-weight:600;">_</span>' +
+                    esc(after);
+            } else {
+                promptHtml = proc(item.q, item.terms);
+            }
 
-             choices.forEach(choice => {
-               const btn = el("button", "jp-mcq-opt", choice);
-               btn.onclick = () => {
-                 if(solved) return; solved = true;
-                 if(choice === item.answer) {
-                   btn.classList.add("correct");
-                   if (!drillAnswered.has(itemKey)) { drillAnswered.add(itemKey); drillCorrect++; }
-                 } else {
-                     btn.classList.add("wrong");
-                     if (!drillAnswered.has(itemKey)) drillAnswered.add(itemKey);
-                     // Auto highlight correct answer
-                     Array.from(optsDiv.children).forEach(c => { if(c.innerText === item.answer) c.classList.add("correct"); });
+            const card = el("div", "lh-card");
+            card.style.cssText = "padding:24px 22px;position:relative;";
+            card.innerHTML = '<div class="jp-serif" style="font-size:22px;line-height:1.6;font-weight:500;color:var(--ink);text-align:center;">' + promptHtml + '</div>';
+            block.appendChild(card);
 
-                     // Auto-flag terms for review when answer is wrong
-                     if(item.terms && item.terms.length > 0) {
-                       item.terms.forEach(termId => {
-                         const rootTerm = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
-                         if(rootTerm) {
-                           window.JPShared.progress.flagTerm(rootTerm.surface);
-                         }
-                       });
-                     }
-                 }
-               };
-               optsDiv.appendChild(btn);
-             });
-             card.appendChild(optsDiv);
-             div.appendChild(card);
-           }
-         });
-         return div;
-    }
+            const grid = el("div", "");
+            grid.style.cssText = "display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;";
+            const choices = [...item.choices].sort(() => Math.random() - 0.5);
+            const expHolder = el("div", "");
 
-    function renderReading(sec) {
-        const div = el("div", ""); div.appendChild(createToggle());
-        const allPassageLines = (sec.passage || []).map(p => ({ jp: p.jp, terms: p.terms }));
-        // Play/Stop toggle button
-        const playAllBtn = el("button", "jp-speak-all-btn", "\uD83D\uDD0A Play Passage");
-        function setPlaying(playing) {
-          playAllBtn.textContent = playing ? '\u23F9 Stop' : '\uD83D\uDD0A Play Passage';
-          playAllBtn.classList.toggle('jp-speak-all-active', playing);
-        }
-        playAllBtn.onclick = () => {
-          if (window.JPShared.tts.isSpeaking()) {
-            window.JPShared.tts.cancel();
-            setPlaying(false);
-          } else {
-            setPlaying(true);
-            window.JPShared.tts.speakLines(allPassageLines, { termMap: termMapData, onFinish: () => setPlaying(false) });
-          }
-        };
-        div.appendChild(playAllBtn);
-        const pCard = el("div", "jp-card");
-        (sec.passage || []).forEach(p => {
-            const pDiv = el("div", "");
-            pDiv.innerHTML = `<div style="display:flex;align-items:flex-start;"><div style="flex:1"><div class="jp-jp" style="margin-bottom:8px;">${window.JPShared.textProcessor.processText(p.jp, p.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES)}</div><div class="jp-en" style="display:${showEN?'block':'none'}">${esc(p.en)}</div></div><button class="jp-speak-sentence" title="Listen">\uD83D\uDD0A</button></div>`;
-            pDiv.querySelector('.jp-speak-sentence').onclick = () => window.JPShared.tts.speak(p.jp, { terms: p.terms, termMap: termMapData });
-            pCard.appendChild(pDiv);
+            choices.forEach(choice => {
+                const b = el("button", "jp-serif");
+                b.style.cssText = "padding:20px 16px;border-radius:var(--r-md);background:var(--washi);color:var(--ink);border:1px solid var(--hairline);font-size:22px;font-weight:500;cursor:pointer;transition:all 0.15s;";
+                b.textContent = choice;
+                b.onclick = () => {
+                    if (solved) return; solved = true;
+                    const correct = choice === item.answer;
+                    // fill slot
+                    const slot = card.querySelector('.lh-slot');
+                    if (slot) { slot.style.color = 'var(--ink)'; slot.style.border = 'none'; slot.style.background = correct ? 'oklch(0.88 0.08 140)' : 'oklch(0.88 0.08 30)'; slot.textContent = choice; }
+                    Array.from(grid.children).forEach(cn => {
+                        if (cn.textContent === item.answer) { cn.style.background = 'var(--moss)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
+                        else if (cn === b && !correct) { cn.style.background = 'var(--vermilion)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
+                    });
+                    if (!drillAnswered.has(itemKey)) {
+                        drillAnswered.add(itemKey);
+                        if (correct) drillCorrect++;
+                    }
+                    if (!correct && item.terms && item.terms.length) {
+                        item.terms.forEach(termId => {
+                            const rootTerm = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
+                            if (rootTerm) window.JPShared.progress.flagTerm(rootTerm.surface);
+                        });
+                    }
+                    const explainText = item.explain || item.explanation;
+                    expHolder.innerHTML = '<div style="margin-top:18px;padding:14px 16px;border-radius:var(--r-md);background:' + (correct ? 'oklch(0.94 0.04 140)' : 'oklch(0.94 0.04 30)') + ';border:1px solid ' + (correct ? 'oklch(0.75 0.08 140)' : 'oklch(0.75 0.08 30)') + ';">' +
+                        '<div class="jp-mono" style="font-size:10px;letter-spacing:0.14em;font-weight:600;color:' + (correct ? 'oklch(0.4 0.1 140)' : 'oklch(0.45 0.14 30)') + ';text-transform:uppercase;margin-bottom:4px;">' + (correct ? '正解 · Correct' : 'もう一度 · Not quite') + '</div>' +
+                        (explainText ? '<div style="font-size:13px;color:var(--ink);line-height:1.5;">' + esc(explainText) + '</div>' : '<div style="font-size:13px;color:var(--ink);line-height:1.5;">Answer: <strong>' + esc(item.answer) + '</strong></div>') +
+                    '</div>';
+                };
+                grid.appendChild(b);
+            });
+            block.appendChild(grid);
+            block.appendChild(expHolder);
+            list.appendChild(block);
         });
-        div.appendChild(pCard);
-
-        if (sec.questions) {
-          const revealBtn = el("button", "jp-toggle-en", showAnswers ? "Hide Answers" : "Reveal Answers");
-          revealBtn.onclick = function() { showAnswers = !showAnswers; renderCurrentStep(); };
-          div.appendChild(revealBtn);
-
-          const qCard = el("div", "jp-card");
-          qCard.innerHTML = `<div style="font-weight:700; color:#888; margin-bottom:15px;">COMPREHENSION CHECK</div>`;
-          sec.questions.forEach((q, i) => {
-             const row = el("div", "jp-row");
-             const ansHtml = q.a_terms
-               ? `<div class="jp-jp" style="display:${showAnswers?'block':'none'};margin-top:6px;">${window.JPShared.textProcessor.processText(q.a, q.a_terms, termMapData, CONJUGATION_RULES, COUNTER_RULES)}</div>`
-               : `<div class="jp-jp" style="display:${showAnswers?'block':'none'};margin-top:6px;">${esc(q.a)}</div>`;
-             const qEnHtml = q.q_en ? `<div class="jp-en" style="display:${showEN?'block':'none'}">${esc(q.q_en)}</div>` : '';
-             const aEnHtml = q.a_en ? `<div class="jp-en" style="display:${showEN?'block':'none'};margin-top:2px;">${esc(q.a_en)}</div>` : '';
-             row.innerHTML = `<div class="jp-speaker-bubble" translate="no">Q${i+1}</div><div style="flex:1"><div class="jp-jp" style="font-weight:700;">${window.JPShared.textProcessor.processText(q.q, q.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES)}</div>${qEnHtml}${ansHtml}${aEnHtml}</div>`;
-             qCard.appendChild(row);
-          });
-          div.appendChild(qCard);
-        }
+        div.appendChild(list);
         return div;
     }
 
     // --- Summary helpers ---
-
     function buildUnlockReveal(items) {
-        const wrap = el('div', 'jp-unlock-reveal');
-        const heading = document.createElement('div');
-        heading.style.cssText = 'font-size:1rem;font-weight:700;color:#4e54c8;text-transform:uppercase;letter-spacing:1px;margin:20px 0 12px;text-align:center;';
-        heading.textContent = '🎁 Unlocked!';
+        const wrap = el('div', '');
+        wrap.style.cssText = "margin-top:20px;";
+        const heading = el('div', 'lh-meta');
+        heading.style.cssText = "text-align:center;margin-bottom:12px;color:var(--vermilion);font-size:11px;";
+        heading.textContent = '🎁 Unlocked';
         wrap.appendChild(heading);
         items.forEach(function(item, i) {
             const card = el('div', 'jp-unlock-card');
             if (item.type === 'module') card.classList.add('jp-unlock-card--module');
-            card.innerHTML = '<span class="jp-unlock-card-icon">' + item.icon + '</span>' +
-                             '<span class="jp-unlock-card-label">' + item.label + '</span>';
+            card.innerHTML = '<span class="jp-unlock-card-icon">' + item.icon + '</span><span class="jp-unlock-card-label">' + esc(item.label) + '</span>';
             wrap.appendChild(card);
-            setTimeout(function() {
-                requestAnimationFrame(function() { card.classList.add('jp-unlock-card--animate'); });
-            }, i * 150);
+            setTimeout(function() { requestAnimationFrame(function() { card.classList.add('jp-unlock-card--animate'); }); }, i * 150);
         });
         return wrap;
     }
 
     function buildEncouragement(pending) {
         const wrap = el('div', '');
-        let html = '<div style="text-align:center;padding:16px;background:#fff8e1;border-radius:12px;margin-bottom:12px;">' +
-                   '<div style="font-size:1.5rem;">💪</div>' +
-                   '<div style="font-size:1rem;font-weight:700;color:#F59E0B;margin:4px 0;">Keep going!</div>' +
-                   '<div style="font-size:0.85rem;color:#747d8c;">Score <strong>75% or higher</strong> to unlock:</div>';
+        wrap.style.cssText = "margin-top:18px;";
+        let html = '<div style="text-align:center;padding:16px;background:oklch(0.96 0.04 85);border:1px solid var(--hairline);border-radius:var(--r-md);margin-bottom:12px;">' +
+                   '<div style="font-size:1.4rem;">💪</div>' +
+                   '<div style="font-size:1rem;font-weight:700;color:var(--ink);margin:4px 0;">Keep going!</div>' +
+                   '<div style="font-size:0.85rem;color:var(--ink-2);">Score <strong>60% or higher</strong> to unlock:</div>';
         if (pending.length > 0) {
             html += '<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;">';
             pending.forEach(function(item) {
-                html += '<div style="background:white;border:1px solid #e2e8f0;border-radius:8px;padding:6px 12px;font-size:0.8rem;font-weight:600;color:#4e54c8;">' +
-                        item.icon + ' ' + item.label + '</div>';
+                html += '<div style="background:var(--washi);border:1px solid var(--hairline);border-radius:8px;padding:6px 12px;font-size:0.8rem;font-weight:600;color:var(--ink);">' + item.icon + ' ' + esc(item.label) + '</div>';
             });
             html += '</div>';
         }
         html += '</div>';
-        html += '<div style="text-align:center;padding:12px;background:#e8f5e9;border-radius:12px;">' +
-                '<div style="font-size:0.85rem;color:#16A34A;font-weight:600;">✅ Already unlocked for you:</div>' +
-                '<div style="font-size:0.8rem;color:#4CAF50;margin-top:4px;">🥋 Dojo &amp; 🌿 Grammar Garden are available to help you practice!</div>' +
-                '</div>';
         wrap.innerHTML = html;
         return wrap;
     }
 
-    function renderSummary(body, nextBtn, prevBtn, pct) {
+    function renderSummary(body, footer) {
+        const pct = drillTotal > 0 ? Math.round(drillCorrect / drillTotal * 100) : 100;
         const rank = [...SCORE_RANKS].reverse().find(r => pct >= r.min) || SCORE_RANKS[0];
-        body.innerHTML = `
-            <div class="jp-card jp-summary-score-card" style="text-align:center; position:relative; padding:30px 20px; margin-bottom:0;">
-                <h2 style="margin-bottom:15px;">🎉 Lesson Complete!</h2>
-                ${drillTotal > 0 ? `
-                <div style="font-size:0.8rem; font-weight:700; color:#aaa; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Drill Score</div>
-                <div style="font-size:3rem; font-weight:900; color:${rank.colors[0]}; line-height:1.1;">${rank.msg}</div>
-                <div style="font-size:1rem; color:#747d8c; font-weight:600; margin:6px 0 14px;">${rank.sub}</div>
-                <div style="font-size:2.2rem; font-weight:900; color:var(--primary);">${pct}%</div>
-                <div style="font-size:0.9rem; color:#888; margin-top:4px;">${drillCorrect} / ${drillTotal} correct</div>
-                ` : ''}
-            </div>`;
+        const kanji = (lessonData.meta && lessonData.meta.kanji) || [];
 
-        if (drillTotal > 0) launchHanabi(rank, body.querySelector('.jp-summary-score-card'));
+        const card = el("div", "");
+        card.style.cssText = "padding:32px 22px 8px;text-align:center;position:relative;";
+        let kanjiTiles = kanji.map(k => '<div class="jp-serif" style="width:38px;height:38px;background:var(--ink);color:var(--washi);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;">' + esc(k) + '</div>').join('');
+        card.innerHTML =
+            '<div class="jp-serif" style="font-size:52px;line-height:1;margin-bottom:14px;font-weight:500;color:var(--ink);">おつかれさま</div>' +
+            '<div class="lh-meta">You finished ' + esc(lessonData.title || '') + '</div>' +
+            '<div style="height:24px;"></div>' +
+            '<div class="lh-summary-seal" style="display:flex;justify-content:center;margin-bottom:22px;"><span class="lh-hanko jp-serif" style="width:72px;height:72px;font-size:34px;transform:rotate(-6deg);">合</span></div>' +
+            '<div class="lh-card" style="padding:20px 18px;">' +
+              '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;">' +
+                statCell('Score', pct + '%', 'var(--vermilion)') +
+                statCell('Correct', drillTotal > 0 ? (drillCorrect + '/' + drillTotal) : '—') +
+                statCell('Kanji', kanji.length) +
+              '</div>' +
+              (kanji.length ? '<div style="height:16px;"></div><div style="height:1px;background:var(--hairline);"></div><div style="height:14px;"></div>' +
+                '<div style="text-align:left;"><div class="lh-meta">You learned</div><div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">' + kanjiTiles + '</div></div>' : '') +
+            '</div>';
+
+        const holder = el("div", ""); holder.style.cssText = "padding:0 22px 24px;";
+        holder.appendChild(card);
+        body.appendChild(holder);
+
+        if (drillTotal > 0) {
+            const seal = card.querySelector('.lh-summary-seal');
+            launchHanabi(rank, seal);
+        }
 
         // Record streak activity on lesson completion
         if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
 
         const unlock = window.JPShared && window.JPShared.unlock;
-
-        // Always persist score + completion so stamps appear on the menu.
+        let result = null;
         if (unlock && manifestData && lessonData && lessonData.id) {
-            unlock.computeUnlocks(lessonData.id, pct, manifestData);
+            result = unlock.computeUnlocks(lessonData.id, pct, manifestData);
         }
 
-        if (!unlock || unlock.isFree() || !manifestData || !lessonData || !lessonData.id) {
-            nextBtn.innerText = "Finish";
-            prevBtn.style.visibility = 'hidden';
+        // Footer buttons
+        footer.innerHTML = '';
+        const backBtn = el("button", "lh-btn-back", SVG_BACK + ' Menu');
+        const nextBtn = el("button", "lh-btn-next finish", 'Finish ' + SVG_CHECK);
+
+        if (!unlock || unlock.isFree() || !result) {
+            nextBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+            footer.appendChild(nextBtn);
             return;
         }
 
         if (result.passed) {
-            nextBtn.innerText = "Continue \u2192";
-            prevBtn.style.visibility = 'hidden';
-            if (result.newItems.length > 0) body.appendChild(buildUnlockReveal(result.newItems));
+            nextBtn.innerHTML = 'Continue ' + SVG_NEXT;
+            nextBtn.classList.remove('finish');
+            nextBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+            if (result.newItems && result.newItems.length > 0) holder.appendChild(buildUnlockReveal(result.newItems));
+            footer.appendChild(nextBtn);
         } else {
             const pending = unlock.getPendingUnlocks(lessonData.id, manifestData);
-            body.appendChild(buildEncouragement(pending));
-            prevBtn.style.visibility = 'visible';
-            prevBtn.disabled = false;
-            prevBtn.innerText = "\u2190 Menu";
-            prevBtn.onclick = function() { renderMenu(currentLevelId, currentLevelLessons); };
-            nextBtn.innerText = "Try Again";
-            nextBtn.onclick = function() {
-                var entry = currentLevelLessons && currentLevelLessons.find(function(l) { return l.id === lessonData.id; });
+            holder.appendChild(buildEncouragement(pending));
+            backBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+            nextBtn.classList.remove('finish');
+            nextBtn.innerHTML = 'Try again';
+            nextBtn.onclick = () => {
+                const entry = currentLevelLessons && currentLevelLessons.find(l => l.id === lessonData.id);
                 if (entry) loadLesson(entry.file);
             };
+            footer.appendChild(backBtn);
+            footer.appendChild(nextBtn);
         }
+    }
+
+    // ===================================================================
+    //  SHELL: header + footer + navigation
+    // ===================================================================
+
+    function headerHtml(opts) {
+        // opts: { back: 'levels'|'list'|null, title, code, count, rail }
+        const left = opts.backLabel
+            ? '<button class="lh-x lh-back-btn" title="' + esc(opts.backLabel) + '">' + SVG_BACK + '</button>'
+            : '<button class="lh-x lh-exit-btn" title="Exit">' + SVG_X + '</button>';
+        return '<div class="lh-row">' + left +
+            '<div style="flex:1;min-width:0;">' +
+              (opts.code ? '<div class="lh-code">' + esc(opts.code) + '</div>' : '') +
+              '<div class="lh-title">' + esc(opts.title) + '</div>' +
+            '</div>' +
+            (opts.count ? '<div class="lh-count">' + esc(opts.count) + '</div>' : '') +
+            '<button class="lh-gear" title="Voice Settings">⚙</button>' +
+        '</div>' + (opts.rail || '');
+    }
+
+    function railHtml() {
+        let segs = '';
+        const idx = Math.min(currentStep, totalSteps - 1);
+        for (let i = 0; i < totalSteps; i++) {
+            const bg = i < idx ? 'var(--ink)' : (i === idx ? 'var(--vermilion)' : 'var(--hairline)');
+            segs += '<button class="lh-seg" data-i="' + i + '"><div style="background:' + bg + ';"></div></button>';
+        }
+        return '<div class="lh-rail">' + segs + '</div>';
     }
 
     // --- Logic ---
     async function fetchLessonList() {
-        root.innerHTML = `<div class="jp-header"><div class="jp-title">Library</div><div style="display:flex;gap:8px;align-items:center;"><button class="jp-settings-gear" onclick="window.JPShared.ttsSettings.open()" title="Voice Settings">\u2699</button><button class="jp-exit-btn">Exit</button></div></div><div class="jp-body" style="text-align:center; justify-content:center; color:#888;">Loading...</div>`;
-        root.querySelector('.jp-exit-btn').onclick = exitCallback;
-
+        root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Library' }) + '</div>' +
+            '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>';
+        wireHeader({});
         try {
           const manifest = await window.getManifest(REPO_CONFIG);
-          manifestData = manifest; // cache for unlock computations
+          manifestData = manifest;
           const levelsData = [];
           (manifest.levels || []).forEach(level => {
             const levelData = manifest.data && manifest.data[level];
             if (!levelData || !levelData.lessons) return;
             const lessons = levelData.lessons.map(l => ({ id: l.id, title: l.title, file: l.file, unlocksAfter: l.unlocksAfter }));
-            // Sort lessons within level: highest lesson number first
             lessons.sort((a, b) => {
               const partsA = a.id.replace('N','').split('.').map(Number);
               const partsB = b.id.replace('N','').split('.').map(Number);
@@ -602,30 +804,28 @@ window.LessonModule = {
             });
             levelsData.push({ level, levelNum: parseInt(level.replace('N','')), lessons });
           });
-          // Sort levels: N4 first (lower JLPT number = more advanced = top of list)
           levelsData.sort((a, b) => a.levelNum - b.levelNum);
-
-          console.log('[Lesson] Found levels:', levelsData.map(l => l.level));
           allLevelsData = levelsData;
           renderLevelPicker();
         } catch (err) {
-          root.innerHTML = `<div class="jp-body" style="color:#ff4757; text-align:center; padding:20px; justify-content:center;"><h3>Error</h3><p>${err.message}</p><button class="jp-nav-btn next" onclick="exitCallback()">Back to Main Menu</button></div>`;
+          root.innerHTML = '<div class="lh-body"><div class="lh-list" style="color:var(--vermilion);text-align:center;padding-top:40px;"><h3>Error</h3><p>' + esc(err.message) + '</p></div></div>';
         }
     }
 
     function renderLevelPicker() {
-        root.innerHTML = `<div class="jp-header"><div class="jp-title">Library</div><div style="display:flex;gap:8px;align-items:center;"><button class="jp-settings-gear" onclick="window.JPShared.ttsSettings.open()" title="Voice Settings">\u2699</button><button class="jp-exit-btn">Exit</button></div></div><div class="jp-body"><div class="jp-menu-grid" id="jp-level-container"></div></div>`;
-        root.querySelector('.jp-exit-btn').onclick = exitCallback;
-        const container = document.getElementById('jp-level-container');
+        root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Library' }) + '</div>' +
+            '<div class="lh-body"><div class="lh-list" id="jp-level-container"></div></div>';
+        wireHeader({});
+        const cont = document.getElementById('jp-level-container');
         const unlockApi = window.JPShared && window.JPShared.unlock;
         allLevelsData.forEach(({ level, levelNum, lessons }) => {
-          // N4 is a paid gateway — hide it entirely until explicitly unlocked.
           if (level === 'N4' && unlockApi && !unlockApi.isFree() && !unlockApi.isN4Unlocked()) return;
           const visibleCount = lessons.filter(l => !unlockApi || unlockApi.isFree() || unlockApi.isLessonUnlocked(l)).length;
-          const card = el('div', 'jp-level-card');
-          card.innerHTML = `<div class="jp-level-name">JLPT Level N${levelNum}</div><div class="jp-level-count">${visibleCount} lesson${visibleCount !== 1 ? 's' : ''}</div>`;
+          const card = el('div', 'lh-level');
+          card.innerHTML = '<div><div class="lh-level-name">JLPT N' + levelNum + '</div><div class="lh-level-count" style="margin-top:4px;">' + visibleCount + ' lesson' + (visibleCount !== 1 ? 's' : '') + '</div></div>' +
+            '<svg width="10" height="16" viewBox="0 0 10 14" fill="none" style="color:oklch(1 0 0 / 0.5)"><path d="M1 1l7 6-7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
           card.onclick = () => renderMenu(level, lessons);
-          container.appendChild(card);
+          cont.appendChild(card);
         });
     }
 
@@ -633,125 +833,111 @@ window.LessonModule = {
         currentLevelId = level;
         currentLevelLessons = lessons;
         const levelNum = level.replace('N', '');
-        root.innerHTML = `<div class="jp-header"><button class="jp-back-btn">← Levels</button><div class="jp-title">JLPT Level N${levelNum}</div><div style="display:flex;gap:8px;align-items:center;"><button class="jp-settings-gear" onclick="window.JPShared.ttsSettings.open()" title="Voice Settings">\u2699</button><button class="jp-exit-btn">Exit</button></div></div><div class="jp-body"><div class="jp-menu-grid" id="jp-menu-container"></div></div>`;
-        root.querySelector('.jp-back-btn').onclick = () => renderLevelPicker();
-        root.querySelector('.jp-exit-btn').onclick = exitCallback;
+        root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'JLPT N' + levelNum, backLabel: 'Levels' }) + '</div>' +
+            '<div class="lh-body"><div class="lh-list" id="jp-menu-container"></div></div>';
+        wireHeader({ back: () => renderLevelPicker() });
         const menuEl = document.getElementById('jp-menu-container');
         const unlockApi = window.JPShared && window.JPShared.unlock;
-        // Only show unlocked lessons. List is sorted highest-first so the most
-        // recently unlocked lesson appears at the top.
-        const visibleLessons = lessons.filter(l =>
-          !unlockApi || unlockApi.isFree() || unlockApi.isLessonUnlocked(l)
-        );
+        const visibleLessons = lessons.filter(l => !unlockApi || unlockApi.isFree() || unlockApi.isLessonUnlocked(l));
         const stampApi = window.JPShared && window.JPShared.stampSettings;
         const stampUrl = stampApi && stampApi.getStampUrl ? stampApi.getStampUrl() : '';
         const pooUrl = stampApi && stampApi.getPooUrl ? stampApi.getPooUrl() : '';
 
         visibleLessons.forEach(lesson => {
-          const btn = el("div", "jp-menu-item");
-          const idEl = el('div', 'jp-menu-id', lesson.id);
-          const nameEl = el('div', 'jp-menu-name', lesson.title || 'Start');
-          btn.appendChild(idEl);
-          btn.appendChild(nameEl);
-
+          const btn = el("div", "lh-item");
+          let right = '<span class="jp-mono" style="font-size:11px;color:var(--ink-3);">→</span>';
           const score = unlockApi ? unlockApi.getLessonScore(lesson.id) : 0;
           const completed = unlockApi && unlockApi.isCompleted(lesson.id);
-
           if (completed && score > 0 && (stampUrl || pooUrl)) {
             const passing = score >= 60;
-            const rightWrap = el('div', 'jp-menu-right', '');
-            const scoreEl = el('span', 'jp-menu-score', score + '%');
-            if (!passing) scoreEl.style.color = '#999';
-            rightWrap.appendChild(scoreEl);
             const tilt = Math.floor(Math.random() * 41) - 20;
-            const stampDiv = el('div', 'jp-menu-stamp', '');
-            const img = document.createElement('img');
-            img.src = passing ? stampUrl : (pooUrl || stampUrl);
-            img.alt = passing ? '✓' : '✗';
-            img.style.transform = 'rotate(' + tilt + 'deg)';
-            stampDiv.appendChild(img);
-            rightWrap.appendChild(stampDiv);
-            btn.appendChild(rightWrap);
-          } else {
-            btn.appendChild(el('span', 'jp-menu-badge', '→'));
+            right = '<span class="jp-mono" style="font-size:11px;font-weight:700;color:' + (passing ? 'var(--moss)' : 'var(--ink-3)') + ';">' + score + '%</span>' +
+                    '<span class="lh-stamp"><img src="' + (passing ? stampUrl : (pooUrl || stampUrl)) + '" style="transform:rotate(' + tilt + 'deg);" alt=""></span>';
           }
-
+          btn.innerHTML = '<div class="lh-item-id">' + esc(lesson.id) + '</div>' +
+            '<div class="lh-item-name">' + esc(lesson.title || 'Start') + '</div>' +
+            '<div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">' + right + '</div>';
           btn.onclick = () => loadLesson(lesson.file);
           menuEl.appendChild(btn);
         });
     }
 
     async function loadLesson(filePath) {
-        root.innerHTML = `<div class="jp-header"><button class="jp-back-btn">← List</button><div class="jp-title">Loading...</div><div style="display:flex;gap:8px;align-items:center;"><button class="jp-settings-gear" onclick="window.JPShared.ttsSettings.open()" title="Voice Settings">\u2699</button><button class="jp-exit-btn">Exit</button></div></div><div class="jp-progress-container"><div class="jp-progress-bar"></div></div><div class="jp-body"></div><div class="jp-footer"><button class="jp-nav-btn prev">Prev</button><button class="jp-nav-btn next">Next</button></div>`;
-        root.querySelector('.jp-back-btn').onclick = () => renderMenu(currentLevelId, currentLevelLessons);
-        root.querySelector('.jp-exit-btn').onclick = exitCallback;
-
+        root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Loading…', backLabel: 'List' }) + '</div>' +
+            '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>' +
+            '<div class="lh-footer"></div>';
+        wireHeader({ back: () => renderMenu(currentLevelId, currentLevelLessons) });
         try {
           const lessonUrl = getCdnUrl(filePath);
-          console.log('[Lesson] Loading lesson:', lessonUrl);
-          const [lRes, resources] = await Promise.all([
-             fetch(lessonUrl),
-             loadResources()
-          ]);
+          const [lRes, resources] = await Promise.all([fetch(lessonUrl), loadResources()]);
           lessonData = await lRes.json();
-          drillCorrect = 0; drillTotal = 0; drillAnswered.clear();
+          drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
           lessonData.sections.forEach(sec => {
-              if (sec.type === 'drills') {
-                  (sec.items || []).forEach(item => { if (item.kind === 'mcq') drillTotal++; });
-              }
+              if (sec.type === 'drills') (sec.items || []).forEach(item => { if (item.kind === 'mcq') drillTotal++; });
           });
           termMapData = resources.map;
           CONJUGATION_RULES = resources.conj;
-          COUNTER_RULES     = resources.counter;
+          COUNTER_RULES = resources.counter;
           window.JPShared.termModal.setTermMap(termMapData);
 
           lessonData.sections.unshift({ type: 'intro', title: lessonData.title });
           currentStep = 0; totalSteps = lessonData.sections.length; showEN = false; showAnswers = false;
-
-          // NAVIGATION EVENTS
-          root.querySelector('.jp-nav-btn.prev').onclick = () => {
-              if (currentStep > 0) {
-                  currentStep--;
-                  showEN = false; showAnswers = false; // Reset on navigation
-                  renderCurrentStep();
-              }
-          };
-          root.querySelector('.jp-nav-btn.next').onclick = () => {
-             if (currentStep < totalSteps) {
-                 currentStep++;
-                 showEN = false; showAnswers = false; // Reset on navigation
-                 renderCurrentStep();
-             }
-             else { renderMenu(currentLevelId, currentLevelLessons); }
-          };
           renderCurrentStep();
         } catch (err) {
            console.error(err);
-           root.querySelector('.jp-body').innerHTML = "Error loading lesson.";
+           root.querySelector('.lh-body').innerHTML = '<div class="lh-list" style="color:var(--vermilion);text-align:center;padding-top:40px;">Error loading lesson.</div>';
         }
     }
 
+    function go(step) {
+        const clamped = Math.max(0, Math.min(totalSteps, step));
+        if (clamped === currentStep) return;
+        currentStep = clamped;
+        showEN = false; showAnswers = false;
+        renderCurrentStep();
+    }
+
+    function wireHeader(opts) {
+        const exit = root.querySelector('.lh-exit-btn');
+        if (exit) exit.onclick = exitCallback;
+        const back = root.querySelector('.lh-back-btn');
+        if (back) back.onclick = opts.back || exitCallback;
+        const gear = root.querySelector('.lh-gear');
+        if (gear) gear.onclick = () => window.JPShared.ttsSettings && window.JPShared.ttsSettings.open();
+        root.querySelectorAll('.lh-seg').forEach(seg => {
+            seg.onclick = () => go(parseInt(seg.getAttribute('data-i'), 10));
+        });
+    }
+
     function renderCurrentStep() {
-        const body = root.querySelector('.jp-body');
-        const title = root.querySelector('.jp-title');
-        const bar = root.querySelector('.jp-progress-bar');
-        const nextBtn = root.querySelector('.jp-nav-btn.next');
-        const prevBtn = root.querySelector('.jp-nav-btn.prev');
+        const isSummary = currentStep >= lessonData.sections.length;
+        const idx = Math.min(currentStep, totalSteps - 1);
+        const sec = isSummary ? null : lessonData.sections[currentStep];
+        const title = isSummary ? 'Summary' : (sec.type === 'intro' ? lessonData.title : (sec.title || SECTION_LABELS[sec.type] || ''));
+        const lessonNum = (lessonData.id || '').split('.')[1] || '';
 
-        body.innerHTML = "";
-        bar.style.width = (((currentStep + 1) / totalSteps) * 100) + "%";
+        root.innerHTML = '<div class="lh-header">' + headerHtml({
+            title: title,
+            code: 'N5 · LESSON ' + lessonNum,
+            count: (idx + 1) + '/' + totalSteps,
+            backLabel: null,
+            rail: railHtml()
+        }) + '</div>' +
+        '<div class="lh-body"></div>' +
+        '<div class="lh-footer"></div>';
 
-        if (currentStep >= lessonData.sections.length) {
-            title.innerText = "Summary";
-            const pct = drillTotal > 0 ? Math.round(drillCorrect / drillTotal * 100) : 100;
-            renderSummary(body, nextBtn, prevBtn, pct);
-            return;
-        }
+        // header: use × that goes back to menu (not full exit) for in-lesson
+        const xBtn = root.querySelector('.lh-exit-btn');
+        if (xBtn) xBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+        const gear = root.querySelector('.lh-gear');
+        if (gear) gear.onclick = () => window.JPShared.ttsSettings && window.JPShared.ttsSettings.open();
+        root.querySelectorAll('.lh-seg').forEach(seg => { seg.onclick = () => go(parseInt(seg.getAttribute('data-i'), 10)); });
 
-        const sec = lessonData.sections[currentStep];
-        title.innerText = (sec.type === 'intro') ? lessonData.title : sec.title;
+        const body = root.querySelector('.lh-body');
+        const footer = root.querySelector('.lh-footer');
 
-        const wrap = el("div");
+        if (isSummary) { renderSummary(body, footer); return; }
+
         let content = null;
         if (sec.type === "intro") content = renderIntro(lessonData);
         else if (sec.type === "kanjiGrid") content = renderKanjiFlip(sec);
@@ -760,12 +946,22 @@ window.LessonModule = {
         else if (sec.type === "drills") content = renderDrills(sec);
         else if (sec.type === "warmup") content = renderWarmup(sec);
         else if (sec.type === "reading") content = renderReading(sec);
+        if (content) body.appendChild(content);
 
-        if(content) wrap.appendChild(content);
-        body.appendChild(wrap);
-
-        prevBtn.disabled = (currentStep === 0);
-        nextBtn.innerText = (currentStep === totalSteps - 1) ? "Finish" : "Next";
+        // Footer
+        const isLast = currentStep === totalSteps - 1;
+        const nextLabel = isLast ? '' : (SECTION_LABELS[lessonData.sections[currentStep + 1].type] || '');
+        if (currentStep > 0) {
+            const backBtn = el("button", "lh-btn-back", SVG_BACK + ' Back');
+            backBtn.onclick = () => go(currentStep - 1);
+            footer.appendChild(backBtn);
+        }
+        const nextBtn = el("button", "lh-btn-next" + (isLast ? ' finish' : ''));
+        nextBtn.innerHTML = isLast
+            ? 'Finish lesson ' + SVG_CHECK
+            : 'Next' + (nextLabel ? ' <span class="lh-next-sub">· ' + esc(nextLabel) + '</span>' : '') + ' ' + SVG_NEXT;
+        nextBtn.onclick = () => go(currentStep + 1);
+        footer.appendChild(nextBtn);
     }
 
     // Initialize
