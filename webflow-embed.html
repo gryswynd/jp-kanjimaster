@@ -18,6 +18,7 @@
       5. app/shared/tts-settings.js   — Settings modal (stamp picker, voice, speed)
       6. app/shared/progress.js       — localStorage: flags, scores, drafts
       7. app/shared/unlock.js         — Content gating / progressive unlock engine
+      7b. app/shared/vocab-display.js — Hybrid kanji/kana display picker for vocab lists
       8. app/shared/text-processor.js — Conjugation engine, processText
       9. app/shared/term-modal.js     — Shared term modal overlay
      10. Feature module (on demand)   — Lesson / Practice / Review / Compose / Story / Grammar
@@ -64,8 +65,8 @@ window.JPApp = {
       case 'practice': return done('N5.1');
       case 'compose':  return pass('N5.1');
       case 'game':     return pass('N5.1');
-      case 'story':    return pass('N5.2');
-      case 'review':   return pass('N5.2');
+      case 'story':    return done('G4');
+      case 'review':   return done('G4');
       case 'custom':   return true;
       default:         return false;
     }
@@ -201,9 +202,9 @@ window.JPApp = {
         btn('practice', '#5C3A21', '#5C3A21', '\uD83E\uDD4B Dojo', 'Flashcards &amp; Quizzes') +
         // Compose — unlocks on N5.1 ≥75%
         btn('compose', '#00897B', '#00897B', '\u270F\uFE0F Compose', 'Write Japanese with guided prompts') +
-        // Stories — unlocks on N5.2 ≥75%
+        // Stories — unlocks on G4 completion
         btn('story', '#D97706', '#D97706', '\uD83D\uDCD6 Stories', 'Read Japanese stories with furigana') +
-        // Review — unlocks on N5.2 ≥75%
+        // Review — unlocks on G4 completion
         btn('review', '#7C3AED', '#7C3AED', '\uD83D\uDCDD Review', 'Assessment &amp; Drills') +
         // Game — unlocks on N5.1 ≥75% (Under Construction sticker)
         btn('game', '#F48FB1', '#C2185B', '\uD83C\uDFAE Rikizo\'s Adventures', 'Explore interactive Japanese adventures',
@@ -489,6 +490,7 @@ window.JPApp = {
         'app/shared/tts-settings.js',   // 4. Settings modal (depends on 2, 3)
         'app/shared/progress.js',       // 5. flags, scores, drafts via localStorage
         'app/shared/unlock.js',         // 7. content gating / progressive unlock
+        'app/shared/vocab-display.js',  // 7b. hybrid kanji/kana display for vocab list
         'app/shared/text-processor.js', // 8. conjugate(), processText(), getRootTerm()
         'app/shared/term-modal.js'      // 9. term overlay (depends on 2, 5, 7)
       ];

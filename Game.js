@@ -935,7 +935,7 @@ window.GameModule = (function() {
           // Dad yells if you try to use the toilet with the door open
           startConversation([
             { speaker: 'dad', jp: 'おい！ドアをしめて！', en: 'Hey! Close the door!' },
-            { speaker: 'りきぞ', jp: 'す、すみません…！', en: 'S-sorry…!' }
+            { speaker: 'りきぞう', jp: 'す、すみません…！', en: 'S-sorry…!' }
           ], {
             backgroundImage: 'living',
             portraitOverrides: { 'dad': game.images['alt_dadAngry'] }
@@ -954,22 +954,22 @@ window.GameModule = (function() {
           game.voidAsked[npc.name] = true;
           if (npc.name === 'mom') {
             convo = [
-              { speaker: 'りきぞ', jp: 'お母さん…！', en: 'Mom…!' },
-              { speaker: 'りきぞ', jp: 'そとに…なにも…！', en: 'Outside… nothing…!' },
+              { speaker: 'りきぞう', jp: 'お母さん…！', en: 'Mom…!' },
+              { speaker: 'りきぞう', jp: 'そとに…なにも…！', en: 'Outside… nothing…!' },
               { speaker: 'mom', jp: 'なに？', en: 'What?' },
-              { speaker: 'mom', jp: 'りきぞはいい先生ですよ。', en: 'Rikizo, you\'re a good teacher.' },
-              { speaker: 'りきぞ', jp: '…はい。', en: '…OK.' }
+              { speaker: 'mom', jp: 'りきぞうはいい先生ですよ。', en: 'Rikizo, you\'re a good teacher.' },
+              { speaker: 'りきぞう', jp: '…はい。', en: '…OK.' }
             ];
-            opts.portraitOverrides = { 'りきぞ': game.images['alt_meShocked'] };
+            opts.portraitOverrides = { 'りきぞう': game.images['alt_meShocked'] };
           } else if (npc.name === 'dad') {
             convo = [
-              { speaker: 'りきぞ', jp: 'お父さん！', en: 'Dad!' },
-              { speaker: 'りきぞ', jp: 'そとに…なにもない…！', en: 'Outside… there\'s nothing…!' },
+              { speaker: 'りきぞう', jp: 'お父さん！', en: 'Dad!' },
+              { speaker: 'りきぞう', jp: 'そとに…なにもない…！', en: 'Outside… there\'s nothing…!' },
               { speaker: 'dad', jp: 'ん？', en: 'Hm?' },
-              { speaker: 'dad', jp: 'りきぞ、先生ですよ。', en: 'Rikizo, you\'re a teacher.' },
-              { speaker: 'りきぞ', jp: '…はい。', en: '…OK.' }
+              { speaker: 'dad', jp: 'りきぞう、先生ですよ。', en: 'Rikizo, you\'re a teacher.' },
+              { speaker: 'りきぞう', jp: '…はい。', en: '…OK.' }
             ];
-            opts.portraitOverrides = { 'りきぞ': game.images['alt_meShocked'] };
+            opts.portraitOverrides = { 'りきぞう': game.images['alt_meShocked'] };
           }
         }
 
@@ -993,12 +993,12 @@ window.GameModule = (function() {
           if (doorObj.name === 'Front_Door' && !game.doors[doorObj.name].disabled) {
             game.doors[doorObj.name].disabled = true;
             startConversation([
-              { speaker: 'りきぞ', jp: 'え…？', en: 'Huh…?' },
-              { speaker: 'りきぞ', jp: 'な…なにもない…！', en: 'Th-there\'s nothing there…!' },
-              { speaker: 'りきぞ', jp: 'なんですか、これ…？！', en: 'What is this…?!' }
+              { speaker: 'りきぞう', jp: 'え…？', en: 'Huh…?' },
+              { speaker: 'りきぞう', jp: 'な…なにもない…！', en: 'Th-there\'s nothing there…!' },
+              { speaker: 'りきぞう', jp: 'なんですか、これ…？！', en: 'What is this…?!' }
             ], {
               backgroundImage: 'void',
-              portraitOverrides: { 'りきぞ': game.images['alt_meShocked'] },
+              portraitOverrides: { 'りきぞう': game.images['alt_meShocked'] },
               onEnd: function() {
                 game.doors[doorObj.name].open = false;
                 game.voidSeen = true;
@@ -1052,7 +1052,7 @@ window.GameModule = (function() {
         portraitMap[npc.name] = npc.convoPortrait;
       });
       if (game.images.meConvo) {
-        portraitMap['りきぞ'] = game.images.meConvo;
+        portraitMap['りきぞう'] = game.images.meConvo;
       }
 
       // Resolve a convoBackground: Image object used directly, string key looked up in convoBackgrounds map

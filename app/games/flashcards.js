@@ -27,6 +27,63 @@
   var kanjiBySurface = {};
   var hintKanjiUsed = false;
   var hintMeaningUsed = false;
+  // Ring buffer of the last few cards shown (by identity key) — drives
+  // anti-repeat pacing in move() so endless mode doesn't re-show the same card
+  // back-to-back, especially after a flag re-queues it to the tail.
+  var recentKeys = [];
+
+  function cardKey(card) {
+    if (!card) return '';
+    return card.kanji || card.surface || card.dict || card.word || '';
+  }
+
+  // Returns the next index after `from`, stepping by sign(n), skipping past
+  // cards whose key is in `recentKeys` if a fresh option exists. If the entire
+  // deck is recent (tiny decks), falls through to the naive next slot.
+  function advanceIdx(from, n) {
+    var len = curSet.length;
+    if (len === 0) return 0;
+    var step = n >= 0 ? 1 : -1;
+    var firstHop = ((from + n) % len + len) % len;
+    if (recentKeys.length === 0) return firstHop;
+    var idx = firstHop;
+    for (var tries = 0; tries < len; tries++) {
+      var k = cardKey(curSet[idx]);
+      if (k && recentKeys.indexOf(k) === -1) return idx;
+      idx = (idx + step + len) % len;
+    }
+    return firstHop; // every card is recent — accept the original.
+  }
+
+  function rememberKey(card) {
+    var k = cardKey(card);
+    if (!k) return;
+    var cap = Math.min(5, Math.max(0, curSet.length - 1));
+    if (cap === 0) { recentKeys = []; return; }
+    recentKeys.push(k);
+    while (recentKeys.length > cap) recentKeys.shift();
+  }
+
+  // Fisher-Yates, biased to avoid putting any recently-seen card in the first
+  // few slots (so the reshuffle on wrap-around doesn't immediately replay a
+  // card that just appeared).
+  function shuffleAvoidingRecent() {
+    var len = curSet.length;
+    for (var i = len - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = curSet[i]; curSet[i] = curSet[j]; curSet[j] = tmp;
+    }
+    var avoidUpTo = Math.min(recentKeys.length, len - 1);
+    for (var s = 0; s < avoidUpTo; s++) {
+      if (recentKeys.indexOf(cardKey(curSet[s])) === -1) continue;
+      for (var t = s + 1; t < len; t++) {
+        if (recentKeys.indexOf(cardKey(curSet[t])) === -1) {
+          var swap = curSet[s]; curSet[s] = curSet[t]; curSet[t] = swap;
+          break;
+        }
+      }
+    }
+  }
 
   // Color palette for kanji ↔ reading span pairing.  Cycles modulo length
   // for vocab with more kanji than colors.  Soft pastel backgrounds; the
@@ -148,28 +205,36 @@
       return DB.verb.slice();
     }
     if (type === 'vocab') {
+      // Iterate DB.allVocab directly (bypasses the 5-compound cap on
+      // DB.kanji[i].compounds, which would otherwise silently hide authored
+      // hybrids like 名まえ). evaluate() decides eligibility + picks the
+      // display form. `surface` is kept canonical so flag-key resolution stays
+      // stable as kanji get unlocked over time.
       var tempMap = new Map();
-      var activeK = DB.kanji.filter(function (k) { return activeLessons.has(k.lesson); });
-      activeK.forEach(function (k) {
-        var cs = (k.compounds || '').split(';');
-        cs.forEach(function (c) {
-          var vObj = DB.vocabMap.get(c);
-          if (vObj && !tempMap.has(c)) {
-            tempMap.set(c, {
-              word: c,
-              reading: vObj.reading,
-              meaning: vObj.meaning,
-              lesson: k.lesson,
-              gtype: vObj.gtype,
-              notes: vObj.notes,
-              id: vObj.id,
-              surface: vObj.surface,
-              lesson_ids: vObj.lesson_ids,
-              readingAlign: vObj.readingAlign,
-              kanjiMeanings: vObj.kanjiMeanings,
-              example: vObj.example
-            });
-          }
+      var activeKanjiSet = new Set(
+        DB.kanji.filter(function (k) { return activeLessons.has(k.lesson); })
+                .map(function (k) { return k.kanji; })
+      );
+      var vocabDisplay = window.JPShared && window.JPShared.vocabDisplay;
+      (DB.allVocab || []).forEach(function (v) {
+        if (!v || !v.surface || tempMap.has(v.surface)) return;
+        var res = vocabDisplay
+          ? vocabDisplay.evaluate(v, activeKanjiSet, activeLessons)
+          : { eligible: false, display: v.surface };
+        if (!res.eligible) return;
+        tempMap.set(v.surface, {
+          word: res.display,
+          reading: v.reading,
+          meaning: v.meaning,
+          lesson: v.lesson_ids || '',
+          gtype: v.gtype,
+          notes: v.notes,
+          id: v.id,
+          surface: v.surface,
+          lesson_ids: v.lesson_ids,
+          readingAlign: v.readingAlign,
+          kanjiMeanings: v.kanjiMeanings,
+          example: v.example
         });
       });
       return Array.from(tempMap.values());
@@ -194,21 +259,33 @@
   }
 
   // ---- Dynamic compounds for kanji cards ----
+  // Same eligibility model as the vocab pool: a compound shows here if its
+  // picked display form contains the current kanji and is renderable now —
+  // which catches authored hybrids (e.g. 名まえ on the 名 card, 友だち on the
+  // 友 card) without leaking unauthored future vocab (人見知り stays hidden
+  // on the 人 card until N4.29).
   function getDynamicCompounds(kanjiChar, activeLessons, DB) {
     var activeKanji = new Set();
     DB.kanji.forEach(function (k) {
       if (activeLessons.has(k.lesson)) activeKanji.add(k.kanji);
     });
+    var vocabDisplay = window.JPShared && window.JPShared.vocabDisplay;
     var results = [];
     (DB.allVocab || []).forEach(function (v) {
-      if (!v.surface.includes(kanjiChar)) return;
-      var allKnown = Array.from(v.surface).every(function (ch) {
-        if (ch.charCodeAt(0) >= 0x4E00 && ch.charCodeAt(0) <= 0x9FFF) {
-          return activeKanji.has(ch);
-        }
-        return true;
+      if (!v || !v.surface || v.surface.indexOf(kanjiChar) === -1) return;
+      if (!vocabDisplay) return;
+      var res = vocabDisplay.evaluate(v, activeKanji, activeLessons);
+      if (!res.eligible) return;
+      // The kanji char being displayed must actually appear in the picked
+      // form — otherwise we'd surface a vocab whose hybrid spelled this kanji
+      // away (rare but possible).
+      if (res.display.indexOf(kanjiChar) === -1) return;
+      results.push({
+        display: res.display,
+        surface: v.surface,
+        reading: v.reading,
+        meaning: v.meaning
       });
-      if (allKnown) results.push(v);
     });
     return results;
   }
@@ -260,7 +337,7 @@
 
     var stamp = document.getElementById('k-fc-flagged-icon');
     if (stamp) {
-      var kKey = d.kanji || d.word || d.dict;
+      var kKey = d.kanji || d.surface || d.word || d.dict;
       if ((d.isRequeued || activeFlags[kKey]) && curMode !== 'flag-review') stamp.classList.remove('k-hidden');
       else stamp.classList.add('k-hidden');
     }
@@ -425,8 +502,11 @@
          '</div>';
     var dynCompounds = getDynamicCompounds(d.kanji, cfg.activeLessons, cfg.DB);
     function compoundRow(v, cls, hide) {
+      // v.display is the hybrid-aware form picked by getDynamicCompounds —
+      // canonical surface once every kanji is taught, otherwise the authored
+      // hybrid (e.g. 名まえ before 前 is learned).
       return '<tr' + (cls ? ' class="' + cls + '"' : '') + (hide ? ' style="display:none"' : '') + '>' +
-        '<td style="font-weight:bold; font-size:1.2rem">' + esc(v.surface) + '</td>' +
+        '<td style="font-weight:bold; font-size:1.2rem">' + esc(v.display || v.surface) + '</td>' +
         '<td><div style="font-size:1rem">' + esc(v.reading || '') + '</div><div style="color:#747d8c; font-size:0.9rem">' + esc(v.meaning || '') + '</div></td></tr>';
     }
     h += '<div class="k-lbl" style="text-align:left;margin-top:10px;border-bottom:1px solid #eee;">Compounds' + (dynCompounds.length ? ' (' + dynCompounds.length + ')' : '') + '</div><table class="k-tbl">';
@@ -463,7 +543,7 @@
 
   function renderVocabCard(d, backEl, speakText, speakBtnHtml) {
     setTxt('k-fc-lbl', 'Vocabulary');
-    if (curMode === 'flag-review') setTxt('k-fc-lbl', '🚩 Flags: ' + (flagCounts[d.word] || 0));
+    if (curMode === 'flag-review') setTxt('k-fc-lbl', '🚩 Flags: ' + (flagCounts[d.surface || d.word] || 0));
 
     var mainEl = document.getElementById('k-fc-main');
     if (mainEl) mainEl.innerHTML = esc(d.word) + speakBtnHtml;
@@ -571,7 +651,7 @@
            '</div>';
     }
     if (d.notes) h += '<div style="margin-top:10px; padding:12px; background:#fff8e1; border-left:4px solid #ffca28; color:#5d4037; font-size:0.9rem; text-align:left; border-radius:4px; line-height:1.4;"><strong>Note:</strong> ' + esc(d.notes) + '</div>';
-    var flags = flagCounts[d.word] || 0;
+    var flags = flagCounts[d.surface || d.word] || 0;
     if (flags > 0) h += '<div style="text-align:center; color:#ff4757; font-weight:700; margin-top:15px; font-size:0.8rem;">🚩 Flagged: ' + flags + ' times</div>';
     if (backEl) backEl.innerHTML = h;
   }
@@ -611,21 +691,30 @@
       }
     }
 
+    var advance = function () {
+      var len = curSet.length;
+      // On forward wrap-around (last → first), reshuffle so each cycle is
+      // fresh. The shuffle avoids placing recently-seen cards near the top.
+      if (n > 0 && len > 1 && curIdx + n >= len) {
+        shuffleAvoidingRecent();
+        curIdx = -1; // advanceIdx will land on the first slot.
+      }
+      curIdx = advanceIdx(curIdx, n);
+      rememberKey(curSet[curIdx]);
+      renderCard();
+    };
+
     if (wasFlipped) {
       c.classList.remove('is-flipped');
-      setTimeout(function () {
-        curIdx = (curIdx + n + curSet.length) % curSet.length;
-        renderCard();
-      }, 300);
+      setTimeout(advance, 300);
     } else {
-      curIdx = (curIdx + n + curSet.length) % curSet.length;
-      renderCard();
+      advance();
     }
   }
 
   function flag(btn) {
     var currentItem = curSet[curIdx];
-    var kKey = currentItem.kanji || currentItem.word || currentItem.dict;
+    var kKey = currentItem.kanji || currentItem.surface || currentItem.word || currentItem.dict;
 
     if (curMode === 'flash') {
       skipNextStreak = true;
@@ -650,7 +739,7 @@
 
   function clearFlag(btn) {
     var currentItem = curSet[curIdx];
-    var kKey = currentItem.kanji || currentItem.word || currentItem.dict;
+    var kKey = currentItem.kanji || currentItem.surface || currentItem.word || currentItem.dict;
 
     delete activeFlags[kKey];
     if (window.JPShared.progress) window.JPShared.progress.clearFlag(kKey);
@@ -679,6 +768,7 @@
       curMode = ctx.mode;
       curIdx = 0;
       skipNextStreak = false;
+      recentKeys = [];
 
       flagCounts = (window.JPShared.progress && window.JPShared.progress.getAllFlags()) || {};
       activeFlags = (window.JPShared.progress && window.JPShared.progress.getAllActiveFlags()) || {};
@@ -698,6 +788,7 @@
 
       renderStage();
       renderCard();
+      rememberKey(curSet[0]);
     },
     destroy: function () {
       if (container) container.innerHTML = '';

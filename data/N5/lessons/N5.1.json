@@ -247,195 +247,95 @@
     },
     {
       "type": "vocabList",
-      "title": "ことば（Vocabulary & Compounds）",
+      "title": "ことば（Vocabulary）",
+      "meta": "Vocabulary",
+      "header": "ことば",
+      "lead": "New words for this lesson — tap any to hear it.",
       "groups": [
         {
-          "label": "People",
+          "label": "People & Family",
           "items": [
-            "k_hito",
-            "v_hito",
-            "v_hitobito",
-            "v_jinsei"
-          ]
-        },
-        {
-          "label": "Men & Women",
-          "items": [
-            "k_otoko",
-            "k_onna",
-            "v_danshi",
-            "v_joshi",
-            "v_onna",
-            "v_otoko",
-            "v_onnanohito",
-            "v_otokonohito",
-            "v_onnanoko",
-            "v_otokonoko",
-            "v_kodomo"
-          ]
-        },
-        {
-          "label": "Family",
-          "items": [
-            "k_haha",
-            "k_chichi",
-            "v_chichi",
-            "v_haha",
-            "v_fubo",
-            "k_ko",
-            "v_otousan",
-            "v_okaasan"
-          ]
-        },
-        {
-          "label": "Friends & Teachers",
-          "items": [
-            "k_tomo",
-            "v_tomodachi",
-            "v_sensei"
+            "v_hito", "v_hitobito", "v_jinsei",
+            "v_otoko", "v_onna", "v_danshi", "v_joshi",
+            "v_otokonohito", "v_onnanohito",
+            "v_otokonoko", "v_onnanoko",
+            "v_kodomo",
+            "v_chichi", "v_haha", "v_fubo",
+            "v_otousan", "v_okaasan",
+            "v_tomodachi", "v_sensei"
           ]
         },
         {
           "label": "Names & Life",
-          "items": [
-            "k_na",
-            "k_u",
-            "k_saki",
-            "v_namae",
-            "v_umareru",
-            "v_ikiru"
-          ]
+          "items": ["v_namae", "v_umareru", "v_ikiru"]
         },
         {
-          "label": "Greetings",
+          "label": "Adjectives",
+          "items": ["v_yasashii", "v_ureshii", "v_ii"]
+        },
+        {
+          "label": "Adverbs",
+          "items": ["v_totemo", "v_takusan", "v_ichiban", "v_issho"]
+        },
+        {
+          "label": "Loanwords",
+          "items": ["v_pasokon", "v_beddo", "v_terebi", "v_toire", "v_kurasu_class"]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "tutorialKey": "vocabListAssumed",
+      "title": "Common Knowledge & Grammar",
+      "meta": "Common Knowledge & Grammar",
+      "header": "き本・ぶんぽう",
+      "lead": "You likely know most of these already — particles, demonstratives, and everyday phrases — plus the grammar tokens you'll see throughout the app.",
+      "groups": [
+        {
+          "label": "Greetings & Phrases",
           "items": [
-            "p_hajimemashite",
-            "p_yoroshiku",
-            "p_ohayou",
-            "p_ohayou_casual",
-            "p_konnichiwa",
-            "p_konbanwa",
-            "p_oyasuminasai",
-            "p_sumimasen",
-            "p_youkoso",
-            "p_soudesuka",
-            "p_arigatou",
-            "p_arigatou_gozaimasu",
-            "p_att",
-            "p_douzo"
+            "p_hajimemashite", "p_yoroshiku",
+            "p_ohayou", "p_ohayou_casual",
+            "p_konnichiwa", "p_konbanwa", "p_oyasuminasai",
+            "p_sumimasen", "p_youkoso",
+            "p_arigatou", "p_arigatou_gozaimasu",
+            "p_att", "p_douzo"
           ]
         },
         {
           "label": "Pronouns & Honorifics",
-          "items": [
-            "v_watashi",
-            "v_anata",
-            "v_minasan",
-            "v_san",
-            "v_dare"
-          ]
+          "items": ["v_watashi", "v_anata", "v_minasan", "v_san", "v_dare"]
         },
         {
           "label": "Question Words",
-          "items": [
-            "v_nani"
-          ]
+          "items": ["v_nani"]
         },
         {
-          "label": "Adjectives",
-          "items": [
-            "v_yasashii",
-            "v_ureshii",
-            "v_ii"
-          ]
-        },
-        {
-          "label": "Adverbs",
-          "items": [
-            "v_totemo",
-            "v_takusan",
-            "v_ichiban",
-            "v_issho"
-          ]
-        },
-        {
-          "label": "Replies & Expressions",
-          "items": [
-            "p_hai",
-            "v_iie",
-            "p_soudesu",
-            "p_soudesuka",
-            "v_kudasai",
-            "v_e_exclaim"
-          ]
-        },
-        {
-          "label": "Loanwords",
-          "items": [
-            "v_pasokon",
-            "v_beddo",
-            "v_terebi",
-            "v_toire",
-            "v_kurasu_class"
-          ]
-        },
-        {
-          "label": "Core Verbs",
-          "items": [
-            "v_suru",
-            "v_iru",
-            "v_aru"
-          ]
-        },
-        {
-          "label": "Grammar (Copula)",
-          "items": [
-            "g_desu",
-            "g_da"
-          ]
-        },
-        {
-          "label": "Particles",
-          "items": [
-            "p_wa",
-            "p_ga",
-            "p_wo",
-            "p_no",
-            "p_ka",
-            "p_yo",
-            "p_ne",
-            "p_dewa",
-            "p_ja"
-          ]
+          "label": "Replies",
+          "items": ["p_hai", "v_iie", "p_soudesu", "p_soudesuka", "v_kudasai", "v_e_exclaim"]
         },
         {
           "label": "Demonstratives (こそあど)",
           "items": [
-            "v_kore",
-            "v_sore",
-            "v_are",
-            "v_dore",
-            "v_kono",
-            "v_sono",
-            "v_ano",
-            "v_dono",
-            "v_koko",
-            "v_soko",
-            "v_asoko",
-            "v_doko",
-            "v_kochira",
-            "v_sochira",
-            "v_achira",
-            "v_dochira",
-            "v_kou",
-            "v_sou",
-            "v_aa",
-            "v_dou",
-            "v_konna",
-            "v_sonna",
-            "v_anna",
-            "v_donna"
+            "v_kore", "v_sore", "v_are", "v_dore",
+            "v_kono", "v_sono", "v_ano", "v_dono",
+            "v_koko", "v_soko", "v_asoko", "v_doko",
+            "v_kochira", "v_sochira", "v_achira", "v_dochira",
+            "v_kou", "v_sou", "v_aa", "v_dou",
+            "v_konna", "v_sonna", "v_anna", "v_donna"
           ]
+        },
+        {
+          "label": "Particles",
+          "items": ["p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne", "p_dewa", "p_ja"]
+        },
+        {
+          "label": "Copula",
+          "items": ["g_desu", "g_da"]
+        },
+        {
+          "label": "Core Verbs",
+          "items": ["v_suru", "v_iru", "v_aru"]
         }
       ]
     },
@@ -443,10 +343,11 @@
       "type": "conversation",
       "title": "かいわ 1: じこしょうかい（Self-Introduction）",
       "context": "Two people meeting for the first time.",
+      "speakers": { "A": "rikizo", "B": "yamakawa" },
       "lines": [
         {
           "spk": "A",
-          "jp": "すみません。はじめまして。わたしの 名まえは りきぞです。",
+          "jp": "すみません。はじめまして。わたしの 名まえは りきぞうです。",
           "en": "Excuse me. Nice to meet you. My name is Rikizo.",
           "terms": [
             "p_sumimasen",
@@ -518,6 +419,7 @@
       "type": "conversation",
       "title": "かいわ 2: かぞくの はなし（Talking About Family）",
       "context": "Asking about family members' occupations.",
+      "speakers": { "A": "sakura", "B": "ren" },
       "lines": [
         {
           "spk": "A",
@@ -662,6 +564,7 @@
       "type": "conversation",
       "title": "かいわ 3: 先生の こと（About a Teacher）",
       "context": "Two students chat after school about their Japanese teacher.",
+      "speakers": { "A": "ken", "B": "miki" },
       "lines": [
         {
           "spk": "A",
@@ -763,6 +666,7 @@
       "type": "conversation",
       "title": "かいわ 4: クラスへ ようこそ（Welcome to the Class）",
       "context": "A teacher welcomes a new student to the class.",
+      "speakers": { "A": "yamamoto", "B": "sakura", "C": "rikizo" },
       "lines": [
         {
           "spk": "A",
@@ -796,7 +700,7 @@
         },
         {
           "spk": "C",
-          "jp": "はじめまして。わたしは りきぞです。よろしく おねがいします。",
+          "jp": "はじめまして。わたしは りきぞうです。よろしく おねがいします。",
           "en": "Nice to meet you. I'm Rikizo. Pleased to meet you.",
           "terms": [
             "p_hajimemashite",
@@ -809,7 +713,7 @@
         },
         {
           "spk": "B",
-          "jp": "おはよう、りきぞさん。",
+          "jp": "おはよう、りきぞうさん。",
           "en": "Morning, Rikizo!",
           "terms": [
             "p_ohayou_casual",
@@ -819,7 +723,7 @@
         },
         {
           "spk": "A",
-          "jp": "りきぞさん、ようこそ。とても いい 名まえですね。",
+          "jp": "りきぞうさん、ようこそ。とても いい 名まえですね。",
           "en": "Rikizo-san, welcome. That's a very nice name.",
           "terms": [
             "char_rikizo",
@@ -881,7 +785,7 @@
       "title": "よむ れんしゅう 1: わたしの かぞく（My Family）",
       "passage": [
         {
-          "jp": "わたしの 名まえは りきぞです。",
+          "jp": "わたしの 名まえは りきぞうです。",
           "en": "My name is Rikizo.",
           "terms": [
             "v_watashi",
@@ -1007,12 +911,12 @@
           ]
         },
         {
-          "q": "お父さんは なにを しますか。",
-          "q_en": "What does your father do?",
+          "q": "お母さんは なにを しますか。",
+          "q_en": "What does your mother do?",
           "a": "先生です。",
-          "a_en": "He is a teacher.",
+          "a_en": "She is a teacher.",
           "terms": [
-            "v_otousan",
+            "v_okaasan",
             "p_wa",
             "v_nani",
             "p_wo",
@@ -1043,27 +947,6 @@
           ],
           "a_terms": [
             "char_suzuki",
-            "v_sensei",
-            "g_desu"
-          ]
-        },
-        {
-          "q": "お母さんは なにを しますか。",
-          "q_en": "What does your mother do?",
-          "a": "先生です。",
-          "a_en": "She is a teacher.",
-          "terms": [
-            "v_okaasan",
-            "p_wa",
-            "v_nani",
-            "p_wo",
-            {
-              "id": "v_suru",
-              "form": "polite_masu"
-            },
-            "p_ka"
-          ],
-          "a_terms": [
             "v_sensei",
             "g_desu"
           ]
@@ -1216,12 +1099,13 @@
     },
     {
       "type": "drills",
+      "tutorialKey": "drillsKanji",
       "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
       "instructions": "Choose the correct reading.",
       "items": [
         {
           "kind": "mcq",
-          "q": "[人] の よみかたは？",
+          "q": "「人」 の よみかたは？",
           "choices": [
             "ひと",
             "おとこ",
@@ -1232,7 +1116,7 @@
         },
         {
           "kind": "mcq",
-          "q": "[母] の よみかたは？",
+          "q": "「母」 の よみかたは？",
           "choices": [
             "ちち",
             "はは",
@@ -1243,7 +1127,7 @@
         },
         {
           "kind": "mcq",
-          "q": "[先生] の よみかたは？",
+          "q": "「先生」 の よみかたは？",
           "choices": [
             "せんせい",
             "がくせい",
@@ -1254,7 +1138,7 @@
         },
         {
           "kind": "mcq",
-          "q": "[名まえ] の よみかたは？",
+          "q": "「名まえ」 の よみかたは？",
           "choices": [
             "なまえ",
             "めいまえ",
@@ -1265,7 +1149,7 @@
         },
         {
           "kind": "mcq",
-          "q": "[友だち] の よみかたは？",
+          "q": "「友だち」 の よみかたは？",
           "choices": [
             "ともだち",
             "こども",
@@ -1276,7 +1160,7 @@
         },
         {
           "kind": "mcq",
-          "q": "[生まれる] の よみかたは？",
+          "q": "「生まれる」 の よみかたは？",
           "choices": [
             "うまれる",
             "いきる",
@@ -1289,121 +1173,57 @@
     },
     {
       "type": "drills",
+      "tutorialKey": "drillsVocab",
       "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
       "instructions": "Choose the correct word to complete the sentence.",
       "items": [
         {
           "kind": "mcq",
-          "q": "わたしの _______ は りきぞです。",
-          "choices": [
-            "名まえ",
-            "人生",
-            "先生"
-          ],
+          "q": "わたしの _______ は りきぞうです。",
+          "choices": ["名まえ", "テレビ", "クラス", "パソコン"],
           "answer": "名まえ",
-          "terms": [
-            "v_watashi",
-            "p_no",
-            "p_wa",
-            "g_desu",
-            "v_namae"
-          ]
+          "terms": ["v_watashi", "p_no", "p_wa", "g_desu", "v_namae"]
         },
         {
           "kind": "mcq",
-          "q": "_______ は やさしい 人です。",
-          "choices": [
-            "友だち",
-            "男子",
-            "父母"
-          ],
+          "q": "わたしの _______ は とても やさしい 人です。",
+          "choices": ["友だち", "トイレ", "クラス", "パソコン"],
           "answer": "友だち",
-          "terms": [
-            "v_tomodachi",
-            "p_wa",
-            "v_yasashii",
-            "v_hito",
-            "g_desu"
-          ]
+          "terms": ["v_watashi", "p_no", "v_tomodachi", "p_wa", "v_totemo", "v_yasashii", "v_hito", "g_desu"]
         },
         {
           "kind": "mcq",
-          "q": "やまもと先生は _______。",
-          "choices": [
-            "生まれました",
-            "生きました",
-            "先生します",
-            "名まえです"
-          ],
-          "answer": "生まれました",
-          "terms": [
-            "v_sensei",
-            "p_wa",
-            {
-              "id": "v_umareru",
-              "form": "polite_mashita"
-            }
-          ]
+          "q": "トイレは _______ です。",
+          "choices": ["あそこ", "先生", "パソコン", "名まえ"],
+          "answer": "あそこ",
+          "terms": ["v_toire", "p_wa", "v_asoko", "g_desu"]
         },
         {
           "kind": "mcq",
           "q": "わたしの _______ は 先生です。",
-          "choices": [
-            "父母",
-            "名まえ",
-            "友だち",
-            "先生"
-          ],
+          "choices": ["父母", "テレビ", "クラス", "トイレ"],
           "answer": "父母",
-          "terms": [
-            "v_watashi",
-            "p_no",
-            "v_fubo",
-            "p_wa",
-            "v_sensei",
-            "g_desu"
-          ]
+          "terms": ["v_watashi", "p_no", "v_fubo", "p_wa", "v_sensei", "g_desu"]
         },
         {
           "kind": "mcq",
           "q": "わたしの 男の _______ は やさしいです。",
-          "choices": [
-            "子",
-            "人",
-            "先"
-          ],
+          "choices": ["子", "テレビ", "パソコン", "名まえ"],
           "answer": "子",
-          "terms": [
-            "v_watashi",
-            "p_no",
-            "v_otokonoko",
-            "p_wa",
-            "v_yasashii",
-            "g_desu"
-          ]
+          "terms": ["v_watashi", "p_no", "v_otokonoko", "p_wa", "v_yasashii", "g_desu"]
         },
         {
           "kind": "mcq",
           "q": "やまもとさんは とても やさしい _______ です。",
-          "choices": [
-            "先生",
-            "友だち",
-            "名まえ"
-          ],
+          "choices": ["先生", "テレビ", "クラス", "トイレ"],
           "answer": "先生",
-          "terms": [
-            "v_san",
-            "p_wa",
-            "v_totemo",
-            "v_yasashii",
-            "g_desu",
-            "v_sensei"
-          ]
+          "terms": ["v_san", "p_wa", "v_totemo", "v_yasashii", "g_desu", "v_sensei"]
         }
       ]
     },
     {
       "type": "drills",
+      "tutorialKey": "drillsSentence",
       "title": "ドリル 3: ぶんを つくる（Sentence Building）",
       "instructions": "Choose the best particle to complete the sentence.",
       "items": [
@@ -1413,7 +1233,8 @@
           "choices": [
             "の",
             "は",
-            "を"
+            "を",
+            "が"
           ],
           "answer": "の",
           "terms": [

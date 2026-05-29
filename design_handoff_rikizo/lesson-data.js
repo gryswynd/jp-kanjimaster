@@ -65,12 +65,12 @@ window.RikizoLesson = {
         { jp: "店の 中に カレーや パンが あります。", en: "Inside the store there is curry and bread." },
         { jp: "駅の 後ろに 車が あります。", en: "There are cars behind the station." },
         { jp: "外に 友だちが います。中に 先生が います。", en: "A friend is outside. The teacher is inside." },
-        { jp: "りきぞは 外で コーヒーを 飲んでいます。", en: "Rikizo is drinking coffee outside." },
+        { jp: "りきぞうは 外で コーヒーを 飲んでいます。", en: "Rikizo is drinking coffee outside." },
       ],
       questions: [
         { q: "駅の 前に 何が ありますか。", qEn: "What is in front of the station?", a: "大きい 店が あります。", aEn: "There is a big shop." },
         { q: "先生は どこに いますか。",    qEn: "Where is the teacher?",           a: "中に います。",         aEn: "The teacher is inside." },
-        { q: "りきぞは 何を していますか。",  qEn: "What is Rikizo doing?",          a: "外で コーヒーを 飲んでいます。", aEn: "He is drinking coffee outside." },
+        { q: "りきぞうは 何を していますか。",  qEn: "What is Rikizo doing?",          a: "外で コーヒーを 飲んでいます。", aEn: "He is drinking coffee outside." },
       ],
     },
     {
@@ -104,7 +104,7 @@ window.RikizoLesson = {
 };
 
 window.RikizoCharacters = {
-  rikizo:   { portrait: "assets/characters/rikizo_head.png",   jp: "りきぞ" },
+  rikizo:   { portrait: "assets/characters/rikizo_head.png",   jp: "りきぞう" },
   yamakawa: { portrait: "assets/characters/rikizo_head.png",   jp: "やまかわ" }, /* no head file copied; reuse */
   sakura:   { portrait: "assets/characters/sakura_head.png",   jp: "さくら" },
   suzuki:   { portrait: "assets/characters/suzuki_head.png",   jp: "すずき先生" },

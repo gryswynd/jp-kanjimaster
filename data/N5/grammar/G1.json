@@ -81,7 +81,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です",
@@ -96,7 +102,13 @@
             {
               "text": "父",
               "role": "topic",
-              "gloss": "my father"
+              "gloss": "my father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
             },
             {
               "text": "は",
@@ -110,7 +122,13 @@
             {
               "text": "人",
               "role": "predicate",
-              "gloss": "person"
+              "gloss": "person",
+              "tokens": [
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "です",
@@ -134,7 +152,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "ですか",
@@ -194,7 +218,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "だ",
@@ -237,7 +267,13 @@
             {
               "text": "父",
               "role": "topic",
-              "gloss": "my father"
+              "gloss": "my father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
             },
             {
               "text": "は",
@@ -246,7 +282,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "では",
@@ -337,7 +379,13 @@
               {
                 "text": "先生",
                 "role": "predicate",
-                "gloss": "teacher"
+                "gloss": "teacher",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  }
+                ]
               },
               {
                 "text": "です",
@@ -369,7 +417,13 @@
               {
                 "text": "先生",
                 "role": "predicate",
-                "gloss": "teacher"
+                "gloss": "teacher",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  }
+                ]
               },
               {
                 "text": "だ",
@@ -401,7 +455,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です",
@@ -417,7 +477,13 @@
             {
               "text": "父",
               "role": "topic",
-              "gloss": "my father"
+              "gloss": "my father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
             },
             {
               "text": "は",
@@ -426,7 +492,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "でした",
@@ -451,7 +523,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "では",
@@ -480,7 +558,13 @@
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "だ",
@@ -541,6 +625,10 @@
       "type": "conversation",
       "title": "かいわ 1: はじめまして（First Meeting）",
       "context": "A new student introduces herself to the teacher on the first day of class.",
+      "speakers": {
+        "ゆき": "yuki",
+        "先生": "yamamoto"
+      },
       "lines": [
         {
           "spk": "ゆき",
@@ -609,6 +697,10 @@
       "type": "conversation",
       "title": "かいわ 2: ともだちとのはなし（Chatting with Friends）",
       "context": "Two classmates talk casually after class.",
+      "speakers": {
+        "けん": "ken",
+        "ゆき": "yuki"
+      },
       "lines": [
         {
           "spk": "けん",

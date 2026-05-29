@@ -14,10 +14,10 @@
  *   lesson   → always visible
  *   grammar  → any completion of N5.1
  *   practice → any completion of N5.1
- *   compose  → ≥75% on N5.1
- *   story    → ≥75% on N5.2
- *   review   → ≥75% on N5.2
- *   game     → ≥75% on N5.1
+ *   compose  → ≥60% on N5.1   (PASS_THRESHOLD below)
+ *   story    → completion of G4 (first story entry unlocks at G4)
+ *   review   → completion of G4 (first review entry unlocks at G4)
+ *   game     → ≥60% on N5.1
  *
  * Load this file as the 5th shared module (after progress.js, before text-processor.js).
  */
@@ -33,6 +33,14 @@
 
   // localStorage key for the explicit N4 unlock (paid gateway placeholder).
   var N4_UNLOCK_KEY = 'k-n4-unlocked';
+
+  // Practice activity unlock thresholds — the N5 lesson the user must have
+  // COMPLETED (any score) before each sentence-practice activity appears in
+  // the Dojo menu. Centralized here so it's tunable in one place.
+  //   Scramble  → needs enough sentence structure exposure
+  //   Link Up   → needs enough vocab breadth to sort categories
+  var SCRAMBLE_UNLOCK_AFTER = 'N5.2';
+  var LINKUP_UNLOCK_AFTER   = 'N5.8';
 
   var MODULE_META = {
     grammar:  { icon: '🌿', label: 'Grammar Garden' },
@@ -69,7 +77,7 @@
     }
   }
 
-  // Returns true if the prerequisite ID has been passed (≥75%) or completed
+  // Returns true if the prerequisite ID has been passed (≥60%) or completed
   // (any score) depending on anyCompletion flag.
   // Grammar lesson IDs (G1, G2, …) always use any-completion semantics —
   // they have no pass/fail score, so completing them is sufficient.
@@ -167,6 +175,9 @@
 
     PASS_THRESHOLD: PASS_THRESHOLD,
     MODULE_META: MODULE_META,
+    // Exposed for menu labels ("finish Lesson N5.x to unlock …").
+    SCRAMBLE_UNLOCK_AFTER: SCRAMBLE_UNLOCK_AFTER,
+    LINKUP_UNLOCK_AFTER:   LINKUP_UNLOCK_AFTER,
 
     // ── N4 gateway ─────────────────────────────────────────────────────────
 
@@ -214,6 +225,58 @@
       return (_getScores()[id] || 0) >= PASS_THRESHOLD;
     },
 
+    // ── Practice activity gates ────────────────────────────────────────────
+    // Both gates use any-completion semantics on a specific lesson id; tune
+    // SCRAMBLE_UNLOCK_AFTER / LINKUP_UNLOCK_AFTER at the top of this file.
+    isScrambleUnlocked: function () {
+      if (this.isFree()) return true;
+      return this.isCompleted(SCRAMBLE_UNLOCK_AFTER);
+    },
+    isLinkUpUnlocked: function () {
+      if (this.isFree()) return true;
+      return this.isCompleted(LINKUP_UNLOCK_AFTER);
+    },
+
+    // ── Known-kanji projection ─────────────────────────────────────────────
+
+    /**
+     * Set of kanji the student has been taught so far.
+     *
+     * Sources unioned:
+     *   • Every completed lesson's `kanji[]` array in the manifest.
+     *   • The current lesson's own `meta.kanji` (passed explicitly), so that
+     *     vocab rendered in a lesson sees the kanji the lesson itself
+     *     introduces — vocab appears after the kanji section in the page flow.
+     *
+     * Free mode: returns the union of every lesson's kanji.
+     *
+     * @param {string} currentLessonId — id of the lesson currently being viewed (informational; not required for the projection)
+     * @param {Object} manifest — parsed manifest.json
+     * @param {string[]} currentLessonMetaKanji — the current lesson's meta.kanji array
+     * @returns {Set<string>}
+     */
+    getKnownKanjiSet: function (currentLessonId, manifest, currentLessonMetaKanji) {
+      var out = new Set();
+      var completed = _getCompleted();
+      var free = this.isFree();
+      var d = (manifest && manifest.data) || {};
+      for (var lvl in d) {
+        if (!Object.prototype.hasOwnProperty.call(d, lvl)) continue;
+        var lessons = (d[lvl] && d[lvl].lessons) || [];
+        for (var i = 0; i < lessons.length; i++) {
+          var entry = lessons[i];
+          if (free || completed[entry.id]) {
+            var ks = entry.kanji || [];
+            for (var j = 0; j < ks.length; j++) out.add(ks[j]);
+          }
+        }
+      }
+      if (Array.isArray(currentLessonMetaKanji)) {
+        for (var k = 0; k < currentLessonMetaKanji.length; k++) out.add(currentLessonMetaKanji[k]);
+      }
+      return out;
+    },
+
     // ── Module visibility ──────────────────────────────────────────────────
 
     /**
@@ -226,10 +289,18 @@
         case 'lesson':   return true;                       // always visible
         case 'grammar':  return _prereqMet('N5.1', true);  // any completion
         case 'practice': return _prereqMet('N5.1', true);  // any completion
-        case 'compose':  return _prereqMet('N5.1', false); // ≥75%
-        case 'game':     return _prereqMet('N5.1', false); // ≥75%
-        case 'story':    return _prereqMet('N5.2', false); // ≥75%
-        case 'review':   return _prereqMet('N5.2', false); // ≥75%
+        case 'compose':  return _prereqMet('N5.1', false); // ≥60%
+        case 'game':     return _prereqMet('N5.1', false); // ≥60%
+        // Stories & Review unlock at G4 — that's when the first entry in each
+        // (my-family / N5.Review.1) becomes available, so the tile would be
+        // an empty room otherwise.
+        case 'story':    return _prereqMet('G4', true);    // any completion
+        case 'review':   return _prereqMet('G4', true);    // any completion
+        // Writing modules are reached through the Dojo's Writing hub. The Dojo
+        // tile is already gated as 'practice'; once inside, writing is free.
+        case 'writing-kanji': return true;
+        case 'writing-kana':  return true;
+        case 'map':      return true;                       // progress view, always visible
         default:         return false;
       }
     },
@@ -237,13 +308,20 @@
     // ── Per-entry unlock checks ────────────────────────────────────────────
 
     /**
-     * Lesson entry unlocks when its prereq has been *passed* (≥75%).
+     * Lesson entry unlocks when its prereq has been *passed* (≥60%).
      * N5.1 has no unlocksAfter → always unlocked.
      * Any N4 lesson requires the explicit N4 unlock in addition.
+     *
+     * Optional `extraRequirePass` field: an additional lesson id that must
+     * also be *passed* (≥60%). Used for the "one-time exception" where N5.2's
+     * grammar-chain prereq (G3) is met but the student still owes a pass on
+     * N5.1 before N5.2 unlocks. Generic so future special cases can use it
+     * by data alone.
      */
     isLessonUnlocked: function (entry) {
       if (this.isFree()) return true;
       if (entry.id && /^N4\./.test(entry.id)) return this.isN4Unlocked();
+      if (entry.extraRequirePass && !this.isPassed(entry.extraRequirePass)) return false;
       return _prereqMet(entry.unlocksAfter, false);
     },
 
@@ -256,7 +334,7 @@
     },
 
     /**
-     * Review entries unlock when their prereq has been *passed* (≥75%).
+     * Review entries unlock when their prereq has been *passed* (≥60%).
      * Any N4 review requires the explicit N4 unlock in addition.
      */
     isReviewUnlocked: function (entry) {
@@ -266,7 +344,7 @@
     },
 
     /**
-     * Story entries unlock when their prereq has been *passed* (≥75%).
+     * Story entries unlock when their prereq has been *passed* (≥60%).
      */
     isStoryUnlocked: function (entry) {
       if (this.isFree()) return true;
@@ -274,7 +352,7 @@
     },
 
     /**
-     * Compose entries unlock when their prereq has been *passed* (≥75%).
+     * Compose entries unlock when their prereq has been *passed* (≥60%).
      */
     isComposeUnlocked: function (entry) {
       if (this.isFree()) return true;
@@ -282,7 +360,7 @@
     },
 
     /**
-     * Game day entries unlock when their prereq has been *passed* (≥75%).
+     * Game day entries unlock when their prereq has been *passed* (≥60%).
      */
     isGameDayUnlocked: function (entry) {
       if (this.isFree()) return true;
@@ -314,7 +392,7 @@
     },
 
     /**
-     * Read-only — what would unlock if the student scored ≥75%?
+     * Read-only — what would unlock if the student scored ≥60%?
      * Used in the <75% encouragement screen to show the reward.
      * Does NOT modify localStorage.
      *

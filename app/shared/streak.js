@@ -11,6 +11,9 @@
  *   k-streak-freezes      — number   available streak freezes (max 2)
  *   k-streak-rankup       — string   stage key if a rank-up just occurred (consumed on read)
  *
+ * On each recorded activity this also reschedules local study reminders (if the
+ * notifications module is loaded) so reminder copy reflects the fresh streak state.
+ *
  * Load this file after progress.js and before unlock.js in webflow-embed.html.
  */
 
@@ -86,25 +89,6 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Server heartbeat (for email reminders)
-  // ---------------------------------------------------------------------------
-
-  /** Fire-and-forget POST to the reminder Worker. Only runs if opted in. */
-  function pingServer(date, streak) {
-    try {
-      var studentId = localStorage.getItem('k-reminder-student-id');
-      if (!studentId) return;
-      var workerUrl = (window.JPShared.reminderSettings && window.JPShared.reminderSettings.WORKER_URL)
-        || 'https://rikizo-reminders.gryswynd.workers.dev';
-      fetch(workerUrl + '/heartbeat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studentId: studentId, date: date, streak: streak })
-      }).catch(function () {}); // Silently ignore errors
-    } catch (e) { /* non-critical */ }
-  }
-
-  // ---------------------------------------------------------------------------
   // Public API
   // ---------------------------------------------------------------------------
 
@@ -130,23 +114,37 @@
       var freezes = getInt('k-streak-freezes', 0);
 
       var stageBefore = getStage(current);
+      var extended = false;
 
       if (!lastActive) {
         // First ever activity
         current = 1;
+        extended = true;
       } else if (lastActive === yesterdayStr()) {
         // Consecutive day — extend streak
         current++;
+        extended = true;
       } else {
-        // Missed at least one day
+        // Missed at least one day. New rule: freezes absorb missed days
+        // one-for-one; any days still missing after freezes regress the belt
+        // ONE STEP per day (instead of the old "reset to white" behavior).
+        // The streak count is anchored to the regressed belt's minimum so the
+        // displayed belt matches; subsequent consecutive days walk it back up.
         var gap = daysBetween(lastActive, today);
-        if (gap === 2 && freezes > 0) {
-          // Exactly one missed day + freeze available — bridge the gap
-          freezes--;
+        var missedDays = gap - 1;
+        var freezesUsed = Math.min(freezes, missedDays);
+        freezes -= freezesUsed;
+        var missedAfterFreeze = missedDays - freezesUsed;
+        if (missedAfterFreeze === 0) {
+          // Fully bridged by freezes — extend as if no days were missed.
           current++;
+          extended = true;
         } else {
-          // Streak broken — start fresh
-          current = 1;
+          var idx = STAGES.indexOf(stageBefore);
+          var regressedIdx = Math.min(STAGES.length - 1, idx + missedAfterFreeze);
+          // STAGES is ordered highest-to-lowest, so adding to the index moves
+          // the user DOWN one belt per missed day; clamps at beginner.
+          current = Math.max(1, STAGES[regressedIdx].min);
         }
       }
 
@@ -167,8 +165,10 @@
       // Update best
       if (current > best) best = current;
 
-      // Award a freeze every 7-day milestone (max 2 stockpiled)
-      if (current > 0 && current % 7 === 0 && freezes < 2) {
+      // Award a freeze every 7-day milestone (max 2 stockpiled). Gated on
+      // `extended` so a regression that happens to land on a 7-multiple
+      // (e.g. fortnight = 14) doesn't immediately hand back a freeze.
+      if (extended && current > 0 && current % 7 === 0 && freezes < 2) {
         freezes++;
       }
 
@@ -186,8 +186,12 @@
       setHistory(history);
       setInt('k-streak-freezes', freezes);
 
-      // Ping reminder server (fire-and-forget, non-critical)
-      pingServer(today, current);
+      // Reschedule local reminders so copy reflects the new streak state.
+      try {
+        if (window.JPShared.notifications && window.JPShared.notifications.reschedule) {
+          window.JPShared.notifications.reschedule();
+        }
+      } catch (e) { /* non-critical */ }
     },
 
     /**

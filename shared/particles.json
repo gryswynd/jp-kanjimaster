@@ -162,6 +162,14 @@
       "introducedIn": "N5.1"
     },
     {
+      "id": "p_wa_emph",
+      "particle": "わ",
+      "reading": "わ",
+      "role": "emphasis (feminine / soft)",
+      "explanation": "Sentence-final emphasis particle, traditionally feminine and used to soften assertions. Distinct from the topic particle は (also pronounced 'wa'). Often paired with よ: いいわよ (it's fine / sure).",
+      "introducedIn": "N4.2"
+    },
+    {
       "id": "p_ne",
       "particle": "ね",
       "reading": "ね",
@@ -264,6 +272,22 @@
       "introducedIn": "N4.10"
     },
     {
+      "id": "p_ndarou",
+      "particle": "んだろう",
+      "reading": "んだろう",
+      "role": "explanatory conjectural — casual (I wonder ~)",
+      "explanation": "Casual conjectural extension of んだ. Used to muse aloud or wonder: 'I wonder if ~'. Example: 「この食堂はいつから開いているんだろう」 = I wonder when this dining hall has been open since. Polite equivalent: んでしょう.",
+      "introducedIn": "N4.31"
+    },
+    {
+      "id": "p_darou",
+      "particle": "だろう",
+      "reading": "だろう",
+      "role": "conjectural copula — casual (probably / I guess)",
+      "explanation": "Casual conjectural form of the copula だ. Expresses probability or guess. Example: 「明日は雨だろう」 = It will probably rain tomorrow. Polite equivalent: でしょう.",
+      "introducedIn": "N4.31"
+    },
+    {
       "id": "p_ndesu",
       "particle": "んです",
       "reading": "んです",
@@ -293,6 +317,14 @@
       "reading": "けど",
       "role": "but (casual)",
       "explanation": "Casual clause-linking conjunction meaning 'but'. The informal equivalent of が (p_ga_but). けれど is a slightly more formal variant. Common as a sentence-ender for polite softening: ～んですけど... (trailing off). Connects two clauses with a contrasting or qualifying relationship.",
+      "introducedIn": "N5.9"
+    },
+    {
+      "id": "p_dakedo",
+      "particle": "だけど",
+      "reading": "だけど",
+      "role": "but / though (casual)",
+      "explanation": "Compound of copula だ + けど. Connects clauses casually with a contrasting / qualifying nuance. Equivalent to ですが in polite speech. Indexed as a single 3-char particle so greedy tokenization picks it over だけ + ど.",
       "introducedIn": "N5.9"
     },
     {

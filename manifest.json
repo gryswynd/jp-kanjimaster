@@ -42,6 +42,7 @@
           "title": "Days of the Week",
           "file": "data/N5/lessons/N5.2.json",
           "unlocksAfter": "G3",
+          "extraRequirePass": "N5.1",
           "kanji": [
             "日",
             "月",
@@ -415,7 +416,7 @@
         },
         {
           "id": "N5.Final.Review",
-          "title": "りきぞ N5ファイナル — N5 Final Review",
+          "title": "りきぞう N5ファイナル — N5 Final Review",
           "scope": "N5.1–N5.18",
           "file": "data/N5/reviews/N5.Final.Review.json",
           "unlocksAfter": "N5.Review.9"
@@ -519,70 +520,80 @@
           "title": "My Family",
           "titleJp": "わたしのかぞく",
           "dir": "data/N5/stories/my-family",
-          "unlocksAfter": "G4"
+          "unlocksAfter": "G4",
+          "file": "story.json"
         },
         {
           "id": "tanjoubi-no-keeki",
           "title": "Birthday Cake",
           "titleJp": "たんじょうびのケーキ",
           "dir": "data/N5/stories/tanjoubi-no-keeki",
-          "unlocksAfter": "N5.3"
+          "unlocksAfter": "N5.3",
+          "file": "story.json"
         },
         {
           "id": "kazoku-ga-kimasu",
           "title": "The Family is Coming",
           "titleJp": "かぞくがきます",
           "dir": "data/N5/stories/kazoku-ga-kimasu",
-          "unlocksAfter": "N5.6"
+          "unlocksAfter": "N5.6",
+          "file": "story.json"
         },
         {
           "id": "restoran-to-kaimono",
           "title": "Restaurant and Shopping",
           "titleJp": "レストランとかいもの",
           "dir": "data/N5/stories/restoran-to-kaimono",
-          "unlocksAfter": "N5.8"
+          "unlocksAfter": "N5.8",
+          "file": "story.json"
         },
         {
           "id": "kyuujitsu-no-rikizo",
           "title": "Rikizo's Holiday",
-          "titleJp": "休日のりきぞ",
+          "titleJp": "休日のりきぞう",
           "dir": "data/N5/stories/kyuujitsu-no-rikizo",
-          "unlocksAfter": "N5.10"
+          "unlocksAfter": "N5.10",
+          "file": "story.json"
         },
         {
           "id": "ame-no-hi-no-gakkou",
           "title": "A Rainy Day at School",
           "titleJp": "雨の日の学校",
           "dir": "data/N5/stories/ame-no-hi-no-gakkou",
-          "unlocksAfter": "N5.12"
+          "unlocksAfter": "N5.12",
+          "file": "story.json"
         },
         {
           "id": "yonde-kaite",
           "title": "Reading and Writing",
           "titleJp": "読んで、書いて",
           "dir": "data/N5/stories/yonde-kaite",
-          "unlocksAfter": "N5.13"
+          "unlocksAfter": "N5.13",
+          "file": "story.json"
         },
         {
           "id": "kita-minami-higashi-nishi",
           "title": "North, South, East, and West",
           "titleJp": "北と南と東と西",
           "dir": "data/N5/stories/kita-minami-higashi-nishi",
-          "unlocksAfter": "N5.15"
+          "unlocksAfter": "N5.15",
+          "file": "story.json"
         },
         {
           "id": "kaisha-de-no-arubaito",
           "title": "Part-time Job at the Company",
           "titleJp": "会社でのアルバイト",
           "dir": "data/N5/stories/kaisha-de-no-arubaito",
-          "unlocksAfter": "N5.17"
+          "unlocksAfter": "N5.17",
+          "file": "story.json"
         },
         {
           "id": "rikizo-to-ookii-sakana",
           "title": "Rikizo and the Big Fish",
-          "titleJp": "りきぞと大きい魚",
+          "titleJp": "りきぞうと大きい魚",
           "dir": "data/N5/stories/rikizo-to-ookii-sakana",
-          "unlocksAfter": "N5.18"
+          "unlocksAfter": "N5.18",
+          "file": "story.json"
         }
       ],
       "game": [
@@ -1167,7 +1178,7 @@
           "title": "りきぞうファイナル — N4 Final Review",
           "scope": "N4.1–N4.36",
           "file": "data/N4/reviews/N4.Final.Review.json",
-          "unlocksAfter": "N4.36"
+          "unlocksAfter": "N4.Review.18"
         }
       ],
       "compose": [
@@ -1353,133 +1364,152 @@
           "title": "The Day of the Field Trip",
           "titleJp": "遠足の日",
           "dir": "data/N4/stories/field-trip-day",
-          "unlocksAfter": "N4.2"
+          "unlocksAfter": "N4.2",
+          "file": "story.json"
         },
         {
           "id": "watashi-no-iro",
           "title": "My Favorite Color",
           "titleJp": "私の好きな色",
           "dir": "data/N4/stories/watashi-no-iro",
-          "unlocksAfter": "N4.4"
+          "unlocksAfter": "N4.4",
+          "file": "story.json"
         },
         {
           "id": "hirugohan-monogatari",
           "title": "The Story of Lunch",
           "titleJp": "昼ご飯の物語",
           "dir": "data/N4/stories/hirugohan-monogatari",
-          "unlocksAfter": "N4.6"
+          "unlocksAfter": "N4.6",
+          "file": "story.json"
         },
         {
           "id": "kazoku-no-kisetsu",
           "title": "The Family's Seasons",
           "titleJp": "かぞくのきせつ",
           "dir": "data/N4/stories/kazoku-no-kisetsu",
-          "unlocksAfter": "N4.8"
+          "unlocksAfter": "N4.8",
+          "file": "story.json"
         },
         {
           "id": "machi-no-eigakan",
           "title": "The Town's Movie Theater",
           "titleJp": "まちの映画館",
           "dir": "data/N4/stories/machi-no-eigakan",
-          "unlocksAfter": "N4.10"
+          "unlocksAfter": "N4.10",
+          "file": "story.json"
         },
         {
           "id": "tabisaki-no-shashin",
           "title": "Photos at the Destination",
           "titleJp": "旅先の写真",
           "dir": "data/N4/stories/tabisaki-no-shashin",
-          "unlocksAfter": "N4.12"
+          "unlocksAfter": "N4.12",
+          "file": "story.json"
         },
         {
           "id": "uta-to-shigoto",
           "title": "Song and Work",
           "titleJp": "歌と仕事",
           "dir": "data/N4/stories/uta-to-shigoto",
-          "unlocksAfter": "N4.14"
+          "unlocksAfter": "N4.14",
+          "file": "story.json"
         },
         {
           "id": "hashiru-asa",
           "title": "The Morning Run",
           "titleJp": "走る朝",
           "dir": "data/N4/stories/hashiru-asa",
-          "unlocksAfter": "N4.16"
+          "unlocksAfter": "N4.16",
+          "file": "story.json"
         },
         {
           "id": "jitensha-de-kyouto-e",
           "title": "To Kyoto by Bicycle",
           "titleJp": "自転車で京都へ",
           "dir": "data/N4/stories/jitensha-de-kyouto-e",
-          "unlocksAfter": "N4.18"
+          "unlocksAfter": "N4.18",
+          "file": "story.json"
         },
         {
           "id": "library-book",
           "title": "The Library Book",
           "titleJp": "図書館の本",
           "dir": "data/N4/stories/library-book",
-          "unlocksAfter": "N4.20"
+          "unlocksAfter": "N4.20",
+          "file": "story.json"
         },
         {
           "id": "furima-no-hi",
           "title": "The Day of the Flea Market",
           "titleJp": "フリーマーケットの日",
           "dir": "data/N4/stories/furima-no-hi",
-          "unlocksAfter": "N4.22"
+          "unlocksAfter": "N4.22",
+          "file": "story.json"
         },
         {
           "id": "rikizo-journey",
           "title": "Rikizo's Journey",
-          "titleJp": "りきぞの旅",
+          "titleJp": "りきぞうの旅",
           "dir": "data/N4/stories/rikizo-journey",
-          "unlocksAfter": "N4.33"
+          "unlocksAfter": "N4.Review.18",
+          "file": "story.json"
         },
         {
           "id": "factory-owner",
           "title": "The Factory Owner",
           "titleJp": "工場の主人",
           "dir": "data/N4/stories/factory-owner",
-          "unlocksAfter": "N4.36"
+          "unlocksAfter": "N4.36",
+          "file": "story.json"
         },
         {
           "id": "natsuyasumi-no-taiken",
           "title": "A Summer Holiday Experience",
           "titleJp": "夏休みの体験",
           "dir": "data/N4/stories/natsuyasumi-no-taiken",
-          "unlocksAfter": "N4.24"
+          "unlocksAfter": "N4.24",
+          "file": "story.json"
         },
         {
           "id": "kenkyuu-to-sakubun",
           "title": "Research and Composition",
           "titleJp": "研究と作文",
           "dir": "data/N4/stories/kenkyuu-to-sakubun",
-          "unlocksAfter": "N4.26"
+          "unlocksAfter": "N4.26",
+          "file": "story.json"
         },
         {
           "id": "yuugata-no-mura",
           "title": "Evening in the Village",
           "titleJp": "夕方の村",
           "dir": "data/N4/stories/yuugata-no-mura",
-          "unlocksAfter": "N4.28"
+          "unlocksAfter": "N4.28",
+          "file": "story.json"
         },
         {
           "id": "taifuu-no-omoide",
           "title": "Memories of the Typhoon",
           "titleJp": "台風の思い出",
           "dir": "data/N4/stories/taifuu-no-omoide",
-          "unlocksAfter": "N4.30"
+          "unlocksAfter": "N4.30",
+          "file": "story.json"
         },
         {
           "id": "mori-no-shokudou",
           "title": "The Forest Dining Hall",
           "titleJp": "森の食堂",
           "dir": "data/N4/stories/mori-no-shokudou",
-          "unlocksAfter": "N4.32"
+          "unlocksAfter": "N4.32",
+          "file": "story.json"
         },
         {
           "id": "new-city",
           "title": "In the New City",
           "titleJp": "新しい都市で",
           "dir": "data/N4/stories/new-city",
-          "unlocksAfter": "N4.34"
+          "unlocksAfter": "N4.34",
+          "file": "story.json"
         }
       ],
       "game": [],
@@ -1640,10 +1670,38 @@
     },
     "custom": {
       "stories": [
-        { "id": "keikaku-no-hi", "titleJp": "計画の日", "title": "The Day of the Plan", "dir": "data/custom/stories/keikaku-no-hi", "unlocksAfter": "N4.10" },
-        { "id": "unten-no-shinpo", "titleJp": "運転の進歩", "title": "Progress in Driving", "dir": "data/custom/stories/unten-no-shinpo", "unlocksAfter": "N4.10" },
-        { "id": "kenkyuu-no-purezenteshon", "titleJp": "研究のプレゼンテーション", "title": "The Research Presentation", "dir": "data/custom/stories/kenkyuu-no-purezenteshon", "unlocksAfter": "N4.34" },
-        { "id": "okujou-no-konsaato", "titleJp": "屋上のコンサート", "title": "The Rooftop Concert", "dir": "data/custom/stories/okujou-no-konsaato", "unlocksAfter": "N4.34" }
+        {
+          "id": "keikaku-no-hi",
+          "titleJp": "計画の日",
+          "title": "The Day of the Plan",
+          "dir": "data/custom/stories/keikaku-no-hi",
+          "unlocksAfter": "N4.10",
+          "file": "story.json"
+        },
+        {
+          "id": "unten-no-shinpo",
+          "titleJp": "運転の進歩",
+          "title": "Progress in Driving",
+          "dir": "data/custom/stories/unten-no-shinpo",
+          "unlocksAfter": "N4.10",
+          "file": "story.json"
+        },
+        {
+          "id": "kenkyuu-no-purezenteshon",
+          "titleJp": "研究のプレゼンテーション",
+          "title": "The Research Presentation",
+          "dir": "data/custom/stories/kenkyuu-no-purezenteshon",
+          "unlocksAfter": "N4.34",
+          "file": "story.json"
+        },
+        {
+          "id": "okujou-no-konsaato",
+          "titleJp": "屋上のコンサート",
+          "title": "The Rooftop Concert",
+          "dir": "data/custom/stories/okujou-no-konsaato",
+          "unlocksAfter": "N4.34",
+          "file": "story.json"
+        }
       ]
     }
   }

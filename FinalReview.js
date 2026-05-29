@@ -14,8 +14,29 @@ window.FinalReviewModule = (function () {
   let _reviewId = null;
   let _filePath = null;
   let termMap = {};
+  let _surfaceIdx = null;
   let conjugations = null;
   let counterRules = null;
+
+  // Render a Japanese surface through the reading-aids pipeline. Looks up
+  // tokens by exact surface match in termMap. Falls back to bare text if
+  // jp-text isn't loaded.
+  function jpRender(surface) {
+    if (!surface) return '';
+    const rk = window.JPShared && window.JPShared.jpText;
+    if (!rk) return String(surface).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+    if (!_surfaceIdx) {
+      _surfaceIdx = new Map();
+      for (const id in termMap) {
+        const e = termMap[id];
+        const k = e && (e.surface || e.particle);
+        if (k && !_surfaceIdx.has(k)) _surfaceIdx.set(k, e);
+      }
+    }
+    const entry = _surfaceIdx.get(surface);
+    if (entry) return rk.render({ surface, reading: entry.reading, tokens: entry.tokens });
+    return rk.render(surface);
+  }
   let allKanjiPool = []; // Full kanji pool from manifest for bingo card generation
 
   // ── State ──
@@ -953,6 +974,7 @@ window.FinalReviewModule = (function () {
 
       // Build term map
       termMap = {};
+      _surfaceIdx = null;
       [glossN5, glossN4].forEach(g => {
         (Array.isArray(g) ? g : []).forEach(entry => {
           if (entry.id) termMap[entry.id] = entry;
@@ -1538,7 +1560,7 @@ window.FinalReviewModule = (function () {
         const isDistractor = distractorWords.includes(word);
         const chip = document.createElement('div');
         chip.className = 'fr-chip';
-        chip.textContent = word;
+        chip.innerHTML = jpRender(word);
         chip.dataset.word = word;
         allChipMeta.push({ chip, isDistractor });
 
@@ -1549,7 +1571,7 @@ window.FinalReviewModule = (function () {
 
           const inChip = document.createElement('div');
           inChip.className = 'fr-chip in-box';
-          inChip.textContent = word;
+          inChip.innerHTML = jpRender(word);
           inChipToPoolChip.set(inChip, chip);
 
           inChip.onclick = () => {

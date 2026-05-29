@@ -104,9 +104,10 @@
       // Picker
       '.conn-pick-hdr{font-size:0.72rem;font-weight:700;text-transform:uppercase;' +
         'letter-spacing:0.08em;color:#aaa;margin-bottom:12px;}' +
-      '.conn-pick-list{display:grid;grid-template-columns:1fr;gap:9px;}' +
+      '.conn-pick-list{display:grid;grid-template-columns:minmax(0,1fr);gap:9px;}' +
       '.conn-pick-item{display:flex;align-items:center;gap:12px;padding:13px 15px;' +
         'border-radius:14px;background:white;border:1.5px solid #e0e0e0;cursor:pointer;' +
+        'min-width:0;' +
         'transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;}' +
       '.conn-pick-item:hover{transform:translateY(-3px);' +
         'box-shadow:0 8px 20px rgba(212,114,154,0.1);border-color:#d4729a;}' +

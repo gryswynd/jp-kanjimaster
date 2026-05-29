@@ -1,5 +1,5 @@
 window.GrammarModule = {
-  start: function (container, sharedConfig, exitCallback) {
+  start: function (container, sharedConfig, exitCallback, grammarId) {
 
     // --- CONFIGURATION ---
     const REPO_CONFIG = sharedConfig;
@@ -34,7 +34,7 @@ window.GrammarModule = {
     let CONJUGATION_RULES = null;
     let COUNTER_RULES = null;
     let currentGrammars = [];
-    let grammarId = null;
+    // `grammarId` is declared by the start() parameter above — no redeclaration here.
     let _manifestCache = null; // stored for unlock engine calls
 
     // --- Setup UI Container ---
@@ -339,6 +339,17 @@ window.GrammarModule = {
     }
     function esc(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
+    // Render Japanese through the reading-aids pipeline. Pass {text, tokens}
+    // for grammar parts where tokens may be authored. Falls back to esc()
+    // when jp-text isn't loaded or no tokens are present.
+    function jpRender(input) {
+      const rk = window.JPShared && window.JPShared.jpText;
+      if (rk) return rk.render(input);
+      if (typeof input === 'string') return esc(input);
+      if (input && typeof input === 'object') return esc(input.text || input.surface || input.jp || '');
+      return '';
+    }
+
     function mdToHtml(text) {
       if (!text) return '';
       function safeEsc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -488,7 +499,9 @@ window.GrammarModule = {
         const bg = color + '26';
         let html = '<span class="gr-part" style="background:' + bg + ';border-bottom:2px solid ' + color + ';"';
         if (part.gloss) html += ' data-gloss="' + esc(part.gloss) + '" title="' + esc(part.gloss) + '"';
-        html += '>' + esc(part.text) + '</span>';
+        // Render through jpRender so authored part.tokens drives furigana/romaji.
+        // Bare text without tokens falls back to escaped HTML transparently.
+        html += '>' + jpRender({ text: part.text, tokens: part.tokens }) + '</span>';
         return html;
       }).join('');
     }
@@ -1018,64 +1031,136 @@ window.GrammarModule = {
       return div;
     }
 
-    function renderConversation(sec) {
-      const div = el('div', '');
-      const toggle = el('button', 'gr-conv-toggle', showEN ? 'Hide English Translation' : 'Show English Translation');
-      toggle.onclick = () => { showEN = !showEN; renderCurrentStep(); };
-      div.appendChild(toggle);
-      (sec.lines || []).forEach(line => {
-        const row = el('div', 'gr-conv-row');
-        const bubble = el('div', 'gr-speaker-bubble', esc(line.spk));
-        const content = el('div', '');
-        content.style.flex = '1';
-        const jp = el('div', 'gr-jp');
-        jp.innerHTML = window.JPShared.textProcessor.processText(line.jp, line.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES);
-        // Apply grammar color highlights to focus particles/forms (DOM-based — never mutate innerHTML after processText)
+    // Resolve a character id (e.g. "yuki") to its head-portrait URL.
+    function _grHeadUrl(charId) {
+        if (!charId) return '';
+        return 'assets/characters/' + charId + '/' + charId + '_head.png';
+    }
+    // Pretty display name from a character id ("yuki" → "Yuki", "yamamoto" → "Yamamoto-sensei").
+    function _grCharDisplay(charId) {
+        if (!charId) return '';
+        const senseis = { yamamoto: true, suzuki: true };
+        const name = charId.charAt(0).toUpperCase() + charId.slice(1);
+        return senseis[charId] ? name + '-sensei' : name;
+    }
+    // Pick which speaker sits on the right ("you") side of the chat. Rikizo
+    // always wins if he's a speaker; otherwise the first spk key takes right.
+    function _grRightSpeaker(speakers, lines) {
+        if (speakers) {
+            for (const k in speakers) if (speakers[k] === 'rikizo') return k;
+        }
+        return (lines && lines[0] && lines[0].spk) || '';
+    }
+    // Apply Grammar Garden's focus-particle highlights to JP DOM produced by
+    // textProcessor.processText. Pulled out of renderConversation so the chat
+    // layout below stays compact.
+    function _applyParticleHighlights(jp) {
         const particles = (grammarData.meta && grammarData.meta.particles) || [];
-        if (particles.length) {
-          const hlStyle = 'background:' + GRAMMAR_COLORS.particle + '40;border-bottom:2px solid ' + GRAMMAR_COLORS.particle + ';border-radius:2px;padding:0 2px;';
-          // Style existing .jp-term spans that match a focus particle
-          jp.querySelectorAll('.jp-term').forEach(span => {
+        if (!particles.length) return;
+        const hlStyle = 'background:' + GRAMMAR_COLORS.particle + '40;border-bottom:2px solid ' + GRAMMAR_COLORS.particle + ';border-radius:2px;padding:0 2px;';
+        jp.querySelectorAll('.jp-term').forEach(span => {
             if (particles.some(p => span.textContent === p)) {
-              span.setAttribute('style', (span.getAttribute('style') || '') + ';' + hlStyle);
+                span.setAttribute('style', (span.getAttribute('style') || '') + ';' + hlStyle);
             }
-          });
-          // Highlight any remaining bare text occurrences (untagged particles) via TreeWalker
-          const walker = document.createTreeWalker(jp, NodeFilter.SHOW_TEXT, null, false);
-          const textNodes = [];
-          let tn;
-          while ((tn = walker.nextNode())) textNodes.push(tn);
-          textNodes.forEach(textNode => {
+        });
+        const walker = document.createTreeWalker(jp, NodeFilter.SHOW_TEXT, null, false);
+        const textNodes = [];
+        let tn;
+        while ((tn = walker.nextNode())) textNodes.push(tn);
+        textNodes.forEach(textNode => {
             if (!textNode.parentNode) return;
             particles.forEach(p => {
-              if (!textNode.parentNode) return; // re-check: prior particle may have detached this node
-              if (!textNode.textContent.includes(p)) return;
-              const parts = textNode.textContent.split(p);
-              const frag = document.createDocumentFragment();
-              parts.forEach((part, i) => {
-                if (part) frag.appendChild(document.createTextNode(part));
-                if (i < parts.length - 1) {
-                  const hl = document.createElement('span');
-                  hl.setAttribute('style', hlStyle);
-                  hl.textContent = p;
-                  frag.appendChild(hl);
-                }
-              });
-              textNode.parentNode.replaceChild(frag, textNode);
+                if (!textNode.parentNode) return;
+                if (!textNode.textContent.includes(p)) return;
+                const parts = textNode.textContent.split(p);
+                const frag = document.createDocumentFragment();
+                parts.forEach((part, i) => {
+                    if (part) frag.appendChild(document.createTextNode(part));
+                    if (i < parts.length - 1) {
+                        const hl = document.createElement('span');
+                        hl.setAttribute('style', hlStyle);
+                        hl.textContent = p;
+                        frag.appendChild(hl);
+                    }
+                });
+                textNode.parentNode.replaceChild(frag, textNode);
             });
-          });
+        });
+    }
+
+    function renderConversation(sec) {
+        const div = el('div', '');
+        div.style.cssText = 'padding:12px 4px 18px;';
+        if (sec.context) {
+            const ctx = el('div', '');
+            ctx.style.cssText = 'display:flex;gap:10px;padding:10px 12px;margin-bottom:14px;border-left:2px solid var(--vermilion,#c2410c);background:var(--washi,#f5f1e8);';
+            ctx.innerHTML = '<div style="font-size:12.5px;color:var(--ink-2,#4a4138);line-height:1.5;font-style:italic;">' + esc(sec.context) + '</div>';
+            div.appendChild(ctx);
         }
-        content.appendChild(jp);
-        const enDiv = el('div', 'gr-en', esc(line.en));
-        enDiv.style.display = showEN ? 'block' : 'none';
-        content.appendChild(enDiv);
-        const tts = el('button', 'gr-tts-btn', '🔊'); tts.onclick = () => speakText(line.jp);
-        content.appendChild(tts);
-        row.appendChild(bubble);
-        row.appendChild(content);
-        div.appendChild(row);
-      });
-      return div;
+        const toggle = el('button', 'gr-conv-toggle', showEN ? 'Hide English Translation' : 'Show English Translation');
+        toggle.onclick = () => { showEN = !showEN; renderCurrentStep(); };
+        div.appendChild(toggle);
+
+        const speakers = sec.speakers || {};
+        const rightSpk = _grRightSpeaker(speakers, sec.lines);
+        const msgWrap = el('div', '');
+        msgWrap.style.cssText = 'padding:6px 8px 0;display:flex;flex-direction:column;gap:6px;';
+        (sec.lines || []).forEach((line, idx) => {
+            const spk = String(line.spk || '');
+            const charId = speakers[spk] || '';
+            const isRight = spk === rightSpk;
+            const prevSpk = idx > 0 ? String(sec.lines[idx - 1].spk || '') : null;
+            const sameAsPrev = prevSpk === spk;
+
+            const row = el('div', '');
+            row.style.cssText = 'display:flex;flex-direction:column;align-items:' + (isRight ? 'flex-end' : 'flex-start') + ';gap:2px;margin-top:' + (sameAsPrev ? '2px' : '10px') + ';';
+
+            // Header (avatar + display name) above the first bubble in a run.
+            if (!sameAsPrev) {
+                const header = el('div', '');
+                header.innerHTML =
+                    '<div style="display:flex;align-items:center;gap:8px;flex-direction:' + (isRight ? 'row-reverse' : 'row') + ';padding:0 4px;margin-bottom:2px;">' +
+                      (charId
+                        ? '<img src="' + _grHeadUrl(charId) + '" alt="' + esc(_grCharDisplay(charId)) + '" style="width:30px;height:30px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--washi-2,#efe9d8);border:1px solid var(--hairline,rgba(40,35,30,0.14));" onerror="this.style.visibility=\'hidden\'">'
+                        : '<div style="width:30px;height:30px;border-radius:999px;background:var(--washi-2,#efe9d8);border:1px solid var(--hairline,rgba(40,35,30,0.14));display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3,#7a7167);font-weight:600;">' + esc(spk.slice(0, 1)) + '</div>') +
+                      '<div style="font-size:11px;font-weight:600;color:var(--ink-2,#4a4138);letter-spacing:0.01em;">' + esc(charId ? _grCharDisplay(charId) : spk) + '</div>' +
+                    '</div>';
+                row.appendChild(header);
+            }
+
+            const bubbleBg    = isRight ? 'var(--ink,#2a2520)' : '#fff';
+            const bubbleColor = isRight ? 'var(--washi,#f5f1e8)' : 'var(--ink,#2a2520)';
+            const enColor     = isRight ? 'oklch(1 0 0 / 0.78)' : 'var(--ink-3,#7a7167)';
+            const radius      = isRight ? '18px 18px 4px 18px' : '18px 18px 18px 4px';
+            const bubble = el('div', '');
+            bubble.style.cssText = 'max-width:82%;padding:9px 13px;background:' + bubbleBg + ';color:' + bubbleColor +
+                ';border:' + (isRight ? 'none' : '1px solid var(--hairline,rgba(40,35,30,0.14))') +
+                ';border-radius:' + radius + ';box-shadow:0 1px 2px rgba(0,0,0,0.06);position:relative;';
+
+            const jp = el('div', '');
+            jp.style.cssText = 'font-family:var(--font-jp-display,serif);font-size:15px;line-height:1.55;font-weight:500;';
+            jp.innerHTML = window.JPShared.textProcessor.processText(line.jp, line.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES);
+            _applyParticleHighlights(jp);
+            bubble.appendChild(jp);
+
+            if (showEN) {
+                const enDiv = el('div', '');
+                enDiv.style.cssText = 'font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;';
+                enDiv.textContent = line.en || '';
+                bubble.appendChild(enDiv);
+            }
+
+            const tts = el('button', '');
+            tts.innerHTML = '🔊';
+            tts.style.cssText = 'background:none;border:none;color:inherit;cursor:pointer;font-size:13px;padding:2px 4px;opacity:0.75;position:absolute;' + (isRight ? 'left:-26px' : 'right:-26px') + ';bottom:4px;';
+            tts.onclick = () => speakText(line.jp);
+            bubble.appendChild(tts);
+
+            row.appendChild(bubble);
+            msgWrap.appendChild(row);
+        });
+        div.appendChild(msgWrap);
+        return div;
     }
 
     function renderDrills(sec, stepIdx) {
@@ -1145,6 +1230,15 @@ window.GrammarModule = {
 
       if (currentStep >= grammarData.sections.length) {
         title.innerText = 'Complete!';
+
+        // First-time G1 in-grammar tutorial: fire the completion-screen line.
+        if (grammarId === 'G1'
+            && window.JPShared.rikizoCompanion
+            && window.JPShared.rikizoCompanion.runGrammarTutorialStep) {
+          setTimeout(function () {
+            window.JPShared.rikizoCompanion.runGrammarTutorialStep('complete');
+          }, 350);
+        }
 
         // Compute combined score from all interactive sections.
         const allScores = Object.values(sectionScores);
@@ -1246,6 +1340,18 @@ window.GrammarModule = {
 
       prevBtn.disabled = (currentStep === 0);
       nextBtn.innerText = (currentStep === totalSteps - 1) ? 'Finish' : 'Next';
+
+      // First-time G1 in-grammar tutorial: fire the per-section explanation
+      // after the page is rendered. Each tutorial key fires at most once,
+      // persisted across sessions in k-rikizo-grammar-tutorial-seen.
+      if (grammarId === 'G1' && sec && sec.type
+          && window.JPShared.rikizoCompanion
+          && window.JPShared.rikizoCompanion.runGrammarTutorialStep) {
+        const tutKey = sec.tutorialKey || sec.type;
+        setTimeout(function () {
+          window.JPShared.rikizoCompanion.runGrammarTutorialStep(tutKey);
+        }, 350);
+      }
     }
 
     // ──────────────────────────────────────────────
@@ -1253,6 +1359,12 @@ window.GrammarModule = {
     // ──────────────────────────────────────────────
 
     async function loadGrammarLesson(file, id) {
+      // Clean up any leftover companion state (stale bubble, in-flight chain,
+      // busy flag stuck from a prior unresolved tap) so this grammar load
+      // starts with a clean slate — same pattern as Lesson.js's loadLesson.
+      if (window.JPShared.rikizoCompanion && window.JPShared.rikizoCompanion.resetRuntime) {
+        window.JPShared.rikizoCompanion.resetRuntime();
+      }
       root.innerHTML = `
         <div class="gr-header">
           <button class="gr-back-btn">← List</button>
@@ -1269,7 +1381,9 @@ window.GrammarModule = {
       root.querySelector('.gr-exit-btn').onclick = exitCallback;
 
       try {
-        const url = getCdnUrl(file);
+        // Cache-bust the grammar JSON so authored edits land without forcing
+        // the user to hard-reload (matches the pattern used elsewhere).
+        const url = getCdnUrl(file) + '?t=' + Date.now();
         const [gRes, resources] = await Promise.all([fetch(url), loadResources()]);
         grammarData = await gRes.json();
         grammarId = id;
@@ -1404,6 +1518,27 @@ window.GrammarModule = {
     window.JPShared.termModal.inject();
 
     // --- Initialize ---
-    fetchGrammarList();
+    // If a specific grammarId was passed in (e.g. from the home screen's
+    // "Today" card pointing at G1), look it up in the manifest and jump
+    // straight into that grammar lesson, bypassing the picker.
+    if (grammarId) {
+      (async function () {
+        try {
+          const manifest = await window.getManifest(REPO_CONFIG);
+          _manifestCache = manifest;
+          currentGrammars = [];
+          (manifest.levels || []).forEach(function (level) {
+            const ld = manifest.data && manifest.data[level];
+            if (!ld || !ld.grammar) return;
+            ld.grammar.forEach(function (g) { currentGrammars.push(Object.assign({}, g, { level: level })); });
+          });
+          const entry = currentGrammars.find(function (g) { return g.id === grammarId; });
+          if (entry && entry.file) { loadGrammarLesson(entry.file, entry.id); return; }
+        } catch (e) { /* fall through */ }
+        fetchGrammarList();
+      })();
+    } else {
+      fetchGrammarList();
+    }
   }
 };

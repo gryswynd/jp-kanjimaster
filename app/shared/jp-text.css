@@ -1,0 +1,171 @@
+/* ========================================================================
+ * app/shared/jp-text.css
+ * Reading-aids styling (furigana + romaji) for jp-text.js
+ *
+ * The trick to "kanji stay at natural width, decorations float outside":
+ *
+ *   <span class="jp-token">                      ← width = ruby width = kanji
+ *     <ruby>私<rt class="rt-furigana">わたし</rt></ruby>
+ *     <span class="rt-romaji">watashi</span>    ← absolute, doesn't affect width
+ *   </span>
+ *
+ * Each .jp-token is inline-block at kanji-width. The rt-furigana inside the
+ * <ruby> and the rt-romaji sibling are BOTH position:absolute — they overhang
+ * horizontally past the kanji edges, so adjacent tokens still pack tight.
+ *
+ * Vertical reservation is added only in the active mode via margin-top /
+ * margin-bottom on the token, so off-state matches plain text with zero
+ * inflation.
+ * ====================================================================== */
+
+/* Inline-block wrapper per token — positioning context for both rt elements. */
+.jp-token {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  line-height: 1;
+  /* Width is driven by the ruby/base content; rt elements overflow visually. */
+}
+
+/* Native ruby override — make it position:relative so rt can absolute. */
+.jp-token > ruby {
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  vertical-align: baseline;
+}
+.jp-token > .jp-base {
+  /* Bare-kana base — render inline like normal text. */
+  display: inline;
+  line-height: 1;
+}
+
+/* Default: hide both decorations. */
+.jp-token > ruby > rt,
+.jp-token > .rt-romaji {
+  display: none;
+}
+
+/* ───────────────────────── Furigana mode ──────────────────────────────── */
+html.k-furigana .jp-token {
+  /* Reserve vertical space above the token for the floating rt. */
+  margin-top: 0.65em;
+}
+html.k-furigana .jp-token > ruby > rt.rt-furigana {
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.05em;
+  font-size: 0.5em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ink-3, #7a7167);
+  font-family: 'Noto Sans JP', var(--jp-sans, sans-serif);
+  font-weight: 500;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ───────────────────────── Romaji mode ────────────────────────────────── */
+html.k-romaji .jp-token {
+  margin-bottom: 0.65em;
+  /* Tiny breathing room so adjacent romaji words don't collide. */
+  padding: 0 0.12em;
+}
+/* Grouped chip (multiple tokens forming one tappable unit, e.g. 来ます).
+   The chip is the positioning context for a SINGLE combined romaji line
+   under the whole group — prevents the "ki [gap] masu" rendering where
+   each inner token centers its own romaji separately. */
+.jp-token-group {
+  position: relative;
+  /* inline-flex with baseline alignment so this chip sits on the same
+     baseline as adjacent individual .jp-token chips. inline-block produced
+     a different baseline (used last-line-box bottom), which pushed the
+     group's rt-romaji visibly farther below the prose than individual
+     tokens' romaji. */
+  display: inline-flex;
+  align-items: baseline;
+  vertical-align: baseline;
+}
+html.k-romaji .jp-token-group {
+  margin-bottom: 0.65em;
+  padding: 0 0.12em;
+}
+/* Inside a group, the INNER .jp-token must NOT carry its own margin —
+   the OUTER group's margin already reserves space for the combined
+   romaji. Stacking both pushes the absolute romaji too far down. */
+.jp-token-group > .jp-token {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* Hide per-token romaji inside a group (they're empty anyway because
+   renderToken was called with {noRomaji:true}, but be defensive). */
+.jp-token-group .jp-token > .rt-romaji {
+  display: none !important;
+}
+.rt-romaji-group {
+  display: none;
+}
+html.k-romaji .rt-romaji-group {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.1em;
+  font-size: 0.5em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ink-3, #7a7167);
+  font-family: var(--font-en, 'Schibsted Grotesk', system-ui, sans-serif);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  user-select: none;
+}
+html.k-romaji .jp-token > .rt-romaji {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.1em;
+  font-size: 0.5em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ink-3, #7a7167);
+  font-family: var(--font-en, 'Schibsted Grotesk', system-ui, sans-serif);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Both modes on simultaneously — vertical reservation stacks naturally
+   (margin-top + margin-bottom on the same token). */
+
+/* ───────────────────────── Opt-outs ───────────────────────────────────── */
+.no-ruby .jp-token > ruby > rt,
+.no-ruby .jp-token > .rt-romaji,
+.kbg-ball .jp-token > ruby > rt,
+.kbg-ball .jp-token > .rt-romaji,
+.practice-quiz-hero .jp-token > ruby > rt,
+.practice-quiz-hero .jp-token > .rt-romaji {
+  display: none !important;
+}
+.no-ruby .jp-token,
+.kbg-ball .jp-token,
+.practice-quiz-hero .jp-token {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ───────────────────────── Existing inline reading rows ───────────────── */
+html.k-furigana .c-chip-reading,
+html.k-furigana .c-target-reading,
+html.k-furigana .kbg-ball-reading,
+html.k-furigana .lh-vrow .jp-sans {
+  display: none !important;
+}

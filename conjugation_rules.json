@@ -66,6 +66,33 @@
       }
     }
   },
+  "purpose_ni": {
+    "label": "Purpose (V-stem + に)",
+    "description": "Verb stem + に, pairs with 行く / 来る / 帰る to express 'go/come/return to do something'. Example: 会いに行く = go to meet; 走りに来る = come to run.",
+    "introducedIn": "N4.5",
+    "rules": {
+      "godan": {
+        "type": "godan_change",
+        "map": "u_to_i",
+        "add": "に"
+      },
+      "ichidan": {
+        "type": "suffix",
+        "remove": "る",
+        "add": "に"
+      },
+      "irr_suru": {
+        "type": "replace",
+        "surface": "しに",
+        "reading": "しに"
+      },
+      "irr_kuru": {
+        "type": "replace",
+        "surface": "来に",
+        "reading": "きに"
+      }
+    }
+  },
   "copula_past": {
     "label": "Polite Past Copula (Deshita)",
     "description": "Past tense of the polite copula です → でした.",
@@ -801,6 +828,33 @@
       }
     }
   },
+  "potential_te": {
+    "label": "Potential Te-Form",
+    "description": "Te-form of the potential (can ~). 行ける → 行けて, 食べられる → 食べられて. Common after もらえる, できる, etc. to connect clauses.",
+    "introducedIn": "N4.31",
+    "rules": {
+      "godan": {
+        "type": "godan_change",
+        "map": "u_to_e",
+        "add": "て"
+      },
+      "ichidan": {
+        "type": "suffix",
+        "remove": "る",
+        "add": "られて"
+      },
+      "irr_suru": {
+        "type": "replace",
+        "surface": "できて",
+        "reading": "できて"
+      },
+      "irr_kuru": {
+        "type": "replace",
+        "surface": "来られて",
+        "reading": "こられて"
+      }
+    }
+  },
   "plain_potential_past": {
     "label": "Plain Potential Past",
     "description": "Plain past form expressing ability that existed or was exercised in the past. Used in casual speech and narratives.",
@@ -851,6 +905,69 @@
         "type": "replace",
         "surface": "あり",
         "reading": "あり"
+      }
+    }
+  },
+  "polite_become_past": {
+    "label": "Became (くなりました / になりました)",
+    "description": "Past polite 'became' form. i-adj ku-stem + なりました; na-adj + になりました.",
+    "introducedIn": "N5.10",
+    "rules": {
+      "i_adj": {
+        "type": "suffix",
+        "remove": "い",
+        "add": "くなりました"
+      },
+      "na_adj": {
+        "type": "suffix",
+        "add": "になりました"
+      },
+      "irr_ii": {
+        "type": "suffix",
+        "remove": "いい",
+        "add": "よくなりました"
+      }
+    }
+  },
+  "polite_become": {
+    "label": "Becomes (くなります / になります)",
+    "description": "Polite 'becomes' form (non-past).",
+    "introducedIn": "N5.10",
+    "rules": {
+      "i_adj": {
+        "type": "suffix",
+        "remove": "い",
+        "add": "くなります"
+      },
+      "na_adj": {
+        "type": "suffix",
+        "add": "になります"
+      },
+      "irr_ii": {
+        "type": "suffix",
+        "remove": "いい",
+        "add": "よくなります"
+      }
+    }
+  },
+  "plain_become_past": {
+    "label": "Became (くなった / になった)",
+    "description": "Plain past 'became' form.",
+    "introducedIn": "N5.10",
+    "rules": {
+      "i_adj": {
+        "type": "suffix",
+        "remove": "い",
+        "add": "くなった"
+      },
+      "na_adj": {
+        "type": "suffix",
+        "add": "になった"
+      },
+      "irr_ii": {
+        "type": "suffix",
+        "remove": "いい",
+        "add": "よくなった"
       }
     }
   },
@@ -1588,6 +1705,52 @@
       }
     }
   },
+  "conditional_tara_negative": {
+    "label": "Conditional Negative (Nakattara)",
+    "description": "Negative たら conditional: 'if (one) doesn't ~' or 'if (it) hadn't ~'. Formed by taking the plain past negative (なかった) and adding ら.",
+    "introducedIn": "N4.25",
+    "rules": {
+      "godan": {
+        "type": "godan_change",
+        "map": "u_to_a",
+        "add": "なかったら"
+      },
+      "ichidan": {
+        "type": "suffix",
+        "remove": "る",
+        "add": "なかったら"
+      },
+      "irr_suru": {
+        "type": "replace",
+        "surface": "しなかったら",
+        "reading": "しなかったら"
+      },
+      "irr_kuru": {
+        "type": "replace",
+        "surface": "こなかったら",
+        "reading": "こなかったら"
+      },
+      "i_adj": {
+        "type": "suffix",
+        "remove": "い",
+        "add": "くなかったら"
+      },
+      "na_adj": {
+        "type": "suffix",
+        "add": "じゃなかったら"
+      },
+      "irr_ii": {
+        "type": "suffix",
+        "remove": "いい",
+        "add": "よくなかったら"
+      },
+      "irr_aru": {
+        "type": "replace",
+        "surface": "なかったら",
+        "reading": "なかったら"
+      }
+    }
+  },
   "conditional_tara": {
     "label": "Conditional (Tara)",
     "description": "Expresses 'if' or 'when (a completed action occurs)'. Formed by taking the plain past (た/だ) and adding ら. The godan euphonic changes are the same as ta_form.",
@@ -1905,6 +2068,124 @@
         "type": "replace",
         "surface": "来させて",
         "reading": "こさせて"
+      }
+    }
+  },
+  "te_miru": {
+    "label": "Te-Miru Form (try doing ~)",
+    "description": "V-te + みる: try doing something and see what happens. G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_euphonic", "map": "te_form", "add": "みる" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "てみる" },
+      "irr_suru": { "type": "replace", "surface": "してみる", "reading": "してみる" },
+      "irr_kuru": { "type": "replace", "surface": "来てみる", "reading": "きてみる" },
+      "irr_iku": { "type": "replace", "surface": "行ってみる", "reading": "いってみる" }
+    }
+  },
+  "te_miru_past": {
+    "label": "Te-Miru Past (tried doing ~)",
+    "description": "Past form of te-miru. G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_euphonic", "map": "te_form", "add": "みた" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "てみた" },
+      "irr_suru": { "type": "replace", "surface": "してみた", "reading": "してみた" },
+      "irr_kuru": { "type": "replace", "surface": "来てみた", "reading": "きてみた" },
+      "irr_iku": { "type": "replace", "surface": "行ってみた", "reading": "いってみた" }
+    }
+  },
+  "te_oku": {
+    "label": "Te-Oku Form (do in advance)",
+    "description": "V-te + おく: do something in advance or leave it in a state. G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_euphonic", "map": "te_form", "add": "おく" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "ておく" },
+      "irr_suru": { "type": "replace", "surface": "しておく", "reading": "しておく" },
+      "irr_kuru": { "type": "replace", "surface": "来ておく", "reading": "きておく" },
+      "irr_iku": { "type": "replace", "surface": "行っておく", "reading": "いっておく" }
+    }
+  },
+  "te_oku_past": {
+    "label": "Te-Oku Past (did in advance)",
+    "description": "Past form of te-oku. G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_euphonic", "map": "te_form", "add": "おいた" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "ておいた" },
+      "irr_suru": { "type": "replace", "surface": "しておいた", "reading": "しておいた" },
+      "irr_kuru": { "type": "replace", "surface": "来ておいた", "reading": "きておいた" },
+      "irr_iku": { "type": "replace", "surface": "行っておいた", "reading": "いっておいた" }
+    }
+  },
+  "te_shimau": {
+    "label": "Te-Shimau Form (end up ~ing)",
+    "description": "V-te + しまう: end up doing, do completely, accidentally do (often regretful). G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_euphonic", "map": "te_form", "add": "しまう" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "てしまう" },
+      "irr_suru": { "type": "replace", "surface": "してしまう", "reading": "してしまう" },
+      "irr_kuru": { "type": "replace", "surface": "来てしまう", "reading": "きてしまう" },
+      "irr_iku": { "type": "replace", "surface": "行ってしまう", "reading": "いってしまう" }
+    }
+  },
+  "te_shimau_past": {
+    "label": "Te-Shimau Past (ended up ~ing)",
+    "description": "Past form of te-shimau. G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_euphonic", "map": "te_form", "add": "しまった" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "てしまった" },
+      "irr_suru": { "type": "replace", "surface": "してしまった", "reading": "してしまった" },
+      "irr_kuru": { "type": "replace", "surface": "来てしまった", "reading": "きてしまった" },
+      "irr_iku": { "type": "replace", "surface": "行ってしまった", "reading": "いってしまった" }
+    }
+  },
+  "tosuru": {
+    "label": "Tosuru (be on the verge of / try to)",
+    "description": "V-volitional + とする: attempting to do or be on the verge of doing. G30.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "godan": { "type": "godan_change", "map": "u_to_o", "add": "うとする" },
+      "ichidan": { "type": "suffix", "remove": "る", "add": "ようとする" },
+      "irr_suru": { "type": "replace", "surface": "しようとする", "reading": "しようとする" },
+      "irr_kuru": { "type": "replace", "surface": "来ようとする", "reading": "こようとする" },
+      "irr_iku": { "type": "replace", "surface": "行こうとする", "reading": "いこうとする" }
+    }
+  },
+  "kutemo_form": {
+    "label": "Adjective Concessive (even if ~)",
+    "description": "i-adj stem + くても: 'even if it is ~'. G31 adjective concessive.",
+    "introducedIn": "N4.33",
+    "rules": {
+      "i_adj": { "type": "suffix", "remove": "い", "add": "くても" },
+      "na_adj": { "type": "suffix", "add": "でも" },
+      "irr_ii": { "type": "suffix", "remove": "いい", "add": "よくても" }
+    }
+  },
+  "plain_short_causative_passive_past": {
+    "label": "Plain Short Causative-Passive Past",
+    "description": "Contracted causative-passive past for godan verbs only (短縮形). 習う → 習わされた (instead of full 習わせられた). Very common in spoken Japanese and informal narrative. ichidan verbs do NOT contract this way.",
+    "introducedIn": "N4.31",
+    "rules": {
+      "godan": {
+        "type": "godan_change",
+        "map": "u_to_a",
+        "add": "された"
+      }
+    }
+  },
+  "plain_short_causative_passive": {
+    "label": "Plain Short Causative-Passive",
+    "description": "Contracted causative-passive (non-past) for godan verbs only. 習う → 習わされる. Counterpart of plain_short_causative_passive_past.",
+    "introducedIn": "N4.31",
+    "rules": {
+      "godan": {
+        "type": "godan_change",
+        "map": "u_to_a",
+        "add": "される"
       }
     }
   },

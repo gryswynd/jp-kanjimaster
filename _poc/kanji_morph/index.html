@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kanji Morph — POC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --gold:     #d4af37;
+    --gold-hi:  #f2d479;
+    --gold-lo:  #9c7a1e;
+    --bg:       #000;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--bg); color: var(--gold);
+    font-family: 'Didot', 'Hoefler Text', Georgia, serif;
+    overflow: hidden;
+  }
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+  }
+  header {
+    padding: 28px 0 18px;
+    text-align: center;
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+    font-size: 13px;
+    color: rgba(212, 175, 55, 0.55);
+  }
+  header b { color: var(--gold-hi); font-weight: 400; letter-spacing: 0.32em; }
+
+  /* The stage holds either the thumbnail grid OR the morph canvas. */
+  main {
+    width: min(560px, 90vw);
+    height: min(560px, 90vw);
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  /* Thumbnail grid view */
+  .grid {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    align-content: center;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .grid.hidden { opacity: 0; transform: scale(0.95); pointer-events: none; }
+  .thumb {
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 6px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    padding: 8px;
+    display: grid;
+    place-items: center;
+    transition: border-color 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+  }
+  .thumb:hover {
+    border-color: var(--gold);
+    background-color: rgba(212, 175, 55, 0.04);
+    transform: translateY(-1px);
+  }
+  .thumb img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(242, 212, 121, 0.18));
+  }
+  .thumb .label {
+    position: absolute;
+    bottom: -22px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: rgba(212, 175, 55, 0.45);
+    text-transform: lowercase;
+  }
+  .thumb-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    display: grid; place-items: center;
+  }
+
+  /* Stage view (canvas) */
+  .stage {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+  }
+  .stage.active { opacity: 1; transform: scale(1); pointer-events: auto; cursor: pointer; }
+  canvas {
+    width: 100%; height: 100%;
+    display: block;
+  }
+  /* The pre-morph "painted" glow pulse. */
+  .stage.painting canvas {
+    animation: paintGlow 600ms ease-out;
+  }
+  @keyframes paintGlow {
+    0%   { filter: drop-shadow(0 0 0   rgba(242, 212, 121, 0.0)) brightness(1.0); }
+    35%  { filter: drop-shadow(0 0 24px rgba(242, 212, 121, 0.9)) brightness(1.35); }
+    100% { filter: drop-shadow(0 0 6px rgba(242, 212, 121, 0.2)) brightness(1.0); }
+  }
+
+  footer {
+    padding: 12px 0 22px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: rgba(212, 175, 55, 0.35);
+    text-transform: lowercase;
+    text-align: center;
+  }
+  .hint { margin-top: 4px; opacity: 0.7; }
+</style>
+</head>
+<body>
+
+<header><b>edison studios</b><br>kanji morph — proof of concept</header>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="stage" id="stage">
+    <canvas id="canvas"></canvas>
+  </div>
+</main>
+
+<footer>
+  tap any kanji to see the perfect-stroke reward
+  <div class="hint">tap the stage to replay · esc to return</div>
+</footer>
+
+<script type="module">
+import { InkMorph } from './morph.js';
+
+const KANJI = [
+  { key: 'yama',   char: '山', meaning: 'mountain' },
+  { key: 'hi',     char: '火', meaning: 'fire'     },
+  { key: 'ame',    char: '雨', meaning: 'rain'     },
+  { key: 'kokoro', char: '心', meaning: 'heart'    },
+  { key: 'nani',   char: '何', meaning: 'what'     },
+];
+
+const gridEl = document.getElementById('grid');
+const stageEl = document.getElementById('stage');
+const canvas = document.getElementById('canvas');
+
+// Build thumbnails.
+for (const k of KANJI) {
+  const wrap = document.createElement('div');
+  wrap.className = 'thumb-wrap';
+  const btn = document.createElement('button');
+  btn.className = 'thumb';
+  btn.dataset.key = k.key;
+  btn.innerHTML = `<img src="kanji_${k.key}.png" alt="${k.char}">`;
+  const lbl = document.createElement('span');
+  lbl.className = 'label';
+  lbl.textContent = k.meaning;
+  wrap.appendChild(btn);
+  wrap.appendChild(lbl);
+  gridEl.appendChild(wrap);
+}
+
+// Pre-load all 5 pairs into the morph engine.
+const morph = new InkMorph(canvas, { size: 512 });
+await morph.preload(KANJI.map(k => ({
+  key: k.key,
+  kanji:   `kanji_${k.key}.png`,
+  meaning: `meaning_${k.key}.png`,
+})));
+
+let playing = false;
+
+function showGrid() {
+  stageEl.classList.remove('active', 'painting');
+  gridEl.classList.remove('hidden');
+  playing = false;
+}
+
+async function runSequence(key) {
+  if (playing) return;
+  playing = true;
+  morph.showKanji(key);
+  gridEl.classList.add('hidden');
+  stageEl.classList.add('active');
+
+  // brief settle (mimics the moment the painted kanji holds before reward)
+  await sleep(450);
+
+  // "perfect stroke" glow pulse on the kanji
+  stageEl.classList.add('painting');
+  await sleep(600);
+  stageEl.classList.remove('painting');
+  await sleep(80);
+
+  // morph
+  await morph.play(key, { duration: 1400 });
+
+  // hold on meaning
+  await sleep(1800);
+
+  // back to grid
+  showGrid();
+}
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// Wire up thumbnail clicks.
+gridEl.addEventListener('click', e => {
+  const btn = e.target.closest('.thumb');
+  if (btn) runSequence(btn.dataset.key);
+});
+
+// Click the stage during/after a morph to dismiss back to grid.
+stageEl.addEventListener('click', () => {
+  if (playing) showGrid();
+});
+
+// ESC to return to grid.
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && playing) showGrid();
+});
+</script>
+</body>
+</html>

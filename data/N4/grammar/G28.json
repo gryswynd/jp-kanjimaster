@@ -171,9 +171,9 @@
       "meaning": "Subject is [verb]-ed by [agent]",
       "explanation": "In the direct passive, the person or thing that RECEIVES the action becomes the grammatical subject (marked by は or が). The person who PERFORMS the action — the agent — is marked with に. This に is different from the destination に — here it marks the source of the action. The passive form itself is conjugated to match the tense and politeness level of the sentence.",
       "notes": [
-        "Pattern: [receiver]は [agent]に [verb-passive]. Example: りきぞは 先生に 聞かれた。(Rikizo was asked by the teacher.)",
+        "Pattern: [receiver]は [agent]に [verb-passive]. Example: りきぞうは 先生に 聞かれた。(Rikizo was asked by the teacher.)",
         "The agent (に) can be dropped when the agent is unknown, unimportant, or obvious from context: この 本は 多くの 人に 読まれた。(This book was read by many people — or simply: この 本は 読まれた。)",
-        "Objects: the original direct object can remain in the sentence with を. Example: りきぞは 先生に 名前を 聞かれた。(Rikizo was asked his name by the teacher.)",
+        "Objects: the original direct object can remain in the sentence with を. Example: りきぞうは 先生に 名前を 聞かれた。(Rikizo was asked his name by the teacher.)",
         "Politeness: passive forms conjugate like RU-verbs. Polite past: 〜られました / 〜れました.",
         "In written and formal Japanese, the passive often replaces active sentences as a stylistic preference — especially in news, explanations, and descriptions where the agent is less important than the result."
       ],
@@ -181,7 +181,7 @@
         {
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic / receiver)"
             },
@@ -260,7 +260,7 @@
         {
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic / sufferer)"
             },
@@ -286,7 +286,7 @@
         {
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic / sufferer)"
             },
@@ -375,7 +375,7 @@
         {
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic)"
             },
@@ -425,7 +425,7 @@
           "context": "Direct passive — agent named with に",
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic / receiver)"
             },
@@ -452,7 +452,7 @@
           "context": "Adversative passive — the subject suffers",
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic / sufferer)"
             },
@@ -484,7 +484,7 @@
           "context": "Passive vs potential — context resolves 見られる",
           "parts": [
             {
-              "text": "りきぞは",
+              "text": "りきぞうは",
               "role": "topic",
               "gloss": "Rikizo (は — topic)"
             },
@@ -512,11 +512,11 @@
     {
       "type": "conversation",
       "title": "きのう のこと (Casual)",
-      "context": "りきぞ and けん are close friends chatting at school about things that happened to them. Casual register.",
+      "context": "りきぞう and けん are close friends chatting at school about things that happened to them. Casual register.",
       "lines": [
         {
           "spk": "けん",
-          "jp": "りきぞ、きのう 先生に 日本語で 話されたけど、分かった？",
+          "jp": "りきぞう、きのう 先生に 日本語で 話されたけど、分かった？",
           "en": "Rikizo, the teacher spoke to you in Japanese yesterday — did you understand?",
           "terms": [
             "char_rikizo",
@@ -538,7 +538,7 @@
           ]
         },
         {
-          "spk": "りきぞ",
+          "spk": "りきぞう",
           "jp": "うん、ちょっと むずかしかったけど、分かった。先生に 問題も 聞かれたよ。",
           "en": "Yeah, it was a bit difficult, but I understood. I was also asked a problem by the teacher.",
           "terms": [
@@ -592,7 +592,7 @@
           ]
         },
         {
-          "spk": "りきぞ",
+          "spk": "りきぞう",
           "jp": "どうして？ むずかしかった から？",
           "en": "Why? Because it was difficult?",
           "terms": [
@@ -634,7 +634,7 @@
           ]
         },
         {
-          "spk": "りきぞ",
+          "spk": "りきぞう",
           "jp": "いいね。毎日 勉強 すれば、もっと 分かるように なると 思うよ。",
           "en": "That's good. I think if you study every day, you'll come to understand more.",
           "terms": [
@@ -815,7 +815,7 @@
         },
         {
           "kind": "mcq",
-          "q": "りきぞは 友だちに 答えを 教えられた。What does this sentence mean?",
+          "q": "りきぞうは 友だちに 答えを 教えられた。What does this sentence mean?",
           "choices": [
             "Rikizo's friend told Rikizo the answer (and Rikizo suffered from it).",
             "Rikizo taught the answer to his friend.",
@@ -823,7 +823,7 @@
             "Rikizo's friend was taught the answer by Rikizo."
           ],
           "answer": "Rikizo's friend told Rikizo the answer (and Rikizo suffered from it).",
-          "explanation": "りきぞは (receiver / topic) + 友だちに (agent — his friend) + 答えを (object — the answer) + 教えられた (passive past of 教える = was taught/told). The passive here is adversative: りきぞ received an action he likely didn't want. 教える → 教えられる (RU-verb passive: drop る, add られる).",
+          "explanation": "りきぞうは (receiver / topic) + 友だちに (agent — his friend) + 答えを (object — the answer) + 教えられた (passive past of 教える = was taught/told). The passive here is adversative: りきぞう received an action he likely didn't want. 教える → 教えられる (RU-verb passive: drop る, add られる).",
           "terms": []
         },
         {
@@ -833,7 +833,7 @@
             "この ケーキは 友だちに 食べられた。(This cake was eaten by a friend.)",
             "私は この 魚が 食べられる。(I can eat this fish.)",
             "子どもは それが 食べられない。(Children can't eat that.)",
-            "りきぞは 朝ご飯を 食べられる。(Rikizo can eat breakfast.)"
+            "りきぞうは 朝ご飯を 食べられる。(Rikizo can eat breakfast.)"
           ],
           "answer": "この ケーキは 友だちに 食べられた。(This cake was eaten by a friend.)",
           "explanation": "友だちに (agent に) + 食べられた = passive reading: the cake was eaten BY a friend. The presence of an agent (に) is the strongest signal that 食べられた is passive, not potential. All other choices show the potential meaning — they have no agent に, and the subject is the one doing the eating (expressing ability).",

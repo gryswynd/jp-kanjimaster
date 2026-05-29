@@ -52,7 +52,7 @@
         {
           "label": "[Agent]",
           "color": "subject",
-          "text": "りきぞが"
+          "text": "りきぞうが"
         },
         {
           "label": "[Object]",
@@ -76,7 +76,7 @@
         {
           "parts": [
             {
-              "text": "りきぞさんが",
+              "text": "りきぞうさんが",
               "role": "subject",
               "gloss": "Rikizo (が = agent — the one taking out)"
             },
@@ -92,7 +92,7 @@
             }
           ],
           "en": "Rikizo took out his notes.",
-          "breakdown": "Agent (りきぞさんが) + Object (メモを) + Transitive verb (出す). Someone is acting on the notes. を = direct object signal for a transitive verb."
+          "breakdown": "Agent (りきぞうさんが) + Object (メモを) + Transitive verb (出す). Someone is acting on the notes. を = direct object signal for a transitive verb."
         },
         {
           "parts": [
@@ -259,7 +259,7 @@
           "context": "～す ending → transitive (highly reliable)",
           "parts": [
             {
-              "text": "りきぞさんが",
+              "text": "りきぞうさんが",
               "role": "subject",
               "gloss": "Rikizo (agent)"
             },
@@ -432,7 +432,7 @@
           "context": "入れる (transitive) — putting something inside",
           "parts": [
             {
-              "text": "りきぞさんが",
+              "text": "りきぞうさんが",
               "role": "subject",
               "gloss": "Rikizo (agent — doing the putting)"
             },
@@ -459,7 +459,7 @@
           "context": "出る (intransitive) — exiting on one's own",
           "parts": [
             {
-              "text": "りきぞさんが",
+              "text": "りきぞうさんが",
               "role": "subject",
               "gloss": "Rikizo (subject — exits on his own)"
             },
@@ -481,7 +481,7 @@
           "context": "出す (transitive) — taking something out",
           "parts": [
             {
-              "text": "りきぞさんが",
+              "text": "りきぞうさんが",
               "role": "subject",
               "gloss": "Rikizo (agent — doing the taking out)"
             },
@@ -509,7 +509,7 @@
     {
       "type": "conversation",
       "title": "映画館で (At the Movie Theater)",
-      "context": "ゆき and りきぞ are at a movie theater before the film starts.",
+      "context": "ゆき and りきぞう are at a movie theater before the film starts.",
       "lines": [
         {
           "spk": "ゆき",
@@ -527,7 +527,7 @@
           ]
         },
         {
-          "spk": "りきぞ",
+          "spk": "りきぞう",
           "jp": "そうですね。まだ人が映画館に入っていますね。",
           "en": "Right. People are still entering the theater.",
           "terms": [
@@ -552,7 +552,7 @@
         },
         {
           "spk": "ゆき",
-          "jp": "りきぞさんはメモを出しましたか。",
+          "jp": "りきぞうさんはメモを出しましたか。",
           "en": "Rikizo, did you take out your notes?",
           "terms": [
             "char_rikizo",
@@ -568,7 +568,7 @@
           ]
         },
         {
-          "spk": "りきぞ",
+          "spk": "りきぞう",
           "jp": "まだです。今出します。",
           "en": "Not yet. I'll take them out now.",
           "terms": [
@@ -600,7 +600,7 @@
           ]
         },
         {
-          "spk": "りきぞ",
+          "spk": "りきぞう",
           "jp": "映画が終わりました。外に出ましょう。",
           "en": "The movie ended. Let's go outside.",
           "terms": [
@@ -675,7 +675,7 @@
           "explanation": "映画を = the movie (を = direct object). There is an agent (映画館の人) acting on an object (映画). Use the TRANSITIVE 始める (polite past: 始めました). 始まりました is intransitive and cannot take を: ×映画館の人が映画を始まりました is ungrammatical."
         },
         {
-          "before": "りきぞさんが外に",
+          "before": "りきぞうさんが外に",
           "after": "。",
           "translation": "Rikizo goes outside.",
           "choices": [
@@ -685,10 +685,10 @@
             "入れます"
           ],
           "answer": "出ます",
-          "explanation": "外に = outside (に = direction). Rikizo is exiting on his own — no direct object (を) is present. Use the INTRANSITIVE 出る (polite present: 出ます). 出す (transitive) would need an object: りきぞさんが何かを出す. Without を marking an object, 出す does not fit."
+          "explanation": "外に = outside (に = direction). Rikizo is exiting on his own — no direct object (を) is present. Use the INTRANSITIVE 出る (polite present: 出ます). 出す (transitive) would need an object: りきぞうさんが何かを出す. Without を marking an object, 出す does not fit."
         },
         {
-          "before": "りきぞさんがメモを中に",
+          "before": "りきぞうさんがメモを中に",
           "after": "。",
           "translation": "Rikizo puts the notes inside.",
           "choices": [
@@ -698,10 +698,10 @@
             "出します"
           ],
           "answer": "入れます",
-          "explanation": "メモを = the notes (を = direct object marker). Rikizo is putting something somewhere — he is the agent, and the notes are the object. Use the TRANSITIVE 入れる (polite present: 入れます). 入る (intransitive) cannot take を: ×りきぞさんがメモを中に入ります is ungrammatical."
+          "explanation": "メモを = the notes (を = direct object marker). Rikizo is putting something somewhere — he is the agent, and the notes are the object. Use the TRANSITIVE 入れる (polite present: 入れます). 入る (intransitive) cannot take を: ×りきぞうさんがメモを中に入ります is ungrammatical."
         },
         {
-          "before": "りきぞさんがメモを",
+          "before": "りきぞうさんがメモを",
           "after": "。",
           "translation": "Rikizo takes out the notes.",
           "choices": [
@@ -734,7 +734,7 @@
         },
         {
           "kind": "mcq",
-          "q": "Which particle should fill the blank? りきぞさんがメモ___入れました。",
+          "q": "Which particle should fill the blank? りきぞうさんがメモ___入れました。",
           "choices": [
             "を",
             "が",

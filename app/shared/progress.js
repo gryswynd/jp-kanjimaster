@@ -192,6 +192,31 @@
      */
     clearDraft: function (promptId) {
       localStorage.removeItem('compose-draft-' + promptId);
+    },
+
+    /**
+     * Get the student's best score (0-100) for a compose, or 0 if never scored.
+     * @param {string} composeId
+     * @returns {number}
+     */
+    getBestComposeScore: function (composeId) {
+      var v = parseInt(localStorage.getItem('compose-best-' + composeId), 10);
+      return isNaN(v) ? 0 : v;
+    },
+
+    /**
+     * Persist the best score for a compose. Only writes when the new score
+     * beats the existing one.
+     * @param {string} composeId
+     * @param {number} score
+     * @returns {number} the resulting best score
+     */
+    saveBestComposeScore: function (composeId, score) {
+      var current = this.getBestComposeScore(composeId);
+      if (typeof score !== 'number' || isNaN(score)) return current;
+      var next = Math.max(current, Math.round(score));
+      localStorage.setItem('compose-best-' + composeId, String(next));
+      return next;
     }
 
   };

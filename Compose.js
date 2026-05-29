@@ -61,7 +61,9 @@ window.ComposeModule = {
             .c-lbl { font-size: 0.8rem; text-transform: uppercase; color: #a4b0be; font-weight: 700; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 8px; }
 
             /* MENU — LESSON CARDS */
-            .c-menu-card { background: white; border-radius: 14px; padding: 1.2rem; margin-bottom: 12px; border: 2px solid #E7EEE3; text-align: left; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; }
+            .c-menu-card { background: white; border-radius: 14px; padding: 1.2rem; margin-bottom: 12px; border: 2px solid #E7EEE3; text-align: left; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; position: relative; }
+            .c-menu-stamp { position: absolute; top: 8px; right: 8px; width: 52px; height: 52px; border-radius: 50%; border: 3px solid #C7902F; background: white; padding: 2px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transform: rotate(8deg); pointer-events: none; }
+            .c-menu-stamp img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
             @media (hover: hover) { .c-menu-card:hover { border-color: var(--c-primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); } }
             .c-menu-emoji { font-size: 2rem; flex-shrink: 0; }
             .c-menu-info { flex: 1; min-width: 0; }
@@ -73,6 +75,7 @@ window.ComposeModule = {
             .c-menu-tag-count { background: #F1E7D6; color: #9A5A12; }
             .c-menu-tag-done { background: #E7EFE3; color: #3A5A3C; }
             .c-menu-tag-draft { background: #E4E7F0; color: #3F4E8C; }
+            .c-menu-tag-score { background: #F5EEDA; color: #8A6A1E; }
 
             /* LEVEL PICKER */
             .c-level-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 8px; }
@@ -195,14 +198,6 @@ window.ComposeModule = {
             .c-complete-banner p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
             @keyframes c-celebrate { 0% { transform: scale(0.9); opacity: 0; } 50% { transform: scale(1.03); } 100% { transform: scale(1); opacity: 1; } }
 
-            /* COVERAGE INDICATOR */
-            .c-coverage { background: white; border-radius: 14px; padding: 1rem 1.2rem; margin-bottom: 12px; border: 2px solid #E7EEE3; text-align: center; }
-            .c-coverage-title { font-weight: 800; font-size: 0.9rem; color: var(--c-primary-dark); margin-bottom: 8px; }
-            .c-coverage-pct { font-size: 2.4rem; font-weight: 900; color: var(--c-primary); }
-            .c-coverage-label { font-size: 0.78rem; color: var(--c-text-sub); font-weight: 600; }
-            .c-coverage-bar { width: 100%; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; margin-top: 8px; }
-            .c-coverage-fill { height: 100%; background: var(--moss); border-radius: 4px; transition: width 0.6s ease; }
-
             /* ACTION BAR */
             .c-action-bar { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; justify-content: center; }
 
@@ -255,17 +250,25 @@ window.ComposeModule = {
 
     // --- DATA ---
     const REPO_CONFIG = sharedConfig;
-    if (window.JPShared.stampSettings) window.JPShared.stampSettings.setConfig(REPO_CONFIG);
+    if (window.JPShared.stampSettings) {
+        window.JPShared.stampSettings.setConfig(REPO_CONFIG);
+        // Warm the character cache so the 100% stamp resolves to the user's
+        // chosen portrait instead of the default fallback.
+        if (window.JPShared.stampSettings.loadCharacters) {
+            window.JPShared.stampSettings.loadCharacters();
+        }
+    }
 
     let COMPOSE_FILES = [];    // array of loaded compose file data
     let vocabById = new Map(); // all glossary+grammar entries by id
     let particlesById = new Map(); // all particles by id
     let conjugationRules = {}; // all conjugation rules
     let lessonMeta = new Map(); // lesson id -> { title }
-    let allVocab = [];         // all vocab entries from glossaries
+    let manifestData = null;    // parsed manifest.json (for known-kanji projection)
 
     // --- STATE ---
     let currentCompose = null;   // the active compose file data
+    let currentKnownKanji = null; // Set<string> of kanji known at the active compose's lesson
     let activePromptIndex = 0;   // which prompt is currently active (manually controlled)
     let allPromptsComplete = false;
     let currentPromptTargetsMet = false; // whether the active prompt's targets are all met
@@ -289,6 +292,18 @@ window.ComposeModule = {
         return div.innerHTML;
     }
 
+    // Render Japanese surface through the shared reading-aids pipeline. Pass
+    // an object with {surface, reading, tokens} when available. Falls back to
+    // escHtml when the jp-text module isn't loaded or when called with a raw
+    // string that has no token data.
+    function jpRender(input) {
+        const rk = window.JPShared && window.JPShared.jpText;
+        if (rk) return rk.render(input);
+        if (typeof input === 'string') return escHtml(input);
+        if (input && typeof input === 'object') return escHtml(input.surface || input.k || input.jp || '');
+        return '';
+    }
+
     // For verb and i-adjective targets, return the invariant kanji root (surface minus
     // trailing hiragana). e.g. 走る → 走, 食べる → 食べ, 赤い → 赤, 茶色い → 茶色.
     // This root appears in all conjugated forms so students get credit whether they
@@ -309,17 +324,43 @@ window.ComposeModule = {
         return (root.length >= 1 && root.length < surface.length) ? root : null;
     }
 
+    // Pick the right surface to show given the kanji set known at the active
+    // compose's lesson — e.g. render 友達 as 友だち until 達 is taught. Tokens
+    // are stripped when the picked form differs from the canonical surface,
+    // since the tokens were generated against the canonical form.
+    function pickDisplay(entry) {
+        const canonical = (entry && (entry.surface || entry.particle)) || '';
+        const vd = window.JPShared && window.JPShared.vocabDisplay;
+        if (!entry || !vd || !currentKnownKanji) {
+            return { surface: canonical, tokens: (entry && entry.tokens) || null };
+        }
+        const picked = vd.pick(entry, currentKnownKanji);
+        return {
+            surface: picked || canonical,
+            tokens: (picked === canonical) ? (entry.tokens || null) : null
+        };
+    }
+
     function resolveTargets(targets) {
         return (targets || []).map(t => {
             const entry = t.id ? vocabById.get(t.id) : null;
             const baseMatches = entry ? [entry.surface || entry.particle, entry.reading].filter(Boolean) : [];
+            // Include the glossary's authored alternate forms (e.g. "友だち" for
+            // v_tomodachi) so hybrid spellings count as credit toward the target.
+            if (entry && Array.isArray(entry.matches)) {
+                entry.matches.forEach(m => {
+                    if (m && !baseMatches.includes(m)) baseMatches.push(m);
+                });
+            }
             const root = getKanjiRoot(entry);
             if (root && !baseMatches.includes(root)) baseMatches.push(root);
+            const display = pickDisplay(entry);
             return {
                 id: t.id,
-                surface: (entry && (entry.surface || entry.particle)) || '',
+                surface: display.surface,
                 reading: (entry && entry.reading) || '',
                 meaning: (entry && (entry.meaning || entry.role)) || '',
+                tokens: display.tokens,
                 count: t.count || 1,
                 matches: t.matches || baseMatches
             };
@@ -327,12 +368,16 @@ window.ComposeModule = {
     }
 
     function resolveVocabPool(poolIds) {
-        return (poolIds || []).map(id => vocabById.get(id) || particlesById.get(id)).filter(Boolean).map(e => ({
-            id: e.id,
-            surface: e.surface || e.particle || '',
-            reading: e.reading || '',
-            meaning: e.meaning || e.role || ''
-        }));
+        return (poolIds || []).map(id => vocabById.get(id) || particlesById.get(id)).filter(Boolean).map(e => {
+            const display = pickDisplay(e);
+            return {
+                id: e.id,
+                surface: display.surface || e.particle || '',
+                reading: e.reading || '',
+                meaning: e.meaning || e.role || '',
+                tokens: display.tokens
+            };
+        });
     }
 
     // Determine which prompt index should be active based on current text
@@ -357,43 +402,27 @@ window.ComposeModule = {
         return [...(compose.prompts || []), ...(compose.challengePrompts || [])];
     }
 
-    // Check if a string contains at least one kanji character (CJK Unified Ideographs)
-    function containsKanji(str) {
-        return /[\u4e00-\u9faf\u3400-\u4dbf]/.test(str);
-    }
-
-    // Compute vocab coverage: what % of kanji-containing lesson vocab the student used
-    function computeCoverage(compose, text) {
+    // Build the kanji set known at the given compose's lesson. Mirrors how
+    // Lesson.js renders vocab — uses unlock.getKnownKanjiSet so the picker
+    // sees the same kanji the student has been taught.
+    function computeKnownKanjiForCompose(compose) {
+        const unlock = window.JPShared && window.JPShared.unlock;
+        if (!compose || !unlock || !unlock.getKnownKanjiSet || !manifestData) return null;
+        let lessonMetaKanji = [];
         const lessonId = compose.lesson;
-        const lessonVocab = allVocab.filter(v => {
-            const lessons = (v.lesson_ids || v.lesson || '').split(',').map(s => s.trim());
-            return lessons.includes(lessonId);
-        });
-        // Only count vocab with kanji in the surface form, deduplicated
-        const seen = new Set();
-        const unique = lessonVocab.filter(v => {
-            if (v.id && v.id.includes('__')) return false;
-            const s = v.surface || '';
-            if (!s || seen.has(s)) return false;
-            if (!containsKanji(s)) return false;
-            seen.add(s);
-            return true;
-        });
-        let used = 0;
-        const usedWords = [];
-        unique.forEach(v => {
-            const surface = v.surface || '';
-            if (surface && text.includes(surface)) {
-                used++;
-                usedWords.push(surface);
-            }
-        });
-        return { total: unique.length, used, pct: unique.length > 0 ? Math.round((used / unique.length) * 100) : 0, usedWords };
+        const levels = (manifestData.data) || {};
+        for (const lvl in levels) {
+            const lessons = (levels[lvl] && levels[lvl].lessons) || [];
+            const hit = lessons.find(l => l.id === lessonId);
+            if (hit && Array.isArray(hit.kanji)) { lessonMetaKanji = hit.kanji; break; }
+        }
+        return unlock.getKnownKanjiSet(lessonId, manifestData, lessonMetaKanji);
     }
 
     // --- MENU VIEW ---
     ComposeApp.showMenu = function() {
         currentCompose = null;
+        currentKnownKanji = null;
         activePromptIndex = 0;
         allPromptsComplete = false;
 
@@ -450,6 +479,14 @@ window.ComposeModule = {
         menuEl.querySelectorAll('.c-level-card').forEach(card => {
             card.onclick = () => ComposeApp._showLevel(card.dataset.level);
         });
+
+        // Rikizo: welcome on the level picker (first visit only).
+        try {
+            const rk = window.JPShared && window.JPShared.rikizoCompanion;
+            if (rk && rk.runComposeTutorialStep) {
+                setTimeout(() => rk.runComposeTutorialStep('levelPicker'), 300);
+            }
+        } catch (e) {}
     };
 
     // --- LEVEL VIEW ---
@@ -465,22 +502,33 @@ window.ComposeModule = {
             html += `<button class="c-level-back-btn" id="c-back-to-levels">← Levels</button>`;
         }
 
+        const progress = window.JPShared && window.JPShared.progress;
         files.forEach(cf => {
             const totalPrompts = (cf.prompts || []).length + (cf.challengePrompts || []).length;
             const draftState = loadDraftState(cf);
+            const bestScore = progress && progress.getBestComposeScore ? progress.getBestComposeScore(cf.id) : 0;
 
             let statusTag = '';
-            if (draftState.text) {
-                const total = getAllPrompts(cf).length;
-                if (draftState.promptIndex >= total) {
-                    statusTag = '<span class="c-menu-tag c-menu-tag-done">Complete</span>';
-                } else {
-                    statusTag = '<span class="c-menu-tag c-menu-tag-draft">Draft saved</span>';
+            if (bestScore >= 75) {
+                statusTag = '<span class="c-menu-tag c-menu-tag-done">Complete</span>';
+            } else if (draftState.text) {
+                statusTag = '<span class="c-menu-tag c-menu-tag-draft">Draft saved</span>';
+            }
+            const scoreTag = bestScore > 0
+                ? `<span class="c-menu-tag c-menu-tag-score">${bestScore}%</span>`
+                : '';
+            let stampHtml = '';
+            if (bestScore >= 100) {
+                const stampApi = window.JPShared && window.JPShared.stampSettings;
+                const stampUrl = stampApi && stampApi.getStampUrl ? stampApi.getStampUrl() : '';
+                if (stampUrl) {
+                    stampHtml = `<div class="c-menu-stamp" title="Perfect score"><img src="${escHtml(stampUrl)}" alt="Perfect"></div>`;
                 }
             }
 
             html += `
                 <div class="c-menu-card" onclick="ComposeApp.startCompose('${escHtml(cf.id)}')">
+                    ${stampHtml}
                     <div class="c-menu-emoji">${cf.emoji || '✏️'}</div>
                     <div class="c-menu-info">
                         <div class="c-menu-title">${escHtml(cf.title)}</div>
@@ -489,6 +537,7 @@ window.ComposeModule = {
                         <div class="c-menu-meta">
                             <span class="c-menu-tag c-menu-tag-count">${totalPrompts} prompt${totalPrompts !== 1 ? 's' : ''}</span>
                             ${statusTag}
+                            ${scoreTag}
                         </div>
                     </div>
                 </div>`;
@@ -503,6 +552,14 @@ window.ComposeModule = {
 
         const backBtn = document.getElementById('c-back-to-levels');
         if (backBtn) backBtn.onclick = () => ComposeApp.showMenu();
+
+        // Rikizo: 3-bubble intro on the lesson menu (first visit only).
+        try {
+            const rk = window.JPShared && window.JPShared.rikizoCompanion;
+            if (rk && rk.runComposeTutorialStep) {
+                setTimeout(() => rk.runComposeTutorialStep('lessonMenu'), 300);
+            }
+        } catch (e) {}
     };
 
     // --- COMPOSE VIEW ---
@@ -510,6 +567,7 @@ window.ComposeModule = {
         const compose = COMPOSE_FILES.find(cf => cf.id === composeId);
         if (!compose) return;
         currentCompose = compose;
+        currentKnownKanji = computeKnownKanjiForCompose(compose);
 
         const menuEl = document.getElementById('c-view-menu');
         const compEl = document.getElementById('c-view-compose');
@@ -550,7 +608,7 @@ window.ComposeModule = {
             const resolvedTargets = resolveTargets(activeP.targets);
 
             promptBannerHtml = `
-                <div class="c-prompt-banner">
+                <div class="c-prompt-banner" data-tour-compose="prompt">
                     <div class="c-prompt-banner-title">
                         ${isChallenge ? '<span class="c-timeline-challenge-tag">Challenge</span> ' : ''}
                         Prompt ${activePromptIndex + 1}
@@ -565,7 +623,7 @@ window.ComposeModule = {
             resolvedTargets.forEach((t, i) => {
                 targetHtml += `<div class="c-target-item" id="c-tgt-${i}">
                     <div class="c-target-check" id="c-tgt-chk-${i}"></div>
-                    <span class="c-target-surface" onclick="ComposeApp.insertWord('${escHtml(t.surface)}')" title="Click to insert">${escHtml(t.surface)}</span>
+                    <span class="c-target-surface" onclick="ComposeApp.insertWord('${escHtml(t.surface)}')" title="Click to insert">${jpRender(t)}</span>
                     <span class="c-target-reading">${escHtml(t.reading)}</span>
                     <span class="c-target-meaning">${escHtml(t.meaning)}</span>
                     <span class="c-target-count" id="c-tgt-cnt-${i}">0/${t.count}</span>
@@ -582,7 +640,7 @@ window.ComposeModule = {
                 const readingHtml = v.reading ? `<span class="c-chip-reading">${escHtml(v.reading)}</span>` : '';
                 const meaning = (v.meaning || '').substring(0, 30);
                 vocabPoolHtml += `<div class="c-chip" onclick="ComposeApp.insertWord('${escHtml(v.surface)}')" title="${escHtml(v.meaning)}">
-                    <span class="c-chip-jp">${escHtml(v.surface)}</span>
+                    <span class="c-chip-jp">${jpRender(v)}</span>
                     ${readingHtml}
                     <span class="c-chip-en">${escHtml(meaning)}</span>
                 </div>`;
@@ -596,8 +654,11 @@ window.ComposeModule = {
             if (!p) return;
             const surface = p.particle || p.surface || '';
             const role = p.role || p.meaning || '';
+            // Particles use `particle` as their surface field — adapt to the
+            // shape jpRender expects via {surface, tokens}.
+            const refShape = { surface: surface, reading: p.reading || '', tokens: p.tokens || null };
             particleRefHtml += `<span class="c-ref-item" onclick="ComposeApp.insertWord('${escHtml(surface)}')">
-                <span class="c-ref-jp">${escHtml(surface)}</span>
+                <span class="c-ref-jp">${jpRender(refShape)}</span>
                 <span class="c-ref-role">${escHtml(role)}</span>
             </span>`;
         });
@@ -618,10 +679,10 @@ window.ComposeModule = {
                 return;
             }
             const examples = (entry.examples || []).map(ex =>
-                `<span class="c-conj-example" onclick="ComposeApp.insertWord('${escHtml(ex)}')">${escHtml(ex)}</span>`
+                `<span class="c-conj-example" onclick="ComposeApp.insertWord('${escHtml(ex)}')">${jpRender(ex)}</span>`
             ).join('');
             conjRefHtml += `<div class="c-conj-entry">
-                <div class="c-conj-pattern">${escHtml(entry.pattern)}</div>
+                <div class="c-conj-pattern">${jpRender(entry.pattern)}</div>
                 <div class="c-conj-meaning">${escHtml(entry.meaning)}</div>
                 <div class="c-conj-examples">${examples}</div>
             </div>`;
@@ -656,18 +717,19 @@ window.ComposeModule = {
 
             <textarea class="c-textarea" id="c-compose-input" placeholder="ここに日本語を書いてください... (Write Japanese here)">${escHtml(draftText || '')}</textarea>
             <div style="display:flex;justify-content:space-between;align-items:center;">
-                <div class="c-char-count" id="c-char-count">${(draftText || '').length} characters</div>
+                <div class="c-char-count" id="c-char-count" data-tour-compose="charCount" data-length-budget="${Math.max(1, totalPrompts) * 20}">${(draftText || '').length} / ${Math.max(1, totalPrompts) * 20} characters</div>
                 <div class="c-action-bar">
-                    <button class="c-btn c-btn-sm c-btn-score" onclick="ComposeApp.showScore()" title="Score your composition">Score</button>
-                    <button class="c-btn c-btn-sm c-btn-sec" onclick="ComposeApp.speakComposition()" title="Listen to your composition">Listen</button>
-                    <button class="c-btn c-btn-sm c-btn-sec" onclick="ComposeApp.clearDraft()" title="Clear composition">Clear</button>
+                    <button class="c-btn c-btn-sm c-btn-score" data-tour-compose="score" onclick="ComposeApp.showScore()" title="Score your composition">Score</button>
+                    <!-- Listen removed: composition is free text with no pre-baked Chirp clip.
+                         Returns with the network-backed tutor (runtime synthesis). -->
+                    <button class="c-btn c-btn-sm c-btn-sec" data-tour-compose="clear" onclick="ComposeApp.clearDraft()" title="Clear composition">Clear</button>
                 </div>
             </div>
 
-            <button id="c-next-prompt-btn" class="c-next-prompt-btn c-hidden" onclick="ComposeApp.nextPrompt()">Next Prompt &#x2192;</button>
+            <button id="c-next-prompt-btn" class="c-next-prompt-btn c-hidden" data-tour-compose="nextPrompt" onclick="ComposeApp.nextPrompt()">Next Prompt &#x2192;</button>
 
             ${targetHtml ? `
-            <div class="c-section" style="margin-top:8px;">
+            <div class="c-section" style="margin-top:8px;" data-tour-compose="targetWords">
                 <div class="c-section-hdr open" onclick="ComposeApp.toggleSection(this)">
                     <span class="c-section-title">Target Words</span>
                     <span class="c-section-arrow">▼</span>
@@ -678,7 +740,7 @@ window.ComposeModule = {
             </div>` : ''}
 
             ${vocabPoolHtml ? `
-            <div class="c-section">
+            <div class="c-section" data-tour-compose="wordBank">
                 <div class="c-section-hdr" onclick="ComposeApp.toggleSection(this)">
                     <span class="c-section-title">Word Bank</span>
                     <span class="c-section-arrow">▼</span>
@@ -689,7 +751,7 @@ window.ComposeModule = {
             </div>` : ''}
 
             ${particleRefHtml ? `
-            <div class="c-section">
+            <div class="c-section" data-tour-compose="particles">
                 <div class="c-section-hdr" onclick="ComposeApp.toggleSection(this)">
                     <span class="c-section-title">Particles & Copula</span>
                     <span class="c-section-arrow">▼</span>
@@ -700,7 +762,7 @@ window.ComposeModule = {
             </div>` : ''}
 
             ${conjRefHtml ? `
-            <div class="c-section">
+            <div class="c-section" data-tour-compose="conjugation">
                 <div class="c-section-hdr" onclick="ComposeApp.toggleSection(this)">
                     <span class="c-section-title">Conjugation Patterns</span>
                     <span class="c-section-arrow">▼</span>
@@ -709,8 +771,6 @@ window.ComposeModule = {
                     ${conjRefHtml}
                 </div>
             </div>` : ''}
-
-            <div id="c-coverage-box" class="c-hidden"></div>
 
             <button class="c-btn c-btn-sec" onclick="ComposeApp.showMenu()" style="margin-top:10px;border:none;color:#a4b0be;font-size:0.9rem">Back to Menu</button>
         `;
@@ -722,13 +782,69 @@ window.ComposeModule = {
                 ComposeApp.updateTracking();
                 saveDraftState();
                 const cc = document.getElementById('c-char-count');
-                if (cc) cc.textContent = input.value.length + ' characters';
+                if (cc) {
+                    const budget = parseInt(cc.dataset.lengthBudget, 10) || (Math.max(1, getAllPrompts(currentCompose).length) * 20);
+                    cc.textContent = input.value.length + ' / ' + budget + ' characters';
+                }
             });
             // Initial tracking if there's a draft
             if (draftText) {
                 setTimeout(() => ComposeApp.updateTracking(), 100);
             }
         }
+
+        // Rikizo: in-composition tutorial chain (first visit only).
+        try {
+            const rk = window.JPShared && window.JPShared.rikizoCompanion;
+            if (rk && rk.runComposeTutorialStep) {
+                setTimeout(() => ComposeApp._runComposeTutorialChain(rk), 400);
+            }
+        } catch (e) {}
+    };
+
+    // Sequence the 9 in-composition steps. Each call no-ops after first time,
+    // so re-entering the composition won't replay seen steps. Steps run
+    // sequentially via Promise chaining so spotlights don't stack.
+    ComposeApp._runComposeTutorialChain = function(rk) {
+        const sel = (key) => `#compose-app-root [data-tour-compose="${key}"]`;
+        const scope = '#compose-app-root';
+        const step = (seenKey, target) =>
+            rk.runComposeTutorialStep(seenKey, { target: target ? sel(target) : null, scope });
+
+        let chain = Promise.resolve();
+        chain = chain.then(() => step('prompt',       'prompt'));
+        chain = chain.then(() => step('targetWords',  'targetWords'));
+        chain = chain.then(() => step('wordBank',     'wordBank'));
+        chain = chain.then(() => step('particles',    'particles'));
+        chain = chain.then(() => step('conjugation',  'conjugation'));
+        // typeDemo: type 父母 into the textarea first, then spotlight Next Prompt.
+        chain = chain.then(() => rk.runComposeTutorialStep('typeDemo', {
+            target: sel('nextPrompt'),
+            scope,
+            before: () => new Promise((resolve) => {
+                const ta = document.getElementById('c-compose-input');
+                if (ta) {
+                    ta.value = '父母';
+                    ta.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                // Brief pause so the user sees the text land before the bubble pops.
+                setTimeout(resolve, 600);
+            })
+        }));
+        // Wipe the 父母 demo so the user starts with a clean textarea.
+        chain = chain.then(() => {
+            const ta = document.getElementById('c-compose-input');
+            if (ta && ta.value === '父母') {
+                ta.value = '';
+                ta.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        });
+        chain = chain.then(() => step('charCount', 'charCount'));
+        chain = chain.then(() => step('score',  'score'));
+        chain = chain.then(() => step('listen', 'listen'));
+        chain = chain.then(() => step('clear',  'clear'));
+        chain = chain.then(() => step('wrapUp', null));
+        return chain.catch(() => {});
     };
 
     ComposeApp.buildTimeline = function(text) {
@@ -855,23 +971,6 @@ window.ComposeModule = {
                 box.innerHTML = '';
             }
         }
-
-        // Vocab coverage (shown when all prompts are complete)
-        const coverageBox = document.getElementById('c-coverage-box');
-        if (coverageBox) {
-            if (allPromptsComplete && text.length > 0) {
-                const cov = computeCoverage(compose, text);
-                coverageBox.className = 'c-coverage';
-                coverageBox.innerHTML = `
-                    <div class="c-coverage-title">Kanji Vocabulary Coverage</div>
-                    <div class="c-coverage-pct">${cov.pct}%</div>
-                    <div class="c-coverage-label">${cov.used} of ${cov.total} kanji words used</div>
-                    <div class="c-coverage-bar"><div class="c-coverage-fill" style="width:${cov.pct}%"></div></div>`;
-            } else {
-                coverageBox.className = 'c-hidden';
-                coverageBox.innerHTML = '';
-            }
-        }
     };
 
     ComposeApp.nextPrompt = function() {
@@ -967,31 +1066,29 @@ window.ComposeModule = {
         // 1. Vocab Score (0-40)
         let totalTargets = 0;
         let targetsMet = 0;
-        const targetSurfaces = new Set();
         allP.forEach(p => {
             const targets = resolveTargets(p.targets);
             totalTargets += targets.length;
             targets.forEach(t => {
                 if (countOccurrences(text, t.matches) >= t.count) targetsMet++;
-                if (t.surface) targetSurfaces.add(t.surface);
             });
         });
-
-        // Additional lesson vocab
-        const cov = computeCoverage(compose, text);
-        const additionalVocabUsed = Math.max(0, cov.used - targetSurfaces.size);
 
         let vocabScore = 0;
         if (totalTargets > 0) {
             vocabScore = Math.round((targetsMet / totalTargets) * 40);
         }
 
-        // 2. Length Score (0-30)
+        // 2. Length Score (0-30) — budget scales with prompts, so early compose
+        // files (1-2 prompts) max out on shorter compositions and longer files
+        // require more text. ~20 chars per prompt.
         const charCount = text.length;
-        const lengthScore = Math.min(30, Math.floor(charCount / 3));
+        const promptCount = Math.max(1, allP.length);
+        const lengthBudget = promptCount * 20;
+        const lengthScore = Math.min(30, Math.round((charCount / lengthBudget) * 30));
 
         // 3. Grammar Score (0-30)
-        const politePatterns = ['ます', 'ました', 'ません', 'ませんでした', 'ましょう', 'ですか', 'でした'];
+        const politePatterns = ['ます', 'ました', 'ません', 'ませんでした', 'ましょう', 'です', 'でした'];
         const plainPatterns = ['だった', 'ない', 'なかった'];
         let politeCount = 0;
         let plainCount = 0;
@@ -1007,19 +1104,15 @@ window.ComposeModule = {
         let tenseComponent = 0;
         let tenseDetail = '';
         if (totalVerbs === 0) {
-            tenseComponent = 8;
+            tenseComponent = 13;
             tenseDetail = 'No verb forms detected';
         } else {
             const dominant = Math.max(politeCount, plainCount);
-            tenseComponent = Math.round((dominant / totalVerbs) * 15);
+            tenseComponent = Math.round((dominant / totalVerbs) * 25);
             tenseDetail = politeCount >= plainCount
                 ? `Polite: ${politeCount}/${totalVerbs}`
                 : `Plain: ${plainCount}/${totalVerbs}`;
         }
-
-        const coreParticles = ['は', 'が', 'を', 'に'];
-        const particlesFound = coreParticles.filter(p => text.includes(p));
-        const particleScore = Math.round((particlesFound.length / coreParticles.length) * 10);
 
         const trimmedText = text.trim();
         const sentenceFinals = ['ます', 'ました', 'ません', 'ませんでした', 'ましょう', 'です', 'でした', 'だ', 'ね', 'よ', 'か'];
@@ -1029,11 +1122,18 @@ window.ComposeModule = {
         );
         const completionScore = sentenceComplete ? 5 : 0;
 
-        const grammarScore = tenseComponent + particleScore + completionScore;
-        let grammarLabel = tenseDetail + ` · ${particlesFound.length}/4 particles`;
+        const grammarScore = tenseComponent + completionScore;
+        let grammarLabel = tenseDetail;
         if (completionScore > 0) grammarLabel += ' · Complete';
 
         const total = vocabScore + lengthScore + grammarScore;
+        // Persist best score so the compose menu and home-page resume card can
+        // reflect completion (≥75%) and the 100% sticker.
+        try {
+            if (window.JPShared && window.JPShared.progress && window.JPShared.progress.saveBestComposeScore) {
+                window.JPShared.progress.saveBestComposeScore(compose.id, total);
+            }
+        } catch (e) {}
         let grade = ''; let gradeColor = '';
         if (total >= 85) { grade = 'S  Excellent!'; gradeColor = '#C7902F'; }
         else if (total >= 68) { grade = 'A  Great Work!'; gradeColor = '#5E8C5F'; }
@@ -1053,7 +1153,7 @@ window.ComposeModule = {
                     <div class="c-score-row">
                         <div>
                             <div class="c-score-row-label">Vocabulary</div>
-                            <div class="c-score-row-detail">${targetsMet}/${totalTargets} targets · ${cov.used}/${cov.total} kanji words (${cov.pct}%)</div>
+                            <div class="c-score-row-detail">${targetsMet}/${totalTargets} target words</div>
                             <div class="c-score-bar"><div class="c-score-bar-fill" style="width:${Math.round(vocabScore/40*100)}%;background:var(--c-primary)"></div></div>
                         </div>
                         <div class="c-score-row-pts">${vocabScore}/40</div>
@@ -1092,6 +1192,7 @@ window.ComposeModule = {
 
             // Load manifest
             const manifest = await window.getManifest(REPO_CONFIG);
+            manifestData = manifest;
             const n5 = manifest.data.N5;
             const n4 = manifest.data.N4;
 
@@ -1123,10 +1224,6 @@ window.ComposeModule = {
             ]);
 
             // Build vocab lookup
-            allVocab = [
-                ...n5Glossary.entries.filter(i => i.type === 'vocab' || i.type === 'grammar' || i.type === 'phrase'),
-                ...n4Glossary.entries.filter(i => i.type === 'vocab' || i.type === 'grammar' || i.type === 'phrase')
-            ];
             vocabById = new Map();
             [...n5Glossary.entries, ...n4Glossary.entries].forEach(e => vocabById.set(e.id, e));
 

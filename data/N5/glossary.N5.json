@@ -52,7 +52,13 @@
       "kun": "ちち",
       "reading": "ちち",
       "meaning": "father",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "父",
+          "r": "ちち"
+        }
+      ]
     },
     {
       "id": "k_haha",
@@ -63,7 +69,13 @@
       "kun": "はは",
       "reading": "はは",
       "meaning": "mother",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "母",
+          "r": "はは"
+        }
+      ]
     },
     {
       "id": "k_hito",
@@ -74,7 +86,13 @@
       "kun": "ひと",
       "reading": "ひと",
       "meaning": "person",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "人",
+          "r": "ひと"
+        }
+      ]
     },
     {
       "id": "k_ko",
@@ -85,7 +103,13 @@
       "kun": "こ",
       "reading": "こ",
       "meaning": "child",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "子",
+          "r": "こ"
+        }
+      ]
     },
     {
       "id": "k_na",
@@ -96,7 +120,13 @@
       "kun": "な",
       "reading": "な",
       "meaning": "name",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "名",
+          "r": "な"
+        }
+      ]
     },
     {
       "id": "k_onna",
@@ -107,7 +137,13 @@
       "kun": "おんな",
       "reading": "おんな",
       "meaning": "woman",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "女",
+          "r": "おんな"
+        }
+      ]
     },
     {
       "id": "k_otoko",
@@ -118,7 +154,13 @@
       "kun": "おとこ",
       "reading": "おとこ",
       "meaning": "man",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "男",
+          "r": "おとこ"
+        }
+      ]
     },
     {
       "id": "k_saki",
@@ -129,7 +171,13 @@
       "kun": "さき",
       "reading": "さき",
       "meaning": "ahead, previous",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "先",
+          "r": "さき"
+        }
+      ]
     },
     {
       "id": "k_tomo",
@@ -140,7 +188,13 @@
       "kun": "とも",
       "reading": "とも",
       "meaning": "friend",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "友",
+          "r": "とも"
+        }
+      ]
     },
     {
       "id": "k_u",
@@ -151,7 +205,13 @@
       "kun": "う/こ/なま",
       "reading": "う/こ/なま",
       "meaning": "life, birth",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "生",
+          "r": "う/こ/なま"
+        }
+      ]
     },
     {
       "id": "p_hai",
@@ -188,7 +248,13 @@
         "en": "Sure. Let's wash our hands first and then start.",
         "lessonId": "N4.35",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "先",
+          "r": "さき"
+        }
+      ]
     },
     {
       "id": "p_hajimemashite",
@@ -208,7 +274,16 @@
       "type": "phrase",
       "gtype": "set-phrase",
       "lesson_ids": "N5.1",
-      "notes": "Evening greeting. Note: written with は (wa), not わ."
+      "notes": "Evening greeting. Note: written with は (wa), not わ.",
+      "tokens": [
+        {
+          "k": "こんばん"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        }
+      ]
     },
     {
       "id": "p_konnichiwa",
@@ -218,7 +293,16 @@
       "type": "phrase",
       "gtype": "set-phrase",
       "lesson_ids": "N5.1",
-      "notes": "General daytime greeting. Note: written with は (wa), not わ."
+      "notes": "General daytime greeting. Note: written with は (wa), not わ.",
+      "tokens": [
+        {
+          "k": "こんにち"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        }
+      ]
     },
     {
       "id": "p_ohayou",
@@ -597,7 +681,13 @@
         "en": "My father is here. My mother is here.",
         "lessonId": "N5.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "父",
+          "r": "ちち"
+        }
+      ]
     },
     {
       "id": "v_danshi",
@@ -614,7 +704,13 @@
         "en": "This class is great. There are boys. There are girls.",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "男子",
+          "r": "だんし"
+        }
+      ]
     },
     {
       "id": "v_dare",
@@ -633,6 +729,12 @@
       },
       "matches": [
         "だれ"
+      ],
+      "tokens": [
+        {
+          "k": "誰",
+          "r": "だれ"
+        }
       ]
     },
     {
@@ -766,7 +868,13 @@
         "en": "My parents live together.",
         "lessonId": "N5.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "父母",
+          "r": "ふぼ"
+        }
+      ]
     },
     {
       "id": "v_haha",
@@ -783,7 +891,13 @@
         "en": "My father is here. My mother is here.",
         "lessonId": "N5.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "母",
+          "r": "はは"
+        }
+      ]
     },
     {
       "id": "v_hito",
@@ -800,7 +914,13 @@
         "en": "What kind of person are you?",
         "lessonId": "N5.1",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "人",
+          "r": "ひと"
+        }
+      ]
     },
     {
       "id": "v_hitobito",
@@ -817,7 +937,13 @@
         "en": "The mayor has people use the morning market.",
         "lessonId": "N4.32",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "人々",
+          "r": "ひとびと"
+        }
+      ]
     },
     {
       "id": "v_ichiban",
@@ -871,7 +997,16 @@
         "良くない",
         "良くなかった"
       ],
-      "notes": "Kanji form 良 taught at N3.15. Pre-N3.15 content uses kana よい (and conjugations). From N3.15 onward, write as 良い. Uses regular i-adj conjugation from よい stem."
+      "notes": "Kanji form 良 taught at N3.15. Pre-N3.15 content uses kana よい (and conjugations). From N3.15 onward, write as 良い. Uses regular i-adj conjugation from よい stem.",
+      "tokens": [
+        {
+          "k": "良",
+          "r": "よ"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "v_iie",
@@ -904,7 +1039,16 @@
         "en": "My parents live together.",
         "lessonId": "N5.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "生",
+          "r": "い"
+        },
+        {
+          "k": "きる"
+        }
+      ]
     },
     {
       "id": "v_iru",
@@ -939,7 +1083,16 @@
         "en": "My parents live together.",
         "lessonId": "N5.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "一緒",
+          "r": "いっしょ"
+        },
+        {
+          "k": "に"
+        }
+      ]
     },
     {
       "id": "v_jinsei",
@@ -956,7 +1109,13 @@
         "en": "His family said, \"It was a long life.\"",
         "lessonId": "N4.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "人生",
+          "r": "じんせい"
+        }
+      ]
     },
     {
       "id": "v_joshi",
@@ -973,7 +1132,13 @@
         "en": "This class is great. There are boys. There are girls.",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "女子",
+          "r": "じょし"
+        }
+      ]
     },
     {
       "id": "v_onna",
@@ -984,7 +1149,13 @@
       "notes": "Standalone noun form. 女の人 (おんなのひと) is the common polite phrase for 'woman'.",
       "lesson_ids": "N5.1",
       "reading": "おんな",
-      "readingAlign": "女(おんな)"
+      "readingAlign": "女(おんな)",
+      "tokens": [
+        {
+          "k": "女",
+          "r": "おんな"
+        }
+      ]
     },
     {
       "id": "v_onnanohito",
@@ -1001,7 +1172,13 @@
         "en": "Yamamoto-sensei is a woman.",
         "lessonId": "N5.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "女の人",
+          "r": "おんなのひと"
+        }
+      ]
     },
     {
       "id": "v_onnanoko",
@@ -1018,7 +1195,13 @@
         "en": "Is your friend's child a boy or a girl?",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "女の子",
+          "r": "おんなのこ"
+        }
+      ]
     },
     {
       "id": "v_otoko",
@@ -1029,7 +1212,13 @@
       "notes": "Standalone noun form. 男の人 (おとこのひと) is the common polite phrase for 'man'.",
       "lesson_ids": "N5.1",
       "reading": "おとこ",
-      "readingAlign": "男(おとこ)"
+      "readingAlign": "男(おとこ)",
+      "tokens": [
+        {
+          "k": "男",
+          "r": "おとこ"
+        }
+      ]
     },
     {
       "id": "v_otokonohito",
@@ -1046,7 +1235,13 @@
         "en": "Is she a man or a woman?",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "男の人",
+          "r": "おとこのひと"
+        }
+      ]
     },
     {
       "id": "v_otokonoko",
@@ -1063,7 +1258,13 @@
         "en": "A boy. He's a really nice kid.",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "男の子",
+          "r": "おとこのこ"
+        }
+      ]
     },
     {
       "id": "v_kodomo",
@@ -1080,7 +1281,16 @@
         "en": "A boy. He's a really nice kid.",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "子",
+          "r": "こ"
+        },
+        {
+          "k": "ども"
+        }
+      ]
     },
     {
       "id": "v_kudasai",
@@ -1150,7 +1360,19 @@
         "en": "Is your mother kind?",
         "lessonId": "N5.1",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "お"
+        },
+        {
+          "k": "母",
+          "r": "かあ"
+        },
+        {
+          "k": "さん"
+        }
+      ]
     },
     {
       "id": "v_otousan",
@@ -1169,7 +1391,19 @@
         "en": "Good afternoon. What does your father do?",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "お"
+        },
+        {
+          "k": "父",
+          "r": "とう"
+        },
+        {
+          "k": "さん"
+        }
+      ]
     },
     {
       "id": "v_pasokon",
@@ -1218,7 +1452,13 @@
         "en": "What is your teacher's name?",
         "lessonId": "N5.1",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "先生",
+          "r": "せんせい"
+        }
+      ]
     },
     {
       "id": "v_suru",
@@ -1303,7 +1543,13 @@
         "en": "Is your friend's child a boy or a girl?",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "友達",
+          "r": "ともだち"
+        }
+      ]
     },
     {
       "id": "v_totemo",
@@ -1337,7 +1583,16 @@
         "en": "When you look at the world with the correct viewpoint, new ideas are born.",
         "lessonId": "N4.26",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "生",
+          "r": "う"
+        },
+        {
+          "k": "まれる"
+        }
+      ]
     },
     {
       "id": "v_ureshii",
@@ -1382,7 +1637,13 @@
       "kun": "ひ",
       "reading": "ひ",
       "meaning": "day / sun",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "日",
+          "r": "ひ"
+        }
+      ]
     },
     {
       "id": "k_hi_2",
@@ -1393,7 +1654,13 @@
       "kun": "ひ",
       "reading": "ひ",
       "meaning": "fire",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "火",
+          "r": "ひ"
+        }
+      ]
     },
     {
       "id": "k_ima",
@@ -1404,7 +1671,13 @@
       "kun": "いま",
       "reading": "いま",
       "meaning": "now",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "今",
+          "r": "いま"
+        }
+      ]
     },
     {
       "id": "k_kane",
@@ -1415,7 +1688,13 @@
       "kun": "かね",
       "reading": "かね",
       "meaning": "gold / money",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "金",
+          "r": "かね"
+        }
+      ]
     },
     {
       "id": "k_ki",
@@ -1426,7 +1705,13 @@
       "kun": "き",
       "reading": "き",
       "meaning": "tree / wood",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "木",
+          "r": "き"
+        }
+      ]
     },
     {
       "id": "k_mizu",
@@ -1437,7 +1722,13 @@
       "kun": "みず",
       "reading": "みず",
       "meaning": "water",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "水",
+          "r": "みず"
+        }
+      ]
     },
     {
       "id": "k_nani",
@@ -1448,7 +1739,13 @@
       "kun": "なに/なん",
       "reading": "なに/なん",
       "meaning": "what",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "何",
+          "r": "なに/なん"
+        }
+      ]
     },
     {
       "id": "k_tsuchi",
@@ -1459,7 +1756,13 @@
       "kun": "つち",
       "reading": "つち",
       "meaning": "earth / soil",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "土",
+          "r": "つち"
+        }
+      ]
     },
     {
       "id": "k_tsuki",
@@ -1470,7 +1773,13 @@
       "kun": "つき",
       "reading": "つき",
       "meaning": "month / moon",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "月",
+          "r": "つき"
+        }
+      ]
     },
     {
       "id": "k_u6bce",
@@ -1502,7 +1811,13 @@
         "en": "She is not here on Tuesday, Thursday, Saturday, or Sunday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "土曜日",
+          "r": "どようび"
+        }
+      ]
     },
     {
       "id": "v_geemu",
@@ -1514,7 +1829,7 @@
       "lesson_ids": "N5.2",
       "reading": "ゲーム",
       "example": {
-        "jp": "りきぞは ゲームを します。",
+        "jp": "りきぞうは ゲームを します。",
         "en": "Rikizo plays a game.",
         "lessonId": "N5.2",
         "sectionType": "reading"
@@ -1539,7 +1854,13 @@
         "en": "Every month, the teacher is here from Monday to Friday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "月曜日",
+          "r": "げつようび"
+        }
+      ]
     },
     {
       "id": "v_hi",
@@ -1556,7 +1877,13 @@
         "en": "There is also gold, moon, and sun.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "日",
+          "r": "ひ"
+        }
+      ]
     },
     {
       "id": "v_hi_2",
@@ -1573,7 +1900,13 @@
         "en": "In the game there are things like water, trees, fire, and soil.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "火",
+          "r": "ひ"
+        }
+      ]
     },
     {
       "id": "v_itsu",
@@ -1622,7 +1955,13 @@
         "en": "There is also gold, moon, and sun.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "金",
+          "r": "かね"
+        }
+      ]
     },
     {
       "id": "v_kayoubi",
@@ -1643,7 +1982,13 @@
         "en": "She is not here on Tuesday, Thursday, Saturday, or Sunday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "火曜日",
+          "r": "かようび"
+        }
+      ]
     },
     {
       "id": "v_ki",
@@ -1660,7 +2005,13 @@
         "en": "In the game there are things like water, trees, fire, and soil.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "木",
+          "r": "き"
+        }
+      ]
     },
     {
       "id": "v_kinyoubi",
@@ -1681,7 +2032,13 @@
         "en": "Every month, the teacher is here from Monday to Friday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "金曜日",
+          "r": "きんようび"
+        }
+      ]
     },
     {
       "id": "v_kongetsu",
@@ -1698,7 +2055,13 @@
         "en": "This month too, she is here every day.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "今月",
+          "r": "こんげつ"
+        }
+      ]
     },
     {
       "id": "v_kyou",
@@ -1715,7 +2078,13 @@
         "en": "Today is Thursday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "今日",
+          "r": "きょう"
+        }
+      ]
     },
     {
       "id": "v_ima",
@@ -1732,7 +2101,13 @@
         "en": "What are you using right now?",
         "lessonId": "N4.2",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "今",
+          "r": "いま"
+        }
+      ]
     },
     {
       "id": "v_maigetsu",
@@ -1749,7 +2124,13 @@
         "en": "Every month, the teacher is here from Monday to Friday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "毎月",
+          "r": "まいげつ"
+        }
+      ]
     },
     {
       "id": "v_mainichi",
@@ -1766,7 +2147,13 @@
         "en": "This month too, she is here every day.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "毎日",
+          "r": "まいにち"
+        }
+      ]
     },
     {
       "id": "v_mizu",
@@ -1783,7 +2170,13 @@
         "en": "Every day there is a lot of water.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "水",
+          "r": "みず"
+        }
+      ]
     },
     {
       "id": "v_mokuyoubi",
@@ -1804,7 +2197,13 @@
         "en": "Today is Thursday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "木曜日",
+          "r": "もくようび"
+        }
+      ]
     },
     {
       "id": "v_nan",
@@ -1824,7 +2223,13 @@
         "en": "What is your father's name?",
         "lessonId": "N5.2",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "何",
+          "r": "なん"
+        }
+      ]
     },
     {
       "id": "v_nani",
@@ -1844,7 +2249,13 @@
         "en": "What do you eat in the morning?",
         "lessonId": "N4.9",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "何",
+          "r": "なに"
+        }
+      ]
     },
     {
       "id": "v_nannin",
@@ -1861,7 +2272,13 @@
         "en": "How many people are in class?",
         "lessonId": "N5.2",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "何人",
+          "r": "なんにん"
+        }
+      ]
     },
     {
       "id": "v_nanpun",
@@ -1872,7 +2289,13 @@
       "notes": "Question word asking for a duration in minutes. 何 (nan) + 分 (pun/fun). Answer uses the 分 counter.",
       "lesson_ids": "N4.2",
       "reading": "なんぷん",
-      "readingAlign": "何(なん)分(ぷん)"
+      "readingAlign": "何(なん)分(ぷん)",
+      "tokens": [
+        {
+          "k": "何分",
+          "r": "なんぷん"
+        }
+      ]
     },
     {
       "id": "v_nanyoubi",
@@ -1893,7 +2316,13 @@
         "en": "What day is today?",
         "lessonId": "N5.2",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "何曜日",
+          "r": "なんようび"
+        }
+      ]
     },
     {
       "id": "v_nichiyoubi",
@@ -1914,7 +2343,13 @@
         "en": "She is not here on Tuesday, Thursday, Saturday, or Sunday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "日曜日",
+          "r": "にちようび"
+        }
+      ]
     },
     {
       "id": "v_okane",
@@ -1927,11 +2362,20 @@
       "reading": "おかね",
       "readingAlign": "お金(かね)",
       "example": {
-        "jp": "りきぞさん、よく お金が ありますか。",
+        "jp": "りきぞうさん、よく お金が ありますか。",
         "en": "Rikizo-san, do you often have money?",
         "lessonId": "N5.2",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "お"
+        },
+        {
+          "k": "金",
+          "r": "かね"
+        }
+      ]
     },
     {
       "id": "v_suiyoubi",
@@ -1952,7 +2396,13 @@
         "en": "Yamamoto-sensei is here on Monday, Wednesday, and Friday.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "水曜日",
+          "r": "すいようび"
+        }
+      ]
     },
     {
       "id": "v_tsuchi",
@@ -1969,7 +2419,13 @@
         "en": "In the game there are things like water, trees, fire, and soil.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "土",
+          "r": "つち"
+        }
+      ]
     },
     {
       "id": "v_tsuki",
@@ -1986,7 +2442,13 @@
         "en": "There is also gold, moon, and sun.",
         "lessonId": "N5.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "月",
+          "r": "つき"
+        }
+      ]
     },
     {
       "id": "v_yoku",
@@ -1998,7 +2460,7 @@
       "lesson_ids": "N5.2",
       "notes": "Can mean 'often' (frequency) or 'well/skillfully' (manner).",
       "example": {
-        "jp": "りきぞさん、よく お金が ありますか。",
+        "jp": "りきぞうさん、よく お金が ありますか。",
         "en": "Rikizo-san, do you often have money?",
         "lessonId": "N5.2",
         "sectionType": "conversation"
@@ -2013,7 +2475,13 @@
       "kun": "ち",
       "reading": "ち",
       "meaning": "thousand",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "千",
+          "r": "ち"
+        }
+      ]
     },
     {
       "id": "v_sen",
@@ -2030,7 +2498,13 @@
         "en": "There is one thousand yen.",
         "lessonId": "N5.3",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "千",
+          "r": "せん"
+        }
+      ]
     },
     {
       "id": "k_futa",
@@ -2041,7 +2515,13 @@
       "kun": "ふた/ふたつ",
       "reading": "ふた/ふたつ",
       "meaning": "two",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "二",
+          "r": "ふた/ふたつ"
+        }
+      ]
     },
     {
       "id": "k_hachi",
@@ -2052,7 +2532,13 @@
       "kun": "や/やつ/やっつ",
       "reading": "や/やつ/やっつ",
       "meaning": "eight",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "八",
+          "r": "や/やつ/やっつ"
+        }
+      ]
     },
     {
       "id": "k_hito_2",
@@ -2063,7 +2549,13 @@
       "kun": "ひと/ひとつ",
       "reading": "ひと/ひとつ",
       "meaning": "one",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "一",
+          "r": "ひと/ひとつ"
+        }
+      ]
     },
     {
       "id": "k_itsu",
@@ -2074,7 +2566,13 @@
       "kun": "いつ/いつつ",
       "reading": "いつ/いつつ",
       "meaning": "five",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "五",
+          "r": "いつ/いつつ"
+        }
+      ]
     },
     {
       "id": "k_kokono",
@@ -2085,7 +2583,13 @@
       "kun": "ここの/ここのつ",
       "reading": "ここの/ここのつ",
       "meaning": "nine",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "九",
+          "r": "ここの/ここのつ"
+        }
+      ]
     },
     {
       "id": "k_mi",
@@ -2096,7 +2600,13 @@
       "kun": "み/みつ/みっつ",
       "reading": "み/みつ/みっつ",
       "meaning": "three",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "三",
+          "r": "み/みつ/みっつ"
+        }
+      ]
     },
     {
       "id": "k_mu",
@@ -2107,7 +2617,13 @@
       "kun": "む/むつ/むっつ",
       "reading": "む/むつ/むっつ",
       "meaning": "six",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "六",
+          "r": "む/むつ/むっつ"
+        }
+      ]
     },
     {
       "id": "k_nana",
@@ -2118,7 +2634,13 @@
       "kun": "なな/ななつ",
       "reading": "なな/ななつ",
       "meaning": "seven",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "七",
+          "r": "なな/ななつ"
+        }
+      ]
     },
     {
       "id": "k_too",
@@ -2129,7 +2651,13 @@
       "kun": "とお",
       "reading": "とお",
       "meaning": "ten",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "十",
+          "r": "とお"
+        }
+      ]
     },
     {
       "id": "k_u4e07",
@@ -2157,7 +2685,13 @@
         "en": "There is ten thousand yen.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "万",
+          "r": "まん"
+        }
+      ]
     },
     {
       "id": "k_u5186",
@@ -2194,7 +2728,13 @@
         "en": "There is ten thousand yen.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "円",
+          "r": "えん"
+        }
+      ]
     },
     {
       "id": "k_u767e",
@@ -2222,7 +2762,71 @@
         "en": "On birthdays, there is five hundred yen.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "百",
+          "r": "ひゃく"
+        }
+      ]
+    },
+    {
+      "id": "v_san_three",
+      "surface": "三",
+      "meaning": "three",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Number word. The standalone reading さん is used for counting (一、二、三) and in compounds like 三人 (three people), 三月 (March), 三百 (300), 三千 (3,000 → さんぜん).",
+      "lesson_ids": "N5.3",
+      "reading": "さん",
+      "readingAlign": "三(さん)",
+      "tokens": [
+        { "k": "三", "r": "さん" }
+      ]
+    },
+    {
+      "id": "v_go_five",
+      "surface": "五",
+      "meaning": "five",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Number word. The standalone reading ご is used for counting (四、五、六) and in compounds like 五月 (May), 五百 (500 → ごひゃく).",
+      "lesson_ids": "N5.3",
+      "reading": "ご",
+      "readingAlign": "五(ご)",
+      "tokens": [
+        { "k": "五", "r": "ご" }
+      ]
+    },
+    {
+      "id": "v_sanzen",
+      "surface": "三千",
+      "meaning": "three thousand",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Compound number 3,000. Note the rendaku: 千 (せん) becomes ぜん after 三.",
+      "lesson_ids": "N5.3",
+      "reading": "さんぜん",
+      "readingAlign": "三(さん)千(ぜん)",
+      "tokens": [
+        { "k": "三", "r": "さん" },
+        { "k": "千", "r": "ぜん" }
+      ]
+    },
+    {
+      "id": "v_gohyaku",
+      "surface": "五百",
+      "meaning": "five hundred",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Compound number 500.",
+      "lesson_ids": "N5.3",
+      "reading": "ごひゃく",
+      "readingAlign": "五(ご)百(ひゃく)",
+      "tokens": [
+        { "k": "五", "r": "ご" },
+        { "k": "百", "r": "ひゃく" }
+      ]
     },
     {
       "id": "k_yon",
@@ -2233,7 +2837,13 @@
       "kun": "よん/よ/よっつ",
       "reading": "よん/よ/よっつ",
       "meaning": "four",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "四",
+          "r": "よん/よ/よっつ"
+        }
+      ]
     },
     {
       "id": "v_are",
@@ -2282,7 +2892,13 @@
         "en": "We returned to school. It was a good day.",
         "lessonId": "N4.2",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "一日",
+          "r": "いちにち"
+        }
+      ]
     },
     {
       "id": "v_futari",
@@ -2299,7 +2915,13 @@
         "en": "The two read many Japanese books.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "二人",
+          "r": "ふたり"
+        }
+      ]
     },
     {
       "id": "v_futsuka",
@@ -2316,7 +2938,13 @@
         "en": "They are here from the second to the seventh. Also, I have money too.",
         "lessonId": "N5.3",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "二日",
+          "r": "ふつか"
+        }
+      ]
     },
     {
       "id": "v_gogatsu",
@@ -2337,7 +2965,13 @@
         "en": "Spring is from March to May. There are many flowers and it is very beautiful.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "五月",
+          "r": "ごがつ"
+        }
+      ]
     },
     {
       "id": "v_gonin",
@@ -2348,7 +2982,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "ごにん",
-      "readingAlign": "五(ご)人(にん)"
+      "readingAlign": "五(ご)人(にん)",
+      "tokens": [
+        {
+          "k": "五人",
+          "r": "ごにん"
+        }
+      ]
     },
     {
       "id": "v_hachigatsu",
@@ -2369,7 +3009,13 @@
         "en": "Summer is from June to August. It is very hot and there is a lot of rain.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "八月",
+          "r": "はちがつ"
+        }
+      ]
     },
     {
       "id": "v_hachinin",
@@ -2380,7 +3026,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "はちにん",
-      "readingAlign": "八(はち)人(にん)"
+      "readingAlign": "八(はち)人(にん)",
+      "tokens": [
+        {
+          "k": "八人",
+          "r": "はちにん"
+        }
+      ]
     },
     {
       "id": "v_hitori",
@@ -2397,7 +3049,13 @@
         "en": "Can you cook Japanese food by yourself?",
         "lessonId": "N4.8",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "一人",
+          "r": "ひとり"
+        }
+      ]
     },
     {
       "id": "v_hitotsu",
@@ -2408,7 +3066,16 @@
       "notes": "Native Japanese general counter. Part of the native counting series: ひとつ、ふたつ、みっつ…",
       "lesson_ids": "N5.3",
       "reading": "ひとつ",
-      "readingAlign": "一(ひと)つ"
+      "readingAlign": "一(ひと)つ",
+      "tokens": [
+        {
+          "k": "一",
+          "r": "ひと"
+        },
+        {
+          "k": "つ"
+        }
+      ]
     },
     {
       "id": "v_ichigatsu",
@@ -2423,7 +3090,13 @@
         "一月",
         "1月"
       ],
-      "readingAlign": "一(いち)月(がつ)"
+      "readingAlign": "一(いち)月(がつ)",
+      "tokens": [
+        {
+          "k": "一月",
+          "r": "いちがつ"
+        }
+      ]
     },
     {
       "id": "v_ichinichitsuitachi",
@@ -2440,7 +3113,13 @@
         "en": "On June 1st, he is together with friends.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "一日",
+          "r": "いちにち/ついたち"
+        }
+      ]
     },
     {
       "id": "v_ikura",
@@ -2489,7 +3168,13 @@
         "en": "My birthday is May 5th.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "五日",
+          "r": "いつか"
+        }
+      ]
     },
     {
       "id": "v_juugatsu",
@@ -2504,7 +3189,13 @@
         "十月",
         "10月"
       ],
-      "readingAlign": "十(じゅう)月(がつ)"
+      "readingAlign": "十(じゅう)月(がつ)",
+      "tokens": [
+        {
+          "k": "十月",
+          "r": "じゅうがつ"
+        }
+      ]
     },
     {
       "id": "v_juuichigatsu",
@@ -2525,7 +3216,13 @@
         "en": "Autumn is from September to November. The colour of the trees changes from green to red and brown.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "十一月",
+          "r": "じゅういちがつ"
+        }
+      ]
     },
     {
       "id": "v_juunigatsu",
@@ -2546,7 +3243,13 @@
         "en": "Winter is from December to February. It is very cold, and in the north there is also snow.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "十二月",
+          "r": "じゅうにがつ"
+        }
+      ]
     },
     {
       "id": "v_juunin",
@@ -2557,7 +3260,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "じゅうにん",
-      "readingAlign": "十(じゅう)人(にん)"
+      "readingAlign": "十(じゅう)人(にん)",
+      "tokens": [
+        {
+          "k": "十人",
+          "r": "じゅうにん"
+        }
+      ]
     },
     {
       "id": "v_kokonoka",
@@ -2574,7 +3283,13 @@
         "en": "I will do (play) the game by the 9th.",
         "lessonId": "N5.3",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "九日",
+          "r": "ここのか"
+        }
+      ]
     },
     {
       "id": "v_kore",
@@ -2611,7 +3326,13 @@
         "en": "Autumn is from September to November. The colour of the trees changes from green to red and brown.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "九月",
+          "r": "くがつ"
+        }
+      ]
     },
     {
       "id": "v_kunin",
@@ -2622,7 +3343,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "くにん",
-      "readingAlign": "九(く)人(にん)"
+      "readingAlign": "九(く)人(にん)",
+      "tokens": [
+        {
+          "k": "九人",
+          "r": "くにん"
+        }
+      ]
     },
     {
       "id": "v_mikka",
@@ -2639,7 +3366,13 @@
         "en": "My mother's birthday is March 3rd.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "三日",
+          "r": "みっか"
+        }
+      ]
     },
     {
       "id": "v_muika",
@@ -2650,7 +3383,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "むいか",
-      "readingAlign": "六日{むいか}"
+      "readingAlign": "六日{むいか}",
+      "tokens": [
+        {
+          "k": "六日",
+          "r": "むいか"
+        }
+      ]
     },
     {
       "id": "v_nanoka",
@@ -2667,7 +3406,13 @@
         "en": "They are here from the second to the seventh. Also, I have money too.",
         "lessonId": "N5.3",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "七日",
+          "r": "なのか"
+        }
+      ]
     },
     {
       "id": "v_nigatsu",
@@ -2688,7 +3433,13 @@
         "en": "Winter is from December to February. It is very cold, and in the north there is also snow.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "二月",
+          "r": "にがつ"
+        }
+      ]
     },
     {
       "id": "v_rokugatsu",
@@ -2709,7 +3460,13 @@
         "en": "Summer is from June to August. It is very hot and there is a lot of rain.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "六月",
+          "r": "ろくがつ"
+        }
+      ]
     },
     {
       "id": "v_rokunin",
@@ -2720,7 +3477,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "ろくにん",
-      "readingAlign": "六(ろく)人(にん)"
+      "readingAlign": "六(ろく)人(にん)",
+      "tokens": [
+        {
+          "k": "六人",
+          "r": "ろくにん"
+        }
+      ]
     },
     {
       "id": "v_sangatsu",
@@ -2741,7 +3504,13 @@
         "en": "Spring is from March to May. There are many flowers and it is very beautiful.",
         "lessonId": "N4.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "三月",
+          "r": "さんがつ"
+        }
+      ]
     },
     {
       "id": "v_sannin",
@@ -2752,7 +3521,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "さんにん",
-      "readingAlign": "三(さん)人(にん)"
+      "readingAlign": "三(さん)人(にん)",
+      "tokens": [
+        {
+          "k": "三人",
+          "r": "さんにん"
+        }
+      ]
     },
     {
       "id": "v_shichigatsu",
@@ -2767,7 +3542,13 @@
         "七月",
         "7月"
       ],
-      "readingAlign": "七(しち)月(がつ)"
+      "readingAlign": "七(しち)月(がつ)",
+      "tokens": [
+        {
+          "k": "七月",
+          "r": "しちがつ"
+        }
+      ]
     },
     {
       "id": "v_shichinin",
@@ -2778,7 +3559,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "しちにん",
-      "readingAlign": "七(しち)人(にん)"
+      "readingAlign": "七(しち)人(にん)",
+      "tokens": [
+        {
+          "k": "七人",
+          "r": "しちにん"
+        }
+      ]
     },
     {
       "id": "v_shigatsu",
@@ -2793,7 +3580,13 @@
         "四月",
         "4月"
       ],
-      "readingAlign": "四(し)月(がつ)"
+      "readingAlign": "四(し)月(がつ)",
+      "tokens": [
+        {
+          "k": "四月",
+          "r": "しがつ"
+        }
+      ]
     },
     {
       "id": "v_sore",
@@ -2858,7 +3651,13 @@
         "en": "The teacher's birthday is October 10th.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "十日",
+          "r": "とおか"
+        }
+      ]
     },
     {
       "id": "v_yokka",
@@ -2875,7 +3674,13 @@
         "en": "On the 4th, he plays games.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "四日",
+          "r": "よっか"
+        }
+      ]
     },
     {
       "id": "v_yonin",
@@ -2886,7 +3691,13 @@
       "notes": "",
       "lesson_ids": "N5.3",
       "reading": "よにん",
-      "readingAlign": "四(よ)人(にん)"
+      "readingAlign": "四(よ)人(にん)",
+      "tokens": [
+        {
+          "k": "四人",
+          "r": "よにん"
+        }
+      ]
     },
     {
       "id": "v_youka",
@@ -2903,7 +3714,13 @@
         "en": "My friend's birthday is August 8th.",
         "lessonId": "N5.3",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "八日",
+          "r": "ようか"
+        }
+      ]
     },
     {
       "id": "k_toki",
@@ -2914,7 +3731,13 @@
       "kun": "とき",
       "reading": "とき",
       "meaning": "time / hour",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "時",
+          "r": "とき"
+        }
+      ]
     },
     {
       "id": "k_toshi",
@@ -2925,7 +3748,13 @@
       "kun": "とし",
       "reading": "とし",
       "meaning": "year",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "年",
+          "r": "とし"
+        }
+      ]
     },
     {
       "id": "k_u534a",
@@ -2958,7 +3787,13 @@
       "kun": "わ",
       "reading": "わ",
       "meaning": "minute / part",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "分",
+          "r": "わ"
+        }
+      ]
     },
     {
       "id": "v_ano",
@@ -3023,7 +3858,13 @@
         "en": "Yes, I understand about half of it.",
         "lessonId": "N5.4",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "半分",
+          "r": "はんぶん"
+        }
+      ]
     },
     {
       "id": "v_keeki",
@@ -3039,7 +3880,13 @@
         "en": "Yesterday there was cake.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "ケーキ",
+          "r": "けーき"
+        }
+      ]
     },
     {
       "id": "v_kinou",
@@ -3059,7 +3906,13 @@
         "en": "Yesterday there was cake.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "昨日",
+          "r": "きのう"
+        }
+      ]
     },
     {
       "id": "v_han",
@@ -3075,7 +3928,13 @@
         "en": "I wake up at 6:30. I put on a shirt and go to school by train.",
         "lessonId": "N4.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "半",
+          "r": "はん"
+        }
+      ]
     },
     {
       "id": "v_kono",
@@ -3108,7 +3967,13 @@
         "en": "Friends are here this week.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "今週",
+          "r": "こんしゅう"
+        }
+      ]
     },
     {
       "id": "v_kotoshi",
@@ -3125,7 +3990,13 @@
         "en": "This year's birthday is March 3rd.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "今年",
+          "r": "ことし"
+        }
+      ]
     },
     {
       "id": "v_mainen",
@@ -3142,7 +4013,13 @@
         "en": "Every year it is very joyful.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "毎年",
+          "r": "まいねん"
+        }
+      ]
     },
     {
       "id": "v_maishuu",
@@ -3155,11 +4032,17 @@
       "reading": "まいしゅう",
       "readingAlign": "毎(まい)週(しゅう)",
       "example": {
-        "jp": "りきぞさんも 毎週 います。",
+        "jp": "りきぞうさんも 毎週 います。",
         "en": "Rikizo-san is also here every week.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "毎週",
+          "r": "まいしゅう"
+        }
+      ]
     },
     {
       "id": "v_nanji",
@@ -3176,7 +4059,13 @@
         "en": "What time is the teacher here?",
         "lessonId": "N5.4",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "何時",
+          "r": "なんじ"
+        }
+      ]
     },
     {
       "id": "v_sengetsu",
@@ -3193,7 +4082,13 @@
         "en": "Were you here last month too?",
         "lessonId": "N5.4",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "先月",
+          "r": "せんげつ"
+        }
+      ]
     },
     {
       "id": "v_senshuu",
@@ -3210,7 +4105,13 @@
         "en": "Last week he was here on Monday.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "先週",
+          "r": "せんしゅう"
+        }
+      ]
     },
     {
       "id": "v_shuumatsu",
@@ -3230,7 +4131,13 @@
         "en": "He is here on weekends too.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "週末",
+          "r": "しゅうまつ"
+        }
+      ]
     },
     {
       "id": "v_sono",
@@ -3285,7 +4192,13 @@
           "v_sumaho",
           "g_desu"
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "スマホ",
+          "r": "すまほ"
+        }
+      ]
     },
     {
       "id": "v_tokidoki",
@@ -3302,7 +4215,13 @@
         "en": "I understand sometimes.",
         "lessonId": "N5.4",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "時々",
+          "r": "ときどき"
+        }
+      ]
     },
     {
       "id": "v_wakaru",
@@ -3320,7 +4239,16 @@
         "en": "By my next birthday, I will understand Japanese right away.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "分",
+          "r": "わ"
+        },
+        {
+          "k": "かる"
+        }
+      ]
     },
     {
       "id": "v_toki",
@@ -3337,7 +4265,13 @@
         "en": "When I was a child, there was cake on my birthday.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "時",
+          "r": "とき"
+        }
+      ]
     },
     {
       "id": "v_tsugi",
@@ -3357,7 +4291,13 @@
         "en": "By my next birthday, I will understand Japanese right away.",
         "lessonId": "N5.4",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "次",
+          "r": "つぎ"
+        }
+      ]
     },
     {
       "id": "k_i",
@@ -3368,7 +4308,13 @@
       "kun": "い/こ",
       "reading": "い/こ",
       "meaning": "go",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "行",
+          "r": "い/こ"
+        }
+      ]
     },
     {
       "id": "k_ie",
@@ -3379,7 +4325,13 @@
       "kun": "いえ/や/うち",
       "reading": "いえ/や/うち",
       "meaning": "house",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "家",
+          "r": "いえ/や/うち"
+        }
+      ]
     },
     {
       "id": "k_ku",
@@ -3390,7 +4342,13 @@
       "kun": "く/き/こ",
       "reading": "く/き/こ",
       "meaning": "come",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "来",
+          "r": "く/き/こ"
+        }
+      ]
     },
     {
       "id": "k_mise",
@@ -3401,7 +4359,13 @@
       "kun": "みせ",
       "reading": "みせ",
       "meaning": "shop",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "店",
+          "r": "みせ"
+        }
+      ]
     },
     {
       "id": "k_u99c5",
@@ -3444,7 +4408,13 @@
         "en": "He came from home by bus.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "バス",
+          "r": "ばす"
+        }
+      ]
     },
     {
       "id": "v_doko",
@@ -3477,7 +4447,13 @@
         "en": "Next week he will go to the station.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "駅",
+          "r": "えき"
+        }
+      ]
     },
     {
       "id": "v_ie",
@@ -3494,7 +4470,13 @@
         "en": "Yamakawa comes from home to the station by bus.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "家",
+          "r": "いえ"
+        }
+      ]
     },
     {
       "id": "v_iku",
@@ -3505,6 +4487,7 @@
       "notes": "",
       "lesson_ids": "N5.5",
       "reading": "いく",
+      "matches": ["いく"],
       "verb_class": "irr_iku",
       "readingAlign": "行(い)く",
       "example": {
@@ -3512,7 +4495,16 @@
         "en": "Next week he will go to the station.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "行",
+          "r": "い"
+        },
+        {
+          "k": "く"
+        }
+      ]
     },
     {
       "id": "v_koko",
@@ -3544,7 +4536,13 @@
         "en": "There is a convenience store at the station.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "コンビニ",
+          "r": "こんびに"
+        }
+      ]
     },
     {
       "id": "v_kuru",
@@ -3562,7 +4560,16 @@
         "en": "He will come next month too.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "来",
+          "r": "く"
+        },
+        {
+          "k": "る"
+        }
+      ]
     },
     {
       "id": "v_mise",
@@ -3579,7 +4586,13 @@
         "en": "Yamakawa went to the store last week.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "店",
+          "r": "みせ"
+        }
+      ]
     },
     {
       "id": "v_omise",
@@ -3596,7 +4609,16 @@
         "en": "Near my home there is a small shop.",
         "lessonId": "N4.35",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "お"
+        },
+        {
+          "k": "店",
+          "r": "みせ"
+        }
+      ]
     },
     {
       "id": "v_raigetsu",
@@ -3613,7 +4635,13 @@
         "en": "He will come next month too.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "来月",
+          "r": "らいげつ"
+        }
+      ]
     },
     {
       "id": "v_rainen",
@@ -3630,7 +4658,13 @@
         "en": "Yes, I will also go next month. I will go next year too.",
         "lessonId": "N5.5",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "来年",
+          "r": "らいねん"
+        }
+      ]
     },
     {
       "id": "v_raishuu",
@@ -3647,7 +4681,13 @@
         "en": "Next week he will go to the station.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "来週",
+          "r": "らいしゅう"
+        }
+      ]
     },
     {
       "id": "v_soko",
@@ -3679,7 +4719,16 @@
         "en": "He also went to the supermarket.",
         "lessonId": "N5.5",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "スーパ",
+          "r": "すーぱ"
+        },
+        {
+          "k": "ー"
+        }
+      ]
     },
     {
       "id": "v_takushii",
@@ -3695,7 +4744,16 @@
         "en": "Taxis are no good.",
         "lessonId": "N5.5",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "タクシ",
+          "r": "たくし"
+        },
+        {
+          "k": "ー"
+        }
+      ]
     },
     {
       "id": "v_uchi",
@@ -3787,7 +4845,13 @@
       "kun": "かわ/がわ",
       "reading": "かわ/がわ",
       "meaning": "river",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "川",
+          "r": "かわ/がわ"
+        }
+      ]
     },
     {
       "id": "k_kuruma",
@@ -3798,7 +4862,13 @@
       "kun": "くるま",
       "reading": "くるま",
       "meaning": "car",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "車",
+          "r": "くるま"
+        }
+      ]
     },
     {
       "id": "k_michi",
@@ -3809,7 +4879,13 @@
       "kun": "みち",
       "reading": "みち",
       "meaning": "street",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "道",
+          "r": "みち"
+        }
+      ]
     },
     {
       "id": "k_yama",
@@ -3820,7 +4896,13 @@
       "kun": "やま",
       "reading": "やま",
       "meaning": "mountain",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "山",
+          "r": "やま"
+        }
+      ]
     },
     {
       "id": "v_kawa",
@@ -3837,7 +4919,13 @@
         "en": "There is a river at the mountain.",
         "lessonId": "N5.6",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "川",
+          "r": "かわ"
+        }
+      ]
     },
     {
       "id": "v_kazan",
@@ -3854,7 +4942,13 @@
         "en": "He will also go to the volcano.",
         "lessonId": "N5.6",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "火山",
+          "r": "かざん"
+        }
+      ]
     },
     {
       "id": "v_kuruma",
@@ -3871,7 +4965,13 @@
         "en": "He will come by car with a friend.",
         "lessonId": "N5.6",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "車",
+          "r": "くるま"
+        }
+      ]
     },
     {
       "id": "v_meeru",
@@ -3887,7 +4987,13 @@
         "en": "It is an email about the mountain and river.",
         "lessonId": "N5.6",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "メール",
+          "r": "めーる"
+        }
+      ]
     },
     {
       "id": "v_michi",
@@ -3904,7 +5010,13 @@
         "en": "The mountain road is nice.",
         "lessonId": "N5.6",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "道",
+          "r": "みち"
+        }
+      ]
     },
     {
       "id": "v_yama",
@@ -3921,7 +5033,13 @@
         "en": "There is a river at the mountain.",
         "lessonId": "N5.6",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "山",
+          "r": "やま"
+        }
+      ]
     },
     {
       "id": "k_chii",
@@ -3932,7 +5050,13 @@
       "kun": "ちい/こ",
       "reading": "ちい/こ",
       "meaning": "small",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "小",
+          "r": "ちい/こ"
+        }
+      ]
     },
     {
       "id": "k_no",
@@ -3943,7 +5067,13 @@
       "kun": "の",
       "reading": "の",
       "meaning": "drink",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "飲",
+          "r": "の"
+        }
+      ]
     },
     {
       "id": "k_oo_2",
@@ -3954,7 +5084,13 @@
       "kun": "おお",
       "reading": "おお",
       "meaning": "big",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "大",
+          "r": "おお"
+        }
+      ]
     },
     {
       "id": "k_shoku",
@@ -3965,7 +5101,13 @@
       "kun": "た",
       "reading": "た",
       "meaning": "eat",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "食",
+          "r": "た"
+        }
+      ]
     },
     {
       "id": "p_gochisousama",
@@ -4003,7 +5145,16 @@
         "en": "The salad is small. The bread is big.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "小",
+          "r": "ちい"
+        },
+        {
+          "k": "さい"
+        }
+      ]
     },
     {
       "id": "v_daisuki",
@@ -4024,7 +5175,16 @@
         "en": "I eat at one o'clock. I love salad.",
         "lessonId": "N5.7",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "大好",
+          "r": "だいす"
+        },
+        {
+          "k": "き"
+        }
+      ]
     },
     {
       "id": "v_juusu",
@@ -4036,11 +5196,17 @@
       "lesson_ids": "N5.7",
       "notes": "In Japanese, ジュース can refer to any non-alcoholic cold drink, not just fruit juice.",
       "example": {
-        "jp": "りきぞは コーヒーを 飲みました。やまかわは ジュースを 飲みました。",
+        "jp": "りきぞうは コーヒーを 飲みました。やまかわは ジュースを 飲みました。",
         "en": "Rikizo drank coffee. Yamakawa drank juice.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "ジュース",
+          "r": "じゅーす"
+        }
+      ]
     },
     {
       "id": "v_karee",
@@ -4056,7 +5222,16 @@
         "en": "The curry is big.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "カレ",
+          "r": "かれ"
+        },
+        {
+          "k": "ー"
+        }
+      ]
     },
     {
       "id": "v_koohii",
@@ -4072,7 +5247,16 @@
         "en": "Sensei ate bread and then drank coffee.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "コーヒ",
+          "r": "こーひ"
+        },
+        {
+          "k": "ー"
+        }
+      ]
     },
     {
       "id": "v_nomu",
@@ -4090,7 +5274,16 @@
         "en": "Sensei ate bread and then drank coffee.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "飲",
+          "r": "の"
+        },
+        {
+          "k": "む"
+        }
+      ]
     },
     {
       "id": "v_ookii",
@@ -4108,7 +5301,16 @@
         "en": "The curry is big.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "大",
+          "r": "おお"
+        },
+        {
+          "k": "きい"
+        }
+      ]
     },
     {
       "id": "v_pan",
@@ -4124,7 +5326,13 @@
         "en": "Sensei ate salad and bread.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "パン",
+          "r": "ぱん"
+        }
+      ]
     },
     {
       "id": "v_resutoran",
@@ -4140,7 +5348,13 @@
         "en": "The restaurant is nice.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "レストラン",
+          "r": "れすとらん"
+        }
+      ]
     },
     {
       "id": "v_sarada",
@@ -4156,7 +5370,13 @@
         "en": "Sensei ate salad and bread.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "サラダ",
+          "r": "さらだ"
+        }
+      ]
     },
     {
       "id": "v_taberu",
@@ -4174,7 +5394,16 @@
         "en": "Sensei ate salad and bread.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "食",
+          "r": "た"
+        },
+        {
+          "k": "べる"
+        }
+      ]
     },
     {
       "id": "k_atara",
@@ -4185,7 +5414,13 @@
       "kun": "あたら",
       "reading": "あたら",
       "meaning": "new",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "新",
+          "r": "あたら"
+        }
+      ]
     },
     {
       "id": "k_furu",
@@ -4196,7 +5431,13 @@
       "kun": "ふる",
       "reading": "ふる",
       "meaning": "old",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "古",
+          "r": "ふる"
+        }
+      ]
     },
     {
       "id": "k_ka_2",
@@ -4207,7 +5448,13 @@
       "kun": "か",
       "reading": "か",
       "meaning": "buy",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "買",
+          "r": "か"
+        }
+      ]
     },
     {
       "id": "k_naga",
@@ -4218,7 +5465,13 @@
       "kun": "なが",
       "reading": "なが",
       "meaning": "long",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "長",
+          "r": "なが"
+        }
+      ]
     },
     {
       "id": "k_taka",
@@ -4229,7 +5482,13 @@
       "kun": "たか",
       "reading": "たか",
       "meaning": "high/tall",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "高",
+          "r": "たか"
+        }
+      ]
     },
     {
       "id": "v_amari",
@@ -4263,7 +5522,16 @@
         "en": "The department store is new, you know.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "新",
+          "r": "あたら"
+        },
+        {
+          "k": "しい"
+        }
+      ]
     },
     {
       "id": "v_depaato",
@@ -4279,7 +5547,13 @@
         "en": "The department store is new, you know.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "デパート",
+          "r": "でぱーと"
+        }
+      ]
     },
     {
       "id": "v_ekichou",
@@ -4296,7 +5570,13 @@
         "en": "The station master went to the department store today.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "駅長",
+          "r": "えきちょう"
+        }
+      ]
     },
     {
       "id": "v_furui",
@@ -4314,7 +5594,16 @@
         "en": "Yes, it is new. This one is old.",
         "lessonId": "N5.8",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "古",
+          "r": "ふる"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "v_hoshii",
@@ -4342,7 +5631,16 @@
         "欲しくない",
         "欲しくなかった"
       ],
-      "notes": "Kanji form 欲 taught at N3.33. Pre-N3.33 content uses kana ほしい (and conjugations). From N3.33 onward, write as 欲しい."
+      "notes": "Kanji form 欲 taught at N3.33. Pre-N3.33 content uses kana ほしい (and conjugations). From N3.33 onward, write as 欲しい.",
+      "tokens": [
+        {
+          "k": "欲",
+          "r": "ほ"
+        },
+        {
+          "k": "しい"
+        }
+      ]
     },
     {
       "id": "v_kau",
@@ -4360,7 +5658,16 @@
         "en": "The station master buys a gift for a friend.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "買",
+          "r": "か"
+        },
+        {
+          "k": "う"
+        }
+      ]
     },
     {
       "id": "v_mada",
@@ -4410,7 +5717,16 @@
         "en": "The station master wants a long gift.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "長",
+          "r": "なが"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "v_oishii",
@@ -4442,7 +5758,13 @@
         "en": "The station master wants a long gift.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        }
+      ]
     },
     {
       "id": "v_teeburu",
@@ -4458,7 +5780,13 @@
         "en": "There is a present on the table. It is probably new.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "テーブル",
+          "r": "てーぶる"
+        }
+      ]
     },
     {
       "id": "v_sugoi",
@@ -4492,7 +5820,16 @@
         "en": "The gifts are not very expensive. They are amazing, you know.",
         "lessonId": "N5.8",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "高",
+          "r": "たか"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "v_yasu",
@@ -4503,7 +5840,13 @@
       "kun": "やす",
       "reading": "やす",
       "meaning": "cheap",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "安",
+          "r": "やす"
+        }
+      ]
     },
     {
       "id": "v_yasui",
@@ -4521,7 +5864,16 @@
         "en": "It is cheap, you know. It is really amazing, you know.",
         "lessonId": "N5.8",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "安",
+          "r": "やす"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "k_mae",
@@ -4532,7 +5884,13 @@
       "kun": "まえ",
       "reading": "まえ",
       "meaning": "front",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "前",
+          "r": "まえ"
+        }
+      ]
     },
     {
       "id": "k_naka",
@@ -4543,7 +5901,13 @@
       "kun": "なか",
       "reading": "なか",
       "meaning": "inside",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "中",
+          "r": "なか"
+        }
+      ]
     },
     {
       "id": "k_soto",
@@ -4554,7 +5918,13 @@
       "kun": "そと",
       "reading": "そと",
       "meaning": "outside",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "外",
+          "r": "そと"
+        }
+      ]
     },
     {
       "id": "k_ushiro",
@@ -4565,7 +5935,13 @@
       "kun": "うしろ/あと",
       "reading": "うしろ/あと",
       "meaning": "behind; after",
-      "notes": "Two distinct kun readings: うしろ (spatial — written 後ろ with ろ appended) and あと (temporal — written 後 standalone). See v_ushiro and v_ato."
+      "notes": "Two distinct kun readings: うしろ (spatial — written 後ろ with ろ appended) and あと (temporal — written 後 standalone). See v_ushiro and v_ato.",
+      "tokens": [
+        {
+          "k": "後",
+          "r": "うしろ/あと"
+        }
+      ]
     },
     {
       "id": "v_ushiro",
@@ -4582,7 +5958,16 @@
         "en": "There are cars behind the station.",
         "lessonId": "N5.9",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "後",
+          "r": "うし"
+        },
+        {
+          "k": "ろ"
+        }
+      ]
     },
     {
       "id": "v_ato",
@@ -4599,7 +5984,13 @@
         "en": "Please come inside later. Let's eat together.",
         "lessonId": "N5.9",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "後",
+          "r": "あと"
+        }
+      ]
     },
     {
       "id": "v_achira",
@@ -4630,7 +6021,7 @@
       ],
       "lesson_ids": "N5.9",
       "example": {
-        "jp": "りきぞです。だいじょうぶですよ。",
+        "jp": "りきぞうです。だいじょうぶですよ。",
         "en": "I'm Rikizo. No problem, you know.",
         "lessonId": "N5.9",
         "sectionType": "conversation"
@@ -4662,7 +6053,7 @@
       "lesson_ids": "N5.9",
       "reading": "どうして",
       "example": {
-        "jp": "りきぞさん、どうして 外に いますか。",
+        "jp": "りきぞうさん、どうして 外に いますか。",
         "en": "Rikizo-san, why are you outside?",
         "lessonId": "N5.9",
         "sectionType": "conversation"
@@ -4683,7 +6074,13 @@
         "en": "What is your name? I am a foreigner.",
         "lessonId": "N5.9",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "外人",
+          "r": "がいじん"
+        }
+      ]
     },
     {
       "id": "v_gaishoku",
@@ -4700,7 +6097,13 @@
         "en": "Today, Yamakawa went out to eat.",
         "lessonId": "N5.9",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "外食",
+          "r": "がいしょく"
+        }
+      ]
     },
     {
       "id": "v_kochira",
@@ -4727,13 +6130,20 @@
       "notes": "",
       "lesson_ids": "N5.9",
       "reading": "まえ",
+      "matches": ["まえ"],
       "readingAlign": "前(まえ)",
       "example": {
         "jp": "駅の 前に 大きい 店が あります。",
         "en": "There is a big store in front of the station.",
         "lessonId": "N5.9",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "前",
+          "r": "まえ"
+        }
+      ]
     },
     {
       "id": "v_naka",
@@ -4750,7 +6160,13 @@
         "en": "The inside of the restaurant is new.",
         "lessonId": "N5.9",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "中",
+          "r": "なか"
+        }
+      ]
     },
     {
       "id": "v_namae",
@@ -4771,7 +6187,13 @@
         "en": "What is your teacher's name?",
         "lessonId": "N5.1",
         "sectionType": "warmup"
-      }
+      },
+      "tokens": [
+        {
+          "k": "名前",
+          "r": "なまえ"
+        }
+      ]
     },
     {
       "id": "v_onamae",
@@ -4793,7 +6215,16 @@
         "en": "What is your name? I am a foreigner.",
         "lessonId": "N5.9",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "お"
+        },
+        {
+          "k": "名前",
+          "r": "なまえ"
+        }
+      ]
     },
     {
       "id": "v_sochira",
@@ -4822,11 +6253,17 @@
       "reading": "そと",
       "readingAlign": "外(そと)",
       "example": {
-        "jp": "りきぞは 外で コーヒーを 飲んでいます。",
+        "jp": "りきぞうは 外で コーヒーを 飲んでいます。",
         "en": "Rikizo is drinking coffee outside.",
         "lessonId": "N5.9",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "外",
+          "r": "そと"
+        }
+      ]
     },
     {
       "id": "v_chokoreeto",
@@ -4849,7 +6286,13 @@
           "v_chokoreeto",
           "g_desu"
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "チョコレート",
+          "r": "ちょこれーと"
+        }
+      ]
     },
     {
       "id": "v_piza",
@@ -4873,7 +6316,13 @@
           },
           "p_ne"
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "ピザ",
+          "r": "ぴざ"
+        }
+      ]
     },
     {
       "id": "v_sandoicchi",
@@ -4893,7 +6342,13 @@
           "p_wo",
           "v_kudasai"
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "サンドイッチ",
+          "r": "さんどいっち"
+        }
+      ]
     },
     {
       "id": "v_aisukuriimu",
@@ -4916,7 +6371,13 @@
             "form": "polite_adj"
           }
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "アイスクリーム",
+          "r": "あいすくりーむ"
+        }
+      ]
     },
     {
       "id": "v_sarada",
@@ -4932,7 +6393,13 @@
         "en": "Sensei ate salad and bread.",
         "lessonId": "N5.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "サラダ",
+          "r": "さらだ"
+        }
+      ]
     },
     {
       "id": "v_purin",
@@ -4957,7 +6424,13 @@
             "form": "polite_masu"
           }
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "プリン",
+          "r": "ぷりん"
+        }
+      ]
     },
     {
       "id": "k_ama",
@@ -4968,7 +6441,13 @@
       "kun": "あま",
       "reading": "あま",
       "meaning": "heaven",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "天",
+          "r": "あま"
+        }
+      ]
     },
     {
       "id": "k_u6c17",
@@ -5001,7 +6480,13 @@
       "kun": "やす",
       "reading": "やす",
       "meaning": "rest",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "休",
+          "r": "やす"
+        }
+      ]
     },
     {
       "id": "v_denki",
@@ -5018,7 +6503,13 @@
         "en": "There is no electricity. The trains won't come either.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "電気",
+          "r": "でんき"
+        }
+      ]
     },
     {
       "id": "v_densha",
@@ -5035,7 +6526,13 @@
         "en": "There is no electricity. The trains won't come either.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "電車",
+          "r": "でんしゃ"
+        }
+      ]
     },
     {
       "id": "v_hoteru",
@@ -5051,7 +6548,13 @@
         "en": "There was a hotel in the mountains. The hotel is old, but it's popular.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "ホテル",
+          "r": "ほてる"
+        }
+      ]
     },
     {
       "id": "v_kibun",
@@ -5068,7 +6571,13 @@
         "en": "Because there was electricity, my mood became good.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "気分",
+          "r": "きぶん"
+        }
+      ]
     },
     {
       "id": "v_kyuujitsu",
@@ -5085,7 +6594,13 @@
         "en": "Today was a holiday, and the weather was good.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "休日",
+          "r": "きゅうじつ"
+        }
+      ]
     },
     {
       "id": "v_ninki",
@@ -5102,7 +6617,13 @@
         "en": "Long trains are popular. There are also big trains.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "人気",
+          "r": "にんき"
+        }
+      ]
     },
     {
       "id": "v_tenki",
@@ -5119,7 +6640,13 @@
         "en": "Next week, the weather will probably be nice too.",
         "lessonId": "N5.10",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "天気",
+          "r": "てんき"
+        }
+      ]
     },
     {
       "id": "v_yasumi",
@@ -5136,7 +6663,16 @@
         "en": "I want a long holiday.",
         "lessonId": "N5.10",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "休",
+          "r": "やす"
+        },
+        {
+          "k": "み"
+        }
+      ]
     },
     {
       "id": "v_yasumu",
@@ -5154,7 +6690,16 @@
         "en": "I want to rest. Is there electricity?",
         "lessonId": "N5.10",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "休",
+          "r": "やす"
+        },
+        {
+          "k": "む"
+        }
+      ]
     },
     {
       "id": "v_naru",
@@ -5182,7 +6727,13 @@
       "kun": "あめ",
       "reading": "あめ",
       "meaning": "rain",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "雨",
+          "r": "あめ"
+        }
+      ]
     },
     {
       "id": "k_hana",
@@ -5193,7 +6744,13 @@
       "kun": "はな",
       "reading": "はな",
       "meaning": "flower",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "花",
+          "r": "はな"
+        }
+      ]
     },
     {
       "id": "k_sakana",
@@ -5204,7 +6761,13 @@
       "kun": "さかな",
       "reading": "さかな",
       "meaning": "fish",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "魚",
+          "r": "さかな"
+        }
+      ]
     },
     {
       "id": "k_sora",
@@ -5215,7 +6778,13 @@
       "kun": "そら",
       "reading": "そら",
       "meaning": "sky",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "空",
+          "r": "そら"
+        }
+      ]
     },
     {
       "id": "v_sora",
@@ -5232,7 +6801,13 @@
         "en": "Today's sky is very beautiful. The air is also nice.",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "空",
+          "r": "そら"
+        }
+      ]
     },
     {
       "id": "v_ame",
@@ -5249,7 +6824,13 @@
         "en": "After the rain, the flowers become beautiful.",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "雨",
+          "r": "あめ"
+        }
+      ]
     },
     {
       "id": "v_hana",
@@ -5266,7 +6847,13 @@
         "en": "After the rain, the flowers become beautiful.",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "花",
+          "r": "はな"
+        }
+      ]
     },
     {
       "id": "v_sakana",
@@ -5283,7 +6870,13 @@
         "en": "There are also big fish in the river. The fish looks delicious, doesn't it.",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "魚",
+          "r": "さかな"
+        }
+      ]
     },
     {
       "id": "v_hanabi",
@@ -5300,7 +6893,13 @@
         "en": "Every year there are fireworks. The fireworks are big and beautiful.",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "花火",
+          "r": "はなび"
+        }
+      ]
     },
     {
       "id": "v_kawaii",
@@ -5333,7 +6932,13 @@
         "en": "The goldfish in the river are beautiful even on rainy days. Aren't goldfish cute?",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "金魚",
+          "r": "きんぎょ"
+        }
+      ]
     },
     {
       "id": "v_kirei",
@@ -5382,7 +6987,13 @@
         "en": "Today's sky is very beautiful. The air is also nice.",
         "lessonId": "N5.11",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "空気",
+          "r": "くうき"
+        }
+      ]
     },
     {
       "id": "k_kata",
@@ -5393,7 +7004,13 @@
       "kun": "かた",
       "reading": "かた",
       "meaning": "language",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "語",
+          "r": "かた"
+        }
+      ]
     },
     {
       "id": "k_kuni",
@@ -5404,7 +7021,13 @@
       "kun": "くに",
       "reading": "くに",
       "meaning": "country",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "国",
+          "r": "くに"
+        }
+      ]
     },
     {
       "id": "k_mana",
@@ -5415,7 +7038,13 @@
       "kun": "まな",
       "reading": "まな",
       "meaning": "study",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "学",
+          "r": "まな"
+        }
+      ]
     },
     {
       "id": "k_moto",
@@ -5426,7 +7055,13 @@
       "kun": "もと",
       "reading": "もと",
       "meaning": "book",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "本",
+          "r": "もと"
+        }
+      ]
     },
     {
       "id": "v_hon",
@@ -5442,7 +7077,13 @@
         "en": "Japanese books are expensive, but they are good books.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "本",
+          "r": "ほん"
+        }
+      ]
     },
     {
       "id": "k_u6821",
@@ -5470,7 +7111,13 @@
         "en": "I was at a middle school in China. Now I am at a high school in Japan.",
         "lessonId": "N5.12",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "中学校",
+          "r": "ちゅうがっこう"
+        }
+      ]
     },
     {
       "id": "v_chuugoku",
@@ -5487,7 +7134,13 @@
         "en": "Yes, I came from China. Japanese is interesting, isn't it.",
         "lessonId": "N5.12",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "中国",
+          "r": "ちゅうごく"
+        }
+      ]
     },
     {
       "id": "v_daigaku",
@@ -5504,7 +7157,13 @@
         "en": "It's boring, but please study well. Do you want to go to university?",
         "lessonId": "N5.12",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "大学",
+          "r": "だいがく"
+        }
+      ]
     },
     {
       "id": "v_gaikoku",
@@ -5521,7 +7180,13 @@
         "en": "There are foreign students in the class. They have come from foreign countries.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "外国",
+          "r": "がいこく"
+        }
+      ]
     },
     {
       "id": "v_gaikokujin",
@@ -5538,7 +7203,13 @@
         "en": "There are foreign students in the class. They have come from foreign countries.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "外国人",
+          "r": "がいこくじん"
+        }
+      ]
     },
     {
       "id": "v_gakkou",
@@ -5555,7 +7226,13 @@
         "en": "I am a student. I go to school every day.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "学校",
+          "r": "がっこう"
+        }
+      ]
     },
     {
       "id": "v_gakusei",
@@ -5572,7 +7249,13 @@
         "en": "Next year, elementary school students will probably come too.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "学生",
+          "r": "がくせい"
+        }
+      ]
     },
     {
       "id": "v_kouchou",
@@ -5596,7 +7279,13 @@
           "v_hito",
           "g_desu"
         ]
-      }
+      },
+      "tokens": [
+        {
+          "k": "校長",
+          "r": "こうちょう"
+        }
+      ]
     },
     {
       "id": "v_koukou",
@@ -5613,7 +7302,13 @@
         "en": "Is that so? Is high school in Japan interesting?",
         "lessonId": "N5.12",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "高校",
+          "r": "こうこう"
+        }
+      ]
     },
     {
       "id": "v_kurasu_class",
@@ -5629,7 +7324,13 @@
         "en": "This class is great. There are boys. There are girls.",
         "lessonId": "N5.1",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "クラス",
+          "r": "くらす"
+        }
+      ]
     },
     {
       "id": "v_manabu",
@@ -5647,7 +7348,16 @@
         "en": "I want to learn a lot of Japanese.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "学",
+          "r": "まな"
+        },
+        {
+          "k": "ぶ"
+        }
+      ]
     },
     {
       "id": "v_nihon",
@@ -5664,7 +7374,13 @@
         "en": "Is that so? Is high school in Japan interesting?",
         "lessonId": "N5.12",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "日本",
+          "r": "にほん"
+        }
+      ]
     },
     {
       "id": "v_nihongo",
@@ -5684,6 +7400,12 @@
       },
       "matches": [
         "にほんご"
+      ],
+      "tokens": [
+        {
+          "k": "日本語",
+          "r": "にほんご"
+        }
       ]
     },
     {
@@ -5701,7 +7423,13 @@
         "en": "In my class there are Japanese and foreign teachers.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "日本人",
+          "r": "にほんじん"
+        }
+      ]
     },
     {
       "id": "v_nooto",
@@ -5717,7 +7445,13 @@
         "en": "I bought a Japanese book before the test. I also have a notebook and pen.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "ノート",
+          "r": "のーと"
+        }
+      ]
     },
     {
       "id": "v_omoshiroi",
@@ -5749,7 +7483,13 @@
         "en": "I bought a Japanese book before the test. I also have a notebook and pen.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "ペン",
+          "r": "ぺん"
+        }
+      ]
     },
     {
       "id": "v_shougakkou",
@@ -5766,7 +7506,13 @@
         "en": "Next year, elementary school students will probably come too.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "小学校",
+          "r": "しょうがっこう"
+        }
+      ]
     },
     {
       "id": "v_tesuto",
@@ -5782,7 +7528,13 @@
         "en": "The test is next week. I am studying well every day.",
         "lessonId": "N5.12",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "テスト",
+          "r": "てすと"
+        }
+      ]
     },
     {
       "id": "v_tsumaranai",
@@ -5809,7 +7561,13 @@
       "kun": "はな",
       "reading": "はな",
       "meaning": "speak",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "話",
+          "r": "はな"
+        }
+      ]
     },
     {
       "id": "k_i_2",
@@ -5820,7 +7578,13 @@
       "kun": "い",
       "reading": "い",
       "meaning": "say",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "言",
+          "r": "い"
+        }
+      ]
     },
     {
       "id": "k_ka",
@@ -5831,7 +7595,13 @@
       "kun": "か",
       "reading": "か",
       "meaning": "write",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "書",
+          "r": "か"
+        }
+      ]
     },
     {
       "id": "k_te",
@@ -5842,7 +7612,13 @@
       "kun": "て",
       "reading": "て",
       "meaning": "hand",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "手",
+          "r": "て"
+        }
+      ]
     },
     {
       "id": "v_te",
@@ -5858,7 +7634,13 @@
         "en": "Ren writes in his notebook. He writes slowly by hand.",
         "lessonId": "N5.13",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "手",
+          "r": "て"
+        }
+      ]
     },
     {
       "id": "v_ageru_raise",
@@ -5866,11 +7648,23 @@
       "meaning": "to raise / to lift",
       "type": "vocab",
       "gtype": "verb",
-      "notes": "Transitive. Contrast with 上がる (intransitive — to go up). The kanji form 上げる is used for physical raising (手を上げる = raise your hand). When 上げる means 'to give', it is almost always written in hiragana (あげる).",
+      "notes": "Transitive. Contrast with 上がる (intransitive — to go up). The kanji form 上げる is used for physical raising (手を上げる = raise your hand). When 上げる means 'to give', it is almost always written in hiragana (あげる). 上 (N5.16) — written as あげる before 上 is taught.",
       "lesson_ids": "N5.13",
       "reading": "あげる",
       "verb_class": "ichidan",
-      "readingAlign": "上(あ)げる"
+      "readingAlign": "上(あ)げる",
+      "matches": [
+        "あげる"
+      ],
+      "tokens": [
+        {
+          "k": "上",
+          "r": "あ"
+        },
+        {
+          "k": "げる"
+        }
+      ]
     },
     {
       "id": "k_yo",
@@ -5881,7 +7675,13 @@
       "kun": "よ",
       "reading": "よ",
       "meaning": "read",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "読",
+          "r": "よ"
+        }
+      ]
     },
     {
       "id": "v_denwa",
@@ -5898,7 +7698,13 @@
         "en": "I speak with friends on the phone every day.",
         "lessonId": "N5.13",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "電話",
+          "r": "でんわ"
+        }
+      ]
     },
     {
       "id": "v_hanasu",
@@ -5919,6 +7725,15 @@
       },
       "matches": [
         "はなす"
+      ],
+      "tokens": [
+        {
+          "k": "話",
+          "r": "はな"
+        },
+        {
+          "k": "す"
+        }
       ]
     },
     {
@@ -5937,7 +7752,16 @@
         "en": "He calls friends, talks to them, and speaks Japanese.",
         "lessonId": "N5.13",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "言",
+          "r": "い"
+        },
+        {
+          "k": "う"
+        }
+      ]
     },
     {
       "id": "v_kaku",
@@ -5958,6 +7782,15 @@
       },
       "matches": [
         "かく"
+      ],
+      "tokens": [
+        {
+          "k": "書",
+          "r": "か"
+        },
+        {
+          "k": "く"
+        }
       ]
     },
     {
@@ -5975,7 +7808,13 @@
         "en": "Ren also reads karate books. Karate is interesting.",
         "lessonId": "N5.13",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "空手",
+          "r": "からて"
+        }
+      ]
     },
     {
       "id": "v_yomu",
@@ -5993,7 +7832,16 @@
         "en": "I read and write Japanese every day.",
         "lessonId": "N5.13",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "読",
+          "r": "よ"
+        },
+        {
+          "k": "む"
+        }
+      ]
     },
     {
       "id": "v_yukkuri",
@@ -6020,7 +7868,13 @@
       "kun": "あいだ/ま",
       "reading": "あいだ/ま",
       "meaning": "between, space",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "間",
+          "r": "あいだ/ま"
+        }
+      ]
     },
     {
       "id": "k_oo",
@@ -6031,7 +7885,13 @@
       "kun": "おお",
       "reading": "おお",
       "meaning": "many",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "多",
+          "r": "おお"
+        }
+      ]
     },
     {
       "id": "k_shiro",
@@ -6042,7 +7902,13 @@
       "kun": "しろ",
       "reading": "しろ",
       "meaning": "white",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "白",
+          "r": "しろ"
+        }
+      ]
     },
     {
       "id": "k_suko",
@@ -6053,7 +7919,13 @@
       "kun": "すこ/すく",
       "reading": "すこ/すく",
       "meaning": "a little / scarce",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "少",
+          "r": "すこ/すく"
+        }
+      ]
     },
     {
       "id": "v_hakujin",
@@ -6070,7 +7942,13 @@
         "en": "Ken's mother is Caucasian. His father is Japanese.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "白人",
+          "r": "はくじん"
+        }
+      ]
     },
     {
       "id": "v_jikan",
@@ -6087,7 +7965,13 @@
         "en": "I usually come on Saturdays. Today I have a little time.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "時間",
+          "r": "じかん"
+        }
+      ]
     },
     {
       "id": "v_ooi",
@@ -6108,7 +7992,16 @@
         "en": "The two read many Japanese books.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "多",
+          "r": "おお"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "v_shiroi",
@@ -6126,7 +8019,16 @@
         "en": "Today I came outside the school. There are many white flowers.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "白",
+          "r": "しろ"
+        },
+        {
+          "k": "い"
+        }
+      ]
     },
     {
       "id": "v_shoujo",
@@ -6143,7 +8045,13 @@
         "en": "There is also a girl. Her name is Nana.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "少女",
+          "r": "しょうじょ"
+        }
+      ]
     },
     {
       "id": "v_shounen",
@@ -6160,7 +8068,13 @@
         "en": "There is a boy at school. His name is Ken.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "少年",
+          "r": "しょうねん"
+        }
+      ]
     },
     {
       "id": "v_sukoshi",
@@ -6177,7 +8091,16 @@
         "en": "I usually come on Saturdays. Today I have a little time.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "少",
+          "r": "すこ"
+        },
+        {
+          "k": "し"
+        }
+      ]
     },
     {
       "id": "v_sukunai",
@@ -6195,7 +8118,16 @@
         "en": "The flowers outside are very beautiful. There are few people.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "少",
+          "r": "すく"
+        },
+        {
+          "k": "ない"
+        }
+      ]
     },
     {
       "id": "v_tabun",
@@ -6212,7 +8144,13 @@
         "en": "I will probably come again. I want to come every week.",
         "lessonId": "N5.14",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "多分",
+          "r": "たぶん"
+        }
+      ]
     },
     {
       "id": "v_taitei",
@@ -6255,7 +8193,13 @@
       "kun": "ひがし",
       "reading": "ひがし",
       "meaning": "east",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "東",
+          "r": "ひがし"
+        }
+      ]
     },
     {
       "id": "k_kita",
@@ -6266,7 +8210,13 @@
       "kun": "きた",
       "reading": "きた",
       "meaning": "north",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "北",
+          "r": "きた"
+        }
+      ]
     },
     {
       "id": "k_minami",
@@ -6277,7 +8227,13 @@
       "kun": "みなみ",
       "reading": "みなみ",
       "meaning": "south",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "南",
+          "r": "みなみ"
+        }
+      ]
     },
     {
       "id": "k_nishi",
@@ -6288,7 +8244,13 @@
       "kun": "にし",
       "reading": "にし",
       "meaning": "west",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "西",
+          "r": "にし"
+        }
+      ]
     },
     {
       "id": "v_hokusei",
@@ -6305,7 +8267,13 @@
         "en": "There are many mountains in the north of Japan. There are also mountains in the northeast and northwest.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "北西",
+          "r": "ほくせい"
+        }
+      ]
     },
     {
       "id": "v_hokutou",
@@ -6322,7 +8290,13 @@
         "en": "They are going to the northeast by train. The road is a little long.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "北東",
+          "r": "ほくとう"
+        }
+      ]
     },
     {
       "id": "v_nansei",
@@ -6339,7 +8313,13 @@
         "en": "The weather in the south is nice. There are many white flowers in both the southwest and southeast.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "南西",
+          "r": "なんせい"
+        }
+      ]
     },
     {
       "id": "v_nantou",
@@ -6356,7 +8336,13 @@
         "en": "The weather in the south is nice. There are many white flowers in both the southwest and southeast.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "南東",
+          "r": "なんとう"
+        }
+      ]
     },
     {
       "id": "v_kita",
@@ -6373,7 +8359,13 @@
         "en": "There are large rivers to the east. From north to east, there are many rivers.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "北",
+          "r": "きた"
+        }
+      ]
     },
     {
       "id": "v_minami",
@@ -6390,7 +8382,13 @@
         "en": "The weather in the south is nice. There are many white flowers in both the southwest and southeast.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "南",
+          "r": "みなみ"
+        }
+      ]
     },
     {
       "id": "v_higashi",
@@ -6407,7 +8405,13 @@
         "en": "There are large rivers to the east. From north to east, there are many rivers.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "東",
+          "r": "ひがし"
+        }
+      ]
     },
     {
       "id": "v_nishi",
@@ -6424,7 +8428,13 @@
         "en": "I want to go from north to south. The mountains in the east and the roads in the west are also nice.",
         "lessonId": "N5.15",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "西",
+          "r": "にし"
+        }
+      ]
     },
     {
       "id": "k_hidari",
@@ -6435,7 +8445,13 @@
       "kun": "ひだり",
       "reading": "ひだり",
       "meaning": "left",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "左",
+          "r": "ひだり"
+        }
+      ]
     },
     {
       "id": "v_hidari",
@@ -6452,7 +8468,13 @@
         "en": "To the left, there are beautiful flowers along the road. The river is long and beautiful.",
         "lessonId": "N5.16",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "左",
+          "r": "ひだり"
+        }
+      ]
     },
     {
       "id": "k_migi",
@@ -6463,7 +8485,13 @@
       "kun": "みぎ",
       "reading": "みぎ",
       "meaning": "right",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "右",
+          "r": "みぎ"
+        }
+      ]
     },
     {
       "id": "v_migi",
@@ -6480,7 +8508,13 @@
         "en": "Above the station there is a large shop. To the right, there is a long river along the road.",
         "lessonId": "N5.16",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "右",
+          "r": "みぎ"
+        }
+      ]
     },
     {
       "id": "k_shita",
@@ -6491,7 +8525,13 @@
       "kun": "した",
       "reading": "した",
       "meaning": "below",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "下",
+          "r": "した"
+        }
+      ]
     },
     {
       "id": "v_shita",
@@ -6508,7 +8548,13 @@
         "en": "The road below is old, but I go by train every day. The train goes from right to left.",
         "lessonId": "N5.16",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "下",
+          "r": "した"
+        }
+      ]
     },
     {
       "id": "k_ue",
@@ -6519,7 +8565,13 @@
       "kun": "うえ",
       "reading": "うえ",
       "meaning": "above",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "上",
+          "r": "うえ"
+        }
+      ]
     },
     {
       "id": "v_ue",
@@ -6536,7 +8588,13 @@
         "en": "The shop above is large and nice. I want to go to the shop above with friends.",
         "lessonId": "N5.16",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "上",
+          "r": "うえ"
+        }
+      ]
     },
     {
       "id": "v_heta",
@@ -6550,11 +8608,17 @@
       "verb_class": "na_adj",
       "readingAlign": "下手{へた}",
       "example": {
-        "jp": "りきぞさんは 毎日 日本語を 読んでいます。まだ 下手ですが、上手に なりたいです。",
+        "jp": "りきぞうさんは 毎日 日本語を 読んでいます。まだ 下手ですが、上手に なりたいです。",
         "en": "Rikizo reads Japanese every day. He is still not skilled, but wants to become skilled.",
         "lessonId": "N5.16",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "下手",
+          "r": "へた"
+        }
+      ]
     },
     {
       "id": "v_jouzu",
@@ -6572,7 +8636,13 @@
         "en": "I am getting a little better every day. I want to speak Japanese skillfully.",
         "lessonId": "N5.16",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "上手",
+          "r": "じょうず"
+        }
+      ]
     },
     {
       "id": "k_a",
@@ -6583,7 +8653,13 @@
       "kun": "あ",
       "reading": "あ",
       "meaning": "meet",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "会",
+          "r": "あ"
+        }
+      ]
     },
     {
       "id": "k_de",
@@ -6594,7 +8670,13 @@
       "kun": "で;だ",
       "reading": "で;だ",
       "meaning": "exit / take out",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "出",
+          "r": "で;だ"
+        }
+      ]
     },
     {
       "id": "k_i_3",
@@ -6605,7 +8687,13 @@
       "kun": "い/はい",
       "reading": "い/はい",
       "meaning": "enter / go in /put in",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "入",
+          "r": "い/はい"
+        }
+      ]
     },
     {
       "id": "k_kuchi",
@@ -6616,7 +8704,13 @@
       "kun": "くち",
       "reading": "くち",
       "meaning": "mouth / opening",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "口",
+          "r": "くち"
+        }
+      ]
     },
     {
       "id": "k_u5348",
@@ -6654,7 +8748,13 @@
         "en": "Enter society, join a company, and let's speak a lot. Part-time work is also good!",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "アルバイト",
+          "r": "あるばいと"
+        }
+      ]
     },
     {
       "id": "v_kuchi",
@@ -6671,7 +8771,13 @@
         "en": "Where shall we eat dinner? I want somewhere that suits our taste.",
         "lessonId": "N4.27",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "口",
+          "r": "くち"
+        }
+      ]
     },
     {
       "id": "v_au",
@@ -6689,7 +8795,16 @@
         "en": "In the morning, he met the company president. They had a Japanese conversation inside the company.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "会",
+          "r": "あ"
+        },
+        {
+          "k": "う"
+        }
+      ]
     },
     {
       "id": "v_dasu",
@@ -6707,7 +8822,16 @@
         "en": "Yes, I took out the books and put them inside.",
         "lessonId": "N5.17",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "出",
+          "r": "だ"
+        },
+        {
+          "k": "す"
+        }
+      ]
     },
     {
       "id": "v_deguchi",
@@ -6724,7 +8848,13 @@
         "en": "Companies have an entrance and an exit. Many people enter from morning to afternoon.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "出口",
+          "r": "でぐち"
+        }
+      ]
     },
     {
       "id": "v_deru",
@@ -6742,7 +8872,16 @@
         "en": "Enter society, join a company, and let's speak a lot. Part-time work is also good!",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "出",
+          "r": "で"
+        },
+        {
+          "k": "る"
+        }
+      ]
     },
     {
       "id": "v_gogo",
@@ -6759,7 +8898,13 @@
         "en": "Companies have an entrance and an exit. Many people enter from morning to afternoon.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "午後",
+          "r": "ごご"
+        }
+      ]
     },
     {
       "id": "v_gozen",
@@ -6776,7 +8921,13 @@
         "en": "In the morning, he met the company president. They had a Japanese conversation inside the company.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "午前",
+          "r": "ごぜん"
+        }
+      ]
     },
     {
       "id": "v_hairu",
@@ -6794,7 +8945,16 @@
         "en": "Enter society, join a company, and let's speak a lot. Part-time work is also good!",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "入",
+          "r": "はい"
+        },
+        {
+          "k": "る"
+        }
+      ]
     },
     {
       "id": "v_ireru",
@@ -6812,7 +8972,16 @@
         "en": "Yes, I took out the books and put them inside.",
         "lessonId": "N5.17",
         "sectionType": "conversation"
-      }
+      },
+      "tokens": [
+        {
+          "k": "入",
+          "r": "い"
+        },
+        {
+          "k": "れる"
+        }
+      ]
     },
     {
       "id": "v_iriguchi",
@@ -6823,13 +8992,20 @@
       "notes": "",
       "lesson_ids": "N5.17",
       "reading": "いりぐち",
+      "matches": ["入口"],
       "readingAlign": "入(い)り口(ぐち)",
       "example": {
-        "jp": "今日、りきぞさんは 会社に 来ました。入り口は 右に ありました。",
+        "jp": "今日、りきぞうさんは 会社に 来ました。入り口は 右に ありました。",
         "en": "Today, Rikizo came to the company. The entrance was to the right.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "入り口",
+          "r": "いりぐち"
+        }
+      ]
     },
     {
       "id": "v_kaisha",
@@ -6842,11 +9018,17 @@
       "reading": "かいしゃ",
       "readingAlign": "会(かい)社(しゃ)",
       "example": {
-        "jp": "今日、りきぞさんは 会社に 来ました。入り口は 右に ありました。",
+        "jp": "今日、りきぞうさんは 会社に 来ました。入り口は 右に ありました。",
         "en": "Today, Rikizo came to the company. The entrance was to the right.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "会社",
+          "r": "かいしゃ"
+        }
+      ]
     },
     {
       "id": "v_kaiwa",
@@ -6863,7 +9045,13 @@
         "en": "In the morning, he met the company president. They had a Japanese conversation inside the company.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "会話",
+          "r": "かいわ"
+        }
+      ]
     },
     {
       "id": "v_shachou",
@@ -6880,7 +9068,13 @@
         "en": "In the morning, he met the company president. They had a Japanese conversation inside the company.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "社長",
+          "r": "しゃちょう"
+        }
+      ]
     },
     {
       "id": "v_shakai",
@@ -6897,7 +9091,13 @@
         "en": "Companies exist within society. There are many large companies in Japan.",
         "lessonId": "N5.17",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "社会",
+          "r": "しゃかい"
+        }
+      ]
     },
     {
       "id": "k_ashi",
@@ -6908,7 +9108,13 @@
       "kun": "あし",
       "reading": "あし",
       "meaning": "leg / foot",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "足",
+          "r": "あし"
+        }
+      ]
     },
     {
       "id": "k_ki_2",
@@ -6919,7 +9125,13 @@
       "kun": "き",
       "reading": "き",
       "meaning": "hear",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "聞",
+          "r": "き"
+        }
+      ]
     },
     {
       "id": "k_me",
@@ -6930,7 +9142,13 @@
       "kun": "め",
       "reading": "め",
       "meaning": "eye",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "目",
+          "r": "め"
+        }
+      ]
     },
     {
       "id": "k_mi_2",
@@ -6941,7 +9159,13 @@
       "kun": "み",
       "reading": "み",
       "meaning": "see / show",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "見",
+          "r": "み"
+        }
+      ]
     },
     {
       "id": "k_mimi",
@@ -6952,7 +9176,13 @@
       "kun": "みみ",
       "reading": "みみ",
       "meaning": "ear",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "耳",
+          "r": "みみ"
+        }
+      ]
     },
     {
       "id": "v_mimi",
@@ -6969,7 +9199,13 @@
         "en": "He listens to Japanese with his ears. His feet hurt a little, but he is standing.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "耳",
+          "r": "みみ"
+        }
+      ]
     },
     {
       "id": "k_ta_2",
@@ -6980,7 +9216,13 @@
       "kun": "た",
       "reading": "た",
       "meaning": "stand",
-      "notes": ""
+      "notes": "",
+      "tokens": [
+        {
+          "k": "立",
+          "r": "た"
+        }
+      ]
     },
     {
       "id": "v_itai",
@@ -7037,6 +9279,15 @@
       },
       "matches": [
         "きく"
+      ],
+      "tokens": [
+        {
+          "k": "聞",
+          "r": "き"
+        },
+        {
+          "k": "く"
+        }
       ]
     },
     {
@@ -7071,7 +9322,16 @@
         "en": "Standing outside, he watches the mountains and river. A large mountain is visible. It looks beautiful.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "見",
+          "r": "み"
+        },
+        {
+          "k": "える"
+        }
+      ]
     },
     {
       "id": "v_miru",
@@ -7089,7 +9349,16 @@
         "en": "Our feet hurt a little, but let's stand. Let's look together.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "見",
+          "r": "み"
+        },
+        {
+          "k": "る"
+        }
+      ]
     },
     {
       "id": "v_miseru",
@@ -7103,11 +9372,20 @@
       "verb_class": "ichidan",
       "readingAlign": "見(み)せる",
       "example": {
-        "jp": "りきぞさんは 新聞を 友だちに 見せます。友だちは 少し こわそうです。かなしい ことも 聞きました。",
+        "jp": "りきぞうさんは 新聞を 友だちに 見せます。友だちは 少し こわそうです。かなしい ことも 聞きました。",
         "en": "Rikizo shows the newspaper to his friend. The friend looks a little scared. He also heard sad things.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "見",
+          "r": "み"
+        },
+        {
+          "k": "せる"
+        }
+      ]
     },
     {
       "id": "v_shinbun",
@@ -7120,11 +9398,17 @@
       "reading": "しんぶん",
       "readingAlign": "新(しん)聞(ぶん)",
       "example": {
-        "jp": "りきぞさんは 毎日 午前に 新聞を 見ます。目で よく 読みます。",
+        "jp": "りきぞうさんは 毎日 午前に 新聞を 見ます。目で よく 読みます。",
         "en": "Rikizo reads the newspaper every morning. He reads it carefully with his eyes.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "新聞",
+          "r": "しんぶん"
+        }
+      ]
     },
     {
       "id": "v_tatsu",
@@ -7142,7 +9426,16 @@
         "en": "Our feet hurt a little, but let's stand. Let's look together.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "立",
+          "r": "た"
+        },
+        {
+          "k": "つ"
+        }
+      ]
     },
     {
       "id": "v_suwaru",
@@ -7166,11 +9459,17 @@
       "reading": "め",
       "readingAlign": "目(め)",
       "example": {
-        "jp": "りきぞさんは 毎日 午前に 新聞を 見ます。目で よく 読みます。",
+        "jp": "りきぞうさんは 毎日 午前に 新聞を 見ます。目で よく 読みます。",
         "en": "Rikizo reads the newspaper every morning. He reads it carefully with his eyes.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "目",
+          "r": "め"
+        }
+      ]
     },
     {
       "id": "v_ashi",
@@ -7187,7 +9486,13 @@
         "en": "Our feet hurt a little, but let's stand. Let's look together.",
         "lessonId": "N5.18",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "足",
+          "r": "あし"
+        }
+      ]
     },
     {
       "id": "v_taisetsu",
@@ -7205,7 +9510,13 @@
         "en": "He arrives home and eats fish. It is a very important time.",
         "lessonId": "N4.1",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "大切",
+          "r": "たいせつ"
+        }
+      ]
     },
     {
       "id": "v_kazoku",
@@ -7225,7 +9536,873 @@
         "en": "There are five people in my family: my parents, older brother, older sister, younger sister, and me.",
         "lessonId": "N4.7",
         "sectionType": "reading"
-      }
+      },
+      "tokens": [
+        {
+          "k": "家族",
+          "r": "かぞく"
+        }
+      ]
+    },
+    {
+      "id": "v_kinyoubi_hybrid",
+      "surface": "金よう日",
+      "reading": "きんようび",
+      "meaning": "Friday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 金曜日 used in early N5 stories before 曜 is taught.",
+      "tokens": [
+        {
+          "k": "金",
+          "r": "きん"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_getsuyoubi_hybrid",
+      "surface": "月よう日",
+      "reading": "げつようび",
+      "meaning": "Monday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 月曜日.",
+      "tokens": [
+        {
+          "k": "月",
+          "r": "げつ"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_kayoubi_hybrid",
+      "surface": "火よう日",
+      "reading": "かようび",
+      "meaning": "Tuesday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 火曜日.",
+      "tokens": [
+        {
+          "k": "火",
+          "r": "か"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_suiyoubi_hybrid",
+      "surface": "水よう日",
+      "reading": "すいようび",
+      "meaning": "Wednesday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 水曜日.",
+      "tokens": [
+        {
+          "k": "水",
+          "r": "すい"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_mokuyoubi_hybrid",
+      "surface": "木よう日",
+      "reading": "もくようび",
+      "meaning": "Thursday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 木曜日.",
+      "tokens": [
+        {
+          "k": "木",
+          "r": "もく"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_doyoubi_hybrid",
+      "surface": "土よう日",
+      "reading": "どようび",
+      "meaning": "Saturday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 土曜日.",
+      "tokens": [
+        {
+          "k": "土",
+          "r": "ど"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_nichiyoubi_hybrid",
+      "surface": "日よう日",
+      "reading": "にちようび",
+      "meaning": "Sunday (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 日曜日.",
+      "tokens": [
+        {
+          "k": "日",
+          "r": "にち"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_nanyoubi_hybrid",
+      "surface": "何よう日",
+      "reading": "なんようび",
+      "meaning": "what day of the week (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid form of 何曜日.",
+      "tokens": [
+        {
+          "k": "何",
+          "r": "なん"
+        },
+        {
+          "k": "よう"
+        },
+        {
+          "k": "日",
+          "r": "び"
+        }
+      ]
+    },
+    {
+      "id": "v_tomodachi_hybrid",
+      "surface": "友だち",
+      "reading": "ともだち",
+      "meaning": "friend (kana-hybrid spelling)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.1",
+      "notes": "Kana-hybrid form of 友達 used before 達 is taught.",
+      "tokens": [
+        {
+          "k": "友",
+          "r": "とも"
+        },
+        {
+          "k": "だち"
+        }
+      ]
+    },
+    {
+      "id": "v_iru__polite",
+      "surface": "います",
+      "reading": "います",
+      "meaning": "to exist / to be (animate, polite form of いる)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "lesson_ids": "N5.7",
+      "notes": "Polite form of いる. Used for animate existence (people, animals).",
+      "tokens": [
+        {
+          "k": "います"
+        }
+      ]
+    },
+    {
+      "id": "v_aru__polite",
+      "surface": "あります",
+      "reading": "あります",
+      "meaning": "to exist / to have (inanimate, polite form of ある)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "lesson_ids": "N5.7",
+      "notes": "Polite form of ある. Used for inanimate existence (things, events).",
+      "tokens": [
+        {
+          "k": "あります"
+        }
+      ]
+    },
+    {
+      "id": "v_suru__polite",
+      "surface": "します",
+      "reading": "します",
+      "meaning": "to do / to play (polite form of する)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "suru",
+      "lesson_ids": "N5.5",
+      "notes": "Polite form of する. The universal 'do' verb.",
+      "tokens": [
+        {
+          "k": "します"
+        }
+      ]
+    },
+    {
+      "id": "v_daisuki_hybrid",
+      "surface": "大すき",
+      "reading": "だいすき",
+      "meaning": "love / favorite (kana-hybrid spelling of 大好き)",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "lesson_ids": "N5.6",
+      "notes": "Kana-hybrid spelling of 大好き before 好 is taught.",
+      "tokens": [
+        {
+          "k": "大",
+          "r": "だい"
+        },
+        {
+          "k": "すき"
+        }
+      ]
+    },
+    {
+      "id": "v_ichiji",
+      "surface": "一時",
+      "reading": "いちじ",
+      "meaning": "one o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter — see also 二時, 三時, etc.",
+      "tokens": [
+        {
+          "k": "一",
+          "r": "いち"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_niji",
+      "surface": "二時",
+      "reading": "にじ",
+      "meaning": "two o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "二",
+          "r": "に"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_sanji",
+      "surface": "三時",
+      "reading": "さんじ",
+      "meaning": "three o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "三",
+          "r": "さん"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_yoji",
+      "surface": "四時",
+      "reading": "よじ",
+      "meaning": "four o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "四",
+          "r": "よ"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_goji",
+      "surface": "五時",
+      "reading": "ごじ",
+      "meaning": "five o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "五",
+          "r": "ご"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_rokuji",
+      "surface": "六時",
+      "reading": "ろくじ",
+      "meaning": "six o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "六",
+          "r": "ろく"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_shichiji",
+      "surface": "七時",
+      "reading": "しちじ",
+      "meaning": "seven o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "七",
+          "r": "しち"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_hachiji",
+      "surface": "八時",
+      "reading": "はちじ",
+      "meaning": "eight o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "八",
+          "r": "はち"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_kuji",
+      "surface": "九時",
+      "reading": "くじ",
+      "meaning": "nine o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "九",
+          "r": "く"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_juuji",
+      "surface": "十時",
+      "reading": "じゅうじ",
+      "meaning": "ten o'clock",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.10",
+      "notes": "Clock-time counter.",
+      "tokens": [
+        {
+          "k": "十",
+          "r": "じゅう"
+        },
+        {
+          "k": "時",
+          "r": "じ"
+        }
+      ]
+    },
+    {
+      "id": "v_iku__polite_past",
+      "surface": "行きました",
+      "reading": "いきました",
+      "meaning": "went (past polite of 行く)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5.7",
+      "notes": "Polite past form of 行く.",
+      "tokens": [
+        {
+          "k": "行",
+          "r": "い"
+        },
+        {
+          "k": "きました"
+        }
+      ]
+    },
+    {
+      "id": "aux_mashita",
+      "surface": "ました",
+      "reading": "ました",
+      "meaning": "polite past suffix",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_masen",
+      "surface": "ません",
+      "reading": "ません",
+      "meaning": "polite negative suffix",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_masendeshita",
+      "surface": "ませんでした",
+      "reading": "ませんでした",
+      "meaning": "polite negative past suffix",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_mashou",
+      "surface": "ましょう",
+      "reading": "ましょう",
+      "meaning": "polite volitional (\"let's\")",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_masenka",
+      "surface": "ませんか",
+      "reading": "ませんか",
+      "meaning": "polite invitation (\"won't you?\")",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_deshita",
+      "surface": "でした",
+      "reading": "でした",
+      "meaning": "copula past polite",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_tai",
+      "surface": "たい",
+      "reading": "たい",
+      "meaning": "desiderative (\"want to\")",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_takatta",
+      "surface": "たかった",
+      "reading": "たかった",
+      "meaning": "desiderative past",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_takunai",
+      "surface": "たくない",
+      "reading": "たくない",
+      "meaning": "desiderative negative",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_teiru",
+      "surface": "ている",
+      "reading": "ている",
+      "meaning": "progressive (plain) \"is doing\"",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_teimasu",
+      "surface": "ています",
+      "reading": "ています",
+      "meaning": "progressive (polite)",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_teimashita",
+      "surface": "ていました",
+      "reading": "ていました",
+      "meaning": "progressive past polite",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_teita",
+      "surface": "ていた",
+      "reading": "ていた",
+      "meaning": "progressive past (plain)",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_tari",
+      "surface": "たり",
+      "reading": "たり",
+      "meaning": "listing actions (\"doing things like…\")",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_tara",
+      "surface": "たら",
+      "reading": "たら",
+      "meaning": "conditional (\"if/when\")",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_kereba",
+      "surface": "ければ",
+      "reading": "ければ",
+      "meaning": "i-adj conditional",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_reba",
+      "surface": "れば",
+      "reading": "れば",
+      "meaning": "ば-form conditional",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_nakute",
+      "surface": "なくて",
+      "reading": "なくて",
+      "meaning": "negative te-form",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_dekiru",
+      "surface": "できる",
+      "reading": "できる",
+      "meaning": "to be able to / can do",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage. Ichidan; conjugates with -る suffix substitution (できて, できた, できない)."
+    },
+    {
+      "id": "v_dekiru__polite",
+      "surface": "できます",
+      "reading": "できます",
+      "meaning": "can do (polite)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_dekiru__polite_past",
+      "surface": "できました",
+      "reading": "できました",
+      "meaning": "could do (polite past)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_dekiru__polite_neg",
+      "surface": "できません",
+      "reading": "できません",
+      "meaning": "cannot do (polite)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_kunaru",
+      "surface": "くなる",
+      "reading": "くなる",
+      "meaning": "i-adj→verb \"become\" (plain)",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_kunarimashita",
+      "surface": "くなりました",
+      "reading": "くなりました",
+      "meaning": "i-adj→verb \"became\" (polite)",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_ninaru",
+      "surface": "になる",
+      "reading": "になる",
+      "meaning": "noun→verb \"become\" (plain)",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "aux_ninarimashita",
+      "surface": "になりました",
+      "reading": "になりました",
+      "meaning": "noun→verb \"became\" (polite)",
+      "type": "vocab",
+      "gtype": "auxiliary",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_omou_kana",
+      "surface": "おもう",
+      "reading": "おもう",
+      "meaning": "to think (kana spelling of 思う)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_omotta_kana",
+      "surface": "おもった",
+      "reading": "おもった",
+      "meaning": "thought (plain past, kana)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_iu_kana",
+      "surface": "いう",
+      "reading": "いう",
+      "meaning": "to say (kana spelling of 言う)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_itta_kana",
+      "surface": "いった",
+      "reading": "いった",
+      "meaning": "said (plain past, kana)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_aru__polite_neg",
+      "surface": "ありません",
+      "reading": "ありません",
+      "meaning": "doesn't exist (polite negative)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_aru__polite_past",
+      "surface": "ありました",
+      "reading": "ありました",
+      "meaning": "existed / there was (polite past)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_iru__polite_past",
+      "surface": "いました",
+      "reading": "いました",
+      "meaning": "was here (polite past)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_kuru__polite",
+      "surface": "きました",
+      "reading": "きました",
+      "meaning": "came (polite past, kana)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_naru__polite_past",
+      "surface": "なりました",
+      "reading": "なりました",
+      "meaning": "became (polite past)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_naru__polite_neg",
+      "surface": "なりません",
+      "reading": "なりません",
+      "meaning": "does not become (polite neg)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
+    },
+    {
+      "id": "v_iimashita_kana",
+      "surface": "いいました",
+      "reading": "いいました",
+      "meaning": "said (polite past, kana)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5",
+      "notes": "Common suffix/auxiliary added for story tokenization coverage."
     }
   ]
 }

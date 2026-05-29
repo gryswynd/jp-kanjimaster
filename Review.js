@@ -53,7 +53,7 @@
     onExit: null,
 
     // --- PUBLIC START METHOD ---
-    start: function(container, config, onExit) {
+    start: function(container, config, onExit, deepLinkReviewId) {
       this.container = container;
       this.onExit = onExit;
 
@@ -70,12 +70,13 @@
       // Inject styles early so menu renders correctly
       this.injectStyles();
 
-      // Show review selection list (like Lesson.js)
-      this.fetchReviewList();
+      // Show review selection list (like Lesson.js) — or jump straight to a
+      // specific review when deep-linked from the Map.
+      this.fetchReviewList(deepLinkReviewId);
     },
 
     // --- REVIEW LIST (reads from manifest.json) ---
-    fetchReviewList: async function() {
+    fetchReviewList: async function(deepLinkReviewId) {
       this.container.innerHTML = `
         <div id="jp-test-wrapper">
           <div id="jp-test-embed">
@@ -114,6 +115,17 @@
 
         console.log('[Review] Levels with reviews:', Object.keys(byLevel));
         this._reviewsByLevel = byLevel;
+        if (deepLinkReviewId) {
+          let match = null;
+          Object.keys(byLevel).forEach(level => {
+            if (match) return;
+            match = (byLevel[level] || []).find(r => r.id === deepLinkReviewId) || null;
+          });
+          if (match) {
+            this.loadReview(match.file, match.id);
+            return;
+          }
+        }
         this.renderLevelPickerView(byLevel);
       } catch (err) {
         document.getElementById('jp-stage').innerHTML = `
@@ -308,6 +320,30 @@
 
     // Helpers
     el: (id) => document.getElementById(id),
+
+    // Render a Japanese surface through the reading-aids pipeline. Looks up
+    // tokens by exact surface match in termMap; falls back to bare string
+    // (or escaped HTML if jp-text isn't loaded).
+    jpRender: function (surface) {
+      const rk = window.JPShared && window.JPShared.jpText;
+      if (!surface) return '';
+      if (!rk) return String(surface).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      // Build (and cache) surface→entry index once per review session.
+      if (!this._surfaceIdx) {
+        this._surfaceIdx = new Map();
+        const m = (this.state && this.state.termMap) || {};
+        for (const id in m) {
+          const e = m[id];
+          const k = e && (e.surface || e.particle);
+          if (k && !this._surfaceIdx.has(k)) this._surfaceIdx.set(k, e);
+        }
+      }
+      const entry = this._surfaceIdx.get(surface);
+      if (entry) {
+        return rk.render({ surface: surface, reading: entry.reading, tokens: entry.tokens });
+      }
+      return rk.render(surface);
+    },
     getUrl: function(filepath) {
        return window.getAssetUrl(this.config, filepath || this.config.path);
     },
@@ -1013,7 +1049,7 @@
         const isDistractor = distractorWords.includes(word);
         const chip = document.createElement('div');
         chip.className = 'jp-chip';
-        chip.innerText = word;
+        chip.innerHTML = this.jpRender(word);
         allChipMeta.push({ chip, isDistractor });
 
         chip.onclick = () => {
@@ -1023,7 +1059,7 @@
 
           const inChip = document.createElement('div');
           inChip.className = 'jp-chip jp-in-chip';
-          inChip.innerText = word;
+          inChip.innerHTML = this.jpRender(word);
           inChipToPoolChip.set(inChip, chip);
 
           inChip.onclick = () => {

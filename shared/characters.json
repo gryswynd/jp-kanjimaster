@@ -3,12 +3,15 @@
     {
       "id": "char_rikizo",
       "type": "character",
-      "surface": "りきぞ",
-      "reading": "りきぞ",
+      "surface": "りきぞう",
+      "reading": "りきぞう",
       "meaning": "Rikizo",
       "description": "The protagonist — a cheerful, curious learner navigating everyday life in Japan.",
       "portrait": "assets/characters/rikizo/rikizo_head.png",
-      "matches": ["りきぞう"]
+      "matches": [
+        "りきぞう",
+        "りきぞうさん"
+      ]
     },
     {
       "id": "char_yamakawa",
@@ -18,7 +21,9 @@
       "meaning": "Yamakawa",
       "description": "Rikizo's good friend — a relaxed, easy-going companion who often runs into him around town.",
       "portrait": "assets/characters/yamakawa/yamakawa_head.png",
-      "matches": []
+      "matches": [
+        "やまかわさん"
+      ]
     },
     {
       "id": "char_suzuki",
@@ -28,7 +33,10 @@
       "meaning": "Suzuki-sensei",
       "description": "A warm and kind teacher at Rikizo's school — widely regarded as the most gentle teacher.",
       "portrait": "assets/characters/suzuki/suzuki_head.png",
-      "matches": ["すずき先生", "すずきせんせい"]
+      "matches": [
+        "すずき先生",
+        "すずきせんせい"
+      ]
     },
     {
       "id": "char_yamamoto",
@@ -38,7 +46,10 @@
       "meaning": "Yamamoto-sensei",
       "description": "A kind and patient teacher at Rikizo's school.",
       "portrait": "assets/characters/yamamoto/yamamoto_head.png",
-      "matches": ["やまもと先生", "やまもとせんせい"]
+      "matches": [
+        "やまもと先生",
+        "やまもとせんせい"
+      ]
     },
     {
       "id": "char_ken",
@@ -48,7 +59,10 @@
       "meaning": "Ken",
       "description": "A close friend of Rikizo — upbeat and always up for celebrating.",
       "portrait": "assets/characters/ken/ken_head.png",
-      "matches": ["ケン"]
+      "matches": [
+        "ケン",
+        "けんさん"
+      ]
     },
     {
       "id": "char_yuki",
@@ -58,7 +72,9 @@
       "meaning": "Yuki",
       "description": "A classmate who appears in early grammar practice conversations.",
       "portrait": "assets/characters/yuki/yuki_head.png",
-      "matches": []
+      "matches": [
+        "ゆきさん"
+      ]
     },
     {
       "id": "char_lee",
@@ -68,7 +84,9 @@
       "meaning": "Lee",
       "description": "An international student from China learning Japanese in Japan — friendly and earnest, always trying his best.",
       "portrait": "assets/characters/lee/lee_head.png",
-      "matches": ["リーさん"]
+      "matches": [
+        "リーさん"
+      ]
     },
     {
       "id": "char_taro",
@@ -78,7 +96,9 @@
       "meaning": "Taro",
       "description": "Rikizo's father — kind and gentle.",
       "portrait": "assets/characters/taro/taro_head.png",
-      "matches": []
+      "matches": [
+        "たろうさん"
+      ]
     },
     {
       "id": "char_sakura",
@@ -88,7 +108,9 @@
       "meaning": "Sakura",
       "description": "Rikizo's mother — warm and caring.",
       "portrait": "assets/characters/sakura/sakura_head.png",
-      "matches": []
+      "matches": [
+        "さくらさん"
+      ]
     },
     {
       "id": "char_miki",
@@ -118,7 +140,9 @@
       "meaning": "Ren",
       "description": "A cheerful guy in his 20s who seems to work everywhere in town — always tired but always smiling.",
       "portrait": "assets/characters/ren/ren_head.png",
-      "matches": ["れん"]
+      "matches": [
+        "れん"
+      ]
     },
     {
       "id": "char_joel",
@@ -128,7 +152,10 @@
       "meaning": "Joel",
       "description": "A tall American English teacher with a Pacific Northwest vibe — long grey-streaked hair worn in a bun, always smiling regardless of what he's actually feeling inside.",
       "portrait": "assets/characters/joel/joel_head.png",
-      "matches": ["ジョエルせんせい", "ジョエル先生"]
+      "matches": [
+        "ジョエルせんせい",
+        "ジョエル先生"
+      ]
     },
     {
       "id": "char_conor",
@@ -138,7 +165,9 @@
       "meaning": "Conor",
       "description": "A tall American exchange student who speaks decent Japanese but sometimes needs things explained. He always uses polite speech, no matter how casual the situation.",
       "portrait": "assets/characters/conor/conor_head.png",
-      "matches": ["コナーさん"]
+      "matches": [
+        "コナーさん"
+      ]
     },
     {
       "id": "char_pochi",
@@ -149,6 +178,19 @@
       "description": "Rikizo's family shiba-inu — an energetic, cheerful dog who loves running and meeting people.",
       "portrait": "",
       "matches": []
+    },
+    {
+      "id": "char_takashi",
+      "type": "character",
+      "surface": "たかし",
+      "reading": "たかし",
+      "meaning": "Takashi",
+      "description": "Owner of a factory in an industrial district.",
+      "portrait": "",
+      "matches": [
+        "たかしさん",
+        "Takashi"
+      ]
     }
   ]
 }

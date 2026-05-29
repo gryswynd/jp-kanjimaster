@@ -5,7 +5,7 @@
 
 ### Story Text (Japanese)
 
-こんにちは！わたしはりきぞです。
+こんにちは！わたしはりきぞうです。
 
 これは わたしの かぞくです。
 
@@ -73,7 +73,7 @@ Is it a good family? Yes, it is a very good family. Every day, I am happy! Good 
 
 ### Grammar Points Used
 
-- Copula (です) — わたしはりきぞです、noun and adjective predicates
+- Copula (です) — わたしはりきぞうです、noun and adjective predicates
 - Demonstrative これ / それ (this / that)
 - Noun possession with の
 - が — subject marker (ゲームが あります)

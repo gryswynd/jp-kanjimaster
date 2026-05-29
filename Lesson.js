@@ -1,5 +1,5 @@
 window.LessonModule = {
-  start: function (container, sharedConfig, exitCallback) {
+  start: function (container, sharedConfig, exitCallback, lessonId) {
 
     // --- CONFIGURATION ---
     const REPO_CONFIG = sharedConfig;
@@ -15,6 +15,10 @@ window.LessonModule = {
     let drillCorrect = 0;
     let drillTotal = 0;
     const drillAnswered = new Set();
+    // Per-drill breakdown for the summary screen — populated in loadLesson,
+    // incremented in renderDrills click handler.
+    // Shape: [{ title, total, correct, sectionRef }, …] in section order.
+    let drillStats = [];
     let CONJUGATION_RULES = null;
     let COUNTER_RULES = null;
     let allLevelsData = null;
@@ -142,6 +146,16 @@ window.LessonModule = {
         return e;
     }
     function esc(s) { return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+    // Render Japanese through the reading-aids pipeline. Pass {surface, reading,
+    // tokens} when available. Falls back to esc() when jp-text isn't loaded.
+    function jpRender(input) {
+        const rk = window.JPShared && window.JPShared.jpText;
+        if (rk) return rk.render(input);
+        if (typeof input === 'string') return esc(input);
+        if (input && typeof input === 'object') return esc(input.surface || input.jp || '');
+        return '';
+    }
     function getCdnUrl(filepath) { return window.getAssetUrl(REPO_CONFIG, filepath); }
     function proc(text, terms) {
         return window.JPShared.textProcessor.processText(text, terms, termMapData, CONJUGATION_RULES, COUNTER_RULES);
@@ -312,7 +326,7 @@ window.LessonModule = {
     function renderWarmup(sec) {
         const div = el("div", "");
         div.style.cssText = "padding:24px 0 32px;";
-        div.innerHTML = sectionIntroBlock('Warmup', 'What do you remember?', 'Try to read each sentence aloud, then tap to reveal the meaning.');
+        div.innerHTML = sectionIntroBlock('Warmup', 'Give it a try', 'Try to read each sentence aloud, then tap to reveal the meaning.');
         const wrap = el("div", "");
         wrap.style.cssText = "padding:20px 22px 0;display:flex;flex-direction:column;gap:12px;";
         (sec.items || []).forEach((item, idx) => {
@@ -376,7 +390,7 @@ window.LessonModule = {
         card.innerHTML =
             '<div class="jp-serif" style="position:absolute;right:-20px;top:-30px;font-size:220px;line-height:1;color:var(--washi-3);font-weight:500;pointer-events:none;user-select:none;">' + esc(ch) + '</div>' +
             '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.18em;font-weight:600;position:relative;">' + String(kanjiSel + 1).padStart(2, "0") + ' / ' + String(items.length).padStart(2, "0") + '</div>' +
-            '<div class="jp-serif lh-kbig" style="font-size:76px;line-height:1;margin:6px 0 10px;color:var(--ink);font-weight:500;position:relative;cursor:' + (kanjiId ? 'pointer' : 'default') + ';">' + esc(ch) + '</div>' +
+            '<div class="jp-serif lh-kbig" style="font-size:76px;line-height:1;margin:6px 0 10px;color:var(--ink);font-weight:500;position:relative;">' + esc(ch) + '</div>' +
             '<div style="font-size:16px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;position:relative;">' + esc((t && t.meaning) || '') + '</div>' +
             '<div style="height:16px;"></div>' +
             '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hairline);border-radius:6px;overflow:hidden;position:relative;">' +
@@ -384,7 +398,14 @@ window.LessonModule = {
               readingCell("Kun'yomi", (t && t.kun) || '—') +
             '</div>' +
             exampleHtml;
-        if (kanjiId) { const big = card.querySelector('.lh-kbig'); big.onclick = () => window.JP_OPEN_TERM(kanjiId, false); }
+        // Wire per-reading TTS chips. Each .lh-kreading is one reading split out
+        // of the on/kun string; tapping it speaks JUST that reading via tts.speak.
+        card.querySelectorAll('.lh-kreading').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.stopPropagation();
+                window.JPShared.tts.speak(el.getAttribute('data-speak'), { reading: true });
+            });
+        });
         div.appendChild(card);
         const hint = el("div", "lh-meta");
         hint.style.cssText = "text-align:center;margin-top:20px;";
@@ -394,9 +415,38 @@ window.LessonModule = {
     }
 
     function readingCell(label, reading) {
+        // Split a readings string (e.g. "ジン, ニン", "じん/にん", "う-まれる; い-きる")
+        // into individual entries — handles ASCII + Japanese commas, slashes,
+        // semicolons, and the middle-dot used in some dictionaries.
+        const readings = (!reading || reading === '—')
+            ? []
+            : String(reading).split(/[,、\/／;；・·]/).map(function (s) {
+                // Strip okurigana dot (あそ.ぶ→あそぶ) and parens (あ(ける)→あける) for
+                // clean display + TTS; leading/trailing dashes handled below.
+                return s.trim().replace(/[.．（）()]/g, '');
+              }).filter(Boolean);
+        let body;
+        if (readings.length === 0) {
+            body = '<div class="jp-sans" style="font-size:16px;color:var(--ink-3);margin-top:3px;font-weight:500;">—</div>';
+        } else {
+            body = '<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:6px;">' +
+                readings.map(function (r) {
+                    // Strip leading/trailing dashes (okurigana hints) from the
+                    // string we send to TTS so "う-まれる" speaks as "うまれる".
+                    const speakable = r.replace(/^-+|-+$/g, '');
+                    return '<button class="lh-kreading jp-sans" data-speak="' + esc(speakable) + '" ' +
+                        'style="display:inline-flex;align-items:center;gap:5px;padding:4px 9px;' +
+                        'background:var(--washi-2);border:1px solid var(--hairline);border-radius:999px;' +
+                        'font-size:15px;color:var(--ink);font-weight:500;cursor:pointer;font-family:var(--font-jp,inherit);">' +
+                        esc(r) +
+                        '<span style="font-size:11px;opacity:0.6;">🔊</span>' +
+                        '</button>';
+                }).join('') +
+            '</div>';
+        }
         return '<div style="background:var(--washi);padding:10px 12px;">' +
             '<div class="lh-meta" style="font-size:9.5px;">' + label + '</div>' +
-            '<div class="jp-sans" style="font-size:16px;color:var(--ink);margin-top:3px;font-weight:500;">' + esc(reading) + '</div>' +
+            body +
         '</div>';
     }
 
@@ -404,7 +454,23 @@ window.LessonModule = {
         const div = el("div", "");
         div.style.cssText = "padding:24px 0 32px;";
         const total = (sec.groups || []).reduce((a, g) => a + (g.items || []).length, 0);
-        div.innerHTML = sectionIntroBlock('Vocabulary · ' + total + ' words', 'ことば', 'Tap a word to hear it.');
+        // Hybrid display: render compounds as e.g. 友だち until 達 is taught.
+        // Current lesson's own meta.kanji are treated as known here because the
+        // kanji section sits above the vocab section on the page.
+        const knownKanji = (window.JPShared && window.JPShared.unlock && window.JPShared.unlock.getKnownKanjiSet)
+            ? window.JPShared.unlock.getKnownKanjiSet(
+                lessonData && lessonData.id,
+                manifestData,
+                (lessonData && lessonData.meta && lessonData.meta.kanji) || []
+              )
+            : null;
+        // Optional header overrides — used by N5.1's split into a "Vocabulary"
+        // section and a "Common Knowledge & Grammar" section. Defaults to the
+        // classic Vocabulary header so older lessons render unchanged.
+        const metaLine = sec.meta   ? sec.meta : ('Vocabulary · ' + total + ' words');
+        const heading  = sec.header || 'ことば';
+        const leadLine = sec.lead   || 'Tap a word to hear it.';
+        div.innerHTML = sectionIntroBlock(metaLine, heading, leadLine);
         const holder = el("div", "");
         holder.style.cssText = "margin-top:22px;";
         (sec.groups || []).forEach((g, gi) => {
@@ -419,11 +485,20 @@ window.LessonModule = {
                 if (!t) return;
                 const row = el("button", "");
                 row.style.cssText = "width:100%;padding:12px 22px;border:none;border-bottom:1px solid var(--hairline-2);background:transparent;display:flex;align-items:center;gap:14px;cursor:pointer;text-align:left;";
+                const displaySurface = (window.JPShared && window.JPShared.vocabDisplay && knownKanji)
+                    ? window.JPShared.vocabDisplay.pick(t, knownKanji)
+                    : t.surface;
+                // Tokens were generated for the full kanji surface — only pass
+                // them through if the displaySurface still matches (otherwise
+                // vocabDisplay swapped in a kana fallback and the tokens'
+                // kanji segments would render at the wrong positions).
+                const displayTokens = (displaySurface === t.surface) ? t.tokens : null;
+                const surfaceHtml = jpRender({ surface: displaySurface, reading: t.reading, tokens: displayTokens });
                 row.innerHTML =
                     '<span class="lh-speak">' + SVG_PLAY + '</span>' +
                     '<span style="flex:1;min-width:0;">' +
                       '<span style="display:flex;align-items:baseline;gap:8px;">' +
-                        '<span class="jp-serif lh-vword" style="font-size:20px;font-weight:500;color:var(--ink);">' + esc(t.surface) + '</span>' +
+                        '<span class="jp-serif lh-vword" style="font-size:20px;font-weight:500;color:var(--ink);">' + surfaceHtml + '</span>' +
                         '<span class="jp-sans" style="font-size:11.5px;color:var(--ink-3);">' + esc(t.reading || '') + '</span>' +
                       '</span>' +
                       '<span style="display:block;font-size:12.5px;color:var(--ink-2);margin-top:2px;">' + esc(t.meaning || '') + '</span>' +
@@ -437,6 +512,29 @@ window.LessonModule = {
         });
         div.appendChild(holder);
         return div;
+    }
+
+    // Resolve a character id (e.g. "rikizo") to its head-portrait URL.
+    function _headUrl(charId) {
+        if (!charId) return '';
+        return 'assets/characters/' + charId + '/' + charId + '_head.png';
+    }
+    // Pretty display name from a character id ("rikizo" → "Rikizo", "yamamoto" → "Yamamoto-sensei").
+    function _charDisplay(charId) {
+        if (!charId) return '';
+        var senseis = { yamamoto: true, suzuki: true };
+        var name = charId.charAt(0).toUpperCase() + charId.slice(1);
+        return senseis[charId] ? name + '-sensei' : name;
+    }
+
+    // Decide which speaker sits on the right side of the chat (the "you"
+    // perspective). Rikizo always wins when he's a speaker; otherwise the
+    // first speaker key (typically 'A') takes the right side.
+    function _rightSpeaker(speakers, lines) {
+        if (speakers) {
+            for (var k in speakers) if (speakers[k] === 'rikizo') return k;
+        }
+        return (lines && lines[0] && lines[0].spk) || 'A';
     }
 
     function renderConversation(sec) {
@@ -456,28 +554,59 @@ window.LessonModule = {
         div.appendChild(head);
 
         const allLines = [];
+        const speakers = sec.speakers || {};
+        const rightSpk = _rightSpeaker(speakers, sec.lines);
+        // Show each speaker's name+avatar header only on the first time they speak
+        // (chat apps don't repeat the header on consecutive messages from the same person).
+        const seenHeader = {};
         const msgWrap = el("div", "");
-        msgWrap.style.cssText = "padding:20px 14px 0;display:flex;flex-direction:column;gap:12px;";
-        (sec.lines || []).forEach(line => {
+        msgWrap.style.cssText = "padding:18px 14px 0;display:flex;flex-direction:column;gap:6px;";
+        (sec.lines || []).forEach((line, idx) => {
             allLines.push({ jp: line.jp, terms: line.terms });
             const spk = String(line.spk || '');
-            const isRikizo = /りき|リキ|rikizo|力/i.test(spk);
-            const wrap = el("div", "");
-            wrap.style.cssText = "display:flex;gap:8px;align-items:flex-end;flex-direction:" + (isRikizo ? 'row-reverse' : 'row') + ";";
-            const bubbleBg = isRikizo ? 'var(--ink)' : 'var(--washi)';
-            const bubbleColor = isRikizo ? 'var(--washi)' : 'var(--ink)';
-            const radius = isRikizo ? '16px 16px 3px 16px' : '16px 16px 16px 3px';
-            const labelColor = isRikizo ? 'oklch(0.97 0.008 80 / 0.6)' : 'var(--ink-3)';
-            const enColor = isRikizo ? 'oklch(0.97 0.008 80 / 0.7)' : 'var(--ink-3)';
-            wrap.innerHTML =
-                '<div style="width:32px;height:32px;border-radius:999px;background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-jp);font-size:13px;color:var(--ink-2);">' + esc(spk.slice(0, 1)) + '</div>' +
-                '<div style="max-width:78%;padding:10px 14px;background:' + bubbleBg + ';color:' + bubbleColor + ';border:' + (isRikizo ? 'none' : '1px solid var(--hairline)') + ';border-radius:' + radius + ';position:relative;">' +
-                  '<div class="jp-mono" style="font-size:9px;letter-spacing:0.1em;color:' + labelColor + ';text-transform:uppercase;font-weight:500;margin-bottom:3px;display:flex;justify-content:space-between;gap:8px;align-items:center;"><span>' + esc(spk) + '</span><button class="lh-speak-line" style="background:none;border:none;color:inherit;cursor:pointer;font-size:12px;padding:0;opacity:0.8;">🔊</button></div>' +
-                  '<div class="jp-serif" style="font-size:15px;line-height:1.5;font-weight:500;">' + proc(line.jp, line.terms) + '</div>' +
-                  (showEN ? '<div style="font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;">' + esc(line.en) + '</div>' : '') +
-                '</div>';
-            wrap.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
-            msgWrap.appendChild(wrap);
+            const charId = speakers[spk] || '';
+            const isRight = spk === rightSpk;
+            const prevSpk = idx > 0 ? String(sec.lines[idx - 1].spk || '') : null;
+            const sameAsPrev = prevSpk === spk;
+            const showHeader = !sameAsPrev; // new speaker → show avatar + name above
+
+            const row = el("div", "");
+            row.style.cssText = "display:flex;flex-direction:column;align-items:" + (isRight ? 'flex-end' : 'flex-start') + ";gap:2px;margin-top:" + (sameAsPrev ? '2px' : '10px') + ";";
+
+            // Header (avatar + display name) above the first bubble in a run.
+            if (showHeader) {
+                const headerHtml =
+                    '<div style="display:flex;align-items:center;gap:8px;flex-direction:' + (isRight ? 'row-reverse' : 'row') + ';padding:0 4px;margin-bottom:2px;">' +
+                      (charId
+                        ? '<img src="' + _headUrl(charId) + '" alt="' + esc(_charDisplay(charId)) + '" style="width:30px;height:30px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--washi-2);border:1px solid var(--hairline);" onerror="this.style.visibility=\'hidden\'">'
+                        : '<div style="width:30px;height:30px;border-radius:999px;background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3);font-weight:600;">' + esc(spk.slice(0,1)) + '</div>') +
+                      '<div style="font-size:11px;font-weight:600;color:var(--ink-2);letter-spacing:0.01em;">' + esc(charId ? _charDisplay(charId) : spk) + '</div>' +
+                    '</div>';
+                const headerEl = el('div', '');
+                headerEl.innerHTML = headerHtml;
+                row.appendChild(headerEl);
+                seenHeader[spk] = true;
+            }
+
+            // Bubble. iMessage-ish: right side dark-ink-on-washi-text, left side
+            // washi-on-ink-text. We deliberately avoid vermilion for the bubble bg
+            // because the term-processor renders inline term-tags in vermilion —
+            // they'd disappear against a vermilion bubble.
+            const bubbleBg = isRight ? 'var(--ink)' : '#fff';
+            const bubbleColor = isRight ? 'var(--washi)' : 'var(--ink)';
+            const enColor = isRight ? 'oklch(1 0 0 / 0.78)' : 'var(--ink-3)';
+            const radius = isRight ? '18px 18px 4px 18px' : '18px 18px 18px 4px';
+            const bubble = el("div", "");
+            bubble.style.cssText = "max-width:82%;padding:9px 13px;background:" + bubbleBg + ";color:" + bubbleColor +
+                ";border:" + (isRight ? 'none' : '1px solid var(--hairline)') +
+                ";border-radius:" + radius + ";box-shadow:0 1px 2px rgba(0,0,0,0.06);position:relative;";
+            bubble.innerHTML =
+                '<div class="jp-serif" style="font-size:15px;line-height:1.55;font-weight:500;">' + proc(line.jp, line.terms) + '</div>' +
+                (showEN ? '<div style="font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;">' + esc(line.en) + '</div>' : '') +
+                '<button class="lh-speak-line" style="background:none;border:none;color:inherit;cursor:pointer;font-size:13px;padding:2px 4px;opacity:0.75;position:absolute;' + (isRight ? 'left:-26px' : 'right:-26px') + ';bottom:4px;">🔊</button>';
+            bubble.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
+            row.appendChild(bubble);
+            msgWrap.appendChild(row);
         });
         // play-all sits above messages
         const playAll = makePlayAll('Play conversation', allLines);
@@ -572,9 +701,13 @@ window.LessonModule = {
         const div = el("div", "");
         div.style.cssText = "padding:24px 22px 32px;";
         const mcqs = (sec.items || []).filter(it => it.kind === 'mcq');
+        // Use the drill's own title/instructions when provided so each drill
+        // (kanji readings, vocabulary, particles, …) reads correctly.
+        const drillTitle = sec.title || 'Drill';
+        const drillLead  = sec.instructions || 'Pick the best answer.';
         div.innerHTML = '<div class="lh-meta">Drill · ' + mcqs.length + ' question' + (mcqs.length !== 1 ? 's' : '') + '</div>' +
-            '<h2 class="lh-h2">Fill the slot</h2>' +
-            '<div class="lh-lead">Pick the choice that completes each sentence.</div><div style="height:24px;"></div>';
+            '<h2 class="lh-h2">' + esc(drillTitle) + '</h2>' +
+            '<div class="lh-lead">' + esc(drillLead) + '</div><div style="height:24px;"></div>';
         const list = el("div", ""); list.style.cssText = "display:flex;flex-direction:column;gap:24px;";
         mcqs.forEach((item, itemIdx) => {
             const block = el("div", "");
@@ -621,7 +754,11 @@ window.LessonModule = {
                     });
                     if (!drillAnswered.has(itemKey)) {
                         drillAnswered.add(itemKey);
-                        if (correct) drillCorrect++;
+                        if (correct) {
+                            drillCorrect++;
+                            const stat = drillStats.find(s => s.sectionRef === sec);
+                            if (stat) stat.correct++;
+                        }
                     }
                     if (!correct && item.terms && item.terms.length) {
                         item.terms.forEach(termId => {
@@ -707,6 +844,37 @@ window.LessonModule = {
 
         const holder = el("div", ""); holder.style.cssText = "padding:0 22px 24px;";
         holder.appendChild(card);
+
+        // Per-drill breakdown — one row per drill section with title, correct/total,
+        // and a color-coded bar. Sorted worst-first so the row that needs work is on
+        // top. Skipped when there's only one drill (the overall stat covers it) or
+        // none. Matches Grammar.js's summary pattern.
+        const drillsWithScores = drillStats.filter(s => s.total > 0);
+        if (drillsWithScores.length > 1) {
+            const rows = drillsWithScores.slice().sort((a, b) => (a.correct / a.total) - (b.correct / b.total));
+            const breakdown = el("div", "lh-card");
+            breakdown.style.cssText = "padding:16px 18px;margin-top:14px;";
+            const barFor = function (p) { return p >= 80 ? 'var(--moss)' : p >= 50 ? 'var(--gold)' : 'var(--vermilion)'; };
+            breakdown.innerHTML =
+                '<div class="lh-meta" style="text-align:center;margin-bottom:12px;">Drill breakdown</div>' +
+                rows.map(function (e) {
+                    var p = Math.round(e.correct / e.total * 100);
+                    var color = barFor(p);
+                    return '<div style="margin-bottom:12px;">' +
+                        '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;gap:8px;">' +
+                          '<span style="font-size:13px;font-weight:600;color:var(--ink);line-height:1.3;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + esc(e.title) + '</span>' +
+                          '<span class="mono" style="font-size:12px;font-weight:700;color:' + color + ';white-space:nowrap;">' + e.correct + '/' + e.total + ' · ' + p + '%</span>' +
+                        '</div>' +
+                        '<div style="height:6px;background:var(--hairline-2);border-radius:3px;overflow:hidden;">' +
+                          '<div style="height:100%;width:' + p + '%;background:' + color + ';border-radius:3px;transition:width 0.5s ease;"></div>' +
+                        '</div>' +
+                      '</div>';
+                }).join('');
+            // Trim trailing margin on the last row.
+            const last = breakdown.lastElementChild; if (last) last.style.marginBottom = '0';
+            holder.appendChild(breakdown);
+        }
+
         body.appendChild(holder);
 
         if (drillTotal > 0) {
@@ -723,13 +891,32 @@ window.LessonModule = {
             result = unlock.computeUnlocks(lessonData.id, pct, manifestData);
         }
 
+        // Stash a pending celebration — the home screen's Rikizo dispatcher
+        // consumes this on the next renderMenu, walks the user through any
+        // newly unlocked modules, and congratulates (or encourages) them.
+        try {
+            if (result && lessonData && lessonData.id) {
+                localStorage.setItem('k-rikizo-pending-celebration', JSON.stringify({
+                    source: 'lesson',
+                    lessonId: lessonData.id,
+                    lessonTitle: lessonData.title || '',
+                    score: pct,
+                    passed: !!result.passed,
+                    newItems: result.newItems || []
+                }));
+            }
+        } catch (e) { /* localStorage may be unavailable in private mode */ }
+
         // Footer buttons
         footer.innerHTML = '';
         const backBtn = el("button", "lh-btn-back", SVG_BACK + ' Menu');
         const nextBtn = el("button", "lh-btn-next finish", 'Finish ' + SVG_CHECK);
 
+        // After finishing a lesson, exit all the way back to the app home —
+        // that's where Rikizo's celebration runs, walking the user through any
+        // newly unlocked modules on the grid.
         if (!unlock || unlock.isFree() || !result) {
-            nextBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+            nextBtn.onclick = () => exitCallback();
             footer.appendChild(nextBtn);
             return;
         }
@@ -737,13 +924,13 @@ window.LessonModule = {
         if (result.passed) {
             nextBtn.innerHTML = 'Continue ' + SVG_NEXT;
             nextBtn.classList.remove('finish');
-            nextBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+            nextBtn.onclick = () => exitCallback();
             if (result.newItems && result.newItems.length > 0) holder.appendChild(buildUnlockReveal(result.newItems));
             footer.appendChild(nextBtn);
         } else {
             const pending = unlock.getPendingUnlocks(lessonData.id, manifestData);
             holder.appendChild(buildEncouragement(pending));
-            backBtn.onclick = () => renderMenu(currentLevelId, currentLevelLessons);
+            backBtn.onclick = () => exitCallback();
             nextBtn.classList.remove('finish');
             nextBtn.innerHTML = 'Try again';
             nextBtn.onclick = () => {
@@ -862,7 +1049,34 @@ window.LessonModule = {
         });
     }
 
+    // Per-lesson resume state at `k-lesson-resume` — { [lessonId]: stepIndex }.
+    // Written on every navigation; cleared once the user reaches the summary
+    // (so a fresh attempt next time, not a jump straight to "done").
+    const RESUME_KEY = 'k-lesson-resume';
+    function _resumeMap() {
+        try { return JSON.parse(localStorage.getItem(RESUME_KEY) || '{}'); } catch (e) { return {}; }
+    }
+    function _saveResume(id, step) {
+        if (!id) return;
+        const m = _resumeMap();
+        if (step > 0) m[id] = step; else delete m[id];
+        try { localStorage.setItem(RESUME_KEY, JSON.stringify(m)); } catch (e) {}
+    }
+    function _clearResume(id) {
+        if (!id) return;
+        const m = _resumeMap();
+        if (m[id] == null) return;
+        delete m[id];
+        try { localStorage.setItem(RESUME_KEY, JSON.stringify(m)); } catch (e) {}
+    }
+
     async function loadLesson(filePath) {
+        // Clean up any leftover companion state (stale bubble from an
+        // unresolved tap, busy flag stuck from a half-finished chain) before
+        // loading a new lesson so we start with a clean slate.
+        if (window.JPShared.rikizoCompanion && window.JPShared.rikizoCompanion.resetRuntime) {
+            window.JPShared.rikizoCompanion.resetRuntime();
+        }
         root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Loading…', backLabel: 'List' }) + '</div>' +
             '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>' +
             '<div class="lh-footer"></div>';
@@ -872,8 +1086,12 @@ window.LessonModule = {
           const [lRes, resources] = await Promise.all([fetch(lessonUrl), loadResources()]);
           lessonData = await lRes.json();
           drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
+          drillStats = [];
           lessonData.sections.forEach(sec => {
-              if (sec.type === 'drills') (sec.items || []).forEach(item => { if (item.kind === 'mcq') drillTotal++; });
+              if (sec.type !== 'drills') return;
+              const mcqCount = (sec.items || []).filter(it => it.kind === 'mcq').length;
+              drillTotal += mcqCount;
+              drillStats.push({ title: sec.title || 'Drill', total: mcqCount, correct: 0, sectionRef: sec });
           });
           termMapData = resources.map;
           CONJUGATION_RULES = resources.conj;
@@ -881,7 +1099,17 @@ window.LessonModule = {
           window.JPShared.termModal.setTermMap(termMapData);
 
           lessonData.sections.unshift({ type: 'intro', title: lessonData.title });
-          currentStep = 0; totalSteps = lessonData.sections.length; showEN = false; showAnswers = false;
+          totalSteps = lessonData.sections.length;
+          showEN = false; showAnswers = false;
+
+          // Resume from the saved step if we have one (clamped). If the saved
+          // step is past the end (lesson grew or got rearranged), fall back to
+          // the intro; if it points at the summary or beyond, start fresh.
+          const savedStep = _resumeMap()[lessonData.id];
+          currentStep = (typeof savedStep === 'number' && savedStep > 0 && savedStep < totalSteps)
+              ? savedStep
+              : 0;
+
           renderCurrentStep();
         } catch (err) {
            console.error(err);
@@ -894,7 +1122,17 @@ window.LessonModule = {
         if (clamped === currentStep) return;
         currentStep = clamped;
         showEN = false; showAnswers = false;
+        // Save the step so an exit-and-return resumes here. Cleared on summary.
+        if (lessonData && lessonData.id) _saveResume(lessonData.id, currentStep);
         renderCurrentStep();
+        // Always start each lesson page at the top so the user isn't dropped
+        // mid-section. Scroll both the window and any internal scrollers.
+        try {
+            window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+            const scrollers = [document.scrollingElement, document.documentElement, document.body,
+                root, root.querySelector('.lh-body'), document.getElementById('app-main-container')];
+            scrollers.forEach(function (s) { if (s) s.scrollTop = 0; });
+        } catch (e) {}
     }
 
     function wireHeader(opts) {
@@ -936,7 +1174,12 @@ window.LessonModule = {
         const body = root.querySelector('.lh-body');
         const footer = root.querySelector('.lh-footer');
 
-        if (isSummary) { renderSummary(body, footer); return; }
+        if (isSummary) {
+            // Finished the lesson — clear the saved resume step so a fresh
+            // attempt next time starts back at the intro.
+            if (lessonData && lessonData.id) _clearResume(lessonData.id);
+            renderSummary(body, footer); return;
+        }
 
         let content = null;
         if (sec.type === "intro") content = renderIntro(lessonData);
@@ -962,9 +1205,50 @@ window.LessonModule = {
             : 'Next' + (nextLabel ? ' <span class="lh-next-sub">· ' + esc(nextLabel) + '</span>' : '') + ' ' + SVG_NEXT;
         nextBtn.onclick = () => go(currentStep + 1);
         footer.appendChild(nextBtn);
+
+        // First-time N5.1 in-lesson tutorial. Lesson-id gating lives here;
+        // per-section dedup lives in the companion (it persists which keys it
+        // has spoken so exit/re-entry resumes — already-seen sections stay
+        // silent, unseen ones still fire when the user reaches them).
+        if (lessonData.id === 'N5.1' && sec && sec.type
+            && window.JPShared.rikizoCompanion
+            && window.JPShared.rikizoCompanion.runLessonTutorialStep) {
+            const tutKey = sec.tutorialKey || sec.type;
+            setTimeout(function () {
+                window.JPShared.rikizoCompanion.runLessonTutorialStep(tutKey);
+            }, 350);
+        }
     }
 
-    // Initialize
-    fetchLessonList();
+    // Initialize. If a specific lessonId was passed in (e.g. from the home
+    // screen's "Begin lesson" button), look it up in the manifest and jump
+    // straight into that lesson, bypassing the level picker.
+    if (lessonId) {
+      (async function () {
+        try {
+          const manifest = await window.getManifest(REPO_CONFIG);
+          manifestData = manifest;
+          // find the lesson + its level
+          let levelId = null, entry = null;
+          (manifest.levels || []).some(function (lv) {
+            const ld = manifest.data && manifest.data[lv];
+            if (!ld || !ld.lessons) return false;
+            const found = ld.lessons.find(function (l) { return l.id === lessonId; });
+            if (found) { levelId = lv; entry = found; return true; }
+            return false;
+          });
+          if (entry && entry.file) {
+            currentLevelId = levelId;
+            currentLevelLessons = (manifest.data[levelId].lessons || [])
+              .map(function (l) { return { id: l.id, title: l.title, file: l.file, unlocksAfter: l.unlocksAfter }; });
+            loadLesson(entry.file);
+            return;
+          }
+        } catch (e) { /* fall through to picker */ }
+        fetchLessonList();
+      })();
+    } else {
+      fetchLessonList();
+    }
   }
 };

@@ -14,7 +14,7 @@
 
   var STORAGE_KEY = 'k-stamp-character';
   var DEFAULT_CHARACTER = 'char_rikizo';
-  var POO_PATH = 'assets/UI/poo_stamp.png';
+  var POO_PATH = 'assets/ui/poo_stamp.png';
   var charactersCache = null;
   var _repoConfig = null;
 
