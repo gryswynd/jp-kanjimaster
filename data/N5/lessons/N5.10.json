@@ -1,0 +1,1479 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.10",
+  "title": "Weather & Energy",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 10,
+    "focus": "Weather, electricity, and rest — compounds built from 天・電・気・休, plus i-adjective past tense よかったです and 高かったです",
+    "estimated_minutes": 30,
+    "kanji": [
+      "天",
+      "電",
+      "気",
+      "休"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "天",
+      "on": "てん",
+      "kun": "あま",
+      "meaning": "heaven / sky / weather",
+      "termId": "k_ama"
+    },
+    {
+      "kanji": "電",
+      "on": "でん",
+      "kun": "",
+      "meaning": "electricity / electric",
+      "termId": "k_u96fb"
+    },
+    {
+      "kanji": "気",
+      "on": "き",
+      "kun": "",
+      "meaning": "spirit / energy / feeling",
+      "termId": "k_u6c17"
+    },
+    {
+      "kanji": "休",
+      "on": "きゅう",
+      "kun": "やす",
+      "meaning": "rest / day off",
+      "termId": "k_yasu"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up: Quick Review",
+      "instructions": "Read each sentence and choose the correct English meaning.",
+      "items": [
+        {
+          "jp": "やまかわさんは コーヒーを 飲んでいます。",
+          "en": "Yamakawa-san is drinking coffee.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "駅へ 来てください。",
+          "en": "Please come to the station.",
+          "terms": [
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "jp": "この 店は 新しいですが、高いです。",
+          "en": "This store is new, but expensive.",
+          "terms": [
+            "v_kono",
+            "v_mise",
+            "p_wa",
+            "v_atarashii",
+            "g_desu",
+            "p_ga_but",
+            "v_takai",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "山に 行きたいです。",
+          "en": "I want to go to the mountains.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji",
+      "items": [
+        {
+          "kanji": "天",
+          "on": "てん",
+          "kun": "あま",
+          "meaning": "heaven / sky / weather",
+          "terms": [
+            "k_ama"
+          ]
+        },
+        {
+          "kanji": "電",
+          "on": "でん",
+          "kun": "",
+          "meaning": "electricity / electric",
+          "terms": [
+            "k_u96fb"
+          ]
+        },
+        {
+          "kanji": "気",
+          "on": "き",
+          "kun": "",
+          "meaning": "spirit / energy / feeling",
+          "terms": [
+            "k_u6c17"
+          ]
+        },
+        {
+          "kanji": "休",
+          "on": "きゅう",
+          "kun": "やす",
+          "meaning": "rest / day off",
+          "terms": [
+            "k_yasu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary",
+      "groups": [
+        {
+          "label": "Weather",
+          "items": [
+            "v_tenki"
+          ]
+        },
+        {
+          "label": "Energy & Transport",
+          "items": [
+            "v_denki",
+            "v_densha"
+          ]
+        },
+        {
+          "label": "Feelings & Mood",
+          "items": [
+            "v_kibun"
+          ]
+        },
+        {
+          "label": "Popularity",
+          "items": [
+            "v_ninki"
+          ]
+        },
+        {
+          "label": "Rest & Days Off",
+          "items": [
+            "v_yasumi",
+            "v_kyuujitsu",
+            "v_yasumu"
+          ]
+        },
+        {
+          "label": "Change & State",
+          "items": [
+            "v_naru"
+          ]
+        },
+        {
+          "label": "Places",
+          "items": [
+            "v_hoteru"
+          ]
+        },
+        {
+          "label": "Interjections & Hesitation",
+          "items": [
+            "v_ee",
+            "v_waa"
+          ]
+        },
+        {
+          "label": "Kanji",
+          "items": [
+            "k_ama",
+            "k_u96fb",
+            "k_u6c17",
+            "k_yasu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Weather & Holiday Plans",
+      "context": "Miki and Ren make plans for their upcoming holiday.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "今日は 休日ですね。天気は どうですか。",
+          "en": "Today is a holiday, isn't it. How is the weather?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kyuujitsu",
+            "g_desu",
+            "p_ne",
+            "v_tenki",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いい 天気ですよ。よかったですね！",
+          "en": "The weather is nice! That's great!",
+          "terms": [
+            "v_ii",
+            "v_tenki",
+            "g_desu",
+            "p_yo",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "どこに 行きたいですか。",
+          "en": "Where do you want to go?",
+          "terms": [
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "山に 行きましょう。電車で 行きましょう。",
+          "en": "Let's go to the mountains. Let's go by train.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            },
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "電車は 高いですか。",
+          "en": "Is the train expensive?",
+          "terms": [
+            "v_densha",
+            "p_wa",
+            "v_takai",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "だいじょうぶです。高くないですよ。",
+          "en": "It's fine. It's not that expensive.",
+          "terms": [
+            "v_daijoubu",
+            "g_desu",
+            {
+              "id": "v_takai",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "長い 休みが ほしいです。",
+          "en": "I want a long holiday.",
+          "terms": [
+            "v_nagai",
+            "v_yasumi",
+            "p_ga",
+            "v_hoshii",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "天気は いいでしょう。",
+          "en": "The weather will probably be nice.",
+          "terms": [
+            "v_tenki",
+            "p_wa",
+            "v_ii",
+            "g_deshou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: At the Hotel",
+      "context": "Miki and Ren arrive at the popular hotel in the mountains.",
+      "lines": [
+        {
+          "spk": "レン",
+          "jp": "この ホテルは 古いですが、人気が ありますよ。",
+          "en": "This hotel is old, but it's popular.",
+          "terms": [
+            "v_kono",
+            "v_hoteru",
+            "p_wa",
+            "v_furui",
+            "g_desu",
+            "p_ga_but",
+            "v_ninki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "そうですか。大きい ホテルですね。",
+          "en": "Is that so. It's a big hotel, isn't it.",
+          "terms": [
+            "p_soudesuka",
+            "v_ookii",
+            "v_hoteru",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "ええ、山の 中に ありますよ。",
+          "en": "Yes, it's in the mountains.",
+          "terms": [
+            "p_ee",
+            "v_yama",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "気分が いいですね。山に 来て よかったです。",
+          "en": "I feel great. I'm glad we came to the mountains.",
+          "terms": [
+            "v_kibun",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "ホテルで 食べましょう。何を 食べたいですか。",
+          "en": "Let's eat at the hotel. What do you want to eat?",
+          "terms": [
+            "v_hoteru",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            },
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "カレーを 食べたいです。おいしい カレーが いいですね。",
+          "en": "I want to eat curry. Nice delicious curry, right.",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_oishii",
+            "v_karee",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "電車が 長かったので、休みたいです。",
+          "en": "Because the train was long, I want to rest.",
+          "terms": [
+            "v_densha",
+            "p_ga",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "p_node",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "ええ、ここは 人気の ホテルなんです。",
+          "en": "Yes, this place is a popular hotel, you see.",
+          "terms": [
+            "p_ee",
+            "v_koko",
+            "p_wa",
+            "v_ninki",
+            "p_no",
+            "v_hoteru",
+            "p_ndesu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Electricity and Rest",
+      "context": "Back in the hotel room after the long day trip.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "今日は とても 長かったですね。",
+          "en": "Today was very long, wasn't it.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。電車も 長かったです。",
+          "en": "Yes. The train was long too.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_densha",
+            "p_mo",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "休みたいです。電気は ありますか。",
+          "en": "I want to rest. Is there electricity?",
+          "terms": [
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_denki",
+            "p_wa",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "ありますよ。テレビも あります。",
+          "en": "Yes, there is. There's also a TV.",
+          "terms": [
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo",
+            "v_terebi",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "よかったです！ホテルで 休みましょう。",
+          "en": "That's great! Let's rest at the hotel.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "v_hoteru",
+            "p_de",
+            {
+              "id": "v_yasumu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。電気が あって よかったですね。",
+          "en": "Yes. It's great that there's electricity.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "電車で 山に 来て、気分が よく なりました。",
+          "en": "I came to the mountains by train, and my mood became good.",
+          "terms": [
+            "v_densha",
+            "p_de",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kibun",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "えー、よかったですね。",
+          "en": "Oh, that's great.",
+          "terms": [
+            "v_ee",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Let's Come Again (Casual)",
+      "context": "Miki and Ren, close friends, chat casually on the train home after their mountain trip.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "今日は 気分が いいね。",
+          "en": "I feel great today.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kibun",
+            "p_ga",
+            "v_ii",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "うん、天気が よかったからね。",
+          "en": "Yeah, because the weather was good.",
+          "terms": [
+            "v_un",
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "p_kara_because",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "電車は 長かったけど、山は よかったよ。",
+          "en": "The train was long, but the mountains were great.",
+          "terms": [
+            "v_densha",
+            "p_wa",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "p_kedo",
+            "v_yama",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "来週も また 来たいね。",
+          "en": "I want to come again next week too.",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_mata",
+            {
+              "id": "v_kuru",
+              "form": "plain_desire_tai"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "うん！休日に 電車で 行きたいね。",
+          "en": "Yeah! I want to go by train on a holiday.",
+          "terms": [
+            "v_un",
+            "v_kyuujitsu",
+            "p_ni",
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "この 山は 人気だよ。また 行きたいよ。",
+          "en": "This mountain is popular. I want to go again.",
+          "terms": [
+            "v_kono",
+            "v_yama",
+            "p_wa",
+            "v_ninki",
+            "p_yo",
+            "g_da",
+            "v_mata",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "わあ、山が 高い！",
+          "en": "Wow, the mountains are tall!",
+          "terms": [
+            "v_waa",
+            "v_yama",
+            "p_ga",
+            "v_takai"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "山の 天気は いいだろう。",
+          "en": "The mountain weather is probably nice.",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_tenki",
+            "p_wa",
+            "v_ii",
+            "g_darou"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "うん、来週も 来たいんだ。",
+          "en": "Yeah, I want to come next week too, you know.",
+          "terms": [
+            "v_un",
+            "v_raishuu",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "plain_desire_tai"
+            },
+            "p_nda"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: A Holiday Trip",
+      "passage": [
+        {
+          "jp": "今日は 休日で、天気が よかったです。",
+          "en": "Today was a holiday, and the weather was good.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kyuujitsu",
+            "p_de",
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "電車で 山に 行きました。電車は とても 長かったです。",
+          "en": "I went to the mountains by train. The train was very long.",
+          "terms": [
+            "v_densha",
+            "p_de",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "v_densha",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "山の 中に ホテルが ありました。ホテルは 古いですが、人気が あります。",
+          "en": "There was a hotel in the mountains. The hotel is old, but it's popular.",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_hoteru",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            },
+            "v_hoteru",
+            "p_wa",
+            "v_furui",
+            "g_desu",
+            "p_ga_but",
+            "v_ninki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "気分が よかったです。山の 天気が いいですね。",
+          "en": "My mood was great. The mountain weather is nice, isn't it.",
+          "terms": [
+            "v_kibun",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "v_yama",
+            "p_no",
+            "v_tenki",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "jp": "来週も 天気は いいでしょう。",
+          "en": "Next week, the weather will probably be nice too.",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_tenki",
+            "p_wa",
+            "v_ii",
+            "g_deshou"
+          ]
+        },
+        {
+          "jp": "来週も また 来たいです。山は とても よかったです。",
+          "en": "I want to come again next week too. The mountains were very good.",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_mata",
+            {
+              "id": "v_kuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_yama",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "何で 山に 行きましたか。",
+          "q_en": "How did the narrator travel to the mountains?",
+          "a": "電車で 行きました。",
+          "a_en": "They went by train.",
+          "terms": [
+            "v_nani",
+            "p_de",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "気分は よかったですか。",
+          "q_en": "Was the narrator's mood good?",
+          "a": "気分が よかったです。",
+          "a_en": "Their mood was great.",
+          "terms": [
+            "v_kibun",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kibun",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "来週は また どこに 行きたいですか。",
+          "q_en": "Where does the narrator want to go again next week?",
+          "a": "山に 来たいです。",
+          "a_en": "They want to come to the mountains again.",
+          "terms": [
+            "v_raishuu",
+            "p_wa",
+            "v_mata",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: Electricity and Trains",
+      "passage": [
+        {
+          "jp": "毎日、電車に 電気が あります。電気が あって よかったです。",
+          "en": "Every day, trains have electricity. It's great that there's electricity.",
+          "terms": [
+            "v_mainichi",
+            "v_densha",
+            "p_ni",
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "長い 電車は 人気が あります。大きい 電車も あります。",
+          "en": "Long trains are popular. There are also big trains.",
+          "terms": [
+            "v_nagai",
+            "v_densha",
+            "p_wa",
+            "v_ninki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_ookii",
+            "v_densha",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "電気が ありません。電車も 来ません。",
+          "en": "There is no electricity. The trains won't come either.",
+          "terms": [
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_densha",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "毎日、電気が ありますから、気分が いいです。",
+          "en": "Every day, because there is electricity, my mood is good.",
+          "terms": [
+            "v_mainichi",
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_kara_because",
+            "v_kibun",
+            "p_ga",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "電車の 人気は とても 高いです。電気が あって よかったです。",
+          "en": "The popularity of trains is very high. It's great that there's electricity.",
+          "terms": [
+            "v_densha",
+            "p_no",
+            "v_ninki",
+            "p_wa",
+            "v_totemo",
+            "v_takai",
+            "g_desu",
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "電気が あって、気分が よく なりました。",
+          "en": "Because there was electricity, my mood became good.",
+          "terms": [
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_kibun",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "長い 電車は どうですか。",
+          "q_en": "What are long trains like?",
+          "a": "長い 電車は 人気が あります。",
+          "a_en": "Long trains are popular.",
+          "terms": [
+            "v_nagai",
+            "v_densha",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_nagai",
+            "v_densha",
+            "p_wa",
+            "v_ninki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "電気が ありませんから、電車は どうですか。",
+          "q_en": "When there is no electricity, what happens to the trains?",
+          "a": "電車も 来ません。",
+          "a_en": "The trains won't come either.",
+          "terms": [
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_kara_because",
+            "v_densha",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_densha",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "q": "どうして 毎日 気分が いいですか。",
+          "q_en": "Why is the narrator in a good mood every day?",
+          "a": "電気が ありますから、気分が いいです。",
+          "a_en": "Because there is electricity, the mood is good.",
+          "terms": [
+            "v_doushite",
+            "v_mainichi",
+            "v_kibun",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_kara_because",
+            "v_kibun",
+            "p_ga",
+            "v_ii",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Vocabulary",
+      "instructions": "Choose the correct English meaning for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "天気",
+          "choices": [
+            "weather",
+            "electricity",
+            "rest",
+            "mood"
+          ],
+          "answer": "weather"
+        },
+        {
+          "kind": "mcq",
+          "q": "電気",
+          "choices": [
+            "electricity",
+            "train",
+            "weather",
+            "day off"
+          ],
+          "answer": "electricity"
+        },
+        {
+          "kind": "mcq",
+          "q": "気分",
+          "choices": [
+            "mood / feeling",
+            "energy",
+            "rest",
+            "weather"
+          ],
+          "answer": "mood / feeling"
+        },
+        {
+          "kind": "mcq",
+          "q": "休日",
+          "choices": [
+            "holiday / day off",
+            "rest",
+            "train",
+            "hotel"
+          ],
+          "answer": "holiday / day off"
+        },
+        {
+          "kind": "mcq",
+          "q": "人気",
+          "choices": [
+            "popularity",
+            "feeling",
+            "person",
+            "weather"
+          ],
+          "answer": "popularity"
+        },
+        {
+          "kind": "mcq",
+          "q": "電車",
+          "choices": [
+            "train",
+            "electricity",
+            "energy",
+            "mood"
+          ],
+          "answer": "train"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: i-Adjective Past Tense",
+      "instructions": "Choose the correct past tense form of the i-adjective.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Today was good. （いい → past）",
+          "choices": [
+            "よかったです",
+            "いかったです",
+            "いいでした",
+            "よいでした"
+          ],
+          "answer": "よかったです",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "The train was expensive. （高い → past）",
+          "choices": [
+            "高かったです",
+            "高いでした",
+            "高くなかったです",
+            "高いです"
+          ],
+          "answer": "高かったです",
+          "terms": [
+            {
+              "id": "v_takai",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "The trip was long. （長い → past）",
+          "choices": [
+            "長かったです",
+            "長いでした",
+            "長くないです",
+            "長いました"
+          ],
+          "answer": "長かったです",
+          "terms": [
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "The weather was not good. （いい → past negative）",
+          "choices": [
+            "よくなかったです",
+            "いくなかったです",
+            "よくないでした",
+            "いいませんでした"
+          ],
+          "answer": "よくなかったです",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "plain_past_negative"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar in Context",
+      "instructions": "Choose the best word or phrase to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "山に 来て ___です。（I'm glad I came to the mountains.）",
+          "choices": [
+            "よかった",
+            "いかった",
+            "よかって",
+            "よい"
+          ],
+          "answer": "よかった",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "天気が ___ から、外に 行きましょう。（Because the weather is good, let's go outside.）",
+          "choices": [
+            "いい",
+            "よかった",
+            "いかった",
+            "よい"
+          ],
+          "answer": "いい",
+          "terms": [
+            "v_tenki",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_kara_because",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "休日に ___ たいです。（I want to rest on the holiday.）",
+          "choices": [
+            "休み",
+            "休む",
+            "休んで",
+            "休め"
+          ],
+          "answer": "休み",
+          "terms": [
+            "v_kyuujitsu",
+            "p_ni",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "電気が あって ___。（It's great that there's electricity.）",
+          "choices": [
+            "よかったです",
+            "いかったです",
+            "よいです",
+            "よかって"
+          ],
+          "answer": "よかったです",
+          "terms": [
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    }
+  ]
+}

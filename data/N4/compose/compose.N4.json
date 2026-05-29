@@ -1,0 +1,363 @@
+{
+  "contentVersion": "1.0.0",
+  "level": "N4",
+  "prompts": [
+    {
+      "id": "village-gate",
+      "title": "The Village Gate",
+      "titleJp": "村の門",
+      "emoji": "🏘️",
+      "lessons": ["N4.28"],
+      "scenario": "Describe arriving at a small village. You walk through a gate and discover a beautiful pond near a grove of trees.",
+      "hint": "小さい村に来ました。大きい門が...",
+      "targets": [
+        { "id": "v_mura", "count": 1 },
+        { "id": "v_mon", "count": 1 },
+        { "id": "v_ike", "count": 1 },
+        { "id": "v_hayashi", "count": 1 }
+      ],
+      "helpers": ["v_murabito", "v_koumon", "v_denchi"]
+    },
+    {
+      "id": "battery-hunt",
+      "title": "Buying Batteries",
+      "titleJp": "電池を買う",
+      "emoji": "🔋",
+      "lessons": ["N4.28"],
+      "scenario": "You need batteries for your flashlight. Ask a villager near the school gate where you can buy them.",
+      "hint": "電池がほしいです。校門の近くで...",
+      "targets": [
+        { "id": "v_denchi", "count": 1 },
+        { "id": "v_koumon", "count": 1 },
+        { "id": "v_murabito", "count": 1 }
+      ],
+      "helpers": ["v_mura", "v_mon", "v_ike"]
+    },
+    {
+      "id": "typhoon-plan",
+      "title": "Typhoon Preparation",
+      "titleJp": "台風の計画",
+      "emoji": "🌀",
+      "lessons": ["N4.29"],
+      "scenario": "A typhoon is approaching! Write about your preparation plan. Check the time and make sure the kitchen is ready.",
+      "hint": "台風が来ます。計画を...",
+      "targets": [
+        { "id": "v_taifuu", "count": 1 },
+        { "id": "v_keikaku", "count": 1 },
+        { "id": "v_tokei", "count": 1 },
+        { "id": "v_daidokoro", "count": 1 }
+      ],
+      "helpers": ["v_hakaru", "v_shiru", "v_shiraseru"]
+    },
+    {
+      "id": "did-you-know",
+      "title": "What Do You Know?",
+      "titleJp": "知っていますか",
+      "emoji": "🤔",
+      "lessons": ["N4.29"],
+      "scenario": "Tell a friend about something interesting you recently learned. Was it more or less surprising than you expected?",
+      "hint": "知っていますか。...",
+      "targets": [
+        { "id": "v_shiru", "count": 1, "matches": ["知", "しって", "しり", "しる"] },
+        { "id": "v_ijou", "count": 1 },
+        { "id": "v_ika", "count": 1 }
+      ],
+      "helpers": ["v_hakaru", "v_shiraseru", "v_hakarishirenai"]
+    },
+    {
+      "id": "special-gathering",
+      "title": "A Special Gathering",
+      "titleJp": "特別な集まり",
+      "emoji": "🎉",
+      "lessons": ["N4.30"],
+      "scenario": "Write about a special day when friends gathered together. Someone asked a difficult question. What do you think the answer was?",
+      "hint": "特別な日でした。友だちが集まりました...",
+      "targets": [
+        { "id": "v_tokubetsu", "count": 1 },
+        { "id": "v_atsumaru", "count": 1, "matches": ["集ま", "あつま"] },
+        { "id": "v_kotae", "count": 1, "matches": ["答", "こたえ"] },
+        { "id": "v_omou", "count": 1, "matches": ["思", "おもう", "おもい", "おもって"] }
+      ],
+      "helpers": ["v_atsumeru", "v_omoidasu", "v_tokuni"]
+    },
+    {
+      "id": "my-collection",
+      "title": "My Collection",
+      "titleJp": "わたしの集め物",
+      "emoji": "📦",
+      "lessons": ["N4.30"],
+      "scenario": "Write about something you like to collect. What do you especially treasure? What memories come to mind when you look at your collection?",
+      "hint": "わたしのしゅみは集めることです...",
+      "targets": [
+        { "id": "v_atsumeru", "count": 1, "matches": ["集め", "あつめ"] },
+        { "id": "v_tokuni", "count": 1 },
+        { "id": "v_omoidasu", "count": 1, "matches": ["思い出", "おもいだ"] }
+      ],
+      "helpers": ["v_omou", "v_atsumaru", "v_tokubetsu", "v_omoiagaru"]
+    },
+    {
+      "id": "forest-cafeteria",
+      "title": "Forest Cafeteria",
+      "titleJp": "森の食堂",
+      "emoji": "🌲",
+      "lessons": ["N4.31"],
+      "scenario": "A new cafeteria opened near the forest! Describe visiting it for the first time. Does it feel like stepping into a different era?",
+      "hint": "森の近くに新しい食堂が...",
+      "targets": [
+        { "id": "v_mori", "count": 1 },
+        { "id": "v_shokudou", "count": 1 },
+        { "id": "v_kaiten", "count": 1 },
+        { "id": "v_jidai", "count": 1 }
+      ],
+      "helpers": ["v_akeru", "v_hiraku", "v_kawaru", "v_doudou"]
+    },
+    {
+      "id": "grand-hall",
+      "title": "The Grand Hall",
+      "titleJp": "堂々とした会堂",
+      "emoji": "🏛️",
+      "lessons": ["N4.31"],
+      "scenario": "Describe visiting a grand assembly hall in the forest. An important event is about to start. Write about what you see and feel.",
+      "hint": "森の中に堂々とした会堂が...",
+      "targets": [
+        { "id": "v_doudou", "count": 1 },
+        { "id": "v_kaidou", "count": 1 },
+        { "id": "v_kaishi", "count": 1 },
+        { "id": "v_mori", "count": 1 }
+      ],
+      "helpers": ["v_akeru", "v_hiraku", "v_kawaru"]
+    },
+    {
+      "id": "village-festival",
+      "title": "Village Festival",
+      "titleJp": "村のお祭り",
+      "emoji": "🎊",
+      "lessons": ["N4.28", "N4.30"],
+      "scenario": "A special festival is held in the village! People gather at the gate. Write about the celebration and what you think about it.",
+      "hint": "村で特別なお祭りがありました...",
+      "targets": [
+        { "id": "v_mura", "count": 1 },
+        { "id": "v_mon", "count": 1 },
+        { "id": "v_tokubetsu", "count": 1 },
+        { "id": "v_atsumaru", "count": 1, "matches": ["集ま", "あつま"] },
+        { "id": "v_omou", "count": 1, "matches": ["思", "おもう", "おもい"] }
+      ],
+      "helpers": ["v_murabito", "v_ike", "v_atsumeru", "v_omoidasu"]
+    },
+    {
+      "id": "forest-adventure",
+      "title": "Forest Adventure",
+      "titleJp": "森の冒険",
+      "emoji": "🗺️",
+      "lessons": ["N4.28", "N4.31"],
+      "scenario": "Walk through a grove into a deep forest. You find a pond and then discover a hidden cafeteria. Open the door and describe what is inside.",
+      "hint": "林を通って森に入りました...",
+      "targets": [
+        { "id": "v_hayashi", "count": 1 },
+        { "id": "v_mori", "count": 1 },
+        { "id": "v_ike", "count": 1 },
+        { "id": "v_shokudou", "count": 1 },
+        { "id": "v_akeru", "count": 1, "matches": ["開け", "あけ"] }
+      ],
+      "helpers": ["v_hiraku", "v_kawaru", "v_mon", "v_murabito"]
+    },
+    {
+      "id": "the-big-day",
+      "title": "The Big Day",
+      "titleJp": "すごい一日",
+      "emoji": "🌟",
+      "lessons": ["N4.28", "N4.29", "N4.30", "N4.31"],
+      "scenario": "After a typhoon, villagers gather at the cafeteria for a special meeting. Write about what happened, what you think about these changing times, and what you learned.",
+      "hint": "台風のあとで、村人が食堂に集まりました...",
+      "targets": [
+        { "id": "v_mura", "count": 1 },
+        { "id": "v_taifuu", "count": 1 },
+        { "id": "v_tokubetsu", "count": 1 },
+        { "id": "v_atsumaru", "count": 1, "matches": ["集ま", "あつま"] },
+        { "id": "v_shokudou", "count": 1 },
+        { "id": "v_omou", "count": 1, "matches": ["思", "おもう", "おもい"] },
+        { "id": "v_jidai", "count": 1 },
+        { "id": "v_shiru", "count": 1, "matches": ["知", "しって", "しり"] }
+      ],
+      "helpers": ["v_atsumeru", "v_omoidasu", "v_hakaru", "v_akeru", "v_kawaru"]
+    },
+    {
+      "id": "city-calligraphy",
+      "title": "City Studies",
+      "titleJp": "都市の学習",
+      "emoji": "🏙️",
+      "lessons": ["N4.32"],
+      "scenario": "You moved to a new city and started learning calligraphy. Write about pulling supplies from a drawer, your errands around town, and what you are studying at the morning market.",
+      "hint": "例: 新しい都市に来ました。引き出しから...",
+      "targets": [
+        { "id": "v_hikidashi", "count": 1 },
+        { "id": "v_youji", "count": 1 },
+        { "id": "v_shuuji", "count": 1 },
+        { "id": "v_toshi", "count": 1 },
+        { "id": "v_gakushuu", "count": 1 },
+        { "id": "v_asaichi", "count": 1 }
+      ],
+      "helpers": ["v_hiku", "v_hikidasu", "v_narau", "v_minarau"]
+    },
+    {
+      "id": "building-the-square",
+      "title": "Building the Square",
+      "titleJp": "広場を建てる",
+      "emoji": "🏗️",
+      "lessons": ["N4.33"],
+      "scenario": "A carpenter is building a new structure in the wide town square. Describe the construction site near the factory, the workers, and what the finished building will look like.",
+      "hint": "例: 広場に新しい建物を建てます。工場の近くで...",
+      "targets": [
+        { "id": "v_basho", "count": 1 },
+        { "id": "v_koujou", "count": 1 },
+        { "id": "v_hiroba", "count": 1 },
+        { "id": "v_tatemono", "count": 1 },
+        { "id": "v_daiku", "count": 1 },
+        { "id": "v_tateru", "count": 1, "matches": ["建て", "たて"] }
+      ],
+      "helpers": ["v_tatsu_build", "v_hiromeru", "v_hiroi", "v_koudai"]
+    },
+    {
+      "id": "new-city-project",
+      "title": "The New City Project",
+      "titleJp": "新しい都市の計画",
+      "emoji": "🌆",
+      "lessons": ["N4.32", "N4.33"],
+      "scenario": "A new city development is underway! Wide squares, tall buildings, and a factory are being built on a large site. Write about visiting the construction, what you learned from the workers, and how the city will use the new spaces.",
+      "hint": "例: 広い用地に新しい都市を建てます。工場で学習して...",
+      "targets": [
+        { "id": "v_toshi", "count": 1 },
+        { "id": "v_koujou", "count": 1 },
+        { "id": "v_tateru", "count": 1, "matches": ["建て", "たて"] },
+        { "id": "v_hiroi", "count": 1, "matches": ["広い", "ひろい", "広く", "広か"] },
+        { "id": "v_gakushuu", "count": 1 },
+        { "id": "v_youchi", "count": 1 },
+        { "id": "v_basho", "count": 1 },
+        { "id": "v_hiku", "count": 1, "matches": ["引", "ひい", "ひき"] }
+      ],
+      "helpers": ["v_hikidasu", "v_narau", "v_minarau", "v_tatsu_build", "v_hiromeru", "v_koudai"]
+    },
+    {
+      "id": "first-train",
+      "title": "The First Train",
+      "titleJp": "始発電車",
+      "emoji": "🚉",
+      "lessons": ["N4.34"],
+      "scenario": "You are catching the first train of the day to travel outside your prefecture. Write about the early departure, the districts you pass through, and something surprising you discover along the way.",
+      "hint": "例: 朝早く出発します。始発の電車で県外へ...",
+      "targets": [
+        { "id": "v_shuppatsu", "count": 1 },
+        { "id": "v_shihatsu", "count": 1 },
+        { "id": "v_kengai", "count": 1 },
+        { "id": "v_chiku", "count": 1 },
+        { "id": "v_tooru", "count": 1, "matches": ["通る", "とおり", "通って", "とおって"] },
+        { "id": "v_hakken", "count": 1 }
+      ],
+      "helpers": ["v_kayou", "v_tsuugaku", "v_kubetsu", "v_hatsugen"]
+    },
+    {
+      "id": "factory-district",
+      "title": "The Factory District",
+      "titleJp": "工場の地区",
+      "emoji": "🏭",
+      "lessons": ["N4.33", "N4.34"],
+      "scenario": "You commute through a wide factory district in a neighboring prefecture. Describe the buildings, the square, how workers pass along the main street each day, and something unexpected you discover there.",
+      "hint": "例: 県外の工場の地区に通っています。広い大通りを通ると...",
+      "targets": [
+        { "id": "v_koujou", "count": 1 },
+        { "id": "v_chiku", "count": 1 },
+        { "id": "v_hiroba", "count": 1 },
+        { "id": "v_tatemono", "count": 1 },
+        { "id": "v_oodoori", "count": 1 },
+        { "id": "v_kayou", "count": 1, "matches": ["通う", "かよう", "通い", "かよい", "通って", "かよって"] },
+        { "id": "v_kengai", "count": 1 },
+        { "id": "v_hakken", "count": 1 }
+      ],
+      "helpers": ["v_tooru", "v_tateru", "v_hiroi", "v_tsuugaku"]
+    },
+    {
+      "id": "shop-owner-day",
+      "title": "The Shop Owner's Day",
+      "titleJp": "主人の一日",
+      "emoji": "🥬",
+      "lessons": ["N4.35"],
+      "scenario": "You run a small vegetable stand. Write about your day — what you mainly sell, having to stop when it rains, and washing up before heading home.",
+      "hint": "例: 私は小さい店の主人です。主に野菜を...",
+      "targets": [
+        { "id": "v_shujin", "count": 1 },
+        { "id": "v_omoni", "count": 1 },
+        { "id": "v_tomaru", "count": 1, "matches": ["止まり", "とまり", "止まる", "とまる", "止まって", "とまって"] },
+        { "id": "v_arau", "count": 1, "matches": ["洗い", "あらい", "洗う", "あらう", "洗って", "あらって"] },
+        { "id": "v_tearai", "count": 1 }
+      ],
+      "helpers": ["v_nushi", "v_tomeru", "v_chuushi", "v_sensha"]
+    },
+    {
+      "id": "peoples-district",
+      "title": "The People's District",
+      "titleJp": "民の地区",
+      "emoji": "🏡",
+      "lessons": ["N4.35"],
+      "scenario": "Write a postcard from a peaceful district full of private houses. Describe what makes the community special — the diverse ethnic groups, the citizens you have met, and the sense of belonging among the people.",
+      "hint": "例: この地区には民家が多いです。いろいろな民族の...",
+      "targets": [
+        { "id": "v_minka", "count": 1 },
+        { "id": "v_minzoku", "count": 1 },
+        { "id": "v_kokumin", "count": 1 },
+        { "id": "v_tami", "count": 1 }
+      ],
+      "helpers": ["v_omoni", "v_chuushi", "v_kyuushi", "v_shujin"]
+    },
+    {
+      "id": "cancelled-commute",
+      "title": "The Cancelled Commute",
+      "titleJp": "中止になった通勤",
+      "emoji": "🌧️",
+      "lessons": ["N4.34", "N4.35"],
+      "scenario": "You were commuting through a quiet district of private houses when a public event was suddenly cancelled due to rain. Write about passing through the neighbourhood, the bus stopping, and what you ended up doing instead.",
+      "hint": "例: 雨で行事が中止になりました。バスも止まって...",
+      "targets": [
+        { "id": "v_kayou", "count": 1, "matches": ["通う", "かよう", "通い", "かよい", "通って", "かよって"] },
+        { "id": "v_chiku", "count": 1 },
+        { "id": "v_minka", "count": 1 },
+        { "id": "v_chuushi", "count": 1 },
+        { "id": "v_tomaru", "count": 1, "matches": ["止まり", "とまり", "止まる", "とまる", "止まって", "とまって"] },
+        { "id": "v_arau", "count": 1, "matches": ["洗い", "あらい", "洗う", "あらう", "洗って", "あらって"] }
+      ],
+      "helpers": ["v_tooru", "v_kokumin", "v_tomeru", "v_kyuushi", "v_sensha"]
+    },
+    {
+      "id": "neighbourhood-carwash",
+      "title": "Neighbourhood Car Wash",
+      "titleJp": "町内洗車イベント",
+      "emoji": "🚗",
+      "lessons": ["N4.35"],
+      "scenario": "You help organise a charity car wash in the local car park. Write about who stopped traffic to keep things safe, what you washed, and how the event was nearly called off because of rain.",
+      "hint": "例: 近所で洗車イベントをしました。まず車を止めて...",
+      "targets": [
+        { "id": "v_tomeru", "count": 1, "matches": ["止め", "とめ", "止める", "とめる", "止めて", "とめて"] },
+        { "id": "v_sensha", "count": 1 },
+        { "id": "v_arau", "count": 1, "matches": ["洗い", "あらい", "洗う", "あらう", "洗って", "あらって"] },
+        { "id": "v_chuushi", "count": 1 }
+      ],
+      "helpers": ["v_nushi", "v_omoni", "v_tearai", "v_kyuushi"]
+    },
+    {
+      "id": "unlucky-contractor",
+      "title": "The Unlucky Contractor",
+      "titleJp": "不運な業者",
+      "emoji": "🔧",
+      "lessons": ["N4.36"],
+      "scenario": "A contractor working on a local industry project is having a terrible week. Write about the inconvenient transport service that delayed their materials, their bad luck, and how they feel about the work itself.",
+      "hint": "例: 業者はとても不運でした。バスの便が悪くて...",
+      "targets": [
+        { "id": "v_gyousha", "count": 1 },
+        { "id": "v_fuun", "count": 1 },
+        { "id": "v_fuben", "count": 1, "matches": ["不便", "ふべん"] },
+        { "id": "v_bin", "count": 1 },
+        { "id": "v_sangyou", "count": 1 }
+      ],
+      "helpers": ["v_gyou", "v_kougyou", "v_sanbutsu", "v_fusei"]
+    }
+  ]
+}

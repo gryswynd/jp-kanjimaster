@@ -1,0 +1,1321 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.28",
+  "title": "Ponds, Groves, Gates, Villages",
+  "meta": {
+    "level": "N4",
+    "lesson_number": 28,
+    "focus": "Ponds, groves, gates, and villages — exploring natural places and community landmarks using 池, 林, 門, 村 kanji compounds.",
+    "estimated_minutes": 35,
+    "kanji": [
+      "池",
+      "林",
+      "門",
+      "村"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "池",
+      "on": "ち",
+      "kun": "いけ",
+      "meaning": "Pond",
+      "termId": "k_ike"
+    },
+    {
+      "kanji": "林",
+      "on": "りん",
+      "kun": "はやし",
+      "meaning": "Grove / Thicket",
+      "termId": "k_hayashi"
+    },
+    {
+      "kanji": "門",
+      "on": "もん",
+      "kun": "かど",
+      "meaning": "Gate",
+      "termId": "k_mon"
+    },
+    {
+      "kanji": "村",
+      "on": "そん",
+      "kun": "むら",
+      "meaning": "Village",
+      "termId": "k_mura"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Use words you already know to answer these questions:",
+      "items": [
+        {
+          "jp": "毎日 運動する ように して います。",
+          "en": "I make an effort to exercise every day.",
+          "terms": [
+            "v_mainichi",
+            "v_undou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "明日は 学校に 行かなければ いけません。",
+          "en": "Tomorrow I have to go to school.",
+          "terms": [
+            "v_ashita",
+            "p_wa",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "夕方に なったら、何を しますか。",
+          "en": "When evening comes, what do you do?",
+          "terms": [
+            "v_yuugata",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "conditional_tara"
+            },
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "仕事が 終わって から、家に 帰ります。",
+          "en": "After work ends, I go home.",
+          "terms": [
+            "v_shigoto",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_kaeru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "池",
+          "on": "ち",
+          "kun": "いけ",
+          "meaning": "Pond",
+          "words": [
+            "v_ike",
+            "v_denchi"
+          ]
+        },
+        {
+          "kanji": "林",
+          "on": "りん",
+          "kun": "はやし",
+          "meaning": "Grove / Thicket",
+          "words": [
+            "v_hayashi",
+            "v_sanrin",
+            "v_kobayashi"
+          ]
+        },
+        {
+          "kanji": "門",
+          "on": "もん",
+          "kun": "かど",
+          "meaning": "Gate",
+          "words": [
+            "v_mon",
+            "v_seimon",
+            "v_koumon",
+            "v_nyuumon"
+          ]
+        },
+        {
+          "kanji": "村",
+          "on": "そん",
+          "kun": "むら",
+          "meaning": "Village",
+          "words": [
+            "v_mura",
+            "v_sanson",
+            "v_murabito",
+            "v_sonchou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Nature & Places",
+          "items": [
+            "v_ike",
+            "v_hayashi",
+            "v_sanrin",
+            "v_mura",
+            "v_sanson"
+          ]
+        },
+        {
+          "label": "Gates & Entry",
+          "items": [
+            "v_mon",
+            "v_seimon",
+            "v_koumon",
+            "v_nyuumon"
+          ]
+        },
+        {
+          "label": "People & Objects",
+          "items": [
+            "v_murabito",
+            "v_sonchou",
+            "v_kobayashi",
+            "v_denchi"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Meeting at the School Gate",
+      "context": "Two classmates arranging where to meet before school.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "明日、校門の 前で 待ち合わせ しましょうか。",
+          "en": "Shall we arrange to meet in front of the school gate tomorrow?",
+          "terms": [
+            "v_ashita",
+            "v_koumon",
+            "p_no",
+            "v_mae",
+            "p_de",
+            "v_machiawase",
+            {
+              "id": "v_suru",
+              "form": "polite_volitional_mashou"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いいですね。正門の 近くに 来たら、電話 して ください。",
+          "en": "That sounds good. When you get near the main gate, please call me.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_seimon",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "conditional_tara"
+            },
+            "v_denwa",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "分かりました。校門に 入れる ように、早く 行きます。",
+          "en": "Understood. I'll go early so that I can enter through the school gate.",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_koumon",
+            "p_ni",
+            {
+              "id": "v_hairu",
+              "form": "potential"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、分かりました。校門の 前で 待って います。",
+          "en": "Yes, understood. I will be waiting in front of the school gate.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_koumon",
+            "p_no",
+            "v_mae",
+            "p_de",
+            {
+              "id": "v_matsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Life in the Mountain Village",
+      "context": "Two people discussing what daily life is like in a mountain village.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "山村は 町より どうですか。",
+          "en": "How is the mountain village compared to a town?",
+          "terms": [
+            "v_sanson",
+            "p_wa",
+            "v_machi",
+            "p_yori",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "山村の 方が きれいです。林や 池が あって、とても いい 所です。",
+          "en": "The mountain village is more beautiful. There are groves and ponds — it's a really nice place.",
+          "terms": [
+            "v_sanson",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "v_hayashi",
+            "p_ya",
+            "v_ike",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_totemo",
+            "v_ii",
+            "v_tokoro",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "村人は 毎日 何を して いるのですか。",
+          "en": "What do the villagers do every day?",
+          "terms": [
+            "v_murabito",
+            "p_wa",
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_ndesu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "村人は 毎日 早く 起きる ように して います。",
+          "en": "The villagers make an effort to wake up early every day.",
+          "terms": [
+            "v_murabito",
+            "p_wa",
+            "v_mainichi",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_okiru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "山村に 住んで いる ように なりたいです。",
+          "en": "I want to come to live in a mountain village.",
+          "terms": [
+            "v_sanson",
+            "p_ni",
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Weekend Walk in the Grove (Casual)",
+      "context": "Two close friends planning a walk through the forest on the weekend.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "週まつ、林の 中を 歩かない？",
+          "en": "Want to walk through the grove on the weekend?",
+          "terms": [
+            "v_shuumatsu",
+            "v_hayashi",
+            "p_no",
+            "v_naka",
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "plain_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いいね！ 林に 行ったら、池も 見られる けど。",
+          "en": "Sounds good! If we go to the grove, we can also see the pond.",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            "v_hayashi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "conditional_tara"
+            },
+            "v_ike",
+            "p_mo",
+            {
+              "id": "v_miru",
+              "form": "potential"
+            },
+            "p_kedo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "電池が あったら、写真も とれる ね。",
+          "en": "If we have batteries, we can take photos too.",
+          "terms": [
+            "v_denchi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "conditional_tara"
+            },
+            "v_shashin",
+            "p_mo",
+            {
+              "id": "v_toru",
+              "form": "potential"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "林の 中を 歩く ように なって から、体が よく なった よ。",
+          "en": "After I started walking through the grove regularly, my body got better.",
+          "terms": [
+            "v_hayashi",
+            "p_no",
+            "v_naka",
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_karada",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_past"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: An Introduction to Japanese (Casual)",
+      "context": "Two friends talking casually about studying Japanese.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "日本語の 入門 本を 読んで いるの？",
+          "en": "Are you reading an introductory Japanese book?",
+          "terms": [
+            "v_nihongo",
+            "p_no",
+            "v_nyuumon",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_no_question"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん、日本語を 読んだり 書いたり して いる よ。",
+          "en": "Yeah, I'm reading and writing Japanese.",
+          "terms": [
+            "v_un",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_kaku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "日本語が 分かる ように なった？",
+          "en": "Have you come to understand Japanese?",
+          "terms": [
+            "v_nihongo",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん、少し 分かる ように なったよ。もっと 上手に なりたい。",
+          "en": "Yeah, I've come to understand a little. I want to become better.",
+          "terms": [
+            "v_un",
+            "v_sukoshi",
+            {
+              "id": "v_wakaru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_past"
+            },
+            "p_yo",
+            "v_motto",
+            "v_jouzu",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 1: A Peaceful Mountain Village",
+      "passage": [
+        {
+          "jp": "小林さんは 小さい 山村に 住んで います。",
+          "en": "Kobayashi-san lives in a small mountain village.",
+          "terms": [
+            "v_kobayashi",
+            "v_san",
+            "p_wa",
+            "v_chiisai",
+            "v_sanson",
+            "p_ni",
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "村の 近くに 山林が あって、林や 池も あります。",
+          "en": "Near the village there is a mountain forest, and there are also groves and ponds.",
+          "terms": [
+            "v_mura",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_ni",
+            "v_sanrin",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_hayashi",
+            "p_ya",
+            "v_ike",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "村長は 毎朝 林の 中を 歩いて から、仕事を します。",
+          "en": "The village headman walks through the grove every morning, then works.",
+          "terms": [
+            "v_sonchou",
+            "p_wa",
+            "v_maiasa",
+            "v_hayashi",
+            "p_no",
+            "v_naka",
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_shigoto",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "村人は 池の 近くを 歩ける ように なりました。",
+          "en": "The villagers have come to be able to walk near the pond.",
+          "terms": [
+            "v_murabito",
+            "p_wa",
+            "v_ike",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "potential"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "夕方に なると、村人は 家族と 一緒に 夕食を 食べます。",
+          "en": "When evening comes, the villagers eat dinner together with their families.",
+          "terms": [
+            "v_yuugata",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "to_conditional"
+            },
+            "v_murabito",
+            "p_wa",
+            "v_kazoku",
+            "p_to",
+            "v_issho",
+            "p_ni",
+            "v_yuushoku",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "村の 近くに 何が ありますか。",
+          "q_en": "What is near the village?",
+          "a": "山林や 林や 池が あります。",
+          "a_en": "There is a mountain forest, a grove, and a pond.",
+          "terms": [
+            "v_mura",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_sanrin",
+            "p_ya",
+            "v_hayashi",
+            "p_ya",
+            "v_ike",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "村長は 毎朝 何を しますか。",
+          "q_en": "What does the village chief do every morning?",
+          "a": "林の 中を 歩いて から、仕事を します。",
+          "a_en": "He walks through the grove and then does work.",
+          "terms": [
+            "v_sonchou",
+            "p_wa",
+            "v_maiasa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_hayashi",
+            "p_no",
+            "v_naka",
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_shigoto",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "村人は 毎日 何を して いますか。",
+          "q_en": "What are the villagers doing every day?",
+          "a": "山林で 働いたり、池の 近くを 歩いたり して います。",
+          "a_en": "They are working in the mountain forest and walking near the pond.",
+          "terms": [
+            "v_murabito",
+            "p_wa",
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_sanrin",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "tari_form"
+            },
+            "v_ike",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_wo",
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 2: The School Gate",
+      "passage": [
+        {
+          "jp": "学校の 正門は とても 古いです。",
+          "en": "The school's main gate is very old.",
+          "terms": [
+            "v_gakkou",
+            "p_no",
+            "v_seimon",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_furui",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "校門の 前に、学生が 来て います。",
+          "en": "Students are coming to the school gate.",
+          "terms": [
+            "v_koumon",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_gakusei",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "門の 近くに 小さい 店が あります。",
+          "en": "There is a small shop near the gate.",
+          "terms": [
+            "v_mon",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_ni",
+            "v_chiisai",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "店で 電池を 買って から、学校に 入ります。",
+          "en": "After buying batteries at the shop, I enter the school.",
+          "terms": [
+            "v_mise",
+            "p_de",
+            "v_denchi",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_hairu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "学校の 正門より 校門の 方が 大きいです。",
+          "en": "The school gate is larger than the main gate.",
+          "terms": [
+            "v_gakkou",
+            "p_no",
+            "v_seimon",
+            "p_yori",
+            "v_koumon",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ookii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "正門は どんな 門ですか。",
+          "q_en": "What kind of gate is the main gate?",
+          "a": "とても 古い 門です。",
+          "a_en": "It is a very old gate.",
+          "terms": [
+            "v_seimon",
+            "p_wa",
+            "v_donna",
+            "v_mon",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_totemo",
+            "v_furui",
+            "v_mon",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "どこで 電池を 買いますか。",
+          "q_en": "Where do you buy batteries?",
+          "a": "門の 近くの 店で 買います。",
+          "a_en": "You buy them at the shop near the gate.",
+          "terms": [
+            "v_doko",
+            "p_de",
+            "v_denchi",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mon",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_no",
+            "v_mise",
+            "p_de",
+            {
+              "id": "v_kau",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "校門と 正門では、どちらの 方が 大きいですか。",
+          "q_en": "Between the school gate and the main gate, which is larger?",
+          "a": "校門の 方が 大きいです。",
+          "a_en": "The school gate is larger.",
+          "terms": [
+            "v_koumon",
+            "p_to",
+            "v_seimon",
+            "p_dewa",
+            "v_dochira",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ookii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_koumon",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ookii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Select the correct reading for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "池 の よみかたは？",
+          "choices": [
+            "いけ",
+            "ちょ",
+            "ため",
+            "うみ"
+          ],
+          "answer": "いけ"
+        },
+        {
+          "kind": "mcq",
+          "q": "林 の よみかたは？",
+          "choices": [
+            "はやし",
+            "もり",
+            "りん",
+            "かわ"
+          ],
+          "answer": "はやし"
+        },
+        {
+          "kind": "mcq",
+          "q": "門 の よみかたは？",
+          "choices": [
+            "もん",
+            "かど",
+            "まち",
+            "もり"
+          ],
+          "answer": "もん"
+        },
+        {
+          "kind": "mcq",
+          "q": "村 の よみかたは？",
+          "choices": [
+            "むら",
+            "まち",
+            "そん",
+            "ちょう"
+          ],
+          "answer": "むら"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Choose the correct meaning or word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "「山村」の いみは？",
+          "choices": [
+            "mountain village",
+            "mountain forest",
+            "mountain gate",
+            "mountain pond"
+          ],
+          "answer": "mountain village",
+          "terms": [
+            "v_sanson",
+            "p_no",
+            "v_imi",
+            "p_wa"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "「校門」の いみは？",
+          "choices": [
+            "school gate",
+            "main gate",
+            "village gate",
+            "entrance"
+          ],
+          "answer": "school gate",
+          "terms": [
+            "v_koumon",
+            "p_no",
+            "v_imi",
+            "p_wa"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "「______ に 電池が 入って います。」に 合う ことばは？",
+          "choices": [
+            "カメラ",
+            "門",
+            "池",
+            "村"
+          ],
+          "answer": "カメラ",
+          "terms": [
+            "v_denchi",
+            "p_ni",
+            {
+              "id": "v_hairu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "「山林」の いみは？",
+          "choices": [
+            "mountain forest",
+            "mountain village",
+            "grove",
+            "pond"
+          ],
+          "answer": "mountain forest",
+          "terms": [
+            "v_sanrin",
+            "p_no",
+            "v_imi",
+            "p_wa"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Choose the correct grammar form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 運動する ______ して います。",
+          "choices": [
+            "ように",
+            "ために",
+            "のに",
+            "てから"
+          ],
+          "answer": "ように",
+          "terms": [
+            "v_mainichi",
+            "v_undou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "明日は 学校に 行か ______ いけません。",
+          "choices": [
+            "なければ",
+            "なくて",
+            "ないで",
+            "ないから"
+          ],
+          "answer": "なければ",
+          "terms": [
+            "v_ashita",
+            "p_wa",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "夕方に ______ 何を しますか。",
+          "choices": [
+            "なったら",
+            "なりから",
+            "なったのに",
+            "なるけど"
+          ],
+          "answer": "なったら",
+          "terms": [
+            "v_yuugata",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "conditional_tara"
+            },
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "仕事が 終わって ______ 家に 帰ります。",
+          "choices": [
+            "から",
+            "のに",
+            "けど",
+            "たら"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_shigoto",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_kaeru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

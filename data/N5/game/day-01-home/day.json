@@ -1,0 +1,69 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-01-home",
+  "title": "House Adventure",
+  "titleJp": "いえ",
+  "level": "N5",
+  "unlockedBy": ["N5.1"],
+  "assets": {
+    "map": "map.png",
+    "collision": "collision.png",
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living":  "assets/backgrounds/convo-bg-living.png",
+      "void":    "assets/backgrounds/convo-bg-void.png"
+    }
+  },
+  "playerStart": { "x": 325, "y": 260 },
+  "objects": [
+    { "name": "Bed",          "nameJp": "ベッド",     "x": 194, "y": 189, "width": 114, "height": 146, "isDoor": false, "message": { "jp": "いいベッドです。",             "en": "A comfortable bed. Time to get up.",         "terms": ["v_ii", "v_beddo", "g_desu"] } },
+    { "name": "Laptop",       "nameJp": "パソコン",   "x": 315, "y": 158, "width": 121, "height":  86, "isDoor": false, "message": { "jp": "わたしのパソコンです。",         "en": "My laptop. For preparing lessons.",           "terms": ["v_watashi", "p_no", "v_pasokon", "g_desu"] } },
+    { "name": "Toilet",       "nameJp": "トイレ",     "x": 714, "y": 134, "width":  34, "height": 110, "isDoor": false, "message": { "jp": "トイレです。",                   "en": "The toilet.",                                 "terms": ["v_toire", "g_desu"] } },
+    { "name": "Fridge",       "nameJp": "れいぞうこ", "x": 849, "y": 135, "width":  71, "height": 116, "isDoor": false, "message": { "jp": "お母さんのれいぞうこです。",     "en": "Mom's fridge. Always well stocked.",          "terms": ["v_okaasan", "p_no", "g_desu"] } },
+    { "name": "Bed_Door",     "nameJp": "ドア",       "x": 311, "y": 440, "width":  90, "height": 122, "isDoor": true },
+    { "name": "TV",           "nameJp": "テレビ",     "x": 420, "y": 485, "width": 122, "height":  69, "isDoor": false, "message": { "jp": "テレビです。",                   "en": "The TV. No time for anime today.",            "terms": ["v_terebi", "g_desu"] } },
+    { "name": "Bath_Door",    "nameJp": "ドア",       "x": 707, "y": 437, "width":  95, "height": 125, "isDoor": true },
+    { "name": "Kitchen_Door", "nameJp": "ドア",       "x": 938, "y": 440, "width":  98, "height": 128, "isDoor": true },
+    { "name": "Kotatsu",      "nameJp": "こたつ",     "x": 398, "y": 626, "width": 173, "height":  77, "isDoor": false, "message": { "jp": "こたつです。とてもいいです！",   "en": "The kotatsu. Warm and cozy — dangerous.",     "terms": ["g_desu", "v_totemo", "v_ii"] } },
+    { "name": "Front_Door",   "nameJp": "げんかん",   "x": 911, "y": 789, "width": 158, "height":  58, "isDoor": true }
+  ],
+  "npcs": [
+    {
+      "name": "mom",
+      "nameJp": "お母さん",
+      "x": 970,
+      "y": 330,
+      "sprite": "assets/characters/sakura/sakura_sprite.png",
+      "convoPortrait": "assets/characters/sakura/sakura_convo.png",
+      "convoBackground": "kitchen",
+      "conversation": [
+        { "speaker": "mom",     "jp": "おはよう、りきぞう！",               "en": "Good morning, Rikizo!",                       "terms": ["char_rikizo"] },
+        { "speaker": "りきぞう", "jp": "おはよう、お母さん。",               "en": "Good morning, Mom.",                          "terms": ["v_okaasan"] },
+        { "speaker": "mom",     "jp": "あなたはとてもいい先生ですよ。",     "en": "You are a very good teacher, you know.",      "terms": ["v_anata", "p_wa", "v_totemo", "v_ii", "v_sensei", "g_desu", "p_yo"] },
+        { "speaker": "りきぞう", "jp": "そうですか？うれしいです！",         "en": "Really? That makes me happy!",                "terms": ["p_soudesuka", { "id": "v_ureshii", "form": "polite_adj" }] },
+        { "speaker": "mom",     "jp": "お母さんがいちばんうれしいですよ。", "en": "Mom is the happiest of all.",                  "terms": ["v_okaasan", "p_ga", "v_ichiban", { "id": "v_ureshii", "form": "polite_adj" }, "p_yo"] }
+      ]
+    },
+    {
+      "name": "dad",
+      "nameJp": "お父さん",
+      "x": 610,
+      "y": 690,
+      "sprite": "assets/characters/taro/taro_sprite.png",
+      "convoPortrait": "assets/characters/taro/taro_convo.png",
+      "convoBackground": "living",
+      "conversation": [
+        { "speaker": "dad",     "jp": "よ、りきぞう！先生ですか？",                   "en": "Hey, Rikizo! Are you a teacher?",              "terms": ["char_rikizo", "v_sensei", "g_desu", "p_ka"] },
+        { "speaker": "りきぞう", "jp": "はい！わたしは先生です。",                     "en": "Yes! I am a teacher.",                         "terms": ["p_hai", "v_watashi", "p_wa", "v_sensei", "g_desu"] },
+        { "speaker": "dad",     "jp": "やさしい先生ですか？",                         "en": "Are you a kind teacher?",                      "terms": ["v_yasashii", "v_sensei", "g_desu", "p_ka"] },
+        { "speaker": "りきぞう", "jp": "はい、とてもやさしい先生です！",               "en": "Yes, a very kind teacher!",                    "terms": ["p_hai", "v_totemo", "v_yasashii", "v_sensei", "g_desu"] },
+        { "speaker": "dad",     "jp": "そうか。りきぞうはいちばんいい先生です。",     "en": "Is that so. Rikizo is the best teacher.",      "terms": ["p_ka", "char_rikizo", "p_wa", "v_ichiban", "v_ii", "v_sensei", "g_desu"] }
+      ]
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {
+    "meShocked": "assets/characters/rikizo/rikizo-convo-shocked.png",
+    "dadAngry":  "assets/characters/taro/taro-convo-angry.png"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.4",
+  "lesson": "N4.4",
+  "level": "N4",
+  "title": "My Favorite Colors",
+  "titleJp": "私の 好きな 色",
+  "emoji": "🎨",
+  "theme": "Write a short personal essay about your favorite colors — what colors you love for clothes, what colors your family or friends like, and what you wore recently.",
+  "prompts": [
+    {
+      "prompt": "Begin your essay by introducing your favorite color. What color do you like the most? Do you love any particular color?",
+      "targets": [
+        { "id": "v_suki", "count": 1 }
+      ],
+      "model": "私は 青が 大好きです。青い シャツが いちばん 好きです。",
+      "vocabPool": [
+        "v_suki", "v_daisuki", "v_aoi", "v_akai", "v_kuroi", "v_chairoi",
+        "v_aka", "v_ao", "v_kuro", "v_chairo", "v_iro", "v_watashi",
+        "v_ichiban", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe what colors you like for clothes. What color shirt or outfit do you often wear? Do you like various colors?",
+      "targets": [
+        { "id": "v_iro", "count": 1 }
+      ],
+      "model": "私は 色々な 色の シャツが 好きです。赤い シャツも 青い シャツも 着ます。",
+      "vocabPool": [
+        "v_iro", "v_iroiro", "v_suki", "v_akai", "v_aoi", "v_kuroi", "v_chairoi",
+        "v_aka", "v_ao", "v_kuro", "v_chairo",
+        "v_shatsu", "v_watashi", "v_mainichi", "v_kiru",
+        "v_totemo", "v_amari", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Tell us about a color you don't like very much. Why don't you like it? Is there a color you can't wear well?",
+      "targets": [
+        { "id": "v_akai", "count": 1 }
+      ],
+      "model": "赤い 色は あまり 好きじゃありません。赤い シャツは 着られません。",
+      "vocabPool": [
+        "v_akai", "v_kuroi", "v_chairoi", "v_aka", "v_kuro", "v_chairo",
+        "v_suki", "v_daisuki",
+        "v_shatsu", "v_amari", "v_kiru", "v_watashi",
+        "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "What did you wear recently? Describe the color of what you wore. Did you try on something new?",
+      "targets": [
+        { "id": "v_aoi", "count": 1 }
+      ],
+      "model": "今朝 は 青い シャツを 着ました。新しい シャツを 着てみました。",
+      "vocabPool": [
+        "v_aoi", "v_akai", "v_kuroi", "v_chairoi",
+        "v_aka", "v_ao", "v_kuro", "v_chairo", "v_shatsu",
+        "v_kiru", "v_kesa", "v_kyou", "v_atarashii", "v_miru",
+        "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about your family's or a friend's favorite color. What color do they like? Do they often wear that color?",
+      "targets": [
+        { "id": "v_kuroi", "count": 1 }
+      ],
+      "model": "友だちは 黒い シャツが 好きです。毎日 黒い シャツを 着ています。",
+      "vocabPool": [
+        "v_kuroi", "v_aoi", "v_chairoi", "v_ao", "v_kuro", "v_chairo",
+        "v_suki", "v_daisuki", "v_tomodachi", "v_haha", "v_chichi", "v_shatsu",
+        "v_kiru", "v_mainichi", "v_maiasa", "g_desu"
+      ]
+    },
+    {
+      "prompt": "What color do you want to wear next? Would you like to try a new color? Where can you buy it?",
+      "targets": [
+        { "id": "v_chairoi", "count": 1 }
+      ],
+      "model": "つぎは 茶色い シャツを 着てみたいです。店に 行って 買いたいです。",
+      "vocabPool": [
+        "v_chairoi", "v_akai", "v_aoi", "v_aka", "v_ao", "v_chairo",
+        "v_shatsu", "v_suki",
+        "v_kiru", "v_miru", "v_kau", "v_mise", "v_tsugi",
+        "v_watashi", "v_iku", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Wrap up your essay. Tell us what drink you enjoy after shopping, and summarize which color is truly your favorite.",
+      "targets": [
+        { "id": "v_ocha", "count": 1 }
+      ],
+      "model": "シャツを 買ってから、お茶を 飲みました。やはり、青が いちばん 好きです。",
+      "vocabPool": [
+        "v_ocha", "v_suki", "v_daisuki", "v_ao", "v_aoi",
+        "v_aka", "v_kuro", "v_chairo", "v_nomu", "v_kau", "v_shatsu", "v_ato", "v_iro", "v_ichiban",
+        "v_watashi", "v_totemo", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["青いです", "大好きです", "好きです"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["大好きでした", "好きじゃありませんでした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["赤いです", "青いです", "黒いです", "茶色いです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["赤かったです", "青かったです", "よかったです"]
+    },
+    {
+      "pattern": "[な-adj] + です",
+      "meaning": "is [na-adj] (polite predicate)",
+      "examples": ["好きです", "大好きです", "色々です"]
+    },
+    {
+      "pattern": "[な-adj] + じゃありません",
+      "meaning": "is not [na-adj] (polite negative)",
+      "examples": ["好きじゃありません", "大好きじゃありません"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["着ます", "飲みます", "買います"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["着ました", "飲みました", "買いました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["着ません", "飲みません", "買いません"]
+    },
+    {
+      "pattern": "[RU-verb]〜られます / [U-verb]〜えます",
+      "meaning": "can do [verb] (potential polite)",
+      "examples": ["着られます", "来られます", "買えます", "飲めます"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing / habitual (progressive)",
+      "examples": ["着ています", "飲んでいます", "買っています"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["着たいです", "飲みたいです", "買いたいです"]
+    },
+    {
+      "pattern": "[verb]〜ましょう",
+      "meaning": "let's [verb]",
+      "examples": ["いっしょに 飲みましょう", "着ましょう", "買いましょう"]
+    },
+    {
+      "pattern": "[verb]〜てみます",
+      "meaning": "try doing [verb]",
+      "examples": ["着てみます", "飲んでみます", "買ってみます"]
+    }
+  ]
+}

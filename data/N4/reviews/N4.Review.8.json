@@ -1,0 +1,795 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.8",
+  "title": "Phase 4 Review: Health & Movement",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 15–16.",
+    "kanji": ["薬", "病", "院", "医", "者", "死", "動", "犬", "銀", "去", "走", "運"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo visits the hospital with his sick friend Yuki.",
+          "lines": [
+            {
+              "spk": "りきぞう",
+              "jp": "ゆきさんは だいじょうぶですか。病気は よく なりましたか。",
+              "terms": [
+                "char_yuki",
+                "v_san",
+                "p_wa",
+                { "id": "v_daijoubu", "form": "polite_adj" },
+                "p_ka",
+                "v_byouki",
+                "p_wa",
+                "v_yoku",
+                { "id": "v_naru", "form": "polite_mashita" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "少し よく なりました。医者に 薬を もらいました。",
+              "terms": [
+                "v_sukoshi",
+                "v_yoku",
+                { "id": "v_naru", "form": "polite_mashita" },
+                "v_isha",
+                "p_ni",
+                "v_kusuri",
+                "p_wo",
+                { "id": "v_morau", "form": "polite_mashita" }
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "入院しないで よかったですね。病院は 大きい 所ですか。",
+              "terms": [
+                "v_nyuuin",
+                { "id": "v_suru", "form": "polite_negative_te" },
+                { "id": "v_ii", "form": "polite_past_adj" },
+                "p_ne",
+                "v_byouin",
+                "p_wa",
+                "v_ookii",
+                "v_tokoro",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "はい、大きい 病院です。医者が たくさん います。",
+              "terms": [
+                "p_hai",
+                "v_ookii",
+                "v_byouin",
+                "g_desu",
+                "v_isha",
+                "p_ga",
+                "v_takusan",
+                { "id": "v_iru", "form": "polite_masu" }
+              ]
+            }
+          ],
+          "question": "Why does Rikizo say よかったですね?",
+          "choices": [
+            "Because Yuki did not need to be hospitalized.",
+            "Because Yuki received strong medicine from the doctor.",
+            "Because the hospital was very large.",
+            "Because Yuki fully recovered from her illness."
+          ],
+          "answer": "Because Yuki did not need to be hospitalized.",
+          "explanation": "Rikizo says 入院しないでよかったですね — 'It's good that you didn't have to be hospitalized.' 入院 means hospitalization (entering a hospital for a stay). よかったです is the polite past of いい, expressing relief."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Rikizo meets Yamakawa near the river road and they talk about exercise and his dog.",
+          "lines": [
+            {
+              "spk": "やまかわ",
+              "jp": "りきぞうさんは 毎日 走っていますか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "p_wa",
+                "v_mainichi",
+                { "id": "v_hashiru", "form": "te_form" },
+                { "id": "v_iru", "form": "polite_masu" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "はい、犬と 走ったり 歩いたり します。運動に なりますから。",
+              "terms": [
+                "p_hai",
+                "v_inu",
+                "p_to",
+                { "id": "v_hashiru", "form": "tari_form" },
+                { "id": "v_aruku", "form": "tari_form" },
+                { "id": "v_suru", "form": "polite_masu" },
+                "v_undou",
+                "p_ni",
+                { "id": "v_naru", "form": "polite_masu" },
+                "p_kara_because"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "その 犬は 野犬では ありませんか。",
+              "terms": [
+                "v_sono",
+                "v_inu",
+                "p_wa",
+                "v_yaken",
+                "p_dewa",
+                { "id": "v_aru", "form": "polite_negative" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "いいえ、私の 犬です。運がいい 動物ですよ。",
+              "terms": [
+                "v_iie",
+                "v_watashi",
+                "p_no",
+                "v_inu",
+                "g_desu",
+                "v_un_ga_ii",
+                "v_doubutsu",
+                "g_desu",
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "Why does Rikizo run and walk with his dog?",
+          "choices": [
+            "Because it becomes exercise.",
+            "Because the dog is a stray animal.",
+            "Because the river road is dangerous alone.",
+            "Because Yamakawa asked him to exercise."
+          ],
+          "answer": "Because it becomes exercise.",
+          "explanation": "Rikizo says 運動になりますから (because it becomes exercise). ～になる means 'to become'. から at the end of a clause means 'because'. 走ったり歩いたりする uses the ～たり～たりする pattern to list representative actions from a larger set."
+        },
+        {
+          "title": "Conversation 3: Health & Running (Casual)",
+          "context": "Close friends Ken and Yuki chat about their health and running habits.",
+          "lines": [
+            {
+              "spk": "けん",
+              "jp": "先週 から 走っているけど、毎日 走れるか 分からない。",
+              "terms": [
+                "v_senshuu",
+                "p_kara",
+                { "id": "v_hashiru", "form": "te_form" },
+                { "id": "v_iru", "form": "plain_form" },
+                "p_kedo",
+                "v_mainichi",
+                { "id": "v_hashiru", "form": "potential" },
+                "p_ka",
+                { "id": "v_wakaru", "form": "plain_negative" }
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "毎日じゃないよ。走ったり 歩いたり するだけで 体が 動く。",
+              "terms": [
+                "v_mainichi",
+                { "id": "g_da", "form": "da_negative" },
+                "p_yo",
+                { "id": "v_hashiru", "form": "tari_form" },
+                { "id": "v_aruku", "form": "tari_form" },
+                { "id": "v_suru", "form": "plain_form" },
+                "p_dake",
+                "p_de",
+                "v_karada",
+                "p_ga",
+                { "id": "v_ugoku", "form": "plain_form" }
+              ]
+            },
+            {
+              "spk": "けん",
+              "jp": "少ししか 走れないけど、また 走りたい。",
+              "terms": [
+                "v_sukoshi",
+                "p_shika",
+                { "id": "v_hashiru", "form": "plain_potential_negative" },
+                "p_kedo",
+                "v_mata",
+                { "id": "v_hashiru", "form": "plain_desire_tai" }
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "運がいい 日は 気分が いいよ。走って、体が 元気に なるよ。",
+              "terms": [
+                "v_un_ga_ii",
+                "v_hi",
+                "p_wa",
+                "v_kibun",
+                "p_ga",
+                { "id": "v_ii", "form": "plain_form" },
+                "p_yo",
+                { "id": "v_hashiru", "form": "te_form" },
+                "v_karada",
+                "p_ga",
+                { "id": "v_genki", "form": "adverbial" },
+                { "id": "v_naru", "form": "plain_form" },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What does Yuki say will happen when Ken finishes running?",
+          "choices": [
+            "His body will feel energetic.",
+            "He will feel tired and need medicine.",
+            "He should only walk and not run.",
+            "He needs to go to the hospital."
+          ],
+          "answer": "His body will feel energetic.",
+          "explanation": "Yuki says 走って、体が元気になるよ — 'If you run, your body will become energetic.' 元気になる means 'to become healthy / energetic'. 運がいい日は気分がいいよ means 'On a lucky day, your mood is good.' よ at the end gives friendly advice with mild emphasis."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Arrange the word chips into the correct Japanese sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I run while listening to music.",
+          "segments": [
+            "音楽を",
+            "聞きながら",
+            "走ります"
+          ],
+          "distractors": [
+            "走りながら",
+            "歩きながら",
+            "聞いたり"
+          ],
+          "explanation": "ながら (while doing) attaches to the ます-stem: 聞き + ながら + 走ります = 'I run while listening to music.' The simultaneous background action (聞く) takes ながら; the main action (走る) ends the sentence in ます form."
+        },
+        {
+          "kind": "scramble",
+          "q": "Rikizo carried medicine to the hospital.",
+          "segments": [
+            "りきぞうは",
+            "薬を",
+            "病院に",
+            "運びました"
+          ],
+          "distractors": [
+            "医者が",
+            "入院して",
+            "走って"
+          ],
+          "explanation": "りきぞうは (Rikizo — topic) + 薬を (medicine — direct object) + 病院に (to the hospital — destination) + 運びました (carried — polite past of 運ぶ). に marks the destination of the carrying action. 運ぶ is a godan verb: masu-stem 運び + ました."
+        },
+        {
+          "kind": "scramble",
+          "q": "Last year, I did things like exercising and running.",
+          "segments": [
+            "去年、",
+            "運動したり",
+            "走ったり",
+            "しました"
+          ],
+          "distractors": [
+            "病院ばかり",
+            "歩きながら",
+            "医者しか"
+          ],
+          "alts": [
+            ["運動したり", "走ったり", "去年、", "しました"]
+          ],
+          "explanation": "～たり～たりする lists representative actions from a larger set. 去年 (last year) is a time expression that can float sentence-initially or after the first たり segment. 運動したり (tari-form of 運動する) + 走ったり (tari-form of 走る) + しました completes the ～たりする pattern in polite past."
+        },
+        {
+          "kind": "scramble",
+          "q": "The dog only runs on this road.",
+          "segments": [
+            "犬は",
+            "この 道しか",
+            "走りません"
+          ],
+          "distractors": [
+            "動物ばかり",
+            "銀行まで",
+            "野犬も"
+          ],
+          "explanation": "しか + negative verb = 'only / nothing but'. 犬は (the dog — topic) + この道しか (nothing but this road) + 走りません (does not run — polite negative of 走る). しか always requires the predicate to be negative. この道しか走りません = 'only runs on this road'."
+        },
+        {
+          "kind": "scramble",
+          "q": "Every morning Rikizo exercises and his body moves well.",
+          "segments": [
+            "毎朝",
+            "運動して、",
+            "体が",
+            "よく 動きます"
+          ],
+          "distractors": [
+            "病気ばかり",
+            "薬しか",
+            "走りながら"
+          ],
+          "explanation": "毎朝 (every morning) is a time expression that can appear sentence-initially or after the topic. 運動して (exercised — te-form of 運動する) connects to the next clause: 体がよく動きます (the body moves well). The て-form links two sequential or causally related actions. よく is the adverbial form of いい, meaning 'well'."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — りきぞうの 運動 生活",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "りきぞうは 毎朝 早く 起きて、犬と いっしょに 走ります。",
+          "en": "Rikizo wakes up early every morning and runs together with his dog.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_maiasa",
+            { "id": "v_hayai", "form": "adverbial" },
+            { "id": "v_okiru", "form": "te_form" },
+            "v_inu",
+            "p_to",
+            "v_issho",
+            { "id": "v_hashiru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "走ったり 歩いたり しながら、よく 運動します。",
+          "en": "While doing things like running and walking, Rikizo exercises well.",
+          "terms": [
+            { "id": "v_hashiru", "form": "tari_form" },
+            { "id": "v_aruku", "form": "tari_form" },
+            { "id": "v_suru", "form": "nagara_form" },
+            "v_yoku",
+            "v_undou",
+            { "id": "v_suru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "去年、りきぞうは 病気に なって、病院に 入院しました。",
+          "en": "Last year, Rikizo got sick and was hospitalized.",
+          "terms": [
+            "v_kyonen",
+            "char_rikizo",
+            "p_wa",
+            "v_byouki",
+            "p_ni",
+            { "id": "v_naru", "form": "te_form" },
+            "v_byouin",
+            "p_ni",
+            "v_nyuuin",
+            { "id": "v_suru", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "jp": "医者に 飲み薬しか もらいませんでしたが、毎日 飲みました。",
+          "en": "The doctor only gave Rikizo oral medicine, but he took it every day.",
+          "terms": [
+            "v_isha",
+            "p_ni",
+            "v_nomigusuri",
+            "p_shika",
+            { "id": "v_morau", "form": "polite_past_negative" },
+            "p_ga_but",
+            "v_mainichi",
+            { "id": "v_nomu", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "jp": "それから、毎朝 走って、体が 元気に なりました。",
+          "en": "After that, Rikizo ran every morning and his body became healthy.",
+          "terms": [
+            "v_sorekara",
+            "v_maiasa",
+            { "id": "v_hashiru", "form": "te_form" },
+            "v_karada",
+            "p_ga",
+            { "id": "v_genki", "form": "adverbial" },
+            { "id": "v_naru", "form": "polite_mashita" }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうは 毎朝 何を しますか。",
+          "a": "犬と いっしょに 走ります。",
+          "choices": [
+            "犬と いっしょに 走ります。",
+            "病院で 医者に 会います。",
+            "飲み薬を 買いに 行きます。",
+            "毎朝 銀行に 行きます。"
+          ],
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_maiasa",
+            "v_nani",
+            "p_wo",
+            { "id": "v_suru", "form": "polite_masu" },
+            "p_ka",
+            "v_inu",
+            "p_to",
+            "v_issho",
+            "p_ni",
+            { "id": "v_hashiru", "form": "polite_masu" }
+          ],
+          "explanation": "Sentence 1 says りきぞうは毎朝早く起きて、犬といっしょに走ります (Rikizo wakes up early every morning and runs together with his dog). いっしょに means 'together'. と after a noun means 'with'."
+        },
+        {
+          "q": "去年、りきぞうは どうしましたか。",
+          "a": "病気に なって、病院に 入院しました。",
+          "choices": [
+            "病気に なって、病院に 入院しました。",
+            "運動して、体が よく 動きました。",
+            "犬と 走って、元気に なりました。",
+            "医者に なって、薬を 作りました。"
+          ],
+          "terms": [
+            "v_kyonen",
+            "char_rikizo",
+            "p_wa",
+            "v_dou",
+            { "id": "v_suru", "form": "polite_mashita" },
+            "p_ka",
+            "v_byouki",
+            "p_ni",
+            { "id": "v_naru", "form": "te_form" },
+            "v_byouin",
+            "p_ni",
+            "v_nyuuin",
+            { "id": "v_suru", "form": "polite_mashita" }
+          ],
+          "explanation": "Sentence 3 says 去年、りきぞうは病気になって、病院に入院しました (Last year, Rikizo got sick and was hospitalized). 病気になる = 'to get sick / become ill'. 入院 means hospitalization — staying in a hospital for treatment. 入院する is a common suru-verb compound."
+        },
+        {
+          "q": "医者に 薬を どう もらいましたか。",
+          "a": "飲み薬しか もらいませんでした。",
+          "choices": [
+            "飲み薬しか もらいませんでした。",
+            "目薬と 飲み薬を もらいました。",
+            "薬を たくさん もらいました。",
+            "病院で 自分で 買いました。"
+          ],
+          "terms": [
+            "v_isha",
+            "p_ni",
+            "v_kusuri",
+            "p_wo",
+            "v_dou",
+            { "id": "v_morau", "form": "polite_mashita" },
+            "p_ka",
+            "v_nomigusuri",
+            "p_shika",
+            { "id": "v_morau", "form": "polite_past_negative" }
+          ],
+          "explanation": "Sentence 4 says 医者に飲み薬しかもらいませんでしたが (the doctor only gave oral medicine). しか + negative = 'nothing but / only'. もらいませんでした is the polite past negative of もらう (to receive). しか requires a negative predicate — positive forms like もらいました cannot follow しか."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the word in brackets.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "友だちが [病気] で 休んでいます。",
+          "choices": [
+            "びょうき",
+            "やまいき",
+            "びょうしょう",
+            "やまき"
+          ],
+          "answer": "びょうき",
+          "explanation": "病気 (illness / sickness) is read as <b>byouki</b>. 病 (びょう, on-reading) + 気 (き, on-reading). Both kanji use their on-readings. 病 also appears in 病院 (hospital)."
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞうは [病院] に 入院しました。",
+          "choices": [
+            "びょういん",
+            "やまいいん",
+            "びょうえん",
+            "びんいん"
+          ],
+          "answer": "びょういん",
+          "explanation": "病院 (hospital) is read as <b>byouin</b>. 病 (びょう, on-reading) + 院 (いん, on-reading). Both kanji use their on-readings. 院 also appears in 大学院 (graduate school)."
+        },
+        {
+          "kind": "mcq",
+          "q": "この [薬] を 毎日 飲んで ください。",
+          "choices": [
+            "くすり",
+            "やく",
+            "くする",
+            "やくすり"
+          ],
+          "answer": "くすり",
+          "explanation": "薬 (medicine) is read as <b>kusuri</b>. 薬 uses its kun-reading here: くすり. The on-reading やく appears in compounds like 薬局 (pharmacy — not introduced yet)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[医者] に 見て もらいました。",
+          "choices": [
+            "いしゃ",
+            "いかん",
+            "くすりしゃ",
+            "いいん"
+          ],
+          "answer": "いしゃ",
+          "explanation": "医者 (doctor) is read as <b>isha</b>. 医 (い, on-reading) + 者 (しゃ, on-reading). Both kanji use their on-readings. 者 also appears in 学者 (scholar) and 死者 (the deceased)."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎朝 [運動] して います。",
+          "choices": [
+            "うんどう",
+            "はこびどう",
+            "うごきどう",
+            "うんどく"
+          ],
+          "answer": "うんどう",
+          "explanation": "運動 (exercise / movement) is read as <b>undou</b>. 運 (うん, on-reading) + 動 (どう, on-reading). Both kanji use their on-readings. 運 also appears in 運がいい (lucky) and 運ぶ (to carry)."
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞうの [犬] は 毎朝 走ります。",
+          "choices": [
+            "いぬ",
+            "けん",
+            "けもの",
+            "いぬけ"
+          ],
+          "answer": "いぬ",
+          "explanation": "犬 (dog) is read as <b>inu</b>. 犬 uses its kun-reading: いぬ. The on-reading けん appears in compounds like 野犬 (やけん, stray dog)."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅の 前に [銀行] が あります。",
+          "choices": [
+            "ぎんこう",
+            "しろかねこう",
+            "ぎんぎょう",
+            "かねこう"
+          ],
+          "answer": "ぎんこう",
+          "explanation": "銀行 (bank) is read as <b>ginkou</b>. 銀 (ぎん, on-reading) + 行 (こう, on-reading). Both kanji use their on-readings. 銀 also appears in 銀色 (silver colour)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[去年] は よく 運動しました。",
+          "choices": [
+            "きょねん",
+            "さるとし",
+            "さくねん",
+            "こねん"
+          ],
+          "answer": "きょねん",
+          "explanation": "去年 (last year) is read as <b>kyonen</b>. 去 (きょ, on-reading) + 年 (ねん, on-reading). Both kanji use their on-readings. 去 also appears in 去る (to leave) and 死去 (death — formal)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Choose the word that best completes each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "りきぞうは 病気で、______ に 行きました。",
+          "choices": [
+            "病院",
+            "銀行",
+            "動物",
+            "運動"
+          ],
+          "answer": "病院",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_byouki",
+            "p_de",
+            "v_byouin",
+            "p_ni",
+            { "id": "v_iku", "form": "polite_mashita" }
+          ],
+          "explanation": "病院 (hospital) fits — when sick (病気で), you go to the hospital. で after a noun marks a cause or reason: 病気で = because of illness. 銀行 (bank), 動物 (animal), and 運動 (exercise) do not fit a medical context."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎朝 犬と 走るのは、いい ______ に なります。",
+          "choices": [
+            "運動",
+            "入院",
+            "病気",
+            "薬"
+          ],
+          "answer": "運動",
+          "terms": [
+            "v_maiasa",
+            "v_inu",
+            "p_to",
+            { "id": "v_hashiru", "form": "plain_form" },
+            "p_no",
+            "p_wa",
+            "v_ii",
+            "v_undou",
+            "p_ni",
+            { "id": "v_naru", "form": "polite_masu" }
+          ],
+          "explanation": "運動 (exercise) fits — running with your dog every morning becomes good exercise (いい運動になります). ～になる means 'to become'. 入院 (hospitalization) and 病気 (illness) are negative medical outcomes. 薬 (medicine) is not something you 'become' through running."
+        },
+        {
+          "kind": "mcq",
+          "q": "______ は 病気に なって、病院に 行きました。今年は 元気です。",
+          "choices": [
+            "去年",
+            "医者",
+            "入院",
+            "薬"
+          ],
+          "answer": "去年",
+          "terms": [
+            "v_kyonen",
+            "p_wa",
+            "v_byouki",
+            "p_ni",
+            { "id": "v_naru", "form": "te_form" },
+            "v_byouin",
+            "p_ni",
+            { "id": "v_iku", "form": "polite_mashita" },
+            "v_kotoshi",
+            "p_wa",
+            { "id": "v_genki", "form": "polite_adj" }
+          ],
+          "explanation": "去年 (last year) fits — last year someone got sick and went to the hospital, but this year they are healthy. 去 + 年 = きょねん. 医者 (doctor), 入院 (hospitalization), and 薬 (medicine) are all medically-related but do not fit the grammatical slot for a time expression."
+        },
+        {
+          "kind": "mcq",
+          "q": "つかれている 時は、よく ______ ほうが いいですよ。",
+          "choices": [
+            "休んだ",
+            "走った",
+            "運動した",
+            "入院した"
+          ],
+          "answer": "休んだ",
+          "terms": [
+            { "id": "v_tsukareru", "form": "te_form" },
+            { "id": "v_iru", "form": "plain_form" },
+            "v_toki",
+            "p_wa",
+            "v_yoku",
+            { "id": "v_yasumu", "form": "plain_past" },
+            "v_hou",
+            "p_ga",
+            { "id": "v_ii", "form": "polite_adj" },
+            "p_yo"
+          ],
+          "explanation": "休んだ (rested — plain past of 休む) fits — when you're tired (つかれている時), it's better to rest well. ～たほうがいい means 'it's better to do ~'. 走った (ran) and 運動した (exercised) are the opposite advice for tiredness. 入院した (was hospitalized) is too extreme."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the answer that correctly completes the sentence or identifies the grammar pattern.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "音楽を 聞き ______ 走ります。",
+          "choices": [
+            "ながら",
+            "たり",
+            "てから",
+            "ばかり"
+          ],
+          "answer": "ながら",
+          "terms": [
+            "v_ongaku",
+            "p_wo",
+            { "id": "v_kiku", "form": "nagara_form" },
+            { "id": "v_hashiru", "form": "polite_masu" }
+          ],
+          "explanation": "ながら attaches to the ます-stem to express two simultaneous actions: 聞き + ながら + 走ります = 'I run while listening to music'. たり requires a paired ～たり to complete the pattern. てから means 'after doing'. ばかり after a noun means 'nothing but' and does not attach to a verb stem."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 病院しか 行け ______。",
+          "choices": [
+            "ません",
+            "ます",
+            "ました",
+            "たいです"
+          ],
+          "answer": "ません",
+          "terms": [
+            "v_kono",
+            "v_byouin",
+            "p_shika",
+            { "id": "v_iku", "form": "potential_negative" }
+          ],
+          "explanation": "しか always requires a NEGATIVE predicate. この病院しか行けません = 'I can only go to this hospital (can go nowhere but this hospital)'. 行けません is the polite potential negative of 行く. Using ます (affirmative) or ました (past affirmative) after しか is grammatically wrong — しか + negative = 'nothing but / only'."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which grammar pattern is used in 「走ったり 歩いたり します」?",
+          "choices": [
+            "listing representative actions (～たり～たりする)",
+            "simultaneous actions (～ながら)",
+            "potential form (can do)",
+            "desire expression (want to do)"
+          ],
+          "answer": "listing representative actions (～たり～たりする)",
+          "terms": [
+            { "id": "v_hashiru", "form": "tari_form" },
+            { "id": "v_aruku", "form": "tari_form" },
+            { "id": "v_suru", "form": "polite_masu" }
+          ],
+          "a_terms": [
+            { "id": "v_hashiru", "form": "tari_form" },
+            { "id": "v_aruku", "form": "tari_form" },
+            { "id": "v_suru", "form": "plain_form" }
+          ],
+          "explanation": "走ったり歩いたりします uses the ～たり～たりする pattern. This lists representative actions from a larger set — implying the person does other things too, not just running and walking. The た-form + り suffix is added to each verb. ～ながら (simultaneous) uses the ます-stem, not the た-form."
+        },
+        {
+          "kind": "mcq",
+          "q": "What verb form is 走れます in the sentence 「毎朝 犬と 走れますか」?",
+          "choices": [
+            "potential (can do)",
+            "te-form (connector)",
+            "tari-form (representative action)",
+            "volitional (let's do)"
+          ],
+          "answer": "potential (can do)",
+          "terms": [
+            "v_maiasa",
+            "v_inu",
+            "p_to",
+            { "id": "v_hashiru", "form": "polite_potential" },
+            "p_ka"
+          ],
+          "explanation": "走れます is the polite potential form of 走る (to run): polite_potential. It means 'can run / am able to run'. The potential form of godan verbs shifts to the え-column: 走る (u-ending) → 走れる (e-potential), then ます suffix. 走れますか asks 'Can you run?'"
+        },
+        {
+          "kind": "mcq",
+          "q": "今週は 病院ばかり で、とても ______ です。",
+          "choices": [
+            "いそがしい",
+            "元気",
+            "運がいい",
+            "だいじょうぶ"
+          ],
+          "answer": "いそがしい",
+          "terms": [
+            "v_konshuu",
+            "p_wa",
+            "v_byouin",
+            "p_bakari",
+            "p_de",
+            "v_totemo",
+            { "id": "v_isogashii", "form": "polite_adj" }
+          ],
+          "explanation": "いそがしい (busy) fits — 今週は病院ばかりで、とてもいそがしいです = 'This week is nothing but hospital visits, I'm very busy.' ばかり after a noun = 'nothing but ~ / all I have is ~', often with a nuance of exhaustion or complaint. 元気 (healthy), 運がいい (lucky), and 大丈夫 (okay) all contradict the implied hardship."
+        }
+      ]
+    }
+  ]
+}

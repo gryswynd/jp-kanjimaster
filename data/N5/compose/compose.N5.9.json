@@ -1,0 +1,129 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.9",
+  "lesson": "N5.9",
+  "level": "N5",
+  "title": "Around the Station",
+  "titleJp": "駅の 前・中・外",
+  "emoji": "🗺️",
+  "theme": "Write about places near a station — describe where things are using position words, what you find inside and outside, and where you want to eat.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write where you are today and describe what is in front of or near you.",
+      "targets": [
+        { "id": "v_mae", "count": 1 }
+      ],
+      "model": "今日、駅の 前に います。駅の 前に コンビニが あります。",
+      "vocabPool": [
+        "v_mae", "v_ushiro", "v_naka", "v_soto",
+        "v_eki", "v_konbini", "v_resutoran", "v_mise",
+        "v_aru", "v_iru", "v_kyou", "v_mainichi",
+        "v_kochira", "v_sochira", "v_achira",
+        "v_totemo", "v_ii", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about what is inside and outside a nearby place.",
+      "targets": [
+        { "id": "v_naka", "count": 1 }
+      ],
+      "model": "コンビニの 中に カレーと パンが あります。外に 友だちが います。",
+      "vocabPool": [
+        "v_naka", "v_soto", "v_mae", "v_ushiro",
+        "v_konbini", "v_eki", "v_resutoran",
+        "v_karee", "v_pan", "v_koohii", "v_juusu",
+        "v_aru", "v_iru",
+        "v_tomodachi", "v_issho",
+        "v_ookii", "v_chiisai", "v_atarashii",
+        "v_ii", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about wanting to eat out, describe where the restaurant is, and mention whether it is cheap or delicious.",
+      "targets": [
+        { "id": "v_gaishoku", "count": 1 }
+      ],
+      "model": "外食を したいです。駅の 前の レストランへ 行きたいです。安くて、おいしいです。",
+      "vocabPool": [
+        "v_gaishoku", "v_resutoran", "v_mise",
+        "v_mae", "v_eki", "v_konbini",
+        "v_iku", "v_kuru", "v_suru", "v_taberu", "v_nomu",
+        "v_karee", "v_pan", "v_sarada", "v_koohii",
+        "v_oishii", "v_takai", "v_yasui", "v_daijoubu",
+        "v_totemo", "v_ii", "g_desu",
+        "p_itadakimasu", "p_gochisousama"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Describe what is behind or around the area, and how you feel about the experience.",
+      "targets": [
+        { "id": "v_ushiro", "count": 1 }
+      ],
+      "model": "レストランの 後ろに 山が あります。外食は おいしいです。来週も 来たいです。",
+      "vocabPool": [
+        "v_ushiro", "v_mae", "v_naka", "v_soto",
+        "v_resutoran", "v_eki", "v_konbini",
+        "v_yama", "v_kawa", "v_michi",
+        "v_aru", "v_iru", "v_kuru", "v_iku",
+        "v_gaishoku", "v_karee", "v_oishii",
+        "v_raishuu", "v_mada", "v_mou", "v_mata",
+        "v_ii", "v_totemo", "g_desu",
+        "p_gochisousama"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made", "p_made_ni",
+    "p_ni", "p_de", "p_e"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます / ました",
+      "meaning": "polite present / polite past",
+      "examples": ["行きます", "来ます", "食べました", "飲みました"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません / ませんでした",
+      "meaning": "polite negative / polite past negative",
+      "examples": ["行きません", "食べませんでした", "来ません"]
+    },
+    {
+      "pattern": "[verb て-form] + verb — sequential action",
+      "meaning": "AてB = 'did A, then B'",
+      "examples": ["食べて (ichidan: drop る → て)", "飲んで (godan む → んで)", "行って (行く exception!)"]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "ています = 'is doing' (ongoing) or 'is in that state'",
+      "examples": ["食べています", "飲んでいます", "います (already here — resultant state)"]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "てください = 'please do (verb)'",
+      "examples": ["来てください", "食べてください", "行ってください"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです",
+      "meaning": "たいです = 'want to do'",
+      "examples": ["行きたいです", "食べたいです", "来たいです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "ましょう = 'let's do / shall we'",
+      "examples": ["行きましょう", "食べましょう", "来ましょう"]
+    },
+    {
+      "pattern": "[plain form] + ない — plain negative",
+      "meaning": "ない = 'don't do / is not' (casual speech and subordinate clauses)",
+      "examples": ["行かない (く→か+ない)", "食べない (RU: drop る+ない)", "しない (する irregular)", "こない (くる irregular)", "ない (ある special irregular)"]
+    },
+    {
+      "pattern": "[clause] + から + [result]",
+      "meaning": "から = 'because' — reason clause comes FIRST",
+      "examples": ["おいしいから、食べます", "行きたいですから、行きましょう", "前に ありますから、大丈夫です"]
+    }
+  ]
+}

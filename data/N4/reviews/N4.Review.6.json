@@ -1,0 +1,908 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.6",
+  "title": "Phase 4 Review: Travel & the Body",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 11–12.",
+    "kanji": [
+      "旅",
+      "自",
+      "写",
+      "真",
+      "世",
+      "界",
+      "首",
+      "顔",
+      "体",
+      "頭",
+      "心",
+      "有"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo and Yamakawa look at travel photos together at school.",
+          "lines": [
+            {
+              "spk": "りきぞう",
+              "jp": "やまかわさん、これは どこで とった 写真ですか。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "v_kore",
+                "p_wa",
+                "v_doko",
+                "p_de",
+                {
+                  "id": "v_toru",
+                  "form": "plain_past"
+                },
+                "v_shashin",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "旅先で とりました。山の 真ん中を 歩きながら とった 写真です。",
+              "terms": [
+                "v_tabisaki",
+                "p_de",
+                {
+                  "id": "v_toru",
+                  "form": "polite_mashita"
+                },
+                "v_yama",
+                "p_no",
+                "v_mannaka",
+                "p_wo",
+                {
+                  "id": "v_aruku",
+                  "form": "nagara_form"
+                },
+                {
+                  "id": "v_toru",
+                  "form": "plain_past"
+                },
+                "v_shashin",
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "すごいですね。旅行は いつ 行きましたか。",
+              "terms": [
+                {
+                  "id": "v_sugoi",
+                  "form": "polite_adj"
+                },
+                "p_ne",
+                "v_ryokou",
+                "p_wa",
+                "v_itsu",
+                {
+                  "id": "v_iku",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "先月です。旅館に 行きたかったですが、時間が ありませんでした。",
+              "terms": [
+                "v_sengetsu",
+                "g_desu",
+                "v_ryokan",
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "plain_desire_tai_past"
+                },
+                "g_desu",
+                "p_ga_but",
+                "v_jikan",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_past_negative"
+                }
+              ]
+            }
+          ],
+          "question": "How did Yamakawa describe taking the travel photos?",
+          "choices": [
+            "He took photos while walking through the middle of the mountains.",
+            "He took photos at the ryokan after arriving at the destination.",
+            "He took photos at the city center with Rikizo.",
+            "He took photos on his own all over the world."
+          ],
+          "answer": "He took photos while walking through the middle of the mountains.",
+          "explanation": "Yamakawa says 山の真ん中を歩きながらとった写真です (photos I took while walking through the middle of the mountains). ながら attaches to the ます-stem of a verb to express two simultaneous actions."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Rikizo visits Yamamoto-sensei in the school health room.",
+          "lines": [
+            {
+              "spk": "りきぞう",
+              "jp": "やまもと先生、頭が いたいです。",
+              "terms": [
+                "char_yamamoto",
+                "v_sensei",
+                "v_atama",
+                "p_ga",
+                {
+                  "id": "v_itai",
+                  "form": "polite_adj"
+                }
+              ]
+            },
+            {
+              "spk": "やまもと",
+              "jp": "そうですか。顔色が よくないですね。体は だいじょうぶですか。",
+              "terms": [
+                "v_sou",
+                "g_desu",
+                "p_ka",
+                "v_kaoiro",
+                "p_ga",
+                {
+                  "id": "v_ii",
+                  "form": "plain_negative"
+                },
+                "p_ne",
+                "v_karada",
+                "p_wa",
+                {
+                  "id": "v_daijoubu",
+                  "form": "polite_adj"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "体は だいじょうぶですが、頭が いたくて 気分も よくないです。",
+              "terms": [
+                "v_karada",
+                "p_wa",
+                {
+                  "id": "v_daijoubu",
+                  "form": "polite_adj"
+                },
+                "p_ga_but",
+                "v_atama",
+                "p_ga",
+                {
+                  "id": "v_itai",
+                  "form": "te_form"
+                },
+                "v_kibun",
+                "p_mo",
+                {
+                  "id": "v_ii",
+                  "form": "plain_negative"
+                },
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "やまもと",
+              "jp": "分かりました。今日は 少し 休んで ください。",
+              "terms": [
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_mashita"
+                },
+                "v_kyou",
+                "p_wa",
+                "v_sukoshi",
+                {
+                  "id": "v_yasumu",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            }
+          ],
+          "question": "What is wrong with Rikizo?",
+          "choices": [
+            "His head hurts and his mood is not good.",
+            "His body aches and he cannot walk.",
+            "His face is red and he has a high fever.",
+            "He feels nauseous and cannot eat anything."
+          ],
+          "answer": "His head hurts and his mood is not good.",
+          "explanation": "Rikizo says 頭が痛くて気分もよくないです (my head hurts and my mood is also not good). 痛くて is the te-connector form of the い-adjective 痛い, linking the two conditions."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two close friends, Ken and Yuki, chat casually about a famous painter.",
+          "lines": [
+            {
+              "spk": "けん",
+              "jp": "この 有名な 画家、見た？世界中で 人気だよ。",
+              "terms": [
+                "v_kono",
+                {
+                  "id": "v_yuumei",
+                  "form": "attributive_na"
+                },
+                "v_gaka",
+                {
+                  "id": "v_miru",
+                  "form": "plain_past"
+                },
+                "p_ka",
+                "v_sekaijuu",
+                "p_de",
+                "v_ninki",
+                "p_yo",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "うん、見たよ。体が 大きくて 頭がいい。首も 長くて 顔も きれいだよ。",
+              "terms": [
+                "v_un",
+                {
+                  "id": "v_miru",
+                  "form": "plain_past"
+                },
+                "p_yo",
+                "v_karada",
+                "p_ga",
+                {
+                  "id": "v_ookii",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_atamagaii",
+                  "form": "plain_adj"
+                },
+                "v_kubi",
+                "p_mo",
+                {
+                  "id": "v_nagai",
+                  "form": "te_form"
+                },
+                "v_kao",
+                "p_mo",
+                {
+                  "id": "v_kirei",
+                  "form": "plain_adj"
+                },
+                "p_yo",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "けん",
+              "jp": "写真も すごく きれいだよ。旅行しながら とるから。",
+              "terms": [
+                "v_shashin",
+                "p_mo",
+                {
+                  "id": "v_sugoi",
+                  "form": "adverbial"
+                },
+                {
+                  "id": "v_kirei",
+                  "form": "plain_adj"
+                },
+                "p_yo",
+                "g_da",
+                "v_ryokou",
+                {
+                  "id": "v_suru",
+                  "form": "nagara_form"
+                },
+                {
+                  "id": "v_toru",
+                  "form": "plain_form"
+                },
+                "p_kara_because"
+              ]
+            },
+            {
+              "spk": "ゆき",
+              "jp": "そうだね。旅行する 人は 心も きれいだよ。",
+              "terms": [
+                "v_sou",
+                "p_ne",
+                "g_da",
+                "v_ryokou",
+                {
+                  "id": "v_suru",
+                  "form": "plain_form"
+                },
+                "v_hito",
+                "p_wa",
+                "v_kokoro",
+                "p_mo",
+                {
+                  "id": "v_kirei",
+                  "form": "plain_adj"
+                },
+                "p_yo",
+                "g_da"
+              ]
+            }
+          ],
+          "question": "How does Ken describe the famous painter?",
+          "choices": [
+            "Famous all over the world and popular.",
+            "Famous only in Japan for painting landscapes.",
+            "Known for painting portraits of famous people.",
+            "Famous for taking photos in mountain ryokan."
+          ],
+          "answer": "Famous all over the world and popular.",
+          "explanation": "Ken says この有名な画家、世界中で人気だよ (this famous painter is popular all over the world). 世界中 means 'all over the world' and 人気 means 'popular'."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Arrange the word chips into the correct Japanese sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I want to travel all over the world by myself.",
+          "segments": [
+            "自分で",
+            "世界中を",
+            "旅行",
+            "したいです"
+          ],
+          "distractors": [
+            "旅先から",
+            "旅館に",
+            "行きましたが"
+          ],
+          "explanation": "自分で (by oneself — で marks means/agent) + 世界中を (all over the world — を marks traversal with a movement verb) + 旅行 + したいです (want to travel — 旅行する is a suru-verb; plain_desire_tai form of する = したい + です). で marks the method (by oneself), not a location."
+        },
+        {
+          "kind": "scramble",
+          "q": "I took photos in the middle of the mountains.",
+          "segments": [
+            "山の",
+            "真ん中で",
+            "写真を",
+            "とりました"
+          ],
+          "distractors": [
+            "旅先に",
+            "世界中を",
+            "見ながら"
+          ],
+          "alts": [
+            ["写真を", "山の", "真ん中で", "とりました"]
+          ],
+          "explanation": "山の真ん中 (middle of the mountains) + で (location of action) + 写真を (photos — を marks direct object) + とりました (took — polite past of 撮る). で marks where the action of taking photos occurred. に would mark destination or existence, not the location of an action."
+        },
+        {
+          "kind": "scramble",
+          "q": "At the travel destination, I took photos and walked around.",
+          "segments": [
+            "旅先で",
+            "写真を",
+            "とったり",
+            "歩いたり",
+            "しました"
+          ],
+          "distractors": [
+            "旅館に",
+            "世界中を",
+            "とりながら"
+          ],
+          "explanation": "旅先で (at the travel destination) + 写真をとったり (took photos — たり form of 撮る) + 歩いたり (walked — たり form of 歩く) + しました (completing the ～たり～たりする pattern). This pattern lists representative actions from a set, implying other activities too."
+        },
+        {
+          "kind": "scramble",
+          "q": "My head hurts and my complexion is not good.",
+          "segments": [
+            "頭が",
+            "痛くて",
+            "顔色が",
+            "よくないです"
+          ],
+          "distractors": [
+            "体に",
+            "心も",
+            "だいじょうぶですが"
+          ],
+          "explanation": "頭が (head — が marks subject) + 痛くて (hurts — te-form of the い-adjective 痛い: removes い, adds くて, connecting two clauses) + 顔色が (complexion — が marks subject) + よくないです (is not good — irregular negative of いい: よくない + です). The te-form of い-adjectives (〜くて) is used to connect two descriptions."
+        },
+        {
+          "kind": "scramble",
+          "q": "The famous painter has a big body and a beautiful heart.",
+          "segments": [
+            "有名な",
+            "画家は",
+            "体が",
+            "大きくて",
+            "心も",
+            "きれいです"
+          ],
+          "distractors": [
+            "首から",
+            "自分で",
+            "頭がいいですが"
+          ],
+          "explanation": "有名な画家は (the famous painter — は topic; 有名な is the attributive な-adjective form before 画家) + 体が大きくて (has a big body — が marks subject; 大きくて is te-form of 大きい connecting two clauses) + 心もきれいです (heart is also beautiful — も marks addition; きれい is a な-adjective predicate with です). The te-connector 大きくて links the two descriptions naturally."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — 世界の 旅人",
+      "passage": [
+        {
+          "jp": "世界中を 旅行する 有名な 旅人が います。",
+          "en": "There is a famous traveler who travels all over the world.",
+          "terms": [
+            "v_sekaijuu",
+            "p_wo",
+            "v_ryokou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            {
+              "id": "v_yuumei",
+              "form": "attributive_na"
+            },
+            "v_tabibito",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "旅先では 写真を とったり、旅館に 行ったり します。",
+          "en": "At her travel destinations, she does things like taking photos and visiting ryokan.",
+          "terms": [
+            "v_tabisaki",
+            "p_wa",
+            "p_de",
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "tari_form"
+            },
+            "v_ryokan",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "顔は きれいで、体も 大きいです。頭がいい 旅人です。",
+          "en": "Her face is beautiful and her body is also large. She is a smart traveler.",
+          "terms": [
+            "v_kao",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
+            "v_karada",
+            "p_mo",
+            {
+              "id": "v_ookii",
+              "form": "polite_adj"
+            },
+            "v_atamagaii",
+            "v_tabibito",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "写真を とりながら 旅行します。世界の 中心を 見たいです。",
+          "en": "She travels while taking photos. She wants to see the heart of the world.",
+          "terms": [
+            "v_shashin",
+            "p_wo",
+            {
+              "id": "v_toru",
+              "form": "nagara_form"
+            },
+            "v_ryokou",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "v_sekai",
+            "p_no",
+            "v_chuushin",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "旅人の 心は 真っ白で、旅が 大切です。",
+          "en": "The traveler's heart is pure white, and travel is important to her.",
+          "terms": [
+            "v_tabibito",
+            "p_no",
+            "v_kokoro",
+            "p_wa",
+            {
+              "id": "v_masshiro",
+              "form": "te_form"
+            },
+            "v_tabi",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "旅先で 旅人は 何を しますか。",
+          "a": "写真を とったり、旅館に 行ったり します。",
+          "choices": [
+            "写真を とったり、旅館に 行ったり します。",
+            "旅館に 泊まりながら 写真を 書きます。",
+            "自分で 山の 真ん中を 歩きます。",
+            "世界中の 人と 話したり 食べたり します。"
+          ],
+          "terms": [
+            "v_tabisaki",
+            "p_de",
+            "v_tabibito",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {"id": "v_suru", "form": "polite_masu"},
+            "p_ka",
+            "v_shashin",
+            "p_wo",
+            {"id": "v_toru", "form": "tari_form"},
+            "v_ryokan",
+            "p_ni",
+            {"id": "v_iku", "form": "tari_form"},
+            {"id": "v_suru", "form": "polite_masu"}
+          ],
+          "explanation": "Sentence 2 says 旅先では写真をとったり、旅館に行ったりします (at her destinations, she does things like taking photos and going to ryokan). ～たり～たりする lists representative actions from a set."
+        },
+        {
+          "q": "旅人の 顔と 体は どうですか。",
+          "a": "顔は きれいで、体も 大きいです。",
+          "choices": [
+            "顔は きれいで、体も 大きいです。",
+            "体は 小さくて、顔色が よくないです。",
+            "体は 真っ白で、顔も 白いです。",
+            "顔は おもしろくて、体も 長いです。"
+          ],
+          "terms": [
+            "v_tabibito",
+            "p_no",
+            "v_kao",
+            "p_to",
+            "v_karada",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka",
+            {"id": "v_kirei", "form": "te_form"},
+            "p_mo",
+            {"id": "v_ookii", "form": "polite_adj"},
+            "g_desu"
+          ],
+          "explanation": "Sentence 3 says 顔はきれいで、体も大きいです (her face is beautiful and her body is also large). きれいで is the te-connector form of the な-adjective きれい, linking the two descriptions."
+        },
+        {
+          "q": "旅人は 何を 見たいですか。",
+          "a": "世界の 中心を 見たいです。",
+          "choices": [
+            "世界の 中心を 見たいです。",
+            "旅館で 写真を とりたいです。",
+            "旅先の 有名な 画家を 見たいです。",
+            "世界中の 旅人に 会いたいです。"
+          ],
+          "terms": [
+            "v_tabibito",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {"id": "v_miru", "form": "plain_desire_tai"},
+            "g_desu",
+            "p_ka",
+            "v_sekai",
+            "p_no",
+            "v_chuushin",
+            "p_wo",
+            "g_desu"
+          ],
+          "explanation": "Sentence 4 says 世界の中心を見たいです (she wants to see the heart/center of the world). 見たい is formed with the plain desire form (見 + たい): plain_desire_tai of 見る + です."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the word in brackets.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "やまかわさんは [旅行] が 好きです。",
+          "choices": [
+            "りょこう",
+            "りょうこう",
+            "りょこ",
+            "りっこう"
+          ],
+          "answer": "りょこう",
+          "explanation": "旅行 (travel / trip) is read as <b>ryokou</b>. 旅 (りょ, on-reading) + 行 (こう, on-reading). Both kanji use their on-readings in this compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "この [写真] は とても きれいですね。",
+          "choices": [
+            "しゃしん",
+            "うつしん",
+            "しゃじん",
+            "しゃしょ"
+          ],
+          "answer": "しゃしん",
+          "explanation": "写真 (photograph) is read as <b>shashin</b>. 写 (しゃ, on-reading) + 真 (しん, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "[世界] で いちばん 高い 山は 何ですか。",
+          "choices": [
+            "せかい",
+            "せがい",
+            "よかい",
+            "せいかい"
+          ],
+          "answer": "せかい",
+          "explanation": "世界 (world) is read as <b>sekai</b>. 世 (せ, on-reading) + 界 (かい, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "旅先で [旅館] に とまりたかったです。",
+          "choices": [
+            "りょかん",
+            "たびかん",
+            "りょうかん",
+            "りょっかん"
+          ],
+          "answer": "りょかん",
+          "explanation": "旅館 (traditional Japanese inn) is read as <b>ryokan</b>. 旅 (りょ, on-reading) + 館 (かん, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "[自分] で 旅行したいです。",
+          "choices": [
+            "じぶん",
+            "しぶん",
+            "みずかぶん",
+            "じぶ"
+          ],
+          "answer": "じぶん",
+          "explanation": "自分 (oneself / myself) is read as <b>jibun</b>. 自 (じ, on-reading) + 分 (ぶん, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞうの [顔色] が よくないです。",
+          "choices": [
+            "かおいろ",
+            "がんしょく",
+            "かおしろ",
+            "がんいろ"
+          ],
+          "answer": "かおいろ",
+          "explanation": "顔色 (complexion / face color) is read as <b>kaoiro</b>. 顔 (かお, kun-reading) + 色 (いろ, kun-reading). Both kanji use their kun-readings in this compound. The on-reading compound がんしょく exists but is more formal and literary."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 画家は [有名] です。",
+          "choices": [
+            "ゆうめい",
+            "ゆめい",
+            "あるめい",
+            "ゆうな"
+          ],
+          "answer": "ゆうめい",
+          "explanation": "有名 (famous) is read as <b>yuumei</b>. 有 (ゆう, on-reading) + 名 (めい, on-reading). Both kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "旅先の [中心] で 写真を とりました。",
+          "choices": [
+            "ちゅうしん",
+            "なかこころ",
+            "ちゅうこ",
+            "ちゅうじん"
+          ],
+          "answer": "ちゅうしん",
+          "explanation": "中心 (center / core) is read as <b>chuushin</b>. 中 (ちゅう, on-reading) + 心 (しん, on-reading). Both kanji use their on-readings."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Choose the word that best completes each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "あの 人は 世界中で ______ な 旅人です。",
+          "choices": [
+            "有名",
+            "真っ白",
+            "中心",
+            "真ん中"
+          ],
+          "answer": "有名",
+          "terms": [
+            "v_sekaijuu",
+            "v_tabibito",
+            "v_yuumei"
+          ],
+          "explanation": "有名 (famous) is a な-adjective used as 有名な旅人 (a famous traveler). 真っ白 (pure white) describes color, not reputation. 中心 (center) and 真ん中 (middle) are nouns referring to a central position and do not describe a person's fame."
+        },
+        {
+          "kind": "mcq",
+          "q": "旅行から 帰った あと、たくさんの ______ を 見せて もらいました。",
+          "choices": [
+            "写真",
+            "旅館",
+            "自分",
+            "世界"
+          ],
+          "answer": "写真",
+          "terms": [
+            "v_ryokou",
+            "v_kaeru",
+            "v_shashin",
+            "v_miru"
+          ],
+          "explanation": "写真 (photograph) fits naturally — you show someone photos after returning from a trip. 旅館 (ryokan) cannot be 'shown' in this way. 世界 (world) and 自分 (oneself) do not fit the grammar pattern 見せてもらう (to have something shown to you)."
+        },
+        {
+          "kind": "mcq",
+          "q": "頭が 痛くて ______ も よくないです。",
+          "choices": [
+            "顔色",
+            "旅先",
+            "中心",
+            "旅人"
+          ],
+          "answer": "顔色",
+          "terms": [
+            "v_atama",
+            "v_itai",
+            "v_kaoiro",
+            "v_ii"
+          ],
+          "explanation": "顔色 (complexion / face color) fits naturally here — when a person's head hurts, their complexion often suffers too. 顔色がよくない is a set phrase meaning 'to look pale or unwell'. The other options (旅先, 中心, 旅人) do not fit this health context."
+        },
+        {
+          "kind": "mcq",
+          "q": "あの 画家は ______ が いい し、心も きれいだ。",
+          "choices": [
+            "頭",
+            "首",
+            "体",
+            "顔色"
+          ],
+          "answer": "頭",
+          "terms": [
+            "v_gaka",
+            "v_atamagaii",
+            "v_kokoro",
+            "v_kirei"
+          ],
+          "explanation": "頭がいい is a set compound phrase meaning 'smart / intelligent' (literally 'head is good'). The sentence praises the painter for being smart and having a beautiful heart. 首 (neck), 体 (body), and 顔色 (complexion) do not form this same idiom with がいい."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the answer that correctly completes the sentence or identifies the grammar pattern.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "旅先で 写真を ______ 、旅館に 行ったり しました。",
+          "choices": [
+            "とったり",
+            "とりながら",
+            "とって",
+            "とりたいです"
+          ],
+          "answer": "とったり",
+          "terms": [
+            "v_tabisaki",
+            "v_shashin",
+            "v_toru",
+            "v_ryokan"
+          ],
+          "explanation": "The ～たり～たりする pattern requires both verbs to be in the たり form. とったり (tari form of 撮る) pairs with 行ったり to list representative actions. とりながら would mean 'while taking photos' (simultaneous action, not a list). とって is the te-form connector. とりたいです expresses desire and changes the meaning entirely."
+        },
+        {
+          "kind": "mcq",
+          "q": "写真を ______ 、山を 歩きました。",
+          "choices": [
+            "とりながら",
+            "とったり",
+            "とってから",
+            "とりたくて"
+          ],
+          "answer": "とりながら",
+          "terms": [
+            "v_shashin",
+            "v_toru",
+            "v_yama",
+            "v_aruku"
+          ],
+          "explanation": "ながら (nagara form) expresses two actions happening at the same time: taking photos WHILE walking. It attaches to the ます-stem (とり + ながら). とったり needs a matching ～たり to complete the pattern. とってから means 'after taking photos' (sequential, not simultaneous). とりたくて expresses 'wanting to take photos and...' which changes the meaning."
+        },
+        {
+          "kind": "mcq",
+          "q": "あの 旅人は 世界中 ______ 旅行して います。",
+          "choices": [
+            "を",
+            "に",
+            "で",
+            "から"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_tabibito",
+            "v_sekaijuu",
+            "v_ryokou"
+          ],
+          "explanation": "を marks the space traversed with movement verbs. 世界中を旅行する means 'to travel through/across the whole world' — を marks the extent of the journey. に would mark a destination (going TO a specific place). で would mark the location of an action (doing something AT a place, not traversing it). から means 'from'."
+        },
+        {
+          "kind": "mcq",
+          "q": "やまかわさんは 顔色が ______ ですね。だいじょうぶですか。",
+          "choices": [
+            "よくない",
+            "よくて",
+            "よかった",
+            "よい"
+          ],
+          "answer": "よくない",
+          "terms": [
+            "v_kaoiro",
+            "v_ii",
+            "v_daijoubu"
+          ],
+          "explanation": "よくない is the plain negative form of いい (good). いい is an irregular adjective whose negative stem is よ-, making the negative よくない. This irregular form must be memorized (never いくない). よくて is the te-form connector. よかった is the plain past ('was good'). よい is a more formal/literary synonym of いい, but in this context the expected negative is よくない."
+        }
+      ]
+    }
+  ]
+}

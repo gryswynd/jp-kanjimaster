@@ -1,0 +1,913 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.3",
+  "title": "Going, Places & Landscape",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 5–6.",
+    "kanji": [
+      "行",
+      "来",
+      "店",
+      "駅",
+      "家",
+      "山",
+      "川",
+      "道",
+      "車"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo runs into Yamakawa near the bus stop and asks about his day.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "やまかわさん、今日 どこへ 行きましたか。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "v_kyou",
+                "v_doko",
+                "p_e",
+                {
+                  "id": "v_iku",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "バスで 駅へ 行きました。",
+              "terms": [
+                "v_basu",
+                "p_de",
+                "v_eki",
+                "p_e",
+                {
+                  "id": "v_iku",
+                  "form": "polite_mashita"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "毎日 バスで 来ますか。",
+              "terms": [
+                "v_mainichi",
+                "v_basu",
+                "p_de",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、毎日 うちから バスで 来ます。",
+              "terms": [
+                "p_hai",
+                "v_mainichi",
+                "v_uchi",
+                "p_kara",
+                "v_basu",
+                "p_de",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "How does Yamakawa come every day?",
+          "choices": [
+            "By bus from home",
+            "By taxi from the station",
+            "By bus from the station",
+            "By car from home"
+          ],
+          "answer": "By bus from home",
+          "explanation": "B says 毎日うちからバスで来ます — 'Every day I come from home by bus.' うちから (from home) marks the starting point; バスで (by bus) marks the means of transport."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Yamamoto-sensei asks Rikizo about his plans for next week.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "りきぞうさん、来週 どこへ 行きますか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "v_raishuu",
+                "v_doko",
+                "p_e",
+                {
+                  "id": "v_iku",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "山へ 行きます。バスでは 行きません。車で 行きます。",
+              "terms": [
+                "v_yama",
+                "p_e",
+                {
+                  "id": "v_iku",
+                  "form": "polite_masu"
+                },
+                "v_basu",
+                "p_wa",
+                "p_de",
+                {
+                  "id": "v_iku",
+                  "form": "polite_negative"
+                },
+                "v_kuruma",
+                "p_de",
+                {
+                  "id": "v_iku",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "山に 川が ありますか。",
+              "terms": [
+                "v_yama",
+                "p_ni",
+                "v_kawa",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、山に 川が あります。道も いいですよ。いっしょに 来てください。",
+              "terms": [
+                "p_hai",
+                "v_yama",
+                "p_mo",
+                "v_kawa",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_michi",
+                "p_ni",
+                "v_ii",
+                "g_desu",
+                "p_yo",
+                "v_issho",
+                {
+                  "id": "v_kuru",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            }
+          ],
+          "question": "How will Rikizo travel to the mountain next week?",
+          "choices": [
+            "By car",
+            "By bus",
+            "By taxi",
+            "On foot"
+          ],
+          "answer": "By car",
+          "explanation": "B says バスでは行きません。車で行きます — 'I won't go by bus. I'll go by car.' The negative ません contrasts bus (rejected) with car (chosen). 車 (car, N5.6) + で (by means of) states the transport method."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Yamakawa tells Rikizo that an email about the mountain trip arrived.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "りきぞうさん、メールが 来ましたか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "v_meeru",
+                "p_ga",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、来ました。山の メールですね。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_mashita"
+                },
+                "v_yama",
+                "p_no",
+                "v_meeru",
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "そうです。来週 車で 行きますか。",
+              "terms": [
+                "p_soudesu",
+                "v_raishuu",
+                "v_kuruma",
+                "p_de",
+                {
+                  "id": "v_iku",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、友だちと 行きます。",
+              "terms": [
+                "p_hai",
+                "v_tomodachi",
+                "p_to",
+                {
+                  "id": "v_iku",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "Who will Rikizo go with next week?",
+          "choices": [
+            "With a friend",
+            "With his family",
+            "With the teacher",
+            "Alone"
+          ],
+          "answer": "With a friend",
+          "explanation": "B says 友だちと行きます — 'I will go with a friend.' と marks a companion for joint actions: 友だちと = 'together with a friend.'"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Rikizo goes to the station by bus every day.",
+          "segments": [
+            "りきぞうさん",
+            "は",
+            "毎日",
+            "バス",
+            "で",
+            "駅",
+            "へ",
+            "行きます"
+          ],
+          "distractors": [
+            "に",
+            "から",
+            "来ます"
+          ],
+          "alts": [
+            [
+              "毎日",
+              "りきぞうさん",
+              "は",
+              "バス",
+              "で",
+              "駅",
+              "へ",
+              "行きます"
+            ]
+          ],
+          "explanation": "りきぞうさん + は (topic) + 毎日 (every day) + バス + で (by bus, means) + 駅 + へ (to the station, direction) + 行きます. で marks the means of transport. へ marks direction. 毎日 can also open the sentence: 毎日りきぞうさんはバスで駅へ行きます."
+        },
+        {
+          "kind": "scramble",
+          "q": "He went from the mountain to the river by car.",
+          "segments": [
+            "山",
+            "から",
+            "川",
+            "まで",
+            "車",
+            "で",
+            "行きました"
+          ],
+          "distractors": [
+            "に",
+            "へ",
+            "来ました"
+          ],
+          "explanation": "山 + から (from, starting point) + 川 + まで (to, endpoint) + 車 + で (by car) + 行きました. The pattern から...まで describes the full range of a journey: 'from the mountain all the way to the river.'"
+        },
+        {
+          "kind": "scramble",
+          "q": "Next week I will go to the supermarket with a friend.",
+          "segments": [
+            "来週",
+            "友だち",
+            "と",
+            "スーパー",
+            "へ",
+            "行きます"
+          ],
+          "distractors": [
+            "に",
+            "から",
+            "来ます"
+          ],
+          "alts": [
+            [
+              "友だち",
+              "と",
+              "来週",
+              "スーパー",
+              "へ",
+              "行きます"
+            ]
+          ],
+          "explanation": "来週 (next week) + 友だち + と (with, companion) + スーパー + へ (to the supermarket) + 行きます. と marks a companion for joint actions. 来週 can also follow 友だちと: 友だちと来週スーパーへ行きます."
+        },
+        {
+          "kind": "scramble",
+          "q": "The mountain road is very nice.",
+          "segments": [
+            "山",
+            "の",
+            "道",
+            "は",
+            "とても",
+            "いいです"
+          ],
+          "distractors": [
+            "が",
+            "へ",
+            "ありません"
+          ],
+          "explanation": "山 + の (attribute connector) + 道 + は (topic) + とても + いいです. の links 山 and 道: 'the mountain's road / the mountain road.' は marks 道 as the topic being described."
+        },
+        {
+          "kind": "scramble",
+          "q": "An email arrived from Yamakawa.",
+          "segments": [
+            "やまかわさん",
+            "から",
+            "メール",
+            "が",
+            "来ました"
+          ],
+          "distractors": [
+            "に",
+            "は",
+            "行きました"
+          ],
+          "explanation": "やまかわさん + から (from, source) + メール + が (subject of arrival event) + 来ました. から marks where the email came from. が marks メール as the thing that arrived — 来る is intransitive so its subject takes が."
+        },
+        {
+          "kind": "scramble",
+          "q": "I go from home to the station by bus.",
+          "segments": [
+            "うち",
+            "から",
+            "駅",
+            "まで",
+            "バス",
+            "で",
+            "行きます"
+          ],
+          "distractors": [
+            "に",
+            "へ",
+            "来ます"
+          ],
+          "explanation": "うち + から (from home, starting point) + 駅 + まで (to the station, endpoint) + バス + で (by bus, means) + 行きます. The から...まで pattern marks the full span of the journey. で marks the means of transport."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please come to the mountain by car.",
+          "segments": [
+            "車",
+            "で",
+            "山",
+            "へ",
+            "来て",
+            "ください"
+          ],
+          "distractors": [
+            "行って",
+            "に",
+            "から"
+          ],
+          "explanation": "車 + で (by car, means) + 山 + へ (to the mountain, direction) + 来て (te-form of 来る) + ください (please). The て-form + ください pattern makes a polite request: 来てください = 'please come.' 行って (te-form of 行く, go) is a distractor — the sentence asks someone to 'come,' not 'go.'"
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Yamakawa's Mountain Drive",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "やまかわは 毎週 車で 山へ 行きます。",
+          "en": "Yamakawa goes to the mountain by car every week.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_maishuu",
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "山に 川が あります。",
+          "en": "There is a river at the mountain.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "山の 道は とても いいです。",
+          "en": "The mountain road is very nice.",
+          "terms": [
+            "v_yama",
+            "p_wa",
+            "v_michi",
+            "p_no",
+            "v_totemo",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "先週は 友だちと 山へ 行って、火山にも 行きました。",
+          "en": "Last week he went to the mountain with a friend and also went to the volcano.",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_tomodachi",
+            "p_to",
+            "v_yama",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kazan",
+            "p_e",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "来週も 山へ 行きます。",
+          "en": "He will go to the mountain next week too.",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは なにで 山へ 行きますか。",
+          "a": "車で 行きます",
+          "choices": [
+            "車で 行きます",
+            "バスで 行きます",
+            "タクシーで 行きます",
+            "コンビニへ 行きます"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_nani",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_kuruma"
+          ],
+          "explanation": "The passage says やまかわは毎週車で山へ行きます — 'Yamakawa goes to the mountain by car every week.' 車 (car, N5.6) + で (by means of) shows the transport method. The other options list different vehicles or an unrelated destination."
+        },
+        {
+          "q": "山に なにが ありますか。",
+          "a": "川が あります",
+          "choices": [
+            "川が あります",
+            "道が あります",
+            "車が あります",
+            "メールが あります"
+          ],
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_kawa"
+          ],
+          "explanation": "The passage says 山に川があります — 'There is a river at the mountain.' に marks the location of existence with ある. が marks 川 as what exists there."
+        },
+        {
+          "q": "先週は だれと 行きましたか。",
+          "a": "友だちと 行きました",
+          "choices": [
+            "友だちと 行きました",
+            "先生と 行きました",
+            "うちから 行きました",
+            "バスで 行きました"
+          ],
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_dare",
+            "p_to",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            "v_tomodachi"
+          ],
+          "explanation": "The passage says 先週は友だちと山へ行って、火山にも行きました — 'Last week he went to the mountain with a friend and also went to the volcano.' と marks a companion: 友だちと = 'together with a friend.' Notice 行って (te-form connector) links two actions: going to the mountain, then going to the volcano."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 バスで [駅] へ 行きます。",
+          "choices": [
+            "えき",
+            "みせ",
+            "いえ",
+            "うち"
+          ],
+          "answer": "えき",
+          "explanation": "駅 (station) is read as <b>eki</b>. It has only an on-reading. 駅へ行きます = 'going to the station.' Introduced in N5.5 with Going & Places vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "先週 [店] に 行きましたか。",
+          "choices": [
+            "みせ",
+            "てん",
+            "えき",
+            "いえ"
+          ],
+          "answer": "みせ",
+          "explanation": "店 (shop/store) is read as <b>mise</b> (kun-reading). On-reading: てん. 先週店に行きましたか = 'Did you go to the store last week?' Introduced in N5.5 with Going & Places vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "[来週] も 山へ 行きますか。",
+          "choices": [
+            "らいしゅう",
+            "こんしゅう",
+            "せんしゅう",
+            "まいしゅう"
+          ],
+          "answer": "らいしゅう",
+          "explanation": "来週 (next week) is read as <b>raishuu</b>. 来 (rai, come/next, N5.5) + 週 (week, N5.4). Compare: 今週 (konshuu, this week), 先週 (senshuu, last week), 毎週 (maishuu, every week)."
+        },
+        {
+          "kind": "mcq",
+          "q": "車で [山] へ 行きました。",
+          "choices": [
+            "やま",
+            "かわ",
+            "みち",
+            "くるま"
+          ],
+          "answer": "やま",
+          "explanation": "山 (mountain) is read as <b>yama</b> (kun-reading). On-reading: さん, as in 富士山 (Fuji-san). Introduced in N5.6 with landscape vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "[川] から うちまで 車で 行きます。",
+          "choices": [
+            "かわ",
+            "やま",
+            "みち",
+            "くるま"
+          ],
+          "answer": "かわ",
+          "explanation": "川 (river) is read as <b>kawa</b> (kun-reading). On-reading: せん. In compound place names, がわ is also used. Introduced in N5.6 with landscape vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "山の [道] は とても いいです。",
+          "choices": [
+            "みち",
+            "くるま",
+            "かわ",
+            "えき"
+          ],
+          "answer": "みち",
+          "explanation": "道 (road/street) is read as <b>michi</b> (kun-reading). On-reading: どう. 山の道 = 'the mountain road' pairs two N5.6 kanji. Introduced in N5.6 with Landscape & Vehicles."
+        },
+        {
+          "kind": "mcq",
+          "q": "[車] で 山へ 行きますか。",
+          "choices": [
+            "くるま",
+            "みち",
+            "いえ",
+            "えき"
+          ],
+          "answer": "くるま",
+          "explanation": "車 (car/vehicle) is read as <b>kuruma</b> (kun-reading). On-reading: しゃ. 車で = 'by car' — で marks the means of transport. Introduced in N5.6 with Landscape & Vehicles."
+        },
+        {
+          "kind": "mcq",
+          "q": "[火山] へも 行きましたか。",
+          "choices": [
+            "かざん",
+            "ひやま",
+            "かさん",
+            "やまひ"
+          ],
+          "answer": "かざん",
+          "explanation": "火山 (volcano) is read as <b>kazan</b>. 火 (ka, fire, N5.2) + 山 (san/yama, mountain, N5.6). Both on-readings combine in this compound. Introduced in N5.6 as a landscape word."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "_______ で 山へ 行きます。",
+          "choices": [
+            "車",
+            "川",
+            "道",
+            "山"
+          ],
+          "answer": "車",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "車 (car) is the only means of transport in the list. 車で = 'by car' — で marks the means. 川 is a river, 道 is a road, 山 is a mountain destination — none of these work as transport 'by' which you travel."
+        },
+        {
+          "kind": "mcq",
+          "q": "先週は スーパーへ _______。",
+          "choices": [
+            "行きました",
+            "行きます",
+            "来ます",
+            "あります"
+          ],
+          "answer": "行きました",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_suupaa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ],
+          "explanation": "行きました is the polite past of 行く (to go). 先週 (last week) shows this is a past event. 行きます is present/future tense — wrong for last week. 来ます means 'come' — wrong direction for going to a supermarket. あります expresses inanimate existence, not movement."
+        },
+        {
+          "kind": "mcq",
+          "q": "山に 川が _______。",
+          "choices": [
+            "あります",
+            "います",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "あります",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "ある (あります) is used for inanimate things: 川 (river) is a natural feature, not a living being. いる (います) is for animate beings (people, animals). 行きます and 来ます are motion verbs, not existence verbs."
+        },
+        {
+          "kind": "mcq",
+          "q": "うちから 駅 _______ バスで 行きます。",
+          "choices": [
+            "まで",
+            "から",
+            "に",
+            "の"
+          ],
+          "answer": "まで",
+          "terms": [
+            "v_uchi",
+            "p_kara",
+            "v_eki",
+            "p_made",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "まで marks the endpoint of travel: 駅まで = 'all the way to the station.' The full pattern うちから駅まで = 'from home to the station.' から marks starting point — already used after うち. に marks a destination or time. の marks possession."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "山 _____ 川が あります。",
+          "choices": [
+            "に",
+            "は",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "に marks the location of existence with ある: 山に = 'at the mountain.' は would make 山 the topic with implied contrast. を marks a direct object, but ある is intransitive. が marks the subject — 川が already fills that role."
+        },
+        {
+          "kind": "mcq",
+          "q": "バス _____ 来ます。",
+          "choices": [
+            "で",
+            "に",
+            "は",
+            "を"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "で marks the means of transport: バスで = 'by bus.' に marks a destination or specific time, not a vehicle. は would make バス the topic rather than the means. を marks a direct object — 来る is intransitive and cannot take を."
+        },
+        {
+          "kind": "mcq",
+          "q": "うち _____ 駅まで バスで 行きます。",
+          "choices": [
+            "から",
+            "まで",
+            "に",
+            "を"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_uchi",
+            "p_kara",
+            "v_eki",
+            "p_made",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "から marks the starting point: うちから = 'from home.' まで marks the endpoint — 駅まで is already present. に marks a destination or time point. を marks a direct object — not a starting point for movement."
+        },
+        {
+          "kind": "mcq",
+          "q": "来週 友だち _____ 山へ 行きます。",
+          "choices": [
+            "と",
+            "に",
+            "を",
+            "の"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_raishuu",
+            "v_tomodachi",
+            "p_to",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "と marks a companion for joint actions: 友だちと = 'together with a friend.' に marks a destination or time — 山へ already marks the destination. を marks a direct object. の marks possession — 友だちの means 'friend's'."
+        },
+        {
+          "kind": "mcq",
+          "q": "うちに 友だち _____ います。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "に"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_uchi",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "が marks the subject of いる (to be present, animate): 友だちがいます = 'A friend is here.' は would make 友だち the topic — often implying contrast (友だちはいますが...). を marks a direct object, but いる is intransitive. に marks location — うちに already uses に for location."
+        }
+      ]
+    }
+  ]
+}

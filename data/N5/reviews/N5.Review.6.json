@@ -1,0 +1,1017 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.6",
+  "title": "Sky, Rain, Nature & Study",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 11–12.",
+    "kanji": [
+      "空",
+      "雨",
+      "花",
+      "魚",
+      "本",
+      "語",
+      "学",
+      "校",
+      "国"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Miki and Ren walk along the river on a clear day and observe the sky, flowers, and fish.",
+          "lines": [
+            {
+              "spk": "ミキ",
+              "jp": "今日の 空は とても きれいですね。",
+              "terms": [
+                "v_kyou",
+                "p_wa",
+                "v_sora",
+                "p_no",
+                "v_totemo",
+                "v_kirei",
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "そうですね。川に 花が たくさん あります。きれいそうですね。",
+              "terms": [
+                "p_soudesu",
+                "p_ne",
+                "v_kawa",
+                "p_ni",
+                "v_hana",
+                "p_ga",
+                "v_takusan",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                {
+                  "id": "v_kirei",
+                  "form": "appearance_sou_stem"
+                },
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "ミキ",
+              "jp": "川の 金魚も かわいいですね。大きい 魚も いますよ。",
+              "terms": [
+                "v_kawa",
+                "p_mo",
+                "v_kingyo",
+                "p_mo",
+                "v_kawaii",
+                "g_desu",
+                "p_ne",
+                "v_ookii",
+                "v_sakana",
+                "p_no",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "雨の 後、花は きれいに なりますよ。空気も いいですね。",
+              "terms": [
+                "v_ame",
+                "p_wa",
+                "v_ato",
+                "v_hana",
+                "p_mo",
+                {
+                  "id": "v_kirei",
+                  "form": "adverbial"
+                },
+                {
+                  "id": "v_naru",
+                  "form": "polite_masu"
+                },
+                "p_ne",
+                "v_kuuki",
+                "p_no",
+                "v_ii",
+                "g_desu",
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What does Ren say about the flowers by the river?",
+          "choices": [
+            "They look beautiful",
+            "They are big and cute",
+            "They are expensive",
+            "They smell good"
+          ],
+          "answer": "They look beautiful",
+          "explanation": "Ren says 川に花がたくさんあります。きれいそうですね — 'There are many flowers in the river. They look beautiful.' きれいそうです is the appearance form of the na-adjective きれい (G11, N5.11+): na-adj stem きれい + そうです = きれいそうです (visual impression). Ren also says 雨の後、花はきれいになりますよ — 'After the rain, the flowers become beautiful.' きれいに is the adverbial form of きれい (na-adj + に before なる). 金魚 (きんぎょ = goldfish) = 金 (gold) + 魚 (fish), both new kanji from N5.11."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Yamamoto-sensei talks with Lee, a foreign student from China learning Japanese at school.",
+          "lines": [
+            {
+              "spk": "先生",
+              "jp": "リーさんは 中国から 来ましたね。学校で 日本語を 学んでいますか。",
+              "terms": [
+                "char_lee",
+                "v_san",
+                "p_wa",
+                "v_chuugoku",
+                "p_kara",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_mashita"
+                },
+                "p_ne",
+                "v_gakkou",
+                "p_de",
+                "v_nihongo",
+                "p_wo",
+                {
+                  "id": "v_manabu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "リー",
+              "jp": "はい、毎日 学校で 学んでいます。日本語は おもしろいですよ。",
+              "terms": [
+                "p_hai",
+                "v_mainichi",
+                "v_gakkou",
+                "p_wa",
+                {
+                  "id": "v_manabu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_nihongo",
+                "p_de",
+                "v_omoshiroi",
+                "g_desu",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "日本語の 本と ノートを 買いましたか。",
+              "terms": [
+                "v_nihongo",
+                "p_no",
+                "v_hon",
+                "p_to",
+                "v_nooto",
+                "p_wo",
+                {
+                  "id": "v_kau",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "リー",
+              "jp": "はい、買いました。テストも 来週 あります。よく 学びたいです。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_kau",
+                  "form": "polite_mashita"
+                },
+                "v_tesuto",
+                "p_mo",
+                "v_raishuu",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                {
+                  "id": "v_ii",
+                  "form": "adverbial"
+                },
+                {
+                  "id": "v_manabu",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "Where does Lee study Japanese every day?",
+          "choices": [
+            "At school",
+            "At home",
+            "At a library",
+            "At a bookstore"
+          ],
+          "answer": "At school",
+          "explanation": "Lee says 毎日学校で学んでいます — 'I am learning at school every day.' で marks the location of an ongoing action: 学校で = 'at school.' 学んでいます = te-form of 学ぶ (学んで, godan nasal euphonic change: ぶ → んで) + います = progressive 'is studying' (G8). Lee also says よく学びたいです — 'I want to study well.' 来週 (らいしゅう = next week): 来 (くる/らい) + 週 (しゅう). 中国 (ちゅうごく = China): 中 (なか/ちゅう) + 国 (くに/こく), one of the N5.12 kanji."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Miki and Ren, close friends, chat casually after finishing a school test. They are walking home along the river.",
+          "lines": [
+            {
+              "spk": "ミキ",
+              "jp": "テストは 長かったね。つまらなかった。",
+              "terms": [
+                "v_tesuto",
+                "p_wa",
+                {
+                  "id": "v_nagai",
+                  "form": "plain_past_adj"
+                },
+                "p_ne",
+                {
+                  "id": "v_tsumaranai",
+                  "form": "plain_past_adj"
+                }
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "うん、けど 日本語は おもしろいよね。毎日 学びたいよ。",
+              "terms": [
+                "v_un",
+                "p_kedo",
+                "v_nihongo",
+                "p_wa",
+                "v_omoshiroi",
+                "p_ne",
+                "p_yo",
+                "v_mainichi",
+                {
+                  "id": "v_manabu",
+                  "form": "plain_desire_tai"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "ミキ",
+              "jp": "川の 花が きれいそうだね。毎年 きれいに なるよ。",
+              "terms": [
+                "v_kawa",
+                "p_ga",
+                "v_hana",
+                "p_no",
+                {
+                  "id": "v_kirei",
+                  "form": "plain_appearance_sou"
+                },
+                "p_ne",
+                "v_mainen",
+                {
+                  "id": "v_kirei",
+                  "form": "adverbial"
+                },
+                "v_naru",
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "うん！花火も すきだよ。今年も いっしょに 行こうよ。",
+              "terms": [
+                "v_un",
+                "v_hanabi",
+                "p_mo",
+                "v_suki",
+                "p_yo",
+                "p_yo",
+                "v_kotoshi",
+                "p_mo",
+                "v_issho",
+                {
+                  "id": "v_iku",
+                  "form": "plain_volitional"
+                },
+                "g_da"
+              ]
+            }
+          ],
+          "question": "What does Ren think about Japanese?",
+          "choices": [
+            "It is interesting and wants to learn more",
+            "It is boring and difficult",
+            "It is long and expensive",
+            "It is cheap and good"
+          ],
+          "answer": "It is interesting and wants to learn more",
+          "explanation": "Ren says けど日本語はおもしろいよね。毎日学びたいよ — 'But Japanese is interesting, right? I want to learn every day.' けど (p_kedo, G9) is a casual clause connector meaning 'but/though.' おもしろい in plain form without です = casual predicate (い-adj drops です in casual speech). 学びたいよ = 学び (stem) + たい (desire, N5.8) = plain desire form 'want to learn' (plain_desire_tai, G9+). In Line 3, きれいそうだ is the plain appearance form of na-adj きれい (plain_appearance_sou, G9+) = 'looks beautiful'; きれいになるよ uses the adverbial form + なる = 'becomes beautiful.' In Line 4, すきだよ uses g_da (plain copula, N5.1) with na-adj すき = 'like'; 行こうよ = plain volitional of 行く (G9+) = casual invitation 'let's go.' The casual register throughout — よ、よね、けど、だよ — reflects G9 patterns (N5.9+)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "The flowers look beautiful.",
+          "segments": [
+            "花",
+            "は",
+            "きれいそうです",
+            "ね"
+          ],
+          "distractors": [
+            "が",
+            "きれいです",
+            "きれいに"
+          ],
+          "explanation": "花 + は (topic) + きれいそうです (appearance form of the na-adjective きれい: stem きれい + そうです, G11) + ね. きれいそうです = 'looks beautiful' (visual impression). Compare: きれいです = 'is beautiful' (current state, certain). きれいに is the adverbial form used before なる (e.g. きれいになる = 'become beautiful') — not before そうです. が would mark 花 as subject in a neutral statement; は marks it as topic in a comment."
+        },
+        {
+          "kind": "scramble",
+          "q": "On rainy days I don't want to go outside.",
+          "segments": [
+            "雨",
+            "の",
+            "日",
+            "は",
+            "外",
+            "に",
+            "行きたくないです"
+          ],
+          "distractors": [
+            "で",
+            "行きません",
+            "中"
+          ],
+          "explanation": "雨 + の (possessive) + 日 (day) + は (topic — 'on rainy days') + 外 (outside) + に (direction) + 行きたくないです. 行きたくないです = stem 行き + たくないです = negative desire 'don't want to go' (desire_tai_negative, N5.8+). に marks 外 as the destination/direction with 行く. で would mark the location of an action (eating, resting). 中 (inside) is the opposite of 外 (outside). 行きません is simply 'don't go' — not a desire expression."
+        },
+        {
+          "kind": "scramble",
+          "q": "I am studying Japanese at school every day.",
+          "segments": [
+            "毎日",
+            "学校",
+            "で",
+            "日本語",
+            "を",
+            "学んでいます"
+          ],
+          "distractors": [
+            "に",
+            "学びました",
+            "から"
+          ],
+          "alts": [
+            [
+              "学校",
+              "で",
+              "毎日",
+              "日本語",
+              "を",
+              "学んでいます"
+            ]
+          ],
+          "explanation": "毎日 + 学校 + で (location of action) + 日本語 + を (object) + 学んでいます. 学んでいます = te-form of 学ぶ (学んで, godan ば行 nasal euphonic change) + います = progressive 'is studying' (G8). で marks the location where the action takes place. に would mark a destination or static existence point. から marks a starting point. Time expressions like 毎日 can naturally float: 毎日学校で or 学校で毎日 are both natural Japanese."
+        },
+        {
+          "kind": "scramble",
+          "q": "The test was long, but it was interesting.",
+          "segments": [
+            "テスト",
+            "は",
+            "長かったです",
+            "が",
+            "おもしろかったです"
+          ],
+          "distractors": [
+            "でも",
+            "から",
+            "長い"
+          ],
+          "explanation": "テスト + は (topic) + 長かったです (polite past of 長い: drop い → 長 + かった + です) + が (clause connector 'but' = p_ga_but — follows a です-clause) + おもしろかったです (polite past of おもしろい: drop い → おもしろ + かった + です). が as p_ga_but connects two contrasting clauses. でも is a sentence-starting conjunction — it cannot link clauses within a sentence. から after 長かったです would mean 'because it was long,' entirely changing the meaning. 長い is the plain present form, not past."
+        },
+        {
+          "kind": "scramble",
+          "q": "Let's go to school by train.",
+          "segments": [
+            "電車",
+            "で",
+            "学校",
+            "に",
+            "行きましょう"
+          ],
+          "distractors": [
+            "を",
+            "が",
+            "行きます"
+          ],
+          "alts": [
+            [
+              "学校",
+              "に",
+              "電車",
+              "で",
+              "行きましょう"
+            ]
+          ],
+          "explanation": "電車 + で (by train — means of transport) + 学校 + に (destination of motion) + 行きましょう. ましょう = polite volitional of 行く (N5.8) = 'let's go.' で marks the means: 電車で = 'by train.' に marks 学校 as the destination. を would mark a direct object. が marks the subject. The order of 電車で and 学校に can swap naturally: both 電車で学校に行きましょう and 学校に電車で行きましょう are natural."
+        },
+        {
+          "kind": "scramble",
+          "q": "This book looks interesting, doesn't it.",
+          "segments": [
+            "この",
+            "本",
+            "は",
+            "おもしろそうです",
+            "ね"
+          ],
+          "distractors": [
+            "が",
+            "おもしろいです",
+            "つまらないです"
+          ],
+          "explanation": "この + 本 + は (topic) + おもしろそうです + ね. おもしろそうです = appearance form of おもしろい: drop final い + そうです = おもしろそうです (G11). Note: おもしろいそうです is WRONG for appearance — the い must be dropped. おもしろいそうです would be used for hearsay ('I heard it's interesting' — a different grammar pattern). Compare: おもしろいです = 'it is interesting' (fact), おもしろそうです = 'it looks/seems interesting' (impression). つまらないです = 'it's boring' (opposite)."
+        },
+        {
+          "kind": "scramble",
+          "q": "After the rain, flowers become beautiful.",
+          "segments": [
+            "雨",
+            "の",
+            "後",
+            "花",
+            "が",
+            "きれいに",
+            "なります"
+          ],
+          "distractors": [
+            "で",
+            "は",
+            "きれいです"
+          ],
+          "explanation": "雨 + の + 後 (after) + 花 + が (subject) + きれいに (adverbial of きれい) + なります. 後 read as あと = temporal 'after/later' (v_ato, N5.9: standalone 後 without ろ = あと). きれいに is the adverbial form of the na-adjective きれい: stem + に before なる. The pattern [na-adj] + に + なる = 'become [adjective].' For i-adj the pattern is [stem] + く + なる. が marks 花 as the grammatical subject of なる. で marks location; は marks topic contrast — neither fits before きれいになります here."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — School by the River",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "わたしは 学生です。毎日 学校に 行きます。",
+          "en": "I am a student. I go to school every day.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_gakusei",
+            "g_desu",
+            "v_mainichi",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "学校は 大きくて、新しいです。外国から 来た 学生も います。",
+          "en": "The school is big and new. There are also students who came from foreign countries.",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            {
+              "id": "v_ookii",
+              "form": "te_form"
+            },
+            "v_atarashii",
+            "g_desu",
+            "v_gaikoku",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "plain_past"
+            },
+            "v_gakusei",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "日本語の クラスは おもしろいです。先生も いい 先生ですよ。",
+          "en": "The Japanese class is interesting. The teacher is also a good teacher.",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_kurasu_class",
+            "p_mo",
+            "v_omoshiroi",
+            "g_desu",
+            "v_sensei",
+            "p_no",
+            "v_ii",
+            "v_sensei",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "jp": "学校の 外に 川が あります。川の 花は きれいそうですよ。",
+          "en": "There is a river outside the school. The flowers by the river look beautiful.",
+          "terms": [
+            "v_gakkou",
+            "p_ga",
+            "v_soto",
+            "p_wa",
+            "v_kawa",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_kawa",
+            "p_no",
+            "v_hana",
+            "p_ni",
+            {
+              "id": "v_kirei",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "jp": "川に 金魚が います。大きい 魚も いますよ。",
+          "en": "There are goldfish in the river. There are also large fish.",
+          "terms": [
+            "v_kawa",
+            "p_mo",
+            "v_kingyo",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_ookii",
+            "v_sakana",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "学校に 外国から 来た 学生が いますか。",
+          "a": "はい、外国から 来た 学生が います。",
+          "choices": [
+            "はい、外国から 来た 学生が います。",
+            "いいえ、いません。",
+            "はい、中国の 先生が います。",
+            "外国語の クラスが あります。"
+          ],
+          "terms": [
+            "v_gakkou",
+            "p_ni",
+            "v_gaikoku",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "plain_past"
+            },
+            "v_gakusei",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "p_hai"
+          ],
+          "explanation": "The passage says 外国から来た学生もいます — 'There are also students who came from foreign countries.' 外国 (がいこく = foreign country): 外 (outside, N5.9) + 国 (country, N5.12) using on-readings がい + こく. 来た is the plain past of 来る (= came), used attributively: 外国から来た学生 = 'students who came from abroad' (relative clause using plain_past form, N5.5+). いいえ、いません contradicts the passage. 中国の先生 (Chinese teacher) is not mentioned. 外国語のクラス (foreign language class) is not mentioned — the class is 日本語のクラス."
+        },
+        {
+          "q": "学校は 大きいですか。",
+          "a": "はい、大きくて、新しいです。",
+          "choices": [
+            "はい、大きくて、新しいです。",
+            "いいえ、小さくて、古いです。",
+            "はい、大きくて、高いです。",
+            "いいえ、小さくて、安いです。"
+          ],
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_ookii",
+            {
+              "id": "v_ookii",
+              "form": "te_form"
+            },
+            "v_atarashii",
+            "g_desu",
+            "p_ka",
+            "p_hai"
+          ],
+          "explanation": "The passage says 学校は大きくて、新しいです — 'The school is big and new.' 大きくて is the て-form (te_form) of the い-adjective 大きい: drop い + くて = 大きくて, used as a connector 'big AND.' 新しいです is the polite predicative form of 新しい. The other choices use 小さい (small, antonym of 大きい), 古い (old, antonym of 新しい), 高い (expensive/tall), and 安い (cheap) — none match the passage."
+        },
+        {
+          "q": "川に どんな 魚が いますか。",
+          "a": "金魚と 大きい 魚が います。",
+          "choices": [
+            "金魚と 大きい 魚が います。",
+            "小さい 魚だけ います。",
+            "魚は いません。",
+            "きれいな 花が あります。"
+          ],
+          "terms": [
+            "v_kawa",
+            "p_ni",
+            "v_donna",
+            "v_sakana",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_kingyo",
+            "p_to",
+            "v_ookii"
+          ],
+          "explanation": "The passage says 川に金魚がいます。大きい魚もいますよ — 'There are goldfish in the river. There are also large fish.' 金魚 (きんぎょ = goldfish): 金 (gold, N5.2) + 魚 (fish, N5.11) using on-readings きん + ぎょ. Note: standalone 魚 = さかな (kun-reading), but in compound 金魚, 魚 uses the on-reading ぎょ. 大きい魚 = big fish — 大きい here is attributive (modifying 魚 directly). も = 'also/too' connecting two types of fish. 小さい魚だけ = 'only small fish' — the passage does not restrict size to small. 魚はいません = contradicts the passage directly. きれいな花があります = describes flowers, not fish in the river."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今日の [空] は とても きれいですね。",
+          "choices": [
+            "そら",
+            "あめ",
+            "はな",
+            "さかな"
+          ],
+          "answer": "そら",
+          "explanation": "空 (sky/empty) is read as <b>sora</b>. 空 (くう/そら) — kun-reading そら (the sky). On-reading くう (as in 空気 くうき = air/atmosphere). 空 is introduced in N5.11 as part of sky and nature vocabulary. Compound 空気 (くうき = air): 空 (sky) + 気 (energy/feeling). Contrast: 雨 (あめ = rain), 花 (はな = flower), 魚 (さかな = fish) — all other N5.11 kanji."
+        },
+        {
+          "kind": "mcq",
+          "q": "[雨] の 後、花が きれいに なります。",
+          "choices": [
+            "あめ",
+            "そら",
+            "はな",
+            "くうき"
+          ],
+          "answer": "あめ",
+          "explanation": "雨 (rain) is read as <b>ame</b>. 雨 (う/あめ) — kun-reading あめ. On-reading う (as in 雨天 うてん = rainy weather, less common at this level). 雨の後 (あめのあと) = 'after the rain' — a set expression where 後 is read あと (temporal 'after'). Introduced in N5.11. Contrast: そら (空 = sky), はな (花 = flower), くうき (空気 = air/atmosphere)."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎年、[花火] が あります。",
+          "choices": [
+            "はなび",
+            "はなか",
+            "かびょ",
+            "かか"
+          ],
+          "answer": "はなび",
+          "explanation": "花火 (fireworks) is read as <b>hanabi</b>. 花 (か/はな) + 火 (ひ/か) = 花火. Kun-reading of 花 is はな; kun-reading of 火 is ひ, but in compound 花火, 火 is read び (voiced). This is a regular compound reading: はな + び (voiced) = はなび. 花 (N5.11) = flower. 火 (N5.2) = fire. Together: 花火 = flower-fire = fireworks. Introduced in N5.11."
+        },
+        {
+          "kind": "mcq",
+          "q": "川の [金魚] は かわいいです。",
+          "choices": [
+            "きんぎょ",
+            "さかな",
+            "きんさかな",
+            "ぎょきん"
+          ],
+          "answer": "きんぎょ",
+          "explanation": "金魚 (goldfish) is read as <b>kingyo</b>. 金 (きん/かね = gold/money) + 魚 (ぎょ/さかな = fish) = 金魚. Both use on-readings: きん (gold) + ぎょ (fish) = きんぎょ. Standalone 魚 alone is read さかな (kun-reading). In the compound 金魚, 魚 switches to the on-reading ぎょ. 金 is from N5.2 (days of week: 金曜日) and also means 'gold/money.' Introduced in N5.11."
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語の [本] を 買いました。",
+          "choices": [
+            "ほん",
+            "もと",
+            "ご",
+            "がく"
+          ],
+          "answer": "ほん",
+          "explanation": "本 (book/origin) is read as <b>hon</b>. 本 (ほん/もと) — on-reading ほん (book), kun-reading もと (origin/root). The meaning 'book' uses the on-reading ほん. 日本 (にほん = Japan) also uses on-reading ほん for 本: Japan = 'origin of the sun.' 本 in compound 本屋 (ほんや = bookstore) and 日本語 (にほんご = Japanese language) all use the on-reading ほん. Introduced in N5.12."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 [学校] で 日本語を 学んでいます。",
+          "choices": [
+            "がっこう",
+            "だいがく",
+            "こうこう",
+            "しょうがっこう"
+          ],
+          "answer": "がっこう",
+          "explanation": "学校 (school) is read as <b>gakkou</b>. 学 (がく/まな = study) + 校 (こう = school institution) = 学校. Note the sound change: がく + こう → がっこう (double consonant: っ). Both kanji use on-readings. Compare: 大学 (だいがく = university), 高校 (こうこう = high school), 小学校 (しょうがっこう = elementary school) — all share either 学 or 校. 学校 is the general word for school. Introduced in N5.12."
+        },
+        {
+          "kind": "mcq",
+          "q": "わたしの [国] は 日本です。",
+          "choices": [
+            "くに",
+            "こく",
+            "がく",
+            "ご"
+          ],
+          "answer": "くに",
+          "explanation": "国 (country) is read as <b>kuni</b> when used standalone. 国 (こく/くに) — kun-reading くに (as in わたしの国 = 'my country/homeland'). On-reading こく is used in compounds: 外国 (がいこく = foreign country), 中国 (ちゅうごく = China), 国語 (こくご = national language). The standalone くに represents one's own country or homeland. Compare: がく (学) and ご (語) are the on-readings of two other N5.12 kanji — not country-related. Introduced in N5.12."
+        },
+        {
+          "kind": "mcq",
+          "q": "[日本語] の クラスは おもしろいですよ。",
+          "choices": [
+            "にほんご",
+            "にほん",
+            "ちゅうごく",
+            "がいこく"
+          ],
+          "answer": "にほんご",
+          "explanation": "日本語 (Japanese language) is read as <b>nihongo</b>. 日 (にち/ひ) + 本 (ほん) + 語 (ご) = にほんご. 語 (ご/かた = language/word) — on-reading ご used in language names: 日本語 (Japanese), 中国語 (Chinese), 英語 (English). 日本 alone = にほん (Japan). 日本語 = 日本 (Japan) + 語 (language) = Japanese language. This covers three N5.12 kanji: 日 (N5.2), 本, 語. Introduced in N5.12."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "川の 金魚は とても _______ ですよ。",
+          "choices": [
+            "かわいい",
+            "つまらない",
+            "おもしろい",
+            "長い"
+          ],
+          "answer": "かわいい",
+          "terms": [
+            "v_kawa",
+            "p_wa",
+            "v_kingyo",
+            "p_no",
+            "v_totemo",
+            "v_kawaii",
+            "g_desu",
+            "p_yo"
+          ],
+          "explanation": "かわいい (cute) fits naturally with 金魚 (goldfish): 川の金魚はとてもかわいいですよ = 'The goldfish in the river is very cute.' かわいい is an い-adjective introduced in N5.11 for small, adorable things like goldfish. つまらない (boring) describes activities and lessons, not animals. おもしろい (interesting) is possible but less natural for goldfish than かわいい. 長い (long) describes shape or duration, not animals."
+        },
+        {
+          "kind": "mcq",
+          "q": "わたしは 日本語を _______ います。（I am learning Japanese.）",
+          "choices": [
+            "学んで",
+            "学んだ",
+            "学びます",
+            "学ぶ"
+          ],
+          "answer": "学んで",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "学んで is the te-form of 学ぶ (godan verb, ば行: 学ぶ → 学ん + で = 学んで), used to form the progressive: 学んでいます = 'is learning' (G8, N5.8+). 学んだ is the plain past form ('learned'). 学びます is the polite non-past form ('will learn / learns'). 学ぶ is the dictionary form. The blank precedes います, requiring the て-form to create the ～ている progressive pattern."
+        },
+        {
+          "kind": "mcq",
+          "q": "雨の _______ 花が きれいに なりますよ。",
+          "choices": [
+            "後",
+            "前",
+            "中",
+            "外"
+          ],
+          "answer": "後",
+          "terms": [
+            "v_ame",
+            "p_ga",
+            "v_ato",
+            "v_hana",
+            "p_no",
+            {
+              "id": "v_kirei",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ],
+          "explanation": "後 (あと = after) creates 雨の後 = 'after the rain.' N5.9: standalone 後 (without ろ) = あと (temporal 'after/later') = v_ato. The pattern [event] + の後 + [result] expresses a temporal sequence: after the rain → flowers become beautiful. 前 (まえ = before): 雨の前 = 'before the rain' — logically possible but not what the sentence says. 中 (なか = during/inside): 雨の中に = 'in the rain' — different meaning. 外 (そと = outside): 雨の外 = unnatural Japanese."
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語の クラスは _______ です。",
+          "choices": [
+            "おもしろい",
+            "空",
+            "国",
+            "雨"
+          ],
+          "answer": "おもしろい",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_kurasu_class",
+            "p_no",
+            "v_omoshiroi",
+            "g_desu"
+          ],
+          "explanation": "おもしろい (interesting) is the i-adjective that naturally describes a class: 日本語のクラスはおもしろいです = 'Japanese class is interesting.' 空 (sky), 国 (country), and 雨 (rain) are nouns — they cannot function as predicative adjectives in this sentence pattern without the copula. The sentence structure is [topic] + は + [adjective] + です, requiring an adjective. The antonym is つまらない (boring) — also an adjective. おもしろい is introduced in N5.12 as a key i-adjective for school and study contexts."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "雨の 後、花が きれい ___ なりますよ。",
+          "choices": [
+            "に",
+            "で",
+            "く",
+            "な"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_ame",
+            "p_ga",
+            "v_ato",
+            "v_hana",
+            "p_no",
+            {
+              "id": "v_kirei",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ],
+          "explanation": "に is the adverbial form of the na-adjective きれい used before なる: きれいに なる = 'become beautiful.' For na-adjectives: [stem] + に + なる. For i-adjectives: [stem] + く + なる (e.g. 大き + く + なる = 大きくなる). で is the te-form connector for na-adjectives (きれいで = 'beautiful and'). く is the adverbial form for i-adjectives only. な is the attributive form for na-adjectives (きれいな花). Only に correctly fits before なる with a na-adjective."
+        },
+        {
+          "kind": "mcq",
+          "q": "学校 ___ 日本語を 学んでいます。（I am studying Japanese at school.）",
+          "choices": [
+            "で",
+            "に",
+            "を",
+            "が"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_gakkou",
+            "p_de",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "で marks the location of an ongoing action: 学校で = 'at school' (where the studying takes place). に marks static existence (with いる/ある) or destinations of motion — 学校に行く = 'go to school' is correct but 学校に学ぶ is wrong. を marks the direct object — 日本語を is already the object of 学ぶ. が marks the subject. The pattern [location] + で + [action verb] describes where an activity is performed."
+        },
+        {
+          "kind": "mcq",
+          "q": "テストは 長かったです ___、おもしろかったです。（The test was long, but it was interesting.）",
+          "choices": [
+            "が",
+            "でも",
+            "から",
+            "けど"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_tesuto",
+            "p_wa",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ga_but",
+            {
+              "id": "v_omoshiroi",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ],
+          "explanation": "が (p_ga_but) is the clause-connecting conjunction 'but' (G9) used after a polite form (長かったです). It contrasts two clauses within one sentence. でも is a sentence-starting conjunction ('But...') — it cannot connect clauses within a sentence. けど (p_kedo, G9) is a casual equivalent of が — while grammatical, it creates slightly casual tone inconsistent with the polite ～です ending. から after 長かったです would express reason ('because it was long'), changing the meaning entirely."
+        },
+        {
+          "kind": "mcq",
+          "q": "外国 ___ 学生が 来ています。（Students are coming from foreign countries.）",
+          "choices": [
+            "から",
+            "まで",
+            "に",
+            "で"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_gaikoku",
+            "p_kara",
+            "v_gakusei",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "から marks the starting point 'from': 外国から = 'from foreign countries' (p_kara, G3, available from N5.2+). Note: this から follows the noun 外国 — it means 'from' (p_kara, NOT p_kara_because). p_kara_because only applies when から follows a verb/adjective/です clause. まで marks an end point ('until/as far as'). に marks a destination or existence location. で marks location of action or means. 来ています = te-form of 来る (来て) + います = progressive/resultant state 'have come and are here now.'"
+        },
+        {
+          "kind": "mcq",
+          "q": "この 本は おもしろ ___ です。（This book is interesting.）",
+          "choices": [
+            "い",
+            "く",
+            "で",
+            "に"
+          ],
+          "answer": "い",
+          "terms": [
+            "v_kono",
+            "v_hon",
+            "p_wa",
+            "v_omoshiroi",
+            "g_desu"
+          ],
+          "explanation": "おもしろい + です (polite predicate for i-adjectives) = おもしろいです. For i-adjectives: [dictionary form] + です in polite predicate — keep the final い and add です. く is the adverbial form: おもしろく + なる = 'become interesting.' で is the na-adjective te-form connector — i-adjectives use くて for te-form (おもしろくて), not で. に creates [adverb] + になる. The polite predicate of i-adjectives is simply base form + です: おもしろいです. The antonym: つまらないです."
+        }
+      ]
+    }
+  ]
+}

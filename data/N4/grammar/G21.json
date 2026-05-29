@@ -1,0 +1,1081 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G21",
+  "type": "grammar",
+  "title": "Conversation Mechanics — Hesitation, Aizuchi & Discourse Markers",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.16",
+    "focus": "Master the sounds that hold the floor (えーと, あのう, うーん), active-listening signals (なるほど, へえ, そうですね), casual fillers (なんか, まあ), and discourse restructuring markers (じつは, つまり).",
+    "estimatedMinutes": 25,
+    "particles": [
+      "v_naruhodo",
+      "v_hee",
+      "v_souso",
+      "v_jitsuwa",
+      "v_tsumari",
+      "v_nanka",
+      "v_maa",
+      "p_hontou"
+    ],
+    "grammarForms": [],
+    "icon": "💬"
+  },
+  "targetVocab": [
+    "v_eto",
+    "v_anou",
+    "v_uun",
+    "v_un",
+    "v_saa",
+    "v_naruhodo",
+    "v_hee",
+    "v_souso",
+    "v_jitsuwa",
+    "v_tsumari",
+    "v_nanka",
+    "v_maa"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Conversation Mechanics — Hesitation, Aizuchi & Discourse Markers",
+      "icon": "💬",
+      "summary": "You have grammar. Now you need conversation survival: the sounds that hold the floor and the sounds that show you're listening. Real Japanese conversation is not a sequence of complete sentences — it is a flow of signals, pauses, and short responses that keep both speakers connected and the exchange moving.",
+      "whyItMatters": "Japanese speakers use hesitation sounds and aizuchi constantly. Getting these right is the difference between sounding like a textbook and sounding like a real conversation partner. They also signal to your listener that you are still talking — or that you're genuinely engaged when it's their turn.",
+      "youWillLearn": [
+        "Floor-holding sounds (えーと, えっと, あのう, うーん) — how they signal 'I'm still speaking'",
+        "さあ — how the same sound expresses both uncertainty and commencement",
+        "うん vs うーん — how length and tone alone change the meaning completely",
+        "相槌 (aizuchi) — the listener's toolkit: なるほど, へえ, ほんとうに, そうそう, and more",
+        "Casual fillers なんか and まあ — what they add to speech and when not to use them",
+        "Discourse restructuring markers じつは (actually) and つまり (in other words)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_floor_holding",
+      "pattern": [
+        {
+          "label": "FLOOR-HOLDER",
+          "text": "えーと / あのう / うーん",
+          "color": "connector"
+        },
+        {
+          "label": "PAUSE",
+          "text": "…",
+          "color": "adverb"
+        },
+        {
+          "label": "CONTINUES",
+          "text": "[rest of utterance]",
+          "color": "predicate"
+        }
+      ],
+      "meaning": "I'm still speaking — please don't take the floor",
+      "explanation": "In Japanese conversation, silence signals that you have finished your turn and are yielding the floor to your listener. This is different from many other languages where a pause is neutral. Floor-holding sounds like えーと, あのう, and うーん fill that silence with an audible signal: 'I am still processing — the floor is still mine.' Without them, a pause reads as an invitation for the other person to speak.",
+      "notes": [
+        "えーと (also えっと — slightly shorter and more casual) is the most neutral floor-holder. Use it while searching for a word or deciding what to say.",
+        "あのう is slightly hesitant and apologetic in tone. It often opens a request or a topic the speaker feels uncertain about raising.",
+        "うーん is used when genuinely unsure or weighing options. Its long, falling tone signals active deliberation rather than word-searching.",
+        "All three are social tools, not verbal filler to be avoided. Japanese speakers use them naturally and frequently — learning to use them makes you sound like a real conversation partner.",
+        "Register: all three are appropriate in casual to semi-formal speech. In very formal contexts, speakers reduce but do not eliminate them."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "えーと、",
+              "role": "connector",
+              "gloss": "um / let me think (floor-holding)"
+            },
+            {
+              "text": "名前は",
+              "role": "topic",
+              "gloss": "name (topic: は)"
+            },
+            {
+              "text": "なんだっけ？",
+              "role": "predicate",
+              "gloss": "what was it again? (casual memory check)"
+            }
+          ],
+          "en": "Um… what was his name again?",
+          "breakdown": "えーと buys thinking time while the speaker searches their memory. The floor remains theirs throughout the pause."
+        },
+        {
+          "parts": [
+            {
+              "text": "あのう、",
+              "role": "connector",
+              "gloss": "um / excuse me (hesitant opener)"
+            },
+            {
+              "text": "ちょっと",
+              "role": "adverb",
+              "gloss": "a little / just"
+            },
+            {
+              "text": "聞いても",
+              "role": "predicate",
+              "gloss": "even if [I] ask (te-form + も)"
+            },
+            {
+              "text": "いいですか？",
+              "role": "predicate",
+              "gloss": "is it okay? (permission)"
+            }
+          ],
+          "en": "Um… would it be okay if I asked you something?",
+          "breakdown": "あのう introduces a hesitant request. Its apologetic tone softens the ask before the main question even arrives."
+        },
+        {
+          "parts": [
+            {
+              "text": "うーん、",
+              "role": "connector",
+              "gloss": "hmm… (weighing, deliberating)"
+            },
+            {
+              "text": "むずかしい",
+              "role": "predicate",
+              "gloss": "difficult (plain form)"
+            },
+            {
+              "text": "な。",
+              "role": "predicate",
+              "gloss": "(casual sentence-final particle)"
+            }
+          ],
+          "en": "Hmm… that's a tough one.",
+          "breakdown": "うーん with a long falling tone signals genuine deliberation. The speaker is still holding the floor while thinking through the problem."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_saa",
+      "pattern": [
+        {
+          "label": "SAME SOUND",
+          "text": "さあ",
+          "color": "connector"
+        },
+        {
+          "label": "CONTEXT A",
+          "text": "uncertainty",
+          "color": "adverb"
+        },
+        {
+          "label": "CONTEXT B",
+          "text": "commencement",
+          "color": "predicate"
+        }
+      ],
+      "meaning": "I don't know / Well then, let's go — context determines which",
+      "explanation": "さあ is unique: the same sound carries two completely different functions depending on what follows and the speaker's intonation. As an uncertainty marker, さあ expresses 'I'm not sure / I really don't know' — often with a falling or drawn-out tone. As a commencement marker, さあ means 'well then / right then / let's go' — used to launch into action with a rising, energetic tone. Context almost always makes the meaning clear.",
+      "notes": [
+        "Uncertainty さあ: 「さあ、よくわかりません」(Hmm, I really don't know) — the speaker genuinely cannot answer. Often followed by trailing off or わかりません.",
+        "Commencement さあ: 「さあ、行きましょう！」(Right then, let's go!) — the speaker is initiating movement or activity. Rising, energetic tone.",
+        "The two functions feel completely distinct in context. Pay attention to what follows: a statement of not-knowing (uncertainty) vs an invitation to act (commencement).",
+        "さあ as uncertainty is neutral; さあ as commencement is energetic and common across all registers."
+      ],
+      "examples": [
+        {
+          "context": "さあ as uncertainty",
+          "parts": [
+            {
+              "text": "さあ、",
+              "role": "connector",
+              "gloss": "hmm / I wonder (uncertainty)"
+            },
+            {
+              "text": "よくは",
+              "role": "topic",
+              "gloss": "well / clearly (よく + は — rhetorical)"
+            },
+            {
+              "text": "わかりません。",
+              "role": "predicate",
+              "gloss": "I don't know (polite)"
+            }
+          ],
+          "en": "Hmm, I'm really not sure.",
+          "breakdown": "さあ signals the speaker genuinely doesn't know. The falling tone and わかりません confirm uncertainty."
+        },
+        {
+          "context": "さあ as commencement",
+          "parts": [
+            {
+              "text": "さあ、",
+              "role": "connector",
+              "gloss": "right then / well (commencement)"
+            },
+            {
+              "text": "始めましょう！",
+              "role": "predicate",
+              "gloss": "let's begin! (polite volitional)"
+            }
+          ],
+          "en": "Right then, let's begin!",
+          "breakdown": "さあ launches into action. The rising, energetic tone and the volitional verb confirm commencement, not uncertainty."
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "Hesitation Sounds — Quick Reference",
+      "description": "All six forms at a glance. The Nuance column is the key — that is what separates natural from mechanical use.",
+      "tableType": "comparison",
+      "headers": [
+        "Sound",
+        "Core Meaning",
+        "Nuance",
+        "Register"
+      ],
+      "rows": [
+        {
+          "label": "えーと",
+          "cells": [
+            "えーと",
+            "Um / let me think",
+            "Searching for a word or information; neutral floor-hold",
+            "Casual to semi-formal"
+          ],
+          "meaning": "Neutral word-search hesitation"
+        },
+        {
+          "label": "えっと",
+          "cells": [
+            "えっと",
+            "Um / er",
+            "Shorter, slightly more casual than えーと; same floor-holding function",
+            "Casual"
+          ],
+          "meaning": "Casual word-search hesitation"
+        },
+        {
+          "label": "あのう",
+          "cells": [
+            "あのう",
+            "Um / excuse me",
+            "Hesitant opener; slightly apologetic; softens a request or a difficult topic",
+            "Casual to semi-formal"
+          ],
+          "meaning": "Hesitant, apologetic opener"
+        },
+        {
+          "label": "うーん",
+          "cells": [
+            "うーん",
+            "Hmm…",
+            "Genuine deliberation; weighing options; long falling tone",
+            "Casual to semi-formal"
+          ],
+          "meaning": "Active deliberation"
+        },
+        {
+          "label": "さあ (uncertainty)",
+          "cells": [
+            "さあ",
+            "Hmm / I wonder",
+            "Speaker genuinely doesn't know; often precedes わかりません",
+            "Casual to neutral"
+          ],
+          "meaning": "I don't know"
+        },
+        {
+          "label": "さあ (commencement)",
+          "cells": [
+            "さあ",
+            "Right then / let's go",
+            "Launches into action; rising tone; initiates movement or a task",
+            "Casual to formal"
+          ],
+          "meaning": "Initiating action"
+        }
+      ],
+      "notes": [
+        "えーと and えっと are interchangeable in meaning; えっと feels slightly more clipped and casual.",
+        "All hesitation sounds can be lengthened (えーーーと, うーーーん) to signal even more thinking time.",
+        "In very formal speech such as a job interview, reduce but do not eliminate these sounds — they remain natural."
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "うん vs うーん — Length Carries the Meaning",
+      "items": [
+        {
+          "label": "うん",
+          "color": "predicate",
+          "points": [
+            "Short, flat affirmative — means 'yes / yeah / mm-hmm'",
+            "Agreement or acknowledgment; the plain casual equivalent of はい",
+            "Delivered with a single short rising-falling pitch: 'un'",
+            "Can be doubled (うんうん) to mean 'yeah yeah — I hear you, keep going'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "うん、",
+                "role": "connector",
+                "gloss": "yeah / yes (casual affirmative)"
+              },
+              {
+                "text": "知ってる。",
+                "role": "predicate",
+                "gloss": "I know (plain progressive)"
+              }
+            ],
+            "en": "Yeah, I know."
+          }
+        },
+        {
+          "label": "うーん",
+          "color": "connector",
+          "points": [
+            "Long, falling deliberative sound — means 'hmm… / well…'",
+            "Signals thinking, weighing, or hesitating — NOT affirmative",
+            "Delivered with a long falling or drawn-out pitch: 'uuuun'",
+            "Signals uncertainty or that the speaker is still processing"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "うーん、",
+                "role": "connector",
+                "gloss": "hmm… (deliberation — NOT agreement)"
+              },
+              {
+                "text": "むずかしい",
+                "role": "predicate",
+                "gloss": "difficult (plain)"
+              },
+              {
+                "text": "な。",
+                "role": "predicate",
+                "gloss": "(casual sentence-final particle)"
+              }
+            ],
+            "en": "Hmm… that's a tough one."
+          }
+        }
+      ],
+      "tip": "The length and tone of the vowel carries ALL the meaning. うん (short, flat) = yes. うーん (long, falling) = I'm still thinking. Confusing them tells your listener the opposite of what you mean."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_aizuchi",
+      "pattern": [
+        {
+          "label": "SPEAKER A",
+          "text": "[says something]",
+          "color": "predicate"
+        },
+        {
+          "label": "LISTENER B",
+          "text": "相槌 (aizuchi)",
+          "color": "connector"
+        },
+        {
+          "label": "SIGNALS",
+          "text": "I'm listening",
+          "color": "adverb"
+        }
+      ],
+      "meaning": "Active-listening responses that keep conversation flowing",
+      "explanation": "相槌 (aizuchi) are the short responses a listener makes while the speaker is still talking. Unlike interruptions, aizuchi are expected and welcomed — they tell the speaker 'I'm with you, keep going.' Japanese conversation has a much higher density of aizuchi than many other languages. Staying completely silent while listening can feel cold or disengaged; the right aizuchi feels warm and attentive.",
+      "notes": [
+        "Aizuchi are not just for the ends of sentences — you can offer them mid-explanation when the speaker naturally pauses.",
+        "The choice of aizuchi signals how you feel about what you just heard: surprise (へえ！), understanding (なるほど), agreement (そうそう), or seeking confirmation (ほんとうに？).",
+        "Stacking aizuchi: Japanese speakers often stack two or three: 「そうですね、なるほど」or 「うんうん、そうそう」. This signals deep engagement.",
+        "Register matters: うん/うんうん is strictly casual. はい/ええ is polite. そうですね is polite-to-neutral. なるほど/へえ work across most registers. そうそう is casual.",
+        "Over-using a single aizuchi sounds robotic. Vary them naturally based on what you genuinely feel about what you heard."
+      ],
+      "examples": [
+        {
+          "context": "Listener shows genuine understanding with なるほど",
+          "parts": [
+            {
+              "text": "なるほど、",
+              "role": "connector",
+              "gloss": "I see / that makes sense (comprehension aizuchi)"
+            },
+            {
+              "text": "そういうことか。",
+              "role": "predicate",
+              "gloss": "so that's how it is (casual realization)"
+            }
+          ],
+          "en": "Ah, I see — so that's how it works.",
+          "breakdown": "なるほど signals genuine insight — something clicked for the listener. It is more substantive than a simple 'yes.'"
+        },
+        {
+          "context": "Listener shows surprise with へえ, then seeks confirmation with ほんとうに",
+          "parts": [
+            {
+              "text": "へえ！",
+              "role": "connector",
+              "gloss": "Oh really! / Wow! (surprise aizuchi)"
+            },
+            {
+              "text": "ほんとうに？",
+              "role": "predicate",
+              "gloss": "Really? / Is that so? (seeking confirmation)"
+            }
+          ],
+          "en": "Oh wow! Really?",
+          "breakdown": "へえ expresses genuine surprise or interest. Pairing it with ほんとうに？ amplifies the reaction and invites the speaker to confirm."
+        },
+        {
+          "context": "Listener enthusiastically agrees with そうそう",
+          "parts": [
+            {
+              "text": "そうそう、",
+              "role": "connector",
+              "gloss": "yes, exactly! / right, right! (enthusiastic casual agreement)"
+            },
+            {
+              "text": "それだよ。",
+              "role": "predicate",
+              "gloss": "that's exactly it (casual)"
+            }
+          ],
+          "en": "Yes, exactly — that's it!",
+          "breakdown": "そうそう is casual and enthusiastic. It signals the listener is fully on board and energized by the shared understanding."
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "Aizuchi Toolkit",
+      "description": "A listener's complete toolkit. The 'When to use' column is the key — each aizuchi carries a specific signal about how you feel.",
+      "tableType": "comparison",
+      "headers": [
+        "Sound",
+        "Meaning",
+        "When to use",
+        "Register"
+      ],
+      "rows": [
+        {
+          "label": "うん / うんうん",
+          "cells": [
+            "うん / うんうん",
+            "Yeah / uh-huh",
+            "Casual ongoing acknowledgment; うんうん (repeated) = 'keep going, I'm with you'",
+            "Casual only"
+          ],
+          "meaning": "Casual ongoing agreement"
+        },
+        {
+          "label": "はい / ええ",
+          "cells": [
+            "はい / ええ",
+            "Yes / I see",
+            "Polite acknowledgment; ええ is softer than はい; both signal active listening",
+            "Polite"
+          ],
+          "meaning": "Polite acknowledgment"
+        },
+        {
+          "label": "そうですね",
+          "cells": [
+            "そうですね",
+            "That's right / I see",
+            "Polite agreement or shared recognition; does not express surprise",
+            "Polite to neutral"
+          ],
+          "meaning": "Polite agreement / shared recognition"
+        },
+        {
+          "label": "なるほど",
+          "cells": [
+            "なるほど",
+            "I see / that makes sense",
+            "When something clicks — after an explanation, when the listener genuinely understands",
+            "Casual to semi-formal"
+          ],
+          "meaning": "Genuine comprehension"
+        },
+        {
+          "label": "へえ",
+          "cells": [
+            "へえ",
+            "Oh really? / Wow",
+            "When information is surprising or new and interesting to the listener",
+            "Casual to neutral"
+          ],
+          "meaning": "Surprise or interest"
+        },
+        {
+          "label": "ほんとうに",
+          "cells": [
+            "ほんとうに",
+            "Really? / Is that so?",
+            "Invites confirmation of surprising information; rising intonation",
+            "Casual to neutral"
+          ],
+          "meaning": "Seeking confirmation of surprise"
+        },
+        {
+          "label": "そうそう",
+          "cells": [
+            "そうそう",
+            "Yes, exactly! / Right, right!",
+            "Enthusiastic agreement; the listener feels the speaker has nailed it",
+            "Casual"
+          ],
+          "meaning": "Enthusiastic agreement"
+        }
+      ],
+      "notes": [
+        "そうだね (casual equivalent of そうですね) is common between close friends — it uses the plain copula だ.",
+        "In business Japanese, overuse of うん or そうそう can seem too casual. Prefer はい, ええ, and なるほど in formal settings.",
+        "ほんとうに is always written in hiragana in this curriculum — never as 本当に."
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_fillers",
+      "pattern": [
+        {
+          "label": "FILLER",
+          "text": "なんか / まあ",
+          "color": "adverb"
+        },
+        {
+          "label": "HEDGES",
+          "text": "[statement]",
+          "color": "predicate"
+        }
+      ],
+      "meaning": "Casual softeners — 'kind of / like' (なんか) and 'well / sort of' (まあ)",
+      "explanation": "なんか and まあ are casual fillers that soften or hedge a statement. They signal that the speaker is not making a precise or absolute claim — adding a conversational, approachable tone. Both are extremely common in everyday speech among friends. Both carry register restrictions that learners must respect.",
+      "notes": [
+        "なんか literally means 'something' (何か), but as a filler it functions like English 'like' or 'kind of'. It hedges what follows: 「なんか、むずかしいな」= 'Kind of difficult, you know.' It can appear at the start of a sentence or mid-utterance.",
+        "REGISTER WARNING for なんか: as a filler, なんか is strongly casual. Using it with superiors, in formal settings, or with strangers sounds sloppy or rude. Reserve it for friends and informal contexts.",
+        "まあ means 'well / sort of / I suppose'. It signals moderate acceptance or a nuanced position: 「まあ、いいか」= 'Well, I suppose it's fine.' It is slightly less casual than なんか and can appear in semi-formal contexts.",
+        "Both appear frequently in native speech because they soften the directness of Japanese statements — mastering them makes you sound natural; misusing them in the wrong register sounds rude."
+      ],
+      "examples": [
+        {
+          "context": "なんか as a casual sentence-opening filler",
+          "parts": [
+            {
+              "text": "なんか、",
+              "role": "adverb",
+              "gloss": "kind of / like (casual filler)"
+            },
+            {
+              "text": "うまく",
+              "role": "adverb",
+              "gloss": "well / skillfully (adverbial form)"
+            },
+            {
+              "text": "言えない",
+              "role": "predicate",
+              "gloss": "can't say well (plain potential negative)"
+            },
+            {
+              "text": "けど。",
+              "role": "connector",
+              "gloss": "but / though (casual clause connector)"
+            }
+          ],
+          "en": "I can't really explain it well, but…",
+          "breakdown": "なんか softens the admission of struggling to articulate. It adds an approachable, self-deprecating tone rather than a blunt 'I can't explain it.'"
+        },
+        {
+          "context": "まあ expressing moderate acceptance",
+          "parts": [
+            {
+              "text": "まあ、",
+              "role": "adverb",
+              "gloss": "well / sort of (moderate, resigned acceptance)"
+            },
+            {
+              "text": "しかたない",
+              "role": "predicate",
+              "gloss": "can't be helped (plain)"
+            },
+            {
+              "text": "か。",
+              "role": "predicate",
+              "gloss": "(casual rhetorical particle)"
+            }
+          ],
+          "en": "Well, I suppose there's nothing to be done.",
+          "breakdown": "まあ introduces calm, resigned acceptance. It is less absolute than しかたない alone — the speaker is making peace with the situation."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_discourse",
+      "pattern": [
+        {
+          "label": "RESTRUCTURE",
+          "text": "じつは / つまり",
+          "color": "connector"
+        },
+        {
+          "label": "REFRAMED INFO",
+          "text": "[new frame or summary]",
+          "color": "predicate"
+        }
+      ],
+      "meaning": "Discourse markers that reframe or restructure what has been said",
+      "explanation": "じつは and つまり are discourse restructuring markers — they signal that the conversation is about to shift or be reframed. じつは (actually / to tell the truth) introduces information that contrasts with what the listener assumed. つまり (in other words / that is to say) summarizes or restates what was already said in clearer terms. Both are essential for natural explanatory speech.",
+      "notes": [
+        "じつは appears at the start of a clause. It signals: 'What I am about to say is the real situation, which may differ from what you assumed.' Common in confessions, surprising reveals, and topic shifts.",
+        "IMPORTANT: always write じつは in hiragana. The kanji 実 is not in the taught set — do not write 実は.",
+        "つまり also appears at the start of a clause. It signals: 'Let me sum that up / here is the core point.' Use it to clarify, conclude, or restate after an explanation.",
+        "じつは vs つまり: じつは introduces new (possibly surprising) information; つまり summarizes or restates existing information. They are not interchangeable.",
+        "Both work in casual and polite registers — they are discourse-level tools, not register-specific vocabulary."
+      ],
+      "examples": [
+        {
+          "context": "じつは — revealing something the listener didn't know",
+          "parts": [
+            {
+              "text": "じつは、",
+              "role": "connector",
+              "gloss": "actually / to tell you the truth (discourse marker)"
+            },
+            {
+              "text": "明日は",
+              "role": "time",
+              "gloss": "tomorrow (は)"
+            },
+            {
+              "text": "仕事が",
+              "role": "subject",
+              "gloss": "work (が)"
+            },
+            {
+              "text": "あるんです。",
+              "role": "predicate",
+              "gloss": "there is (explanatory んです — polite)"
+            }
+          ],
+          "en": "Actually, I have work tomorrow.",
+          "breakdown": "じつは sets up a reveal — the speaker is sharing something the listener didn't know and may not have expected."
+        },
+        {
+          "context": "つまり — summarizing what was just explained",
+          "parts": [
+            {
+              "text": "つまり、",
+              "role": "connector",
+              "gloss": "in other words / to sum up (discourse marker)"
+            },
+            {
+              "text": "時間が",
+              "role": "subject",
+              "gloss": "time (が)"
+            },
+            {
+              "text": "ない",
+              "role": "predicate",
+              "gloss": "there isn't (plain negative)"
+            },
+            {
+              "text": "ってこと？",
+              "role": "predicate",
+              "gloss": "is that what you mean? (casual clarification)"
+            }
+          ],
+          "en": "In other words, you're saying there's no time?",
+          "breakdown": "つまり invites a restatement or confirmation of what was just explained. The listener uses it to summarize back what they heard."
+        }
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Floor-Holding and Aizuchi in Action",
+      "examples": [
+        {
+          "context": "りきぞう holds the floor with えーと, reveals with じつは, lists reasons with し, and uses のに for frustration",
+          "parts": [
+            {
+              "text": "えーと、",
+              "role": "connector",
+              "gloss": "um / let me think (floor-holding)"
+            },
+            {
+              "text": "じつは、",
+              "role": "connector",
+              "gloss": "actually (discourse reveal marker)"
+            },
+            {
+              "text": "来週は",
+              "role": "time",
+              "gloss": "next week (は)"
+            },
+            {
+              "text": "仕事が",
+              "role": "subject",
+              "gloss": "work (が)"
+            },
+            {
+              "text": "いそがしい",
+              "role": "predicate",
+              "gloss": "busy (plain form)"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also (listing reasons: し)"
+            },
+            {
+              "text": "むずかしい",
+              "role": "predicate",
+              "gloss": "difficult (plain form)"
+            },
+            {
+              "text": "のに、",
+              "role": "connector",
+              "gloss": "even though (のに — frustrating, unexpected contrast)"
+            },
+            {
+              "text": "休めない。",
+              "role": "predicate",
+              "gloss": "can't rest (plain potential negative)"
+            }
+          ],
+          "en": "Um… actually, next week work is busy, and even though it's tough, I can't take a break.",
+          "note": "えーと holds the floor while りきぞう collects his thoughts. じつは signals a reveal the listener didn't know. し lists two reasons (busy + difficult). のに expresses the frustrating gap between expectation and reality — of course if it's difficult, you should be able to rest."
+        },
+        {
+          "context": "けん responds with aizuchi chain — へえ, そうですね — then shifts to action with さあ and summarizes with つまり",
+          "parts": [
+            {
+              "text": "へえ！",
+              "role": "connector",
+              "gloss": "Oh wow! (surprise aizuchi)"
+            },
+            {
+              "text": "そうですね。",
+              "role": "connector",
+              "gloss": "I see / right (polite agreement aizuchi)"
+            },
+            {
+              "text": "さあ、",
+              "role": "connector",
+              "gloss": "well then / right then (commencement — shifting to action)"
+            },
+            {
+              "text": "つまり、",
+              "role": "connector",
+              "gloss": "in other words (discourse summary marker)"
+            },
+            {
+              "text": "今週まつに",
+              "role": "time",
+              "gloss": "this weekend (に)"
+            },
+            {
+              "text": "会う",
+              "role": "predicate",
+              "gloss": "meet (plain form)"
+            },
+            {
+              "text": "しかない",
+              "role": "predicate",
+              "gloss": "there's no choice but to (plain)"
+            },
+            {
+              "text": "か。",
+              "role": "predicate",
+              "gloss": "(casual rhetorical question)"
+            }
+          ],
+          "en": "Oh wow! I see. Well then — in other words, we have no choice but to meet this weekend, huh?",
+          "note": "へえ shows genuine surprise. そうですね confirms shared understanding. さあ shifts to action-planning mode. つまり draws the logical conclusion from what was just explained."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Planning the Weekend",
+      "context": "りきぞう and けん are friends chatting after class. Casual register throughout — plain forms, だ copula, and casual aizuchi.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "ねえ、週まつ、いい？",
+          "en": "Hey, are you free this weekend?",
+          "terms": [
+            "p_nee",
+            "v_shuumatsu",
+            "v_ii",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "えーと、じつは来週は仕事がいそがしいし、仕事が多いのに休めないから、週まつは外に出たい。",
+          "en": "Um… actually, next week work is busy and there's a lot of it — even though I can't rest, I want to get out this weekend.",
+          "terms": [
+            "v_eto",
+            "v_jitsuwa",
+            "v_raishuu",
+            "p_wa",
+            "v_shigoto",
+            "p_ga",
+            "v_isogashii",
+            "p_shi",
+            "v_shigoto",
+            "p_ga",
+            "v_ooi",
+            "p_noni",
+            {
+              "id": "v_yasumu",
+              "form": "plain_potential_negative"
+            },
+            "p_kara_because",
+            "v_shuumatsu",
+            "p_wa",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_deru",
+              "form": "plain_desire_tai"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "へえ！ほんとうに？つかれても、出たいよ。",
+          "en": "Wow! Really? Even though you're tired, you want to get out?",
+          "terms": [
+            "v_hee",
+            "p_hontou",
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_deru",
+              "form": "plain_desire_tai"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "そうそう！まあ、なんか、家にいるのもいいけど、そとに出たいし。",
+          "en": "Exactly! Well, I mean, staying home is fine too, but I also want to get outside.",
+          "terms": [
+            "v_souso",
+            "v_maa",
+            "v_nanka",
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_mo",
+            "p_no",
+            "v_ii",
+            "p_kedo",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_deru",
+              "form": "plain_desire_tai"
+            },
+            "p_shi"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "なるほど。さあ、映画を見てから、ご飯を食べようか？",
+          "en": "I see! Right then — how about after watching a movie, we eat somewhere?",
+          "terms": [
+            "v_naruhodo",
+            "v_saa",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_volitional"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "うん、いいね！あのう、つまり、なんか見たい映画があるけど、どこで食べるかはまだわからない。",
+          "en": "Yeah, sounds great! Um, well — like, there's a movie I want to see, but I still don't know where to eat.",
+          "terms": [
+            "v_un",
+            "v_ii",
+            "p_ne",
+            "v_anou",
+            "v_tsumari",
+            "v_nanka",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "v_eiga",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "plain_form"
+            },
+            "p_kedo",
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "plain_form"
+            },
+            "p_wa",
+            "p_ka",
+            "v_mada",
+            {
+              "id": "v_wakaru",
+              "form": "plain_negative"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そうですね。映画を見ながら、どこで食べるか話そう。",
+          "en": "Right. Let's talk about where to eat while we watch the movie.",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "nagara_form"
+            },
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "plain_form"
+            },
+            "p_ka",
+            {
+              "id": "v_hanasu",
+              "form": "plain_volitional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "patternMatch",
+      "title": "Still Speaking or Yielding the Floor?",
+      "instructions": "Read speaker A's utterance. Is A still holding the floor (true), or have they finished their turn and yielded it (false)?",
+      "items": [
+        {
+          "sentence": "A: えーと、来週の予定は… (A pauses with a rising, incomplete tone)",
+          "answer": true,
+          "explanation": "えーと signals A is still searching for words. The trailing 「…」 with a rising, incomplete tone means A has not finished. The listener should wait — taking the floor here would feel like an interruption."
+        },
+        {
+          "sentence": "A: うーん。(long, falling tone, then several seconds of complete silence)",
+          "answer": true,
+          "explanation": "うーん (long, falling) signals deliberation — A is still thinking. Despite the pause, the drawn-out falling vowel signals A has not yielded the floor. A skilled listener may offer a gentle aizuchi after a longer wait, but should not begin a new topic."
+        },
+        {
+          "sentence": "A: なるほど、そういうことですね。(clear falling intonation, sentence-final)",
+          "answer": false,
+          "explanation": "なるほど + そういうことですね is a complete aizuchi response ending with sentence-final falling intonation. A has finished their listener turn. The floor is open — B may now speak as the primary speaker."
+        },
+        {
+          "sentence": "A: あのう、ちょっと聞いてもいいですか。(complete question, falling sentence-final intonation)",
+          "answer": false,
+          "explanation": "Even though あのう began the utterance as a hesitation opener, the sentence 「ちょっと聞いてもいいですか」is grammatically complete with sentence-final falling intonation. A has finished asking their question. B now holds the floor to respond."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: Hesitation, Aizuchi & Discourse",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which sound signals 'I am still thinking — please don't take the floor yet'?",
+          "choices": [
+            "なるほど",
+            "そうですね",
+            "えーと",
+            "そうそう"
+          ],
+          "answer": "えーと",
+          "terms": [],
+          "explanation": "えーと is a floor-holding hesitation sound — it signals the speaker is still processing and has not finished their turn. なるほど, そうですね, and そうそう are all aizuchi — listener responses that do not hold the floor; they respond to what the speaker has said."
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞう is reporting to his boss about a project. Which of the following is NOT appropriate to use?",
+          "choices": [
+            "えーと",
+            "あのう",
+            "なんか",
+            "うーん"
+          ],
+          "answer": "なんか",
+          "terms": [],
+          "explanation": "なんか as a filler is strongly casual — using it with a superior or in a formal setting sounds sloppy or disrespectful. えーと, あのう, and うーん are all acceptable in semi-formal speech. In formal contexts their frequency should be reduced, but they remain natural."
+        },
+        {
+          "kind": "mcq",
+          "q": "けん says 「うーん」with a long falling tone in response to a question. What does this mean?",
+          "choices": [
+            "Yes, I agree.",
+            "I'm not sure — I'm thinking about it.",
+            "Right then, let's start!",
+            "That's exactly right."
+          ],
+          "answer": "I'm not sure — I'm thinking about it.",
+          "terms": [],
+          "explanation": "うーん (long, falling tone) signals deliberation or uncertainty — NOT agreement. It is the opposite of うん (short, flat), which means 'yes / yeah.' The length and tone carry all the meaning: short + flat = yes; long + falling = I'm still thinking."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which discourse marker would you use to introduce a surprising fact the listener didn't know?",
+          "choices": [
+            "つまり",
+            "じつは",
+            "なるほど",
+            "そうそう"
+          ],
+          "answer": "じつは",
+          "terms": [],
+          "explanation": "じつは (actually / to tell the truth) introduces information that may contrast with the listener's assumptions — perfect for a surprising reveal. つまり summarizes or restates in other words. なるほど and そうそう are aizuchi (listener responses), not speaker-initiated discourse markers."
+        },
+        {
+          "kind": "mcq",
+          "q": "A speaker gives a long explanation. The listener wants to show they understood and could summarize it. Which aizuchi fits best?",
+          "choices": [
+            "へえ",
+            "なるほど",
+            "うん",
+            "そうそう"
+          ],
+          "answer": "なるほど",
+          "terms": [],
+          "explanation": "なるほど means 'I see / that makes sense' — it signals genuine comprehension after an explanation, as if something clicked. へえ expresses surprise at new information, not deep comprehension. うん is a simple casual acknowledgment. そうそう is enthusiastic agreement, not the comprehension signal that fits after a long explanation."
+        }
+      ]
+    }
+  ]
+}

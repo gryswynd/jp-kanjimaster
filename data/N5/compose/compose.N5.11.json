@@ -1,0 +1,133 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.11",
+  "lesson": "N5.11",
+  "level": "N5",
+  "title": "A Day in Nature",
+  "titleJp": "自然の 中で",
+  "emoji": "🌸",
+  "theme": "Write about a day spent in nature — describe the sky, flowers, fish you see, and how you feel.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about the sky today and whether the air is nice.",
+      "targets": [
+        { "id": "v_sora", "count": 1 }
+      ],
+      "model": "今日の 空は とても きれいです。空気も いいです。",
+      "vocabPool": [
+        "v_sora", "v_kuuki", "v_tenki", "v_kibun",
+        "v_kyou", "v_mainichi", "v_itsumo",
+        "v_kirei", "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the flowers you see and what they look like.",
+      "targets": [
+        { "id": "v_hana", "count": 1 }
+      ],
+      "model": "川に 花が たくさん あります。花は きれいで、かわいいです。",
+      "vocabPool": [
+        "v_hana", "v_kawa", "v_yama",
+        "v_kirei", "v_kawaii", "v_ookii", "v_chiisai", "v_ii",
+        "v_aru", "v_iru",
+        "v_takusan", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about fish or goldfish you see and what you think about them.",
+      "targets": [
+        { "id": "v_sakana", "count": 1 }
+      ],
+      "model": "川に 大きい 魚が います。魚は おいしそうです。金魚も きれいですね。",
+      "vocabPool": [
+        "v_sakana", "v_kingyo", "v_kawa",
+        "v_ookii", "v_chiisai", "v_kawaii", "v_kirei", "v_oishii",
+        "v_iru", "v_aru",
+        "v_totemo", "v_takusan",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the weather — has it been raining or is the sky clear?",
+      "targets": [
+        { "id": "v_ame", "count": 1 }
+      ],
+      "model": "今日は 雨が 来そうです。天気が よくないですが、空気は きれいです。",
+      "vocabPool": [
+        "v_ame", "v_tenki", "v_kuuki", "v_sora",
+        "v_kirei", "v_ii", "v_furui", "v_atarashii",
+        "v_kuru", "v_aru", "v_naru",
+        "v_kyou", "v_mainichi",
+        "v_totemo", "v_amari",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about fireworks or nature events and how you feel about the day.",
+      "targets": [
+        { "id": "v_hanabi", "count": 1 }
+      ],
+      "model": "花火は 大きくて、きれいでした。いい 日でした。また 来たいです。",
+      "vocabPool": [
+        "v_hanabi", "v_hana", "v_sora",
+        "v_kirei", "v_kawaii", "v_ookii", "v_ii",
+        "v_aru", "v_kuru", "v_naru",
+        "v_kyou", "v_mata", "v_mainen", "v_rainen",
+        "v_totemo",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made",
+    "p_ni", "p_de", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[な-adj] + です",
+      "meaning": "polite present — is (beautiful / clean)",
+      "examples": ["きれいです", "きれいじゃないです"]
+    },
+    {
+      "pattern": "[な-adj] + でした",
+      "meaning": "polite past — was",
+      "examples": ["きれいでした", "きれいじゃなかったです"]
+    },
+    {
+      "pattern": "[な-adj] + で — て-form",
+      "meaning": "connects adjectives ('beautiful and…')",
+      "examples": ["きれいで", "きれいで、かわいいです"]
+    },
+    {
+      "pattern": "[な-adj] + に — adverb",
+      "meaning": "modifies verbs ('became beautiful')",
+      "examples": ["きれいに なります", "きれいに なりました"]
+    },
+    {
+      "pattern": "[な-adj] + な + [noun]",
+      "meaning": "modifies nouns ('beautiful flower')",
+      "examples": ["きれいな 花", "きれいな 空", "きれいな 日"]
+    },
+    {
+      "pattern": "[い-adj stem] + そうです",
+      "meaning": "appearance — looks / seems",
+      "examples": ["おいしそうです", "大きそうです", "かわいそうです ⚠ (means 'pitiable'!)"]
+    },
+    {
+      "pattern": "[な-adj] + そうです",
+      "meaning": "appearance — looks / seems",
+      "examples": ["きれいそうです", "有名そうです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": ["来たいです", "行きたくないです", "食べたいです"]
+    }
+  ]
+}

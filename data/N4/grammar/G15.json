@@ -1,0 +1,868 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G15",
+  "type": "grammar",
+  "title": "Comparison & Degree — より / ほう / ほど / くらい / すぎる",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.5",
+    "focus": "Expressing comparisons (より, ほうが), degree and negative comparison (ほど), approximation (くらい/ぐらい), excessive degree (すぎる), and abstract quality nouns (～さ). All patterns are essential for describing preferences, quantities, and relative qualities in daily Japanese.",
+    "estimatedMinutes": 25,
+    "particles": [
+      "より",
+      "ほど",
+      "くらい"
+    ],
+    "grammarForms": [
+      "sugiru_form"
+    ],
+    "icon": "⚖️"
+  },
+  "targetVocab": [
+    "p_yori",
+    "p_hodo",
+    "p_kurai",
+    "v_hou",
+    "v_ichiban",
+    "v_dochira"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Measuring and Comparing in Japanese",
+      "icon": "⚖️",
+      "summary": "In English, you say 'A is bigger than B' or 'A is not as big as B.' Japanese uses specific particles and structures for each kind of comparison. より marks the lesser element ('than'), ほうが marks the preferred/greater side, ほど measures degree in negative comparisons ('not as ... as'), くらい gives approximate quantities ('about'), and すぎる adds 'too much' to any adjective or verb. Together, these patterns let you talk about preferences, prices, distances, quantities, and qualities with precision.",
+      "whyItMatters": "Comparison is one of the most frequent conversational tasks: comparing food, places, prices, distances, and preferences. Without these patterns, you can only say things are 'big' or 'good' — you cannot say 'bigger than,' 'not as good as,' or 'too expensive.' すぎる in particular comes up constantly: 食べすぎた (I ate too much), 高すぎる (too expensive). These forms are essential for natural, nuanced Japanese.",
+      "youWillLearn": [
+        "ほうが — the preferred/greater element: このほうがおいしい (This one is more delicious)",
+        "より — marks the lesser element: AよりBのほうが好きです (I prefer B over A)",
+        "ほど — degree/negative comparison: AはBほど大きくない (A isn't as big as B)",
+        "くらい/ぐらい — approximation: 三時間くらい (about three hours), これくらい大きい (about this big)",
+        "すぎる — excessive degree: 食べすぎる (eat too much), 高すぎる (too expensive)",
+        "～さ — abstract quality noun: 大きさ (size), 高さ (height), 長さ (length) — used when the quality itself is the topic"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_hou_ga",
+      "pattern": [
+        {
+          "label": "A のほうが",
+          "color": "topic",
+          "text": "このほうが"
+        },
+        {
+          "label": "Adjective",
+          "color": "predicate",
+          "text": "おいしい。"
+        }
+      ],
+      "meaning": "ほうが — marks the preferred or greater element in a comparison",
+      "explanation": "ほう (方) means 'side' or 'direction.' ほうが introduces the element being praised or preferred — it marks the 'winning side' of a comparison.\n\n**Pattern with nouns:** [Noun の] ほうが [adjective / verb]\n- このほうがおいしい。(This one is more delicious.)\n- 野菜のほうが体にいいです。(Vegetables are better for your body.)\n\n**Pattern with two explicit items:** A より B のほうが [adjective]\n- 肉より野菜のほうが好きです。(I prefer vegetables over meat.)\n- 川より山のほうが大きいです。(The mountain is bigger than the river.)\n\n**Without より:** When the comparison is implied or already known, より can be omitted:\n- Aのほうがいい。(A is better [than whatever was mentioned].)\n\n**Question form:** どちらのほうが～？ (Which one is more...?)\n- 川と山、どちらのほうが好きですか。(Between the river and the mountain, which do you prefer?)",
+      "notes": [
+        "ほう is written 方 — the kanji for 'direction / side / way.' In comparisons, ほうが always picks a side.",
+        "You can use ほうが without a preceding より: 「駅のほうが近い」 = 'The station is closer [of the two].' The comparison partner is understood from context.",
+        "The adjective after ほうが is in its plain/dictionary form — not です. The sentence ends: ～のほうが [adjective] です (polite) or ～のほうが [adjective] (casual)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "野菜の",
+              "role": "topic",
+              "gloss": "vegetables (の = possessive/classifier)"
+            },
+            {
+              "text": "ほうが",
+              "role": "subject",
+              "gloss": "the side of / more (comparison marker)"
+            },
+            {
+              "text": "おいしいです。",
+              "role": "predicate",
+              "gloss": "is delicious (polite)"
+            }
+          ],
+          "en": "Vegetables are more delicious.",
+          "breakdown": "野菜のほうが = 'the vegetable side is' → picks vegetables as the preferred/greater element."
+        },
+        {
+          "parts": [
+            {
+              "text": "肉より",
+              "role": "object",
+              "gloss": "than meat (より = than — the lesser)"
+            },
+            {
+              "text": "野菜の",
+              "role": "topic",
+              "gloss": "vegetables (の)"
+            },
+            {
+              "text": "ほうが",
+              "role": "subject",
+              "gloss": "the side of (comparison marker)"
+            },
+            {
+              "text": "好きです。",
+              "role": "predicate",
+              "gloss": "I like (polite な-adj predicate)"
+            }
+          ],
+          "en": "I like vegetables more than meat.",
+          "breakdown": "肉より = marks meat as the lesser (than meat). 野菜のほうが = picks vegetables as the preferred side. より + ほうが together make a full explicit comparison."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_yori",
+      "pattern": [
+        {
+          "label": "Noun より",
+          "color": "object",
+          "text": "肉より"
+        },
+        {
+          "label": "Noun のほうが",
+          "color": "topic",
+          "text": "野菜のほうが"
+        },
+        {
+          "label": "Adjective",
+          "color": "predicate",
+          "text": "安いです。"
+        }
+      ],
+      "meaning": "より — marks the lesser element ('than') in a comparison",
+      "explanation": "より is a particle meaning 'than.' It marks the item that is being compared against — the standard or the 'lesser' side.\n\n**Position:** より always follows the noun it marks: [Noun]より\n\n**Full comparison pattern:** [A] より [B] のほうが [adjective/predicate]\n- 肉より野菜のほうが安いです。(Vegetables are cheaper than meat.)\n- 駅より店のほうが近いです。(The store is closer than the station.)\n\n**Comparing activities (with verbs):** Use [verb-plain form] + より\n- 肉を食べるより野菜を食べるほうが好きです。(I prefer eating vegetables to eating meat.)\n\n**Important notes:**\n- より and ほうが are often used together, but each can appear alone when context is clear\n- より can also be used without ほうが in written/formal Japanese: 東京より大きい (bigger than Tokyo) — but in spoken Japanese the ほうが + より pair is more natural\n- **Not a particle for 'from'** — don't confuse with から (from). より in comparisons means 'than,' not 'from.'",
+      "notes": [
+        "In casual speech, より alone (without ほうが) is often used in short comparisons: 「昨日より寒い」(colder than yesterday). The full A-より-B-のほうが pattern is always correct; the short form is also natural.",
+        "より can also follow adjective phrases: 思ったより大きい (bigger than I thought). Focus on noun + より patterns at this level."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "駅より",
+              "role": "object",
+              "gloss": "than the station (より marks the lesser element)"
+            },
+            {
+              "text": "店のほうが",
+              "role": "topic",
+              "gloss": "the store side (ほうが marks the greater)"
+            },
+            {
+              "text": "近いです。",
+              "role": "predicate",
+              "gloss": "is closer (polite)"
+            }
+          ],
+          "en": "The store is closer than the station.",
+          "breakdown": "駅より = the station is the standard ('than the station'). 店のほうが = the store is the preferred side. 近い = close/near."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_hodo",
+      "pattern": [
+        {
+          "label": "A は B ほど",
+          "color": "topic",
+          "text": "この本はあの本ほど"
+        },
+        {
+          "label": "Adj + くない",
+          "color": "predicate",
+          "text": "おもしろくないです。"
+        }
+      ],
+      "meaning": "ほど — degree / negative comparison ('not as ... as')",
+      "explanation": "ほど measures degree and is used in negative comparisons meaning 'not as ... as.' It sets the standard that the subject falls short of.\n\n**Pattern:** A は B ほど [adjective negative form] ない\n- この本はあの本ほどおもしろくないです。(This book is not as interesting as that book.)\n- 駅はこの店ほど遠くないです。(The station is not as far as this store.)\n\n**The negative is required:** ほど in comparisons ALWAYS uses a negative adjective or negative verb. It cannot be used to say 'as good as' — only 'not as good as.' The positive comparison uses より/ほうが.\n\n**Distinction from より:** より picks the winner (A より B のほうが = B is better than A). ほど marks the standard that is NOT reached (A は B ほど ～ない = A does not reach B's level). They describe the same relationship from different angles.",
+      "notes": [
+        "Negative adjective forms: い-adjective removes い and adds くない (大きい → 大きくない). な-adjective adds じゃない or ではない (好き → 好きじゃない). The くない/じゃない form must follow ほど in standard negative comparisons.",
+        "ほど can follow numbers and quantities to express extent: 三時間ほど = about three hours (similar to くらい, but ほど has a more emphatic 'to that extent' nuance).",
+        "Do NOT confuse: AよりBのほうが大きい (B is bigger than A — positive) vs. AはBほど大きくない (A is not as big as B — negative). Both say the same thing about B being bigger, but the structure is completely different."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "この本は",
+              "role": "topic",
+              "gloss": "this book (topic: は)"
+            },
+            {
+              "text": "あの本ほど",
+              "role": "object",
+              "gloss": "as much as that book (ほど = to that degree)"
+            },
+            {
+              "text": "おもしろくないです。",
+              "role": "predicate",
+              "gloss": "is not interesting (negative polite: おもしろい → おもしろくない)"
+            }
+          ],
+          "en": "This book is not as interesting as that book.",
+          "breakdown": "A (この本) は B (あの本) ほど [adjective negative]. A does not reach B's level of interestingness."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_kurai",
+      "pattern": [
+        {
+          "label": "Amount + くらい",
+          "color": "object",
+          "text": "三時間くらい"
+        },
+        {
+          "label": "Verb",
+          "color": "predicate",
+          "text": "働きました。"
+        }
+      ],
+      "meaning": "くらい / ぐらい — approximately / about",
+      "explanation": "くらい (also written ぐらい — they are interchangeable) means 'about' or 'approximately.' It follows quantities, times, and amounts to express rough estimates.\n\n**After numbers and time expressions:**\n- 三時間くらい働きました。(I worked for about three hours.)\n- 三つくらい食べました。(I ate about three [of them].)\n\n**After demonstratives to indicate scale:**\n- これくらい大きいです。(It's about this big.)\n- そのくらい高いです。(It's about that expensive.)\n\n**In questions:** どのくらい (how much / how many / to what extent)\n- どのくらい食べましたか。(How much did you eat?)\n\n**くらい vs ほど:** Both can follow amounts to mean 'about,' but くらい/ぐらい is the neutral everyday choice for approximation; ほど implies 'to the extent of' with a slightly more emphatic or formal nuance.",
+      "notes": [
+        "くらい and ぐらい are the same word — ぐらい is the slightly softer-sounding variant. Both are correct everywhere.",
+        "どのくらい is the most common question form for quantities and distances. It can replace どれくらい (same meaning, more casual)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "三時間",
+              "role": "object",
+              "gloss": "three hours"
+            },
+            {
+              "text": "くらい",
+              "role": "modifier",
+              "gloss": "about / approximately"
+            },
+            {
+              "text": "働きました。",
+              "role": "predicate",
+              "gloss": "worked (働く, polite past)"
+            }
+          ],
+          "en": "I worked for about three hours.",
+          "breakdown": "三時間くらい = about three hours (rough duration estimate). The くらい follows the number + counter directly."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_sugiru",
+      "pattern": [
+        {
+          "label": "Verb ます-stem",
+          "color": "connector",
+          "text": "食べ"
+        },
+        {
+          "label": "+ すぎる",
+          "color": "predicate",
+          "text": "すぎます。"
+        }
+      ],
+      "meaning": "すぎる — excessive degree (too much / too ～)",
+      "explanation": "すぎる attaches to verbs and adjectives to mean 'too much' or 'excessively.' It expresses that something has gone beyond a reasonable or desirable limit.\n\n**With verbs (ます-stem + すぎる):**\n- 食べすぎます / 食べすぎた。(eat too much)\n- 飲みすぎます / 飲みすぎた。(drink too much)\n- 働きすぎます / 働きすぎた。(work too much)\n\n**With い-adjectives (drop い + すぎる):**\n- 高い → 高すぎる。(too expensive)\n- 大きい → 大きすぎる。(too big)\n- 長い → 長すぎる。(too long)\n\n**With な-adjectives (add すぎる directly after stem):**\n- 好きすぎる。(like too much)\n\n**すぎる is itself an ichidan verb** — it conjugates normally:\n- 食べすぎます (polite), 食べすぎた (plain past), 食べすぎない (negative), 食べすぎて (te-form)\n\n**Important:** すぎる always implies a negative outcome or an excess that is problematic or noteworthy.",
+      "notes": [
+        "The te-form of すぎる — すぎて — connects to consequences: 食べすぎて、気分が悪いです。(I ate too much, so I feel sick.)",
+        "For irregular adjective いい/よい: よい → よすぎる (too good). Note: いい uses よ-stem before すぎる, exactly as in other conjugations.",
+        "すぎる can be used positively in emotion: やさしすぎる！(You're too kind!) — the grammatical meaning remains 'excessive' even when emotionally positive."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "食べ",
+              "role": "connector",
+              "gloss": "eat — ます-stem of 食べる (ichidan verb)"
+            },
+            {
+              "text": "すぎました。",
+              "role": "predicate",
+              "gloss": "too much (すぎる → すぎました, polite past)"
+            }
+          ],
+          "en": "I ate too much.",
+          "breakdown": "食べる (ichidan) → ます-stem 食べ + すぎる = 食べすぎる (to eat too much). Polite past: すぎました."
+        },
+        {
+          "parts": [
+            {
+              "text": "この料理は",
+              "role": "topic",
+              "gloss": "this dish (topic: は)"
+            },
+            {
+              "text": "高",
+              "role": "connector",
+              "gloss": "expensive — い-adjective stem (高い → drop い → 高)"
+            },
+            {
+              "text": "すぎます。",
+              "role": "predicate",
+              "gloss": "too (much) — すぎる, polite"
+            }
+          ],
+          "en": "This dish is too expensive.",
+          "breakdown": "高い (expensive) → drop い → 高 + すぎる = 高すぎる (too expensive). The い must be dropped before すぎる."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_sa",
+      "pattern": [
+        {
+          "label": "Adj stem",
+          "color": "connector",
+          "text": "大き"
+        },
+        {
+          "label": "+ さ",
+          "color": "predicate",
+          "text": "さ"
+        }
+      ],
+      "meaning": "～さ — noun form of adjectives (abstract quality)",
+      "explanation": "The suffix ～さ turns an adjective into a noun representing the abstract quality itself. Use it when the quality — not the thing having the quality — is the subject of discussion.\n\n**Formation:**\n- い-adjectives: drop い + さ → 大きい → 大きさ (size), 高い → 高さ (height/price level), 長い → 長さ (length)\n- な-adjectives: drop な/だ + さ → 好きだ → 好きさ (degree of liking, informal)\n\n**When to use ～さ:**\n- When comparing the abstract quality directly: 川の長さを知りたいです (I want to know the length of the river)\n- When the quality is a subject or object: 山の大きさが好きです (I like the size of the mountain)\n- Naturally arises with どのくらいの大きさ (about what size?)\n\n**Note:** ～さ is a productive word-formation suffix, not a conjugation. Common ～さ forms: 大きさ (size), 長さ (length), 高さ (height).",
+      "notes": [
+        "～さ gives you a noun you can attach の to: 川の長さ (the length of the river), 山の高さ (the height of the mountain).",
+        "Not all adjectives form natural ～さ words. The most reliable ones at N4 are size/measurement adjectives: 大きさ, 長さ, 高さ."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "山の",
+              "role": "topic",
+              "gloss": "the mountain's (の = possessive)"
+            },
+            {
+              "text": "高さは",
+              "role": "subject",
+              "gloss": "height (高い → drop い + さ = 高さ; は = topic marker)"
+            },
+            {
+              "text": "どのくらい",
+              "role": "object",
+              "gloss": "about how much / to what extent"
+            },
+            {
+              "text": "ですか。",
+              "role": "predicate",
+              "gloss": "is it? (polite question)"
+            }
+          ],
+          "en": "About how tall is the mountain?",
+          "breakdown": "山の高さ = the mountain's height (高さ is a noun formed from 高い). どのくらい = 'about how much' — a natural colocation with ～さ nouns."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "より vs ほど — Same Fact, Two Structures",
+      "items": [
+        {
+          "label": "より + ほうが (positive)",
+          "color": "verb",
+          "points": [
+            "より marks the lesser element (vegetables — the cheaper one)",
+            "ほうが marks the greater/preferred side (meat — the more expensive)",
+            "The adjective is POSITIVE (高い — expensive)",
+            "Use より + ほうが to say 'B is more ～ than A'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "野菜より",
+                "role": "object",
+                "gloss": "than vegetables (より = than — lesser element)"
+              },
+              {
+                "text": "肉の",
+                "role": "topic",
+                "gloss": "meat (の = classifier)"
+              },
+              {
+                "text": "ほうが",
+                "role": "subject",
+                "gloss": "the side of (ほうが marks the greater element)"
+              },
+              {
+                "text": "高いです。",
+                "role": "predicate",
+                "gloss": "is expensive (高い, polite — POSITIVE adjective)"
+              }
+            ],
+            "en": "Meat is more expensive than vegetables."
+          }
+        },
+        {
+          "label": "ほど + negative",
+          "color": "modifier",
+          "points": [
+            "は marks the subject (vegetables — the one falling short)",
+            "ほど marks the standard not reached (meat — the benchmark)",
+            "The adjective is NEGATIVE (高くない — not expensive)",
+            "Use ほど with negative adjective to say 'A is not as ～ as B'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "野菜は",
+                "role": "topic",
+                "gloss": "vegetables (topic: は — the one falling short)"
+              },
+              {
+                "text": "肉ほど",
+                "role": "object",
+                "gloss": "as much as meat (ほど = to that degree — sets the benchmark)"
+              },
+              {
+                "text": "高くないです。",
+                "role": "predicate",
+                "gloss": "is not expensive (高い → 高くない — NEGATIVE adjective required)"
+              }
+            ],
+            "en": "Vegetables are not as expensive as meat."
+          }
+        }
+      ],
+      "tip": "より + ほうが says 'B is MORE ～ than A' (positive claim about B). ほど + negative says 'A is NOT AS ～ as B' (negative claim about A). Both sentences express the same fact — meat is expensive relative to vegetables — but emphasize different things. ⚠ ほど must always be followed by a NEGATIVE form."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Comparing Foods — Degree and Preference",
+      "examples": [
+        {
+          "context": "より + ほうが — preference comparison (positive adjective)",
+          "parts": [
+            {
+              "text": "野菜より",
+              "role": "object",
+              "gloss": "than vegetables (より = than — marks the lesser element)"
+            },
+            {
+              "text": "魚の",
+              "role": "topic",
+              "gloss": "fish (の = classifier)"
+            },
+            {
+              "text": "ほうが",
+              "role": "subject",
+              "gloss": "the side of (ほうが marks the preferred/greater element)"
+            },
+            {
+              "text": "好きです。",
+              "role": "predicate",
+              "gloss": "I like / prefer (好き, polite — POSITIVE predicate)"
+            }
+          ],
+          "en": "I prefer fish over vegetables.",
+          "note": "Pattern: [lesser element]より [preferred element]のほうが [positive adjective/predicate]。より = 'than'; ほうが = 'the side of'."
+        },
+        {
+          "context": "すぎる — excessive degree (too much)",
+          "parts": [
+            {
+              "text": "この魚は",
+              "role": "topic",
+              "gloss": "this fish (topic: は)"
+            },
+            {
+              "text": "高",
+              "role": "connector",
+              "gloss": "expensive — い-adjective stem (高い → drop い before すぎる)"
+            },
+            {
+              "text": "すぎます。",
+              "role": "predicate",
+              "gloss": "too (much) — すぎる, polite present"
+            }
+          ],
+          "en": "This fish is too expensive.",
+          "note": "い-adj: drop い and add すぎる. 高い → 高 + すぎる = 高すぎる. すぎる itself conjugates: すぎます / すぎました / すぎません."
+        },
+        {
+          "context": "ほど + negative — negative comparison (not as ～ as)",
+          "parts": [
+            {
+              "text": "あの店の魚は",
+              "role": "topic",
+              "gloss": "the fish at that store (の = possessive; は = topic)"
+            },
+            {
+              "text": "この店ほど",
+              "role": "object",
+              "gloss": "as much as this store (ほど = to that degree — sets the benchmark)"
+            },
+            {
+              "text": "高くないです。",
+              "role": "predicate",
+              "gloss": "is not expensive (高い → 高くない — NEGATIVE adjective required with ほど)"
+            }
+          ],
+          "en": "The fish at that store is not as expensive as this store.",
+          "note": "Pattern: [subject]は [standard]ほど [NEGATIVE adjective]。ほど always requires a negative — ×高いです is wrong here."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: 好きな料理 — Favourite Dishes",
+      "context": "りきぞう and ミキ are at school talking about their food preferences.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "りきぞうさん、野菜と魚、どちらのほうが好きですか。",
+          "en": "Rikizo, which do you prefer — vegetables or fish?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_yasai",
+            "p_to",
+            "v_sakana",
+            "v_dochira",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "野菜より魚のほうが好きです。この店の魚は少し高すぎます。",
+          "en": "I prefer fish over vegetables. The fish at this store is a bit too expensive.",
+          "terms": [
+            "v_yasai",
+            "p_yori",
+            "v_sakana",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "v_kono",
+            "v_mise",
+            "p_no",
+            "v_sakana",
+            "p_wa",
+            "v_sukoshi",
+            {
+              "id": "v_takai",
+              "form": "polite_sugiru_form"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "そうですね。駅のほうが安いですよ。",
+          "en": "I see. The station area is cheaper.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_eki",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_yasui",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "あの店は駅ほど近くないです。料理はいちばんおいしいですが。",
+          "en": "That store is not as close as the station. Though its food is the most delicious.",
+          "terms": [
+            "v_ano",
+            "v_mise",
+            "p_wa",
+            "v_eki",
+            "p_hodo",
+            {
+              "id": "v_chikai",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "v_ryouri",
+            "p_wa",
+            "v_ichiban",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "p_ga_but"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "いいですね！またいっしょに行きましょう。",
+          "en": "That sounds great! Let's go there together again.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ne",
+            "v_mata",
+            "v_issho",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 本を比べる — Comparing Books (Casual)",
+      "context": "りきぞう and やまかわ are at home comparing two books they are reading. They speak casually as close friends.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞう、その本、おもしろい？",
+          "en": "Rikizo, is that book interesting?",
+          "terms": [
+            "char_rikizo",
+            "v_sono",
+            "v_hon",
+            "v_omoshiroi"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "うん、おもしろいよ。この本よりおもしろい。",
+          "en": "Yeah, it's interesting. More interesting than this book.",
+          "terms": [
+            "v_un",
+            "v_omoshiroi",
+            "p_yo",
+            "v_kono",
+            "v_hon",
+            "p_yori",
+            "v_omoshiroi"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "え、そうなの？その本はこの本ほど長くない？",
+          "en": "Oh really? Is that book not as long as this one?",
+          "terms": [
+            "v_e_exclaim",
+            "p_sounano",
+            "v_sono",
+            "v_hon",
+            "p_wa",
+            "v_kono",
+            "v_hon",
+            "p_hodo",
+            {
+              "id": "v_nagai",
+              "form": "plain_negative"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "そうだね。3時間くらいで読めるよ。",
+          "en": "Yeah. You can read it in about three hours.",
+          "terms": [
+            "p_soudane",
+            "v_jikan",
+            "p_kurai",
+            "p_de",
+            {
+              "id": "v_yomu",
+              "form": "potential"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "いいね！食べすぎたよ。読めないよ。",
+          "en": "Nice! I ate too much though. I can't read it.",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            {
+              "id": "v_taberu",
+              "form": "sugiru_past"
+            },
+            "p_yo",
+            {
+              "id": "v_yomu",
+              "form": "plain_potential_negative"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Fill in the Blank — より / ほう / ほど / くらい / すぎる",
+      "instructions": "Choose the correct word or pattern to complete each sentence naturally.",
+      "items": [
+        {
+          "before": "野菜",
+          "after": "魚のほうが好きです。",
+          "translation": "I prefer fish over vegetables.",
+          "choices": [
+            "より",
+            "ほど",
+            "くらい",
+            "すぎる"
+          ],
+          "answer": "より",
+          "explanation": "より marks the lesser element in a comparison: 野菜より = 'than vegetables.' The preferred side (魚) is marked by ほうが."
+        },
+        {
+          "before": "この本はあの本",
+          "after": "おもしろくないです。",
+          "translation": "This book is not as interesting as that book.",
+          "choices": [
+            "より",
+            "ほど",
+            "くらい",
+            "のほうが"
+          ],
+          "answer": "ほど",
+          "explanation": "ほど is used in NEGATIVE comparisons: AはBほど～ない (A is not as ～ as B). ほど follows the standard/benchmark (あの本ほど = not to the level of that book)."
+        },
+        {
+          "before": "三時間",
+          "after": "働きました。",
+          "translation": "I worked for about three hours.",
+          "choices": [
+            "より",
+            "ほど",
+            "くらい",
+            "のほうが"
+          ],
+          "answer": "くらい",
+          "explanation": "くらい/ぐらい follows quantities to mean 'about / approximately.' 三時間くらい = about three hours. It gives a rough, non-exact duration."
+        },
+        {
+          "before": "食べ",
+          "after": "て、気分が悪いです。",
+          "translation": "I ate too much and feel sick.",
+          "choices": [
+            "すぎ",
+            "より",
+            "ほど",
+            "くらい"
+          ],
+          "answer": "すぎ",
+          "explanation": "すぎる attaches to the ます-stem of verbs: 食べる → ます-stem 食べ + すぎる = 食べすぎる (eat too much). The て-form is 食べすぎて. The blank needs the すぎ stem before て."
+        },
+        {
+          "before": "この料理は高",
+          "after": "すぎます。",
+          "translation": "This dish is too expensive.",
+          "choices": [
+            "さ",
+            "く",
+            "（なし）",
+            "い"
+          ],
+          "answer": "（なし）",
+          "explanation": "For い-adjectives, drop the final い and add すぎる directly: 高い → 高 + すぎる = 高すぎます. Nothing goes between 高 and すぎます — the い must be dropped completely."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "G15 Practice — Comparison & Degree",
+      "instructions": "Choose the correct answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly says 'B is bigger than A'?",
+          "choices": [
+            "AよりBのほうが大きいです。",
+            "AはBほど大きくないです。",
+            "AくらいBのほうが大きいです。",
+            "AほどBより大きいです。"
+          ],
+          "answer": "AよりBのほうが大きいです。",
+          "explanation": "より + ほうが makes a positive comparison: [lesser]より[greater]のほうが[adjective]. AよりBのほうが大きい = B is bigger than A (A is the lesser, B is the greater)."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly says 'A is not as expensive as B'?",
+          "choices": [
+            "AはBほど高くないです。",
+            "AよりBのほうが高くないです。",
+            "BはAより高くないです。",
+            "AはBくらい高いです。"
+          ],
+          "answer": "AはBほど高くないです。",
+          "explanation": "ほど is used in NEGATIVE comparisons: A は B ほど [adj-negative]. AはBほど高くない = A does not reach B's level of expensiveness → A is not as expensive as B."
+        },
+        {
+          "kind": "mcq",
+          "q": "How do you say 'I ate too much' in Japanese?",
+          "choices": [
+            "食べすぎました。",
+            "食べよりました。",
+            "食べほどました。",
+            "食べくらいました。"
+          ],
+          "answer": "食べすぎました。",
+          "terms": [
+            {
+              "id": "v_taberu",
+              "form": "polite_sugiru_past"
+            }
+          ],
+          "explanation": "すぎる attaches to the ます-stem of verbs: 食べる → 食べ + すぎる = 食べすぎる. Polite past: 食べすぎました."
+        },
+        {
+          "kind": "mcq",
+          "q": "What does 「3時間くらい」mean?",
+          "choices": [
+            "about three hours",
+            "more than three hours",
+            "less than three hours",
+            "exactly three hours"
+          ],
+          "answer": "about three hours",
+          "terms": [
+            "v_jikan",
+            "p_kurai"
+          ],
+          "explanation": "くらい (also ぐらい) means 'about' or 'approximately' when following a number or quantity. 三時間くらい = about three hours — a rough estimate, not exact."
+        },
+        {
+          "kind": "mcq",
+          "q": "What does 「大きさ」mean?",
+          "choices": [
+            "size (abstract quality noun from 大きい)",
+            "too big (すぎる form of 大きい)",
+            "not big (negative form of 大きい)",
+            "bigger than (comparative with より)"
+          ],
+          "answer": "size (abstract quality noun from 大きい)",
+          "explanation": "～さ is a suffix that turns an adjective into an abstract quality noun. 大きい (big) → drop い + さ → 大きさ (size). It is used when the quality itself is the subject: この山の大きさ (the size of this mountain)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,857 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G16",
+  "type": "grammar",
+  "title": "Manner & Similarity — のように / のような / みたいに / みたいな",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.6",
+    "focus": "Two parallel systems for expressing similarity and manner in Japanese. のように / のような is formal and safe in all contexts; みたいに / みたいな is casual and spoken. Both mean the same thing: 'like X / in the manner of X.' The key choices are register (formal vs casual) and syntax (に for adverbial modification of a verb/adjective; な for attributive modification of a noun).",
+    "estimatedMinutes": 20,
+    "particles": [
+      "p_no",
+      "p_ni"
+    ],
+    "grammarForms": [],
+    "icon": "🪞"
+  },
+  "targetVocab": [
+    "v_you_manner",
+    "v_mitai",
+    "p_no",
+    "p_ni"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Comparing and Imitating — How to Say 'Like X'",
+      "icon": "🪞",
+      "summary": "Japanese has two elegant ways to say 'like X' or 'in the manner of X.' The formal system uses のように (adverb) and のような (adjective): 鳥のように飛びたい (I want to fly like a bird), 鳥のような自由 (freedom like a bird's). The casual system uses みたいに and みたいな: 鳥みたいに飛びたい, 鳥みたいな自由. The meaning is identical — only the register differs. Within each system, the choice between に and な mirrors the familiar きれいに (adverb: modifies a verb) vs きれいな (adjective: modifies a noun) distinction you already know.",
+      "whyItMatters": "Once you learn this pattern, you can make vivid, natural comparisons about people, foods, styles, and situations. 'Cook like a professional,' 'walk like a model,' 'eyes like a cat,' 'a voice like a singer' — all follow the same simple two-choice framework. This is one of the most expressive patterns in everyday Japanese.",
+      "youWillLearn": [
+        "Noun + のように + verb/adjective — 'in the manner of X' (formal adverbial)",
+        "Noun + のような + Noun — 'an X-like noun / a noun like X' (formal attributive)",
+        "Noun + みたいに + verb/adjective — casual equivalent of のように",
+        "Noun + みたいな + Noun — casual equivalent of のような",
+        "When to use に vs な: に modifies verbs/adjectives; な modifies nouns",
+        "Register choice: のよう = formal/written; みたい = casual/spoken; same meaning",
+        "What NOT to confuse: のようだ / みたいだ as conjecture ('it seems') is a different pattern taught later"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_you_ni_mitai_ni",
+      "pattern": [
+        {
+          "label": "Noun",
+          "color": "topic",
+          "text": "先生"
+        },
+        {
+          "label": "の",
+          "color": "connector",
+          "text": "の"
+        },
+        {
+          "label": "よう",
+          "color": "modifier",
+          "text": "よう"
+        },
+        {
+          "label": "に",
+          "color": "connector",
+          "text": "に"
+        },
+        {
+          "label": "/ Noun",
+          "color": "topic",
+          "text": "先生"
+        },
+        {
+          "label": "みたいに",
+          "color": "modifier",
+          "text": "みたいに"
+        },
+        {
+          "label": "Verb / Adjective",
+          "color": "predicate",
+          "text": "話します。"
+        }
+      ],
+      "meaning": "in the manner of X / like X (adverbial — modifies a verb or adjective)",
+      "explanation": "The adverbial pattern describes HOW an action is performed — it modifies a verb or adjective. Think of it as the Japanese equivalent of English '-ly' adverbs: 'run gracefully,' 'cook skillfully.'\n\n**Formal pattern:** [Noun] の + よう + に + [verb/adjective]\n- やまかわさんのように料理する。(Cook in the manner of Yamakawa.)\n- 鳥のように空を飛びたい。(I want to fly through the sky like a bird.)\n\n**Casual pattern:** [Noun] + みたいに + [verb/adjective]\n- やまかわさんみたいに料理する。(Same meaning — casual register.)\n- 魚みたいに泳ぐ。(Swim like a fish.)\n\n**How they connect:**\n- のように: の connects the noun to よう (a formal noun meaning 'manner'); に makes よう adverbial.\n- みたいに: みたい attaches directly to the noun (no の); に makes it adverbial.\n- The meaning is identical — only register differs.\n\n**Register guide:**\n- のように: formal written Japanese, business email, explaining to a teacher\n- みたいに: casual speech, friends, family, texting",
+      "notes": [
+        "よう (様) is a formal noun meaning 'manner / way / appearance.' When followed by に, it functions as an adverb: のように = 'in the manner of.'",
+        "みたい attaches directly to nouns: 先生みたいに (like a teacher). There is no の between the noun and みたい.",
+        "Both patterns can be used with verbs (話す, 走る, 料理する) and adjectives (きれいに → already like an adverb, but you can say まるで花のようにきれいだ = beautiful just like a flower).",
+        "⚠ Do NOT teach: のようだ / みたいだ as inference ('it seems like') — that is a separate use taught in G33. For now, focus on the comparison/manner use only."
+      ],
+      "examples": [
+        {
+          "context": "Formal — のように modifying a verb",
+          "parts": [
+            {
+              "text": "やまかわさんの",
+              "role": "topic",
+              "gloss": "Yamakawa's / like Yamakawa (の = connective to よう)"
+            },
+            {
+              "text": "ように",
+              "role": "modifier",
+              "gloss": "like / in the manner of (よう = manner-noun + に = adverbial particle)"
+            },
+            {
+              "text": "料理したいです。",
+              "role": "predicate",
+              "gloss": "want to cook (料理する → plain_desire_tai + です)"
+            }
+          ],
+          "en": "I want to cook like Yamakawa.",
+          "breakdown": "[Noun]の + ように + verb. の connects やまかわさん to よう; に makes the expression adverbial (modifying 料理する)."
+        },
+        {
+          "context": "Casual — みたいに modifying a verb",
+          "parts": [
+            {
+              "text": "先生",
+              "role": "topic",
+              "gloss": "teacher"
+            },
+            {
+              "text": "みたいに",
+              "role": "modifier",
+              "gloss": "like / in the manner of (casual: みたい attaches directly to noun + に)"
+            },
+            {
+              "text": "話せたら",
+              "role": "connector",
+              "gloss": "if I could speak (話す → potential → conditional; aspirational)"
+            },
+            {
+              "text": "いいな。",
+              "role": "predicate",
+              "gloss": "that would be nice (casual wish ending)"
+            }
+          ],
+          "en": "I wish I could speak like a teacher.",
+          "breakdown": "[Noun] + みたいに + verb. みたい attaches directly to 先生 with no の. Casual equivalent of 先生のように話せたらいいな."
+        },
+        {
+          "context": "Formal — のように in a food comparison",
+          "parts": [
+            {
+              "text": "この料理は",
+              "role": "topic",
+              "gloss": "this dish (は = topic marker)"
+            },
+            {
+              "text": "レストランの",
+              "role": "modifier",
+              "gloss": "restaurant's (の = connective to よう)"
+            },
+            {
+              "text": "ように",
+              "role": "modifier",
+              "gloss": "like / in the manner of (よう = manner-noun + に)"
+            },
+            {
+              "text": "おいしいです。",
+              "role": "predicate",
+              "gloss": "is delicious (おいしい + polite copula)"
+            }
+          ],
+          "en": "This dish is delicious like a restaurant's.",
+          "breakdown": "ように here modifies the adjective おいしい — 'delicious in the manner of a restaurant.' Both nouns and adjectives can follow ように."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_you_na_mitai_na",
+      "pattern": [
+        {
+          "label": "Noun",
+          "color": "topic",
+          "text": "魚"
+        },
+        {
+          "label": "の",
+          "color": "connector",
+          "text": "の"
+        },
+        {
+          "label": "よう",
+          "color": "modifier",
+          "text": "よう"
+        },
+        {
+          "label": "な",
+          "color": "connector",
+          "text": "な"
+        },
+        {
+          "label": "/ Noun",
+          "color": "topic",
+          "text": "魚"
+        },
+        {
+          "label": "みたいな",
+          "color": "modifier",
+          "text": "みたいな"
+        },
+        {
+          "label": "Noun",
+          "color": "subject",
+          "text": "目。"
+        }
+      ],
+      "meaning": "a noun that is like X / an X-like noun (attributive — modifies a following noun)",
+      "explanation": "The attributive pattern describes WHAT something is like — it modifies a noun, placing a comparison before it. In English: 'cat-like eyes,' 'a chef-like skill,' 'a voice like a singer's.'\n\n**Formal pattern:** [Noun] の + よう + な + [Noun]\n- 魚のような目 (fish-like eyes / eyes like a fish's)\n- プロのような料理 (restaurant-quality cooking / cooking like a professional's)\n\n**Casual pattern:** [Noun] + みたいな + [Noun]\n- 魚みたいな目 (same meaning — casual)\n- プロみたいな料理 (same meaning — casual)\n\n**The に vs な distinction:**\n- のように / みたいに: the adverbial form — ends in に, modifies a **verb or adjective**\n- のような / みたいな: the attributive form — ends in な, modifies a **noun**\n\nThis mirrors the pattern you already know from な-adjectives: きれいに話す (speak beautifully — modifies verb) vs きれいな花 (a beautiful flower — modifies noun). よう and みたい follow the exact same rule.",
+      "notes": [
+        "な in のような / みたいな is the same な that attaches to all な-adjectives before a noun. Both よう and みたい behave as な-adjectives in this position.",
+        "Key test: What word comes after the のよう/みたい expression?\n- If it's a VERB or ADJECTIVE → use に (のように / みたいに)\n- If it's a NOUN → use な (のような / みたいな)",
+        "The two patterns can appear in the same sentence: まるで花のような色で花のように咲いた (It bloomed in a flower-like color like a flower blooms). Rare in speech, but it shows the distinct roles clearly."
+      ],
+      "examples": [
+        {
+          "context": "Formal — のような modifying a noun",
+          "parts": [
+            {
+              "text": "やまかわさんの",
+              "role": "topic",
+              "gloss": "Yamakawa's / like Yamakawa (の = connective to よう)"
+            },
+            {
+              "text": "ような",
+              "role": "modifier",
+              "gloss": "like / similar to (よう = manner-noun + な = attributive form — precedes a noun)"
+            },
+            {
+              "text": "料理人に",
+              "role": "object",
+              "gloss": "a chef like ~ (料理人 = chef; に marks direction/goal)"
+            },
+            {
+              "text": "なりたいです。",
+              "role": "predicate",
+              "gloss": "want to become (なる → plain_desire_tai + です)"
+            }
+          ],
+          "en": "I want to become a chef like Yamakawa.",
+          "breakdown": "[Noun]の + ような + Noun. のような modifies 料理人 (chef) — the noun following it. Compare: のように + なりたい (want to become IN THE MANNER OF) vs のような + 料理人 (a CHEF LIKE)."
+        },
+        {
+          "context": "Casual — みたいな modifying a noun",
+          "parts": [
+            {
+              "text": "魚",
+              "role": "topic",
+              "gloss": "fish"
+            },
+            {
+              "text": "みたいな",
+              "role": "modifier",
+              "gloss": "like / similar to (casual: みたい + な = attributive — precedes a noun)"
+            },
+            {
+              "text": "目が",
+              "role": "subject",
+              "gloss": "eyes (が = subject marker)"
+            },
+            {
+              "text": "きれいですね。",
+              "role": "predicate",
+              "gloss": "are beautiful, aren't they (きれい + です + ね)"
+            }
+          ],
+          "en": "You have beautiful fish-like eyes.",
+          "breakdown": "[Noun] + みたいな + Noun. みたいな modifies 目 (eyes). Casual equivalent of 魚のような目."
+        },
+        {
+          "context": "Formal — のような describing food quality",
+          "parts": [
+            {
+              "text": "これは",
+              "role": "topic",
+              "gloss": "this (topic: は)"
+            },
+            {
+              "text": "プロの",
+              "role": "modifier",
+              "gloss": "professional's (の = connective)"
+            },
+            {
+              "text": "ような",
+              "role": "modifier",
+              "gloss": "like / similar to (よう + な = attributive)"
+            },
+            {
+              "text": "味ですね。",
+              "role": "predicate",
+              "gloss": "is (a) flavor/taste, isn't it (味 = taste; です + ね)"
+            }
+          ],
+          "en": "This has a professional-level flavor, doesn't it.",
+          "breakdown": "のような modifies 味 (taste/flavor) — a noun. The pattern: これは [Noun]のような [Noun]です."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "のように vs みたいに — Same Meaning, Different Register",
+      "items": [
+        {
+          "label": "のように (formal)",
+          "color": "modifier",
+          "points": [
+            "Formal / written register — safe in all contexts",
+            "Structure: [Noun] の + よう + に",
+            "の is required between the noun and よう",
+            "Use with teachers, emails, formal settings, written Japanese"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "先生の",
+                "role": "topic",
+                "gloss": "teacher's (の = connects noun to よう)"
+              },
+              {
+                "text": "ように",
+                "role": "modifier",
+                "gloss": "like / in the manner of (formal: よう + に)"
+              },
+              {
+                "text": "話したいです。",
+                "role": "predicate",
+                "gloss": "want to speak (話す → plain_desire_tai + です)"
+              }
+            ],
+            "en": "I want to speak like a teacher. (formal)"
+          }
+        },
+        {
+          "label": "みたいに (casual)",
+          "color": "connector",
+          "points": [
+            "Casual / spoken register — friends, family, texting",
+            "Structure: [Noun] + みたいに (no の needed)",
+            "Attaches directly to the noun — more concise",
+            "Avoid in formal writing, business, or with superiors"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "先生",
+                "role": "topic",
+                "gloss": "teacher (no の — みたい attaches directly)"
+              },
+              {
+                "text": "みたいに",
+                "role": "modifier",
+                "gloss": "like / in the manner of (casual: みたい + に)"
+              },
+              {
+                "text": "話したい。",
+                "role": "predicate",
+                "gloss": "want to speak (plain desire — casual register)"
+              }
+            ],
+            "en": "I want to speak like a teacher. (casual)"
+          }
+        }
+      ],
+      "tip": "Both sentences mean exactly the same thing. The only difference is context: use のように when you need to be formal or polite; use みたいに with friends and family. When in doubt, のように is always safe."
+    },
+    {
+      "type": "grammarComparison",
+      "title": "のように vs のような — Adverbial (に) vs Attributive (な)",
+      "items": [
+        {
+          "label": "のように (adverbial — modifies verb/adj)",
+          "color": "adverb",
+          "points": [
+            "Ends in に → functions as an adverb",
+            "Answers the question HOW? or IN WHAT MANNER?",
+            "The expression that follows は a VERB or ADJECTIVE",
+            "Pattern: [Noun]のように + [verb/adjective]"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "プロの",
+                "role": "topic",
+                "gloss": "professional's"
+              },
+              {
+                "text": "ように",
+                "role": "adverb",
+                "gloss": "like / in the manner of (に = adverbial ending → modifies verb)"
+              },
+              {
+                "text": "料理します。",
+                "role": "predicate",
+                "gloss": "cook (verb — modified by ように)"
+              }
+            ],
+            "en": "Cook like a professional. (ように modifies the verb 料理する)"
+          }
+        },
+        {
+          "label": "のような (attributive — modifies noun)",
+          "color": "modifier",
+          "points": [
+            "Ends in な → functions as an adjective",
+            "Answers the question WHAT KIND OF noun?",
+            "The expression that follows is a NOUN",
+            "Pattern: [Noun]のような + [noun]"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "プロの",
+                "role": "topic",
+                "gloss": "professional's"
+              },
+              {
+                "text": "ような",
+                "role": "modifier",
+                "gloss": "like / similar to (な = attributive ending → modifies noun)"
+              },
+              {
+                "text": "料理。",
+                "role": "subject",
+                "gloss": "cooking / dish (noun — modified by のような)"
+              }
+            ],
+            "en": "Professional-quality cooking. (のような modifies the noun 料理)"
+          }
+        }
+      ],
+      "tip": "The test is simple: look at what comes AFTER のよう / みたい. Is it a VERB or ADJECTIVE? → use に. Is it a NOUN? → use な. This is the same rule as な-adjectives: きれいに (adverb) vs きれいな (adjective)."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Comparing People, Foods, and Styles",
+      "examples": [
+        {
+          "context": "のように — comparing a person's skill to a professional's",
+          "parts": [
+            {
+              "text": "やまかわさんは",
+              "role": "topic",
+              "gloss": "Yamakawa (は = topic marker)"
+            },
+            {
+              "text": "プロの",
+              "role": "modifier",
+              "gloss": "professional's (の = connective to よう)"
+            },
+            {
+              "text": "ように",
+              "role": "adverb",
+              "gloss": "like / in the manner of (よう + に = adverbial — modifies 料理する)"
+            },
+            {
+              "text": "料理します。",
+              "role": "predicate",
+              "gloss": "cooks (料理する, polite present)"
+            }
+          ],
+          "en": "Yamakawa cooks like a professional.",
+          "note": "のように + verb: the comparison describes HOW the action is performed. Replace のように with みたいに for casual speech — same meaning."
+        },
+        {
+          "context": "みたいな — describing someone's appearance casually",
+          "parts": [
+            {
+              "text": "ミキさんは",
+              "role": "topic",
+              "gloss": "Miki (は = topic marker)"
+            },
+            {
+              "text": "花",
+              "role": "modifier",
+              "gloss": "flower"
+            },
+            {
+              "text": "みたいな",
+              "role": "modifier",
+              "gloss": "like / flower-like (casual: みたい + な = attributive — modifies 目)"
+            },
+            {
+              "text": "目ですね。",
+              "role": "predicate",
+              "gloss": "has eyes, doesn't she (目 = eyes; です + ね)"
+            }
+          ],
+          "en": "Miki has flower-like eyes, doesn't she.",
+          "note": "みたいな + noun: the comparison describes WHAT KIND of noun. Casual register. Formal equivalent: 花のような目. The noun 目 follows みたいな directly."
+        },
+        {
+          "context": "のような — food comparison in a formal context",
+          "parts": [
+            {
+              "text": "この料理は",
+              "role": "topic",
+              "gloss": "this dish (は = topic)"
+            },
+            {
+              "text": "レストランの",
+              "role": "modifier",
+              "gloss": "restaurant's (の = connective)"
+            },
+            {
+              "text": "ような",
+              "role": "modifier",
+              "gloss": "like / similar to (よう + な = attributive — modifies 味)"
+            },
+            {
+              "text": "味がします。",
+              "role": "predicate",
+              "gloss": "has a taste / flavor (味がする = have a taste)"
+            }
+          ],
+          "en": "This dish has the flavor of a restaurant.",
+          "note": "のような + 味 (noun): describes WHAT KIND OF taste. 味がする is a set expression meaning 'to have a taste/flavor.' Notice: 味 is the noun being modified, so な is required, not に."
+        },
+        {
+          "context": "みたいに — walking in a certain manner (casual)",
+          "parts": [
+            {
+              "text": "あの人は",
+              "role": "topic",
+              "gloss": "that person (は = topic)"
+            },
+            {
+              "text": "先生",
+              "role": "modifier",
+              "gloss": "teacher"
+            },
+            {
+              "text": "みたいに",
+              "role": "adverb",
+              "gloss": "like / in the manner of (casual: みたい + に = adverbial — modifies 歩く)"
+            },
+            {
+              "text": "歩いています。",
+              "role": "predicate",
+              "gloss": "is walking (歩く te-form + います = progressive)"
+            }
+          ],
+          "en": "That person is walking like a teacher.",
+          "note": "みたいに + verb (歩く): adverbial use — describes HOW the person walks. Formal equivalent: 先生のように歩いています."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ: 料理と似ている — Cooking and Resemblance",
+      "context": "りきぞう and ミキ are at りきぞう's home after dinner. りきぞう cooked. They speak politely in the first half; casually in the second half as close friends.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "りきぞうさん、この料理はレストランのようにおいしいですね。",
+          "en": "Rikizo, this dish is delicious like a restaurant's.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kono",
+            "v_ryouri",
+            "p_wa",
+            "v_resutoran",
+            "p_no",
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "ありがとうございます。やまかわさんのように料理したいです。",
+          "en": "Thank you. I want to cook like Yamakawa.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "char_yamakawa",
+            "v_san",
+            "p_no",
+            "v_you_manner",
+            "p_ni",
+            "v_ryouri",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "やまかわさんのような料理を作りたいですか。",
+          "en": "Do you want to make dishes like Yamakawa's?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_no",
+            "v_you_manner",
+            "p_na",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、やまかわさんのような味を出したいです。",
+          "en": "Yes, I want to bring out a flavor like Yamakawa's.",
+          "terms": [
+            "p_hai",
+            "char_yamakawa",
+            "v_san",
+            "p_no",
+            "v_you_manner",
+            "p_na",
+            "v_aji",
+            "p_wo",
+            {
+              "id": "v_dasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "りきぞうみたいに料理できる人はあまりいないよ。",
+          "en": "Not many people can cook like you, Rikizo.",
+          "terms": [
+            "char_rikizo",
+            {
+              "id": "v_mitai",
+              "form": "adverbial"
+            },
+            "v_ryouri",
+            {
+              "id": "v_suru",
+              "form": "potential"
+            },
+            "v_hito",
+            "p_wa",
+            "v_amari",
+            {
+              "id": "v_iru",
+              "form": "plain_negative"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "えー。やまかわさんみたいな味はまだ出せないよ。",
+          "en": "Really? I still can't bring out a flavor like Yamakawa's.",
+          "terms": [
+            "v_ee",
+            "char_yamakawa",
+            "v_san",
+            {
+              "id": "v_mitai",
+              "form": "attributive_na"
+            },
+            "v_aji",
+            "p_wa",
+            "v_mada",
+            {
+              "id": "v_dasu",
+              "form": "plain_potential_negative"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Choose のように / みたいに / のような / みたいな",
+      "instructions": "Fill in the blank with the correct expression. Use the context note to determine (a) whether the blank precedes a verb/adjective or a noun, and (b) the register (formal or casual).",
+      "items": [
+        {
+          "before": "先生の",
+          "after": "話してください。",
+          "translation": "Please speak like a teacher. (formal request)",
+          "choices": [
+            "ように",
+            "みたいに",
+            "ような",
+            "みたいな"
+          ],
+          "answer": "ように",
+          "explanation": "The blank precedes 話す (a VERB) → adverbial form is needed → use に. The context says formal → use のように. Full expression: 先生のように. (みたいに would also be correct for meaning but is casual — the context specifies formal.)"
+        },
+        {
+          "before": "りきぞう",
+          "after": "料理できる？",
+          "translation": "Can you cook like Rikizo? (casual question between friends)",
+          "choices": [
+            "ように",
+            "みたいに",
+            "ような",
+            "みたいな"
+          ],
+          "answer": "みたいに",
+          "explanation": "The blank precedes 料理できる (a VERB) → adverbial → use に. Casual context (question between friends, no polite ending) → use みたいに. Full expression: りきぞうみたいに. Note: no の between the noun and みたいに."
+        },
+        {
+          "before": "やまかわさんの",
+          "after": "料理人になりたいです。",
+          "translation": "I want to become a chef like Yamakawa. (formal)",
+          "choices": [
+            "ように",
+            "みたいに",
+            "ような",
+            "みたいな"
+          ],
+          "answer": "ような",
+          "explanation": "The blank precedes 料理人 (a NOUN) → attributive form is needed → use な. Formal context → use のような. Full expression: やまかわさんのような. (みたいな would also work for meaning but is casual.)"
+        },
+        {
+          "before": "魚",
+          "after": "目がきれいだね。",
+          "translation": "You have beautiful fish-like eyes. (casual)",
+          "choices": [
+            "ように",
+            "みたいに",
+            "ような",
+            "みたいな"
+          ],
+          "answer": "みたいな",
+          "explanation": "The blank precedes 目 (a NOUN) → attributive → use な. Casual context (ね ending, plain form) → use みたいな. Full expression: 魚みたいな. No の between 魚 and みたいな — this is the key difference from のような."
+        },
+        {
+          "before": "この料理はレストランの",
+          "after": "味がしますね。",
+          "translation": "This dish has the flavor of a restaurant, doesn't it. (formal)",
+          "choices": [
+            "ように",
+            "みたいに",
+            "ような",
+            "みたいな"
+          ],
+          "answer": "ような",
+          "explanation": "The blank precedes 味 (a NOUN) → attributive → use な. Formal context (ですね) → use のような. Full expression: レストランのような. 味がする = 'have a taste/flavor' — the noun 味 is what のような modifies."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "G16 Practice — Manner & Similarity",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which expression is formal and modifies a VERB (adverbial use)?",
+          "choices": [
+            "のような",
+            "のように",
+            "みたいな",
+            "みたいの"
+          ],
+          "answer": "のように",
+          "explanation": "のように is the formal adverbial form — it ends in に and modifies a verb or adjective. のような ends in な and modifies a noun (attributive). みたいに is the casual adverbial equivalent. みたいの is not a valid expression."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生____話してください。— Which form completes this correctly? (formal request)",
+          "choices": [
+            "のように",
+            "のような",
+            "みたいに",
+            "みたいな"
+          ],
+          "answer": "のように",
+          "explanation": "話す is a VERB → adverbial form needed → use に. Formal context (ください request) → use のように. The full expression is 先生のように話してください (Please speak like a teacher — formal). みたいに would be correct in casual speech."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生____声が聞こえます。— Which form fits here? (formal; 声 = voice, a noun)",
+          "choices": [
+            "のように",
+            "のような",
+            "みたいに",
+            "のような声に"
+          ],
+          "answer": "のような",
+          "explanation": "声 is a NOUN → attributive form needed → use な. Formal context → use のような. Full expression: 先生のような声 (a voice like a teacher's). のような modifies the noun 声. のように would precede a verb, not a noun."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちとの会話で「プロ____料理できるね」と言いたい。どちらが正しい？",
+          "choices": [
+            "のように",
+            "みたいに",
+            "のような",
+            "みたいな"
+          ],
+          "answer": "みたいに",
+          "explanation": "料理できる is a VERB → adverbial → use に. The context is casual (友だち, conversational tone) → use みたいに. Full expression: プロみたいに料理できるね (You can cook like a pro, can't you). No の between プロ and みたいに — みたい attaches directly."
+        },
+        {
+          "kind": "mcq",
+          "q": "みたいな vs のような — what is the key grammatical difference in structure?",
+          "choices": [
+            "みたいな requires の before it; のような does not.",
+            "のような requires の between the noun and よう; みたいな attaches directly to the noun.",
+            "みたいな is only for people; のような is for things.",
+            "They have different meanings — みたいな means 'exactly like' and のような means 'somewhat like.'"
+          ],
+          "answer": "のような requires の between the noun and よう; みたいな attaches directly to the noun.",
+          "explanation": "Structural difference: 先生のような (noun + の + よう + な) vs 先生みたいな (noun + みたいな, no の). Both mean 'like a teacher' and modify a following noun. The meaning is identical — only register and attachment structure differ. みたいな is NOT limited to people, and neither expression has a 'more exactly like' nuance."
+        },
+        {
+          "kind": "mcq",
+          "q": "この魚はレストラン____料理されています。 Which form fits? (formal; 料理されています is a verb)",
+          "choices": [
+            "のように",
+            "のような",
+            "みたいな",
+            "みたいの"
+          ],
+          "answer": "のように",
+          "explanation": "料理されています is a VERB (passive progressive) → adverbial form needed → use に. Formal context → use のように. Full: レストランのように料理されています = 'It is cooked in the manner of a restaurant.' のような would require a NOUN to follow it."
+        },
+        {
+          "kind": "mcq",
+          "q": "「のようだ」や「みたいだ」を文の終わりで使うのはどういう意味ですか。",
+          "choices": [
+            "G16のように/みたいに のパターンと同じ意味",
+            "推測や推量を表す別のパターンで、G33で学ぶ",
+            "どちらも同じ「らしい」と同義語",
+            "正しい日本語ではない"
+          ],
+          "answer": "推測や推量を表す別のパターンで、G33で学ぶ",
+          "explanation": "のようだ and みたいだ at the end of a sentence express INFERENCE or CONJECTURE — 'it seems like / appears to be.' This is a completely different grammatical role from the comparison/manner pattern taught here. Example: 雨のようだ = 'It seems like rain' (inference from dark clouds) — NOT 'it is like rain' (resemblance). This pattern is taught in G33. Keep the two uses separate."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which is the casual attributive form meaning 'cat-like eyes'?",
+          "choices": [
+            "猫のような目",
+            "猫みたいに目",
+            "猫みたいな目",
+            "猫のように目"
+          ],
+          "answer": "猫みたいな目",
+          "explanation": "Casual (みたい) + attributive (な, modifying noun 目) = みたいな. Full expression: 猫みたいな目 = cat-like eyes, casual. 猫のような目 is the formal equivalent (same meaning). The に forms (のように, みたいに) would require a verb or adjective to follow, not a noun."
+        }
+      ]
+    }
+  ]
+}

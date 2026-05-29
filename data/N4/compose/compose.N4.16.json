@@ -1,0 +1,180 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.16",
+  "lesson": "N4.16",
+  "level": "N4",
+  "title": "A Day with Pochi",
+  "titleJp": "ポチと りきぞうの 一日",
+  "emoji": "🐕",
+  "theme": "Write about a day with Rikizo and Pochi — describe their morning run, visit to the bank, and a nostalgic memory from last year.",
+  "prompts": [
+    {
+      "prompt": "Open by describing Rikizo and Pochi's daily morning routine. What do they do together every morning? Use 走る and 毎朝.",
+      "targets": [
+        { "id": "v_hashiru", "count": 1 },
+        { "id": "v_maiasa", "count": 1 }
+      ],
+      "model": "りきぞうは 毎朝 ポチと いっしょに 走ります。",
+      "vocabPool": [
+        "v_hashiru", "v_maiasa", "v_asa", "v_soto", "v_issho",
+        "v_mainichi", "v_genki", "v_watashi", "p_to", "p_wa"
+      ]
+    },
+    {
+      "prompt": "Introduce Pochi to the reader. What kind of animal is he, and what is he like? Use 犬 and 動物.",
+      "targets": [
+        { "id": "v_inu", "count": 1 },
+        { "id": "v_doubutsu", "count": 1 }
+      ],
+      "model": "ポチは 銀色の かわいい 犬です。りきぞうの 大切な 動物です。",
+      "vocabPool": [
+        "v_inu", "v_doubutsu", "v_kawaii", "v_chiisai", "v_taisetsu",
+        "v_genki", "v_giniro", "g_desu", "p_wa"
+      ]
+    },
+    {
+      "prompt": "Describe today's running route. Where do they go, and why is running together good for Rikizo? Use 近所 and 運動.",
+      "targets": [
+        { "id": "v_kinjo", "count": 1 },
+        { "id": "v_undou", "count": 1 }
+      ],
+      "model": "近所の 道を 走って、運動します。毎朝 外で 体を 動かします。",
+      "vocabPool": [
+        "v_kinjo", "v_undou", "v_michi", "v_soto", "v_ugoku",
+        "v_hashiru", "v_maiasa", "v_jikan", "p_wo", "p_de"
+      ]
+    },
+    {
+      "prompt": "Describe what Rikizo listens to while running. What makes the run more enjoyable? Use 音楽 and 走る.",
+      "targets": [
+        { "id": "v_ongaku", "count": 1 },
+        { "id": "v_hashiru", "count": 1 }
+      ],
+      "model": "りきぞうは 音楽を 聞きながら 走ります。とても 楽しいです。",
+      "vocabPool": [
+        "v_ongaku", "v_hashiru", "v_tanoshii", "v_totemo", "v_miru",
+        "v_tsukareru", "v_mainichi", "v_ii", "p_wo", "p_mo"
+      ]
+    },
+    {
+      "prompt": "After today's run, Rikizo and Pochi have an errand. They need to go to the bank. Describe the visit. Use 銀行 and お金.",
+      "targets": [
+        { "id": "v_ginkou", "count": 1 },
+        { "id": "v_okane", "count": 1 }
+      ],
+      "model": "走った あとで、銀行に 行きました。ATMで お金を 出しました。",
+      "vocabPool": [
+        "v_ginkou", "v_okane", "v_dasu", "v_iku", "v_hashiru",
+        "v_jidou", "v_shudou", "v_hakobu", "p_ni", "p_wo"
+      ]
+    },
+    {
+      "prompt": "On the way home from the bank, something lucky happened. Describe the unexpected moment. Use 運がいい.",
+      "targets": [
+        { "id": "v_un_ga_ii", "count": 1, "matches": ["運がいい", "運がよかった", "運がよく", "うんがいい", "うんがよかった"] }
+      ],
+      "model": "帰り道に 古い 友だちに 会いました。ポチも いっしょに いて、運がいい 一日でした。",
+      "vocabPool": [
+        "v_un_ga_ii", "v_tomodachi", "v_okane", "v_morau",
+        "v_tanoshii", "v_totemo", "v_ii", "g_desu", "p_de"
+      ]
+    },
+    {
+      "prompt": "That lucky encounter made Rikizo think back. How has the past year with Pochi gone by? Use 去年 and 去る.",
+      "targets": [
+        { "id": "v_kyonen", "count": 1 },
+        { "id": "v_saru", "count": 1 }
+      ],
+      "model": "去年の 夏から、ポチと いっしょに 走っています。楽しい 時間が 去って いきました。",
+      "vocabPool": [
+        "v_kyonen", "v_saru", "v_natsu", "v_issho",
+        "v_hashiru", "v_tanoshii", "v_amari", "p_no", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Inspired by today's run and the lucky encounter, what does Rikizo want to make this year with Pochi? Use 今年 and 作る.",
+      "targets": [
+        { "id": "v_kotoshi", "count": 1 },
+        { "id": "v_tsukuru", "count": 1 }
+      ],
+      "model": "今年も ポチと いっしょに いい 思い出を 作りたいです。毎朝 走り 続けます。",
+      "vocabPool": [
+        "v_kotoshi", "v_tsukuru", "v_undou", "v_issho", "v_mata",
+        "v_hashiru", "v_tanoshii", "v_mainichi", "g_desu", "p_mo"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "During one of their morning runs, Rikizo and Pochi spotted a stray dog in the neighborhood. Compare it to Pochi, and explain what makes Pochi special. Use 野犬 and 運がいい.",
+      "targets": [
+        { "id": "v_yaken", "count": 1 },
+        { "id": "v_un_ga_ii", "count": 1, "matches": ["運がいい", "運がよかった", "運がよく", "うんがいい", "うんがよかった"] }
+      ],
+      "model": "近所で 野犬を 見ました。ポチより 大きくて、あまり 元気では ありませんでした。ポチは かわいくて 元気です。私は 運がいいです。",
+      "vocabPool": [
+        "v_yaken", "v_un_ga_ii", "v_inu", "v_doubutsu", "v_kinjo",
+        "v_kawaii", "v_genki", "v_chiisai", "v_amari", "p_yori"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_ka", "p_yo", "p_ne", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo", "p_node",
+    "p_to_quote", "g_desu", "g_da", "p_dake", "p_shika", "p_bakari", "p_noni", "p_demo",
+    "p_yori", "p_hodo", "p_ya"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["走ります", "運びました", "銀行に 行きました", "毎朝 動きます"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["走りません", "銀行に 行きませんでした", "音楽を 聞きませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["走っています", "動いています", "銀行で 働いています"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["走りたいです", "また 一緒に 行きたいです", "思い出を 作りたいです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["走れます", "運べます", "動けます", "食べられます"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["走ったり 歩いたり します", "音楽を 聞いたり 運動したり します"]
+    },
+    {
+      "pattern": "verb-ながら (while doing)",
+      "meaning": "while doing [verb] simultaneously",
+      "examples": ["音楽を 聞きながら 走ります", "ポチと 話しながら 歩きます"]
+    },
+    {
+      "pattern": "い-adjective + くて (te-form connection)",
+      "meaning": "adjective + and (connecting adjectives / clauses)",
+      "examples": ["かわいくて 元気です", "楽しくて 大切な 時間です", "小さくて かわいい 犬です"]
+    },
+    {
+      "pattern": "[clause] + のに + [unexpected result]",
+      "meaning": "even though / despite (contrast — unexpected result)",
+      "examples": ["つかれているのに 走ります", "雨なのに 外に 出ます", "小さいのに 元気です"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["運動するので 元気です", "銀行に 行くので 早く 出ました", "犬が 好きだから 毎日 走ります"]
+    }
+  ]
+}

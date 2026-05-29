@@ -1,0 +1,1435 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.2",
+  "title": "Days of the Week",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 2,
+    "focus": "Days of the Week, Elemental Kanji, and Money",
+    "estimated_minutes": 45,
+    "kanji": [
+      "日",
+      "月",
+      "火",
+      "水",
+      "木",
+      "金",
+      "土",
+      "毎",
+      "今",
+      "何"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "日",
+      "kun": "ひ",
+      "on": "にち/じつ/に",
+      "meaning": "Day / Sun",
+      "termId": "k_hi"
+    },
+    {
+      "kanji": "月",
+      "kun": "つき",
+      "on": "げつ/がつ",
+      "meaning": "Month / Moon",
+      "termId": "k_tsuki"
+    },
+    {
+      "kanji": "火",
+      "kun": "ひ",
+      "on": "か",
+      "meaning": "Fire",
+      "termId": "k_hi_2"
+    },
+    {
+      "kanji": "水",
+      "kun": "みず",
+      "on": "すい",
+      "meaning": "Water",
+      "termId": "k_mizu"
+    },
+    {
+      "kanji": "木",
+      "kun": "き",
+      "on": "もく",
+      "meaning": "Tree / Wood",
+      "termId": "k_ki"
+    },
+    {
+      "kanji": "金",
+      "kun": "かね",
+      "on": "きん",
+      "meaning": "Gold / Money",
+      "termId": "k_kane"
+    },
+    {
+      "kanji": "土",
+      "kun": "つち",
+      "on": "ど",
+      "meaning": "Earth / Soil",
+      "termId": "k_tsuchi"
+    },
+    {
+      "kanji": "毎",
+      "kun": "",
+      "on": "まい",
+      "meaning": "Every",
+      "termId": "k_u6bce"
+    },
+    {
+      "kanji": "今",
+      "kun": "いま",
+      "on": "きょ/こ/こん",
+      "meaning": "Now",
+      "termId": "k_ima"
+    },
+    {
+      "kanji": "何",
+      "kun": "なに/なん",
+      "on": "か",
+      "meaning": "What",
+      "termId": "k_nani"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "先生は いますか。",
+          "en": "Is the teacher here?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "お父さんは どんな 人ですか。",
+          "en": "What kind of person is your father?",
+          "terms": [
+            "v_otousan",
+            "p_wa",
+            "v_donna",
+            "v_hito",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "友だちは やさしいですか。",
+          "en": "Is your friend kind?",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_yasashii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "お父さんの 名まえは なんですか。",
+          "en": "What is your father's name?",
+          "terms": [
+            "v_otousan",
+            "p_no",
+            "v_namae",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "日",
+          "on": "にち/じつ/に",
+          "kun": "ひ",
+          "meaning": "day; sun",
+          "terms": [
+            "k_hi"
+          ]
+        },
+        {
+          "kanji": "月",
+          "on": "げつ/がつ",
+          "kun": "つき",
+          "meaning": "month; moon",
+          "terms": [
+            "k_tsuki"
+          ]
+        },
+        {
+          "kanji": "火",
+          "on": "か",
+          "kun": "ひ",
+          "meaning": "fire",
+          "terms": [
+            "k_hi_2"
+          ]
+        },
+        {
+          "kanji": "水",
+          "on": "すい",
+          "kun": "みず",
+          "meaning": "water",
+          "terms": [
+            "k_mizu"
+          ]
+        },
+        {
+          "kanji": "木",
+          "on": "もく",
+          "kun": "き",
+          "meaning": "tree; wood",
+          "terms": [
+            "k_ki"
+          ]
+        },
+        {
+          "kanji": "金",
+          "on": "きん",
+          "kun": "かね",
+          "meaning": "gold; money",
+          "terms": [
+            "k_kane"
+          ]
+        },
+        {
+          "kanji": "土",
+          "on": "ど",
+          "kun": "つち",
+          "meaning": "earth; soil",
+          "terms": [
+            "k_tsuchi"
+          ]
+        },
+        {
+          "kanji": "毎",
+          "on": "まい",
+          "kun": "",
+          "meaning": "every",
+          "terms": [
+            "k_u6bce"
+          ]
+        },
+        {
+          "kanji": "今",
+          "on": "きょ/こ/こん",
+          "kun": "いま",
+          "meaning": "now",
+          "terms": [
+            "k_ima"
+          ]
+        },
+        {
+          "kanji": "何",
+          "on": "か",
+          "kun": "なに/なん",
+          "meaning": "what",
+          "terms": [
+            "k_nani"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary & Compounds）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_hi",
+            "k_tsuki",
+            "k_hi_2",
+            "k_mizu",
+            "k_ki",
+            "k_kane",
+            "k_tsuchi",
+            "k_u6bce",
+            "k_ima",
+            "k_nani"
+          ]
+        },
+        {
+          "label": "Elemental Nouns",
+          "items": [
+            "v_hi",
+            "v_tsuki",
+            "v_hi_2",
+            "v_mizu",
+            "v_ki",
+            "v_kane",
+            "v_tsuchi"
+          ]
+        },
+        {
+          "label": "Days of the Week",
+          "items": [
+            "v_nichiyoubi",
+            "v_getsuyoubi",
+            "v_kayoubi",
+            "v_suiyoubi",
+            "v_mokuyoubi",
+            "v_kinyoubi",
+            "v_doyoubi",
+            "v_nanyoubi"
+          ]
+        },
+        {
+          "label": "Time Expressions",
+          "items": [
+            "v_mainichi",
+            "v_maigetsu",
+            "v_kyou",
+            "v_kongetsu",
+            "v_itsumo",
+            "v_yoku",
+            "v_itsu"
+          ]
+        },
+        {
+          "label": "Money & People",
+          "items": [
+            "v_okane",
+            "v_nannin"
+          ]
+        },
+        {
+          "label": "Question Words",
+          "items": [
+            "v_nan",
+            "v_nani"
+          ]
+        },
+        {
+          "label": "Particles (New)",
+          "items": [
+            "p_ni",
+            "p_mo",
+            "p_to",
+            "p_ya",
+            "p_kara",
+            "p_made",
+            "p_made_ni"
+          ]
+        },
+        {
+          "label": "Other",
+          "items": [
+            "v_geemu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: 今日は 何よう日？（What Day Is Today?）",
+      "context": "Rikizo and Yamakawa talk about the week's schedule in the school hallway.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "きょうは 何よう日ですか。",
+          "en": "What day is today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_nanyoubi",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "今日は 木よう日です。",
+          "en": "Today is Thursday.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_mokuyoubi",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "やまもと先生は いつ いますか。",
+          "en": "When is Yamamoto-sensei here?",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_itsu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いつも 月よう日と 水よう日と 金よう日に います。",
+          "en": "She is always here on Monday, Wednesday, and Friday.",
+          "terms": [
+            "v_itsumo",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "v_kinyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "クラスに 何人 いますか。",
+          "en": "How many people are in class?",
+          "terms": [
+            "v_kurasu_class",
+            "p_ni",
+            "v_nannin",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "たくさん います。",
+          "en": "There are a lot.",
+          "terms": [
+            "v_takusan",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 父と 母のこと（About Father and Mother）",
+      "context": "Suzuki-san asks Rikizo about his parents' weekly schedule.",
+      "lines": [
+        {
+          "spk": "B",
+          "jp": "りきぞうさん、お父さんは 何よう日に いますか。",
+          "en": "Rikizo-san, on which days is your father home?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_otousan",
+            "p_wa",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "父は 月よう日から 金よう日まで います。",
+          "en": "My father is here from Monday to Friday.",
+          "terms": [
+            "v_chichi",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "土よう日と 日よう日は いませんか。",
+          "en": "Is he not here on Saturday and Sunday?",
+          "terms": [
+            "v_doyoubi",
+            "p_to",
+            "v_nichiyoubi",
+            "p_wa",
+            {
+              "id": "v_iru",
+              "form": "polite_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうです。お母さんも 月よう日から 金よう日まで います。",
+          "en": "That's right. My mother is also here from Monday to Friday.",
+          "terms": [
+            "p_soudesu",
+            "v_okaasan",
+            "p_mo",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "毎日 いっしょに いますね。",
+          "en": "They are together every day, aren't they?",
+          "terms": [
+            "v_mainichi",
+            "v_issho",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうです。とても いいですね。",
+          "en": "That's right. It's really nice, isn't it?",
+          "terms": [
+            "p_soudesu",
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: お金のこと（About Money）",
+      "context": "Yamakawa asks Rikizo about when he has money.",
+      "lines": [
+        {
+          "spk": "B",
+          "jp": "りきぞうさん、よく お金が ありますか。",
+          "en": "Rikizo-san, do you often have money?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_yoku",
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "今日は ありません。金よう日に あります。",
+          "en": "Not today. I have some on Friday.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_kinyoubi",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "毎月ですか。",
+          "en": "Every month?",
+          "terms": [
+            "v_maigetsu",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、毎月 金よう日に あります。",
+          "en": "Yes, every month on Friday.",
+          "terms": [
+            "p_hai",
+            "v_maigetsu",
+            "v_kinyoubi",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "今月も 金よう日までに ありますか。",
+          "en": "Will you have it by Friday this month too?",
+          "terms": [
+            "v_kongetsu",
+            "p_mo",
+            "v_kinyoubi",
+            "p_made_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、金よう日までに あります。",
+          "en": "Yes, by Friday.",
+          "terms": [
+            "p_hai",
+            "v_kinyoubi",
+            "p_made_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "金よう日は いい 日ですね。",
+          "en": "Friday is a great day, isn't it.",
+          "terms": [
+            "v_kinyoubi",
+            "p_wa",
+            "v_ii",
+            "v_hi",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: 月よう日の かんじ（The Kanji of the Days）",
+      "context": "Rikizo explains to Suzuki-san what the kanji in each day name mean.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "月よう日の「月」は つきです。水よう日の「水」は みずです。",
+          "en": "The 月 in Monday means moon. The 水 in Wednesday means water.",
+          "terms": [
+            "v_getsuyoubi",
+            "p_no",
+            "v_tsuki",
+            "p_wa",
+            "v_tsuki",
+            "g_desu",
+            "v_suiyoubi",
+            "v_mizu",
+            "v_mizu"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "木よう日の「木」は きですね。",
+          "en": "The 木 in Thursday means tree, right?",
+          "terms": [
+            "v_mokuyoubi",
+            "p_no",
+            "v_ki",
+            "p_wa",
+            "v_ki",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうです。火よう日の「火」は ひです。土よう日の「土」は つちです。",
+          "en": "That's right. The 火 in Tuesday means fire. The 土 in Saturday means soil.",
+          "terms": [
+            "p_soudesu",
+            "v_kayoubi",
+            "p_no",
+            "v_hi_2",
+            "p_wa",
+            "v_hi_2",
+            "g_desu",
+            "v_doyoubi",
+            "v_tsuchi",
+            "v_tsuchi"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "金よう日の「金」は かねです。日よう日の「日」は ひです。",
+          "en": "The 金 in Friday means gold. The 日 in Sunday means sun.",
+          "terms": [
+            "v_kinyoubi",
+            "p_no",
+            "v_kane",
+            "p_wa",
+            "v_kane",
+            "g_desu",
+            "v_nichiyoubi",
+            "v_hi",
+            "v_hi"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "そうです！毎日 いいですね。",
+          "en": "That's right! Every day is great, isn't it?",
+          "terms": [
+            "p_soudesu",
+            "v_mainichi",
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: やまもと先生の スケジュール（Yamamoto-sensei's Schedule）",
+      "passage": [
+        {
+          "jp": "今日は 木よう日です。",
+          "en": "Today is Thursday.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_mokuyoubi",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "やまもと先生は 月よう日と 水よう日と 金よう日に います。",
+          "en": "Yamamoto-sensei is here on Monday, Wednesday, and Friday.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "v_kinyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "火よう日と 木よう日と 土よう日と 日よう日は いません。",
+          "en": "She is not here on Tuesday, Thursday, Saturday, or Sunday.",
+          "terms": [
+            "v_kayoubi",
+            "p_to",
+            "v_mokuyoubi",
+            "v_doyoubi",
+            "v_nichiyoubi",
+            "p_wa",
+            {
+              "id": "v_iru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "先生は とても やさしいです。毎日 うれしいです。",
+          "en": "The teacher is very kind. Every day I am happy.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_totemo",
+            "v_yasashii",
+            "g_desu",
+            "v_mainichi",
+            "v_ureshii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎月 月よう日から 金よう日まで 先生が います。",
+          "en": "Every month, the teacher is here from Monday to Friday.",
+          "terms": [
+            "v_maigetsu",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            "v_sensei",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今月も 毎日 います。",
+          "en": "This month too, she is here every day.",
+          "terms": [
+            "v_kongetsu",
+            "p_mo",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまもと先生は 何よう日に いますか。",
+          "q_en": "On which days is Yamamoto-sensei here?",
+          "a": "月よう日と 水よう日と 金よう日に います。",
+          "a_en": "She is here on Monday, Wednesday, and Friday.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_nanyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_getsuyoubi",
+            "p_to",
+            "v_suiyoubi",
+            "v_kinyoubi",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "今日は 何よう日ですか。",
+          "q_en": "What day is today?",
+          "a": "木よう日です。",
+          "a_en": "It is Thursday.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_nanyoubi",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mokuyoubi",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "先生は どうですか。",
+          "q_en": "How is the teacher?",
+          "a": "とても やさしいです。",
+          "a_en": "She is very kind.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_totemo",
+            "v_yasashii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "先生は 毎月 いますか。",
+          "q_en": "Is the teacher here every month?",
+          "a": "はい、毎月 月よう日から 金よう日まで います。",
+          "a_en": "Yes, she is here every month from Monday to Friday.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_maigetsu",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_maigetsu",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: りきぞうの ゲーム（Rikizo's Game）",
+      "passage": [
+        {
+          "jp": "りきぞうは ゲームを します。",
+          "en": "Rikizo plays a game.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_geemu",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "ゲームに 水や 木や 火や 土が あります。",
+          "en": "In the game there are things like water, trees, fire, and soil.",
+          "terms": [
+            "v_geemu",
+            "p_ni",
+            "v_mizu",
+            "p_ya",
+            "v_ki",
+            "p_ya",
+            "v_hi_2",
+            "p_ya",
+            "v_tsuchi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "金と 月と 日も あります。",
+          "en": "There is also gold, moon, and sun.",
+          "terms": [
+            "v_kane",
+            "p_to",
+            "v_tsuki",
+            "v_hi",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日 水が たくさん あります。",
+          "en": "Every day there is a lot of water.",
+          "terms": [
+            "v_mainichi",
+            "v_mizu",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今月 金が あります。りきぞうは うれしいです。",
+          "en": "This month there is gold. Rikizo is happy.",
+          "terms": [
+            "v_kongetsu",
+            "v_kane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "char_rikizo",
+            "p_wa",
+            "v_ureshii",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "ゲームに 何が ありますか。",
+          "q_en": "What is in the game?",
+          "a": "水、木、火、土、金、月、日が あります。",
+          "a_en": "There is water, wood, fire, earth, metal, moon, and sun.",
+          "terms": [
+            "v_geemu",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mizu",
+            "v_ki",
+            "v_hi_2",
+            "v_tsuchi",
+            "v_kane",
+            "v_tsuki",
+            "v_hi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "毎日 何が ありますか。",
+          "q_en": "What is there every day?",
+          "a": "水が たくさん あります。",
+          "a_en": "There is a lot of water.",
+          "terms": [
+            "v_mainichi",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mizu",
+            "v_takusan",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "今月 何が ありますか。",
+          "q_en": "What is there this month?",
+          "a": "金が あります。",
+          "a_en": "There is metal (gold).",
+          "terms": [
+            "v_kongetsu",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "りきぞうは どうですか。",
+          "q_en": "How is Rikizo?",
+          "a": "うれしいです。",
+          "a_en": "He is happy.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ureshii",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[日] の よみかたは？",
+          "choices": [
+            "ひ",
+            "つき",
+            "か",
+            "みず"
+          ],
+          "answer": "ひ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[月] の よみかたは？",
+          "choices": [
+            "つき",
+            "ひ",
+            "き",
+            "かね"
+          ],
+          "answer": "つき"
+        },
+        {
+          "kind": "mcq",
+          "q": "[土] の よみかたは？",
+          "choices": [
+            "つち",
+            "き",
+            "かね",
+            "みず"
+          ],
+          "answer": "つち"
+        },
+        {
+          "kind": "mcq",
+          "q": "[毎日] の よみかたは？",
+          "choices": [
+            "まいにち",
+            "まいあさ",
+            "まいばん",
+            "まいげつ"
+          ],
+          "answer": "まいにち"
+        },
+        {
+          "kind": "mcq",
+          "q": "[今月] の よみかたは？",
+          "choices": [
+            "こんげつ",
+            "こんにち",
+            "こんばん",
+            "けさ"
+          ],
+          "answer": "こんげつ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[お金] の よみかたは？",
+          "choices": [
+            "おかね",
+            "おかん",
+            "おき",
+            "おみず"
+          ],
+          "answer": "おかね"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "きょうは _______ です。",
+          "choices": [
+            "木よう日",
+            "毎日",
+            "今月",
+            "毎月"
+          ],
+          "answer": "木よう日",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_mokuyoubi",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎月 _______ に お金が あります。",
+          "choices": [
+            "金よう日",
+            "月よう日",
+            "水よう日",
+            "木よう日"
+          ],
+          "answer": "金よう日",
+          "terms": [
+            "v_maigetsu",
+            "v_kinyoubi",
+            "p_ni",
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ は 金よう日です。",
+          "choices": [
+            "今日",
+            "今月",
+            "毎月",
+            "毎日"
+          ],
+          "answer": "今日",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kinyoubi",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生は 月よう日から _______ まで います。",
+          "choices": [
+            "金よう日",
+            "日よう日",
+            "土よう日",
+            "火よう日"
+          ],
+          "answer": "金よう日",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "ゲームに 水と _______ が あります。",
+          "choices": [
+            "木",
+            "今月",
+            "お金",
+            "毎日"
+          ],
+          "answer": "木",
+          "terms": [
+            "p_ni",
+            "v_mizu",
+            "p_to",
+            "v_ki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ 月よう日から 金よう日まで います。",
+          "choices": [
+            "毎月",
+            "今日",
+            "今月",
+            "お金"
+          ],
+          "answer": "毎月",
+          "terms": [
+            "v_maigetsu",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "先生 _______ 月よう日から 金よう日まで います。",
+          "choices": [
+            "は",
+            "を",
+            "も",
+            "が"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "月よう日 _______ 金よう日まで 先生が います。",
+          "choices": [
+            "から",
+            "まで",
+            "も",
+            "と"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_getsuyoubi",
+            "p_kara",
+            "v_kinyoubi",
+            "p_made",
+            "v_sensei",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だち _______ います。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今月 _______ お金が あります。",
+          "choices": [
+            "も",
+            "は",
+            "と",
+            "が"
+          ],
+          "answer": "も",
+          "terms": [
+            "v_kongetsu",
+            "p_mo",
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "父 _______ 母は 毎日 います。",
+          "choices": [
+            "と",
+            "は",
+            "も",
+            "を"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_chichi",
+            "p_to",
+            "v_haha",
+            "p_wa",
+            "v_mainichi",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "お金 _______ ありますか。",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "も"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_okane",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    }
+  ]
+}

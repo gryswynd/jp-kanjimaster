@@ -1,0 +1,395 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.30",
+  "lesson": "N4.30",
+  "level": "N4",
+  "title": "The Community Memory Book",
+  "titleJp": "まちの 思い出 文集",
+  "emoji": "📖",
+  "theme": "Write about organizing a community memory project — from hearing about a special gathering, to collecting memories, holding a Q&A session, creating an anthology, and reflecting on the whole experience.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you heard there will be a special gathering in town. Use 集会.",
+      "targets": [
+        {
+          "id": "v_shuukai",
+          "count": 1
+        }
+      ],
+      "model": "町で 特別な 集会が あると 聞きました。",
+      "vocabPool": [
+        "v_shuukai",
+        "v_tokubetsu",
+        "v_machi",
+        "v_kiku",
+        "v_aru",
+        "v_raishuu",
+        "v_kyou",
+        "p_de",
+        "p_ga",
+        "p_to_quote",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you thought everyone would gather and that it would be a wonderful day. Use 集まる and と思う.",
+      "targets": [
+        {
+          "id": "v_atsumaru",
+          "count": 1
+        },
+        {
+          "id": "v_omou",
+          "count": 1
+        }
+      ],
+      "model": "みんなが 集まると 思いました。とても いい 日に なると 思いました。",
+      "vocabPool": [
+        "v_atsumaru",
+        "v_omou",
+        "v_minna",
+        "v_ii",
+        "v_naru",
+        "v_totemo",
+        "v_hi",
+        "g_desu",
+        "p_ga",
+        "p_to_quote",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that it was especially a special day. Use 特に and 特別.",
+      "targets": [
+        {
+          "id": "v_tokuni",
+          "count": 1
+        },
+        {
+          "id": "v_tokubetsu",
+          "count": 1
+        }
+      ],
+      "model": "その 日は 特に 特別でした。",
+      "vocabPool": [
+        "v_tokuni",
+        "v_tokubetsu",
+        "v_hi",
+        "v_sore",
+        "g_desu",
+        "p_wa",
+        "p_ni",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write your feelings about the day — that you had many thoughts and feelings before the gathering. Use 思い.",
+      "targets": [
+        {
+          "id": "v_omoi_feel",
+          "count": 1
+        }
+      ],
+      "model": "集会の 前に、いろいろな 思いが ありました。",
+      "vocabPool": [
+        "v_omoi_feel",
+        "v_shuukai",
+        "v_aru",
+        "v_mae",
+        "v_iroiro",
+        "v_takusan",
+        "g_desu",
+        "p_no",
+        "p_ga",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you collected everyone's answers and memories. Use 集める, 答え, and 思い出.",
+      "targets": [
+        {
+          "id": "v_atsumeru",
+          "count": 1
+        },
+        {
+          "id": "v_kotae",
+          "count": 1
+        },
+        {
+          "id": "v_omoide",
+          "count": 1
+        }
+      ],
+      "model": "みんなの 答えと 思い出を 集めました。",
+      "vocabPool": [
+        "v_atsumeru",
+        "v_kotae",
+        "v_omoide",
+        "v_minna",
+        "v_takusan",
+        "v_aru",
+        "g_desu",
+        "p_no",
+        "p_wo",
+        "p_to",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that you held a Q&A session, and then answered everyone's questions. Use 問答 and 答える.",
+      "targets": [
+        {
+          "id": "v_mondou",
+          "count": 1
+        },
+        {
+          "id": "v_kotaeru",
+          "count": 1
+        }
+      ],
+      "model": "問答を してから、みんなの 質問に 答えました。",
+      "vocabPool": [
+        "v_mondou",
+        "v_kotaeru",
+        "v_suru",
+        "v_kiku",
+        "v_minna",
+        "v_shitsumon",
+        "v_ato",
+        "g_desu",
+        "p_wo",
+        "p_ni",
+        "p_tekara"
+      ]
+    },
+    {
+      "prompt": "Write that you looked at old photos and recalled memories you had forgotten. Use 思い出 and 思い出す.",
+      "targets": [
+        {
+          "id": "v_omoidasu",
+          "count": 1
+        }
+      ],
+      "model": "古い 写真を 見て、昔の 思い出を 思い出しました。",
+      "vocabPool": [
+        "v_omoidasu",
+        "v_omoide",
+        "v_shashin",
+        "v_miru",
+        "v_furui",
+        "v_aru",
+        "g_desu",
+        "p_wo",
+        "p_no",
+        "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that everyone worked together to make an anthology. Write that concentrating was essential. Use 文集 and 集中.",
+      "targets": [
+        {
+          "id": "v_bunshuu",
+          "count": 1
+        },
+        {
+          "id": "v_shuuchuu",
+          "count": 1
+        }
+      ],
+      "model": "みんなで 文集を 作りました。集中しなければ いけませんでした。",
+      "vocabPool": [
+        "v_bunshuu",
+        "v_shuuchuu",
+        "v_minna",
+        "v_tsukuru",
+        "v_suru",
+        "v_ikeru",
+        "g_desu",
+        "p_de",
+        "p_wo",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that the completed collection had a special feature section. Use 集 and 特集.",
+      "targets": [
+        {
+          "id": "v_shuu",
+          "count": 1
+        },
+        {
+          "id": "v_tokushuu",
+          "count": 1
+        }
+      ],
+      "model": "できた 集に、特別な 特集の ページが ありました。",
+      "vocabPool": [
+        "v_shuu",
+        "v_tokushuu",
+        "v_tokubetsu",
+        "v_aru",
+        "v_dekiru",
+        "g_desu",
+        "p_ni",
+        "p_ga",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write your will/intention to hold the gathering again next year. Use 意思.",
+      "targets": [
+        {
+          "id": "v_ishi",
+          "count": 1
+        }
+      ],
+      "model": "来年も また やりたい という 意思が あります。",
+      "vocabPool": [
+        "v_ishi",
+        "v_rainen",
+        "v_mata",
+        "v_aru",
+        "v_suru",
+        "v_omou",
+        "g_desu",
+        "p_ga",
+        "p_mo",
+        "p_to_quote",
+        "p_ni"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Imagine a participant who got too full of themselves and kept talking back during the Q&A. Write a casual note to a friend about the situation, using 思い上がる and 口答え. Use ようになる.",
+      "targets": [
+        {
+          "id": "v_omoiagaru",
+          "count": 1
+        },
+        {
+          "id": "v_kuchigotae",
+          "count": 1
+        }
+      ],
+      "model": "あの 人、思い上がって、口答えを するように なったね。",
+      "vocabPool": [
+        "v_omoiagaru",
+        "v_kuchigotae",
+        "v_you_manner",
+        "v_naru",
+        "v_suru",
+        "v_hito",
+        "v_ano",
+        "v_mondou",
+        "v_tokkyuu",
+        "g_da",
+        "p_wo",
+        "p_ni",
+        "p_ne"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_ya",
+    "p_dewa",
+    "p_ga_but",
+    "p_kedo",
+    "p_node",
+    "p_hodo",
+    "p_yori",
+    "p_dake",
+    "p_shika",
+    "p_made",
+    "p_made_ni",
+    "p_bakari",
+    "p_demo",
+    "p_shi",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_demo_but",
+    "p_sou_da",
+    "p_sou_da_hearsay",
+    "p_tte_quote",
+    "p_zutsu",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[plain form] + と + 思う",
+      "meaning": "I think that … / I feel that … (expressing opinions and thoughts)",
+      "examples": [
+        "みんなが 集まると 思いました",
+        "とても いい 日に なると 思います",
+        "また やりたい と 思います"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + から",
+      "meaning": "after doing [verb] (sequential actions — one thing completed before the next)",
+      "examples": [
+        "問答を してから、答えました",
+        "答えを 集めてから、文集を 作りました",
+        "写真を 見てから、思い出しました"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + する",
+      "meaning": "make an effort to / try to [verb]",
+      "examples": [
+        "集中する ように しました",
+        "みんなの 思いを 集める ように しました",
+        "答えを 忘れない ように しました"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ように + なる",
+      "meaning": "come to [verb] / come to be able to (change of state)",
+      "examples": [
+        "口答えを するように なりました",
+        "思い出を 話せるように なりました",
+        "集中できるように なりました"
+      ]
+    },
+    {
+      "pattern": "[verb-なければ] + いけない",
+      "meaning": "must [verb] / have to [verb] (obligation)",
+      "examples": [
+        "集中しなければ いけませんでした",
+        "答えを 集めなければ いけません",
+        "文集を 作らなければ いけませんでした"
+      ]
+    },
+    {
+      "pattern": "[plain past] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay)",
+      "examples": [
+        "集会は とても 楽しかった そうです",
+        "文集が できた そうです",
+        "みんなが 集まった そうです"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "contentVersion": "1.0.0",
+  "storyFile": "story.md",
+  "title": "りきぞうと大きい魚",
+  "englishTitle": "Rikizo and the Big Fish",
+  "terms": {
+    "りきぞう": {
+      "id": "char_rikizo",
+      "form": null
+    },
+    "さくら": {
+      "id": "char_sakura",
+      "form": null
+    },
+    "やまかわ": {
+      "id": "char_yamakawa",
+      "form": null
+    },
+    "たろう": {
+      "id": "char_taro",
+      "form": null
+    },
+    "は": {
+      "id": "p_wa",
+      "form": null
+    },
+    "が": {
+      "id": "p_ga",
+      "form": null
+    },
+    "を": {
+      "id": "p_wo",
+      "form": null
+    },
+    "に": {
+      "id": "p_ni",
+      "form": null
+    },
+    "で": {
+      "id": "p_de",
+      "form": null
+    },
+    "の": {
+      "id": "p_no",
+      "form": null
+    },
+    "ったの": {
+      "id": "p_no_question",
+      "form": null
+    },
+    "も": {
+      "id": "p_mo",
+      "form": null
+    },
+    "へ": {
+      "id": "p_e",
+      "form": null
+    },
+    "から": {
+      "id": "p_kara",
+      "form": null
+    },
+    "と": {
+      "id": "p_to_quote",
+      "form": null
+    },
+    "か": {
+      "id": "p_ka",
+      "form": null
+    },
+    "よ": {
+      "id": "p_yo",
+      "form": null
+    },
+    "ね": {
+      "id": "p_ne",
+      "form": null
+    },
+    "でも": {
+      "id": "p_demo_but",
+      "form": null
+    },
+    "では": {
+      "id": "p_dewa",
+      "form": null
+    },
+    "あっ": {
+      "id": "p_att",
+      "form": null
+    },
+    "はい": {
+      "id": "p_hai",
+      "form": null
+    },
+    "いらっしゃいませ": {
+      "id": "p_irasshaimase",
+      "form": null
+    },
+    "ありがとうございます": {
+      "id": "p_arigatou_gozaimasu",
+      "form": null
+    },
+    "え": {
+      "id": "v_e_exclaim",
+      "form": null
+    },
+    "です": {
+      "id": "g_desu",
+      "form": null
+    },
+    "でした": {
+      "id": "g_desu",
+      "form": null
+    },
+    "だ": {
+      "id": "g_da",
+      "form": null
+    },
+    "土ようび": {
+      "id": "v_doyoubi",
+      "form": null
+    },
+    "午後": {
+      "id": "v_gogo",
+      "form": null
+    },
+    "今日": {
+      "id": "v_kyou",
+      "form": null
+    },
+    "お母さん": {
+      "id": "v_okaasan",
+      "form": null
+    },
+    "魚": {
+      "id": "v_sakana",
+      "form": null
+    },
+    "店": {
+      "id": "v_mise",
+      "form": null
+    },
+    "中": {
+      "id": "v_naka",
+      "form": null
+    },
+    "道": {
+      "id": "v_michi",
+      "form": null
+    },
+    "東": {
+      "id": "v_higashi",
+      "form": null
+    },
+    "川": {
+      "id": "v_kawa",
+      "form": null
+    },
+    "日本": {
+      "id": "v_nihon",
+      "form": null
+    },
+    "新聞": {
+      "id": "v_shinbun",
+      "form": null
+    },
+    "電車": {
+      "id": "v_densha",
+      "form": null
+    },
+    "駅": {
+      "id": "v_eki",
+      "form": null
+    },
+    "うち": {
+      "id": "v_uchi",
+      "form": null
+    },
+    "入り口": {
+      "id": "v_iriguchi",
+      "form": null
+    },
+    "外": {
+      "id": "v_soto",
+      "form": null
+    },
+    "目": {
+      "id": "v_me",
+      "form": null
+    },
+    "人": {
+      "id": "v_hito",
+      "form": null
+    },
+    "男の人": {
+      "id": "v_otokonohito",
+      "form": null
+    },
+    "子ども": {
+      "id": "v_kodomo",
+      "form": null
+    },
+    "お金": {
+      "id": "v_okane",
+      "form": null
+    },
+    "右": {
+      "id": "v_migi",
+      "form": null
+    },
+    "左": {
+      "id": "v_hidari",
+      "form": null
+    },
+    "前": {
+      "id": "v_mae",
+      "form": null
+    },
+    "後ろ": {
+      "id": "v_ushiro",
+      "form": null
+    },
+    "南": {
+      "id": "v_minami",
+      "form": null
+    },
+    "北": {
+      "id": "v_kita",
+      "form": null
+    },
+    "西": {
+      "id": "v_nishi",
+      "form": null
+    },
+    "いちばん": {
+      "id": "v_ichiban",
+      "form": null
+    },
+    "どれ": {
+      "id": "v_dore",
+      "form": null
+    },
+    "いくら": {
+      "id": "v_ikura",
+      "form": null
+    },
+    "だれ": {
+      "id": "v_dare",
+      "form": null
+    },
+    "それ": {
+      "id": "v_sore",
+      "form": null
+    },
+    "そこ": {
+      "id": "v_soko",
+      "form": null
+    },
+    "これ": {
+      "id": "v_kore",
+      "form": null
+    },
+    "この": {
+      "id": "v_kono",
+      "form": null
+    },
+    "その": {
+      "id": "v_sono",
+      "form": null
+    },
+    "あの": {
+      "id": "v_ano",
+      "form": null
+    },
+    "何": {
+      "id": "v_nan",
+      "form": null
+    },
+    "とても": {
+      "id": "v_totemo",
+      "form": null
+    },
+    "少し": {
+      "id": "v_sukoshi",
+      "form": null
+    },
+    "たくさん": {
+      "id": "v_takusan",
+      "form": null
+    },
+    "また": {
+      "id": "v_mata",
+      "form": null
+    },
+    "それから": {
+      "id": "v_sorekara",
+      "form": null
+    },
+    "どこ": {
+      "id": "v_doko",
+      "form": null
+    },
+    "どう": {
+      "id": "v_dou",
+      "form": null
+    },
+    "ここ": {
+      "id": "v_koko",
+      "form": null
+    },
+    "うん": {
+      "id": "v_un",
+      "form": null
+    },
+    "うーん": {
+      "id": "v_uun",
+      "form": null
+    },
+    "えー": {
+      "id": "v_ee",
+      "form": null
+    },
+    "わあ": {
+      "id": "v_waa",
+      "form": null
+    },
+    "だめ": {
+      "id": "v_dame",
+      "form": null
+    },
+    "みなさん": {
+      "id": "v_minasan",
+      "form": null
+    },
+    "つぎ": {
+      "id": "v_tsugi",
+      "form": null
+    },
+    "一人": {
+      "id": "v_hitori",
+      "form": null
+    },
+    "家": {
+      "id": "v_ie",
+      "form": null
+    },
+    "円": {
+      "id": "v_en",
+      "form": null
+    },
+    "大きい": {
+      "id": "v_ookii",
+      "form": null
+    },
+    "大きく": {
+      "id": "v_ookii",
+      "form": "adverbial"
+    },
+    "大きくない": {
+      "id": "v_ookii",
+      "form": "plain_negative"
+    },
+    "小さい": {
+      "id": "v_chiisai",
+      "form": null
+    },
+    "長い": {
+      "id": "v_nagai",
+      "form": null
+    },
+    "白い": {
+      "id": "v_shiroi",
+      "form": null
+    },
+    "古い": {
+      "id": "v_furui",
+      "form": null
+    },
+    "高い": {
+      "id": "v_takai",
+      "form": null
+    },
+    "いい": {
+      "id": "v_ii",
+      "form": null
+    },
+    "おいしい": {
+      "id": "v_oishii",
+      "form": null
+    },
+    "すごい": {
+      "id": "v_sugoi",
+      "form": null
+    },
+    "言いました": {
+      "id": "v_iu",
+      "form": "polite_mashita"
+    },
+    "言った": {
+      "id": "v_iu",
+      "form": "plain_past"
+    },
+    "聞きました": {
+      "id": "v_kiku",
+      "form": "polite_mashita"
+    },
+    "見ました": {
+      "id": "v_miru",
+      "form": "polite_mashita"
+    },
+    "見て": {
+      "id": "v_miru",
+      "form": "te_form"
+    },
+    "見てる": {
+      "id": "v_miru",
+      "form": "te_form"
+    },
+    "行きました": {
+      "id": "v_iku",
+      "form": "polite_mashita"
+    },
+    "行って": {
+      "id": "v_iku",
+      "form": "te_form"
+    },
+    "行きます": {
+      "id": "v_iku",
+      "form": "polite_masu"
+    },
+    "来ました": {
+      "id": "v_kuru",
+      "form": "polite_mashita"
+    },
+    "来て": {
+      "id": "v_kuru",
+      "form": "te_form"
+    },
+    "きました": {
+      "id": "v_kuru",
+      "form": "polite_mashita"
+    },
+    "買いました": {
+      "id": "v_kau",
+      "form": "polite_mashita"
+    },
+    "買います": {
+      "id": "v_kau",
+      "form": "polite_masu"
+    },
+    "買いたいです": {
+      "id": "v_kau",
+      "form": "plain_desire_tai"
+    },
+    "買って": {
+      "id": "v_kau",
+      "form": "te_form"
+    },
+    "きて": {
+      "id": "v_kuru",
+      "form": "te_form"
+    },
+    "きた": {
+      "id": "v_kuru",
+      "form": "plain_past"
+    },
+    "ください": {
+      "id": "v_kudasai",
+      "form": null
+    },
+    "買った": {
+      "id": "v_kau",
+      "form": "plain_past"
+    },
+    "買いましょう": {
+      "id": "v_kau",
+      "form": "polite_volitional_mashou"
+    },
+    "食べたい": {
+      "id": "v_taberu",
+      "form": "plain_desire_tai"
+    },
+    "食べましょう": {
+      "id": "v_taberu",
+      "form": "polite_volitional_mashou"
+    },
+    "食べました": {
+      "id": "v_taberu",
+      "form": "polite_mashita"
+    },
+    "出しました": {
+      "id": "v_dasu",
+      "form": "polite_mashita"
+    },
+    "入れました": {
+      "id": "v_ireru",
+      "form": "polite_mashita"
+    },
+    "出ました": {
+      "id": "v_deru",
+      "form": "polite_mashita"
+    },
+    "出て": {
+      "id": "v_deru",
+      "form": "te_form"
+    },
+    "入りました": {
+      "id": "v_hairu",
+      "form": "polite_mashita"
+    },
+    "ありました": {
+      "id": "v_aru",
+      "form": "polite_mashita"
+    },
+    "あります": {
+      "id": "v_aru",
+      "form": "polite_masu"
+    },
+    "います": {
+      "id": "v_iru",
+      "form": "polite_masu"
+    },
+    "いました": {
+      "id": "v_iru",
+      "form": "polite_mashita"
+    },
+    "いませんでした": {
+      "id": "v_iru",
+      "form": "polite_past_negative"
+    },
+    "なりました": {
+      "id": "v_naru",
+      "form": "polite_mashita"
+    },
+    "しましょう": {
+      "id": "v_suru",
+      "form": "polite_volitional_mashou"
+    },
+    "大きかった": {
+      "id": "v_ookii",
+      "form": "plain_past_adj"
+    },
+    "長かった": {
+      "id": "v_nagai",
+      "form": "plain_past_adj"
+    },
+    "うれしかった": {
+      "id": "v_ureshii",
+      "form": "plain_past_adj"
+    },
+    "うれしそう": {
+      "id": "v_ureshii",
+      "form": "appearance_sou_stem"
+    }
+  }
+}

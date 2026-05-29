@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# .githooks/pre-commit — validates story JSON + manifest changes before commit.
+#
+# Activation (one-time, per clone):
+#   git config core.hooksPath .githooks
+#
+# What it checks:
+#   - Any staged story.json or manifest.json triggers scripts/validate-stories.mjs
+#   - Blocks the commit on validation failure
+#
+# Bypass: --no-verify (NOT recommended; CI also runs the validator).
+
+set -e
+
+staged="$(git diff --cached --name-only --diff-filter=ACM)"
+
+needs_check=0
+while IFS= read -r f; do
+  case "$f" in
+    data/*/stories/*/story.json|manifest.json)
+      needs_check=1
+      ;;
+  esac
+done <<< "$staged"
+
+if [ "$needs_check" -eq 1 ]; then
+  echo "→ pre-commit: validating story JSON…"
+  if ! node scripts/validate-stories.mjs; then
+    echo
+    echo "✘ validate-stories failed. Fix the errors above before committing."
+    echo "  (Run \`npm run validate:stories\` locally to iterate.)"
+    exit 1
+  fi
+fi
+
+exit 0

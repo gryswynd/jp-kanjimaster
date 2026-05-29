@@ -1,0 +1,1402 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.11",
+  "title": "Sky, Rain & Nature",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 11,
+    "focus": "Sky, rain, flowers, and fish — compounds built from 空・雨・花・魚, plus the appearance expression ～そうです and the na-adjective きれい",
+    "estimated_minutes": 30,
+    "kanji": [
+      "空",
+      "雨",
+      "花",
+      "魚"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "空",
+      "on": "くう",
+      "kun": "そら",
+      "meaning": "sky / empty",
+      "termId": "k_sora"
+    },
+    {
+      "kanji": "雨",
+      "on": "う",
+      "kun": "あめ",
+      "meaning": "rain",
+      "termId": "k_ame"
+    },
+    {
+      "kanji": "花",
+      "on": "か",
+      "kun": "はな",
+      "meaning": "flower",
+      "termId": "k_hana"
+    },
+    {
+      "kanji": "魚",
+      "on": "ぎょ",
+      "kun": "さかな",
+      "meaning": "fish",
+      "termId": "k_sakana"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up: Quick Review",
+      "instructions": "Read each sentence and choose the correct English meaning.",
+      "items": [
+        {
+          "jp": "今日の 天気は よかったですね。",
+          "en": "Today's weather was good, wasn't it.",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_tenki",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "jp": "この 電車は 長くて、高くないです。",
+          "en": "This train is long and not expensive.",
+          "terms": [
+            "v_kono",
+            "v_densha",
+            "p_wa",
+            {
+              "id": "v_nagai",
+              "form": "te_form"
+            },
+            {
+              "id": "v_takai",
+              "form": "plain_negative"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "やまかわさんは 休んでいます。",
+          "en": "Yamakawa-san is resting.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            {
+              "id": "v_yasumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "山に 行きましょう。",
+          "en": "Let's go to the mountains.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji",
+      "items": [
+        {
+          "kanji": "空",
+          "on": "くう",
+          "kun": "そら",
+          "meaning": "sky / empty",
+          "terms": [
+            "k_sora"
+          ]
+        },
+        {
+          "kanji": "雨",
+          "on": "う",
+          "kun": "あめ",
+          "meaning": "rain",
+          "terms": [
+            "k_ame"
+          ]
+        },
+        {
+          "kanji": "花",
+          "on": "か",
+          "kun": "はな",
+          "meaning": "flower",
+          "terms": [
+            "k_hana"
+          ]
+        },
+        {
+          "kanji": "魚",
+          "on": "ぎょ",
+          "kun": "さかな",
+          "meaning": "fish",
+          "terms": [
+            "k_sakana"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary",
+      "groups": [
+        {
+          "label": "Sky & Weather",
+          "items": [
+            "v_sora",
+            "v_ame",
+            "v_kuuki"
+          ]
+        },
+        {
+          "label": "Nature",
+          "items": [
+            "v_hana",
+            "v_sakana",
+            "v_kingyo",
+            "v_hanabi"
+          ]
+        },
+        {
+          "label": "Adjectives",
+          "items": [
+            "v_kirei",
+            "v_kawaii"
+          ]
+        },
+        {
+          "label": "Kanji",
+          "items": [
+            "k_sora",
+            "k_ame",
+            "k_hana",
+            "k_sakana"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: A Beautiful Sky",
+      "context": "Miki and Ren walk in the park on a clear spring day.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "今日の 空は とても きれいですね。",
+          "en": "Today's sky is very beautiful, isn't it.",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            "v_totemo",
+            "v_kirei",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。空気も とても いいですよ。",
+          "en": "Yes. The air is also very nice.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_kuuki",
+            "p_mo",
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "川に 花が たくさん あります。きれいそうですね。",
+          "en": "There are many flowers by the river. They look beautiful, don't they.",
+          "terms": [
+            "v_kawa",
+            "p_ni",
+            "v_hana",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            {
+              "id": "v_kirei",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "川の 中に 小さい 魚も いますよ。",
+          "en": "There are also small fish in the river.",
+          "terms": [
+            "v_kawa",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_chiisai",
+            "v_sakana",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "きれいな 川ですね。毎年、花火も ありますよ。",
+          "en": "It's a beautiful river. Every year there are also fireworks.",
+          "terms": [
+            {
+              "id": "v_kirei",
+              "form": "attributive_na"
+            },
+            "v_kawa",
+            "g_desu",
+            "p_ne",
+            "v_mainen",
+            "v_hanabi",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "花火は 大きそうですよ！きれいな 日ですね。",
+          "en": "The fireworks look big! It's a beautiful day, isn't it.",
+          "terms": [
+            "v_hanabi",
+            "p_wa",
+            {
+              "id": "v_ookii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_yo",
+            {
+              "id": "v_kirei",
+              "form": "attributive_na"
+            },
+            "v_hi",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "きれいな 花が ほしいです。",
+          "en": "I want some beautiful flowers.",
+          "terms": [
+            {
+              "id": "v_kirei",
+              "form": "attributive_na"
+            },
+            "v_hana",
+            "p_ga",
+            "v_hoshii",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "来年も 花は きれいでしょう。",
+          "en": "Next year too, the flowers will probably be beautiful.",
+          "terms": [
+            "v_rainen",
+            "p_mo",
+            "v_hana",
+            "p_wa",
+            "v_kirei",
+            "g_deshou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Fireworks Festival",
+      "context": "Miki and Ren make plans to see the fireworks and eat before the show.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "花火の 前に、どこで 食べましょうか。",
+          "en": "Where shall we eat before the fireworks?",
+          "terms": [
+            "v_hanabi",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "駅の 前の 店で 食べましょう。カレーが ありますよ。",
+          "en": "Let's eat at the shop in front of the station. They have curry.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_no",
+            "v_mise",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            },
+            "v_karee",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "花火は 高いですか。",
+          "en": "Are the fireworks expensive?",
+          "terms": [
+            "v_hanabi",
+            "p_wa",
+            "v_takai",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "高くないですよ。安い 花火ですよ。",
+          "en": "They're not expensive. They're cheap fireworks.",
+          "terms": [
+            {
+              "id": "v_takai",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "p_yo",
+            "v_yasui",
+            "v_hanabi",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "よかったです！花火の 前に、カレーを 食べましょう。",
+          "en": "That's great! Let's eat curry before the fireworks.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "v_hanabi",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいですね。花火は きれいで、カレーも おいしくて、いい 日ですね。",
+          "en": "Sounds good. The fireworks are beautiful, the curry is also delicious, it's a great day.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_hanabi",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
+            "v_karee",
+            "p_mo",
+            {
+              "id": "v_oishii",
+              "form": "te_form"
+            },
+            "v_ii",
+            "v_hi",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "カレーは おいしいですけど、花火は いちばん きれいですよ。",
+          "en": "The curry is delicious, but the fireworks are the most beautiful, you know.",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "p_kedo",
+            "v_hanabi",
+            "p_wa",
+            "v_ichiban",
+            "v_kirei",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: A Rainy Day",
+      "context": "Miki and Ren notice the sky has changed and rain seems to be coming.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "今日の 空は きれいじゃないですね。",
+          "en": "Today's sky isn't beautiful, is it.",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。雨が 来そうですよ。",
+          "en": "Yes. It looks like rain is coming.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_ame",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "appearance_sou"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "雨の 日は 外に 行きたくないのです。",
+          "en": "The thing is, on rainy days I don't want to go outside.",
+          "terms": [
+            "v_ame",
+            "p_no",
+            "v_hi",
+            "p_wa",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "desire_tai_negative"
+            },
+            "p_no",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。家で 休みたいですね。",
+          "en": "Yes. I want to rest at home, don't I.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_ie",
+            "p_de",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "天気が よくないんですが、空気は きれいです。",
+          "en": "The weather isn't good, you see, but the air is clean.",
+          "terms": [
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_negative"
+            },
+            "p_ndesu",
+            "p_ga_but",
+            "v_kuuki",
+            "p_wa",
+            "v_kirei",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。きのうの 雨の 後も、花が きれいに なりましたよ。",
+          "en": "Yes. Even after yesterday's rain, the flowers became beautiful.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_kinou",
+            "p_no",
+            "v_ame",
+            "p_no",
+            "v_ato",
+            "p_mo",
+            "v_hana",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "雨が 来るので、家で 休みます。",
+          "en": "Because rain is coming, I'll rest at home.",
+          "terms": [
+            "v_ame",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "plain_form"
+            },
+            "p_node",
+            "v_ie",
+            "p_de",
+            {
+              "id": "v_yasumu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Fish by the River (Casual)",
+      "context": "Miki and Ren, close friends, spot fish and goldfish while walking along the river.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "川に 大きい 魚が いるよ。かわいいね。",
+          "en": "There are big fish in the river. They're cute.",
+          "terms": [
+            "v_kawa",
+            "p_ni",
+            "v_ookii",
+            "v_sakana",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_yo",
+            "v_kawaii",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "うん。川の 魚は おいしそうだね。",
+          "en": "Yeah. The river fish looks delicious.",
+          "terms": [
+            "v_un",
+            "v_kawa",
+            "p_no",
+            "v_sakana",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "plain_appearance_sou"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "え！魚を 食べたいの。",
+          "en": "What! You want to eat fish?",
+          "terms": [
+            "v_e_exclaim",
+            "v_sakana",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "p_no_question"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "うん！川の 魚は おいしいからね。食べたいよ。",
+          "en": "Yeah! River fish is delicious, you know. I want to eat some.",
+          "terms": [
+            "v_un",
+            "v_kawa",
+            "p_no",
+            "v_sakana",
+            "p_wa",
+            "v_oishii",
+            "p_kara_because",
+            "p_ne",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "金魚も いるよ。かわいいね。",
+          "en": "There are goldfish too. They're cute.",
+          "terms": [
+            "v_kingyo",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_yo",
+            "v_kawaii",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "うん、金魚は きれいで、かわいいよね。",
+          "en": "Yeah, goldfish are beautiful and cute, right.",
+          "terms": [
+            "v_un",
+            "v_kingyo",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
+            "v_kawaii",
+            "p_ne",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "金魚は きれいなんだ。",
+          "en": "Goldfish are really beautiful, you know.",
+          "terms": [
+            "v_kingyo",
+            "p_wa",
+            "v_kirei",
+            "p_nda"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "うん、川の 中に 大きい 魚も いるだろう。",
+          "en": "Yeah, there are probably big fish in the river too.",
+          "terms": [
+            "v_un",
+            "v_kawa",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_ookii",
+            "v_sakana",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "g_darou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: Flowers and Sky",
+      "passage": [
+        {
+          "jp": "今日の 空は とても きれいです。空気も いいです。",
+          "en": "Today's sky is very beautiful. The air is also nice.",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            "v_totemo",
+            "v_kirei",
+            "g_desu",
+            "v_kuuki",
+            "p_mo",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "川に 花が たくさん あります。花は きれいで、かわいいです。",
+          "en": "There are many flowers in the river area. The flowers are beautiful and cute.",
+          "terms": [
+            "v_kawa",
+            "p_ni",
+            "v_hana",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_hana",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
+            "v_kawaii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "川に 大きい 魚も います。魚は おいしそうですね。",
+          "en": "There are also big fish in the river. The fish looks delicious, doesn't it.",
+          "terms": [
+            "v_kawa",
+            "p_ni",
+            "v_ookii",
+            "v_sakana",
+            "p_mo",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_sakana",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "jp": "毎年、花火が あります。花火は 大きくて、きれいですよ。",
+          "en": "Every year there are fireworks. The fireworks are big and beautiful.",
+          "terms": [
+            "v_mainen",
+            "v_hanabi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_hanabi",
+            "p_wa",
+            {
+              "id": "v_ookii",
+              "form": "te_form"
+            },
+            "v_kirei",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "jp": "今日は きれいな 日でした。また 来たいです。",
+          "en": "Today was a beautiful day. I want to come again.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "attributive_na"
+            },
+            "v_hi",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "v_mata",
+            {
+              "id": "v_kuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "花は どうですか。",
+          "q_en": "What are the flowers like?",
+          "a": "花は きれいで、かわいいです。",
+          "a_en": "The flowers are beautiful and cute.",
+          "terms": [
+            "v_hana",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_hana",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
+            "v_kawaii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "魚は どうですか。",
+          "q_en": "What do the fish look like?",
+          "a": "魚は おいしそうです。",
+          "a_en": "The fish looks delicious.",
+          "terms": [
+            "v_sakana",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_sakana",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "今日は どうでしたか。",
+          "q_en": "How was today for the narrator?",
+          "a": "きれいな 日でした。",
+          "a_en": "It was a beautiful day.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_kirei",
+              "form": "attributive_na"
+            },
+            "v_hi",
+            {
+              "id": "g_desu",
+              "form": "polite_past_copula"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: A Rainy Day",
+      "passage": [
+        {
+          "jp": "今日の 空は きれいじゃないです。雨が 来そうです。",
+          "en": "Today's sky isn't beautiful. It looks like rain is coming.",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "v_ame",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "雨の 日は 外に 行きません。家で 休みたいです。",
+          "en": "On rainy days I don't go outside. I want to rest at home.",
+          "terms": [
+            "v_ame",
+            "p_no",
+            "v_hi",
+            "p_wa",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_negative"
+            },
+            "v_ie",
+            "p_de",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "天気が よくないですが、雨の 日の 空気は きれいです。",
+          "en": "The weather isn't good, but the air on a rainy day is clean.",
+          "terms": [
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "p_ga_but",
+            "v_ame",
+            "p_no",
+            "v_hi",
+            "p_no",
+            "v_kuuki",
+            "p_wa",
+            "v_kirei",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "雨の 後、花が きれいに なります。",
+          "en": "After the rain, the flowers become beautiful.",
+          "terms": [
+            "v_ame",
+            "p_no",
+            "v_ato",
+            "v_hana",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "川の 金魚は 雨の 日も きれいです。金魚は かわいくないですか。",
+          "en": "The goldfish in the river are beautiful even on rainy days. Aren't goldfish cute?",
+          "terms": [
+            "v_kawa",
+            "p_no",
+            "v_kingyo",
+            "p_wa",
+            "v_ame",
+            "p_no",
+            "v_hi",
+            "p_mo",
+            "v_kirei",
+            "g_desu",
+            "v_kingyo",
+            "p_wa",
+            {
+              "id": "v_kawaii",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "今日の 空は どうですか。",
+          "q_en": "What is today's sky like?",
+          "a": "今日の 空は きれいじゃないです。",
+          "a_en": "Today's sky is not beautiful.",
+          "terms": [
+            "v_kyou",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kyou",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            {
+              "id": "v_kirei",
+              "form": "plain_negative"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "雨の 日は どこで 休みたいですか。",
+          "q_en": "Where does the narrator want to rest on a rainy day?",
+          "a": "家で 休みたいです。",
+          "a_en": "They want to rest at home.",
+          "terms": [
+            "v_ame",
+            "p_no",
+            "v_hi",
+            "p_wa",
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ie",
+            "p_de",
+            {
+              "id": "v_yasumu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "雨の 後、花は どうなりますか。",
+          "q_en": "What happens to the flowers after the rain?",
+          "a": "花が きれいに なります。",
+          "a_en": "The flowers become beautiful.",
+          "terms": [
+            "v_ame",
+            "p_no",
+            "v_ato",
+            "v_hana",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_hana",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Vocabulary",
+      "instructions": "Choose the correct English meaning for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "空",
+          "choices": [
+            "sky",
+            "rain",
+            "flower",
+            "fish"
+          ],
+          "answer": "sky"
+        },
+        {
+          "kind": "mcq",
+          "q": "雨",
+          "choices": [
+            "rain",
+            "sky",
+            "flower",
+            "atmosphere"
+          ],
+          "answer": "rain"
+        },
+        {
+          "kind": "mcq",
+          "q": "花",
+          "choices": [
+            "flower",
+            "fish",
+            "fireworks",
+            "goldfish"
+          ],
+          "answer": "flower"
+        },
+        {
+          "kind": "mcq",
+          "q": "金魚",
+          "choices": [
+            "goldfish",
+            "fish",
+            "flower",
+            "fireworks"
+          ],
+          "answer": "goldfish"
+        },
+        {
+          "kind": "mcq",
+          "q": "きれい",
+          "choices": [
+            "beautiful / clean",
+            "cute",
+            "good",
+            "popular"
+          ],
+          "answer": "beautiful / clean"
+        },
+        {
+          "kind": "mcq",
+          "q": "空気",
+          "choices": [
+            "atmosphere / air",
+            "sky",
+            "weather",
+            "rain"
+          ],
+          "answer": "atmosphere / air"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Appearance Expressions ～そうです",
+      "instructions": "Choose the correct appearance expression for each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "The flowers look beautiful. （きれい → appearance）",
+          "choices": [
+            "きれいそうです",
+            "きれいいそうです",
+            "きれいくそうです",
+            "きれいなそうです"
+          ],
+          "answer": "きれいそうです",
+          "terms": [
+            {
+              "id": "v_kirei",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "It looks like rain is coming. （来る → appearance）",
+          "choices": [
+            "来そうです",
+            "来りそうです",
+            "来るそうです",
+            "来ましそうです"
+          ],
+          "answer": "来そうです",
+          "terms": [
+            {
+              "id": "v_kuru",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "The fish looks delicious. （おいしい → appearance）",
+          "choices": [
+            "おいしそうです",
+            "おいしいそうです",
+            "おいしくそうです",
+            "おいしなそうです"
+          ],
+          "answer": "おいしそうです",
+          "terms": [
+            {
+              "id": "v_oishii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "The fireworks look big. （大きい → appearance）",
+          "choices": [
+            "大きそうです",
+            "大きいそうです",
+            "大きくそうです",
+            "大きかそうです"
+          ],
+          "answer": "大きそうです",
+          "terms": [
+            {
+              "id": "v_ookii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: na-Adjective Forms",
+      "instructions": "Choose the correct form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今日の 空は ___ です。（The sky is beautiful.）",
+          "choices": [
+            "きれい",
+            "きれいい",
+            "きれいく",
+            "きれいな"
+          ],
+          "answer": "きれい",
+          "terms": [
+            "v_kirei",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日の 空は ___ じゃないです。（The sky isn't beautiful today.）",
+          "choices": [
+            "きれい",
+            "きれいく",
+            "きれいい",
+            "きれいに"
+          ],
+          "answer": "きれい",
+          "terms": [
+            {
+              "id": "v_kirei",
+              "form": "plain_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "花は きれい___、かわいいです。（The flowers are beautiful and cute.）",
+          "choices": [
+            "で",
+            "くて",
+            "に",
+            "な"
+          ],
+          "answer": "で",
+          "terms": [
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
+            "v_kawaii",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "雨の 後、花が きれい___ なります。（After rain, flowers become beautiful.）",
+          "choices": [
+            "に",
+            "で",
+            "く",
+            "な"
+          ],
+          "answer": "に",
+          "terms": [
+            {
+              "id": "v_kirei",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

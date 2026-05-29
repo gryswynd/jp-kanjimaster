@@ -1,0 +1,876 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G20",
+  "type": "grammar",
+  "title": "Contrast, Concession & Listing Reasons — のに / ても / し",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.14",
+    "focus": "Express 'even though', 'even if', and list multiple reasons with のに, ても, and し.",
+    "estimatedMinutes": 20,
+    "particles": [
+      "p_noni",
+      "p_demo_but",
+      "p_shi"
+    ],
+    "grammarForms": [
+      "te_form",
+      "plain_form",
+      "plain_past"
+    ],
+    "icon": "🌀"
+  },
+  "targetVocab": [
+    "p_noni",
+    "p_shi"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Contrast, Concession & Listing Reasons",
+      "icon": "🌀",
+      "summary": "Sometimes the world doesn't go as expected — and Japanese has elegant tools for expressing that. In this lesson you'll learn three important patterns: のに for surprising or unfair contrasts, ても for expressing 'even if' conditions, and し for stacking multiple reasons together.",
+      "whyItMatters": "These three patterns appear constantly in everyday Japanese — in complaints, encouragement, explanations, and persuasion. Mastering them will make your speech sound natural and expressive.",
+      "youWillLearn": [
+        "のに — 'even though / despite' for unexpected or disappointing contrasts",
+        "ても — 'even if / even though' for concessive conditions",
+        "し — 'and also' for listing multiple reasons or qualities",
+        "How のに differs from ので (contrast vs reason)",
+        "How ても differs from てもいい (concession vs permission)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_noni",
+      "pattern": [
+        {
+          "text": "[plain form]",
+          "color": "predicate"
+        },
+        {
+          "text": "のに",
+          "color": "connector"
+        },
+        {
+          "text": "[contrasting result]",
+          "color": "modifier"
+        }
+      ],
+      "meaning": "even though ~ / despite ~",
+      "explanation": "のに follows a plain-form clause to express that what happened (or didn't happen) was surprising, disappointing, or contrary to expectations. It carries a tone of complaint, frustration, or regret — the speaker felt the outcome was unfair or unexpected.",
+      "notes": [
+        "Before のに, use plain form rules: verb (dictionary, past, negative), i-adjective (plain form), な-adjective + な, noun + な.",
+        "Noun + なのに: 先生なのに (even though he's a teacher). Na-adjective + なのに: 大切なのに (even though it's important).",
+        "のに expresses the speaker's emotional reaction — surprise, disappointment, or frustration. It is less common in neutral factual statements.",
+        "Compare with ので (G17): ので explains the reason FOR something; のに shows that the actual result was contrary to what was expected."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "勉強した",
+              "role": "predicate",
+              "gloss": "studied (plain past)"
+            },
+            {
+              "text": "のに、",
+              "role": "connector",
+              "gloss": "even though"
+            },
+            {
+              "text": "試験に",
+              "role": "modifier",
+              "gloss": "the exam (に)"
+            },
+            {
+              "text": "合格しなかった。",
+              "role": "predicate",
+              "gloss": "didn't pass (plain negative past)"
+            }
+          ],
+          "en": "Even though I studied, I didn't pass the exam.",
+          "breakdown": "Plain past 勉強した + のに expresses frustration that studying didn't lead to passing."
+        },
+        {
+          "parts": [
+            {
+              "text": "天気が",
+              "role": "subject",
+              "gloss": "weather (が)"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "nice (plain form)"
+            },
+            {
+              "text": "のに、",
+              "role": "connector",
+              "gloss": "even though"
+            },
+            {
+              "text": "外に",
+              "role": "modifier",
+              "gloss": "outside (に)"
+            },
+            {
+              "text": "出られない。",
+              "role": "predicate",
+              "gloss": "can't go out (plain potential negative)"
+            }
+          ],
+          "en": "Even though the weather is nice, I can't go outside.",
+          "breakdown": "Plain i-adjective (いい) + のに — the speaker is frustrated that nice weather is being wasted."
+        },
+        {
+          "parts": [
+            {
+              "text": "先生",
+              "role": "subject",
+              "gloss": "teacher"
+            },
+            {
+              "text": "なのに、",
+              "role": "connector",
+              "gloss": "even though (noun + なのに)"
+            },
+            {
+              "text": "まちがえた。",
+              "role": "predicate",
+              "gloss": "made a mistake (plain past)"
+            }
+          ],
+          "en": "Even though he's a teacher, he made a mistake.",
+          "breakdown": "Noun + なのに — the copula だ becomes な before のに, just as before ので."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_temo",
+      "pattern": [
+        {
+          "text": "[te-form]",
+          "color": "predicate"
+        },
+        {
+          "text": "も",
+          "color": "connector"
+        },
+        {
+          "text": "[outcome holds regardless]",
+          "color": "modifier"
+        }
+      ],
+      "meaning": "even if ~ / even though ~",
+      "explanation": "ても (te-form + も) expresses that the outcome holds regardless of the action or state. Unlike のに, ても is neutral — it doesn't carry a tone of complaint. It sets up a condition and states that the result is unaffected by it.",
+      "notes": [
+        "Verb ても: te-form + も. 食べても (even if [I] eat), 行っても (even if [I] go).",
+        "I-adjective ても: adverbial form (～く) + ても. 難しくても (even if it's difficult), 高くても (even if it's expensive).",
+        "Na-adjective / noun + でも: 雨でも (even if it rains), 先生でも (even if [you're] a teacher).",
+        "たとえ～ても reinforces the concession: たとえ難しくても (even if it is difficult).",
+        "Be careful: ても alone means 'even if.' てもいい is a different construction meaning 'it's okay to / permission.' ても alone never expresses permission."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "食べ",
+              "role": "predicate",
+              "gloss": "eat (masu-stem)"
+            },
+            {
+              "text": "ても、",
+              "role": "connector",
+              "gloss": "even if"
+            },
+            {
+              "text": "まだ",
+              "role": "adverb",
+              "gloss": "still"
+            },
+            {
+              "text": "お腹が",
+              "role": "subject",
+              "gloss": "stomach (が)"
+            },
+            {
+              "text": "すいている。",
+              "role": "predicate",
+              "gloss": "is empty / still hungry (ている state)"
+            }
+          ],
+          "en": "Even if I eat, I'm still hungry.",
+          "breakdown": "Te-form (食べて) + も. The outcome (still hungry) is unaffected by the action (eating)."
+        },
+        {
+          "parts": [
+            {
+              "text": "難しく",
+              "role": "predicate",
+              "gloss": "difficult (adverbial form)"
+            },
+            {
+              "text": "ても、",
+              "role": "connector",
+              "gloss": "even if"
+            },
+            {
+              "text": "あきらめません。",
+              "role": "predicate",
+              "gloss": "won't give up (polite negative)"
+            }
+          ],
+          "en": "Even if it's difficult, I won't give up.",
+          "breakdown": "I-adjective adverbial form (難しく) + ても. Difficulty doesn't change the resolve."
+        },
+        {
+          "parts": [
+            {
+              "text": "雨",
+              "role": "subject",
+              "gloss": "rain"
+            },
+            {
+              "text": "でも、",
+              "role": "connector",
+              "gloss": "even if (noun + でも)"
+            },
+            {
+              "text": "行きます。",
+              "role": "predicate",
+              "gloss": "will go (polite)"
+            }
+          ],
+          "en": "Even if it rains, I'll go.",
+          "breakdown": "Noun (雨) + でも expresses the same concessive meaning as ても for verbs. Use でも with nouns and na-adjective stems."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_shi",
+      "pattern": [
+        {
+          "text": "[clause A]",
+          "color": "predicate"
+        },
+        {
+          "text": "し、",
+          "color": "connector"
+        },
+        {
+          "text": "[clause B]",
+          "color": "predicate"
+        },
+        {
+          "text": "し、",
+          "color": "connector"
+        },
+        {
+          "text": "[conclusion]",
+          "color": "modifier"
+        }
+      ],
+      "meaning": "and also ~ / not only X but also Y (listing reasons)",
+      "explanation": "し attaches to the end of a clause to list multiple reasons or qualities that all contribute to an overall conclusion. Each し-clause adds to the list, and the final clause states the conclusion or result.",
+      "notes": [
+        "し follows plain form in casual speech, but polite form + し is also natural and common.",
+        "The qualities listed with し can be positive or negative, and they all support the same conclusion.",
+        "A single し is also valid: 安いし、買おう (It's cheap, so let's buy it) — one reason leading to a decision.",
+        "Distinguish し from から (single reason, stronger cause-effect) and ので (formal single reason): し implies multiple contributing factors."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "安い",
+              "role": "predicate",
+              "gloss": "cheap (plain form)"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "おいしい",
+              "role": "predicate",
+              "gloss": "delicious (plain form)"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "この店が",
+              "role": "subject",
+              "gloss": "this shop (が)"
+            },
+            {
+              "text": "好きです。",
+              "role": "predicate",
+              "gloss": "I like (polite)"
+            }
+          ],
+          "en": "It's cheap, and it's also delicious, so I like this shop.",
+          "breakdown": "Two し-clauses list positive qualities; the conclusion 好きです follows naturally."
+        },
+        {
+          "parts": [
+            {
+              "text": "今日は",
+              "role": "topic",
+              "gloss": "today (は)"
+            },
+            {
+              "text": "つかれた",
+              "role": "predicate",
+              "gloss": "tired (plain past)"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "忙しかった",
+              "role": "predicate",
+              "gloss": "was busy (plain past)"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "早く帰りたい。",
+              "role": "predicate",
+              "gloss": "want to go home early (desire)"
+            }
+          ],
+          "en": "Today I'm tired, and I was busy, so I want to go home early.",
+          "breakdown": "Two し-clauses list reasons for wanting to leave. し can follow plain past verbs and adjectives."
+        },
+        {
+          "parts": [
+            {
+              "text": "日本語は",
+              "role": "topic",
+              "gloss": "Japanese (は)"
+            },
+            {
+              "text": "難しい",
+              "role": "predicate",
+              "gloss": "difficult"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "時間も",
+              "role": "subject",
+              "gloss": "time too (も)"
+            },
+            {
+              "text": "かかる",
+              "role": "predicate",
+              "gloss": "takes (dictionary form)"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "でも",
+              "role": "connector",
+              "gloss": "but (sentence-initial)"
+            },
+            {
+              "text": "楽しいですよ。",
+              "role": "predicate",
+              "gloss": "it's fun! (polite)"
+            }
+          ],
+          "en": "Japanese is difficult, and it takes time — but it's fun!",
+          "breakdown": "し lists challenges, then でも introduces a contrasting positive conclusion."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "のに vs ので — Contrast vs Reason",
+      "items": [
+        {
+          "label": "のに",
+          "color": "connector",
+          "points": [
+            "Expresses an unexpected or unfair contrast",
+            "Carries emotional nuance: complaint, frustration, or surprise",
+            "The result goes against what was expected",
+            "Tone: 'Despite X, the unfair/surprising Y happened'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "勉強した",
+                "role": "predicate",
+                "gloss": "studied"
+              },
+              {
+                "text": "のに、",
+                "role": "connector",
+                "gloss": "even though"
+              },
+              {
+                "text": "わからない。",
+                "role": "predicate",
+                "gloss": "don't understand"
+              }
+            ],
+            "en": "Even though I studied, I don't understand. (frustrating!)"
+          }
+        },
+        {
+          "label": "ので",
+          "color": "modifier",
+          "points": [
+            "Gives a neutral, logical reason",
+            "No emotional nuance — just cause and effect",
+            "The result follows naturally from the reason",
+            "Tone: 'Because of X, Y naturally follows'"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "試験がある",
+                "role": "predicate",
+                "gloss": "there's an exam"
+              },
+              {
+                "text": "ので、",
+                "role": "connector",
+                "gloss": "because"
+              },
+              {
+                "text": "勉強します。",
+                "role": "predicate",
+                "gloss": "will study"
+              }
+            ],
+            "en": "Because there's an exam, I'll study. (neutral explanation)"
+          }
+        }
+      ],
+      "tip": "Ask yourself: 'Am I expressing a surprise or complaint, or just giving a reason?' → Surprise or complaint = のに. Neutral reason = ので."
+    },
+    {
+      "type": "grammarComparison",
+      "title": "ても vs てもいい — Concession vs Permission",
+      "items": [
+        {
+          "label": "ても",
+          "color": "connector",
+          "points": [
+            "Means 'even if / even though'",
+            "Expresses that the outcome holds regardless of the condition",
+            "Used to show that X doesn't change Y",
+            "No permission meaning"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "難しく",
+                "role": "predicate",
+                "gloss": "difficult (adverbial)"
+              },
+              {
+                "text": "ても、",
+                "role": "connector",
+                "gloss": "even if"
+              },
+              {
+                "text": "続けます。",
+                "role": "predicate",
+                "gloss": "will continue"
+              }
+            ],
+            "en": "Even if it's difficult, I'll continue."
+          }
+        },
+        {
+          "label": "てもいい",
+          "color": "predicate",
+          "points": [
+            "Means 'it's okay to / you may / it's fine if'",
+            "Expresses permission or acceptance",
+            "The いい signals that the action is acceptable or allowed",
+            "G23 covers this pattern in detail"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "ここに",
+                "role": "modifier",
+                "gloss": "here (に)"
+              },
+              {
+                "text": "座っ",
+                "role": "predicate",
+                "gloss": "sit (masu-stem)"
+              },
+              {
+                "text": "てもいいです。",
+                "role": "predicate",
+                "gloss": "it's okay to / you may sit"
+              }
+            ],
+            "en": "You may sit here."
+          }
+        }
+      ],
+      "tip": "ても alone = 'even if.' てもいい = 'it's okay to.' The addition of いい transforms concession into permission."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "Real Contexts: のに, ても, and し",
+      "examples": [
+        {
+          "context": "りきぞう is stuck at home on a sunny day (のに)",
+          "parts": [
+            {
+              "text": "今日は",
+              "role": "topic",
+              "gloss": "today (は)"
+            },
+            {
+              "text": "天気が",
+              "role": "subject",
+              "gloss": "weather (が)"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "nice (plain form)"
+            },
+            {
+              "text": "のに、",
+              "role": "connector",
+              "gloss": "even though"
+            },
+            {
+              "text": "ずっと",
+              "role": "adverb",
+              "gloss": "the whole time"
+            },
+            {
+              "text": "家に",
+              "role": "modifier",
+              "gloss": "at home (に)"
+            },
+            {
+              "text": "いる。",
+              "role": "predicate",
+              "gloss": "am staying (exist, animate)"
+            }
+          ],
+          "en": "Even though the weather is nice today, I'm stuck at home.",
+          "note": "のに carries frustration — the speaker expected to go out but can't."
+        },
+        {
+          "context": "けん encourages りきぞう before an exam (ても)",
+          "parts": [
+            {
+              "text": "難しく",
+              "role": "predicate",
+              "gloss": "difficult (adverbial form)"
+            },
+            {
+              "text": "ても、",
+              "role": "connector",
+              "gloss": "even if"
+            },
+            {
+              "text": "あきらめないで。",
+              "role": "predicate",
+              "gloss": "don't give up (negative te-form)"
+            }
+          ],
+          "en": "Even if it's difficult, don't give up.",
+          "note": "ても is neutral — no complaint, just stating a condition that doesn't change the advice."
+        },
+        {
+          "context": "りきぞう recommends a restaurant to けん (し)",
+          "parts": [
+            {
+              "text": "あの店は",
+              "role": "topic",
+              "gloss": "that shop (は)"
+            },
+            {
+              "text": "安い",
+              "role": "predicate",
+              "gloss": "cheap"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "おいしい",
+              "role": "predicate",
+              "gloss": "delicious"
+            },
+            {
+              "text": "し、",
+              "role": "connector",
+              "gloss": "and also"
+            },
+            {
+              "text": "サービスも",
+              "role": "subject",
+              "gloss": "service too (も)"
+            },
+            {
+              "text": "いいですよ。",
+              "role": "predicate",
+              "gloss": "is good (polite)"
+            }
+          ],
+          "en": "That shop is cheap, and it's delicious, and the service is great too!",
+          "note": "し stacks multiple positive qualities — each し-clause adds to the recommendation."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "After the Exam",
+      "context": "けん and りきぞう are at a restaurant after a tough exam day. They reflect on the day using のに, し, and ても.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "今日は天気がいいのに、試験がありましたね。",
+          "en": "Even though the weather is nice today, we had an exam.",
+          "terms": [
+            "char_ken",
+            "v_kyou",
+            "p_wa",
+            "v_tenki",
+            "p_ga",
+            "v_ii",
+            "p_noni",
+            "v_shiken",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "そうですね。試験は難しかったし、時間もなかったし、つかれました。",
+          "en": "You're right. The exam was difficult, and there was no time, so I'm tired.",
+          "terms": [
+            "char_rikizo",
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_shiken",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_past_adj"
+            },
+            "p_shi",
+            "v_jikan",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "plain_past_negative"
+            },
+            "p_shi",
+            {
+              "id": "v_tsukareru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "つかれても、勉強はよかったですよ。",
+          "en": "Even if you're tired, the studying was worth it.",
+          "terms": [
+            "char_ken",
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            "p_mo",
+            "v_benkyou",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "polite_past_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "この店は安いし、おいしいし、大好きです。",
+          "en": "This shop is cheap, it's delicious, so I love it.",
+          "terms": [
+            "char_rikizo",
+            "v_kono",
+            "v_mise",
+            "p_wa",
+            "v_yasui",
+            "p_shi",
+            "v_oishii",
+            "p_shi",
+            "v_daisuki",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Choose the Right Connector",
+      "instructions": "Select のに, ても, し, or ので to complete each sentence correctly.",
+      "items": [
+        {
+          "before": "毎日練習した",
+          "after": "、うまくなりません。",
+          "translation": "Even though I practice every day, I don't get better.",
+          "choices": [
+            "のに",
+            "ので",
+            "ても",
+            "し"
+          ],
+          "answer": "のに",
+          "explanation": "のに is correct — the speaker practiced (expected result: improvement), but the actual outcome is contrary and frustrating. ので would give a neutral cause-and-effect reason, not express a complaint."
+        },
+        {
+          "before": "難しく",
+          "after": "、あきらめません。",
+          "translation": "Even if it's difficult, I won't give up.",
+          "choices": [
+            "のに",
+            "ので",
+            "ても",
+            "し"
+          ],
+          "answer": "ても",
+          "explanation": "ても after the adverbial form (難しく) of an i-adjective means 'even if it's difficult.' The outcome (not giving up) holds regardless of the difficulty. のに would imply an unexpected or unfair result, which doesn't fit a general resolution."
+        },
+        {
+          "before": "この店は安い",
+          "after": "、サービスもいいし、また来たいです。",
+          "translation": "This shop is cheap, the service is also good, and I want to come again.",
+          "choices": [
+            "のに",
+            "ても",
+            "し",
+            "ので"
+          ],
+          "answer": "し",
+          "explanation": "し lists multiple positive reasons: 安いし (it's cheap) and サービスもいいし (the service is also good) both contribute to wanting to return. ので would give only a single cause; のに would imply a complaint."
+        },
+        {
+          "before": "つかれた",
+          "after": "、早く帰りたいです。",
+          "translation": "Because I'm tired, I want to go home early.",
+          "choices": [
+            "のに",
+            "し",
+            "ても",
+            "ので"
+          ],
+          "answer": "ので",
+          "explanation": "ので gives a neutral, logical reason: being tired → wanting to go home is a natural cause-and-effect. のに would imply a surprising or unfair contrast. し would list multiple reasons rather than provide a single natural cause."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: のに, ても, and し",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which pattern expresses frustration that effort did not lead to the expected result?",
+          "choices": [
+            "ので",
+            "し",
+            "のに",
+            "ても"
+          ],
+          "answer": "のに",
+          "terms": [],
+          "explanation": "のに expresses that the actual result was contrary to expectations — often with frustration or disappointment. 勉強したのに合格しなかった = Even though I studied, I didn't pass."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which is the correct way to say 'Even if it rains, I'll go' (雨 = rain, a noun)?",
+          "choices": [
+            "雨なのに、行きます。",
+            "雨でも、行きます。",
+            "雨し、行きます。",
+            "雨のに、行きます。"
+          ],
+          "answer": "雨でも、行きます。",
+          "terms": [],
+          "explanation": "For nouns, the concessive pattern is noun + でも. 雨でも = even if it rains. Verb ても uses te-form + も; nouns and na-adjective stems use でも instead."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly uses し to list reasons?",
+          "choices": [
+            "安いのに、おいしいし、好きです。",
+            "安いし、おいしいし、好きです。",
+            "安くても、おいしいし、好きです。",
+            "安いから、おいしいので、好きです。"
+          ],
+          "answer": "安いし、おいしいし、好きです。",
+          "terms": [],
+          "explanation": "し follows each clause to list multiple reasons: 安いし (it's cheap) + おいしいし (it's also delicious) leads to the conclusion 好きです. Both し-clauses contribute additively to the same conclusion."
+        },
+        {
+          "kind": "mcq",
+          "q": "What is the key difference between のに and ので?",
+          "choices": [
+            "のに is polite; ので is casual.",
+            "のに contrasts expected vs actual outcomes with emotional nuance; ので gives a neutral reason.",
+            "のに is for nouns; ので is for verbs.",
+            "They are interchangeable."
+          ],
+          "answer": "のに contrasts expected vs actual outcomes with emotional nuance; ので gives a neutral reason.",
+          "terms": [],
+          "explanation": "ので (G17) neutrally explains a cause. のに adds emotional weight — the result was unexpected or felt unfair. 疲れたので帰ります (I'm going home because I'm tired) vs 疲れたのに帰れない (Even though I'm tired, I can't go home — frustrating!)."
+        },
+        {
+          "kind": "mcq",
+          "q": "How is ても formed with a verb?",
+          "choices": [
+            "Dictionary form + ても",
+            "ます-stem + ても",
+            "て-form + も",
+            "Plain past + ても"
+          ],
+          "answer": "て-form + も",
+          "terms": [],
+          "explanation": "ても is the te-form followed by the particle も. First conjugate the verb to its て-form, then add も. 食べ + て + も → 食べても (even if [I] eat). This is why it's written as ても — it literally combines て and も."
+        }
+      ]
+    }
+  ]
+}

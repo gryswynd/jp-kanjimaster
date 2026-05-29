@@ -1,0 +1,179 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.20",
+  "lesson": "N4.20",
+  "level": "N4",
+  "title": "An Evening Out",
+  "titleJp": "夜の 外出",
+  "emoji": "🌙",
+  "theme": "Rikizo spends an evening shopping for Western clothes, then enjoys Western-style food at a ryouriya, and finishes the night on a rooftop gazing at the night sky.",
+  "prompts": [
+    {
+      "prompt": "Introduce when the evening begins. Write that Rikizo finished work tonight and then went out into town.",
+      "targets": [
+        { "id": "v_konya", "count": 1 },
+        { "id": "v_shigoto", "count": 1 }
+      ],
+      "model": "今夜、りきぞうは 仕事が 終わってから、町に 出かけました。",
+      "vocabPool": [
+        "v_konya", "v_yoru", "v_shigoto", "v_owaru", "v_machi", "v_iku", "v_suru",
+        "p_wa", "p_ga", "p_ni", "p_wo", "p_kara"
+      ]
+    },
+    {
+      "prompt": "Describe the clothing shop. Write that there was a shop selling Western clothes in town, and that the colours were beautiful.",
+      "targets": [
+        { "id": "v_youfuku", "count": 1 },
+        { "id": "v_iro", "count": 1 }
+      ],
+      "model": "町に 洋服の 店が ありました。色が きれいで、洋風の デザインが 好きでした。",
+      "vocabPool": [
+        "v_machi", "v_youfuku", "v_youfuu", "v_iro", "v_mise", "v_aru", "v_kirei",
+        "v_suki", "v_kono", "v_sono", "p_ni", "p_ga", "p_no", "p_wa", "p_de"
+      ]
+    },
+    {
+      "prompt": "Describe what Rikizo did at the shop. Write that he tried on several Western-style clothes and bought the ones he liked.",
+      "targets": [
+        { "id": "v_youfuu", "count": 1 },
+        { "id": "v_kau", "count": 1 }
+      ],
+      "model": "洋風の 服を 着て みたり、いろいろ 見たり しました。気に入った 服を 買いました。",
+      "vocabPool": [
+        "v_youfuku", "v_youfuu", "v_kau", "v_kiru", "v_miru", "v_suki", "v_iro",
+        "v_mise", "v_suru", "p_wo", "p_no", "p_ga", "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that after shopping, Rikizo went to a ryouriya that serves Western food. It was near the station.",
+      "targets": [
+        { "id": "v_ryouriya", "count": 1 },
+        { "id": "v_youshoku", "count": 1 }
+      ],
+      "model": "買い物を してから、駅の 近くに ある 洋食の 料理屋に 行きました。",
+      "vocabPool": [
+        "v_ryouriya", "v_youshoku", "v_kaimono", "v_eki", "v_iku", "v_suru",
+        "v_chikai", "v_aru", "p_wo", "p_ni", "p_no", "p_kara", "p_ga"
+      ]
+    },
+    {
+      "prompt": "Describe the meal. Write that the Western food was delicious, and that you want to come here again.",
+      "targets": [
+        { "id": "v_youshoku", "count": 1 },
+        { "id": "v_kuru", "count": 1 }
+      ],
+      "model": "友だちに 聞いた んですが、この 料理屋の 洋食は おいしいそうです。食べてみたら、本当に おいしかったです。また 来たいです。",
+      "vocabPool": [
+        "v_youshoku", "v_ryouriya", "v_oishii", "v_totemo", "v_kuru", "v_mata",
+        "v_shokuji", "v_ryouri", "g_desu", "p_ga", "p_ni", "p_wa", "p_mo"
+      ]
+    },
+    {
+      "prompt": "Write that after dinner, Rikizo went up to the rooftop. Compare the rooftop view with the restaurant view — the rooftop is better.",
+      "targets": [
+        { "id": "v_okujou", "count": 1 },
+        { "id": "v_hou", "count": 1 }
+      ],
+      "model": "食事の あとで、屋上に 行きました。料理屋より 屋上の ほうが、夜は きれいです。",
+      "vocabPool": [
+        "v_okujou", "v_shokuji", "v_ryouriya", "v_hou", "v_yoru", "v_iku",
+        "v_ato", "v_kirei", "v_tanoshii", "p_ni", "p_yori", "p_no", "p_ga", "p_wa"
+      ]
+    },
+    {
+      "prompt": "Describe the night sky from the rooftop. Write that the night sky was very beautiful and that the sea was also visible.",
+      "targets": [
+        { "id": "v_yozora", "count": 1 },
+        { "id": "v_kaiyou", "count": 1 }
+      ],
+      "model": "夜空が とても きれいでした。海洋も 見えました。",
+      "vocabPool": [
+        "v_yozora", "v_kaiyou", "v_umi", "v_sora", "v_mieru", "v_kirei", "v_totemo",
+        "v_yoru", "p_ga", "p_mo", "p_wa", "p_kara"
+      ]
+    },
+    {
+      "prompt": "Write about Rikizo's father. Write that there is a small hut near the sea, and that father often listens to the sound of the ocean while gazing at the sky.",
+      "targets": [
+        { "id": "v_chichi", "count": 1 },
+        { "id": "v_koya", "count": 1 }
+      ],
+      "model": "父の 小屋は 海の 近くに あります。父は いつも 海の 音を 聞きながら、空を 見ています。",
+      "vocabPool": [
+        "v_chichi", "v_koya", "v_umi", "v_oto", "v_kiku", "v_sora", "v_miru",
+        "v_iru", "v_itsumo", "v_yozora", "v_chikai", "p_no", "p_ni", "p_ga",
+        "p_de", "p_mo", "p_wo", "p_nagara"
+      ]
+    },
+    {
+      "prompt": "Close the evening by writing about what Rikizo thought overall. Write that tonight was enjoyable — the clothes, the meal, and the night view were all great.",
+      "targets": [
+        { "id": "v_yoru", "count": 1 },
+        { "id": "v_tanoshii", "count": 1 }
+      ],
+      "model": "今夜は 楽しかったです。洋服も 洋食も 夜空も、とても よかったです。",
+      "vocabPool": [
+        "v_konya", "v_yoru", "v_tanoshii", "v_youfuku", "v_youshoku", "v_yozora",
+        "v_totemo", "v_ii", "v_tanoshimu", "p_wa", "p_mo", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_to_quote", "p_kara", "p_kara_because", "p_made", "p_goro",
+    "p_ka", "p_yo", "p_ne", "p_dewa", "p_ja", "p_ya",
+    "p_ga_but", "p_kedo", "p_demo_but", "p_shi",
+    "p_node", "p_nagara", "p_yori", "p_hodo", "p_kurai",
+    "p_dake", "p_shika", "p_bakari", "p_demo", "p_noni",
+    "p_sou_da_hearsay",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-stem] ます / ました / ません / ませんでした",
+      "meaning": "polite present / past / negative / past negative",
+      "examples": ["行きます", "行きました", "行きません", "行きませんでした"]
+    },
+    {
+      "pattern": "[verb て-form] から",
+      "meaning": "after doing ~ (sequential action)",
+      "examples": ["仕事が 終わってから", "買い物を してから"]
+    },
+    {
+      "pattern": "[verb て-form] みる",
+      "meaning": "try doing ~",
+      "examples": ["着て みました", "食べて みたいです"]
+    },
+    {
+      "pattern": "[verb たり-form] 〜たり する",
+      "meaning": "do things like ~ (listing representative actions)",
+      "examples": ["見たり 聞いたり しました", "買ったり 着たり しました"]
+    },
+    {
+      "pattern": "[verb] ながら",
+      "meaning": "while doing ~",
+      "examples": ["音を 聞きながら 空を 見ました"]
+    },
+    {
+      "pattern": "[A] より [B] の ほうが 〜",
+      "meaning": "[B] is more ~ than [A]",
+      "examples": ["料理屋より 屋上の ほうが きれいです"]
+    },
+    {
+      "pattern": "[adj] し、[adj] し",
+      "meaning": "both ~ and ~ (listing positive reasons)",
+      "examples": ["安いし、おいしいです"]
+    },
+    {
+      "pattern": "[い-adj]: 〜かった / 〜かったです",
+      "meaning": "past tense adjective (plain / polite)",
+      "examples": ["楽しかったです", "おいしかったです", "よかったです"]
+    },
+    {
+      "pattern": "[verb plain_desire_tai] + です",
+      "meaning": "I want to ~",
+      "examples": ["食べたいです", "来たいです", "見たいです"]
+    }
+  ]
+}

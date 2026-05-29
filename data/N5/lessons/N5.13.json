@@ -1,0 +1,1453 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.13",
+  "title": "Communication",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 13,
+    "focus": "Speaking, reading, and writing — compounds unlocked by 手・言・読・書・話, plus 電話 and 空手, and the adverb ゆっくり",
+    "estimated_minutes": 30,
+    "kanji": [
+      "手",
+      "言",
+      "読",
+      "書",
+      "話"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "手",
+      "on": "しゅ",
+      "kun": "て",
+      "meaning": "hand",
+      "termId": "k_te"
+    },
+    {
+      "kanji": "言",
+      "on": "げん",
+      "kun": "い",
+      "meaning": "say",
+      "termId": "k_i_2"
+    },
+    {
+      "kanji": "読",
+      "on": "どく",
+      "kun": "よ",
+      "meaning": "read",
+      "termId": "k_yo"
+    },
+    {
+      "kanji": "書",
+      "on": "しょ",
+      "kun": "か",
+      "meaning": "write",
+      "termId": "k_ka"
+    },
+    {
+      "kanji": "話",
+      "on": "わ",
+      "kun": "はな",
+      "meaning": "speak",
+      "termId": "k_hana_2"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up: Quick Review",
+      "instructions": "Read each sentence and choose the correct English meaning.",
+      "items": [
+        {
+          "jp": "日本語の 本は おもしろそうですね。",
+          "en": "Japanese books look interesting, don't they.",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_hon",
+            "p_no",
+            {
+              "id": "v_omoshiroi",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "jp": "先週の テストは 長かったです。",
+          "en": "Last week's test was long.",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_tesuto",
+            "p_no",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎日 学校で 日本語を 学んでいます。",
+          "en": "I study Japanese at school every day.",
+          "terms": [
+            "v_mainichi",
+            "v_gakkou",
+            "p_de",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "新しい 本を 買いましょう。",
+          "en": "Let's buy a new book.",
+          "terms": [
+            "v_atarashii",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji",
+      "items": [
+        {
+          "kanji": "手",
+          "on": "しゅ",
+          "kun": "て",
+          "meaning": "hand",
+          "terms": [
+            "k_te"
+          ]
+        },
+        {
+          "kanji": "言",
+          "on": "げん",
+          "kun": "い",
+          "meaning": "say",
+          "terms": [
+            "k_i_2"
+          ]
+        },
+        {
+          "kanji": "読",
+          "on": "どく",
+          "kun": "よ",
+          "meaning": "read",
+          "terms": [
+            "k_yo"
+          ]
+        },
+        {
+          "kanji": "書",
+          "on": "しょ",
+          "kun": "か",
+          "meaning": "write",
+          "terms": [
+            "k_ka"
+          ]
+        },
+        {
+          "kanji": "話",
+          "on": "わ",
+          "kun": "はな",
+          "meaning": "speak",
+          "terms": [
+            "k_hana_2"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary",
+      "groups": [
+        {
+          "label": "Communication Verbs",
+          "items": [
+            "v_hanasu",
+            "v_iu",
+            "v_kaku",
+            "v_yomu"
+          ]
+        },
+        {
+          "label": "Objects & Adverbs",
+          "items": [
+            "v_te",
+            "v_denwa",
+            "v_yukkuri"
+          ]
+        },
+        {
+          "label": "Particles",
+          "items": [
+            "p_to_quote"
+          ]
+        },
+        {
+          "label": "Compound Words",
+          "items": [
+            "v_karate"
+          ]
+        },
+        {
+          "label": "Kanji",
+          "items": [
+            "k_te",
+            "k_i_2",
+            "k_yo",
+            "k_ka",
+            "k_hana_2"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Speaking Practice",
+      "context": "The teacher starts a Japanese speaking activity. Miki asks the teacher to speak slowly.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "今日は 日本語で 話しましょう。日本語で 言ってください。",
+          "en": "Today let's speak in Japanese. Please say it in Japanese.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_nihongo",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_volitional_mashou"
+            },
+            "v_nihongo",
+            "p_de",
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "先生、ゆっくり 話してください。",
+          "en": "Teacher, please speak slowly.",
+          "terms": [
+            "v_sensei",
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "分かりました。ゆっくり 話します。",
+          "en": "Understood. I will speak slowly.",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "日本語は とても おもしろいです。毎日 話したいです。",
+          "en": "Japanese is very interesting. I want to speak it every day.",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_totemo",
+            "v_omoshiroi",
+            "g_desu",
+            "v_mainichi",
+            {
+              "id": "v_hanasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "いいですね。毎日 本を 読んで、書いてください。",
+          "en": "That's great. Please read and write books every day.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_mainichi",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "はい、毎日 読んで、書きます。",
+          "en": "Yes, I will read and write every day.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "「ありがとう」と 言ってください。",
+          "en": "Please say \"thank you\".",
+          "terms": [
+            "p_arigatou",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: A Phone Call",
+      "context": "Miki calls Ren to chat about a Japanese book they want to read together.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "レンさん、電話で 話しましょう。",
+          "en": "Ren, let's talk on the phone.",
+          "terms": [
+            "char_ren",
+            "v_san",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "はい、話しましょう。今日 日本語の 本を 読んでいますか。",
+          "en": "Yes, let's talk. Are you reading a Japanese book today?",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_hanasu",
+              "form": "polite_volitional_mashou"
+            },
+            "v_kyou",
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "はい、読んでいます。日本語の 本は おもしろいですね。",
+          "en": "Yes, I'm reading one. Japanese books are interesting, aren't they.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_nihongo",
+            "p_wa",
+            "v_hon",
+            "p_no",
+            "v_omoshiroi",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "そうですね。わたしも 読みたいです。どんな 本ですか。",
+          "en": "That's true. I want to read one too. What kind of book is it?",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_watashi",
+            "p_mo",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_donna",
+            "v_hon",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "その 本は おもしろそうですよ。日本語の 本です。",
+          "en": "That book looks interesting. It's a Japanese book.",
+          "terms": [
+            "v_sono",
+            "v_hon",
+            "p_wa",
+            {
+              "id": "v_omoshiroi",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_yo",
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいですね。学校で 読みましょう。電話で も 話しましょう。",
+          "en": "Sounds good. Let's read at school. Let's also talk on the phone.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_gakkou",
+            "p_de",
+            {
+              "id": "v_yomu",
+              "form": "polite_volitional_mashou"
+            },
+            "v_denwa",
+            "p_de",
+            "p_mo",
+            {
+              "id": "v_hanasu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "その 本は おもしろいでしょう。",
+          "en": "That book's probably interesting.",
+          "terms": [
+            "v_sono",
+            "v_hon",
+            "p_wa",
+            "v_omoshiroi",
+            "g_deshou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Reading and Writing at School",
+      "context": "Lee and Miki study Japanese at school and talk about their reading and writing habits.",
+      "lines": [
+        {
+          "spk": "リー",
+          "jp": "ミキさんは 毎日 日本語を 読んでいますか。",
+          "en": "Miki, do you read Japanese every day?",
+          "terms": [
+            "char_miki",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "はい、毎日 本を 読んでいます。日本語の 本は おもしろいですね。",
+          "en": "Yes, I read books every day. Japanese books are interesting, aren't they.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_nihongo",
+            "p_wa",
+            "v_hon",
+            "p_no",
+            "v_omoshiroi",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "そうですね。わたしも 書いています。ゆっくり 書きます。",
+          "en": "That's right. I'm writing too. I write slowly.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_watashi",
+            "p_mo",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_yukkuri",
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "その 本は おもしろそうですよ。読んでください。",
+          "en": "That book looks interesting. Please read it.",
+          "terms": [
+            "v_sono",
+            "v_hon",
+            "p_wa",
+            {
+              "id": "v_omoshiroi",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_yo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "はい、読みます。電話で も 話したいです。",
+          "en": "Yes, I'll read it. I want to talk on the phone too.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            },
+            "v_denwa",
+            "p_de",
+            "p_mo",
+            {
+              "id": "v_hanasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "いいですね。毎日 日本語で 話しましょう。",
+          "en": "Wonderful. Let's speak Japanese every day.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_mainichi",
+            "v_nihongo",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "ミキさんの ノートは とても きれいですね。",
+          "en": "Miki, your notebook is very pretty.",
+          "terms": [
+            "char_miki",
+            "v_san",
+            "p_no",
+            "v_nooto",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "毎日 たくさん 読むんです。",
+          "en": "I read a lot every day, you see.",
+          "terms": [
+            "v_mainichi",
+            "v_takusan",
+            {
+              "id": "v_yomu",
+              "form": "plain_form"
+            },
+            "p_ndesu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Karate and Books (Casual)",
+      "context": "Two close friends, Ren and Miki, chat casually after school about karate and reading.",
+      "lines": [
+        {
+          "spk": "レン",
+          "jp": "空手は おもしろいよね。",
+          "en": "Karate is interesting, right.",
+          "terms": [
+            "v_karate",
+            "p_wa",
+            "v_omoshiroi",
+            "p_ne",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "うん、おもしろいよ。空手の 本も 読んだよ。",
+          "en": "Yeah, it's interesting. I even read a karate book.",
+          "terms": [
+            "v_un",
+            "v_omoshiroi",
+            "p_yo",
+            "v_karate",
+            "p_mo",
+            "v_hon",
+            "p_no",
+            {
+              "id": "v_yomu",
+              "form": "plain_past"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "どんな 本。おもしろかった？",
+          "en": "What kind of book. Was it interesting?",
+          "terms": [
+            "v_donna",
+            "v_hon",
+            {
+              "id": "v_omoshiroi",
+              "form": "plain_past_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "うん、おもしろかったよ。空手を したいな。",
+          "en": "Yeah, it was interesting. I want to do karate.",
+          "terms": [
+            "v_un",
+            {
+              "id": "v_omoshiroi",
+              "form": "plain_past_adj"
+            },
+            "p_yo",
+            "v_karate",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "p_na"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "じゃ、電話で 話そうよ。空手を しよう！",
+          "en": "Then let's talk on the phone. Let's do karate!",
+          "terms": [
+            "p_ja",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "plain_volitional"
+            },
+            "p_yo",
+            "v_karate",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_volitional"
+            }
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "うん！毎日 話そうよ。本も 読もう。",
+          "en": "Yeah! Let's talk every day. Let's read books too.",
+          "terms": [
+            "v_un",
+            "v_mainichi",
+            {
+              "id": "v_hanasu",
+              "form": "plain_volitional"
+            },
+            "p_yo",
+            "v_hon",
+            "p_mo",
+            {
+              "id": "v_yomu",
+              "form": "plain_volitional"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "その 本も おもしろいだろう。",
+          "en": "That book's probably interesting too.",
+          "terms": [
+            "v_sono",
+            "v_hon",
+            "p_mo",
+            "v_omoshiroi",
+            "g_darou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: My Communication Habits",
+      "passage": [
+        {
+          "jp": "わたしは 毎日 日本語を 読んで、書いています。",
+          "en": "I read and write Japanese every day.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_mainichi",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "日本語の 本は おもしろいです。毎日 学校で 読みます。",
+          "en": "Japanese books are interesting. I read them at school every day.",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_hon",
+            "p_no",
+            "v_omoshiroi",
+            "g_desu",
+            "v_mainichi",
+            "v_gakkou",
+            "p_de",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先生は ゆっくり 話します。わたしは よく 分かります。",
+          "en": "The teacher speaks slowly. I understand well.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "v_watashi",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "毎日 電話で 友だちと 話します。",
+          "en": "I speak with friends on the phone every day.",
+          "terms": [
+            "v_mainichi",
+            "v_denwa",
+            "p_de",
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "本を 読んで、ノートに 書きます。毎日 話したいです。",
+          "en": "I read books and write in my notebook. I want to speak every day.",
+          "terms": [
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            "v_nooto",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            },
+            "v_mainichi",
+            {
+              "id": "v_hanasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "毎日 何を 読んで、書いていますか。",
+          "q_en": "What does the narrator read and write every day?",
+          "a": "日本語を 読んで、書いています。",
+          "a_en": "They read and write Japanese every day.",
+          "terms": [
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "毎日 だれと 電話で 話しますか。",
+          "q_en": "Who does the narrator speak with on the phone every day?",
+          "a": "友だちと 話します。",
+          "a_en": "They speak with their friends.",
+          "terms": [
+            "v_mainichi",
+            "v_dare",
+            "p_to",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "毎日 何を したいですか。",
+          "q_en": "What does the narrator want to do every day?",
+          "a": "毎日 話したいです。",
+          "a_en": "They want to speak every day.",
+          "terms": [
+            "v_mainichi",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mainichi",
+            {
+              "id": "v_hanasu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: Ren's Language Practice",
+      "passage": [
+        {
+          "jp": "レンさんは 毎日 電話で 話します。日本語で 話します。",
+          "en": "Ren speaks on the phone every day. He speaks in Japanese.",
+          "terms": [
+            "char_ren",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "v_nihongo",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "日本語の 本は おもしろそうです。レンさんは よく 読みます。",
+          "en": "Japanese books look interesting. Ren reads them often.",
+          "terms": [
+            "v_nihongo",
+            "p_wa",
+            "v_hon",
+            "p_wa",
+            {
+              "id": "v_omoshiroi",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "char_ren",
+            "v_san",
+            "p_no",
+            {
+              "id": "v_ii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "レンさんは ノートに 書きます。手で ゆっくり 書きます。",
+          "en": "Ren writes in his notebook. He writes slowly by hand.",
+          "terms": [
+            "char_ren",
+            "v_san",
+            "p_wa",
+            "v_nooto",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            },
+            "v_te",
+            "p_de",
+            "v_yukkuri",
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "友だちに 電話で 話して、日本語を 言います。",
+          "en": "He calls friends, talks to them, and speaks Japanese.",
+          "terms": [
+            "v_tomodachi",
+            "p_ni",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "te_form"
+            },
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_iu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "レンさんは 空手の 本も 読みます。空手は おもしろいです。",
+          "en": "Ren also reads karate books. Karate is interesting.",
+          "terms": [
+            "char_ren",
+            "v_san",
+            "p_wa",
+            "v_karate",
+            "p_wa",
+            "v_hon",
+            "p_mo",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            },
+            "v_karate",
+            "p_no",
+            "v_omoshiroi",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "レンさんは 毎日 何で 話しますか。",
+          "q_en": "How does Ren speak every day?",
+          "a": "毎日 電話で 話します。",
+          "a_en": "They speak on the phone every day.",
+          "terms": [
+            "char_ren",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_nani",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mainichi",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "日本語の 本は どうですか。",
+          "q_en": "What are Japanese books like in the passage?",
+          "a": "おもしろそうです。",
+          "a_en": "They look interesting.",
+          "terms": [
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_omoshiroi",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "レンさんは 空手の 本も 読みますか。",
+          "q_en": "Does Ren also read karate books?",
+          "a": "空手の 本も 読みます。",
+          "a_en": "Yes, they also read karate books.",
+          "terms": [
+            "char_ren",
+            "v_san",
+            "p_wa",
+            "v_karate",
+            "p_no",
+            "v_hon",
+            "p_mo",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_karate",
+            "p_no",
+            "v_hon",
+            "p_mo",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Vocabulary",
+      "instructions": "Choose the correct English meaning for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "話す",
+          "choices": [
+            "to speak",
+            "to read",
+            "to write",
+            "to listen"
+          ],
+          "answer": "to speak"
+        },
+        {
+          "kind": "mcq",
+          "q": "読む",
+          "choices": [
+            "to read",
+            "to write",
+            "to speak",
+            "to say"
+          ],
+          "answer": "to read"
+        },
+        {
+          "kind": "mcq",
+          "q": "書く",
+          "choices": [
+            "to write",
+            "to read",
+            "to say",
+            "to call"
+          ],
+          "answer": "to write"
+        },
+        {
+          "kind": "mcq",
+          "q": "電話",
+          "choices": [
+            "telephone",
+            "hand",
+            "karate",
+            "slowly"
+          ],
+          "answer": "telephone"
+        },
+        {
+          "kind": "mcq",
+          "q": "ゆっくり",
+          "choices": [
+            "slowly",
+            "very",
+            "often",
+            "a little"
+          ],
+          "answer": "slowly"
+        },
+        {
+          "kind": "mcq",
+          "q": "空手",
+          "choices": [
+            "karate",
+            "hand",
+            "telephone",
+            "book"
+          ],
+          "answer": "karate"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Communication in Context",
+      "instructions": "Choose the correct verb to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "先生に 日本語で ___。（I say it to the teacher in Japanese.）",
+          "choices": [
+            "言います",
+            "読みます",
+            "書きます",
+            "電話します"
+          ],
+          "answer": "言います",
+          "terms": [
+            "v_sensei",
+            "p_ni",
+            "v_nihongo",
+            "p_de",
+            {
+              "id": "v_iu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 日本語の 本を ___。（I read a Japanese book every day.）",
+          "choices": [
+            "読みます",
+            "書きます",
+            "話します",
+            "言います"
+          ],
+          "answer": "読みます",
+          "terms": [
+            "v_mainichi",
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちに 電話で ___。（I speak with friends on the phone.）",
+          "choices": [
+            "話します",
+            "読みます",
+            "書きます",
+            "行きます"
+          ],
+          "answer": "話します",
+          "terms": [
+            "v_tomodachi",
+            "p_ni",
+            "v_denwa",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "ノートに ___。（I write in my notebook.）",
+          "choices": [
+            "書きます",
+            "読みます",
+            "話します",
+            "言います"
+          ],
+          "answer": "書きます",
+          "terms": [
+            "v_nooto",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Verb Forms",
+      "instructions": "Choose the correct form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "日本語の 本を 読んで___。（I am reading a Japanese book.）",
+          "choices": [
+            "います",
+            "ください",
+            "いました",
+            "ありません"
+          ],
+          "answer": "います",
+          "terms": [
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語を ゆっくり 話し___。（Please speak Japanese slowly.）",
+          "choices": [
+            "てください",
+            "ましょう",
+            "ています",
+            "ませんでした"
+          ],
+          "answer": "てください",
+          "terms": [
+            "v_nihongo",
+            "p_wo",
+            "v_yukkuri",
+            {
+              "id": "v_hanasu",
+              "form": "te_form"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 本は おもしろ___。（This book looks interesting.）",
+          "choices": [
+            "そうです",
+            "かったです",
+            "くないです",
+            "くなりました"
+          ],
+          "answer": "そうです",
+          "terms": [
+            "v_kono",
+            "v_hon",
+            "p_wa",
+            {
+              "id": "v_omoshiroi",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "日本語の 本を 読み___です。（I want to read a Japanese book.）",
+          "choices": [
+            "たい",
+            "ます",
+            "まし",
+            "なく"
+          ],
+          "answer": "たい",
+          "terms": [
+            "v_nihongo",
+            "p_no",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    }
+  ]
+}

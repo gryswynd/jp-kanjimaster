@@ -1,0 +1,1420 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.6",
+  "title": "Phase 4 Lesson 6: Birds, Taste & Meals",
+  "meta": {
+    "phase": 4,
+    "lesson": 6,
+    "focus": "Meal and taste vocabulary (昼ご飯, ご飯, 鳥肉, 味, 昼休み); dark adjective 暗い; same/identical 同じ; G15 comparison reinforcement (より, いちばん); G14 giving/receiving (あげる, もらう).; G16 similarity (みたい)",
+    "kanji": [
+      "鳥",
+      "同",
+      "味",
+      "暗",
+      "飯",
+      "昼"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "鳥",
+      "on": "ちょう",
+      "kun": "とり",
+      "meaning": "Bird",
+      "termId": "k_tori"
+    },
+    {
+      "kanji": "同",
+      "on": "どう",
+      "kun": "おな",
+      "meaning": "Same",
+      "termId": "k_ona"
+    },
+    {
+      "kanji": "味",
+      "on": "み",
+      "kun": "あじ",
+      "meaning": "Taste",
+      "termId": "k_aji"
+    },
+    {
+      "kanji": "暗",
+      "on": "あん",
+      "kun": "くら",
+      "meaning": "Dark",
+      "termId": "k_kura"
+    },
+    {
+      "kanji": "飯",
+      "on": "はん",
+      "kun": "",
+      "meaning": "Meal / Rice",
+      "termId": "k_u98ef"
+    },
+    {
+      "kanji": "昼",
+      "on": "ちゅう",
+      "kun": "ひる",
+      "meaning": "Noon / Daytime",
+      "termId": "k_hiru"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Review vocabulary and grammar from prior lessons with these questions:",
+      "items": [
+        {
+          "jp": "野菜の 料理は 牛肉より おいしいですか。",
+          "en": "Are vegetable dishes more delicious than beef?",
+          "terms": [
+            "v_yasai",
+            "p_no",
+            "v_ryouri",
+            "p_wa",
+            "v_gyuuniku",
+            "p_yori",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "友だちに 料理を あげましたか。",
+          "en": "Did you give food to a friend?",
+          "terms": [
+            "v_tomodachi",
+            "p_ni",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_ageru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "毎日、料理が 作れますか。",
+          "en": "Can you cook every day?",
+          "terms": [
+            "v_mainichi",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "今日は どんな 料理を 作っていますか。",
+          "en": "What kind of dish are you making today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_donna",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "鳥",
+          "on": "ちょう",
+          "kun": "とり",
+          "meaning": "Bird",
+          "terms": [
+            "k_tori",
+            "v_toriniku"
+          ]
+        },
+        {
+          "kanji": "同",
+          "on": "どう",
+          "kun": "おな",
+          "meaning": "Same",
+          "terms": [
+            "k_ona",
+            "v_onaji"
+          ]
+        },
+        {
+          "kanji": "味",
+          "on": "み",
+          "kun": "あじ",
+          "meaning": "Taste",
+          "terms": [
+            "k_aji",
+            "v_aji"
+          ]
+        },
+        {
+          "kanji": "暗",
+          "on": "あん",
+          "kun": "くら",
+          "meaning": "Dark",
+          "terms": [
+            "k_kura",
+            "v_kurai"
+          ]
+        },
+        {
+          "kanji": "飯",
+          "on": "はん",
+          "kun": "",
+          "meaning": "Meal / Rice",
+          "terms": [
+            "k_u98ef",
+            "v_gohan",
+            "v_hirugohan",
+            "v_asagohan",
+            "v_bangohan"
+          ]
+        },
+        {
+          "kanji": "昼",
+          "on": "ちゅう",
+          "kun": "ひる",
+          "meaning": "Noon / Daytime",
+          "terms": [
+            "k_hiru",
+            "v_hirugohan",
+            "v_hiruyasumi"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary（語彙リスト）",
+      "groups": [
+        {
+          "label": "Meals",
+          "items": [
+            "v_gohan",
+            "v_hirugohan",
+            "v_hiruyasumi"
+          ]
+        },
+        {
+          "label": "Taste & Flavor",
+          "items": [
+            "v_aji"
+          ]
+        },
+        {
+          "label": "Chicken",
+          "items": [
+            "v_toriniku"
+          ]
+        },
+        {
+          "label": "Adjective",
+          "items": [
+            "v_kurai"
+          ]
+        },
+        {
+          "label": "Same / Identical",
+          "items": [
+            "v_onaji"
+          ]
+        },
+        {
+          "label": "Similarity",
+          "items": [
+            "v_you_manner",
+            "v_mitai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 1（会話）: Choosing Lunch",
+      "context": "Rikizo and Yamakawa-san are at the school cafeteria during lunch break, deciding what to eat.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "昼休みですね。今日の 昼ご飯は 何に しますか。",
+          "en": "It's lunch break, isn't it. What will you have for lunch today?",
+          "terms": [
+            "v_hiruyasumi",
+            "g_desu",
+            "p_ne",
+            "v_kyou",
+            "p_no",
+            "v_hirugohan",
+            "p_wa",
+            "v_nan",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "鳥肉の 料理に したいです。牛肉より おいしそうですから。",
+          "en": "I want a chicken dish. It looks more delicious than beef.",
+          "terms": [
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_gyuuniku",
+            "p_yori",
+            {
+              "id": "v_oishii",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "ここでは 鳥肉料理が いちばん おいしいですよ。味も とても いいです。",
+          "en": "The chicken dish is the most delicious here. The flavor is also very good.",
+          "terms": [
+            "v_koko",
+            "p_dewa",
+            "v_toriniku",
+            "v_ryouri",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_yo",
+            "v_aji",
+            "p_mo",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "鳥肉の ほうが おいしいです。ご飯も ほしいです。",
+          "en": "Chicken is more delicious. I also want rice.",
+          "terms": [
+            "v_toriniku",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "v_gohan",
+            "p_mo",
+            {
+              "id": "v_hoshii",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "鳥肉と 牛肉、どちらの ほうが 好きですか。",
+          "en": "Which do you prefer, chicken or beef?",
+          "terms": [
+            "v_toriniku",
+            "p_to",
+            "v_gyuuniku",
+            "v_dochira",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "では、いっしょに 同じ 料理に しましょう。ありがとうございます。",
+          "en": "Then let's both have the same dish. Thank you very much.",
+          "terms": [
+            "p_dewa",
+            "v_issho",
+            "v_onaji",
+            "v_ryouri",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_volitional_mashou"
+            },
+            "p_arigatou_gozaimasu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 2（会話）: A Homemade Lunch",
+      "context": "During lunch break, Yamakawa has prepared a homemade lunch and offers it to Rikizo.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞうさん、今日の 昼ご飯を 作りましたよ。どうぞ。",
+          "en": "Rikizo, I made today's lunch. Here you go.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "p_no",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            },
+            "p_yo",
+            "p_douzo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "ありがとうございます！昼ご飯を もらえますか。",
+          "en": "Thank you! May I have the lunch?",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、どうぞ 食べてください。鳥肉の 料理を あげますよ。味は とても いいですよ。",
+          "en": "Yes, please eat. I'll give you the chicken dish. The flavor is very good.",
+          "terms": [
+            "p_hai",
+            "p_douzo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_ageru",
+              "form": "polite_masu"
+            },
+            "p_yo",
+            "v_aji",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "ありがとうございます。この 鳥肉料理を 毎日 食べたいです。",
+          "en": "Thank you very much. I want to eat this chicken dish every day.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_kono",
+            "v_toriniku",
+            "v_ryouri",
+            "p_wo",
+            "v_mainichi",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "おにぎりも あげますよ。友だちが くれました。",
+          "en": "I'll also give you an onigiri. A friend gave it to me.",
+          "terms": [
+            "v_onigiri",
+            "p_mo",
+            {
+              "id": "v_ageru",
+              "form": "polite_masu"
+            },
+            "p_yo",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_kureru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "ありがとうございます！おにぎりが 大好きです。鳥肉料理も とても おいしかったです。",
+          "en": "Thank you! I love onigiri. The chicken dish was also very delicious.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_onigiri",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "v_toriniku",
+            "v_ryouri",
+            "p_mo",
+            "v_totemo",
+            {
+              "id": "v_oishii",
+              "form": "polite_past_adj"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 3（会話）: What's for Lunch?",
+      "context": "Rikizo and Miku chat about lunch options during the school lunch break.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞうさん、昼休みですね。昼ご飯は 何に しますか。",
+          "en": "Rikizo, it's lunch break. What are you having for lunch?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_hiruyasumi",
+            "g_desu",
+            "p_ne",
+            "v_hirugohan",
+            "p_wa",
+            "v_nan",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "鳥肉の 料理に したいです。牛肉より 鳥肉の 味が 好きですから。",
+          "en": "I want chicken dishes. Because I prefer the taste of chicken over beef.",
+          "terms": [
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_gyuuniku",
+            "p_yori",
+            "v_toriniku",
+            "p_no",
+            "v_aji",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "いいですね！私も 同じ 料理に します。",
+          "en": "Nice! I'll have the same dish too.",
+          "terms": [
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ne",
+            "v_watashi",
+            "p_mo",
+            "v_onaji",
+            "v_ryouri",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "この 鳥肉の 味は いちばん いいですよ。毎日 食べたいです。",
+          "en": "The taste of this chicken is the best. I want to eat it every day.",
+          "terms": [
+            "v_kono",
+            "v_toriniku",
+            "p_no",
+            "v_aji",
+            "p_wa",
+            "v_ichiban",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_yo",
+            "v_mainichi",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "この 鳥肉の 料理は レストランの 料理 みたいです。",
+          "en": "This chicken dish is just like a restaurant dish.",
+          "terms": [
+            "v_kono",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wa",
+            "v_resutoran",
+            "p_no",
+            "v_ryouri",
+            {
+              "id": "v_mitai",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 4（会話）: Dinner at a Dim Restaurant (Casual)",
+      "context": "Rikizo and Ken are having dinner at a dimly lit restaurant in the evening.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "この レストランは 少し 暗いけど、料理の 味が とても いいね。",
+          "en": "This restaurant is a bit dark, but the food tastes really good.",
+          "terms": [
+            "v_kono",
+            "v_resutoran",
+            "p_wa",
+            "v_sukoshi",
+            "v_kurai",
+            "p_kedo",
+            "v_ryouri",
+            "p_no",
+            "v_aji",
+            "p_ga",
+            "v_totemo",
+            "v_ii",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん。暗いけど、鳥肉の 料理が 食べたかった。",
+          "en": "Yeah. It's dark, but I wanted to eat chicken dishes.",
+          "terms": [
+            "v_un",
+            "v_kurai",
+            "p_kedo",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai_past"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "うん、この 料理は 牛肉より おいしいよ。",
+          "en": "Yeah, this dish is more delicious than beef.",
+          "terms": [
+            "v_un",
+            "v_kono",
+            "v_ryouri",
+            "p_wa",
+            "v_gyuuniku",
+            "p_yori",
+            "v_oishii",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "晩ご飯も いつも 同じ 鳥肉料理に したいよ。",
+          "en": "I always want to have the same chicken dish for dinner too.",
+          "terms": [
+            "v_bangohan",
+            "p_mo",
+            "v_itsumo",
+            "v_onaji",
+            "v_toriniku",
+            "v_ryouri",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "この 料理は お母さんの 料理の ように おいしいな。",
+          "en": "This dish is as delicious as mom's cooking.",
+          "terms": [
+            "v_kono",
+            "v_ryouri",
+            "p_wa",
+            "v_okaasan",
+            "p_no",
+            "v_ryouri",
+            "p_no",
+            "v_you_manner",
+            "p_ni",
+            "v_oishii",
+            "p_na"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 1: Rikizo's Lunch Break",
+      "passage": [
+        {
+          "jp": "りきぞうは 毎日 昼休みに 昼ご飯を 食べます。",
+          "en": "Rikizo eats lunch every day during lunch break.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_mainichi",
+            "v_hiruyasumi",
+            "p_ni",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今日は 鳥肉の 料理を 食べました。牛肉より おいしかったです。",
+          "en": "Today he ate a chicken dish. It was more delicious than beef.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "v_gyuuniku",
+            "p_yori",
+            {
+              "id": "v_oishii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "やまかわさんが 鳥肉料理を りきぞうに あげました。りきぞうは 昼ご飯を もらいました。",
+          "en": "Yamakawa gave the chicken dish to Rikizo. Rikizo received lunch.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_ga",
+            "v_toriniku",
+            "v_ryouri",
+            "p_wo",
+            "char_rikizo",
+            "p_ni",
+            {
+              "id": "v_ageru",
+              "form": "polite_mashita"
+            },
+            "char_rikizo",
+            "p_wa",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "鳥肉の 味が とても 好きです。この 料理は いちばん おいしいです。",
+          "en": "He loves the taste of chicken very much. This dish is the most delicious.",
+          "terms": [
+            "v_toriniku",
+            "p_no",
+            "v_aji",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "v_kono",
+            "v_ryouri",
+            "p_wa",
+            "v_ichiban",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "明日も 昼休みに 同じ 料理を 食べたいです。",
+          "en": "He wants to eat the same dish during lunch break tomorrow too.",
+          "terms": [
+            "v_ashita",
+            "p_mo",
+            "v_hiruyasumi",
+            "p_ni",
+            "v_onaji",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "学校の 昼ご飯は 外の レストランほど 高くないです。",
+          "en": "The school lunch is not as expensive as outside restaurants.",
+          "terms": [
+            "v_gakkou",
+            "p_no",
+            "v_hirugohan",
+            "p_wa",
+            "v_soto",
+            "p_no",
+            "v_resutoran",
+            "p_hodo",
+            {
+              "id": "v_takai",
+              "form": "plain_negative"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "今日 りきぞうは 何の 料理を 食べましたか。",
+          "q_en": "What dish did Rikizo eat today?",
+          "a": "鳥肉の 料理を 食べました。",
+          "a_en": "He ate a chicken dish.",
+          "terms": [
+            "v_kyou",
+            "char_rikizo",
+            "p_wa",
+            "v_nan",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "だれが 昼ご飯を りきぞうに あげましたか。",
+          "q_en": "Who gave Rikizo lunch?",
+          "a": "やまかわさんが あげました。",
+          "a_en": "Yamakawa-san gave it to him.",
+          "terms": [
+            "v_dare",
+            "p_ga",
+            "v_hirugohan",
+            "p_wo",
+            "char_rikizo",
+            "p_ni",
+            {
+              "id": "v_ageru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_ga",
+            {
+              "id": "v_ageru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "りきぞうは どんな 味が 好きですか。",
+          "q_en": "What flavor does Rikizo like?",
+          "a": "鳥肉の 味が とても 好きです。",
+          "a_en": "He likes the flavor of chicken very much.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_donna",
+            "v_aji",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_toriniku",
+            "p_no",
+            "v_aji",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 2: Three Meals a Day",
+      "passage": [
+        {
+          "jp": "りきぞうは 朝ご飯と 昼ご飯と 晩ご飯を 毎日 食べます。",
+          "en": "Rikizo eats breakfast, lunch, and dinner every day.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_asagohan",
+            "p_to",
+            "v_hirugohan",
+            "p_to",
+            "v_bangohan",
+            "p_wo",
+            "v_mainichi",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "昼ご飯に いつも 鳥肉の 料理を 食べます。牛肉より 鳥肉の 味が 好きです。",
+          "en": "He always eats chicken dishes for lunch. He likes the taste of chicken better than beef.",
+          "terms": [
+            "v_hirugohan",
+            "p_ni",
+            "v_itsumo",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_gyuuniku",
+            "p_yori",
+            "v_toriniku",
+            "p_no",
+            "v_aji",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "やまかわさんは 毎日 昼ご飯を りきぞうに あげます。",
+          "en": "Yamakawa gives Rikizo lunch every day.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_mainichi",
+            "v_hirugohan",
+            "p_wo",
+            "char_rikizo",
+            "p_ni",
+            {
+              "id": "v_ageru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞうは いつも 昼ご飯を もらっています。味が とても いいです。",
+          "en": "Rikizo always receives lunch. The flavor is very good.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_itsumo",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_aji",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "晩ご飯の 前に 外が 暗く なります。鳥肉料理が いちばん 好きです。",
+          "en": "It gets dark outside before dinner. He likes chicken dishes the most.",
+          "terms": [
+            "v_bangohan",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_soto",
+            "p_ga",
+            {
+              "id": "v_kurai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "v_toriniku",
+            "v_ryouri",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "昼休みは 三十分くらいです。",
+          "en": "Lunch break is about thirty minutes.",
+          "terms": [
+            "v_hiruyasumi",
+            "p_wa",
+            {
+              "counter": "fun",
+              "n": 30
+            },
+            "p_kurai",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうは 昼ご飯に 何の 料理を 食べますか。",
+          "q_en": "What dish does Rikizo eat for lunch?",
+          "a": "いつも 鳥肉の 料理を 食べます。",
+          "a_en": "He always eats a chicken dish.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_hirugohan",
+            "p_ni",
+            "v_nan",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_itsumo",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "りきぞうは だれから 昼ご飯を もらいますか。",
+          "q_en": "Who does Rikizo receive lunch from?",
+          "a": "やまかわさんから もらいます。",
+          "a_en": "He receives it from Yamakawa-san.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_dare",
+            "p_kara",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_kara",
+            {
+              "id": "v_morau",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "晩ご飯の 前に 外は どうなりますか。",
+          "q_en": "What happens outside before dinner?",
+          "a": "暗く なります。",
+          "a_en": "It gets dark.",
+          "terms": [
+            "v_bangohan",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_soto",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_kurai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Choose the correct reading for the kanji word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[鳥肉] の よみかたは？",
+          "choices": [
+            "とりにく",
+            "ぎゅうにく",
+            "やさい",
+            "うなぎ"
+          ],
+          "answer": "とりにく"
+        },
+        {
+          "kind": "mcq",
+          "q": "[昼ご飯] の よみかたは？",
+          "choices": [
+            "ひるごはん",
+            "あさごはん",
+            "ばんごはん",
+            "ちゅうごはん"
+          ],
+          "answer": "ひるごはん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[暗い] の よみかたは？",
+          "choices": [
+            "くらい",
+            "あかるい",
+            "ひろい",
+            "ちかい"
+          ],
+          "answer": "くらい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[同じ] の よみかたは？",
+          "choices": [
+            "おなじ",
+            "おんじ",
+            "どうじ",
+            "おじな"
+          ],
+          "answer": "おなじ"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Select the correct meaning for the word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "鳥肉 [とりにく]",
+          "choices": [
+            "chicken meat",
+            "beef",
+            "vegetable",
+            "food"
+          ],
+          "answer": "chicken meat",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "昼ご飯 [ひるごはん]",
+          "choices": [
+            "lunch",
+            "breakfast",
+            "dinner",
+            "lunch break"
+          ],
+          "answer": "lunch",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "味 [あじ]",
+          "choices": [
+            "taste / flavor",
+            "food",
+            "meal",
+            "same"
+          ],
+          "answer": "taste / flavor",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "暗い [くらい]",
+          "choices": [
+            "dark",
+            "delicious",
+            "bright",
+            "same"
+          ],
+          "answer": "dark",
+          "terms": []
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Choose the correct word or phrase to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この 鳥肉料理は 牛肉______おいしいです。",
+          "choices": [
+            "より",
+            "だけ",
+            "ほど",
+            "まで"
+          ],
+          "answer": "より",
+          "terms": [
+            "v_kono",
+            "v_toriniku",
+            "v_ryouri",
+            "p_wa",
+            "v_gyuuniku",
+            "p_yori",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "やまかわさんは りきぞうさんに 昼ご飯を______。",
+          "choices": [
+            "あげました",
+            "もらいました",
+            "もらえました",
+            "なりました"
+          ],
+          "answer": "あげました",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "char_rikizo",
+            "v_san",
+            "p_ni",
+            "v_hirugohan",
+            "p_wo",
+            {
+              "id": "v_ageru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "晩ご飯の 前に 外が 暗く______。",
+          "choices": [
+            "なりました",
+            "食べました",
+            "作りました",
+            "もらいました"
+          ],
+          "answer": "なりました",
+          "terms": [
+            "v_bangohan",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_soto",
+            "p_ga",
+            {
+              "id": "v_kurai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちから 鳥肉の 料理を______。味が とても よかったです。",
+          "choices": [
+            "もらいました",
+            "あげました",
+            "なりました",
+            "作りました"
+          ],
+          "answer": "もらいました",
+          "terms": [
+            "v_tomodachi",
+            "p_kara",
+            "v_toriniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            },
+            "v_aji",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    }
+  ]
+}

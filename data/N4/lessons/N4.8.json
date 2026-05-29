@@ -1,0 +1,1493 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.8",
+  "title": "Seasons & Weather",
+  "meta": {
+    "level": "Phase 4",
+    "lesson_number": 8,
+    "focus": "Japan's four seasons — describing seasonal weather, nature, and comparing preferences",
+    "estimated_minutes": 45,
+    "kanji": [
+      "冬",
+      "寒",
+      "春",
+      "暑",
+      "夏",
+      "秋"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "冬",
+      "on": "とう",
+      "kun": "ふゆ",
+      "meaning": "winter",
+      "termId": "k_fuyu"
+    },
+    {
+      "kanji": "寒",
+      "on": "かん",
+      "kun": "さむ(い)",
+      "meaning": "cold (weather)",
+      "termId": "k_samu"
+    },
+    {
+      "kanji": "春",
+      "on": "しゅん",
+      "kun": "はる",
+      "meaning": "spring",
+      "termId": "k_haru"
+    },
+    {
+      "kanji": "暑",
+      "on": "しょ",
+      "kun": "あつ(い)",
+      "meaning": "hot (weather)",
+      "termId": "k_atsu"
+    },
+    {
+      "kanji": "夏",
+      "on": "か",
+      "kun": "なつ",
+      "meaning": "summer",
+      "termId": "k_natsu"
+    },
+    {
+      "kanji": "秋",
+      "on": "しゅう",
+      "kun": "あき",
+      "meaning": "autumn / fall",
+      "termId": "k_aki"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Review vocabulary and grammar from prior lessons:",
+      "items": [
+        {
+          "jp": "鳥肉と 牛肉と、どちらが 好きですか。",
+          "en": "Which do you prefer — chicken or beef?",
+          "terms": [
+            "v_toriniku",
+            "p_to",
+            "v_gyuuniku",
+            "p_to",
+            "v_dochira",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "毎朝、朝ご飯を 食べていますか。",
+          "en": "Do you eat breakfast every morning?",
+          "terms": [
+            "v_maiasa",
+            "v_asagohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "日本料理を 一人で 作れますか。",
+          "en": "Can you cook Japanese food by yourself?",
+          "terms": [
+            "v_nihon",
+            "v_ryouri",
+            "p_wo",
+            "v_hitori",
+            "p_de",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先月、いちばん おいしかった 料理は 何ですか。",
+          "en": "What was the most delicious food last month?",
+          "terms": [
+            "v_sengetsu",
+            "v_ichiban",
+            {
+              "id": "v_oishii",
+              "form": "plain_past_adj"
+            },
+            "v_ryouri",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "冬",
+          "on": "とう",
+          "kun": "ふゆ",
+          "meaning": "winter",
+          "terms": [
+            "k_fuyu",
+            "v_fuyu"
+          ]
+        },
+        {
+          "kanji": "寒",
+          "on": "かん",
+          "kun": "さむ(い)",
+          "meaning": "cold (weather)",
+          "terms": [
+            "k_samu",
+            "v_samui"
+          ]
+        },
+        {
+          "kanji": "春",
+          "on": "しゅん",
+          "kun": "はる",
+          "meaning": "spring",
+          "terms": [
+            "k_haru",
+            "v_haru"
+          ]
+        },
+        {
+          "kanji": "暑",
+          "on": "しょ",
+          "kun": "あつ(い)",
+          "meaning": "hot (weather)",
+          "terms": [
+            "k_atsu",
+            "v_atsui"
+          ]
+        },
+        {
+          "kanji": "夏",
+          "on": "か",
+          "kun": "なつ",
+          "meaning": "summer",
+          "terms": [
+            "k_natsu",
+            "v_natsu"
+          ]
+        },
+        {
+          "kanji": "秋",
+          "on": "しゅう",
+          "kun": "あき",
+          "meaning": "autumn / fall",
+          "terms": [
+            "k_aki",
+            "v_aki"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary（ことば）",
+      "groups": [
+        {
+          "label": "The Four Seasons（四季）",
+          "items": [
+            "v_shunkashuutou",
+            "v_kisetsu",
+            "v_haru",
+            "v_natsu",
+            "v_aki",
+            "v_fuyu"
+          ]
+        },
+        {
+          "label": "Weather Adjectives",
+          "items": [
+            "v_atsui",
+            "v_samui",
+            "v_suzushii"
+          ]
+        },
+        {
+          "label": "Nature",
+          "items": [
+            "v_midori"
+          ]
+        },
+        {
+          "label": "Seasonal Compounds",
+          "items": [
+            "v_natsuyasumi",
+            "v_fuyuyasumi",
+            "v_yuki"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Which Season Do You Like Best?",
+      "context": "Rikizo and Yamakawa chat after class about their favourite seasons.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞうさんは どの きせつが いちばん 好きですか。",
+          "en": "Which season do you like best, Rikizo?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_dono",
+            "v_kisetsu",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "私は 春が いちばん 好きです。花が きれいですから。",
+          "en": "I like spring the most. Because the flowers are beautiful.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_haru",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "v_hana",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうですね。私は 秋が 好きです。秋の 木の 色が 赤や 茶色に なります。",
+          "en": "I see. I like autumn. In autumn, the colours of the trees turn red and brown.",
+          "terms": [
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_watashi",
+            "p_wa",
+            "v_aki",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "v_aki",
+            "p_no",
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_ga",
+            "v_aka",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "秋の 山は 春の 山より きれいですよ。",
+          "en": "Autumn mountains are more beautiful than spring mountains.",
+          "terms": [
+            "v_aki",
+            "p_no",
+            "v_yama",
+            "p_wa",
+            "v_haru",
+            "p_no",
+            "v_yama",
+            "p_yori",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "私も 秋の 山に 行きたいです。",
+          "en": "I want to go to the autumn mountains too.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_aki",
+            "p_no",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Summer or Winter Vacation?",
+      "context": "Two classmates compare summer and winter school holidays.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "夏休みと 冬休みと、どちらが 好きですか。",
+          "en": "Which do you prefer — summer vacation or winter vacation?",
+          "terms": [
+            "v_natsuyasumi",
+            "p_to",
+            "v_fuyuyasumi",
+            "p_to",
+            "v_dochira",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "夏休みが 好きです。夏休みは 冬休みより 長いですから。",
+          "en": "I prefer summer vacation. Because summer vacation is longer than winter vacation.",
+          "terms": [
+            "v_natsuyasumi",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "v_natsuyasumi",
+            "p_wa",
+            "v_fuyuyasumi",
+            "p_yori",
+            {
+              "id": "v_nagai",
+              "form": "polite_adj"
+            },
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "夏は 暑いですが、夏休みが あります。冬は ゆきだけ きれいです。",
+          "en": "Summer is hot, but there is summer vacation. In winter, only the snow is pretty.",
+          "terms": [
+            "v_natsu",
+            "p_wa",
+            {
+              "id": "v_atsui",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            "v_natsuyasumi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_fuyu",
+            "p_wa",
+            "v_yuki",
+            "p_dake",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "冬は 寒くないですか。",
+          "en": "Isn't winter cold?",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            {
+              "id": "v_samui",
+              "form": "polite_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "寒いですが、北では ゆきが あります。白くて とても きれいです。",
+          "en": "It is cold, but in the north there is snow. It's white and very beautiful.",
+          "terms": [
+            {
+              "id": "v_samui",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            "v_kita",
+            "p_dewa",
+            "v_yuki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            {
+              "id": "v_shiroi",
+              "form": "te_form"
+            },
+            "v_totemo",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Japan's Four Seasons",
+      "context": "Rikizo tells his classmate Lee about the four seasons in Japan.",
+      "lines": [
+        {
+          "spk": "リー",
+          "jp": "日本には 四つの きせつが ありますか。",
+          "en": "Does Japan have four seasons?",
+          "terms": [
+            "v_nihon",
+            "p_wa",
+            "p_ni",
+            {
+              "counter": "tsu",
+              "n": 4
+            },
+            "p_no",
+            "v_kisetsu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい。春、夏、秋、冬の 四つです。これを「春夏秋冬」と 言います。",
+          "en": "Yes. There are four: spring, summer, autumn, and winter. They are called shunkashuutou.",
+          "terms": [
+            "p_hai",
+            "v_haru",
+            "v_natsu",
+            "v_aki",
+            "v_fuyu",
+            "p_no",
+            {
+              "counter": "tsu",
+              "n": 4
+            },
+            "g_desu",
+            "v_kore",
+            "p_wo",
+            "v_shunkashuutou",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "どの きせつが いちばん きれいですか。",
+          "en": "Which season is the most beautiful?",
+          "terms": [
+            "v_dono",
+            "v_kisetsu",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "秋が いちばん きれいです。木の 色が 赤や 茶色に なりますから。",
+          "en": "Autumn is the most beautiful. Because the colour of the trees turns red and brown.",
+          "terms": [
+            "v_aki",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_ga",
+            "v_aka",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "夏は どうですか。",
+          "en": "What about summer?",
+          "terms": [
+            "v_natsu",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "夏は とても 暑いです。夏休みが ありますから、毎年 うれしいです。",
+          "en": "Summer is very hot. Because there is summer vacation, I'm happy every year.",
+          "terms": [
+            "v_natsu",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_atsui",
+              "form": "polite_adj"
+            },
+            "v_natsuyasumi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_kara_because",
+            "v_mainen",
+            {
+              "id": "v_ureshii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "冬は 寒いです。ゆきは 北にしか ありません。",
+          "en": "Winter is cold. There is snow only in the north.",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            {
+              "id": "v_samui",
+              "form": "polite_adj"
+            },
+            "v_yuki",
+            "p_wa",
+            "v_kita",
+            "p_ni",
+            "p_shika",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Favourite Season (Casual)",
+      "context": "Two close friends sitting outside after school, talking casually about which seasons they prefer.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "ねえ、夏と 冬、どちらが 好き？",
+          "en": "Hey, which do you like more — summer or winter?",
+          "terms": [
+            "p_nee",
+            "v_natsu",
+            "p_to",
+            "v_fuyu",
+            "v_dochira",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "plain_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "夏だな。夏休みが あるから！",
+          "en": "Summer. Because there's summer vacation!",
+          "terms": [
+            "v_natsu",
+            "p_na",
+            "g_da",
+            "v_natsuyasumi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "plain_form"
+            },
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "分かるけど、夏は 暑いよね。",
+          "en": "I get that, but summer is hot, right?",
+          "terms": [
+            {
+              "id": "v_wakaru",
+              "form": "plain_form"
+            },
+            "p_kedo",
+            "v_natsu",
+            "p_wa",
+            {
+              "id": "v_atsui",
+              "form": "plain_adj"
+            },
+            "p_ne",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん。夏休みは 冬休みより 長いから 好き。",
+          "en": "Yeah. I prefer it because summer vacation is longer than winter vacation.",
+          "terms": [
+            "v_un",
+            "v_natsuyasumi",
+            "p_wa",
+            "v_fuyuyasumi",
+            "p_yori",
+            {
+              "id": "v_nagai",
+              "form": "plain_adj"
+            },
+            "p_kara_because",
+            {
+              "id": "v_suki",
+              "form": "plain_adj"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "私は 秋でも いいよ。すずしくて、空が きれいだから。",
+          "en": "Even autumn is fine for me. Because it's cool and the sky is beautiful.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_aki",
+            "p_demo",
+            {
+              "id": "v_ii",
+              "form": "plain_adj"
+            },
+            "p_yo",
+            {
+              "id": "v_suzushii",
+              "form": "te_form"
+            },
+            "v_sora",
+            "p_ga",
+            {
+              "id": "v_kirei",
+              "form": "plain_adj"
+            },
+            "g_da",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "うん。秋の 空は 夏より きれいだね。",
+          "en": "Yeah. The autumn sky is more beautiful than summer's.",
+          "terms": [
+            "v_un",
+            "v_aki",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            "v_natsu",
+            "p_yori",
+            {
+              "id": "v_kirei",
+              "form": "plain_adj"
+            },
+            "p_ne",
+            "g_da"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: 私の 好きな きせつ（My Favourite Season）",
+      "passage": [
+        {
+          "jp": "私は 春が いちばん 好きです。",
+          "en": "I like spring the most.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_haru",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "春は すずしくて、花が たくさん あります。",
+          "en": "Spring is cool and there are many flowers.",
+          "terms": [
+            "v_haru",
+            "p_wa",
+            {
+              "id": "v_suzushii",
+              "form": "te_form"
+            },
+            "v_hana",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "春は 夏より すずしいですから、外に 行きます。",
+          "en": "Because spring is cooler than summer, I go outside.",
+          "terms": [
+            "v_haru",
+            "p_wa",
+            "v_natsu",
+            "p_yori",
+            {
+              "id": "v_suzushii",
+              "form": "polite_adj"
+            },
+            "p_kara_because",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "夏は 暑い日ばかりですが、夏休みが あります。山に 行って、空を 見るのが 好きです。",
+          "en": "Summer is nothing but hot days, but there is summer vacation. I like going to the mountains and looking at the sky.",
+          "terms": [
+            "v_natsu",
+            "p_wa",
+            "v_atsui",
+            "v_hi",
+            "p_bakari",
+            "g_desu",
+            "p_ga_but",
+            "v_natsuyasumi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_sora",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "plain_form"
+            },
+            "p_no",
+            "p_ga",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "秋は 木の 色が 赤や 茶色に なります。秋の 山は 春の 山より きれいです。",
+          "en": "In autumn, the colour of the trees turns red and brown. Autumn mountains are more beautiful than spring mountains.",
+          "terms": [
+            "v_aki",
+            "p_wa",
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_ga",
+            "v_aka",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "v_aki",
+            "p_no",
+            "v_yama",
+            "p_wa",
+            "v_haru",
+            "p_no",
+            "v_yama",
+            "p_yori",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "冬は 寒いですが、北では ゆきが あります。白くて とても きれいです。",
+          "en": "Winter is cold, but in the north there is snow. It is white and very beautiful.",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            {
+              "id": "v_samui",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            "v_kita",
+            "p_dewa",
+            "v_yuki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            {
+              "id": "v_shiroi",
+              "form": "te_form"
+            },
+            "v_totemo",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "この 人は どの きせつが いちばん 好きですか。",
+          "q_en": "Which season does this person like best?",
+          "a": "春が いちばん 好きです。",
+          "a_en": "Spring.",
+          "terms": [
+            "v_kono",
+            "v_hito",
+            "p_wa",
+            "v_dono",
+            "v_kisetsu",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_haru",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "q": "春と 夏と、どちらが すずしいですか。",
+          "q_en": "Between spring and summer, which is cooler?",
+          "a": "春が 夏より すずしいです。",
+          "a_en": "Spring is cooler than summer.",
+          "terms": [
+            "v_haru",
+            "p_to",
+            "v_natsu",
+            "p_to",
+            "v_dochira",
+            "p_ga",
+            {
+              "id": "v_suzushii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_haru",
+            "p_ga",
+            "v_natsu",
+            "p_yori",
+            {
+              "id": "v_suzushii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "q": "秋、木の 色は 何色に なりますか。",
+          "q_en": "In autumn, what color do the trees become?",
+          "a": "赤や 茶色に なります。",
+          "a_en": "They become red and brown.",
+          "terms": [
+            "v_aki",
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_wa",
+            "v_nani",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_aka",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: 日本の 四季（Japan's Four Seasons）",
+      "passage": [
+        {
+          "jp": "日本には 春、夏、秋、冬の 四つの きせつが あります。これを「春夏秋冬（しゅんかしゅうとう）」と 言います。",
+          "en": "Japan has four seasons: spring, summer, autumn, and winter. They are called \"shunkashuutou.\"",
+          "terms": [
+            "v_nihon",
+            "p_wa",
+            "p_ni",
+            "v_haru",
+            "v_natsu",
+            "v_aki",
+            "v_fuyu",
+            "p_no",
+            {
+              "counter": "tsu",
+              "n": 4
+            },
+            "p_no",
+            "v_kisetsu",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_kore",
+            "p_wo",
+            "v_shunkashuutou",
+            "p_to_quote",
+            {
+              "id": "v_iu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "春は 3月から 5月です。花が たくさん あって、とても きれいです。",
+          "en": "Spring is from March to May. There are many flowers and it is very beautiful.",
+          "terms": [
+            "v_haru",
+            "p_wa",
+            "v_sangatsu",
+            "p_kara",
+            "v_gogatsu",
+            "g_desu",
+            "v_hana",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_totemo",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "夏は 6月から 8月です。とても 暑くて、雨が 多いです。",
+          "en": "Summer is from June to August. It is very hot and there is a lot of rain.",
+          "terms": [
+            "v_natsu",
+            "p_wa",
+            "v_rokugatsu",
+            "p_kara",
+            "v_hachigatsu",
+            "g_desu",
+            "v_totemo",
+            {
+              "id": "v_atsui",
+              "form": "te_form"
+            },
+            "v_ame",
+            "p_ga",
+            "v_ooi",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "秋は 9月から 11月です。木の 色が みどりから 赤や 茶色に なります。",
+          "en": "Autumn is from September to November. The colour of the trees changes from green to red and brown.",
+          "terms": [
+            "v_aki",
+            "p_wa",
+            "v_kugatsu",
+            "p_kara",
+            "v_juuichigatsu",
+            "g_desu",
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_ga",
+            "v_midori",
+            "p_kara",
+            "v_aka",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "冬は 12月から 2月です。とても 寒くて、北では ゆきも あります。",
+          "en": "Winter is from December to February. It is very cold, and in the north there is also snow.",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            "v_juunigatsu",
+            "p_kara",
+            "v_nigatsu",
+            "g_desu",
+            "v_totemo",
+            {
+              "id": "v_samui",
+              "form": "te_form"
+            },
+            "v_kita",
+            "p_dewa",
+            "v_yuki",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "春は 何月から 何月ですか。",
+          "q_en": "What months is spring?",
+          "a": "3月から 5月です。",
+          "a_en": "It is from March to May.",
+          "terms": [
+            "v_haru",
+            "p_wa",
+            "v_nan",
+            "v_tsuki",
+            "p_kara",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_sangatsu",
+            "p_kara",
+            "v_gogatsu",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "秋は 何月から 何月ですか。",
+          "q_en": "What months is autumn?",
+          "a": "9月から 11月です。",
+          "a_en": "It is from September to November.",
+          "terms": [
+            "v_aki",
+            "p_wa",
+            "v_nan",
+            "v_tsuki",
+            "p_kara",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kugatsu",
+            "p_kara",
+            "v_juuichigatsu",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "冬は 何月から 何月ですか。",
+          "q_en": "What months is winter?",
+          "a": "12月から 2月です。",
+          "a_en": "It is from December to February.",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            "v_nan",
+            "v_tsuki",
+            "p_kara",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_juunigatsu",
+            "p_kara",
+            "v_nigatsu",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Choose the correct reading for the kanji word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[春] の よみかたは？",
+          "choices": [
+            "はる",
+            "なつ",
+            "あき",
+            "ふゆ"
+          ],
+          "answer": "はる"
+        },
+        {
+          "kind": "mcq",
+          "q": "[夏] の よみかたは？",
+          "choices": [
+            "なつ",
+            "はる",
+            "あき",
+            "ふゆ"
+          ],
+          "answer": "なつ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[暑い] の よみかたは？",
+          "choices": [
+            "あつい",
+            "さむい",
+            "すずしい",
+            "あたたかい"
+          ],
+          "answer": "あつい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[寒い] の よみかたは？",
+          "choices": [
+            "さむい",
+            "あつい",
+            "すずしい",
+            "あたたかい"
+          ],
+          "answer": "さむい"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Choose the correct word or season for each clue.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "3月・4月・5月",
+          "choices": [
+            "春",
+            "夏",
+            "秋",
+            "冬"
+          ],
+          "answer": "春",
+          "terms": [
+            "v_sangatsu",
+            "v_shigatsu",
+            "v_gogatsu",
+            "v_haru"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "6月・7月・8月",
+          "choices": [
+            "春",
+            "夏",
+            "秋",
+            "冬"
+          ],
+          "answer": "夏",
+          "terms": [
+            "v_rokugatsu",
+            "v_shichigatsu",
+            "v_hachigatsu",
+            "v_natsu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "9月・10月・11月",
+          "choices": [
+            "春",
+            "夏",
+            "秋",
+            "冬"
+          ],
+          "answer": "秋",
+          "terms": [
+            "v_kugatsu",
+            "v_juugatsu",
+            "v_juuichigatsu",
+            "v_aki"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "12月・1月・2月",
+          "choices": [
+            "春",
+            "夏",
+            "秋",
+            "冬"
+          ],
+          "answer": "冬",
+          "terms": [
+            "v_juunigatsu",
+            "v_ichigatsu",
+            "v_nigatsu",
+            "v_fuyu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "夏は ______です。",
+          "choices": [
+            "寒い",
+            "暑い",
+            "すずしい",
+            "白い"
+          ],
+          "answer": "暑い",
+          "terms": [
+            "v_natsu",
+            "p_wa",
+            "v_atsui",
+            "g_desu",
+            "v_samui",
+            "g_desu",
+            "v_suzushii",
+            "g_desu",
+            "v_shiroi",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "冬は ______です。",
+          "choices": [
+            "暑い",
+            "すずしい",
+            "寒い",
+            "白い"
+          ],
+          "answer": "寒い",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            "v_samui",
+            "g_desu",
+            "v_atsui",
+            "g_desu",
+            "v_suzushii",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Choose the correct particle or verb form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "春は 夏_____ すずしいです。",
+          "choices": [
+            "より",
+            "から",
+            "まで",
+            "で"
+          ],
+          "answer": "より",
+          "terms": [
+            "v_haru",
+            "p_wa",
+            "v_natsu",
+            "p_yori",
+            {
+              "id": "v_suzushii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "私は 春_____ いちばん 好きです。",
+          "choices": [
+            "が",
+            "を",
+            "に",
+            "で"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_haru",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "きのうの 冬の 朝は とても ______。",
+          "choices": [
+            "寒いです",
+            "寒くないです",
+            "寒かったです",
+            "寒くなかったです"
+          ],
+          "answer": "寒かったです",
+          "terms": [
+            "v_kinou",
+            "p_no",
+            "v_fuyu",
+            "p_no",
+            "v_asa",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_samui",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "秋は 木の 色が 赤や 茶色に ______。",
+          "choices": [
+            "なります",
+            "なりません",
+            "なりました",
+            "ありません"
+          ],
+          "answer": "なります",
+          "terms": [
+            "v_aki",
+            "p_wa",
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_ga",
+            "v_akai",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

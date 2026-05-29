@@ -1,0 +1,1398 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.22",
+  "title": "Writing & Ideas",
+  "meta": {
+    "level": "N4",
+    "lesson_number": 22,
+    "focus": "Kanji characters, paper, letters, meaning, and opinions.",
+    "estimated_minutes": 35,
+    "kanji": [
+      "漢",
+      "字",
+      "紙",
+      "意"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "漢",
+      "on": "かん",
+      "kun": "",
+      "meaning": "China / Sino-",
+      "termId": "k_kan"
+    },
+    {
+      "kanji": "字",
+      "on": "じ",
+      "kun": "あざ",
+      "meaning": "Character / Letter",
+      "termId": "k_ji_3"
+    },
+    {
+      "kanji": "紙",
+      "on": "し",
+      "kun": "かみ",
+      "meaning": "Paper",
+      "termId": "k_kami"
+    },
+    {
+      "kanji": "意",
+      "on": "い",
+      "kun": "",
+      "meaning": "Idea / Mind / Heart",
+      "termId": "k_i_5"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Practice with these questions using vocabulary you already know.",
+      "items": [
+        {
+          "jp": "この 映画を 見ても いいですか。",
+          "en": "May I watch this film?",
+          "terms": [
+            "v_kono",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "高いのに、たくさん 買いましたね。",
+          "en": "Even though it's expensive, you bought a lot, didn't you?",
+          "terms": [
+            {
+              "id": "v_takai",
+              "form": "plain_form"
+            },
+            "p_noni",
+            "v_takusan",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "jp": "週まつは 映画を 見たり、音楽を 聞いたり します。",
+          "en": "On weekends, I do things like watching films and listening to music.",
+          "terms": [
+            "v_shuumatsu",
+            "p_wa",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            "v_ongaku",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "学校の 中で 走っては いけません。",
+          "en": "You must not run inside the school.",
+          "terms": [
+            "v_gakkou",
+            "p_no",
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_hashiru",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい漢字）",
+      "items": [
+        {
+          "kanji": "漢",
+          "on": "かん",
+          "kun": "",
+          "meaning": "China / Sino-",
+          "terms": [
+            "k_kan",
+            "v_kanji"
+          ]
+        },
+        {
+          "kanji": "字",
+          "on": "じ",
+          "kun": "あざ",
+          "meaning": "Character / Letter",
+          "terms": [
+            "k_ji_3",
+            "v_ji",
+            "v_kanji",
+            "v_myouji",
+            "v_romaji",
+            "v_akaji"
+          ]
+        },
+        {
+          "kanji": "紙",
+          "on": "し",
+          "kun": "かみ",
+          "meaning": "Paper",
+          "terms": [
+            "k_kami",
+            "v_kami",
+            "v_tegami"
+          ]
+        },
+        {
+          "kanji": "意",
+          "on": "い",
+          "kun": "",
+          "meaning": "Idea / Mind / Heart",
+          "terms": [
+            "k_i_5",
+            "v_imi",
+            "v_iken",
+            "v_igai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "New Vocabulary（新しい言葉）",
+      "groups": [
+        {
+          "label": "✍️ Writing & Characters",
+          "items": [
+            "v_kanji",
+            "v_ji",
+            "v_romaji",
+            "v_myouji",
+            "v_sumisu"
+          ]
+        },
+        {
+          "label": "📝 Paper & Letters",
+          "items": [
+            "v_kami",
+            "v_tegami",
+            "v_akaji"
+          ]
+        },
+        {
+          "label": "💡 Meaning & Opinion",
+          "items": [
+            "v_imi",
+            "v_iken",
+            "v_igai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Kanji Class",
+      "context": "Rikizo is in Japanese class. Suzuki-sensei is teaching about kanji. Rikizo asks questions.",
+      "lines": [
+        {
+          "spk": "すずきせんせい",
+          "jp": "今日は 漢字を 書く 勉強を します。",
+          "en": "Today we will practice writing kanji.",
+          "terms": [
+            "char_suzuki",
+            "v_kyou",
+            "p_wa",
+            "v_kanji",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "plain_form"
+            },
+            "v_benkyou",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "ローマ字で 書いても いいですか。",
+          "en": "Is it okay to write in romaji?",
+          "terms": [
+            "char_rikizo",
+            "v_romaji",
+            "p_de",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "すずきせんせい",
+          "jp": "今は いいですよ。でも、テストで ローマ字を 使っては だめですよ。",
+          "en": "It's okay for now. But on tests you can't use romaji.",
+          "terms": [
+            "char_suzuki",
+            "v_ima",
+            "p_wa",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_yo",
+            "p_demo_but",
+            "v_tesuto",
+            "p_de",
+            "v_romaji",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_dame",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "この 漢字の 意味は 何ですか。",
+          "en": "What does this kanji mean?",
+          "terms": [
+            "char_rikizo",
+            "v_kono",
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "すずきせんせい",
+          "jp": "「紙」という 意味です。「かみ」と 読みますよ。",
+          "en": "It means 'paper'. You read it as 'kami'.",
+          "terms": [
+            "char_suzuki",
+            "v_kami",
+            "p_to_quote",
+            "v_iu",
+            "v_imi",
+            "g_desu",
+            "v_kami",
+            "p_to_quote",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "なるほど。漢字は むずかしいですが、おもしろいですね。",
+          "en": "I see. Kanji is difficult but interesting, isn't it.",
+          "terms": [
+            "char_rikizo",
+            "v_naruhodo",
+            "v_kanji",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "polite_adj"
+            },
+            "p_ga_but",
+            {
+              "id": "v_omoshiroi",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "すずきせんせい",
+          "jp": "そうですね。漢字の 勉強は とても 大切ですよ。質問は いつでも どうぞ。",
+          "en": "That's right. Kanji study is very important. Feel free to ask questions any time.",
+          "terms": [
+            "char_suzuki",
+            "v_sou",
+            "g_desu",
+            "p_ne",
+            "v_kanji",
+            "p_no",
+            "v_benkyou",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            },
+            "p_yo",
+            "v_shitsumon",
+            "p_wa",
+            "v_itsu",
+            "p_demo",
+            "p_douzo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Writing a Letter",
+      "context": "Rikizo wants to write a letter to his family and asks Nana about paper and how to write.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "スミスさんに 手紙を 書きたいです。",
+          "en": "I want to write a letter to Smith-san.",
+          "terms": [
+            "char_rikizo",
+            "v_sumisu",
+            "v_san",
+            "p_ni",
+            "v_tegami",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ナナ",
+          "jp": "どんな 紙を つかいますか。",
+          "en": "What kind of paper will you use?",
+          "terms": [
+            "char_nana",
+            "v_donna",
+            "v_kami",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "この 紙を つかいます。ペンを 貸しても いいですか。",
+          "en": "I will use this paper. May I borrow a pen?",
+          "terms": [
+            "char_rikizo",
+            "v_kono",
+            "v_kami",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "polite_masu"
+            },
+            "v_pen",
+            "p_wo",
+            {
+              "id": "v_kasu",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ナナ",
+          "jp": "はい、どうぞ。名字を 漢字で 書きますか。",
+          "en": "Here you go. Will you write your surname in kanji?",
+          "terms": [
+            "char_nana",
+            "p_hai",
+            "p_douzo",
+            "v_myouji",
+            "p_wo",
+            "v_kanji",
+            "p_de",
+            {
+              "id": "v_kaku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい。私の 名字は 三つの 字が あります。",
+          "en": "Yes. My surname has three characters.",
+          "terms": [
+            "char_rikizo",
+            "p_hai",
+            "v_watashi",
+            "p_no",
+            "v_myouji",
+            "p_wa",
+            {
+              "counter": "tsu",
+              "n": 3
+            },
+            "p_no",
+            "v_ji",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "ナナ",
+          "jp": "いいですね。上手に 書いて ください。",
+          "en": "That's nice. Please write it well.",
+          "terms": [
+            "char_nana",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ne",
+            "v_jouzu",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Meaning & Opinion",
+      "context": "Lee, a Chinese exchange student, and Rikizo discuss how Chinese characters and Japanese kanji relate.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "リーさん、この 漢字の 意味が わかりますか。",
+          "en": "Lee-san, do you understand the meaning of this kanji?",
+          "terms": [
+            "char_rikizo",
+            "char_lee",
+            "v_san",
+            "v_kono",
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "はい、中国でも 同じ 意味です。",
+          "en": "Yes, in Chinese it has the same meaning.",
+          "terms": [
+            "char_lee",
+            "p_hai",
+            "v_chuugoku",
+            "p_mo",
+            "p_de",
+            "v_onaji",
+            "v_imi",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "なるほど。それは 意外ですね。",
+          "en": "I see. That's unexpected.",
+          "terms": [
+            "char_rikizo",
+            "v_naruhodo",
+            "v_sore",
+            "p_wa",
+            {
+              "id": "v_igai",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "でも、意味が 同じでは ない 漢字も あります。それが 私の 意見です。",
+          "en": "But there are also kanji where the meaning is not the same. That is my opinion.",
+          "terms": [
+            "char_lee",
+            "p_demo_but",
+            "v_imi",
+            "p_ga",
+            "v_onaji",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "v_kanji",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_sore",
+            "p_ga",
+            "v_watashi",
+            "p_no",
+            "v_iken",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "同じように 見えるのに、意味が 同じでは ないんですね。",
+          "en": "Even though they look the same, the meanings are not the same.",
+          "terms": [
+            "char_rikizo",
+            "v_onaji",
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_mieru",
+              "form": "plain_form"
+            },
+            "p_noni",
+            "v_imi",
+            "p_ga",
+            "v_onaji",
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "p_ndesu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "そうです。日本語の 漢字は おもしろいですよ。",
+          "en": "That's right. Japanese kanji is interesting.",
+          "terms": [
+            "char_lee",
+            "v_sou",
+            "g_desu",
+            "v_nihongo",
+            "p_no",
+            "v_kanji",
+            "p_wa",
+            {
+              "id": "v_omoshiroi",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Kanji is Hard (Casual)",
+      "context": "Ken and Rikizo are hanging out after school, venting about how hard kanji study is.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "今日の 漢字の 意味、わかった？",
+          "en": "Did you understand the meaning of today's kanji?",
+          "terms": [
+            "char_ken",
+            "v_kyou",
+            "p_no",
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            {
+              "id": "v_wakaru",
+              "form": "plain_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "あまり わからなかった。漢字は むずかしいな。",
+          "en": "Not really. Kanji is difficult.",
+          "terms": [
+            "char_rikizo",
+            "v_amari",
+            {
+              "id": "v_wakaru",
+              "form": "plain_past_negative"
+            },
+            "v_kanji",
+            "p_wa",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_form"
+            },
+            "p_na"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そうだよ。字が たくさん あるし、むずかしい。",
+          "en": "Right. There are so many characters.",
+          "terms": [
+            "char_ken",
+            "v_sou",
+            "p_yo",
+            "g_da",
+            "v_ji",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "plain_form"
+            },
+            "p_shi",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_form"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "自分の 名字を 漢字で 読めないんだよ。",
+          "en": "I can't even read my own surname in kanji.",
+          "terms": [
+            "char_rikizo",
+            "v_jibun",
+            "p_no",
+            "v_myouji",
+            "p_wo",
+            "v_kanji",
+            "p_de",
+            {
+              "id": "v_yomu",
+              "form": "plain_potential_negative"
+            },
+            "p_nda",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "え、そうなの？それは 意外だね。",
+          "en": "Really? That's unexpected.",
+          "terms": [
+            "char_ken",
+            "v_e_exclaim",
+            "v_sou",
+            "p_no",
+            "p_na",
+            "v_sore",
+            "p_wa",
+            {
+              "id": "v_igai",
+              "form": "plain_adj"
+            },
+            "p_ne",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "勉強の お金も 赤字だよ。",
+          "en": "My study budget is in the red too.",
+          "terms": [
+            "char_rikizo",
+            "v_benkyou",
+            "p_no",
+            "v_okane",
+            "p_mo",
+            "v_akaji",
+            "p_yo",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "では、いっしょに 勉強しよう。",
+          "en": "Then let's study together.",
+          "terms": [
+            "char_ken",
+            "p_dewa",
+            "v_issho",
+            "p_ni",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_volitional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: りきぞうの 手紙",
+      "passage": [
+        {
+          "jp": "りきぞうは 母に 手紙を 書きました。",
+          "en": "Rikizo wrote a letter to his mother.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_haha",
+            "p_ni",
+            "v_tegami",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "白い 紙に 漢字を 上手に 書きました。",
+          "en": "He wrote kanji neatly on white paper.",
+          "terms": [
+            "v_shiroi",
+            "v_kami",
+            "p_ni",
+            "v_kanji",
+            "p_wo",
+            "v_jouzu",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "名字も 漢字で 書きました。三つの 字です。",
+          "en": "He also wrote his surname in kanji. It has three characters.",
+          "terms": [
+            "v_myouji",
+            "p_mo",
+            "v_kanji",
+            "p_de",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            },
+            {
+              "counter": "tsu",
+              "n": 3
+            },
+            "p_no",
+            "v_ji",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "母は 手紙を 見て、とても うれしく なります。",
+          "en": "Mother will see the letter and feel very happy.",
+          "terms": [
+            "v_haha",
+            "p_wa",
+            "v_tegami",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_totemo",
+            {
+              "id": "v_ureshii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうは だれに 手紙を 書きましたか。",
+          "q_en": "Who did Rikizo write a letter to?",
+          "a": "母に 書きました。",
+          "a_en": "He wrote to his mother.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_dare",
+            "p_ni",
+            "v_tegami",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_haha",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "どんな 紙に 書きましたか。",
+          "q_en": "What kind of paper did he write on?",
+          "a": "白い 紙に 書きました。",
+          "a_en": "He wrote on white paper.",
+          "terms": [
+            "v_donna",
+            "v_kami",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_shiroi",
+            "v_kami",
+            "p_ni",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "名字は いくつの 字が ありますか。",
+          "q_en": "How many characters is the surname?",
+          "a": "三つの 字が あります。",
+          "a_en": "There are three characters.",
+          "terms": [
+            "v_myouji",
+            "p_wa",
+            "v_ikutsu",
+            "p_no",
+            "v_ji",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "counter": "tsu",
+              "n": 3
+            },
+            "p_no",
+            "v_ji",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: 意味と 意見",
+      "passage": [
+        {
+          "jp": "漢字の 意味が 分かりますから、日本語も よく 分かります。",
+          "en": "Because you understand the meaning of kanji, Japanese also becomes easier to understand.",
+          "terms": [
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_kara_because",
+            "v_nihongo",
+            "p_mo",
+            "v_yoku",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "ローマ字は 意外に いいです。でも、漢字を よく 見る ことが 大切です。",
+          "en": "Romaji is unexpectedly good. But it is important to look at kanji carefully.",
+          "terms": [
+            "v_romaji",
+            "p_wa",
+            {
+              "id": "v_igai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_demo_but",
+            "v_kanji",
+            "p_wo",
+            "v_yoku",
+            {
+              "id": "v_miru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "先生の 意見は、漢字も ローマ字も 勉強する ことです。",
+          "en": "The teacher's opinion is to study both kanji and romaji.",
+          "terms": [
+            "v_sensei",
+            "p_no",
+            "v_iken",
+            "p_wa",
+            "v_kanji",
+            "p_mo",
+            "v_romaji",
+            "p_mo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "漢字の 意味を たくさん 勉強して、日本語で 意見も 上手に 言えます。",
+          "en": "By studying many kanji meanings, you can express your opinions in Japanese well.",
+          "terms": [
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_wo",
+            "v_takusan",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_nihongo",
+            "p_de",
+            "v_iken",
+            "p_mo",
+            "v_jouzu",
+            "p_ni",
+            {
+              "id": "v_iu",
+              "form": "polite_potential"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "漢字の 意味が 分かりますから、どう なりますか。",
+          "q_en": "What happens because you understand kanji meanings?",
+          "a": "日本語も よく 分かります。",
+          "a_en": "You also understand Japanese well.",
+          "terms": [
+            "v_kanji",
+            "p_no",
+            "v_imi",
+            "p_ga",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            },
+            "p_kara_because",
+            "v_dou",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_nihongo",
+            "p_mo",
+            "v_yoku",
+            {
+              "id": "v_wakaru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "先生の 意見は 何ですか。",
+          "q_en": "What is the teacher's opinion?",
+          "a": "漢字も ローマ字も 勉強する ことです。",
+          "a_en": "It is to study both kanji and romaji.",
+          "terms": [
+            "v_sensei",
+            "p_no",
+            "v_iken",
+            "p_wa",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kanji",
+            "p_mo",
+            "v_romaji",
+            "p_mo",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "ローマ字は どんな ものですか。",
+          "q_en": "What kind of thing is romaji?",
+          "a": "意外に いいです。",
+          "a_en": "It is surprisingly good.",
+          "terms": [
+            "v_romaji",
+            "p_wa",
+            "v_donna",
+            "v_mono",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_igai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた",
+      "instructions": "Choose the correct reading for each kanji word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[漢字] の よみかたは？",
+          "choices": [
+            "かんじ",
+            "かんし",
+            "かんご",
+            "かんもじ"
+          ],
+          "answer": "かんじ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[手紙] の よみかたは？",
+          "choices": [
+            "てがみ",
+            "てし",
+            "てかみ",
+            "てがた"
+          ],
+          "answer": "てがみ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[意見] の よみかたは？",
+          "choices": [
+            "いけん",
+            "いみ",
+            "いがい",
+            "いし"
+          ],
+          "answer": "いけん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[名字] の よみかたは？",
+          "choices": [
+            "みょうじ",
+            "なまえ",
+            "めいじ",
+            "なじ"
+          ],
+          "answer": "みょうじ"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ",
+      "instructions": "Choose the word that best completes each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この（　）は 何ですか。",
+          "choices": [
+            "意味",
+            "手紙",
+            "名字",
+            "赤字"
+          ],
+          "answer": "意味",
+          "terms": [
+            "v_kono",
+            "p_wa",
+            "v_imi",
+            "v_nan",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生に 自分の（　）を 言いました。",
+          "choices": [
+            "意見",
+            "意外",
+            "漢字",
+            "手紙"
+          ],
+          "answer": "意見",
+          "terms": [
+            "v_sensei",
+            "p_ni",
+            "v_jibun",
+            "p_wo",
+            "p_no",
+            "v_iken",
+            {
+              "id": "v_iu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "（　）で 書いても いいですか。",
+          "choices": [
+            "ローマ字",
+            "意味",
+            "名字",
+            "赤字"
+          ],
+          "answer": "ローマ字",
+          "terms": [
+            "v_romaji",
+            "p_de",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちに（　）を 書きました。",
+          "choices": [
+            "手紙",
+            "意外",
+            "漢字",
+            "紙"
+          ],
+          "answer": "手紙",
+          "terms": [
+            "v_tomodachi",
+            "p_wo",
+            "p_ni",
+            "v_tegami",
+            {
+              "id": "v_kaku",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんぽうを えらぶ",
+      "instructions": "Choose the correct grammar pattern to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "図書館で 食べ______いいですか。",
+          "choices": [
+            "ても",
+            "ては",
+            "てから",
+            "ながら"
+          ],
+          "answer": "ても",
+          "terms": [
+            "v_toshokan",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "p_mo",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "図書館の 中で 話し______いけません。",
+          "choices": [
+            "ては",
+            "ても",
+            "てから",
+            "てに"
+          ],
+          "answer": "ては",
+          "terms": [
+            "v_toshokan",
+            "p_no",
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_hanasu",
+              "form": "te_form"
+            },
+            "p_wa",
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "漢字が むずかしいのに、まいにち（　）います。",
+          "choices": [
+            "勉強して",
+            "勉強しては",
+            "勉強しても",
+            "勉強しながら"
+          ],
+          "answer": "勉強して",
+          "terms": [
+            "v_kanji",
+            "p_ga",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_form"
+            },
+            "p_noni",
+            "v_mainichi",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "意見（　）言って ください。",
+          "choices": [
+            "を",
+            "が",
+            "で",
+            "の"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_iken",
+            "p_wo",
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    }
+  ]
+}

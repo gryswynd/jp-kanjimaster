@@ -1,0 +1,950 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.2",
+  "title": "Phase 4 Review: Self, Time of Day & Colors",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 3–4.",
+    "kanji": [
+      "私",
+      "明",
+      "朝",
+      "晩",
+      "色",
+      "茶",
+      "好",
+      "赤",
+      "青",
+      "黒"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo and Yamakawa chat at the office before work about their morning routines.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "やまかわさん、今朝は 何時に 起きましたか。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "v_kesa",
+                "p_wa",
+                "v_nanji",
+                "p_ni",
+                {
+                  "id": "v_okiru",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "六時に 起きました。朝ごはんを 食べてから 来ました。",
+              "terms": [
+                {
+                  "counter": "ji",
+                  "n": 6
+                },
+                "p_ni",
+                {
+                  "id": "v_okiru",
+                  "form": "polite_mashita"
+                },
+                "v_asagohan",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "te_form"
+                },
+                "p_kara",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_mashita"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "私も 毎朝 朝ごはんを 食べます。毎朝 起きられますか。",
+              "terms": [
+                "v_watashi",
+                "p_mo",
+                "v_maiasa",
+                "v_asagohan",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "polite_masu"
+                },
+                "v_maiasa",
+                {
+                  "id": "v_okiru",
+                  "form": "polite_potential"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、起きられます。明るい 朝が 好きですよ。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_okiru",
+                  "form": "polite_potential"
+                },
+                "v_akarui",
+                "v_asa",
+                "p_ga",
+                "v_suki",
+                "g_desu",
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What does Yamakawa say about mornings?",
+          "choices": [
+            "Yamakawa likes bright mornings",
+            "Yamakawa can't wake up every morning",
+            "Yamakawa skips breakfast sometimes",
+            "Yamakawa comes to work by train"
+          ],
+          "answer": "Yamakawa likes bright mornings",
+          "explanation": "B says 明るい朝が好きですよ — 'I like bright mornings.' The い-adjective 明るい (bright) modifies 朝 (morning) in attributive position."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Rikizo is at a clothing store asking a staff member about shirt colors.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "すみません。シャツは 何色が ありますか。",
+              "terms": [
+                "p_sumimasen",
+                "v_shatsu",
+                "p_wa",
+                "v_nani",
+                "v_iro",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "赤い シャツと 青い シャツと 黒い シャツが あります。茶色も ありますよ。",
+              "terms": [
+                "v_akai",
+                "v_shatsu",
+                "p_to",
+                "v_aoi",
+                "v_shatsu",
+                "p_to",
+                "v_kuroi",
+                "v_shatsu",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_chairo",
+                "p_mo",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "私は 黒が 好きですが、青い シャツも 見られますか。",
+              "terms": [
+                "v_watashi",
+                "p_wa",
+                "v_kuro",
+                "p_ga",
+                "v_suki",
+                "g_desu",
+                "p_ga_but",
+                "v_aoi",
+                "v_shatsu",
+                "p_mo",
+                {
+                  "id": "v_miru",
+                  "form": "polite_potential"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。色々な 色が あります。どうぞ。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_iroiro",
+                  "form": "attributive_na"
+                },
+                "v_iro",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_douzo"
+              ]
+            }
+          ],
+          "question": "What does Rikizo want to see at the store?",
+          "choices": [
+            "A blue shirt",
+            "A red shirt",
+            "A brown shirt",
+            "A black shirt"
+          ],
+          "answer": "A blue shirt",
+          "explanation": "A says 私は黒が好きですが、青いシャツも見られますか — 'I like black, but can I also see a blue shirt?' The potential form 見られます means 'can see/can be seen.'"
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two close friends chat casually at a café about their morning habits.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今朝、朝ごはんを 食べた？",
+              "terms": [
+                "v_kesa",
+                "v_asagohan",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "plain_past"
+                }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "食べなかったよ。毎朝 起きられないから。",
+              "terms": [
+                {
+                  "id": "v_taberu",
+                  "form": "plain_past_negative"
+                },
+                "p_yo",
+                "v_maiasa",
+                {
+                  "id": "v_okiru",
+                  "form": "plain_potential_negative"
+                },
+                "p_kara_because"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "私は 毎朝 朝ごはんが 食べられるよ。",
+              "terms": [
+                "v_watashi",
+                "p_wa",
+                "v_maiasa",
+                "v_asagohan",
+                "p_ga",
+                {
+                  "id": "v_taberu",
+                  "form": "potential"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいね。今晩は よく 休もう。",
+              "terms": [
+                "v_ii",
+                "p_ne",
+                "v_konban",
+                "p_wa",
+                "v_yoku",
+                {
+                  "id": "v_yasumu",
+                  "form": "plain_volitional"
+                }
+              ]
+            }
+          ],
+          "question": "Why didn't B eat breakfast this morning?",
+          "choices": [
+            "Because B can't wake up every morning",
+            "Because B doesn't like breakfast",
+            "Because B prefers evening meals",
+            "Because B went to the café early"
+          ],
+          "answer": "Because B can't wake up every morning",
+          "explanation": "B says 毎朝起きられないから — 'because I can't wake up every morning.' 起きられない is the potential negative (plain) form of 起きる: unable to wake up."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Every morning Rikizo eats breakfast and goes to work.",
+          "segments": [
+            "りきぞう",
+            "は",
+            "毎朝",
+            "朝ごはん",
+            "を",
+            "食べて",
+            "会社に",
+            "行きます"
+          ],
+          "distractors": [
+            "が",
+            "晩ごはん",
+            "来て"
+          ],
+          "alts": [
+            [
+              "毎朝",
+              "りきぞう",
+              "は",
+              "朝ごはん",
+              "を",
+              "食べて",
+              "会社に",
+              "行きます"
+            ]
+          ],
+          "explanation": "りきぞう + は (topic) + 毎朝 + 朝ごはん + を (object of 食べる) + 食べて (te-connector) + 会社に (destination) + 行きます. 毎朝 (every morning) can naturally appear sentence-initially too. が marks a subject in contrast, not the topic here. Use を to mark the food being eaten."
+        },
+        {
+          "kind": "scramble",
+          "q": "Tonight I want to drink green tea.",
+          "segments": [
+            "今晩",
+            "は",
+            "お茶",
+            "を",
+            "飲みたいです"
+          ],
+          "distractors": [
+            "に",
+            "朝ごはん",
+            "食べたいです"
+          ],
+          "explanation": "今晩 + は (topic) + お茶 + を (object of 飲む) + 飲みたいです (want to drink). Use を to mark the thing being drunk. に marks destinations or recipient persons, not the thing consumed. 朝ごはん + 食べたいです would mean 'want to eat breakfast', which doesn't match 'green tea.'"
+        },
+        {
+          "kind": "scramble",
+          "q": "My friend gave me a black shirt.",
+          "segments": [
+            "友だち",
+            "が",
+            "私",
+            "に",
+            "黒い",
+            "シャツ",
+            "を",
+            "くれました"
+          ],
+          "distractors": [
+            "は",
+            "あげました",
+            "赤い"
+          ],
+          "explanation": "友だち + が (subject/giver) + 私 + に (recipient) + 黒い + シャツ + を (object given) + くれました. くれる is used when someone gives something to the speaker (私). あげる is the reverse — the speaker gives to others. に marks the person who receives; を marks the thing given."
+        },
+        {
+          "kind": "scramble",
+          "q": "Various colors of shirts can be seen here.",
+          "segments": [
+            "ここ",
+            "で",
+            "色々な",
+            "色",
+            "の",
+            "シャツ",
+            "が",
+            "見られます"
+          ],
+          "distractors": [
+            "を",
+            "赤い",
+            "見ます"
+          ],
+          "explanation": "ここ + で (location where action happens) + 色々な (various — na-adj attributive form) + 色の + シャツ + が (subject of potential) + 見られます (can see/be seen). で marks the place where you can see things. In potential expressions, the thing that can be experienced often takes が. 見ます is plain present without the sense of ability."
+        },
+        {
+          "kind": "scramble",
+          "q": "This morning's sky was very bright.",
+          "segments": [
+            "今朝",
+            "の",
+            "空",
+            "は",
+            "とても",
+            "明るかったです"
+          ],
+          "distractors": [
+            "が",
+            "明るいです",
+            "明るいでした"
+          ],
+          "explanation": "今朝 + の (modifier: this morning's) + 空 + は (topic) + とても + 明るかったです. の connects 今朝 and 空 as a noun phrase. は marks the topic. 明るかったです is the correct past polite form of the い-adjective 明るい: the い changes to かった + です. 明るいでした is incorrect — い-adjectives do not attach でした directly to the dictionary form."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — My Morning",
+      "instructions": "Read the passage and answer the comprehension questions.",
+      "passage": [
+        {
+          "jp": "私は 毎朝 六時に 起きます。",
+          "en": "I wake up at six every morning.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_maiasa",
+            {
+              "counter": "ji",
+              "n": 6
+            },
+            "p_ni",
+            {
+              "id": "v_okiru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "朝ごはんを 食べてから、会社に 行きます。",
+          "en": "After eating breakfast, I go to work.",
+          "terms": [
+            "v_asagohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "p_kara",
+            "v_kaisha",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今朝は 空が とても 明るかったです。",
+          "en": "This morning the sky was very bright.",
+          "terms": [
+            "v_kesa",
+            "p_wa",
+            "v_sora",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_akarui",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "私は 明るい 朝が 大好きです。",
+          "en": "I love bright mornings.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_akarui",
+            "v_asa",
+            "p_ga",
+            "v_daisuki",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "今晩、友だちと 晩ごはんを 食べます。",
+          "en": "Tonight I will eat dinner with a friend.",
+          "terms": [
+            "v_konban",
+            "v_tomodachi",
+            "p_to",
+            "v_bangohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "私は 黒い シャツと 青い シャツが 好きですが、赤い シャツも 見たいです。",
+          "en": "I like black shirts and blue shirts, but I also want to see red shirts.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_kuroi",
+            "v_shatsu",
+            "p_to",
+            "v_aoi",
+            "v_shatsu",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ga_but",
+            "v_akai",
+            "v_shatsu",
+            "p_mo",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "私は 毎朝 何時に 起きますか。",
+          "a": "六時",
+          "choices": [
+            "六時",
+            "七時",
+            "六時半",
+            "五時"
+          ],
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_maiasa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_okiru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            {"counter": "ji", "n": 6}
+          ],
+          "explanation": "私は毎朝六時に起きます — I wake up at 6 every morning. The answer 六時 (6 o'clock) is stated directly in the first sentence."
+        },
+        {
+          "q": "今朝の 空は どうでしたか。",
+          "a": "とても 明るかったです",
+          "choices": [
+            "とても 明るかったです",
+            "あまり 明るく ありませんでした",
+            "空は 見えませんでした",
+            "晩に なりました"
+          ],
+          "terms": [
+            "v_kesa",
+            "p_no",
+            "v_sora",
+            "p_wa",
+            "v_dou",
+            {"id": "g_desu", "form": "copula_past"},
+            "p_ka",
+            "v_totemo",
+            {
+              "id": "v_akarui",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ],
+          "explanation": "今朝は空がとても明るかったです — this morning the sky was very bright. 明るかったです is the past polite form of the い-adjective 明るい (bright)."
+        },
+        {
+          "q": "私は どの 色の シャツを 見たいですか。",
+          "a": "赤い シャツ",
+          "choices": [
+            "赤い シャツ",
+            "青い シャツ",
+            "黒い シャツ",
+            "茶色い シャツ"
+          ],
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_dono",
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka",
+            "v_akai",
+            "v_shatsu"
+          ],
+          "explanation": "赤いシャツも見たいです — I also want to see red shirts. The passage says I already like black and blue shirts (好きです), but want to see (見たい) red ones too."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[私]は 毎朝 朝ごはんを 食べます。",
+          "choices": [
+            "わたし",
+            "し",
+            "じぶん",
+            "われ"
+          ],
+          "answer": "わたし",
+          "explanation": "私 (I / me) is read as <b>watashi</b>. This is the primary kun-reading. 私 (N4.3)."
+        },
+        {
+          "kind": "mcq",
+          "q": "今朝は とても [明るかった]です。",
+          "choices": [
+            "あかるかった",
+            "くらかった",
+            "ひろかった",
+            "しろかった"
+          ],
+          "answer": "あかるかった",
+          "explanation": "明るい (bright) in past form is 明るかった, read as <b>akarukatta</b>. 明るい past = remove い, add かった. 明 (N4.3)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[朝ごはん]を 食べてから、学校に 来ます。",
+          "choices": [
+            "あさごはん",
+            "ちょうしょく",
+            "ばんごはん",
+            "ひるごはん"
+          ],
+          "answer": "あさごはん",
+          "explanation": "朝ごはん (breakfast) is read as <b>asagohan</b>. 朝 (N4.3) + ごはん (hiragana until 飯 is taught in N4.6)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[今晩]は 友だちと 晩ごはんを 食べます。",
+          "choices": [
+            "こんばん",
+            "こんや",
+            "こんちゃ",
+            "こんあさ"
+          ],
+          "answer": "こんばん",
+          "explanation": "今晩 (tonight) is read as <b>konban</b>. 今 (N5.2) + 晩 (N4.3). Contrast with 今朝 (けさ, this morning)."
+        },
+        {
+          "kind": "mcq",
+          "q": "何[色]の シャツが 好きですか。",
+          "choices": [
+            "いろ",
+            "しき",
+            "しょく",
+            "もよう"
+          ],
+          "answer": "いろ",
+          "explanation": "色 (color) is read as <b>iro</b> in its kun-reading. The on-readings しょく and しき appear in compounds like 色彩. 色 (N4.4)."
+        },
+        {
+          "kind": "mcq",
+          "q": "青い シャツが [好き]ですよ。",
+          "choices": [
+            "すき",
+            "よし",
+            "いい",
+            "こう"
+          ],
+          "answer": "すき",
+          "explanation": "好き (like / fond of) is read as <b>suki</b>. The kanji 好 (N4.4) has on-reading こう and kun-reading す. In the word 好き, the reading is す + き."
+        },
+        {
+          "kind": "mcq",
+          "q": "[赤い] シャツを 見たいです。",
+          "choices": [
+            "あかい",
+            "あおい",
+            "くろい",
+            "しろい"
+          ],
+          "answer": "あかい",
+          "explanation": "赤い (red) is read as <b>akai</b>. 赤 (N4.4). Contrast: 青い (aoi, blue), 黒い (kuroi, black), 白い (shiroi, white)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[黒い] シャツと 赤い シャツが あります。",
+          "choices": [
+            "くろい",
+            "あかい",
+            "あおい",
+            "ちゃいろい"
+          ],
+          "answer": "くろい",
+          "explanation": "黒い (black) is read as <b>kuroi</b>. 黒 (N4.4). Contrast: 赤い (akai, red) and 茶色い (chairoi, brown) are common distractors for color vocabulary."
+        },
+        {
+          "kind": "mcq",
+          "q": "[週まつ]は 家で 晩ごはんを 食べます。",
+          "choices": [
+            "しゅうまつ",
+            "まいしゅう",
+            "しゅうかん",
+            "しゅうじつ"
+          ],
+          "answer": "しゅうまつ",
+          "explanation": "週まつ (weekend) is read as <b>shuumatsu</b>. 週 (N5.6) means week; 末 is written in hiragana (まつ) since the kanji 末 is not formally taught. Contrast: 毎週 (まいしゅう, every week), 週間 (しゅうかん, a week-long period)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎朝 ______を 食べてから、会社に 行きます。",
+          "choices": [
+            "朝ごはん",
+            "晩ごはん",
+            "お茶",
+            "シャツ"
+          ],
+          "answer": "朝ごはん",
+          "explanation": "朝ごはん (breakfast) fits: you eat breakfast in the morning before going to work. 晩ごはん is dinner — an evening meal. お茶 is a drink, not a meal you eat. シャツ is a shirt — you wear it, not eat it.",
+          "terms": [
+            "v_asagohan",
+            "v_bangohan",
+            "v_ocha",
+            "v_shatsu",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_kaisha",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "______は 空が とても 明るかったです。",
+          "choices": [
+            "今朝",
+            "今晩",
+            "毎晩",
+            "明日"
+          ],
+          "answer": "今朝",
+          "explanation": "今朝 (this morning) fits: the sky was very bright this morning. 今晩 (tonight) and 毎晩 (every night) refer to evening, when the sky is dark. 明日 (tomorrow) is future, but 明るかったです is past tense — these contradict each other.",
+          "terms": [
+            "v_kesa",
+            "v_konban",
+            "v_maiban",
+            "v_ashita",
+            "v_sora",
+            {
+              "id": "v_akarui",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちは ______な 色が 好きです。赤も 青も 黒も 好きですよ。",
+          "choices": [
+            "色々",
+            "明るい",
+            "白い",
+            "新しい"
+          ],
+          "answer": "色々",
+          "explanation": "色々な (various) fits: the friend likes various colors — red, blue, and black are all listed. 色々 is a na-adjective and requires な before a noun. 明るい, 白い, and 新しい are い-adjectives and cannot take な; they also don't convey the meaning of 'various.'",
+          "terms": [
+            "v_tomodachi",
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "v_suki",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "______は 家で 晩ごはんを 食べます。",
+          "choices": [
+            "週まつ",
+            "今朝",
+            "朝ごはん",
+            "お茶"
+          ],
+          "answer": "週まつ",
+          "explanation": "週まつ (the weekend) is the natural time expression here — on the weekend, you eat dinner at home. 今朝 (this morning) is a morning time, not when you have dinner. 朝ごはん is breakfast (a meal, not a time). お茶 is a drink, not a time expression.",
+          "terms": [
+            "v_shuumatsu",
+            "v_kesa",
+            "v_asagohan",
+            "v_ocha",
+            "v_ie",
+            "v_bangohan",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "私は ______が 大好きです。毎朝 飲みます。",
+          "choices": [
+            "お茶",
+            "晩ごはん",
+            "シャツ",
+            "朝ごはん"
+          ],
+          "answer": "お茶",
+          "explanation": "お茶 (green tea) fits: I love green tea and drink it every morning. 晩ごはん is dinner — you eat it, not drink it. シャツ is a shirt — you wear it. 朝ごはん is breakfast — you eat it; 飲む (drink) doesn't fit.",
+          "terms": [
+            "v_watashi",
+            "v_ocha",
+            "v_daisuki",
+            "v_maiasa",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "友だち ______ 私に 黒い シャツを くれました。",
+          "choices": [
+            "が",
+            "を",
+            "に",
+            "で"
+          ],
+          "answer": "が",
+          "explanation": "Use が to mark 友だち as the subject (the giver) of くれる. 友だちが私にくれた = 'my friend gave it to me.' を marks the direct object (黒いシャツ). に marks the recipient (私). が here shows who performed the giving action.",
+          "terms": [
+            "v_tomodachi",
+            "v_watashi",
+            "v_kuroi",
+            "v_shatsu",
+            {
+              "id": "v_kureru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "私は 黒が 好きです ______ 青い シャツも 見たいです。",
+          "choices": [
+            "が",
+            "から",
+            "まで",
+            "に"
+          ],
+          "answer": "が",
+          "explanation": "が after a predicate (好きですが) connects two contrasting clauses: 'I like black, but I also want to see blue shirts.' This が is a clause-linking conjunction expressing contrast. から after a predicate expresses reason ('because I like black') — which changes the meaning. まで means 'until/as far as.' に marks destinations or recipients.",
+          "terms": [
+            "v_watashi",
+            "v_kuro",
+            "v_suki",
+            "g_desu",
+            "p_ga_but",
+            "v_aoi",
+            "v_shatsu",
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "ここでは 色々な 色の シャツが ______。",
+          "choices": [
+            "見られます",
+            "見ます",
+            "見られました",
+            "見せます"
+          ],
+          "answer": "見られます",
+          "explanation": "見られます is the polite potential form of 見る: 'can be seen / can see here.' ここでは (here) sets the location. 見ます means 'I look/see' without expressing ability or availability. 見られました is past potential (could be seen). 見せます means 'I show (something to someone)' — a different verb.",
+          "terms": [
+            "v_koko",
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "v_shatsu",
+            {
+              "id": "v_miru",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちは 色々 ______ 色が 好きです。",
+          "choices": [
+            "な",
+            "に",
+            "が",
+            "で"
+          ],
+          "answer": "な",
+          "explanation": "色々 is a na-adjective. Na-adjectives use な when they precede a noun (attributive position): 色々な + 色 = 'various colors.' い-adjectives use い before nouns (not な). が marks a subject. で marks means or location — neither is an adjective connector.",
+          "terms": [
+            "v_tomodachi",
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_iro",
+            "v_suki",
+            "g_desu"
+          ]
+        }
+      ]
+    }
+  ]
+}

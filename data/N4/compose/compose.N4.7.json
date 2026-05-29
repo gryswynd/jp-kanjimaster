@@ -1,0 +1,171 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.7",
+  "lesson": "N4.7",
+  "level": "N4",
+  "title": "My Family",
+  "titleJp": "私の 家族",
+  "emoji": "👨‍👩‍👧‍👦",
+  "theme": "Write a short personal essay about your family — who your family members are, what your siblings are like, who is the kindest or most talented, and what you enjoy doing together.",
+  "prompts": [
+    {
+      "prompt": "Begin your essay by introducing your family. How many people are in your family? Who are they? Use 家族 in your opening sentence.",
+      "targets": [
+        { "id": "v_kazoku", "count": 1 }
+      ],
+      "model": "私の 家族は 4人です。親と 兄と 私です。",
+      "vocabPool": [
+        "v_kazoku", "v_oya", "v_ani", "v_ane", "v_imouto", "v_otouto",
+        "v_kyoudai", "v_watashi", "v_nannin", "v_hitori",
+        "v_mainichi", "v_totemo", "v_itsumo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your older brother or sister (兄 or 姉). What kind of person are they? Are they kind? What do they do every day?",
+      "targets": [
+        { "id": "v_ani", "count": 1 }
+      ],
+      "model": "兄は とても 親切です。毎日 会社で 働いて います。",
+      "vocabPool": [
+        "v_ani", "v_ane", "v_oniisan", "v_oneesan", "v_shinsetsu",
+        "v_totemo", "v_mainichi", "v_kaisha", "v_watashi",
+        "v_itsumo", "v_ima", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your older sister (姉) using a comparison. Is she better at cooking or something else than your older brother? Use より or いちばん.",
+      "targets": [
+        { "id": "v_ane", "count": 1 }
+      ],
+      "model": "姉は 兄より 料理が 上手です。家族の 中で いちばん 上手です。",
+      "vocabPool": [
+        "v_ane", "v_ani", "v_oniisan", "v_oneesan", "v_kazoku",
+        "v_ryouri", "v_jouzu", "v_ichiban", "v_totemo",
+        "v_naka", "v_watashi", "p_yori", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about your younger siblings (妹 or 弟). How old are they? What are they like? Are they cute or energetic?",
+      "targets": [
+        { "id": "v_imouto", "count": 1 }
+      ],
+      "model": "妹は まだ 小さいですが、とても かわいいです。弟も います。",
+      "vocabPool": [
+        "v_imouto", "v_otouto", "v_kyoudai", "v_mada", "v_chiisai",
+        "v_kawaii", "v_totemo", "v_watashi", "v_hitori",
+        "v_iru", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about your parents (親). Are they kind? What do they do for you? Use 親 in your sentence.",
+      "targets": [
+        { "id": "v_oya", "count": 1 }
+      ],
+      "model": "親は とても 親切です。毎日 ご飯を 作って くれます。",
+      "vocabPool": [
+        "v_oya", "v_shinsetsu", "v_kazoku", "v_mainichi", "v_itsumo",
+        "v_gohan", "v_ryouri", "v_tsukuru", "v_kureru", "v_ageru",
+        "v_morau", "v_watashi", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe something you and your siblings (兄弟) do together. Do you eat together? Do you talk together? When do you do this?",
+      "targets": [
+        { "id": "v_kyoudai", "count": 1 }
+      ],
+      "model": "兄弟と いっしょに ご飯を 食べます。週まつは みんなで 会います。",
+      "vocabPool": [
+        "v_kyoudai", "v_kazoku", "v_shuumatsu", "v_mainichi", "v_tokidoki",
+        "v_issho", "v_gohan", "v_ryouri", "v_taberu", "v_au",
+        "v_hanasu", "v_denwa", "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Wrap up your essay by writing about who is the kindest in your family (親切) and what you want to do with your family in the future.",
+      "targets": [
+        { "id": "v_shinsetsu", "count": 1 }
+      ],
+      "model": "家族の 中で いちばん 親切な 人は 姉です。来週、いっしょに ご飯を 食べたいです。",
+      "vocabPool": [
+        "v_shinsetsu", "v_kazoku", "v_oya", "v_ani", "v_ane",
+        "v_imouto", "v_otouto", "v_naka", "v_ichiban", "v_issho",
+        "v_gohan", "v_taberu", "v_raishuu", "v_watashi", "p_yori", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "p_yori", "p_hodo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["家族です", "兄です", "姉です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["家族でした", "大好きでした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["かわいいです", "小さいです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["かわいかったです", "小さかったです", "よかったです"]
+    },
+    {
+      "pattern": "[な-adj] + です",
+      "meaning": "is [na-adj] (polite predicate)",
+      "examples": ["親切です", "上手です", "好きです"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["食べます", "働きます", "話します"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["食べました", "働きました", "話しました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["食べません", "働きません", "話しません"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing / habitual (progressive)",
+      "examples": ["働いています", "食べています", "話しています"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["食べたいです", "会いたいです", "話したいです"]
+    },
+    {
+      "pattern": "[verb-te] + あげます / もらいます / くれます",
+      "meaning": "give / receive the action of [verb]",
+      "examples": ["作って あげます", "作って もらいます", "作って くれます"]
+    },
+    {
+      "pattern": "[noun A] + より [noun B] + の ほうが ～",
+      "meaning": "[B] is more ～ than [A] (comparison)",
+      "examples": ["兄より 姉の ほうが 親切です", "弟より 妹の ほうが かわいいです"]
+    },
+    {
+      "pattern": "いちばん ～",
+      "meaning": "the most ～ (superlative)",
+      "examples": ["いちばん 親切な 人", "いちばん 上手です"]
+    }
+  ]
+}

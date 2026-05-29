@@ -1,0 +1,181 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.12",
+  "lesson": "N4.12",
+  "level": "N4",
+  "title": "My Body and Heart",
+  "titleJp": "私の 体と 心",
+  "emoji": "💪",
+  "theme": "Write a personal description of your body, your health, your personality and heart, and what it means to be well-known or admired.",
+  "prompts": [
+    {
+      "prompt": "Open by introducing your body. Describe one or two physical features — your face, head, neck, or body. Use 体 or 顔 and a descriptive adjective.",
+      "targets": [
+        { "id": "v_karada", "count": 1 },
+        { "id": "v_kao", "count": 1 }
+      ],
+      "model": "私の 体は 大きくないです。顔は 明るいです。",
+      "vocabPool": [
+        "v_karada", "v_kao", "v_atama", "v_kubi", "v_tekubi",
+        "v_ookii", "v_chiisai", "v_nagai", "v_akarui", "v_kirei",
+        "v_watashi", "p_wa", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your complexion and how you feel physically today. Use 顔色 and 気分 or 体.",
+      "targets": [
+        { "id": "v_kaoiro", "count": 1 },
+        { "id": "v_kibun", "count": 1 }
+      ],
+      "model": "今日は 顔色が いいです。気分も よくて、体が 元気です。",
+      "vocabPool": [
+        "v_kaoiro", "v_kibun", "v_karada", "v_genki", "v_ii",
+        "v_itai", "v_kyou", "v_ima", "v_totemo", "v_amari"
+      ]
+    },
+    {
+      "prompt": "Write about your heart and personality. Use 心 and describe what kind of person you are. Is your heart warm? Are you important to others?",
+      "targets": [
+        { "id": "v_kokoro", "count": 1 },
+        { "id": "v_taisetsu", "count": 1 }
+      ],
+      "model": "私は 友だちを 大切に しています。心が きれいな 人が 好きです。",
+      "vocabPool": [
+        "v_kokoro", "v_taisetsu", "v_jibun", "v_hito", "v_tomodachi",
+        "v_akarui", "v_ii", "v_kirei", "v_watashi", "v_suru"
+      ]
+    },
+    {
+      "prompt": "Describe something you are good at with your body — using your hands, wrists, or head. Use 上手 or 頭がいい. What can you do well?",
+      "targets": [
+        { "id": "v_atamagaii", "count": 1, "matches": ["頭がいい", "頭がよかった", "頭がよく", "あたまがいい", "あたまがよかった"] },
+        { "id": "v_tekubi", "count": 1 }
+      ],
+      "model": "頭がいいので、本を 読むのが 上手です。手首を 使って、よく 書きます。",
+      "vocabPool": [
+        "v_atamagaii", "v_tekubi", "v_jouzu", "v_yomu", "v_kaku",
+        "v_suru", "v_tsukau", "v_hon", "v_ii"
+      ]
+    },
+    {
+      "prompt": "Write about a daily routine you do while doing something else. Use ながら to describe two simultaneous activities involving your body.",
+      "targets": [
+        { "id": "v_karada", "count": 1 },
+        { "id": "v_aruku", "count": 1 }
+      ],
+      "model": "毎朝、外を 歩きながら 写真を とります。お茶を 飲みながら 休みます。",
+      "vocabPool": [
+        "v_karada", "v_aruku", "v_maiasa", "v_soto", "v_shashin",
+        "v_toru", "v_taberu", "v_nomu", "v_miru", "v_suru"
+      ]
+    },
+    {
+      "prompt": "List things you do to take care of your body and heart. Use たり to show representative activities.",
+      "targets": [
+        { "id": "v_karada", "count": 1 },
+        { "id": "v_kokoro", "count": 1 }
+      ],
+      "model": "体の ために、歩いたり お茶を 飲んだり します。心の ために、本を 読んだり 友だちと 話したり します。",
+      "vocabPool": [
+        "v_karada", "v_kokoro", "v_taisetsu", "v_aruku", "v_nomu",
+        "v_yomu", "v_yasumu", "v_taberu", "v_ocha", "v_suru"
+      ]
+    },
+    {
+      "prompt": "Describe the kind of person you want to become. Do you want to be famous? What kind of heart and body do you want to have?",
+      "targets": [
+        { "id": "v_yuumei", "count": 1 },
+        { "id": "v_yuumeijin", "count": 1 }
+      ],
+      "model": "私は 心が きれいな 人に なりたいです。有名より 心が 大切です。体も 大切に したいです。",
+      "vocabPool": [
+        "v_yuumei", "v_yuumeijin", "v_kokoro", "v_karada", "v_taisetsu",
+        "v_sekaijuu", "v_ninki", "v_kirei", "v_ii", "v_hito"
+      ]
+    },
+    {
+      "prompt": "Close your piece by saying what you want to do for your body and heart in the future. Use 中心 or 大切 and express your desire with たいです.",
+      "targets": [
+        { "id": "v_chuushin", "count": 1 },
+        { "id": "v_karada", "count": 1 }
+      ],
+      "model": "体を 中心に、毎日 元気で いたいです。心も いつも 大切に したいです。",
+      "vocabPool": [
+        "v_chuushin", "v_karada", "v_kokoro", "v_taisetsu", "v_genki",
+        "v_mainichi", "v_aruku", "v_yasumu", "v_suru", "v_iru"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Imagine you have become famous. Use 有名人 and describe what people say about your face, body, or heart. Use 中心, 顔色, or 首 in your description.",
+      "targets": [
+        { "id": "v_yuumeijin", "count": 1 },
+        { "id": "v_kaoiro", "count": 1 }
+      ],
+      "model": "有名人に なりました。みんなは 私の 顔色が いいと 言います。首が 長くて、世界の 中心に なりたいです。",
+      "vocabPool": [
+        "v_yuumeijin", "v_kaoiro", "v_kubi", "v_chuushin", "v_sekai",
+        "v_sekaijuu", "v_ninki", "v_naru", "v_iu", "v_hito"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne", "p_dewa",
+    "p_ya", "p_ga_but", "p_kara_because", "p_kedo", "p_yori",
+    "p_node", "p_nagara", "p_shi", "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["歩きます", "書きました", "飲みました", "見ました"]
+    },
+    {
+      "pattern": "verb-ません / verb-ませんでした",
+      "meaning": "do not / did not (polite negative / past negative)",
+      "examples": ["行きません", "食べませんでした"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / has been doing (progressive / state)",
+      "examples": ["大切にして います", "歩いて います"]
+    },
+    {
+      "pattern": "verb-たいです / verb-たくないです",
+      "meaning": "want to / don't want to (polite desire)",
+      "examples": ["歩きたいです", "有名に なりたいです", "休みたくないです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["書けます", "歩けます", "読めます"]
+    },
+    {
+      "pattern": "verb masu-stem + ながら",
+      "meaning": "while doing (simultaneous actions)",
+      "examples": ["歩きながら 写真を とります", "お茶を 飲みながら 休みます"]
+    },
+    {
+      "pattern": "verb-たり + verb-たりします",
+      "meaning": "do things like X and Y (non-exhaustive list)",
+      "examples": ["歩いたり、休んだりします", "書いたり、読んだりします"]
+    },
+    {
+      "pattern": "[cause] + ので / から",
+      "meaning": "because / since (reason)",
+      "examples": ["頭が いいので できます", "体が 元気だから 歩きます"]
+    },
+    {
+      "pattern": "い-adj + かったです / くないです",
+      "meaning": "was [adj] / is not [adj] (past / negative adjective)",
+      "examples": ["よかったです", "よくないです", "大きくなかったです"]
+    },
+    {
+      "pattern": "A は B より [adj]",
+      "meaning": "A is more [adj] than B",
+      "examples": ["体より 心が 大切です"]
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.26",
+  "lesson": "N4.26",
+  "level": "N4",
+  "title": "Thinking Correctly",
+  "titleJp": "正しい 考え方",
+  "emoji": "💭",
+  "theme": "Write about a New Year's resolution to correct your way of thinking. Describe examining bad habits, correcting your viewpoint, walking the right path, and committing to honest, clear thinking — as if reflecting at the start of a new year.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that New Year has come. Use 正月 and a conditional form.",
+      "targets": [
+        {
+          "id": "v_shougatsu",
+          "count": 1
+        }
+      ],
+      "model": "正月が 来たら、新しく 始めます。",
+      "vocabPool": [
+        "v_shougatsu",
+        "v_kuru",
+        "v_atarashii",
+        "v_hajimeru",
+        "v_iku",
+        "v_kotoshi",
+        "v_ima",
+        "v_mainichi",
+        "g_desu",
+        "p_nara"
+      ]
+    },
+    {
+      "prompt": "Describe the kind of thinking you want to have. Use 正しい考え方.",
+      "targets": [
+        {
+          "id": "v_kangaekata",
+          "count": 1
+        }
+      ],
+      "model": "正しい 考え方を 持ちたいです。",
+      "vocabPool": [
+        "v_kangaekata",
+        "v_tadashii",
+        "v_motsu",
+        "v_kangaeru",
+        "v_taisetsu",
+        "v_ii",
+        "v_totemo",
+        "v_mainichi",
+        "g_desu",
+        "p_to_quote"
+      ]
+    },
+    {
+      "prompt": "Write about bad thinking you want to correct. Use 悪い考え and 正す.",
+      "targets": [
+        {
+          "id": "v_kangae",
+          "count": 1
+        },
+        {
+          "id": "v_tadasu",
+          "count": 1
+        }
+      ],
+      "model": "悪い 考えを 正して いきたいです。",
+      "vocabPool": [
+        "v_kangae",
+        "v_warui",
+        "v_tadasu",
+        "v_iku",
+        "v_suru",
+        "v_motto",
+        "v_mainichi",
+        "v_totemo",
+        "g_desu",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write about your viewpoint and why it needs to change. Use 見方 and 悪ければ.",
+      "targets": [
+        {
+          "id": "v_mikata",
+          "count": 1
+        }
+      ],
+      "model": "見方が 悪ければ、問題が 大きく なります。",
+      "vocabPool": [
+        "v_mikata",
+        "v_warui",
+        "v_mondai",
+        "v_ookii",
+        "v_naru",
+        "v_tadashii",
+        "v_kangaekata",
+        "v_taisetsu",
+        "g_desu",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Describe walking the correct path. Use 正道 and 歩く.",
+      "targets": [
+        {
+          "id": "v_seidou",
+          "count": 1
+        }
+      ],
+      "model": "正道を 歩く ことが 大切です。",
+      "vocabPool": [
+        "v_seidou",
+        "v_aruku",
+        "v_koto",
+        "v_taisetsu",
+        "v_iku",
+        "v_tadashii",
+        "v_kangaekata",
+        "v_mainichi",
+        "g_desu",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Describe why you need to be careful of bad ways of thinking. Use 悪質 and 注意.",
+      "targets": [
+        {
+          "id": "v_akushitsu",
+          "count": 1
+        },
+        {
+          "id": "v_chuui",
+          "count": 1
+        }
+      ],
+      "model": "悪質な 考え方に 注意しなければ いけません。",
+      "vocabPool": [
+        "v_akushitsu",
+        "v_chuui",
+        "v_kangaekata",
+        "v_suru",
+        "v_ikeru",
+        "v_warui",
+        "v_tadashii",
+        "v_taisetsu",
+        "g_desu",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write about starting the year with the right way of thinking. Use 始めれば and よく.",
+      "targets": [
+        {
+          "id": "v_hajimeru",
+          "count": 1
+        }
+      ],
+      "model": "正しい 考え方で 始めれば、今年が よく 進みます。",
+      "vocabPool": [
+        "v_hajimeru",
+        "v_tadashii",
+        "v_kangaekata",
+        "v_kotoshi",
+        "v_yoku",
+        "v_susumu",
+        "v_iku",
+        "v_mainichi",
+        "g_desu",
+        "p_de"
+      ]
+    },
+    {
+      "prompt": "Write about valuing correct thinking every day. Use 大切に and ていく.",
+      "targets": [
+        {
+          "id": "v_taisetsu",
+          "count": 1
+        }
+      ],
+      "model": "正しい 考え方を 毎日 大切に して いきます。",
+      "vocabPool": [
+        "v_taisetsu",
+        "v_tadashii",
+        "v_kangaekata",
+        "v_mainichi",
+        "v_suru",
+        "v_iku",
+        "v_susumu",
+        "v_ii",
+        "g_desu",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write about your intention to keep thinking correctly going forward. Use 考える and なければいけない.",
+      "targets": [
+        {
+          "id": "v_kangaeru",
+          "count": 1
+        }
+      ],
+      "model": "正しく 考えなければ いけないと 分かりました。",
+      "vocabPool": [
+        "v_kangaeru",
+        "v_tadashii",
+        "v_wakaru",
+        "v_ikeru",
+        "v_suru",
+        "v_mainichi",
+        "v_taisetsu",
+        "v_kotoshi",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "A teacher told you that the correct path is important. Report what they said using 正道 and そうです.",
+      "targets": [
+        {
+          "id": "v_seidou",
+          "count": 1
+        }
+      ],
+      "model": "先生が「正道を 歩く ことが 大切だ」と 言った そうです。",
+      "vocabPool": [
+        "v_seidou",
+        "v_aruku",
+        "v_koto",
+        "v_taisetsu",
+        "v_iu",
+        "v_sensei",
+        "v_kangaekata",
+        "v_tadashii",
+        "p_sou_da_hearsay",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "You heard that no one knew the true identity (正体) of a person in a story. Use 正体 and そうです.",
+      "targets": [
+        {
+          "id": "v_shoutai",
+          "count": 1
+        }
+      ],
+      "model": "その 人の 正体が 分からなかった そうです。",
+      "vocabPool": [
+        "v_shoutai",
+        "v_sono",
+        "v_hito",
+        "v_wakaru",
+        "v_iu",
+        "v_tadashii",
+        "v_warui",
+        "v_kangae",
+        "p_sou_da_hearsay",
+        "g_desu"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_ni",
+    "p_de",
+    "p_no",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_nara",
+    "p_kara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_dewa",
+    "p_dewa_then",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo",
+    "p_node",
+    "p_zutsu",
+    "p_sou_da_hearsay",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-た] + ら",
+      "meaning": "when / after [verb] (conditional — event sequence)",
+      "examples": [
+        "正月が 来たら、正しく 始めます",
+        "悪い 考えを 正したら、よく 進みます",
+        "注意したら、問題が 分かりました"
+      ]
+    },
+    {
+      "pattern": "[verb-え] + ば",
+      "meaning": "if [verb] (hypothetical conditional)",
+      "examples": [
+        "正しく 考えれば、いい 見方が 生まれます",
+        "悪質な 考えに 注意すれば、正しく 進めます",
+        "正しい 考え方で 始めれば、今年が よく 進みます"
+      ]
+    },
+    {
+      "pattern": "[plain form] + なら",
+      "meaning": "if / given that [context] (contextual conditional)",
+      "examples": [
+        "正月が 来たなら、新しく 始めましょう",
+        "考え方が 悪いなら、正して いきます",
+        "正しく 考えるなら、正道を 歩きます"
+      ]
+    },
+    {
+      "pattern": "[plain form] + と",
+      "meaning": "if / when [verb] → natural result",
+      "examples": [
+        "悪い 方で 進むと、問題が 大きく なります",
+        "悪い 考えを 持って いると、見方も 悪く なります",
+        "正しく 考えると、分かって きます"
+      ]
+    },
+    {
+      "pattern": "[verb-なければ] + いけない",
+      "meaning": "must [verb] / have to [verb] (obligation)",
+      "examples": [
+        "悪質な 考えに 注意しなければ いけません",
+        "正しく 考えなければ いけません",
+        "悪い 考え方を 正さなければ いけません"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + いく",
+      "meaning": "will keep doing / continue going forward",
+      "examples": [
+        "悪い 考えを 正して いきます",
+        "正しい 考え方を 大切に して いきます",
+        "正道を 歩いて いきます"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + くる",
+      "meaning": "has been gradually changing / came to [verb]",
+      "examples": [
+        "考えが 進んで きました",
+        "正しい 見方が 分かって きました",
+        "少しずつ 正しく なって きました"
+      ]
+    },
+    {
+      "pattern": "[plain past verb] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay)",
+      "examples": [
+        "先生が 正道を 大切だと 言った そうです",
+        "悪質な 考え方は 問題だ そうです",
+        "正しく 考える ことが 大切だ そうです"
+      ]
+    }
+  ]
+}

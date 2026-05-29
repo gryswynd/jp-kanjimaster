@@ -1,0 +1,960 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.5",
+  "title": "Relative Position, Weather & Energy",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 9–10.",
+    "kanji": [
+      "前",
+      "後",
+      "中",
+      "外",
+      "天",
+      "電",
+      "気",
+      "休"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "A foreign visitor asks Rikizo for directions to the department store near the station.",
+          "lines": [
+            {
+              "spk": "外人",
+              "jp": "すみません。デパートは どちら ですか。",
+              "terms": [
+                "p_sumimasen",
+                "v_depaato",
+                "p_wa",
+                "v_dochira",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "駅の 前に あります。こちらへ 来てください。",
+              "terms": [
+                "v_eki",
+                "p_no",
+                "v_mae",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_kochira",
+                "p_e",
+                {
+                  "id": "v_kuru",
+                  "form": "te_form"
+                },
+                "v_kudasai"
+              ]
+            },
+            {
+              "spk": "外人",
+              "jp": "あの 大きい 店ですか。",
+              "terms": [
+                "v_ano",
+                "v_ookii",
+                "v_mise",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "はい、そうです。店の 中は 新しいですよ。安いですよ。",
+              "terms": [
+                "p_hai",
+                "p_soudesu",
+                "v_mise",
+                "p_no",
+                "v_naka",
+                "p_wa",
+                "v_atarashii",
+                "g_desu",
+                "p_yo",
+                "v_yasui",
+                "g_desu",
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "Where is the department store?",
+          "choices": [
+            "In front of the station",
+            "Behind the station",
+            "Inside the train",
+            "Outside the mountain"
+          ],
+          "answer": "In front of the station",
+          "explanation": "Rikizo says 駅の前にあります — 'It is in front of the station.' 前 (まえ) = front/before. に marks the location of static existence with ある. こちらへ来てください uses the te-form of 来る (来て) + ください = 'please come this way.' どちら (which way, polite) is the polite equivalent of どこ. The store is described as 新しい (new) and 安い (cheap, N5.8) — 安い is the direct い-adjective for 'inexpensive/cheap,' the antonym of 高い (expensive)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Miki and Ren discuss their holiday plans and the weather.",
+          "lines": [
+            {
+              "spk": "ミキ",
+              "jp": "今日は 休日ですね。天気は どうですか。",
+              "terms": [
+                "v_kyou",
+                "p_wa",
+                "v_kyuujitsu",
+                "g_desu",
+                "p_ne",
+                "v_tenki",
+                "p_wa",
+                "v_dou",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "いい 天気ですよ。よかったですね。",
+              "terms": [
+                "v_ii",
+                "v_tenki",
+                "g_desu",
+                "p_yo",
+                {
+                  "id": "v_ii",
+                  "form": "plain_past_adj"
+                },
+                "g_desu",
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "ミキ",
+              "jp": "電車で 山に 行きましょう。ホテルで 休みたいです。",
+              "terms": [
+                "v_densha",
+                "p_de",
+                "v_yama",
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "polite_volitional_mashou"
+                },
+                "v_hoteru",
+                "p_de",
+                {
+                  "id": "v_yasumu",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "レン",
+              "jp": "いいですね。ホテルは 古いですが、人気が ありますよ。",
+              "terms": [
+                "v_ii",
+                "g_desu",
+                "p_ne",
+                "v_hoteru",
+                "p_wa",
+                "v_furui",
+                "g_desu",
+                "p_ga_but",
+                "v_ninki",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "What does Miki want to do at the hotel?",
+          "choices": [
+            "Rest",
+            "Eat curry",
+            "Buy a present",
+            "Watch TV"
+          ],
+          "answer": "Rest",
+          "explanation": "Miki says ホテルで休みたいです — 'I want to rest at the hotel.' 休みたいです is the desire form (N5.8) of 休む (to rest, N5.10): stem 休み + たいです = 'want to rest.' で marks the location where resting happens. The weather よかったです uses the irregular い-adjective past: いい → よかった + です (introduced in N5.10 as polite_past_adj)."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Yamamoto-sensei and Rikizo plan to eat out together after class.",
+          "lines": [
+            {
+              "spk": "先生",
+              "jp": "今日 外食を したいですか。",
+              "terms": [
+                "v_kyou",
+                "v_gaishoku",
+                "p_wo",
+                {
+                  "id": "v_suru",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "はい、したいです。どこが いいですか。",
+              "terms": [
+                "p_hai",
+                {
+                  "id": "v_suru",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu",
+                "v_doko",
+                "p_ga",
+                "v_ii",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "駅の 前の レストランは どうですか。中に 友だちが います。",
+              "terms": [
+                "v_eki",
+                "p_no",
+                "v_mae",
+                "p_no",
+                "v_resutoran",
+                "p_wa",
+                "v_dou",
+                "g_desu",
+                "p_ka",
+                "v_naka",
+                "p_ni",
+                "v_tomodachi",
+                "p_ga",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "気分が いいですから、そちらへ 行きましょう。",
+              "terms": [
+                "v_kibun",
+                "p_ga",
+                "v_ii",
+                "g_desu",
+                "p_kara_because",
+                "v_sochira",
+                "p_e",
+                {
+                  "id": "v_iku",
+                  "form": "polite_volitional_mashou"
+                }
+              ]
+            }
+          ],
+          "question": "Where does the teacher suggest eating?",
+          "choices": [
+            "The restaurant in front of the station",
+            "The department store behind the station",
+            "The hotel in the mountains",
+            "Inside the train"
+          ],
+          "answer": "The restaurant in front of the station",
+          "explanation": "The teacher says 駅の前のレストランはどうですか — 'How about the restaurant in front of the station?' 駅の前の uses double の: the first の connects 駅 to 前, the second の connects 前 to レストラン, meaning 'the restaurant that is in front of the station.' そちらへ行きましょう uses ましょう (polite volitional, N5.8) = 'let's go that way.' From N5.9: そちら is the polite direction word meaning 'that way / your direction.' Rikizo's から here follows a full です-clause = p_kara_because (G9) = 'because my mood is good.'"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "There is a big store in front of the station.",
+          "segments": [
+            "駅",
+            "の",
+            "前",
+            "に",
+            "大きい",
+            "店",
+            "が",
+            "あります"
+          ],
+          "distractors": [
+            "で",
+            "後ろ",
+            "ありません"
+          ],
+          "explanation": "駅 + の (possession) + 前 (front) + に (location marker with ある) + 大きい (big, attributive adjective) + 店 + が (subject) + あります. The pattern X の 前 に ある = 'there is [something] in front of X.' に marks the location of static existence with ある — で would mark a location of action, not static existence. 後ろ (behind) is the opposite of 前 (front). ありません is the negative of あります."
+        },
+        {
+          "kind": "scramble",
+          "q": "Rikizo is drinking coffee outside.",
+          "segments": [
+            "りきぞう",
+            "は",
+            "外",
+            "で",
+            "コーヒー",
+            "を",
+            "飲んでいます"
+          ],
+          "distractors": [
+            "に",
+            "中",
+            "飲みました"
+          ],
+          "explanation": "りきぞう + は (topic) + 外 (outside) + で (location of action) + コーヒー + を (object) + 飲んでいます. 飲んでいます = te-form of 飲む (飲んで) + います = progressive 'is drinking' (G8, N5.8+). で marks where the action of drinking takes place. に marks static location with ある/いる, not ongoing action. 中 (inside) is the opposite of 外 (outside). 飲みました is past tense, not progressive."
+        },
+        {
+          "kind": "scramble",
+          "q": "Let's go to the mountains by train.",
+          "segments": [
+            "電車",
+            "で",
+            "山",
+            "に",
+            "行きましょう"
+          ],
+          "distractors": [
+            "を",
+            "が",
+            "行きます"
+          ],
+          "alts": [
+            [
+              "山",
+              "に",
+              "電車",
+              "で",
+              "行きましょう"
+            ]
+          ],
+          "explanation": "電車 + で (by train — means of transport) + 山 + に (destination of motion) + 行きましょう. ましょう (polite volitional of 行く, N5.8) = 'let's go.' で marks the means of transport: 電車で = 'by train.' に marks the destination with 行く. The order of 電車で and 山に can swap naturally: both 電車で山に行きましょう and 山に電車で行きましょう are correct Japanese."
+        },
+        {
+          "kind": "scramble",
+          "q": "I want to rest at the hotel on a holiday.",
+          "segments": [
+            "休日",
+            "に",
+            "ホテル",
+            "で",
+            "休みたいです"
+          ],
+          "distractors": [
+            "を",
+            "から",
+            "休みます"
+          ],
+          "alts": [
+            [
+              "ホテル",
+              "で",
+              "休日",
+              "に",
+              "休みたいです"
+            ]
+          ],
+          "explanation": "休日 + に (on a holiday — time point) + ホテル + で (at the hotel — location of action) + 休みたいです. 休みたいです = stem 休み + たいです (desire form, N5.8) = 'want to rest.' に marks the time point (holiday), で marks the location of action (hotel). The order of these two adverbial phrases can swap: 休日にホテルで and ホテルで休日に are both natural Japanese."
+        },
+        {
+          "kind": "scramble",
+          "q": "The train was long, but the hotel was great.",
+          "segments": [
+            "電車",
+            "は",
+            "長かったです",
+            "が",
+            "ホテル",
+            "は",
+            "よかったです"
+          ],
+          "distractors": [
+            "でも",
+            "から",
+            "長い"
+          ],
+          "explanation": "電車 + は (topic) + 長かったです (was long — polite past of 長い: 長かった + です) + が (clause connector 'but' — p_ga_but, used after a ます/です form) + ホテル + は (topic) + よかったです (was great — polite past of いい: よかった + です). The irregular past of いい is よかった — never いかった. が here is p_ga_but (conjunction 'but'), not the subject marker が. でも is a sentence-starting 'but,' not a clause connector within a sentence."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please come in front of the station.",
+          "segments": [
+            "駅",
+            "の",
+            "前",
+            "に",
+            "来てください"
+          ],
+          "distractors": [
+            "で",
+            "後ろ",
+            "行ってください"
+          ],
+          "explanation": "駅 + の + 前 (front of the station) + に (location/destination marker) + 来てください. 来てください = te-form of 来る (来て) + ください = 'please come.' に marks the destination to come to. で would mark where an action is done. 後ろ (behind) is the opposite direction. 行ってください (please go) uses 行く — the wrong verb; 来る = come toward the speaker, 行く = go away from the speaker."
+        },
+        {
+          "kind": "scramble",
+          "q": "Today my mood is not good.",
+          "segments": [
+            "今日",
+            "は",
+            "気分",
+            "が",
+            "よくない",
+            "です"
+          ],
+          "distractors": [
+            "を",
+            "に",
+            "よかった"
+          ],
+          "explanation": "今日 + は (topic) + 気分 (mood) + が (subject) + よくない (not good — plain negative of いい: stem よ + くない) + です. よくない is the plain negative of いい (good): いい → stem よ + くない = よくない (N5.10). The pattern: い-adj stem + くない + です = polite present negative. よかった is the PAST form (was good) — using it would change the sentence to a past statement. が marks 気分 as the grammatical subject."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Yamakawa's Day Off",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "今日は 休日です。天気が よかったです。",
+          "en": "Today is a holiday. The weather was good.",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kyuujitsu",
+            "g_desu",
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "やまかわは 電車で 駅の 前の レストランへ 行きました。",
+          "en": "Yamakawa went by train to the restaurant in front of the station.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_densha",
+            "p_de",
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_no",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "レストランの 中は 新しいです。外で 友だちが コーヒーを 飲んでいます。",
+          "en": "The inside of the restaurant is new. Outside, a friend is drinking coffee.",
+          "terms": [
+            "v_resutoran",
+            "p_no",
+            "v_naka",
+            "p_wa",
+            "v_atarashii",
+            "g_desu",
+            "v_soto",
+            "p_de",
+            "v_tomodachi",
+            "p_ga",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "カレーを 食べて、コーヒーも 飲みました。気分が よかったです。",
+          "en": "She ate curry and then drank coffee too. Her mood was great.",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_koohii",
+            "p_mo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            },
+            "v_kibun",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "外食は とても よかったです。来週も また 行きたいです。",
+          "en": "Eating out was very great. I want to go again next week too.",
+          "terms": [
+            "v_gaishoku",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "v_raishuu",
+            "p_mo",
+            "v_mata",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは 何で レストランへ 行きましたか。",
+          "a": "電車で 行きました。",
+          "choices": [
+            "電車で 行きました。",
+            "車で 行きました。",
+            "バスで 行きました。",
+            "歩いて 行きました。"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_nan",
+            "p_de",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka",
+            "v_densha"
+          ],
+          "explanation": "The passage says やまかわは電車で駅の前のレストランへ行きました — 'Yamakawa went by train.' 何で (なんで) asks 'by what means?' で marks the means/instrument: 電車で = 'by train.' 何 before で is read なん (N5.9 rule: 何 before d-sounds → v_nan). The other options use modes of transport not mentioned: 車 (car, N5.6) is parked outside the restaurant but not used for travel, バス (bus) is not in the passage."
+        },
+        {
+          "q": "レストランは どこに ありますか。",
+          "a": "駅の 前に あります。",
+          "choices": [
+            "駅の 前に あります。",
+            "駅の 後ろに あります。",
+            "山の 中に あります。",
+            "駅の 外に あります。"
+          ],
+          "terms": [
+            "v_resutoran",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_eki",
+            "p_no",
+            "v_mae"
+          ],
+          "explanation": "The passage says 電車で駅の前のレストランへ行きました — the restaurant is 駅の前 (in front of the station). The pattern X の 前 に あります = 'is in front of X.' The other position words — 後ろ (behind), 中 (inside), 外 (outside) — describe different locations. 山の中 describes the hotel from N5.10, not the restaurant in this passage."
+        },
+        {
+          "q": "やまかわは 来週も 行きたいですか。",
+          "a": "はい、また 行きたいです。",
+          "choices": [
+            "はい、また 行きたいです。",
+            "いいえ、休みたいです。",
+            "電車を 買いたいです。",
+            "外食を したくないです。"
+          ],
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_raishuu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka",
+            "p_hai",
+            "v_mata"
+          ],
+          "explanation": "The passage says 来週もまた行きたいです — 'I want to go again next week too.' 行きたいです = stem 行き + たいです (desire form, N5.8) = 'want to go.' また means 'again' (pure kana, untagged). も (also/too) shows she wants to go next week in addition to today. いいえ、休みたいです contradicts the passage. したくないです is negative desire — opposite of what the passage says."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "駅の [前] に 店が あります。",
+          "choices": [
+            "まえ",
+            "うしろ",
+            "なか",
+            "そと"
+          ],
+          "answer": "まえ",
+          "explanation": "前 (front/before) is read as <b>mae</b>. 前 (ぜん/まえ) — kun-reading まえ, as in 前に (in front of). On-reading ぜん (as in 午前 = a.m., 前半 = first half). Introduced in N5.9 as part of the position-word set: 前 (front), 後ろ (behind), 中 (inside), 外 (outside)."
+        },
+        {
+          "kind": "mcq",
+          "q": "店の [中] は 新しいです。",
+          "choices": [
+            "なか",
+            "そと",
+            "まえ",
+            "うしろ"
+          ],
+          "answer": "なか",
+          "explanation": "中 (inside/middle) is read as <b>naka</b>. 中 (ちゅう/なか) — kun-reading なか. On-reading ちゅう (as in 中学 = middle school, 中国 = China). Contrast with 外 (そと = outside): 中 and 外 are spatial antonyms — 中に (inside) vs 外に (outside). Introduced in N5.9."
+        },
+        {
+          "kind": "mcq",
+          "q": "[外] に 友だちが います。",
+          "choices": [
+            "そと",
+            "なか",
+            "まえ",
+            "うしろ"
+          ],
+          "answer": "そと",
+          "explanation": "外 (outside) is read as <b>soto</b>. 外 (がい/そと) — kun-reading そと. On-reading がい (as in 外食 = eating out, 外人 = foreigner). Contrast with 中 (なか = inside). The on-reading がい is used in N5.9 compounds: 外食 (がいしょく = eating out) and 外人 (がいじん = foreigner). Introduced in N5.9."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅の [後ろ] に 車が あります。",
+          "choices": [
+            "うしろ",
+            "まえ",
+            "なか",
+            "そと"
+          ],
+          "answer": "うしろ",
+          "explanation": "後ろ (behind/back) is read as <b>ushiro</b>. 後 (ご・こう/うしろ・あと) — this kanji has two distinct words: 後ろ (うしろ = spatial 'behind', always written with ろ appended) and 後 standalone (あと = temporal 'after/later'). Token 後ろ (with ろ) → always v_ushiro. Introduced in N5.9."
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は [天気] が いいですね。",
+          "choices": [
+            "てんき",
+            "でんき",
+            "きぶん",
+            "にんき"
+          ],
+          "answer": "てんき",
+          "explanation": "天気 (weather) is read as <b>tenki</b>. 天 (てん = heaven/sky) + 気 (き = energy/feeling) = 天気. On-reading of 天 is てん; on-reading of 気 is き. Both kanji are introduced in N5.10. Compare with 電気 (でんき = electricity): 天 (sky/heaven) vs 電 (electricity) is the distinguishing character."
+        },
+        {
+          "kind": "mcq",
+          "q": "[電車] で 山に 行きましょう。",
+          "choices": [
+            "でんしゃ",
+            "でんき",
+            "てんき",
+            "きゅうじつ"
+          ],
+          "answer": "でんしゃ",
+          "explanation": "電車 (train) is read as <b>densha</b>. 電 (でん = electricity) + 車 (しゃ/くるま = vehicle) = 電車 (electric vehicle = train). On-reading of 電 is でん; on-reading of 車 is しゃ. Note: 電気 (でんき = electricity) also uses でん for 電. Both 電車 and 電気 start with でん — the second character (車 vs 気) distinguishes them. Introduced in N5.10."
+        },
+        {
+          "kind": "mcq",
+          "q": "[電気] が ありますか。",
+          "choices": [
+            "でんき",
+            "でんしゃ",
+            "てんき",
+            "きぶん"
+          ],
+          "answer": "でんき",
+          "explanation": "電気 (electricity) is read as <b>denki</b>. 電 (でん = electricity) + 気 (き = energy) = 電気 (electrical energy = electricity). Compare: 電車 (でんしゃ = train) also starts with 電 (でん). The key difference: 電気 uses 気 (き), 電車 uses 車 (しゃ). 天気 (てんき) uses 天 (heaven), not 電 (electricity) — different first kanji. Introduced in N5.10."
+        },
+        {
+          "kind": "mcq",
+          "q": "[休日] に ホテルで 休みたいです。",
+          "choices": [
+            "きゅうじつ",
+            "やすみ",
+            "でんき",
+            "にんき"
+          ],
+          "answer": "きゅうじつ",
+          "explanation": "休日 (holiday/day off) is read as <b>kyuujitsu</b>. 休 (きゅう/やす = rest) + 日 (にち・じつ・ひ = day) = 休日 (rest-day = holiday). On-reading of 休 is きゅう; on-reading of 日 is じつ. Compare: 休み (やすみ) uses the kun-reading やす and means 'rest/break' generally. 休日 (きゅうじつ) is a designated holiday. Introduced in N5.10."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "駅の _______ に レストランが あります。",
+          "choices": [
+            "前",
+            "上",
+            "山",
+            "電気"
+          ],
+          "answer": "前",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_resutoran",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "前 (まえ = front) is the position word that makes a natural sentence: 駅の前にレストランがあります = 'there is a restaurant in front of the station.' The pattern X の 前 に ある shows the restaurant's location relative to the station. 上 (うえ = above) is not yet taught (N5.16). 山 and 電気 are nouns that do not function as spatial position words between two locations."
+        },
+        {
+          "kind": "mcq",
+          "q": "山の _______ に ホテルが あります。",
+          "choices": [
+            "中",
+            "前",
+            "外",
+            "後ろ"
+          ],
+          "answer": "中",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_hoteru",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "中 (なか = inside/middle) is the correct answer from the N5.10 lesson context: 山の中にホテルがあります = 'there is a hotel in the mountains (nestled inside them).' This reflects the N5.10 mountain hotel setting. 前 (front), 外 (outside), and 後ろ (behind) are also position words but don't naturally describe a hotel as being within mountains."
+        },
+        {
+          "kind": "mcq",
+          "q": "天気が よかったから、_______ が いいです。",
+          "choices": [
+            "気分",
+            "人気",
+            "電気",
+            "休日"
+          ],
+          "answer": "気分",
+          "terms": [
+            "v_tenki",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_kara_because",
+            "v_kibun",
+            "p_ga",
+            "v_ii",
+            "g_desu"
+          ],
+          "explanation": "気分 (きぶん = mood/feeling) completes the sentence: 天気がよかったから、気分がいいです = 'Because the weather was good, my mood is great.' から here follows a past-adjective clause (よかった + から) expressing reason = p_kara_because (G9, available from N5.9). 気分がいい is a set expression meaning 'to feel good.' 人気 (popularity), 電気 (electricity), and 休日 (holiday) don't fit as natural internal reactions to good weather."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 電車は _______ が あります。",
+          "choices": [
+            "人気",
+            "気分",
+            "天気",
+            "電気"
+          ],
+          "answer": "人気",
+          "terms": [
+            "v_kono",
+            "v_densha",
+            "p_wa",
+            "v_ninki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "人気 (にんき = popularity) fits: この電車は人気があります = 'This train is popular.' 人気がある is a set expression meaning 'to be popular / to have popularity.' From N5.10: 長い電車は人気があります and この山は人気があります. 気分 (mood) belongs to a person, not a train. 天気 (weather) is for the sky. 電気がある (there is electricity) is grammatical but changes the meaning entirely — it would mean the train has electricity, not that it is popular."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "店は 駅の 前 _______ あります。",
+          "choices": [
+            "に",
+            "で",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_mise",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "に marks the location of static existence with ある: 駅の前にあります = 'exists in front of the station.' ある and いる always pair with に for their location argument — this is the existence-location に. で marks the location where an ACTION takes place (eating, buying), not static existence. を marks a direct object — 前 is not being acted upon. が marks the subject, already occupied by 店."
+        },
+        {
+          "kind": "mcq",
+          "q": "中に 友だちが _______。",
+          "choices": [
+            "います",
+            "あります",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "います",
+          "terms": [
+            "v_naka",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "います is used for animate beings (people and animals): 中に友だちがいます = 'A friend is inside.' いる is for living things; ある is for objects and things. 友だち (friend) is a person, so いる is required. ある would imply the friend is an inanimate object. 行きます (going) and 来ます (coming) are motion verbs — they do not express static location or existence."
+        },
+        {
+          "kind": "mcq",
+          "q": "電車 _______ 山に 行きましょう。",
+          "choices": [
+            "で",
+            "に",
+            "を",
+            "が"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_densha",
+            "p_de",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ],
+          "explanation": "で marks the means of transport: 電車で = 'by train.' This usage of で indicates the method or instrument used. に marks 山 as the destination of 行く. を would mark a direct object — 電車 is not what is being traveled through as a path (unlike 道を歩く). が marks the subject — already occupied by the implied 'we.' The pattern means-で + destination-に + 行く is a standard pattern from N5."
+        },
+        {
+          "kind": "mcq",
+          "q": "今日は 気分が _______ ですね。（Today I felt great.）",
+          "choices": [
+            "よかった",
+            "いかった",
+            "よく",
+            "よい"
+          ],
+          "answer": "よかった",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_kibun",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ],
+          "explanation": "よかった is the correct past stem of いい: いい → stem よ + かった = よかった + です = よかったです (was good, N5.10). いかった is the most common error — the い stem is wrong. The past of いい is ALWAYS よかった, never いかった. This irregular stem (い → よ) must be memorized. よく is the adverbial form (よく = well/often). よい is the literary base form that does not produce a natural modern past."
+        },
+        {
+          "kind": "mcq",
+          "q": "電気が ありません。電車 _______ 来ません。",
+          "choices": [
+            "も",
+            "は",
+            "が",
+            "に"
+          ],
+          "answer": "も",
+          "terms": [
+            "v_denki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_densha",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_negative"
+            }
+          ],
+          "explanation": "も (also/either) extends the same condition to another item: 電車も来ません = 'Trains won't come either.' After a negative statement, も creates 'X also doesn't / X either doesn't': 電気がありません (no electricity) → 電車も来ません (trains also won't come). は would create a contrast: 電車は来ません implies 'but something else does come.' が marks the subject in a simple statement without the 'also/either' nuance."
+        }
+      ]
+    }
+  ]
+}

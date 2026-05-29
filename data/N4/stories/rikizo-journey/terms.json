@@ -1,0 +1,600 @@
+{
+  "contentVersion": "1.0.0",
+  "storyFile": "story.md",
+  "title": "りきぞうの旅",
+  "englishTitle": "Rikizo's Journey",
+  "terms": {
+    "りきぞう": {
+      "id": "char_rikizo",
+      "form": null
+    },
+    "は": {
+      "id": "p_wa",
+      "form": null
+    },
+    "が": {
+      "id": "p_ga",
+      "form": null
+    },
+    "ですが": {
+      "id": "p_ga_but",
+      "form": null
+    },
+    "を": {
+      "id": "p_wo",
+      "form": null
+    },
+    "の": {
+      "id": "p_no",
+      "form": null
+    },
+    "に": {
+      "id": "p_ni",
+      "form": null
+    },
+    "で": {
+      "id": "p_de",
+      "form": null
+    },
+    "へ": {
+      "id": "p_e",
+      "form": null
+    },
+    "と": {
+      "id": "p_to",
+      "form": null
+    },
+    "」と": {
+      "id": "p_to_quote",
+      "form": null
+    },
+    "も": {
+      "id": "p_mo",
+      "form": null
+    },
+    "や": {
+      "id": "p_ya",
+      "form": null
+    },
+    "か": {
+      "id": "p_ka",
+      "form": null
+    },
+    "よ": {
+      "id": "p_yo",
+      "form": null
+    },
+    "より": {
+      "id": "p_yori",
+      "form": null
+    },
+    "でも": {
+      "id": "p_demo_but",
+      "form": null
+    },
+    "すみません": {
+      "id": "p_sumimasen",
+      "form": null
+    },
+    "ありがとうございます": {
+      "id": "p_arigatou_gozaimasu",
+      "form": null
+    },
+    "どうぞ": {
+      "id": "p_douzo",
+      "form": null
+    },
+    "あっ": {
+      "id": "p_att",
+      "form": null
+    },
+    "この": {
+      "id": "v_kono",
+      "form": null
+    },
+    "その": {
+      "id": "v_sono",
+      "form": null
+    },
+    "あの": {
+      "id": "v_ano",
+      "form": null
+    },
+    "です": {
+      "id": "g_desu",
+      "form": null
+    },
+    "でした": {
+      "id": "g_desu",
+      "form": null
+    },
+    "毎日": {
+      "id": "v_mainichi",
+      "form": null
+    },
+    "工場": {
+      "id": "v_koujou",
+      "form": null
+    },
+    "働いて": {
+      "id": "v_hataraku",
+      "form": "te_form"
+    },
+    "います": {
+      "id": "v_iru",
+      "form": "polite_masu"
+    },
+    "いました": {
+      "id": "v_iru",
+      "form": "polite_mashita"
+    },
+    "いる": {
+      "id": "v_iru",
+      "form": null
+    },
+    "いたら": {
+      "id": "v_iru",
+      "form": "conditional_tara"
+    },
+    "同じ": {
+      "id": "v_onaji",
+      "form": null
+    },
+    "道": {
+      "id": "v_michi",
+      "form": null
+    },
+    "歩いて": {
+      "id": "v_aruku",
+      "form": "te_form"
+    },
+    "歩きました": {
+      "id": "v_aruku",
+      "form": "polite_mashita"
+    },
+    "歩いたり": {
+      "id": "v_aruku",
+      "form": "tari_form"
+    },
+    "仕事": {
+      "id": "v_shigoto",
+      "form": null
+    },
+    "して": {
+      "id": "v_suru",
+      "form": "te_form"
+    },
+    "しました": {
+      "id": "v_suru",
+      "form": "polite_mashita"
+    },
+    "したい": {
+      "id": "v_suru",
+      "form": "plain_desire_tai"
+    },
+    "カレー": {
+      "id": "v_karee",
+      "form": null
+    },
+    "食べて": {
+      "id": "v_taberu",
+      "form": "te_form"
+    },
+    "食べました": {
+      "id": "v_taberu",
+      "form": "polite_mashita"
+    },
+    "食べたい": {
+      "id": "v_taberu",
+      "form": "plain_desire_tai"
+    },
+    "食べないでください": {
+      "id": "v_taberu",
+      "form": "polite_negative_te"
+    },
+    "おもしろくない": {
+      "id": "v_omoshiroi",
+      "form": "plain_negative"
+    },
+    "おもしろい": {
+      "id": "v_omoshiroi",
+      "form": null
+    },
+    "旅": {
+      "id": "v_tabi",
+      "form": null
+    },
+    "思って": {
+      "id": "v_omou",
+      "form": "te_form"
+    },
+    "朝": {
+      "id": "v_asa",
+      "form": null
+    },
+    "早く": {
+      "id": "v_hayai",
+      "form": "adverbial"
+    },
+    "起きて": {
+      "id": "v_okiru",
+      "form": "te_form"
+    },
+    "起きました": {
+      "id": "v_okiru",
+      "form": "polite_mashita"
+    },
+    "駅": {
+      "id": "v_eki",
+      "form": null
+    },
+    "走りました": {
+      "id": "v_hashiru",
+      "form": "polite_mashita"
+    },
+    "走って": {
+      "id": "v_hashiru",
+      "form": "te_form"
+    },
+    "走れません": {
+      "id": "v_hashiru",
+      "form": "potential_negative"
+    },
+    "電車": {
+      "id": "v_densha",
+      "form": null
+    },
+    "乗りました": {
+      "id": "v_noru",
+      "form": "polite_mashita"
+    },
+    "海": {
+      "id": "v_umi",
+      "form": null
+    },
+    "見たい": {
+      "id": "v_miru",
+      "form": "plain_desire_tai"
+    },
+    "見て": {
+      "id": "v_miru",
+      "form": "te_form"
+    },
+    "見た": {
+      "id": "v_miru",
+      "form": "plain_past"
+    },
+    "見ました": {
+      "id": "v_miru",
+      "form": "polite_mashita"
+    },
+    "見ながら": {
+      "id": "v_miru",
+      "form": "nagara_form"
+    },
+    "見えました": {
+      "id": "v_mieru",
+      "form": "polite_mashita"
+    },
+    "中": {
+      "id": "v_naka",
+      "form": null
+    },
+    "とても": {
+      "id": "v_totemo",
+      "form": null
+    },
+    "いい": {
+      "id": "v_ii",
+      "form": null
+    },
+    "よく": {
+      "id": "v_ii",
+      "form": "adverbial"
+    },
+    "気分": {
+      "id": "v_kibun",
+      "form": null
+    },
+    "休みました": {
+      "id": "v_yasumu",
+      "form": "polite_mashita"
+    },
+    "時間": {
+      "id": "v_jikan",
+      "form": null
+    },
+    "後": {
+      "id": "v_ato",
+      "form": null
+    },
+    "時": {
+      "id": "v_toki",
+      "form": null
+    },
+    "だめ": {
+      "id": "v_dame",
+      "form": null
+    },
+    "一つ": {
+      "id": "v_hitotsu",
+      "form": null
+    },
+    "どこ": {
+      "id": "v_doko",
+      "form": null
+    },
+    "知らない": {
+      "id": "v_shiru",
+      "form": "plain_negative"
+    },
+    "知って": {
+      "id": "v_shiru",
+      "form": "te_form"
+    },
+    "出ました": {
+      "id": "v_deru",
+      "form": "polite_mashita"
+    },
+    "出て": {
+      "id": "v_deru",
+      "form": "te_form"
+    },
+    "出して": {
+      "id": "v_dasu",
+      "form": "te_form"
+    },
+    "出しました": {
+      "id": "v_dasu",
+      "form": "polite_mashita"
+    },
+    "小さい": {
+      "id": "v_chiisai",
+      "form": null
+    },
+    "町": {
+      "id": "v_machi",
+      "form": null
+    },
+    "わかりません": {
+      "id": "v_wakaru",
+      "form": "polite_negative"
+    },
+    "店": {
+      "id": "v_mise",
+      "form": null
+    },
+    "ありました": {
+      "id": "v_aru",
+      "form": "polite_mashita"
+    },
+    "ありません": {
+      "id": "v_aru",
+      "form": "polite_negative"
+    },
+    "入って": {
+      "id": "v_hairu",
+      "form": "te_form"
+    },
+    "入りました": {
+      "id": "v_hairu",
+      "form": "polite_mashita"
+    },
+    "入りたかったです": {
+      "id": "v_hairu",
+      "form": "plain_desire_tai"
+    },
+    "おいしい": {
+      "id": "v_oishii",
+      "form": null
+    },
+    "都市": {
+      "id": "v_toshi",
+      "form": null
+    },
+    "犬": {
+      "id": "v_inu",
+      "form": null
+    },
+    "来ました": {
+      "id": "v_kuru",
+      "form": "polite_mashita"
+    },
+    "来ます": {
+      "id": "v_kuru",
+      "form": "polite_masu"
+    },
+    "来ないでください": {
+      "id": "v_kuru",
+      "form": "polite_negative_te"
+    },
+    "来て": {
+      "id": "v_kuru",
+      "form": "te_form"
+    },
+    "私": {
+      "id": "v_watashi",
+      "form": null
+    },
+    "外": {
+      "id": "v_soto",
+      "form": null
+    },
+    "右": {
+      "id": "v_migi",
+      "form": null
+    },
+    "止まりました": {
+      "id": "v_tomaru",
+      "form": "polite_mashita"
+    },
+    "ください": {
+      "id": "v_kudasai",
+      "form": null
+    },
+    "大好き": {
+      "id": "v_daisuki",
+      "form": null
+    },
+    "山": {
+      "id": "v_yama",
+      "form": null
+    },
+    "天気": {
+      "id": "v_tenki",
+      "form": null
+    },
+    "悪く": {
+      "id": "v_warui",
+      "form": "adverbial"
+    },
+    "なりました": {
+      "id": "v_naru",
+      "form": "polite_mashita"
+    },
+    "風": {
+      "id": "v_kaze",
+      "form": null
+    },
+    "強く": {
+      "id": "v_tsuyoi",
+      "form": "adverbial"
+    },
+    "近く": {
+      "id": "v_chikai",
+      "form": "adverbial"
+    },
+    "旅館": {
+      "id": "v_ryokan",
+      "form": null
+    },
+    "主人": {
+      "id": "v_shujin",
+      "form": null
+    },
+    "人": {
+      "id": "v_hito",
+      "form": null
+    },
+    "後ろ": {
+      "id": "v_ushiro",
+      "form": null
+    },
+    "前": {
+      "id": "v_mae",
+      "form": null
+    },
+    "家": {
+      "id": "v_ie",
+      "form": null
+    },
+    "帰りませんでした": {
+      "id": "v_kaeru",
+      "form": "polite_past_negative"
+    },
+    "帰る": {
+      "id": "v_kaeru",
+      "form": null
+    },
+    "会えて": {
+      "id": "v_au",
+      "form": "te_form"
+    },
+    "会いました": {
+      "id": "v_au",
+      "form": "polite_mashita"
+    },
+    "元気": {
+      "id": "v_genki",
+      "form": null
+    },
+    "たくさん": {
+      "id": "v_takusan",
+      "form": null
+    },
+    "お茶": {
+      "id": "v_ocha",
+      "form": null
+    },
+    "料理": {
+      "id": "v_ryouri",
+      "form": null
+    },
+    "くれました": {
+      "id": "v_kureru",
+      "form": "polite_mashita"
+    },
+    "教えて": {
+      "id": "v_oshieru",
+      "form": "te_form"
+    },
+    "つぎ": {
+      "id": "v_tsugi",
+      "form": null
+    },
+    "青くて": {
+      "id": "v_aoi",
+      "form": "te_form"
+    },
+    "広い": {
+      "id": "v_hiroi",
+      "form": null
+    },
+    "大きい": {
+      "id": "v_ookii",
+      "form": null
+    },
+    "声": {
+      "id": "v_koe",
+      "form": null
+    },
+    "すごい": {
+      "id": "v_sugoi",
+      "form": null
+    },
+    "世界": {
+      "id": "v_sekai",
+      "form": null
+    },
+    "いちばん": {
+      "id": "v_ichiban",
+      "form": null
+    },
+    "きれい": {
+      "id": "v_kirei",
+      "form": null
+    },
+    "こと": {
+      "id": "v_koto",
+      "form": null
+    },
+    "話したり": {
+      "id": "v_hanasu",
+      "form": "tari_form"
+    },
+    "よう": {
+      "id": "v_you_manner",
+      "form": null
+    },
+    "聞かれました": {
+      "id": "v_kiku",
+      "form": "polite_passive_past"
+    },
+    "夕方": {
+      "id": "v_yuugata",
+      "form": null
+    },
+    "待って": {
+      "id": "v_matsu",
+      "form": "te_form"
+    },
+    "川": {
+      "id": "v_kawa",
+      "form": null
+    },
+    "行きましょう": {
+      "id": "v_iku",
+      "form": "polite_volitional_mashou"
+    }
+  }
+}

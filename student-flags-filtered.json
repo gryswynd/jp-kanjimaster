@@ -1,0 +1,6282 @@
+{
+  "generatedAt": "2026-04-14",
+  "sourceExport": "/Users/joel/Downloads/kanji-flags-export.json",
+  "sourceExportedAt": "2026-04-14T22:45:39.024Z",
+  "scope": "All flagged vocab in the export, resolved against N3/N4/N5 glossaries + particles + helper-vocab + characters",
+  "totalKeysInExport": 709,
+  "totalEventsInExport": 1497,
+  "resolvedTerms": 593,
+  "totalEventsInResolved": 1403,
+  "unresolvedKeys": 40,
+  "totalEventsInUnresolved": 94,
+  "filtersApplied": [
+    "type != kanji",
+    "surface not all-hiragana",
+    "notes do not indicate kanji is taught at N3+",
+    "glossary_source != N5",
+    "broader: kanji-not-taught notes (JLPT N3+, \"always written in kana\", lesson refs N1-3.X, etc.)"
+  ],
+  "filteredCount": 343,
+  "terms": [
+    {
+      "term_id": "v_korobu",
+      "surface": "転ぶ",
+      "reading": "ころぶ",
+      "meaning": "to fall down / to tumble",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 14,
+      "currently_active": false,
+      "first_flag_index": 87,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "転ぶ"
+      ]
+    },
+    {
+      "term_id": "v_kyuumei",
+      "surface": "究明",
+      "reading": "きゅうめい",
+      "meaning": "investigation / clarification",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 12,
+      "currently_active": true,
+      "first_flag_index": 176,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "究明"
+      ]
+    },
+    {
+      "term_id": "v_chuushin",
+      "surface": "中心",
+      "reading": "ちゅうしん",
+      "meaning": "center / core / heart (of a matter)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 12,
+      "currently_active": true,
+      "first_flag_index": 33,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "中心"
+      ]
+    },
+    {
+      "term_id": "v_shinpo",
+      "surface": "進歩",
+      "reading": "しんぽ",
+      "meaning": "progress / improvement",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 11,
+      "currently_active": true,
+      "first_flag_index": 152,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "進歩"
+      ]
+    },
+    {
+      "term_id": "v_kokoromi",
+      "surface": "試み",
+      "reading": "こころみ",
+      "meaning": "trial / attempt",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 10,
+      "currently_active": true,
+      "first_flag_index": 159,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "試み"
+      ]
+    },
+    {
+      "term_id": "v_ugoku",
+      "surface": "動く",
+      "reading": "うごく",
+      "meaning": "to move",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 10,
+      "currently_active": false,
+      "first_flag_index": 70,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "動く"
+      ]
+    },
+    {
+      "term_id": "v_saru",
+      "surface": "去る",
+      "reading": "さる",
+      "meaning": "to leave / to pass",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 9,
+      "currently_active": true,
+      "first_flag_index": 80,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "去る"
+      ]
+    },
+    {
+      "term_id": "v_unten",
+      "surface": "運転",
+      "reading": "うんてん",
+      "meaning": "driving / operation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 9,
+      "currently_active": true,
+      "first_flag_index": 77,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "運転"
+      ]
+    },
+    {
+      "term_id": "v_hakobu",
+      "surface": "運ぶ",
+      "reading": "はこぶ",
+      "meaning": "to carry / to transport",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 9,
+      "currently_active": true,
+      "first_flag_index": 76,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "運ぶ"
+      ]
+    },
+    {
+      "term_id": "v_hikui",
+      "surface": "低い",
+      "reading": "ひくい",
+      "meaning": "low (height/rank/voice)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 9,
+      "currently_active": true,
+      "first_flag_index": 42,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "低い"
+      ]
+    },
+    {
+      "term_id": "v_kenkyuu",
+      "surface": "研究",
+      "reading": "けんきゅう",
+      "meaning": "research / study",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 8,
+      "currently_active": true,
+      "first_flag_index": 171,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "研究",
+        "v_kenkyuu"
+      ]
+    },
+    {
+      "term_id": "v_shishoku",
+      "surface": "試食",
+      "reading": "ししょく",
+      "meaning": "food sampling / tasting",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 8,
+      "currently_active": false,
+      "first_flag_index": 160,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "試食"
+      ]
+    },
+    {
+      "term_id": "v_jitensha",
+      "surface": "自転車",
+      "reading": "じてんしゃ",
+      "meaning": "bicycle",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 8,
+      "currently_active": true,
+      "first_flag_index": 84,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "自転車",
+        "v_jitensha"
+      ]
+    },
+    {
+      "term_id": "v_teion",
+      "surface": "低音",
+      "reading": "ていおん",
+      "meaning": "low tone / bass",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 8,
+      "currently_active": true,
+      "first_flag_index": 50,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "低音"
+      ]
+    },
+    {
+      "term_id": "v_keikaku",
+      "surface": "計画",
+      "reading": "けいかく",
+      "meaning": "plan / project",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 216,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "計画"
+      ]
+    },
+    {
+      "term_id": "v_sanson",
+      "surface": "山村",
+      "reading": "さんそん",
+      "meaning": "mountain village",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 206,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "山村"
+      ]
+    },
+    {
+      "term_id": "v_bunsho",
+      "surface": "文書",
+      "reading": "ぶんしょ",
+      "meaning": "document / writing / paperwork",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": false,
+      "first_flag_index": 172,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "文書"
+      ]
+    },
+    {
+      "term_id": "v_shiken",
+      "surface": "試験",
+      "reading": "しけん",
+      "meaning": "exam / test",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 168,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "試験"
+      ]
+    },
+    {
+      "term_id": "v_taiken",
+      "surface": "体験",
+      "reading": "たいけん",
+      "meaning": "personal experience",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 161,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "体験",
+        "v_taiken"
+      ]
+    },
+    {
+      "term_id": "v_taijuu",
+      "surface": "体重",
+      "reading": "たいじゅう",
+      "meaning": "body weight",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 151,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "体重"
+      ]
+    },
+    {
+      "term_id": "v_tejina",
+      "surface": "手品",
+      "reading": "てじな",
+      "meaning": "magic trick / conjuring",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": false,
+      "first_flag_index": 126,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "手品"
+      ]
+    },
+    {
+      "term_id": "v_okujou",
+      "surface": "屋上",
+      "reading": "おくじょう",
+      "meaning": "rooftop",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 118,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "屋上"
+      ]
+    },
+    {
+      "term_id": "v_kyoufuu",
+      "surface": "強風",
+      "reading": "きょうふう",
+      "meaning": "strong wind / gale",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 89,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "強風"
+      ]
+    },
+    {
+      "term_id": "v_shudou",
+      "surface": "手動",
+      "reading": "しゅどう",
+      "meaning": "manual (operation)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 79,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "手動"
+      ]
+    },
+    {
+      "term_id": "v_kigaru",
+      "surface": "気軽",
+      "reading": "きがる",
+      "meaning": "carefree / lighthearted",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 7,
+      "currently_active": true,
+      "first_flag_index": 45,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "気軽"
+      ]
+    },
+    {
+      "term_id": "v_kaishi",
+      "surface": "開始",
+      "reading": "かいし",
+      "meaning": "start / commencement",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": true,
+      "first_flag_index": 240,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "開始"
+      ]
+    },
+    {
+      "term_id": "v_kyoudo",
+      "surface": "強度",
+      "reading": "きょうど",
+      "meaning": "strength / intensity",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": true,
+      "first_flag_index": 201,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "強度"
+      ]
+    },
+    {
+      "term_id": "v_chuumoku",
+      "surface": "注目",
+      "reading": "ちゅうもく",
+      "meaning": "notice / attention / observation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": false,
+      "first_flag_index": 175,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "注目"
+      ]
+    },
+    {
+      "term_id": "v_yuuryokusha",
+      "surface": "有力者",
+      "reading": "ゆうりょくしゃ",
+      "meaning": "influential person",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": true,
+      "first_flag_index": 100,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "有力者"
+      ]
+    },
+    {
+      "term_id": "v_norimawasu",
+      "surface": "乗り回す",
+      "reading": "のりまわす",
+      "meaning": "to drive around / to ride around",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": false,
+      "first_flag_index": 82,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "乗り回す"
+      ]
+    },
+    {
+      "term_id": "v_kyorai",
+      "surface": "去来",
+      "reading": "きょらい",
+      "meaning": "coming and going / recurring",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": true,
+      "first_flag_index": 78,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "去来"
+      ]
+    },
+    {
+      "term_id": "v_gyouji",
+      "surface": "行事",
+      "reading": "ぎょうじ",
+      "meaning": "event / function",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": true,
+      "first_flag_index": 56,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "行事"
+      ]
+    },
+    {
+      "term_id": "v_tegaru",
+      "surface": "手軽",
+      "reading": "てがる",
+      "meaning": "easy / simple / informal",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 6,
+      "currently_active": true,
+      "first_flag_index": 48,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "手軽"
+      ]
+    },
+    {
+      "term_id": "v_tsuugaku",
+      "surface": "通学",
+      "reading": "つうがく",
+      "meaning": "commuting to school",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 278,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "通学"
+      ]
+    },
+    {
+      "term_id": "v_shiyou",
+      "surface": "使用",
+      "reading": "しよう",
+      "meaning": "use / application",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 268,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "使用"
+      ]
+    },
+    {
+      "term_id": "v_shuuchuu",
+      "surface": "集中",
+      "reading": "しゅうちゅう",
+      "meaning": "concentration / focusing",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 234,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "集中",
+        "v_shuuchuu"
+      ]
+    },
+    {
+      "term_id": "v_tokkyuu",
+      "surface": "特急",
+      "reading": "とっきゅう",
+      "meaning": "limited express (train)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 228,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "特急"
+      ]
+    },
+    {
+      "term_id": "v_kuchigotae",
+      "surface": "口答え",
+      "reading": "くちごたえ",
+      "meaning": "backtalk / retort",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 227,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "口答え"
+      ]
+    },
+    {
+      "term_id": "v_hakaru",
+      "surface": "計る",
+      "reading": "はかる",
+      "meaning": "to measure (time/numbers)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 217,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "計る"
+      ]
+    },
+    {
+      "term_id": "v_suki",
+      "surface": "好き",
+      "reading": "すき",
+      "meaning": "like",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 188,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "好き"
+      ]
+    },
+    {
+      "term_id": "v_shoutai",
+      "surface": "正体",
+      "reading": "しょうたい",
+      "meaning": "true identity / true character",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 185,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "正体"
+      ]
+    },
+    {
+      "term_id": "v_chuumon",
+      "surface": "注文",
+      "reading": "ちゅうもん",
+      "meaning": "order / request",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 174,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "注文",
+        "v_chuumon"
+      ]
+    },
+    {
+      "term_id": "v_jimon",
+      "surface": "自問",
+      "reading": "じもん",
+      "meaning": "asking oneself",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 108,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "自問"
+      ]
+    },
+    {
+      "term_id": "v_jimi",
+      "surface": "地味",
+      "reading": "じみ",
+      "meaning": "plain / simple / somber",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 107,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "地味"
+      ]
+    },
+    {
+      "term_id": "v_mawaru",
+      "surface": "回る",
+      "reading": "まわる",
+      "meaning": "to turn / to revolve",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 85,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "回る"
+      ]
+    },
+    {
+      "term_id": "v_gakuin_mu",
+      "surface": "楽員",
+      "reading": "がくいん",
+      "meaning": "band member",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 55,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "楽員"
+      ]
+    },
+    {
+      "term_id": "v_shokuji",
+      "surface": "食事",
+      "reading": "しょくじ",
+      "meaning": "meal",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 53,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "食事"
+      ]
+    },
+    {
+      "term_id": "v_kashu",
+      "surface": "歌手",
+      "reading": "かしゅ",
+      "meaning": "singer",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": false,
+      "first_flag_index": 47,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "歌手"
+      ]
+    },
+    {
+      "term_id": "v_kogoe",
+      "surface": "小声",
+      "reading": "こごえ",
+      "meaning": "low voice / whisper",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 43,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "小声"
+      ]
+    },
+    {
+      "term_id": "v_utsusu",
+      "surface": "写す",
+      "reading": "うつす",
+      "meaning": "to copy / to transcribe",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 5,
+      "currently_active": true,
+      "first_flag_index": 37,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "写す"
+      ]
+    },
+    {
+      "term_id": "v_shikyo",
+      "surface": "死去",
+      "reading": "しきょ",
+      "meaning": "death / passing away",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 686,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "死去"
+      ]
+    },
+    {
+      "term_id": "v_juusho",
+      "surface": "住所",
+      "reading": "じゅうしょ",
+      "meaning": "address",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 674,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "住所"
+      ]
+    },
+    {
+      "term_id": "v_shinsetsu",
+      "surface": "親切",
+      "reading": "しんせつ",
+      "meaning": "kind",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 416,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "親切"
+      ]
+    },
+    {
+      "term_id": "v_minzoku",
+      "surface": "民族",
+      "reading": "みんぞく",
+      "meaning": "ethnic group / people / race",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 342,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "民族"
+      ]
+    },
+    {
+      "term_id": "v_tsukuru",
+      "surface": "作る",
+      "reading": "つくる",
+      "meaning": "to make",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 296,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_tsukuru",
+        "作る"
+      ]
+    },
+    {
+      "term_id": "v_narau",
+      "surface": "習う",
+      "reading": "ならう",
+      "meaning": "to learn",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 284,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_narau",
+        "習う"
+      ]
+    },
+    {
+      "term_id": "v_kugiru",
+      "surface": "区切る",
+      "reading": "くぎる",
+      "meaning": "to divide / to partition",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 274,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "区切る"
+      ]
+    },
+    {
+      "term_id": "v_kubetsu",
+      "surface": "区別",
+      "reading": "くべつ",
+      "meaning": "distinction / differentiation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 272,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "区別"
+      ]
+    },
+    {
+      "term_id": "v_koujou",
+      "surface": "工場",
+      "reading": "こうじょう",
+      "meaning": "factory",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 269,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "工場",
+        "v_koujou"
+      ]
+    },
+    {
+      "term_id": "v_gakushuu",
+      "surface": "学習",
+      "reading": "がくしゅう",
+      "meaning": "study / learning",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 261,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "学習"
+      ]
+    },
+    {
+      "term_id": "v_shuuji",
+      "surface": "習字",
+      "reading": "しゅうじ",
+      "meaning": "calligraphy / penmanship",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 256,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "習字"
+      ]
+    },
+    {
+      "term_id": "v_kaiten",
+      "surface": "開店",
+      "reading": "かいてん",
+      "meaning": "opening of a shop",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 239,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "開店"
+      ]
+    },
+    {
+      "term_id": "v_shinrin",
+      "surface": "森林",
+      "reading": "しんりん",
+      "meaning": "forest / woods",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 237,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "森林"
+      ]
+    },
+    {
+      "term_id": "v_kawaru",
+      "surface": "代わる",
+      "reading": "かわる",
+      "meaning": "to substitute / to replace / to change",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 235,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "代わる"
+      ]
+    },
+    {
+      "term_id": "v_tokuni",
+      "surface": "特に",
+      "reading": "とくに",
+      "meaning": "particularly / especially",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 233,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "特に"
+      ]
+    },
+    {
+      "term_id": "v_mondou",
+      "surface": "問答",
+      "reading": "もんどう",
+      "meaning": "questions and answers / dialogue",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 231,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "問答"
+      ]
+    },
+    {
+      "term_id": "v_omoiagaru",
+      "surface": "思い上がる",
+      "reading": "おもいあがる",
+      "meaning": "to be conceited / to be arrogant",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 230,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "思い上がる"
+      ]
+    },
+    {
+      "term_id": "v_ishi",
+      "surface": "意思",
+      "reading": "いし",
+      "meaning": "intention / purpose / mind",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 224,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "意思"
+      ]
+    },
+    {
+      "term_id": "v_sanrin",
+      "surface": "山林",
+      "reading": "さんりん",
+      "meaning": "mountain forest",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": false,
+      "first_flag_index": 211,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "山林"
+      ]
+    },
+    {
+      "term_id": "v_akushitsu",
+      "surface": "悪質",
+      "reading": "あくしつ",
+      "meaning": "malicious / vicious / bad quality",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": false,
+      "first_flag_index": 182,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "悪質"
+      ]
+    },
+    {
+      "term_id": "v_tadashii",
+      "surface": "正しい",
+      "reading": "ただしい",
+      "meaning": "correct / right",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 178,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "正しい",
+        "v_tadashii"
+      ]
+    },
+    {
+      "term_id": "v_seiyou",
+      "surface": "西洋",
+      "reading": "せいよう",
+      "meaning": "the West / Western countries",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": false,
+      "first_flag_index": 122,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "西洋"
+      ]
+    },
+    {
+      "term_id": "v_kaiyou",
+      "surface": "海洋",
+      "reading": "かいよう",
+      "meaning": "ocean",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 121,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "海洋"
+      ]
+    },
+    {
+      "term_id": "v_youfuu",
+      "surface": "洋風",
+      "reading": "ようふう",
+      "meaning": "Western style",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 120,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "洋風"
+      ]
+    },
+    {
+      "term_id": "v_shousetsu",
+      "surface": "小説",
+      "reading": "しょうせつ",
+      "meaning": "novel",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 110,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "小説"
+      ]
+    },
+    {
+      "term_id": "v_suishitsu",
+      "surface": "水質",
+      "reading": "すいしつ",
+      "meaning": "water quality",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": false,
+      "first_flag_index": 109,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "水質"
+      ]
+    },
+    {
+      "term_id": "v_chijou",
+      "surface": "地上",
+      "reading": "ちじょう",
+      "meaning": "above ground / surface",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": false,
+      "first_flag_index": 106,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "地上"
+      ]
+    },
+    {
+      "term_id": "v_yowai",
+      "surface": "弱い",
+      "reading": "よわい",
+      "meaning": "weak",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": false,
+      "first_flag_index": 99,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "弱い"
+      ]
+    },
+    {
+      "term_id": "v_undou",
+      "surface": "運動",
+      "reading": "うんどう",
+      "meaning": "exercise / movement",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 75,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "運動",
+        "v_undou"
+      ]
+    },
+    {
+      "term_id": "v_yaken",
+      "surface": "野犬",
+      "reading": "やけん",
+      "meaning": "stray dog",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 72,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "野犬"
+      ]
+    },
+    {
+      "term_id": "v_kyuukou",
+      "surface": "急行",
+      "reading": "きゅうこう",
+      "meaning": "express train",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 52,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "急行"
+      ]
+    },
+    {
+      "term_id": "v_karukuchi",
+      "surface": "軽口",
+      "reading": "かるくち",
+      "meaning": "witty remark / talkative",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 49,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "軽口"
+      ]
+    },
+    {
+      "term_id": "v_karui",
+      "surface": "軽い",
+      "reading": "かるい",
+      "meaning": "light (weight/mood)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 46,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "軽い",
+        "v_karui"
+      ]
+    },
+    {
+      "term_id": "v_seigaku",
+      "surface": "声楽",
+      "reading": "せいがく",
+      "meaning": "vocal music",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 44,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "声楽"
+      ]
+    },
+    {
+      "term_id": "v_ryokou",
+      "surface": "旅行",
+      "reading": "りょこう",
+      "meaning": "travel / trip",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 41,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "旅行"
+      ]
+    },
+    {
+      "term_id": "v_tabisaki",
+      "surface": "旅先",
+      "reading": "たびさき",
+      "meaning": "travel destination",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 4,
+      "currently_active": true,
+      "first_flag_index": 39,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "旅先"
+      ]
+    },
+    {
+      "term_id": "v_kyuuyou",
+      "surface": "急用",
+      "reading": "きゅうよう",
+      "meaning": "urgent business",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 703,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "急用"
+      ]
+    },
+    {
+      "term_id": "v_gouri",
+      "surface": "合理",
+      "reading": "ごうり",
+      "meaning": "rationality / logicality",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 683,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "合理"
+      ]
+    },
+    {
+      "term_id": "v_kiyou",
+      "surface": "起用",
+      "reading": "きよう",
+      "meaning": "appointment (to a position)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 681,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "起用"
+      ]
+    },
+    {
+      "term_id": "v_owaru",
+      "surface": "終わる",
+      "reading": "おわる",
+      "meaning": "to end / to finish",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 650,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "終わる",
+        "v_owaru"
+      ]
+    },
+    {
+      "term_id": "v_sakubun",
+      "surface": "作文",
+      "reading": "さくぶん",
+      "meaning": "composition / essay",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 636,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_sakubun",
+        "作文"
+      ]
+    },
+    {
+      "term_id": "v_chuui",
+      "surface": "注意",
+      "reading": "ちゅうい",
+      "meaning": "caution / attention",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 632,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "注意",
+        "v_chuui"
+      ]
+    },
+    {
+      "term_id": "v_ryouriya",
+      "surface": "料理屋",
+      "reading": "りょうりや",
+      "meaning": "restaurant / eatery",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 605,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "料理屋"
+      ]
+    },
+    {
+      "term_id": "v_konkai",
+      "surface": "今回",
+      "reading": "こんかい",
+      "meaning": "this time",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 603,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "今回"
+      ]
+    },
+    {
+      "term_id": "v_yuugata",
+      "surface": "夕方",
+      "reading": "ゆうがた",
+      "meaning": "evening",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 461,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "夕方",
+        "v_yuugata"
+      ]
+    },
+    {
+      "term_id": "v_akarui",
+      "surface": "明るい",
+      "reading": "あかるい",
+      "meaning": "bright",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 412,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "明るい"
+      ]
+    },
+    {
+      "term_id": "v_kiru",
+      "surface": "着る",
+      "reading": "きる",
+      "meaning": "to wear",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 407,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "着る"
+      ]
+    },
+    {
+      "term_id": "v_kiru_2",
+      "surface": "切る",
+      "reading": "きる",
+      "meaning": "to cut",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 406,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "切る"
+      ]
+    },
+    {
+      "term_id": "v_shujin",
+      "surface": "主人",
+      "reading": "しゅじん",
+      "meaning": "master / husband / host",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 346,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "主人"
+      ]
+    },
+    {
+      "term_id": "v_omoni",
+      "surface": "主に",
+      "reading": "おもに",
+      "meaning": "mainly / primarily",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 340,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "主に"
+      ]
+    },
+    {
+      "term_id": "v_hataraku",
+      "surface": "働く",
+      "reading": "はたらく",
+      "meaning": "to work",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 331,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "働く"
+      ]
+    },
+    {
+      "term_id": "v_hiroi",
+      "surface": "広い",
+      "reading": "ひろい",
+      "meaning": "wide / spacious",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 314,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "広い",
+        "v_hiroi"
+      ]
+    },
+    {
+      "term_id": "v_shihatsu",
+      "surface": "始発",
+      "reading": "しはつ",
+      "meaning": "first train / starting station",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 312,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "始発"
+      ]
+    },
+    {
+      "term_id": "v_chiku",
+      "surface": "地区",
+      "reading": "ちく",
+      "meaning": "district / sector",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 309,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "地区",
+        "v_chiku"
+      ]
+    },
+    {
+      "term_id": "v_kayou",
+      "surface": "通う",
+      "reading": "かよう",
+      "meaning": "to commute / to go back and forth",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 304,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_kayou",
+        "通う"
+      ]
+    },
+    {
+      "term_id": "v_hatsugen",
+      "surface": "発言",
+      "reading": "はつげん",
+      "meaning": "utterance / speech / proposal",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 277,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "発言"
+      ]
+    },
+    {
+      "term_id": "v_hakken",
+      "surface": "発見",
+      "reading": "はっけん",
+      "meaning": "discovery",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 270,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "発見",
+        "v_hakken"
+      ]
+    },
+    {
+      "term_id": "v_kenkoku",
+      "surface": "建国",
+      "reading": "けんこく",
+      "meaning": "founding of a nation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 265,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "建国"
+      ]
+    },
+    {
+      "term_id": "v_youchi",
+      "surface": "用地",
+      "reading": "ようち",
+      "meaning": "site / plot of land",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 258,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "用地"
+      ]
+    },
+    {
+      "term_id": "v_tebikisyo",
+      "surface": "手引書",
+      "reading": "てびきしょ",
+      "meaning": "handbook / manual / guide",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 255,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "手引書"
+      ]
+    },
+    {
+      "term_id": "v_youshi",
+      "surface": "用紙",
+      "reading": "ようし",
+      "meaning": "form / sheet of paper",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 253,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "用紙"
+      ]
+    },
+    {
+      "term_id": "v_toshi",
+      "surface": "都市",
+      "reading": "とし",
+      "meaning": "town / city / metropolis",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 252,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "都市",
+        "v_toshi"
+      ]
+    },
+    {
+      "term_id": "v_minarau",
+      "surface": "見習う",
+      "reading": "みならう",
+      "meaning": "to emulate / to follow (an example)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 251,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "見習う",
+        "v_minarau"
+      ]
+    },
+    {
+      "term_id": "v_daikin",
+      "surface": "代金",
+      "reading": "だいきん",
+      "meaning": "price / payment / cost",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 242,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "代金",
+        "v_daikin"
+      ]
+    },
+    {
+      "term_id": "v_sedai",
+      "surface": "世代",
+      "reading": "せだい",
+      "meaning": "generation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 236,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "世代"
+      ]
+    },
+    {
+      "term_id": "v_kotaeru",
+      "surface": "答える",
+      "reading": "こたえる",
+      "meaning": "to answer / to reply",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 229,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "答える"
+      ]
+    },
+    {
+      "term_id": "v_tokubetsu",
+      "surface": "特別",
+      "reading": "とくべつ",
+      "meaning": "special / particular",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 226,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "特別"
+      ]
+    },
+    {
+      "term_id": "v_atsumaru",
+      "surface": "集まる",
+      "reading": "あつまる",
+      "meaning": "to gather / to assemble",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 225,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "集まる"
+      ]
+    },
+    {
+      "term_id": "v_tokushuu",
+      "surface": "特集",
+      "reading": "とくしゅう",
+      "meaning": "feature (e.g. in a magazine) / special edition",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 223,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "特集"
+      ]
+    },
+    {
+      "term_id": "v_hakarishirenai",
+      "surface": "計り知れない",
+      "reading": "はかりしれない",
+      "meaning": "immeasurable / unfathomable",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 222,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "計り知れない"
+      ]
+    },
+    {
+      "term_id": "v_ijou",
+      "surface": "以上",
+      "reading": "いじょう",
+      "meaning": "more than / ...and that is all",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 220,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "以上",
+        "v_ijou"
+      ]
+    },
+    {
+      "term_id": "v_ika",
+      "surface": "以下",
+      "reading": "いか",
+      "meaning": "less than / below",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 219,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "以下"
+      ]
+    },
+    {
+      "term_id": "v_monka",
+      "surface": "門下",
+      "reading": "もんか",
+      "meaning": "one's pupil / disciple",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 208,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "門下"
+      ]
+    },
+    {
+      "term_id": "v_seimon",
+      "surface": "正門",
+      "reading": "せいもん",
+      "meaning": "main gate",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 207,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "正門"
+      ]
+    },
+    {
+      "term_id": "v_sonchou",
+      "surface": "村長",
+      "reading": "そんちょう",
+      "meaning": "village headman / mayor",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 205,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "村長"
+      ]
+    },
+    {
+      "term_id": "v_tanabata",
+      "surface": "七夕",
+      "reading": "たなばた",
+      "meaning": "Star Festival",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 199,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "七夕",
+        "v_tanabata"
+      ]
+    },
+    {
+      "term_id": "v_machiai",
+      "surface": "待合",
+      "reading": "まちあい",
+      "meaning": "meeting / waiting",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 197,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "待合"
+      ]
+    },
+    {
+      "term_id": "v_hou",
+      "surface": "方",
+      "reading": "ほう",
+      "meaning": "side / option / direction (comparison)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 194,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "方",
+        "v_hou"
+      ]
+    },
+    {
+      "term_id": "v_seidou",
+      "surface": "正道",
+      "reading": "せいどう",
+      "meaning": "path of righteousness / correct path",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 186,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "正道"
+      ]
+    },
+    {
+      "term_id": "v_shougatsu",
+      "surface": "正月",
+      "reading": "しょうがつ",
+      "meaning": "New Year",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 180,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "正月"
+      ]
+    },
+    {
+      "term_id": "v_kenkyuusha",
+      "surface": "研究者",
+      "reading": "けんきゅうしゃ",
+      "meaning": "researcher",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 177,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "研究者"
+      ]
+    },
+    {
+      "term_id": "v_eibun",
+      "surface": "英文",
+      "reading": "えいぶん",
+      "meaning": "English text / English sentence",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 167,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "英文"
+      ]
+    },
+    {
+      "term_id": "v_juudai",
+      "surface": "重大",
+      "reading": "じゅうだい",
+      "meaning": "serious / important / grave",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 153,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "重大"
+      ]
+    },
+    {
+      "term_id": "v_kasaneru",
+      "surface": "重ねる",
+      "reading": "かさねる",
+      "meaning": "to stack / to pile up",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 150,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "重ねる"
+      ]
+    },
+    {
+      "term_id": "v_sakibuto",
+      "surface": "先太",
+      "reading": "さきぶと",
+      "meaning": "thick at the tip",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 149,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "先太"
+      ]
+    },
+    {
+      "term_id": "v_myouji",
+      "surface": "名字",
+      "reading": "みょうじ",
+      "meaning": "surname / family name",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 137,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "名字",
+        "v_myouji"
+      ]
+    },
+    {
+      "term_id": "v_iken",
+      "surface": "意見",
+      "reading": "いけん",
+      "meaning": "opinion",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 134,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "意見"
+      ]
+    },
+    {
+      "term_id": "v_benkyou",
+      "surface": "勉強",
+      "reading": "べんきょう",
+      "meaning": "study",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 119,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "勉強"
+      ]
+    },
+    {
+      "term_id": "v_mondai",
+      "surface": "問題",
+      "reading": "もんだい",
+      "meaning": "problem / question",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 105,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "問題",
+        "v_mondai"
+      ]
+    },
+    {
+      "term_id": "v_nikkou",
+      "surface": "日光",
+      "reading": "にっこう",
+      "meaning": "sunlight / Nikko (place name)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 96,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "日光"
+      ]
+    },
+    {
+      "term_id": "v_denryoku",
+      "surface": "電力",
+      "reading": "でんりょく",
+      "meaning": "electric power",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 92,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "電力"
+      ]
+    },
+    {
+      "term_id": "v_yowaki",
+      "surface": "弱気",
+      "reading": "よわき",
+      "meaning": "timid / faint-hearted",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 90,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "弱気"
+      ]
+    },
+    {
+      "term_id": "v_gekkou",
+      "surface": "月光",
+      "reading": "げっこう",
+      "meaning": "moonlight",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 81,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "月光"
+      ]
+    },
+    {
+      "term_id": "v_doubutsu",
+      "surface": "動物",
+      "reading": "どうぶつ",
+      "meaning": "animal",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 74,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "動物"
+      ]
+    },
+    {
+      "term_id": "v_hashiru",
+      "surface": "走る",
+      "reading": "はしる",
+      "meaning": "to run",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 73,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "走る",
+        "v_hashiru"
+      ]
+    },
+    {
+      "term_id": "v_chikai",
+      "surface": "近い",
+      "reading": "ちかい",
+      "meaning": "near",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": false,
+      "first_flag_index": 67,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "近い"
+      ]
+    },
+    {
+      "term_id": "v_nyuuin",
+      "surface": "入院",
+      "reading": "にゅういん",
+      "meaning": "hospitalization",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 60,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "入院"
+      ]
+    },
+    {
+      "term_id": "v_igaku",
+      "surface": "医学",
+      "reading": "いがく",
+      "meaning": "medical science",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 58,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "医学"
+      ]
+    },
+    {
+      "term_id": "v_tenin",
+      "surface": "店員",
+      "reading": "てんいん",
+      "meaning": "shop assistant / clerk",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 57,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "店員"
+      ]
+    },
+    {
+      "term_id": "v_shigoto",
+      "surface": "仕事",
+      "reading": "しごと",
+      "meaning": "job / work",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 3,
+      "currently_active": true,
+      "first_flag_index": 54,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "仕事",
+        "v_shigoto"
+      ]
+    },
+    {
+      "term_id": "v_hatsuon",
+      "surface": "発音",
+      "reading": "はつおん",
+      "meaning": "pronunciation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 704,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "発音"
+      ]
+    },
+    {
+      "term_id": "v_gaka",
+      "surface": "画家",
+      "reading": "がか",
+      "meaning": "painter / artist",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 694,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_gaka",
+        "画家"
+      ]
+    },
+    {
+      "term_id": "v_yuuhan",
+      "surface": "夕飯",
+      "reading": "ゆうはん",
+      "meaning": "dinner / evening meal",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 682,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "夕飯"
+      ]
+    },
+    {
+      "term_id": "v_tsuku",
+      "surface": "着く",
+      "reading": "つく",
+      "meaning": "to arrive",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 667,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_tsuku",
+        "着く"
+      ]
+    },
+    {
+      "term_id": "v_tanoshii",
+      "surface": "楽しい",
+      "reading": "たのしい",
+      "meaning": "fun / enjoyable",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 609,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "楽しい"
+      ]
+    },
+    {
+      "term_id": "v_youshoku",
+      "surface": "洋食",
+      "reading": "ようしょく",
+      "meaning": "Western food",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 608,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "洋食"
+      ]
+    },
+    {
+      "term_id": "v_shunkashuutou",
+      "surface": "春夏秋冬",
+      "reading": "しゅんかしゅうとう",
+      "meaning": "the four seasons",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 570,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "春夏秋冬"
+      ]
+    },
+    {
+      "term_id": "v_youfuku",
+      "surface": "洋服",
+      "reading": "ようふく",
+      "meaning": "Western clothes",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 460,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "洋服"
+      ]
+    },
+    {
+      "term_id": "v_warui",
+      "surface": "悪い",
+      "reading": "わるい",
+      "meaning": "bad",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 458,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "悪い",
+        "v_warui"
+      ]
+    },
+    {
+      "term_id": "v_eiga",
+      "surface": "映画",
+      "reading": "えいが",
+      "meaning": "movie",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 418,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "映画"
+      ]
+    },
+    {
+      "term_id": "v_aruku",
+      "surface": "歩く",
+      "reading": "あるく",
+      "meaning": "to walk",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 410,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "歩く",
+        "v_aruku"
+      ]
+    },
+    {
+      "term_id": "v_kougyou",
+      "surface": "工業",
+      "reading": "こうぎょう",
+      "meaning": "manufacturing industry",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 365,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "工業"
+      ]
+    },
+    {
+      "term_id": "v_kyuushi",
+      "surface": "休止",
+      "reading": "きゅうし",
+      "meaning": "pause / suspension / break",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 349,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "休止"
+      ]
+    },
+    {
+      "term_id": "v_sensha",
+      "surface": "洗車",
+      "reading": "せんしゃ",
+      "meaning": "car wash / washing a car",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 344,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "洗車"
+      ]
+    },
+    {
+      "term_id": "v_iroiro",
+      "surface": "色々",
+      "reading": "いろいろ",
+      "meaning": "various",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 341,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "色々"
+      ]
+    },
+    {
+      "term_id": "v_minka",
+      "surface": "民家",
+      "reading": "みんか",
+      "meaning": "private house / ordinary residence",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 338,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "民家"
+      ]
+    },
+    {
+      "term_id": "v_sumu",
+      "surface": "住む",
+      "reading": "すむ",
+      "meaning": "to live",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 311,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "住む"
+      ]
+    },
+    {
+      "term_id": "v_tooru",
+      "surface": "通る",
+      "reading": "とおる",
+      "meaning": "to pass / to go through",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 307,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "通る"
+      ]
+    },
+    {
+      "term_id": "v_toosu",
+      "surface": "通す",
+      "reading": "とおす",
+      "meaning": "to let pass / to pass through",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 306,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "通す"
+      ]
+    },
+    {
+      "term_id": "v_hajimaru",
+      "surface": "始まる",
+      "reading": "はじまる",
+      "meaning": "to begin / to start",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 303,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "v_hajimaru",
+        "始まる"
+      ]
+    },
+    {
+      "term_id": "v_kenchiji",
+      "surface": "県知事",
+      "reading": "けんちじ",
+      "meaning": "prefectural governor",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 273,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "県知事"
+      ]
+    },
+    {
+      "term_id": "v_kayoi",
+      "surface": "通い",
+      "reading": "かよい",
+      "meaning": "commute / attending",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 271,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "通い"
+      ]
+    },
+    {
+      "term_id": "v_jinkou",
+      "surface": "人工",
+      "reading": "じんこう",
+      "meaning": "artificial / man-made",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 266,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "人工"
+      ]
+    },
+    {
+      "term_id": "v_mokkou",
+      "surface": "木工",
+      "reading": "もっこう",
+      "meaning": "woodwork / carpentry",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 264,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "木工"
+      ]
+    },
+    {
+      "term_id": "v_aku_2",
+      "surface": "開く",
+      "reading": "あく",
+      "meaning": "to open / to become open",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 262,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "開く"
+      ]
+    },
+    {
+      "term_id": "v_inyou",
+      "surface": "引用",
+      "reading": "いんよう",
+      "meaning": "quotation / citation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 257,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "引用"
+      ]
+    },
+    {
+      "term_id": "v_kyoushuu",
+      "surface": "教習",
+      "reading": "きょうしゅう",
+      "meaning": "training / instruction",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 249,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "教習"
+      ]
+    },
+    {
+      "term_id": "v_omou",
+      "surface": "思う",
+      "reading": "おもう",
+      "meaning": "to think",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 246,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "思う",
+        "v_omou"
+      ]
+    },
+    {
+      "term_id": "v_shuukai",
+      "surface": "集会",
+      "reading": "しゅうかい",
+      "meaning": "gathering / assembly / meeting",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 232,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "集会"
+      ]
+    },
+    {
+      "term_id": "v_tokei",
+      "surface": "時計",
+      "reading": "とけい",
+      "meaning": "clock / watch",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 221,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "時計"
+      ]
+    },
+    {
+      "term_id": "v_daidokoro",
+      "surface": "台所",
+      "reading": "だいどころ",
+      "meaning": "kitchen",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 218,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "台所"
+      ]
+    },
+    {
+      "term_id": "v_shiru",
+      "surface": "知る",
+      "reading": "しる",
+      "meaning": "to know",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 215,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "知る",
+        "v_shiru"
+      ]
+    },
+    {
+      "term_id": "v_murabito",
+      "surface": "村人",
+      "reading": "むらびと",
+      "meaning": "villager",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 213,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "村人",
+        "v_murabito"
+      ]
+    },
+    {
+      "term_id": "v_koumon",
+      "surface": "校門",
+      "reading": "こうもん",
+      "meaning": "school gate",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 212,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "校門"
+      ]
+    },
+    {
+      "term_id": "v_shiai",
+      "surface": "試合",
+      "reading": "しあい",
+      "meaning": "match / game / bout",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 200,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "試合"
+      ]
+    },
+    {
+      "term_id": "v_au_2",
+      "surface": "合う",
+      "reading": "あう",
+      "meaning": "to fit / to suit / to match",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 191,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "合う"
+      ]
+    },
+    {
+      "term_id": "v_ryouri",
+      "surface": "料理",
+      "reading": "りょうり",
+      "meaning": "cuisine",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 189,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "料理"
+      ]
+    },
+    {
+      "term_id": "v_tadasu",
+      "surface": "正す",
+      "reading": "ただす",
+      "meaning": "to correct / to rectify",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 187,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "正す"
+      ]
+    },
+    {
+      "term_id": "v_kangae",
+      "surface": "考え",
+      "reading": "かんがえ",
+      "meaning": "idea / thought",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 181,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "考え",
+        "v_kangae"
+      ]
+    },
+    {
+      "term_id": "v_bungakusha",
+      "surface": "文学者",
+      "reading": "ぶんがくしゃ",
+      "meaning": "literary scholar / man of letters",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 179,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "文学者"
+      ]
+    },
+    {
+      "term_id": "v_sosogu",
+      "surface": "注ぐ",
+      "reading": "そそぐ",
+      "meaning": "to pour",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 173,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "注ぐ"
+      ]
+    },
+    {
+      "term_id": "v_oshieru",
+      "surface": "教える",
+      "reading": "おしえる",
+      "meaning": "to teach / to inform",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 170,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "教える"
+      ]
+    },
+    {
+      "term_id": "v_kyoushitsu",
+      "surface": "教室",
+      "reading": "きょうしつ",
+      "meaning": "classroom",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 163,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "教室"
+      ]
+    },
+    {
+      "term_id": "v_oshie",
+      "surface": "教え",
+      "reading": "おしえ",
+      "meaning": "teaching / doctrine / lesson",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 162,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "教え"
+      ]
+    },
+    {
+      "term_id": "v_omoi",
+      "surface": "重い",
+      "reading": "おもい",
+      "meaning": "heavy",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 157,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "重い"
+      ]
+    },
+    {
+      "term_id": "v_imi",
+      "surface": "意味",
+      "reading": "いみ",
+      "meaning": "meaning",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 141,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "意味"
+      ]
+    },
+    {
+      "term_id": "v_tegami",
+      "surface": "手紙",
+      "reading": "てがみ",
+      "meaning": "letter",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 139,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "手紙"
+      ]
+    },
+    {
+      "term_id": "v_jouhin",
+      "surface": "上品",
+      "reading": "じょうひん",
+      "meaning": "elegant / refined",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 135,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "上品"
+      ]
+    },
+    {
+      "term_id": "v_shinamono",
+      "surface": "品物",
+      "reading": "しなもの",
+      "meaning": "goods / article",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 133,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "品物"
+      ]
+    },
+    {
+      "term_id": "v_futoru",
+      "surface": "太る",
+      "reading": "ふとる",
+      "meaning": "to gain weight / to grow fat",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 131,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "太る"
+      ]
+    },
+    {
+      "term_id": "v_mochidasu",
+      "surface": "持ち出す",
+      "reading": "もちだす",
+      "meaning": "to take out / to carry out",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 128,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "持ち出す",
+        "v_mochidasu"
+      ]
+    },
+    {
+      "term_id": "v_kasu",
+      "surface": "貸す",
+      "reading": "かす",
+      "meaning": "to lend",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 125,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "貸す"
+      ]
+    },
+    {
+      "term_id": "v_yozora",
+      "surface": "夜空",
+      "reading": "よぞら",
+      "meaning": "night sky",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 123,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "夜空"
+      ]
+    },
+    {
+      "term_id": "v_toshokan",
+      "surface": "図書館",
+      "reading": "としょかん",
+      "meaning": "library",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 113,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "図書館"
+      ]
+    },
+    {
+      "term_id": "v_toukyou",
+      "surface": "東京",
+      "reading": "とうきょう",
+      "meaning": "Tokyo",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 111,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "東京"
+      ]
+    },
+    {
+      "term_id": "v_chimei",
+      "surface": "地名",
+      "reading": "ちめい",
+      "meaning": "place name",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 103,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "地名"
+      ]
+    },
+    {
+      "term_id": "v_kurai",
+      "surface": "暗い",
+      "reading": "くらい",
+      "meaning": "dark",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 102,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "暗い"
+      ]
+    },
+    {
+      "term_id": "v_denkou",
+      "surface": "電光",
+      "reading": "でんこう",
+      "meaning": "lightning / electric light",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 95,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "電光"
+      ]
+    },
+    {
+      "term_id": "v_tsuyoi",
+      "surface": "強い",
+      "reading": "つよい",
+      "meaning": "strong",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 94,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "強い"
+      ]
+    },
+    {
+      "term_id": "v_suiden",
+      "surface": "水田",
+      "reading": "すいでん",
+      "meaning": "rice paddy",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 83,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "水田"
+      ]
+    },
+    {
+      "term_id": "v_jidou",
+      "surface": "自動",
+      "reading": "じどう",
+      "meaning": "automatic",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 71,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "自動"
+      ]
+    },
+    {
+      "term_id": "v_un_ga_ii",
+      "surface": "運がいい",
+      "reading": "うんがいい",
+      "meaning": "lucky",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 68,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "運がいい"
+      ]
+    },
+    {
+      "term_id": "v_tsukaeru",
+      "surface": "仕える",
+      "reading": "つかえる",
+      "meaning": "to serve",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": false,
+      "first_flag_index": 64,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "仕える"
+      ]
+    },
+    {
+      "term_id": "v_daigakuin",
+      "surface": "大学院",
+      "reading": "だいがくいん",
+      "meaning": "graduate school",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 59,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "大学院",
+        "v_daigakuin"
+      ]
+    },
+    {
+      "term_id": "v_sekaijuu",
+      "surface": "世界中",
+      "reading": "せかいじゅう",
+      "meaning": "all over the world",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 40,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "世界中"
+      ]
+    },
+    {
+      "term_id": "v_sekai",
+      "surface": "世界",
+      "reading": "せかい",
+      "meaning": "world",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 35,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "世界",
+        "v_sekai"
+      ]
+    },
+    {
+      "term_id": "v_ryokan",
+      "surface": "旅館",
+      "reading": "りょかん",
+      "meaning": "traditional Japanese inn",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 32,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "旅館",
+        "v_ryokan"
+      ]
+    },
+    {
+      "term_id": "v_jibun",
+      "surface": "自分",
+      "reading": "じぶん",
+      "meaning": "oneself / myself",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 2,
+      "currently_active": true,
+      "first_flag_index": 30,
+      "matched_via": [
+        "id",
+        "surface"
+      ],
+      "matched_keys": [
+        "自分",
+        "v_jibun"
+      ]
+    },
+    {
+      "term_id": "v_mannaka",
+      "surface": "真ん中",
+      "reading": "まんなか",
+      "meaning": "middle / center",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 708,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "真ん中"
+      ]
+    },
+    {
+      "term_id": "v_ginkou",
+      "surface": "銀行",
+      "reading": "ぎんこう",
+      "meaning": "bank",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 707,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "銀行"
+      ]
+    },
+    {
+      "term_id": "v_masshiro",
+      "surface": "真っ白",
+      "reading": "まっしろ",
+      "meaning": "pure white",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 705,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "真っ白"
+      ]
+    },
+    {
+      "term_id": "v_shisha",
+      "surface": "死者",
+      "reading": "ししゃ",
+      "meaning": "the dead / deceased",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 702,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "死者"
+      ]
+    },
+    {
+      "term_id": "v_giniro",
+      "surface": "銀色",
+      "reading": "ぎんいろ",
+      "meaning": "silver color",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 700,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "銀色"
+      ]
+    },
+    {
+      "term_id": "v_gakuin",
+      "surface": "学院",
+      "reading": "がくいん",
+      "meaning": "institute / academy",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 699,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "学院"
+      ]
+    },
+    {
+      "term_id": "v_fuun",
+      "surface": "不運",
+      "reading": "ふうん",
+      "meaning": "bad luck / misfortune",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 698,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "不運"
+      ]
+    },
+    {
+      "term_id": "v_kaigai",
+      "surface": "海外",
+      "reading": "かいがい",
+      "meaning": "overseas / abroad",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 697,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "海外"
+      ]
+    },
+    {
+      "term_id": "v_isha",
+      "surface": "医者",
+      "reading": "いしゃ",
+      "meaning": "doctor",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 696,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "医者"
+      ]
+    },
+    {
+      "term_id": "v_chairoi",
+      "surface": "茶色い",
+      "reading": "ちゃいろい",
+      "meaning": "brown",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 691,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_chairoi"
+      ]
+    },
+    {
+      "term_id": "v_iro",
+      "surface": "色",
+      "reading": "いろ",
+      "meaning": "color",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 689,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_iro"
+      ]
+    },
+    {
+      "term_id": "v_wakareru",
+      "surface": "別れる",
+      "reading": "わかれる",
+      "meaning": "to separate / to break up",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 684,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "別れる"
+      ]
+    },
+    {
+      "term_id": "v_okuru",
+      "surface": "送る",
+      "reading": "おくる",
+      "meaning": "to send",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 680,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "送る"
+      ]
+    },
+    {
+      "term_id": "v_kuroi",
+      "surface": "黒い",
+      "reading": "くろい",
+      "meaning": "black",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 679,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "黒い"
+      ]
+    },
+    {
+      "term_id": "v_basho",
+      "surface": "場所",
+      "reading": "ばしょ",
+      "meaning": "place / location",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 677,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "場所"
+      ]
+    },
+    {
+      "term_id": "v_kesa",
+      "surface": "今朝",
+      "reading": "けさ",
+      "meaning": "this morning",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 676,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "今朝"
+      ]
+    },
+    {
+      "term_id": "v_ensoku",
+      "surface": "遠足",
+      "reading": "えんそく",
+      "meaning": "hike",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 673,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "遠足"
+      ]
+    },
+    {
+      "term_id": "v_ichido",
+      "surface": "一度",
+      "reading": "いちど",
+      "meaning": "once / one time",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 658,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "一度"
+      ]
+    },
+    {
+      "term_id": "v_yuumei",
+      "surface": "有名",
+      "reading": "ゆうめい",
+      "meaning": "famous",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 655,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "有名"
+      ]
+    },
+    {
+      "term_id": "v_matsu",
+      "surface": "待つ",
+      "reading": "まつ",
+      "meaning": "to wait",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 651,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_matsu"
+      ]
+    },
+    {
+      "term_id": "p_kedo",
+      "surface": "p_kedo",
+      "reading": "けど",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 649,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_kedo"
+      ]
+    },
+    {
+      "term_id": "p_ya",
+      "surface": "p_ya",
+      "reading": "や",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 647,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_ya"
+      ]
+    },
+    {
+      "term_id": "p_ne",
+      "surface": "p_ne",
+      "reading": "ね",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 643,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_ne"
+      ]
+    },
+    {
+      "term_id": "p_kara",
+      "surface": "p_kara",
+      "reading": "から",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 642,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_kara"
+      ]
+    },
+    {
+      "term_id": "v_susumu",
+      "surface": "進む",
+      "reading": "すすむ",
+      "meaning": "to advance / to proceed",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 624,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "進む"
+      ]
+    },
+    {
+      "term_id": "v_romaji",
+      "surface": "ローマ字",
+      "reading": "ろーまじ",
+      "meaning": "romaji / roman characters",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 622,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_romaji"
+      ]
+    },
+    {
+      "term_id": "v_furi_maaketto",
+      "surface": "フリーマーケット",
+      "reading": "ふりーまーけっと",
+      "meaning": "flea market",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 621,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_furi_maaketto"
+      ]
+    },
+    {
+      "term_id": "p_ni",
+      "surface": "p_ni",
+      "reading": "に",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 620,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_ni"
+      ]
+    },
+    {
+      "term_id": "v_uru",
+      "surface": "売る",
+      "reading": "うる",
+      "meaning": "to sell",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 618,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_uru"
+      ]
+    },
+    {
+      "term_id": "v_kyouto",
+      "surface": "京都",
+      "reading": "きょうと",
+      "meaning": "Kyoto",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 601,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "京都"
+      ]
+    },
+    {
+      "term_id": "v_hokkaidou",
+      "surface": "北海道",
+      "reading": "ほっかいどう",
+      "meaning": "Hokkaido",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 600,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "北海道"
+      ]
+    },
+    {
+      "term_id": "p_shi",
+      "surface": "p_shi",
+      "reading": "し",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 593,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_shi"
+      ]
+    },
+    {
+      "term_id": "v_kaerimichi",
+      "surface": "帰り道",
+      "reading": "かえりみち",
+      "meaning": "way home / return path",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 590,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_kaerimichi"
+      ]
+    },
+    {
+      "term_id": "p_dake",
+      "surface": "p_dake",
+      "reading": "だけ",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 589,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_dake"
+      ]
+    },
+    {
+      "term_id": "v_kaeri",
+      "surface": "帰り",
+      "reading": "かえり",
+      "meaning": "the return / the way home",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 577,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_kaeri"
+      ]
+    },
+    {
+      "term_id": "v_kitte",
+      "surface": "切手",
+      "reading": "きって",
+      "meaning": "postage stamp",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 574,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "切手"
+      ]
+    },
+    {
+      "term_id": "v_kariru",
+      "surface": "借りる",
+      "reading": "かりる",
+      "meaning": "to borrow",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 572,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "借りる"
+      ]
+    },
+    {
+      "term_id": "v_ane",
+      "surface": "姉",
+      "reading": "あね",
+      "meaning": "older sister (own)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 563,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_ane"
+      ]
+    },
+    {
+      "term_id": "v_oniisan",
+      "surface": "お兄さん",
+      "reading": "おにいさん",
+      "meaning": "older brother (polite / someone else's)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 561,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "お兄さん"
+      ]
+    },
+    {
+      "term_id": "v_eigo",
+      "surface": "英語",
+      "reading": "えいご",
+      "meaning": "English",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 558,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "英語"
+      ]
+    },
+    {
+      "term_id": "p_to_quote",
+      "surface": "p_to_quote",
+      "reading": "と",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 537,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_to_quote"
+      ]
+    },
+    {
+      "term_id": "v_asagohan",
+      "surface": "朝ご飯",
+      "reading": "あさごはん",
+      "meaning": "breakfast",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 521,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "朝ご飯"
+      ]
+    },
+    {
+      "term_id": "v_setsumei",
+      "surface": "説明",
+      "reading": "せつめい",
+      "meaning": "explanation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 520,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "説明"
+      ]
+    },
+    {
+      "term_id": "v_machi",
+      "surface": "町",
+      "reading": "まち",
+      "meaning": "town",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 510,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_machi"
+      ]
+    },
+    {
+      "term_id": "p_ga",
+      "surface": "p_ga",
+      "reading": "が",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 506,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_ga"
+      ]
+    },
+    {
+      "term_id": "p_yo",
+      "surface": "p_yo",
+      "reading": "よ",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 493,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_yo"
+      ]
+    },
+    {
+      "term_id": "v_kaeru",
+      "surface": "帰る",
+      "reading": "かえる",
+      "meaning": "to return (home)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 483,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_kaeru"
+      ]
+    },
+    {
+      "term_id": "p_no",
+      "surface": "p_no",
+      "reading": "の",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 482,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_no"
+      ]
+    },
+    {
+      "term_id": "p_yori",
+      "surface": "p_yori",
+      "reading": "より",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 476,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_yori"
+      ]
+    },
+    {
+      "term_id": "p_demo_but",
+      "surface": "p_demo_but",
+      "reading": "でも",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 470,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_demo_but"
+      ]
+    },
+    {
+      "term_id": "v_tabi",
+      "surface": "旅",
+      "reading": "たび",
+      "meaning": "travel / trip",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 469,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_tabi"
+      ]
+    },
+    {
+      "term_id": "p_ka",
+      "surface": "p_ka",
+      "reading": "か",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 465,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_ka"
+      ]
+    },
+    {
+      "term_id": "p_e",
+      "surface": "p_e",
+      "reading": "へ",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 454,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_e"
+      ]
+    },
+    {
+      "term_id": "v_byouin",
+      "surface": "病院",
+      "reading": "びょういん",
+      "meaning": "hospital",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 446,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "病院"
+      ]
+    },
+    {
+      "term_id": "v_kaoiro",
+      "surface": "顔色",
+      "reading": "かおいろ",
+      "meaning": "complexion / face color",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 421,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "顔色"
+      ]
+    },
+    {
+      "term_id": "v_gyuuniku",
+      "surface": "牛肉",
+      "reading": "ぎゅうにく",
+      "meaning": "beef",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 413,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "牛肉"
+      ]
+    },
+    {
+      "term_id": "v_ashita",
+      "surface": "明日",
+      "reading": "あした",
+      "meaning": "tomorrow",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 411,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "明日"
+      ]
+    },
+    {
+      "term_id": "v_tooi",
+      "surface": "遠い",
+      "reading": "とおい",
+      "meaning": "far",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 409,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "遠い"
+      ]
+    },
+    {
+      "term_id": "p_mo",
+      "surface": "p_mo",
+      "reading": "も",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 398,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_mo"
+      ]
+    },
+    {
+      "term_id": "p_to",
+      "surface": "p_to",
+      "reading": "と",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 397,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_to"
+      ]
+    },
+    {
+      "term_id": "p_wa",
+      "surface": "p_wa",
+      "reading": "は",
+      "meaning": "",
+      "lesson": "",
+      "type": "",
+      "glossary_source": "particles",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 396,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "p_wa"
+      ]
+    },
+    {
+      "term_id": "v_gyousha",
+      "surface": "業者",
+      "reading": "ぎょうしゃ",
+      "meaning": "contractor / business operator / supplier",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 379,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "業者"
+      ]
+    },
+    {
+      "term_id": "v_sangyou",
+      "surface": "産業",
+      "reading": "さんぎょう",
+      "meaning": "industry",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 366,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "産業"
+      ]
+    },
+    {
+      "term_id": "v_sanbutsu",
+      "surface": "産物",
+      "reading": "さんぶつ",
+      "meaning": "product / result / outcome",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 364,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "産物"
+      ]
+    },
+    {
+      "term_id": "v_hajimeru",
+      "surface": "始める",
+      "reading": "はじめる",
+      "meaning": "to start (something)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 363,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_hajimeru"
+      ]
+    },
+    {
+      "term_id": "v_tomaru",
+      "surface": "止まる",
+      "reading": "とまる",
+      "meaning": "to stop / to come to a halt (intransitive)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 350,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_tomaru"
+      ]
+    },
+    {
+      "term_id": "v_kokumin",
+      "surface": "国民",
+      "reading": "こくみん",
+      "meaning": "citizen / national / the people of a nation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 348,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "国民"
+      ]
+    },
+    {
+      "term_id": "v_shugo",
+      "surface": "主語",
+      "reading": "しゅご",
+      "meaning": "grammatical subject",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 347,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "主語"
+      ]
+    },
+    {
+      "term_id": "v_tatemono",
+      "surface": "建物",
+      "reading": "たてもの",
+      "meaning": "building",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 339,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "建物"
+      ]
+    },
+    {
+      "term_id": "v_chuushi",
+      "surface": "中止",
+      "reading": "ちゅうし",
+      "meaning": "cancellation / suspension / calling off",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 337,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "中止"
+      ]
+    },
+    {
+      "term_id": "v_onaji",
+      "surface": "同じ",
+      "reading": "おなじ",
+      "meaning": "the same",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 329,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "同じ"
+      ]
+    },
+    {
+      "term_id": "v_akitaken",
+      "surface": "秋田県",
+      "reading": "あきたけん",
+      "meaning": "Akita Prefecture",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 325,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "秋田県"
+      ]
+    },
+    {
+      "term_id": "v_aomoriken",
+      "surface": "青森県",
+      "reading": "あおもりけん",
+      "meaning": "Aomori Prefecture",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 324,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "青森県"
+      ]
+    },
+    {
+      "term_id": "v_kougaku",
+      "surface": "工学",
+      "reading": "こうがく",
+      "meaning": "engineering",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 318,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "工学"
+      ]
+    },
+    {
+      "term_id": "v_oodoori",
+      "surface": "大通り",
+      "reading": "おおどおり",
+      "meaning": "main street / avenue",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 315,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "大通り"
+      ]
+    },
+    {
+      "term_id": "v_kangaeru",
+      "surface": "考える",
+      "reading": "かんがえる",
+      "meaning": "to think",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 305,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_kangaeru"
+      ]
+    },
+    {
+      "term_id": "v_shiraseru",
+      "surface": "知らせる",
+      "reading": "しらせる",
+      "meaning": "to notify / to inform",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 302,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_shiraseru"
+      ]
+    },
+    {
+      "term_id": "v_hayai",
+      "surface": "早い",
+      "reading": "はやい",
+      "meaning": "early / fast",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 300,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_hayai"
+      ]
+    },
+    {
+      "term_id": "v_kyoudai",
+      "surface": "兄弟",
+      "reading": "きょうだい",
+      "meaning": "siblings",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 298,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "兄弟"
+      ]
+    },
+    {
+      "term_id": "v_betsuni",
+      "surface": "別に",
+      "reading": "べつに",
+      "meaning": "not particularly",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": true,
+      "currently_active": true,
+      "first_flag_index": 293,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_betsuni"
+      ]
+    },
+    {
+      "term_id": "v_kobayashi",
+      "surface": "小林",
+      "reading": "こばやし",
+      "meaning": "Kobayashi",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": true,
+      "currently_active": true,
+      "first_flag_index": 280,
+      "matched_via": [
+        "id"
+      ],
+      "matched_keys": [
+        "v_kobayashi"
+      ]
+    },
+    {
+      "term_id": "v_hatsuden",
+      "surface": "発電",
+      "reading": "はつでん",
+      "meaning": "generation of electricity",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 276,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "発電"
+      ]
+    },
+    {
+      "term_id": "v_shuppatsu",
+      "surface": "出発",
+      "reading": "しゅっぱつ",
+      "meaning": "departure",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 275,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "出発"
+      ]
+    },
+    {
+      "term_id": "v_koudai",
+      "surface": "広大",
+      "reading": "こうだい",
+      "meaning": "huge / vast / extensive",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 267,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "広大"
+      ]
+    },
+    {
+      "term_id": "v_baai",
+      "surface": "場合",
+      "reading": "ばあい",
+      "meaning": "case / situation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": true,
+      "first_flag_index": 263,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "場合"
+      ]
+    },
+    {
+      "term_id": "v_youji",
+      "surface": "用事",
+      "reading": "ようじ",
+      "meaning": "tasks / errands / business",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 260,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "用事"
+      ]
+    },
+    {
+      "term_id": "v_hikidashi",
+      "surface": "引き出し",
+      "reading": "ひきだし",
+      "meaning": "drawer",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 259,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "引き出し"
+      ]
+    },
+    {
+      "term_id": "v_asaichi",
+      "surface": "朝市",
+      "reading": "あさいち",
+      "meaning": "morning market",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 250,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "朝市"
+      ]
+    },
+    {
+      "term_id": "v_hikidasu",
+      "surface": "引き出す",
+      "reading": "ひきだす",
+      "meaning": "to pull out / to withdraw (money)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 248,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "引き出す"
+      ]
+    },
+    {
+      "term_id": "v_kotae",
+      "surface": "答え",
+      "reading": "こたえ",
+      "meaning": "answer / reply",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 247,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "答え"
+      ]
+    },
+    {
+      "term_id": "v_atsumeru",
+      "surface": "集める",
+      "reading": "あつめる",
+      "meaning": "to collect / to gather (something)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 245,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "集める"
+      ]
+    },
+    {
+      "term_id": "v_akeru",
+      "surface": "開ける",
+      "reading": "あける",
+      "meaning": "to open (something)",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 244,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "開ける"
+      ]
+    },
+    {
+      "term_id": "v_kaidou",
+      "surface": "会堂",
+      "reading": "かいどう",
+      "meaning": "assembly hall / church / synagogue",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 243,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "会堂"
+      ]
+    },
+    {
+      "term_id": "v_jidai",
+      "surface": "時代",
+      "reading": "じだい",
+      "meaning": "era / period / times",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 241,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "時代"
+      ]
+    },
+    {
+      "term_id": "v_omoidasu",
+      "surface": "思い出す",
+      "reading": "おもいだす",
+      "meaning": "to recall / to remember",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 238,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "思い出す"
+      ]
+    },
+    {
+      "term_id": "v_takadai",
+      "surface": "高台",
+      "reading": "たかだい",
+      "meaning": "high ground / elevation",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 214,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "高台"
+      ]
+    },
+    {
+      "term_id": "v_mongaikan",
+      "surface": "門外漢",
+      "reading": "もんがいかん",
+      "meaning": "outsider / layman",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 210,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "門外漢"
+      ]
+    },
+    {
+      "term_id": "v_denchi",
+      "surface": "電池",
+      "reading": "でんち",
+      "meaning": "battery",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 204,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "電池"
+      ]
+    },
+    {
+      "term_id": "v_kondo",
+      "surface": "今度",
+      "reading": "こんど",
+      "meaning": "this time / next time",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 202,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "今度"
+      ]
+    },
+    {
+      "term_id": "v_machiaishitsu",
+      "surface": "待ち合い室",
+      "reading": "まちあいしつ",
+      "meaning": "waiting room",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 198,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "待ち合い室"
+      ]
+    },
+    {
+      "term_id": "v_doai",
+      "surface": "度合い",
+      "reading": "どあい",
+      "meaning": "degree / extent",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 196,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "度合い"
+      ]
+    },
+    {
+      "term_id": "v_tsukau",
+      "surface": "使う",
+      "reading": "つかう",
+      "meaning": "to use",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 193,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "使う"
+      ]
+    },
+    {
+      "term_id": "v_kangaekata",
+      "surface": "考え方",
+      "reading": "かんがえかた",
+      "meaning": "way of thinking",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 184,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "考え方"
+      ]
+    },
+    {
+      "term_id": "v_mikata",
+      "surface": "見方",
+      "reading": "みかた",
+      "meaning": "viewpoint / perspective",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 183,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "見方"
+      ]
+    },
+    {
+      "term_id": "v_gakkyuu",
+      "surface": "学究",
+      "reading": "がっきゅう",
+      "meaning": "scholar / student",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 169,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "学究"
+      ]
+    },
+    {
+      "term_id": "v_chikaishitsu",
+      "surface": "地下室",
+      "reading": "ちかしつ",
+      "meaning": "basement / cellar",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 158,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "地下室"
+      ]
+    },
+    {
+      "term_id": "v_tanki",
+      "surface": "短気",
+      "reading": "たんき",
+      "meaning": "short-tempered",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 156,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "短気"
+      ]
+    },
+    {
+      "term_id": "v_mijikai",
+      "surface": "短い",
+      "reading": "みじかい",
+      "meaning": "short",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 140,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "短い"
+      ]
+    },
+    {
+      "term_id": "v_igai",
+      "surface": "意外",
+      "reading": "いがい",
+      "meaning": "unexpected / surprising",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 136,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "意外"
+      ]
+    },
+    {
+      "term_id": "v_hinmei",
+      "surface": "品名",
+      "reading": "ひんめい",
+      "meaning": "product name",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 130,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "品名"
+      ]
+    },
+    {
+      "term_id": "v_koya",
+      "surface": "小屋",
+      "reading": "こや",
+      "meaning": "hut / cabin / shed",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 129,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "小屋"
+      ]
+    },
+    {
+      "term_id": "v_mochikaeru",
+      "surface": "持ち帰る",
+      "reading": "もちかえる",
+      "meaning": "to take home / to carry back",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 127,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "持ち帰る"
+      ]
+    },
+    {
+      "term_id": "v_urimono",
+      "surface": "売り物",
+      "reading": "うりもの",
+      "meaning": "article for sale / for sale",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 124,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "売り物"
+      ]
+    },
+    {
+      "term_id": "v_chizu",
+      "surface": "地図",
+      "reading": "ちず",
+      "meaning": "map",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 114,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "地図"
+      ]
+    },
+    {
+      "term_id": "v_gakusetsu",
+      "surface": "学説",
+      "reading": "がくせつ",
+      "meaning": "theory / academic theory",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 104,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "学説"
+      ]
+    },
+    {
+      "term_id": "v_nikai",
+      "surface": "二回",
+      "reading": "にかい",
+      "meaning": "2 times / twice",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 101,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "二回"
+      ]
+    },
+    {
+      "term_id": "v_tsuyoki",
+      "surface": "強気",
+      "reading": "つよき",
+      "meaning": "confident / strong-minded",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 97,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "強気"
+      ]
+    },
+    {
+      "term_id": "v_ikkai",
+      "surface": "一回",
+      "reading": "いっかい",
+      "meaning": "one time / once",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 88,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "一回"
+      ]
+    },
+    {
+      "term_id": "v_suigin",
+      "surface": "水銀",
+      "reading": "すいぎん",
+      "meaning": "mercury",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 69,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "水銀"
+      ]
+    },
+    {
+      "term_id": "v_shinin",
+      "surface": "死人",
+      "reading": "しにん",
+      "meaning": "dead person / deceased",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 63,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "死人"
+      ]
+    },
+    {
+      "term_id": "v_hayakuchi",
+      "surface": "早口",
+      "reading": "はやくち",
+      "meaning": "fast talking / fast talker",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 62,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "早口"
+      ]
+    },
+    {
+      "term_id": "v_gakusha",
+      "surface": "学者",
+      "reading": "がくしゃ",
+      "meaning": "scholar",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 61,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "学者"
+      ]
+    },
+    {
+      "term_id": "v_kaishain",
+      "surface": "会社員",
+      "reading": "かいしゃいん",
+      "meaning": "company employee",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 51,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "会社員"
+      ]
+    },
+    {
+      "term_id": "v_tabibito",
+      "surface": "旅人",
+      "reading": "たびびと",
+      "meaning": "traveler",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 38,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "旅人"
+      ]
+    },
+    {
+      "term_id": "v_tekubi",
+      "surface": "手首",
+      "reading": "てくび",
+      "meaning": "wrist",
+      "lesson": "",
+      "type": "vocab",
+      "glossary_source": "N4",
+      "flag_count": 1,
+      "currently_active": false,
+      "first_flag_index": 34,
+      "matched_via": [
+        "surface"
+      ],
+      "matched_keys": [
+        "手首"
+      ]
+    }
+  ]
+}

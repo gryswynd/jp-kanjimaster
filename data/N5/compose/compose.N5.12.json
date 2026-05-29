@@ -1,0 +1,264 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.12",
+  "lesson": "N5.12",
+  "level": "N5",
+  "title": "My School Life",
+  "titleJp": "学校と 日本語",
+  "emoji": "📚",
+  "theme": "Write about your school life — describe your school, what you study, the books and supplies you use, and your thoughts on Japanese.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about your school — what is it like?",
+      "targets": [
+        {
+          "id": "v_gakkou",
+          "count": 1
+        }
+      ],
+      "model": "わたしの 学校は 大きくて、新しいです。毎日 学校に 行きます。",
+      "vocabPool": [
+        "v_gakkou",
+        "v_gakusei",
+        "v_kurasu_class",
+        "v_sensei",
+        "v_ookii",
+        "v_chiisai",
+        "v_atarashii",
+        "v_furui",
+        "v_ii",
+        "v_iku",
+        "v_aru",
+        "v_iru",
+        "v_mainichi",
+        "v_kyou",
+        "v_watashi",
+        "v_totemo",
+        "v_takusan",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about Japanese class — is it interesting or boring?",
+      "targets": [
+        {
+          "id": "v_nihongo",
+          "count": 1
+        }
+      ],
+      "model": "日本語の クラスは おもしろいです。先生も いい 先生です。",
+      "vocabPool": [
+        "v_nihongo",
+        "v_kurasu_class",
+        "v_sensei",
+        "v_gakusei",
+        "v_omoshiroi",
+        "v_tsumaranai",
+        "v_ii",
+        "v_aru",
+        "v_iru",
+        "v_watashi",
+        "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about the books and supplies you use for studying.",
+      "targets": [
+        {
+          "id": "v_hon",
+          "count": 1
+        }
+      ],
+      "model": "日本語の 本を 買いました。ノートと ペンも あります。",
+      "vocabPool": [
+        "v_hon",
+        "v_nooto",
+        "v_pen",
+        "v_nihongo",
+        "v_gakkou",
+        "v_ookii",
+        "v_chiisai",
+        "v_atarashii",
+        "v_furui",
+        "v_takai",
+        "v_yasui",
+        "v_ii",
+        "v_aru",
+        "v_kau",
+        "v_watashi",
+        "v_kyou",
+        "v_mainichi",
+        "v_totemo",
+        "v_takusan",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about a test — was there a recent test, and how was it?",
+      "targets": [
+        {
+          "id": "v_senshuu",
+          "count": 1
+        }
+      ],
+      "model": "先週、テストが ありました。テストは 長かったですが、おもしろかったです。",
+      "vocabPool": [
+        "v_tesuto",
+        "v_nihongo",
+        "v_gakkou",
+        "v_omoshiroi",
+        "v_tsumaranai",
+        "v_nagai",
+        "v_ii",
+        "v_aru",
+        "v_naru",
+        "v_senshuu",
+        "v_raishuu",
+        "v_mainichi",
+        "v_totemo",
+        "v_amari",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about what you want to learn and your future school goals.",
+      "targets": [
+        {
+          "id": "v_manabu",
+          "count": 1
+        }
+      ],
+      "model": "日本語を たくさん 学びたいです。大学に 行きたいです。毎日 よく 学びます。",
+      "vocabPool": [
+        "v_manabu",
+        "v_nihongo",
+        "v_gakkou",
+        "v_daigaku",
+        "v_koukou",
+        "v_omoshiroi",
+        "v_ii",
+        "v_iku",
+        "v_naru",
+        "v_watashi",
+        "v_mainichi",
+        "v_raishuu",
+        "v_takusan",
+        "v_totemo",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_dewa",
+    "p_ja",
+    "g_desu",
+    "p_mo",
+    "p_to",
+    "p_ya",
+    "p_kara",
+    "p_made",
+    "p_ni",
+    "p_de",
+    "p_e",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "polite present — is (interesting / boring)",
+      "examples": [
+        "おもしろいです",
+        "つまらないです",
+        "長いです"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past — was",
+      "examples": [
+        "おもしろかったです",
+        "長かったです",
+        "よかったです"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + くないです",
+      "meaning": "polite negative — is not",
+      "examples": [
+        "おもしろくないです",
+        "長くないです",
+        "よくないです"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + くなかったです",
+      "meaning": "polite past negative — was not",
+      "examples": [
+        "おもしろくなかったです",
+        "長くなかったです"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + くて",
+      "meaning": "te-form — connects adjectives ('interesting and...')",
+      "examples": [
+        "おもしろくて",
+        "大きくて、新しいです"
+      ]
+    },
+    {
+      "pattern": "[い-adj stem] + く + なります",
+      "meaning": "becomes — adjective + なる",
+      "examples": [
+        "おもしろく なります",
+        "よく なりました"
+      ]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": [
+        "学びたいです",
+        "行きたいです",
+        "学びたくないです"
+      ]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do / shall we",
+      "examples": [
+        "学びましょう",
+        "行きましょう",
+        "買いましょう"
+      ]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do",
+      "examples": [
+        "学んでください",
+        "来てください",
+        "飲んでください"
+      ]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing / ongoing action or state",
+      "examples": [
+        "学んでいます",
+        "来ています"
+      ]
+    }
+  ]
+}

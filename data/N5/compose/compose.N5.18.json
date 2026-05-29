@@ -1,0 +1,162 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.18",
+  "lesson": "N5.18",
+  "level": "N5",
+  "title": "Body and Senses",
+  "titleJp": "目と 耳と 足",
+  "emoji": "👁️",
+  "theme": "Write about what you see, hear, and feel in daily life — describe using your eyes, ears, and legs, and share what you find beautiful, scary, or sad.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about what you look at every day — use 目 (eye) and 見る (to see) in your answer.",
+      "targets": [
+        { "id": "v_me", "count": 1 },
+        { "id": "v_miru", "count": 1 }
+      ],
+      "model": "毎日 午前に 新聞を 見ます。目で よく 読みます。",
+      "vocabPool": [
+        "v_me", "v_miru", "v_shinbun", "v_hon", "v_mainichi",
+        "v_gozen", "v_gogo", "v_kyou",
+        "v_yomu", "v_aru", "v_iru",
+        "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about what you can see outside — use 見える (to be visible) in your answer.",
+      "targets": [
+        { "id": "v_mieru", "count": 1 }
+      ],
+      "model": "外に 立って、山と 川を 見ています。大きい 山が 見えます。きれいそうです。",
+      "vocabPool": [
+        "v_mieru", "v_miru", "v_tatsu", "v_soto",
+        "v_yama", "v_kawa", "v_michi", "v_eki",
+        "v_ookii", "v_chiisai", "v_nagai", "v_kirei", "v_ii",
+        "v_iru", "v_aru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about what you listen to with your ears — use 耳 (ear) and 聞く (to hear/listen) in your answer.",
+      "targets": [
+        { "id": "v_mimi", "count": 1 },
+        { "id": "v_kiku", "count": 1 }
+      ],
+      "model": "耳で 日本語を たくさん 聞きます。いっしょに 話しましょう。",
+      "vocabPool": [
+        "v_mimi", "v_kiku", "v_nihongo", "v_hanasu", "v_kaiwa",
+        "v_mainichi", "v_takusan", "v_issho",
+        "v_sensei", "v_tomodachi",
+        "v_ii", "v_jouzu", "v_heta",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about standing and moving — use 立つ (to stand) and 足 (foot/leg) in your answer.",
+      "targets": [
+        { "id": "v_tatsu", "count": 1 },
+        { "id": "v_ashi", "count": 1 }
+      ],
+      "model": "足が 少し いたいですが、立ちます。外で 立って 見ます。",
+      "vocabPool": [
+        "v_tatsu", "v_ashi", "v_itai", "v_soto", "v_naka",
+        "v_sukoshi", "v_takusan", "v_mainichi",
+        "v_iku", "v_kuru", "v_aru",
+        "v_ii", "v_nagai",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about how something made you feel — use こわい (scary), かなしい (sad), or 新聞 (newspaper) in your answer.",
+      "targets": [
+        { "id": "v_shinbun", "count": 1 }
+      ],
+      "model": "新聞を 見ました。かなしい ことが ありました。こわかったです。",
+      "vocabPool": [
+        "v_shinbun", "v_hon", "v_kanashii", "v_kowai", "v_itai",
+        "v_miru", "v_yomu", "v_kiku",
+        "v_me", "v_mimi",
+        "v_takusan", "v_sukoshi", "v_totemo",
+        "v_koto", "v_aru",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about what you want to see or hear — use 見せる (to show) or a たいです expression in your answer.",
+      "targets": [
+        { "id": "v_miseru", "count": 1 }
+      ],
+      "model": "友だちに 新聞を 見せたいです。いっしょに 見て、聞きましょう。",
+      "vocabPool": [
+        "v_miseru", "v_miru", "v_kiku", "v_mieru",
+        "v_tomodachi", "v_sensei",
+        "v_shinbun", "v_hon",
+        "v_me", "v_mimi", "v_ashi",
+        "v_issho", "v_mainichi", "v_mata",
+        "v_ii", "v_kirei", "v_ookii",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made",
+    "p_ni", "p_de", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます",
+      "meaning": "polite present — sees / hears / stands",
+      "examples": ["見ます", "聞きます", "立ちます"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ました",
+      "meaning": "polite past — saw / heard / stood",
+      "examples": ["見ました", "聞きました", "立ちました"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません",
+      "meaning": "polite negative — does not see / hear",
+      "examples": ["見ません", "聞きません", "見えません"]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do — polite request",
+      "examples": ["見てください", "聞いてください", "立ってください"]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing / ongoing state",
+      "examples": ["見ています", "聞いています", "立っています"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": ["見たいです", "聞きたいです", "見せたいです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do — invitation or suggestion",
+      "examples": ["見ましょう", "聞きましょう", "立ちましょう"]
+    },
+    {
+      "pattern": "[verb て-form] + [verb て-form] + ...",
+      "meaning": "sequential actions — do A, then do B",
+      "examples": ["立って 見ます", "聞いて 話しましょう", "目で 見て 耳で 聞きます"]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past adjective — was scary / was sad (irregular: いい → よかったです)",
+      "examples": ["こわかったです", "かなしかったです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj stem / な-adj] + そうです",
+      "meaning": "looks / seems like — appearance or impression",
+      "examples": ["こわそうです", "きれいそうです", "大きそうです"]
+    }
+  ]
+}

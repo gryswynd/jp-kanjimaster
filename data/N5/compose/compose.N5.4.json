@@ -1,0 +1,111 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.4",
+  "lesson": "N5.4",
+  "level": "N5",
+  "title": "My Weekly Routine",
+  "titleJp": "わたしの まいしゅう",
+  "emoji": "⏰",
+  "theme": "Write about your weekly schedule — when you study, what time you do things, and how you feel about it.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write what day of the week today is and when you are here this week.",
+      "targets": [
+        { "id": "v_konshuu", "count": 1 }
+      ],
+      "model": "今日は 月よう日です。今週は 月よう日と 水よう日に います。",
+      "vocabPool": [
+        "v_kyou", "v_konshuu", "v_maishuu", "v_mainichi",
+        "v_getsuyoubi", "v_suiyoubi", "v_kinyoubi", "v_nanyoubi",
+        "v_iru", "g_desu", "v_watashi", "v_totemo", "v_ii",
+        "v_sensei", "v_tomodachi"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write what time you are usually here and compare to last week.",
+      "targets": [
+        { "counter": "ji", "n": 3, "count": 1 },
+        { "id": "v_senshuu", "count": 1 }
+      ],
+      "model": "毎日 三時に います。先週も 三時に いました。",
+      "vocabPool": [
+        "v_nanji", "v_toki", "v_mainichi", "v_senshuu", "v_konshuu", "v_maishuu",
+        "v_iru", "v_tokidoki", "v_sugu", "v_chotto",
+        "v_sensei", "v_tomodachi", "g_desu", "v_ii", "v_ureshii",
+        "v_getsuyoubi", "v_suiyoubi"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write what you understand and how you feel about this year.",
+      "targets": [
+        { "id": "v_wakaru", "count": 1 },
+        { "id": "v_kotoshi", "count": 1 }
+      ],
+      "model": "にほんごは 時々 分かります。今年は とても うれしいです。",
+      "vocabPool": [
+        "v_wakaru", "v_tokidoki", "v_hanbun", "v_sugu", "v_tsugi",
+        "v_kotoshi", "v_mainen", "v_tanjoubi",
+        "v_totemo", "v_ii", "v_ureshii", "v_chotto", "g_desu",
+        "v_sensei", "v_tomodachi"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_kara", "p_made", "p_ya", "p_made_ni", "p_ni"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["今日は 月よう日です", "今週は 水よう日です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite)",
+      "examples": ["先週は 月よう日でした", "きのうは 三日でした"]
+    },
+    {
+      "pattern": "[noun] + ではありません",
+      "meaning": "is not (polite formal)",
+      "examples": ["今週は 水よう日ではありません"]
+    },
+    {
+      "pattern": "[noun] + じゃありません",
+      "meaning": "is not (polite casual)",
+      "examples": ["今日は 月よう日じゃありません"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is adj (polite)",
+      "examples": ["いいです", "うれしいです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was adj (polite)",
+      "examples": ["よかったです", "うれしかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜くないです",
+      "meaning": "is not adj (polite)",
+      "examples": ["よくないです", "うれしくないです"]
+    },
+    {
+      "pattern": "[person] + が + います / いました",
+      "meaning": "is here / was here (animate beings, polite)",
+      "examples": ["友だちが います", "先生が いました"]
+    },
+    {
+      "pattern": "[thing] + が + あります / ありました",
+      "meaning": "there is / there was (inanimate things, polite)",
+      "examples": ["ケーキが あります", "ケーキが ありました"]
+    },
+    {
+      "pattern": "[godan verb] 〜ります → 〜りました",
+      "meaning": "verb past polite (godan -ru ending)",
+      "examples": ["分かります → 分かりました"]
+    }
+  ]
+}

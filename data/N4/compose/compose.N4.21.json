@@ -1,0 +1,182 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.21",
+  "lesson": "N4.21",
+  "level": "N4",
+  "title": "A Day at the Market",
+  "titleJp": "市場の 日",
+  "emoji": "🏪",
+  "theme": "Rikizo and his father spend a Sunday at their outdoor market stall, selling refined goods, watching a magic show, and navigating rules about what customers may and may not do with the merchandise.",
+  "prompts": [
+    {
+      "prompt": "Introduce the setting. Write that on Sunday Rikizo went with his father to the shop, and that there were many goods and items for sale.",
+      "targets": [
+        { "id": "v_shinamono", "count": 1 },
+        { "id": "v_urimono", "count": 1 }
+      ],
+      "model": "日曜日に、りきぞうは 父と お店に 行きました。たくさんの 品物が ありました。どれも 売り物でした。",
+      "vocabPool": [
+        "v_nichiyoubi", "v_chichi", "v_mise", "v_iku", "v_shinamono", "v_urimono",
+        "v_takusan", "v_aru", "v_soto",
+        "p_ni", "p_to", "p_ga", "p_no", "p_wa"
+      ]
+    },
+    {
+      "prompt": "Describe the goods on display. Write that the shop had just put new goods on sale, and that they were all very refined.",
+      "targets": [
+        { "id": "v_uridasu", "count": 1 },
+        { "id": "v_jouhin", "count": 1 }
+      ],
+      "model": "お店は 新しい 品物を 売り出しました。どれも とても 上品でした。",
+      "vocabPool": [
+        "v_mise", "v_atarashii", "v_shinamono", "v_uridasu", "v_jouhin", "v_totemo",
+        "v_aru", "v_dore",
+        "p_wo", "p_wa", "p_ga", "p_mo", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that a person asked about the product name, and that Rikizo sold them one item.",
+      "targets": [
+        { "id": "v_hinmei", "count": 1 },
+        { "id": "v_uru", "count": 1 }
+      ],
+      "model": "人が 品名を 聞きました。りきぞうは 品物を 一つ 売りました。",
+      "vocabPool": [
+        "v_hito", "v_hinmei", "v_kiku", "v_shinamono", "v_uru", "v_hitotsu",
+        "v_urimono",
+        "p_ga", "p_wo", "p_wa", "p_ni"
+      ]
+    },
+    {
+      "prompt": "Describe the magic show nearby. Write that there was a person doing magic tricks close by, and that watching it gave Rikizo a wonderful feeling.",
+      "targets": [
+        { "id": "v_tejina", "count": 1 },
+        { "id": "v_kimochi", "count": 1 }
+      ],
+      "model": "近くで 手品を して いる 人が いました。見て、とても いい 気持ちに なりました。",
+      "vocabPool": [
+        "v_chikai", "v_tejina", "v_suru", "v_iru", "v_hito", "v_miru", "v_kimochi",
+        "v_totemo", "v_ii", "v_naru",
+        "p_de", "p_wo", "p_ga", "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that a person wanted to hold and look at one of the items. Write that Rikizo lent it to them for a moment.",
+      "targets": [
+        { "id": "v_motsu", "count": 1 },
+        { "id": "v_kasu", "count": 1 }
+      ],
+      "model": "人が 品物を 持って みたいと 言いました。りきぞうは 少し 貸しました。",
+      "vocabPool": [
+        "v_hito", "v_shinamono", "v_motsu", "v_miru", "v_iu", "v_kasu", "v_sukoshi",
+        "v_ii", "v_kariru",
+        "p_wa", "p_wo", "p_ga", "p_ni", "p_to_quote"
+      ]
+    },
+    {
+      "prompt": "Write that someone asked to take goods home. Write that each item has its own distinctive quality.",
+      "targets": [
+        { "id": "v_mochikaeru", "count": 1 },
+        { "id": "v_mochiaji", "count": 1 }
+      ],
+      "model": "人が 品物を 持ち帰りたいと 言いました。この 品物には いい 持ち味が あります。",
+      "vocabPool": [
+        "v_hito", "v_shinamono", "v_mochikaeru", "v_iu", "v_mochiaji", "v_aru",
+        "v_ii", "v_dore", "v_kono",
+        "p_wo", "p_ga", "p_ni", "p_mo", "p_no", "p_to_quote"
+      ]
+    },
+    {
+      "prompt": "Write a rule from father. Write that goods must not be taken outside the shop, and that people should look at them inside.",
+      "targets": [
+        { "id": "v_mochidasu", "count": 1 },
+        { "id": "v_ikeru", "count": 1, "matches": ["いけ"] }
+      ],
+      "model": "お店の 外へ 品物を 持ち出しては いけません。中で 見て ください。",
+      "vocabPool": [
+        "v_mise", "v_soto", "v_shinamono", "v_mochidasu", "v_ikeru", "v_naka", "v_miru",
+        "v_kudasai", "v_uchi",
+        "p_no", "p_e", "p_wo", "p_wa", "p_de"
+      ]
+    },
+    {
+      "prompt": "Write about the end of the working day. Write that after work finished, Rikizo sold all the items for sale. Write that he felt very good.",
+      "targets": [
+        { "id": "v_urimono", "count": 1 },
+        { "id": "v_kimochi", "count": 1 }
+      ],
+      "model": "仕事が 終わった あと、りきぞうは 売り物を みんな 売りました。とても いい 気持ちでした。",
+      "vocabPool": [
+        "v_shigoto", "v_owaru", "v_ato", "v_urimono", "v_uru", "v_minna", "v_kimochi",
+        "v_totemo", "v_ii",
+        "p_ga", "p_wo", "p_de", "p_wa", "p_no"
+      ]
+    },
+    {
+      "prompt": "Close the story. Write that today was very enjoyable — the goods, the magic trick, and the refined quality were all great.",
+      "targets": [
+        { "id": "v_tejina", "count": 1 },
+        { "id": "v_jouhin", "count": 1 }
+      ],
+      "model": "今日は とても 楽しかったです。品物も 手品も 上品だし、気持ちも よかったです。",
+      "vocabPool": [
+        "v_kyou", "v_tanoshii", "v_shinamono", "v_tejina", "v_jouhin", "v_kimochi",
+        "v_ii", "v_totemo",
+        "p_wa", "p_mo", "p_shi", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_to_quote", "p_kara", "p_kara_because", "p_made", "p_goro",
+    "p_ka", "p_yo", "p_ne", "p_dewa", "p_ja", "p_ya",
+    "p_ga_but", "p_kedo", "p_demo_but", "p_shi",
+    "p_node", "p_nagara", "p_yori", "p_hodo", "p_kurai",
+    "p_dake", "p_shika", "p_bakari", "p_demo", "p_noni",
+    "p_e",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-stem] ます / ました / ません / ませんでした",
+      "meaning": "polite present / past / negative / past negative",
+      "examples": ["売ります", "売りました", "売りません", "売りませんでした"]
+    },
+    {
+      "pattern": "[verb て-form] も いいですか",
+      "meaning": "is it okay to do ~? (permission)",
+      "examples": ["持ち帰っても いいですか", "貸しても いいですか"]
+    },
+    {
+      "pattern": "[verb て-form] は いけません",
+      "meaning": "must not do ~ (prohibition)",
+      "examples": ["持ち出しては いけません", "売っては いけません"]
+    },
+    {
+      "pattern": "[verb て-form] から",
+      "meaning": "after doing ~ (sequential action)",
+      "examples": ["仕事が 終わってから", "見てから 買いました"]
+    },
+    {
+      "pattern": "[verb て-form] みる",
+      "meaning": "try doing ~",
+      "examples": ["持って みました", "貸して みました"]
+    },
+    {
+      "pattern": "[verb plain_desire_tai] + です",
+      "meaning": "I want to ~",
+      "examples": ["持ち帰りたいです", "売りたいです"]
+    },
+    {
+      "pattern": "[adj] し、[adj] し",
+      "meaning": "both ~ and ~ (listing positive reasons)",
+      "examples": ["上品だし、いい 気持ちだし"]
+    },
+    {
+      "pattern": "[い-adj]: 〜かった / 〜かったです",
+      "meaning": "past tense adjective (plain / polite)",
+      "examples": ["楽しかったです", "よかったです"]
+    }
+  ]
+}

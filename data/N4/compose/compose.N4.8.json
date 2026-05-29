@@ -1,0 +1,168 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.8",
+  "lesson": "N4.8",
+  "level": "N4",
+  "title": "Japan's Four Seasons",
+  "titleJp": "日本の 四季",
+  "emoji": "🍂",
+  "theme": "Write an essay about Japan's four seasons, describing the weather and nature of each season, comparing which you prefer, and explaining why.",
+  "prompts": [
+    {
+      "prompt": "Open your essay by introducing Japan's four seasons. Use 春夏秋冬 or きせつ in your first sentence.",
+      "targets": [
+        { "id": "v_kisetsu", "count": 1 }
+      ],
+      "model": "日本には 春、夏、秋、冬の 四つの きせつが あります。",
+      "vocabPool": [
+        "v_kisetsu", "v_shunkashuutou", "v_haru", "v_natsu", "v_aki", "v_fuyu",
+        "v_nihon", "v_aru", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe spring. What is the weather like? What is special about spring in Japan? Use 春 and one weather adjective.",
+      "targets": [
+        { "id": "v_haru", "count": 1 },
+        { "id": "v_suzushii", "count": 1 }
+      ],
+      "model": "春は すずしくて、花が たくさん あります。とても きれいです。",
+      "vocabPool": [
+        "v_haru", "v_suzushii", "v_atsui", "v_samui", "v_hana", "v_midori",
+        "v_kirei", "v_takusan", "v_aru", "v_totemo", "v_soto", "v_iku"
+      ]
+    },
+    {
+      "prompt": "Describe summer. Mention the heat and use 夏休み. Use 暑い somewhere.",
+      "targets": [
+        { "id": "v_natsu", "count": 1 },
+        { "id": "v_natsuyasumi", "count": 1 }
+      ],
+      "model": "夏は とても 暑いです。夏休みが ありますから、毎年 うれしいです。",
+      "vocabPool": [
+        "v_natsu", "v_atsui", "v_natsuyasumi", "v_mainen", "v_ureshii",
+        "v_aru", "v_totemo", "v_yama", "v_iku", "v_sora", "v_miru"
+      ]
+    },
+    {
+      "prompt": "Describe autumn. Mention the colours of the trees. Use 秋 and 色.",
+      "targets": [
+        { "id": "v_aki", "count": 1 },
+        { "id": "v_iro", "count": 1 }
+      ],
+      "model": "秋は 木の 色が 赤や 茶色に なります。秋の 山は とても きれいです。",
+      "vocabPool": [
+        "v_aki", "v_ki", "v_iro", "v_akai", "v_chairo", "v_midori",
+        "v_naru", "v_kirei", "v_yama", "v_totemo"
+      ]
+    },
+    {
+      "prompt": "Describe winter. Mention the cold and snow. Use 冬 and ゆき.",
+      "targets": [
+        { "id": "v_fuyu", "count": 1 },
+        { "id": "v_yuki", "count": 1 }
+      ],
+      "model": "冬は とても 寒いです。北では ゆきが あります。白くて きれいです。",
+      "vocabPool": [
+        "v_fuyu", "v_samui", "v_yuki", "v_shiroi", "v_kita", "v_aru",
+        "v_totemo", "v_kirei", "v_fuyuyasumi"
+      ]
+    },
+    {
+      "prompt": "Compare two seasons using より. For example, say which season is cooler, hotter, or more beautiful.",
+      "targets": [
+        { "id": "v_suzushii", "count": 1 }
+      ],
+      "model": "春は 夏より すずしいですから、外に 行くのが 好きです。",
+      "vocabPool": [
+        "v_haru", "v_natsu", "v_aki", "v_fuyu", "v_suzushii", "v_atsui",
+        "v_samui", "v_kirei"
+      ]
+    },
+    {
+      "prompt": "Close your essay by stating which season you like best and why. Use いちばん 好き and から.",
+      "targets": [
+        { "id": "v_ichiban", "count": 1 },
+        { "id": "v_suki", "count": 1 }
+      ],
+      "model": "私は 秋が いちばん 好きです。すずしくて、きれいですから。",
+      "vocabPool": [
+        "v_ichiban", "v_suki", "v_haru", "v_natsu", "v_aki", "v_fuyu",
+        "v_watashi", "v_suzushii", "v_atsui", "v_samui", "v_kirei",
+        "v_hana", "v_yuki", "v_yama", "v_sora"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne", "p_dewa",
+    "p_ya", "p_ga_but", "p_kara_because", "p_kedo", "p_yori", "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun / な-adj] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["春です", "きれいです"]
+    },
+    {
+      "pattern": "い-adj + です",
+      "meaning": "is [adjective] (polite)",
+      "examples": ["暑いです", "寒いです", "すずしいです"]
+    },
+    {
+      "pattern": "い-adj + かったです",
+      "meaning": "was [adjective] (polite past)",
+      "examples": ["暑かったです", "寒かったです", "よかったです"]
+    },
+    {
+      "pattern": "い-adj + くて",
+      "meaning": "[adjective] and … (te-connector)",
+      "examples": ["すずしくて", "暑くて", "白くて"]
+    },
+    {
+      "pattern": "い-adj + くないです",
+      "meaning": "is not [adjective] (polite negative)",
+      "examples": ["寒くないです", "暑くないです"]
+    },
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite)",
+      "examples": ["行きます", "行きました", "あります", "なります"]
+    },
+    {
+      "pattern": "verb-て + います",
+      "meaning": "is doing / is in a state of (progressive)",
+      "examples": ["住んでいます", "食べています"]
+    },
+    {
+      "pattern": "verb-たいです",
+      "meaning": "want to [verb] (polite desire)",
+      "examples": ["行きたいです", "見たいです"]
+    },
+    {
+      "pattern": "A は B より [adj]",
+      "meaning": "A is more [adj] than B (comparison)",
+      "examples": ["春は 夏より すずしいです", "秋の 山は 春の 山より きれいです"]
+    },
+    {
+      "pattern": "A が いちばん [adj]",
+      "meaning": "A is the most [adj] (superlative)",
+      "examples": ["秋が いちばん きれいです", "春が いちばん 好きです"]
+    },
+    {
+      "pattern": "[clause] から",
+      "meaning": "because [clause] (reason)",
+      "examples": ["暑いですから", "花が きれいですから"]
+    },
+    {
+      "pattern": "[clause] が、[clause]",
+      "meaning": "… but … (contrast within sentence)",
+      "examples": ["夏は 暑いですが、夏休みが あります"]
+    },
+    {
+      "pattern": "verb-て + verb",
+      "meaning": "do X and then do Y (sequential actions)",
+      "examples": ["山に 行って、空を 見ます"]
+    }
+  ]
+}

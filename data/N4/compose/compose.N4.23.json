@@ -1,0 +1,361 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.23",
+  "lesson": "N4.23",
+  "level": "N4",
+  "title": "Health & Progress",
+  "titleJp": "健康と 進歩",
+  "emoji": "💪",
+  "theme": "Write a short essay about your health and personal progress. Describe your body, your exercise habits, what you have been improving, and your goals for getting better.",
+  "prompts": [
+    {
+      "prompt": "Open your essay by saying how your body has been lately. Use 体重 and なってきました.",
+      "targets": [
+        {
+          "id": "v_taijuu",
+          "count": 1
+        }
+      ],
+      "model": "今年、体重が 少し 重く なって きました。",
+      "vocabPool": [
+        "v_taijuu",
+        "v_karada",
+        "v_omoi",
+        "v_karui",
+        "v_naru",
+        "v_kuru",
+        "v_sukoshi",
+        "v_mainichi",
+        "v_genki",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe whether this is a serious problem or not. Use 重大 and ではありません.",
+      "targets": [
+        {
+          "id": "v_juudai",
+          "count": 1
+        }
+      ],
+      "model": "重大な 問題では ありませんが、運動を 始めました。",
+      "vocabPool": [
+        "v_juudai",
+        "v_mondai",
+        "v_undou",
+        "v_aru",
+        "v_hajimeru",
+        "v_mainichi",
+        "v_sukoshi",
+        "v_ii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write about your exercise routine. What do you do every morning? Use 歩く or 走る and ています.",
+      "targets": [
+        {
+          "id": "v_aruku",
+          "count": 1
+        }
+      ],
+      "model": "朝は 少し 歩いて います。夜も 運動して います。",
+      "vocabPool": [
+        "v_aruku",
+        "v_hashiru",
+        "v_undou",
+        "v_suru",
+        "v_iru",
+        "v_asa",
+        "v_yoru",
+        "v_sukoshi",
+        "v_mainichi",
+        "v_karada"
+      ]
+    },
+    {
+      "prompt": "Describe something about your weight or body getting lighter or stronger. Use てくる to show a gradual change.",
+      "targets": [
+        {
+          "id": "v_karui",
+          "count": 1
+        }
+      ],
+      "model": "少しずつ 体が 軽く なって きました。",
+      "vocabPool": [
+        "v_karui",
+        "v_omoi",
+        "v_tsuyoi",
+        "v_karada",
+        "v_taijuu",
+        "v_naru",
+        "v_kuru",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_mainichi",
+        "v_undou"
+      ]
+    },
+    {
+      "prompt": "Are you making progress with something you find difficult? Use むずかしいのに and たい.",
+      "targets": [
+        {
+          "id": "v_shinpo",
+          "count": 1
+        }
+      ],
+      "model": "日本語は むずかしいのに、もっと 進歩したいです。",
+      "vocabPool": [
+        "v_shinpo",
+        "v_muzukashii",
+        "v_nihongo",
+        "v_hanasu",
+        "v_benkyou",
+        "v_suru",
+        "v_iru",
+        "v_sukoshi",
+        "v_tanoshii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe stacking up practice or efforts over time. Use 重ねる and ために.",
+      "targets": [
+        {
+          "id": "v_kasaneru",
+          "count": 1
+        }
+      ],
+      "model": "進歩する ために、少しずつ 重ねて います。",
+      "vocabPool": [
+        "v_kasaneru",
+        "v_shinpo",
+        "v_suru",
+        "v_iru",
+        "v_tame",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_mainichi",
+        "v_undou",
+        "v_benkyou",
+        "v_taisetsu"
+      ]
+    },
+    {
+      "prompt": "Are you sometimes short-tempered when things are difficult? Use 短気 and なりそう.",
+      "targets": [
+        {
+          "id": "v_tanki",
+          "count": 1
+        }
+      ],
+      "model": "むずかしい 日は 短気に なりそうです。でも、ゆっくり 進みます。",
+      "vocabPool": [
+        "v_tanki",
+        "v_muzukashii",
+        "v_naru",
+        "v_susumu",
+        "v_suru",
+        "v_yukkuri",
+        "v_sukoshi",
+        "v_tanoshii",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Are you advancing toward your goal? Use 進む and ていく.",
+      "targets": [
+        {
+          "id": "v_susumu",
+          "count": 1
+        }
+      ],
+      "model": "少しずつ 進んで いきます。",
+      "vocabPool": [
+        "v_susumu",
+        "v_iku",
+        "v_suru",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_mainichi",
+        "v_karada",
+        "v_undou",
+        "v_aruku",
+        "v_hashiru",
+        "v_genki"
+      ]
+    },
+    {
+      "prompt": "Reflect on how you feel about your progress and what you want to do next. Use 楽しく or うれしく.",
+      "targets": [
+        {
+          "id": "v_ureshii",
+          "count": 1
+        }
+      ],
+      "model": "自分の 進歩を 見て、とても うれしいです。これからも 重ねて いきます。",
+      "vocabPool": [
+        "v_ureshii",
+        "v_tanoshii",
+        "v_jibun",
+        "v_shinpo",
+        "v_miru",
+        "v_kasaneru",
+        "v_iku",
+        "v_totemo",
+        "v_genki",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Compare how you were last year with how you are now. Use 去年より and なってきました.",
+      "targets": [
+        {
+          "id": "v_taijuu",
+          "count": 1
+        },
+        {
+          "id": "v_karui",
+          "count": 1
+        }
+      ],
+      "model": "去年より 体重が 軽く なって きました。",
+      "vocabPool": [
+        "v_taijuu",
+        "v_karui",
+        "v_omoi",
+        "v_naru",
+        "v_kuru",
+        "v_kyonen",
+        "v_karada",
+        "v_tsuyoi",
+        "v_genki",
+        "v_undou"
+      ]
+    },
+    {
+      "prompt": "Write a sentence trying not to be short-tempered. Use 短気に ならないように しています.",
+      "targets": [
+        {
+          "id": "v_tanki",
+          "count": 1
+        },
+        {
+          "id": "v_susumu",
+          "count": 1
+        }
+      ],
+      "model": "短気に ならないように して、少しずつ 進んで います。",
+      "vocabPool": [
+        "v_tanki",
+        "v_susumu",
+        "v_naru",
+        "v_suru",
+        "v_iru",
+        "v_sukoshi",
+        "p_zutsu",
+        "v_you_manner",
+        "v_muzukashii",
+        "v_taisetsu",
+        "v_genki"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_ni",
+    "p_de",
+    "p_no",
+    "p_mo",
+    "p_to",
+    "p_kara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_dewa",
+    "p_ga_but",
+    "p_kara_because",
+    "p_kedo",
+    "p_yori",
+    "p_noni",
+    "p_node",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-て] + きました",
+      "meaning": "has been gradually changing / came to [verb] (direction toward speaker)",
+      "examples": [
+        "重く なって きました",
+        "進んで きました",
+        "軽く なって きました"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + います",
+      "meaning": "currently doing / ongoing state",
+      "examples": [
+        "運動して います",
+        "歩いて います",
+        "進んで います"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + いきます",
+      "meaning": "will keep doing / direction away from speaker (ongoing action going forward)",
+      "examples": [
+        "歩いて いきます",
+        "進んで いきます",
+        "重ねて いきます"
+      ]
+    },
+    {
+      "pattern": "[verb / adj - plain] + のに",
+      "meaning": "even though / despite (concessive, with emotional nuance)",
+      "examples": [
+        "むずかしいのに 話したいです",
+        "重いのに 運動します"
+      ]
+    },
+    {
+      "pattern": "[verb] + ために",
+      "meaning": "in order to [verb] (purpose)",
+      "examples": [
+        "進歩する ために 運動します",
+        "健康の ために 歩きます"
+      ]
+    },
+    {
+      "pattern": "[na-adj stem] + に + なる",
+      "meaning": "to become [na-adj]",
+      "examples": [
+        "元気に なります",
+        "短気に なりそうです",
+        "上手に なって きました"
+      ]
+    },
+    {
+      "pattern": "い-adj + く + なる",
+      "meaning": "to become [i-adj]",
+      "examples": [
+        "軽く なって きました",
+        "重く なりました",
+        "楽しく なります"
+      ]
+    },
+    {
+      "pattern": "[plain negative] + ように + します",
+      "meaning": "try to make sure [not to / to]",
+      "examples": [
+        "短気に ならないように しています",
+        "遅れないように します"
+      ]
+    }
+  ]
+}

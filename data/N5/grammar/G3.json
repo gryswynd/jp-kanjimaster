@@ -1,0 +1,1047 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G3",
+  "type": "grammar",
+  "title": "Core Particles I: は, が, の, か, を",
+  "meta": {
+    "level": "N5",
+    "unlocksAfter": "G2",
+    "focus": "Topic marking, subject marking, possession, questions, and object marking",
+    "estimatedMinutes": 25,
+    "particles": [
+      "は",
+      "が",
+      "の",
+      "か",
+      "を"
+    ],
+    "grammarForms": [],
+    "icon": "📌"
+  },
+  "targetVocab": [
+    "p_wa",
+    "p_ga",
+    "p_no",
+    "p_ka",
+    "p_wo"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "The Particles that Build Every Sentence",
+      "icon": "📌",
+      "summary": "Particles are small words placed after nouns to show their grammatical role in a sentence.",
+      "whyItMatters": "Get particles right and you'll be understood even with limited vocabulary. These five particles appear in almost every sentence you'll ever read or hear in Japanese.",
+      "youWillLearn": [
+        "は — marking the topic (what we're talking about)",
+        "が — marking the subject (who does the action)",
+        "の — connecting nouns and showing possession",
+        "か — turning statements into questions, or meaning 'or'",
+        "を — marking the direct object (what receives the action)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_wa_topic",
+      "pattern": [
+        {
+          "label": "TOPIC",
+          "color": "topic",
+          "text": "X"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "COMMENT",
+          "color": "verb",
+          "text": "..."
+        }
+      ],
+      "meaning": "'As for X, ...' / 'Speaking of X, ...'",
+      "explanation": "は tells the listener: 'I'm about to say something about X.' Everything after は is the comment about the topic. The topic is usually known information — something already established in the conversation.",
+      "notes": [
+        "は is written with the hiragana は (ha) but pronounced 'wa'.",
+        "は can mark contrast: 母は先生だ、でも父は先生では ない (Mom is a teacher, but Dad is not a teacher).",
+        "The topic doesn't have to be the grammatical subject of the verb."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "がくせい",
+              "role": "predicate",
+              "gloss": "student"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "I am a student.",
+          "breakdown": "Topic: I → Comment: am a student"
+        },
+        {
+          "parts": [
+            {
+              "text": "先生",
+              "role": "topic",
+              "gloss": "teacher"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "やさしい",
+              "role": "predicate",
+              "gloss": "kind"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "The teacher is kind.",
+          "breakdown": "Topic: teacher → Comment: is kind"
+        },
+        {
+          "parts": [
+            {
+              "text": "母",
+              "role": "topic",
+              "gloss": "mother"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "にほんじん",
+              "role": "predicate",
+              "gloss": "Japanese"
+            },
+            {
+              "text": "では",
+              "role": "particle"
+            },
+            {
+              "text": "ありません",
+              "role": "verb"
+            }
+          ],
+          "en": "My mother is not Japanese.",
+          "breakdown": "Topic: mother → Comment: is not Japanese"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_ga_subject",
+      "pattern": [
+        {
+          "label": "SUBJECT",
+          "color": "subject",
+          "text": "X"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "が"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "verb",
+          "text": "..."
+        }
+      ],
+      "meaning": "X does/is [something]. (subject emphasis)",
+      "explanation": "が marks the subject — the doer of the action or the entity being identified. Use が when you're introducing new information or when the sentence specifically identifies WHO or WHAT.",
+      "notes": [
+        "が is required after question words: だれが、何が (who, what — as subject).",
+        "Certain predicates consistently take が as their subject marker: ある and いる (exist). Many 'feeling' and 'perception' predicates follow the same pattern.",
+        "が marks the subject and introduces NEW information — emphasis is a side-effect of this new-information role, not its core function."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "だれ",
+              "role": "subject",
+              "gloss": "who"
+            },
+            {
+              "text": "が",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            },
+            {
+              "text": "か",
+              "role": "particle"
+            }
+          ],
+          "en": "Who is the teacher?",
+          "breakdown": "Subject (unknown): who → is a teacher?"
+        },
+        {
+          "parts": [
+            {
+              "text": "母",
+              "role": "subject",
+              "gloss": "mother"
+            },
+            {
+              "text": "が",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "My mother is the teacher. (identifying specifically her)",
+          "breakdown": "Subject: mother → is the teacher (answering 'who?')"
+        },
+        {
+          "parts": [
+            {
+              "text": "友だち",
+              "role": "subject",
+              "gloss": "friend"
+            },
+            {
+              "text": "が",
+              "role": "particle"
+            },
+            {
+              "text": "います",
+              "role": "verb",
+              "gloss": "exist (animate)"
+            }
+          ],
+          "en": "There is a friend. / I have a friend.",
+          "breakdown": "Subject: friend → exists"
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "は vs が — the Most Important Distinction",
+      "items": [
+        {
+          "label": "は — Topic Marker",
+          "color": "topic",
+          "points": [
+            "Marks what the sentence is about (the topic)",
+            "Used for known or established information",
+            "Can shift focus and mark contrast"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "母",
+                "role": "topic"
+              },
+              {
+                "text": "は",
+                "role": "particle"
+              },
+              {
+                "text": "先生",
+                "role": "predicate"
+              },
+              {
+                "text": "です",
+                "role": "verb"
+              }
+            ],
+            "en": "As for Mom, she is a teacher. (Mom is the topic)"
+          }
+        },
+        {
+          "label": "が — Subject Marker",
+          "color": "subject",
+          "points": [
+            "Marks who performs the action (the subject)",
+            "Used for new information or identification",
+            "Required after だれ, 何, どれ as subject"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "母",
+                "role": "subject"
+              },
+              {
+                "text": "が",
+                "role": "particle"
+              },
+              {
+                "text": "先生",
+                "role": "predicate"
+              },
+              {
+                "text": "です",
+                "role": "verb"
+              }
+            ],
+            "en": "It's Mom who is the teacher. (Mom is specifically identified)"
+          }
+        }
+      ],
+      "tip": "Introducing new info or answering 'who/what'? → が. Commenting on something already known? → は."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_no_possession",
+      "pattern": [
+        {
+          "label": "OWNER",
+          "color": "topic",
+          "text": "A"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "の"
+        },
+        {
+          "label": "OWNED",
+          "color": "subject",
+          "text": "B"
+        }
+      ],
+      "meaning": "'A's B' — connecting two nouns",
+      "explanation": "の links two nouns together. The first noun modifies or owns the second. Think of の as an apostrophe-s in English: わたしの本 = my book (literally 'I's book').",
+      "notes": [
+        "の can chain: 先生の友だちの母 = the teacher's friend's mother.",
+        "の can stand in for a noun when it is clear from context: 先生のは どれですか？ (Which one is the teacher's?)"
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "の",
+              "role": "particle"
+            },
+            {
+              "text": "友だち",
+              "role": "subject",
+              "gloss": "friend"
+            }
+          ],
+          "en": "My friend (literally: I's friend)"
+        },
+        {
+          "parts": [
+            {
+              "text": "先生",
+              "role": "topic",
+              "gloss": "teacher"
+            },
+            {
+              "text": "の",
+              "role": "particle"
+            },
+            {
+              "text": "なまえ",
+              "role": "subject",
+              "gloss": "name"
+            }
+          ],
+          "en": "The teacher's name"
+        },
+        {
+          "parts": [
+            {
+              "text": "母",
+              "role": "topic",
+              "gloss": "mother"
+            },
+            {
+              "text": "の",
+              "role": "particle"
+            },
+            {
+              "text": "友だち",
+              "role": "subject",
+              "gloss": "friend"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "My mother's friend is a teacher."
+        },
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "の",
+              "role": "particle"
+            },
+            {
+              "text": "パソコン",
+              "role": "subject",
+              "gloss": "computer"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "good"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "My computer is good."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_ka_question",
+      "pattern": [
+        {
+          "label": "STATEMENT",
+          "color": "predicate",
+          "text": "..."
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "か"
+        }
+      ],
+      "meaning": "Is it ...? / Are you ...? (question marker)",
+      "explanation": "Add か at the end of any statement to turn it into a yes/no question. No word order change needed — just add か. It can also mean 'or' between two items.",
+      "notes": [
+        "In casual speech, か is sometimes dropped and replaced by a rising intonation.",
+        "か can also mean 'or': りんごかみかん (apple or mandarin)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "がくせい",
+              "role": "predicate",
+              "gloss": "student"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            },
+            {
+              "text": "か",
+              "role": "particle"
+            }
+          ],
+          "en": "Are you a student?",
+          "breakdown": "Statement: '(you) are a student' + か = question"
+        },
+        {
+          "parts": [
+            {
+              "text": "先生",
+              "role": "topic",
+              "gloss": "teacher"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "やさしい",
+              "role": "predicate",
+              "gloss": "kind"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            },
+            {
+              "text": "か",
+              "role": "particle"
+            }
+          ],
+          "en": "Is the teacher kind?"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_wo_object",
+      "pattern": [
+        {
+          "label": "OBJECT",
+          "color": "object",
+          "text": "X"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "を"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "..."
+        }
+      ],
+      "meaning": "Do [verb] to/with X",
+      "explanation": "を marks the direct object — the thing that the action is done to or with. It appears before transitive verbs (verbs that take an object, like 'eat', 'read', 'study', 'call').",
+      "notes": [
+        "を is written with the hiragana を (wo) but pronounced simply 'o'.",
+        "を only appears with transitive verbs — verbs that can take a direct object.",
+        "Special use: を can also mark movement through a space: こうえんをあるく (walk through the park)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "object",
+              "gloss": "teacher"
+            },
+            {
+              "text": "を",
+              "role": "particle"
+            },
+            {
+              "text": "よびます",
+              "role": "verb",
+              "gloss": "call"
+            }
+          ],
+          "en": "I call the teacher.",
+          "breakdown": "Object: teacher → Action: call"
+        },
+        {
+          "parts": [
+            {
+              "text": "友だち",
+              "role": "topic",
+              "gloss": "friend"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "にほんご",
+              "role": "object",
+              "gloss": "Japanese"
+            },
+            {
+              "text": "を",
+              "role": "particle"
+            },
+            {
+              "text": "べんきょうします",
+              "role": "verb",
+              "gloss": "study"
+            }
+          ],
+          "en": "My friend studies Japanese.",
+          "breakdown": "Object: Japanese → Action: study"
+        },
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "なまえ",
+              "role": "object",
+              "gloss": "name"
+            },
+            {
+              "text": "を",
+              "role": "particle"
+            },
+            {
+              "text": "かきます",
+              "role": "verb",
+              "gloss": "write"
+            }
+          ],
+          "en": "I write my name.",
+          "breakdown": "Object: name → Action: write"
+        }
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "All Five Particles in Action",
+      "examples": [
+        {
+          "context": "は — Topic (contrast)",
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "がくせい",
+              "role": "predicate",
+              "gloss": "student"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "I am a student. (as for me...)",
+          "note": "は sets わたし (I) as what we're talking about."
+        },
+        {
+          "context": "が — Subject (identification)",
+          "parts": [
+            {
+              "text": "だれ",
+              "role": "subject",
+              "gloss": "who"
+            },
+            {
+              "text": "が",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            },
+            {
+              "text": "か",
+              "role": "particle"
+            }
+          ],
+          "en": "Who is the teacher?",
+          "note": "が comes after だれ (who) to ask who specifically."
+        },
+        {
+          "context": "の — Possession",
+          "parts": [
+            {
+              "text": "母",
+              "role": "topic",
+              "gloss": "mother"
+            },
+            {
+              "text": "の",
+              "role": "particle"
+            },
+            {
+              "text": "友だち",
+              "role": "subject",
+              "gloss": "friend"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "My mother's friend is a teacher.",
+          "note": "の links 母 (mother) to 友だち (friend) — 'mother's friend'."
+        },
+        {
+          "context": "か — Question",
+          "parts": [
+            {
+              "text": "あなた",
+              "role": "topic",
+              "gloss": "you"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            },
+            {
+              "text": "か",
+              "role": "particle"
+            }
+          ],
+          "en": "Are you a teacher?",
+          "note": "か at sentence end = question. No word order change."
+        },
+        {
+          "context": "を — Direct Object",
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "にほんご",
+              "role": "object",
+              "gloss": "Japanese"
+            },
+            {
+              "text": "を",
+              "role": "particle"
+            },
+            {
+              "text": "べんきょうします",
+              "role": "verb",
+              "gloss": "study"
+            }
+          ],
+          "en": "I study Japanese.",
+          "note": "を marks にほんご as the thing being studied."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Getting to Know Each Other",
+      "context": "Yuki and Kenji chat after class, learning about each other's families and interests.",
+      "lines": [
+        {
+          "spk": "ゆき",
+          "jp": "けんさんの お母さんは 先生ですか。",
+          "en": "Is your mother a teacher, Kenji?",
+          "terms": [
+            "char_ken",
+            "v_san",
+            "p_no",
+            "v_okaasan",
+            "p_wa",
+            "v_sensei",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "はい、母は 先生です。にほんごを おしえます。",
+          "en": "Yes, my mother is a teacher. She teaches Japanese.",
+          "terms": [
+            "p_hai",
+            "v_haha",
+            "p_wa",
+            "v_sensei",
+            "g_desu",
+            "v_nihongo",
+            "p_wo",
+            {
+              "id": "v_oshieru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "そうですか。けんさんの お父さんは なにを しますか。",
+          "en": "Is that so? What does your father do, Ken?",
+          "terms": [
+            "p_soudesuka",
+            "char_ken",
+            "v_san",
+            "p_no",
+            "v_otousan",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "父は いい 先生です。とても やさしい 人です。",
+          "en": "My father is a good teacher. He is a very kind person.",
+          "terms": [
+            "v_chichi",
+            "p_wa",
+            "v_ii",
+            "v_sensei",
+            "g_desu",
+            "v_totemo",
+            "v_yasashii",
+            "v_hito"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "title": "Choose the Right Particle",
+      "items": [
+        {
+          "before": "わたし",
+          "slot": true,
+          "after": "がくせいです。",
+          "choices": [
+            "は",
+            "が",
+            "の",
+            "も"
+          ],
+          "answer": "は",
+          "explanation": "は marks the topic — 'as for me, I am a student.'"
+        },
+        {
+          "before": "だれ",
+          "slot": true,
+          "after": "先生ですか。",
+          "choices": [
+            "が",
+            "は",
+            "も",
+            "の"
+          ],
+          "answer": "が",
+          "explanation": "が follows question words like だれ (who) when they are the subject."
+        },
+        {
+          "before": "先生",
+          "slot": true,
+          "after": "なまえは なんですか。",
+          "choices": [
+            "の",
+            "は",
+            "が",
+            "も"
+          ],
+          "answer": "の",
+          "explanation": "の connects two nouns: 先生の名前 = the teacher's name."
+        },
+        {
+          "before": "あなたは がくせい",
+          "slot": true,
+          "after": "",
+          "choices": [
+            "か",
+            "は",
+            "も",
+            "が"
+          ],
+          "answer": "か",
+          "explanation": "か at the end of a statement turns it into a yes/no question."
+        },
+        {
+          "before": "わたしは にほんご",
+          "slot": true,
+          "after": "べんきょうします。",
+          "choices": [
+            "を",
+            "は",
+            "が",
+            "の"
+          ],
+          "answer": "を",
+          "explanation": "を marks the direct object — にほんご is what is being studied."
+        },
+        {
+          "before": "母",
+          "slot": true,
+          "after": "先生では ありません。",
+          "choices": [
+            "は",
+            "が",
+            "の",
+            "も"
+          ],
+          "answer": "は",
+          "explanation": "は marks the topic for a comment — 'as for Mom, she is not a teacher.'"
+        },
+        {
+          "before": "父",
+          "slot": true,
+          "after": "テレビは いいです。",
+          "choices": [
+            "の",
+            "は",
+            "が",
+            "を"
+          ],
+          "answer": "の",
+          "explanation": "の connects two nouns: 父のテレビ = father's TV."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Particle Challenge",
+      "instructions": "Choose the correct particle for each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "先生 ______ なまえは たなかです。",
+          "choices": [
+            "の",
+            "は",
+            "が",
+            "も"
+          ],
+          "answer": "の",
+          "terms": [],
+          "explanation": "の connects two nouns: 先生の名前 = the teacher's name."
+        },
+        {
+          "kind": "mcq",
+          "q": "わたしは にほんご ______ べんきょうします。",
+          "choices": [
+            "を",
+            "は",
+            "が",
+            "の"
+          ],
+          "answer": "を",
+          "terms": [],
+          "explanation": "を marks the direct object — にほんご is the thing being studied."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence means 'Who is the teacher?' correctly?",
+          "choices": [
+            "だれが 先生ですか。",
+            "だれは 先生ですか。",
+            "だれの 先生ですか。",
+            "だれも 先生ですか。"
+          ],
+          "answer": "だれが 先生ですか。",
+          "terms": [],
+          "explanation": "が follows question words (だれ, 何, どれ) when they are the subject."
+        },
+        {
+          "kind": "mcq",
+          "q": "母 ______ 友だちは とても いい 人です。",
+          "choices": [
+            "の",
+            "は",
+            "が",
+            "も"
+          ],
+          "answer": "の",
+          "terms": [],
+          "explanation": "の connects mother to friend: 'mother's friend'."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生 ______ よびました。(I called the teacher.)",
+          "choices": [
+            "を",
+            "は",
+            "が",
+            "の"
+          ],
+          "answer": "を",
+          "terms": [],
+          "explanation": "よぶ (call) is a transitive verb — を marks the person being called."
+        },
+        {
+          "kind": "mcq",
+          "q": "トイレ ______ あります。(There is a toilet.)",
+          "choices": [
+            "が",
+            "は",
+            "を",
+            "の"
+          ],
+          "answer": "が",
+          "terms": [],
+          "explanation": "が marks the subject of existence verbs like ある (exist). トイレがあります = 'there is a toilet.'"
+        }
+      ]
+    }
+  ]
+}

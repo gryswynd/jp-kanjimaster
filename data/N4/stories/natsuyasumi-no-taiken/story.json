@@ -1,0 +1,2765 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "natsuyasumi-no-taiken",
+  "title": "夏休みの体験（なつやすみのたいけん）",
+  "englishTitle": "A Summer Holiday Experience",
+  "category": "curriculum",
+  "level": "N4",
+  "unlocksAfter": "N4.24",
+  "paragraphs": [
+    {
+      "jp": "夏休みは短いですが、その朝、りきぞうは学校に行きました。道はしずかで、空も明るかったです。学校の入口で、りきぞうは紙を見ました。体の日のために、大切な事が書いてありました。学校の中も、いつもより人が少なかったです。りきぞうの気持ちはとても明るくなりました。",
+      "en": "Summer vacation is short, but that morning Rikizo went to school. The road was quiet, and the sky was bright. At the school entrance, Rikizo looked at a paper. For the health day, important things had been written on it. Inside the school too, there were fewer people than usual. Rikizo's mood became very bright.",
+      "tokens": [
+        {
+          "k": "夏休",
+          "r": "なつやす",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "み",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "短",
+          "r": "みじか",
+          "g": "v_mijikai"
+        },
+        {
+          "k": "い",
+          "g": "v_mijikai"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "その"
+        },
+        {
+          "k": "朝",
+          "r": "あさ"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "学校",
+          "r": "がっこう"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "行",
+          "r": "い",
+          "g": "v_iku__polite_past"
+        },
+        {
+          "k": "きました",
+          "g": "v_iku__polite_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "道",
+          "r": "みち"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "しずか"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "空",
+          "r": "そら"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "明",
+          "r": "あか",
+          "g": "v_akarui_plain_past_adj"
+        },
+        {
+          "k": "るかった",
+          "g": "v_akarui_plain_past_adj"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "学校",
+          "r": "がっこう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "入口",
+          "r": "いりぐち",
+          "g": "v_iriguchi"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "紙",
+          "r": "かみ"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "見",
+          "r": "み",
+          "g": "v_miru_polite_mashita"
+        },
+        {
+          "k": "ました",
+          "g": "v_miru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "体",
+          "r": "からだ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "日",
+          "r": "ひ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "ため",
+          "g": "v_tame"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "大切",
+          "r": "たいせつ",
+          "g": "v_taisetsu_attributive_na"
+        },
+        {
+          "k": "な",
+          "g": "v_taisetsu_attributive_na"
+        },
+        {
+          "k": "事",
+          "r": "こと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "書",
+          "r": "か",
+          "g": "v_kaku_te_form"
+        },
+        {
+          "k": "いて",
+          "g": "v_kaku_te_form"
+        },
+        {
+          "k": "ありました"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "学校",
+          "r": "がっこう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "中",
+          "r": "なか"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いつも"
+        },
+        {
+          "k": "より"
+        },
+        {
+          "k": "人",
+          "r": "ひと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "少",
+          "r": "すく",
+          "g": "v_sukunai_plain_past_adj"
+        },
+        {
+          "k": "なかった",
+          "g": "v_sukunai_plain_past_adj"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "気持",
+          "r": "きも",
+          "g": "v_kimochi"
+        },
+        {
+          "k": "ち",
+          "g": "v_kimochi"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "とても"
+        },
+        {
+          "k": "明",
+          "r": "あか",
+          "g": "v_akarui_polite_become_past"
+        },
+        {
+          "k": "るくなりました",
+          "g": "v_akarui_polite_become_past"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "夏休みに、学校で体の日がありました。りきぞうはやまもと先生のところへ行きました。「おはようございます」とりきぞうが言いました。やまもと先生は、りきぞうの体重を見ました。重さは、去年より重くなっていました。「体重が重くなってきましたね」と先生が言いました。「少し太りましたね」とやまもと先生が言いました。「重大な事ではありませんよ」とやまもと先生も言いました。りきぞうは「分かりました」と言いました。",
+      "en": "During summer vacation, there was a health day at school. Rikizo went to where Yamamoto-sensei was. \"Good morning,\" said Rikizo. Yamamoto-sensei measured Rikizo's weight. The reading had become heavier than last year. \"Your body weight has been getting heavier,\" said the teacher. \"You've gained a little weight,\" Yamamoto-sensei said. \"It is not something serious,\" Yamamoto-sensei also said. Rikizo said, \"I understand.\"",
+      "tokens": [
+        {
+          "k": "夏休",
+          "r": "なつやす",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "み",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "学校",
+          "r": "がっこう"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "体",
+          "r": "からだ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "日",
+          "r": "ひ"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "ありました"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "ところ",
+          "g": "v_tokoro"
+        },
+        {
+          "k": "へ",
+          "r": "え"
+        },
+        {
+          "k": "行",
+          "r": "い",
+          "g": "v_iku__polite_past"
+        },
+        {
+          "k": "きました",
+          "g": "v_iku__polite_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "おはようございます"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "体重",
+          "r": "たいじゅう"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "見",
+          "r": "み",
+          "g": "v_miru_polite_mashita"
+        },
+        {
+          "k": "ました",
+          "g": "v_miru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "重",
+          "r": "おも",
+          "g": "v_omosa"
+        },
+        {
+          "k": "さ",
+          "g": "v_omosa"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "去年",
+          "r": "きょねん"
+        },
+        {
+          "k": "より"
+        },
+        {
+          "k": "重",
+          "r": "おも",
+          "g": "v_omoi_adverbial"
+        },
+        {
+          "k": "く",
+          "g": "v_omoi_adverbial"
+        },
+        {
+          "k": "なって",
+          "g": "v_naru_te_form"
+        },
+        {
+          "k": "いました"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "体重",
+          "r": "たいじゅう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "重",
+          "r": "おも",
+          "g": "v_omoi_adverbial"
+        },
+        {
+          "k": "く",
+          "g": "v_omoi_adverbial"
+        },
+        {
+          "k": "なって",
+          "g": "v_naru_te_form"
+        },
+        {
+          "k": "きました"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "先生",
+          "r": "せんせい"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "少",
+          "r": "すこ",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "し",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "太",
+          "r": "ふと",
+          "g": "v_futoru_polite_mashita"
+        },
+        {
+          "k": "りました",
+          "g": "v_futoru_polite_mashita"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "重大",
+          "r": "じゅうだい",
+          "g": "v_juudai_attributive_na"
+        },
+        {
+          "k": "な",
+          "g": "v_juudai_attributive_na"
+        },
+        {
+          "k": "事",
+          "r": "こと"
+        },
+        {
+          "k": "では"
+        },
+        {
+          "k": "ありません"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "分",
+          "r": "わ",
+          "g": "v_wakaru_polite_mashita"
+        },
+        {
+          "k": "かりました",
+          "g": "v_wakaru_polite_mashita"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "「毎日少し歩いていく事が大切なんですよ」とやまもと先生が言いました。「日本語の進歩も進んでいますよ」とやまもと先生も言いました。りきぞうはやまもと先生にいろいろ教えてもらいました。やまもと先生の教えは、いつも大切でした。「毎日少しずつ進んでいきます」とりきぞうが言いました。やまもと先生も「うん、いいですよ」と言いました。りきぞうはうれしくなりました。",
+      "en": "\"It is important to keep walking a little every day,\" said Yamamoto-sensei. \"Your Japanese is also progressing well,\" Yamamoto-sensei also said. Rikizo received various teachings from Yamamoto-sensei. Yamamoto-sensei's teachings were always important. \"I'll keep progressing little by little every day,\" said Rikizo. Yamamoto-sensei also said, \"Yes, that's good.\" Rikizo became happy.",
+      "tokens": [
+        {
+          "k": "「"
+        },
+        {
+          "k": "毎日",
+          "r": "まいにち"
+        },
+        {
+          "k": "少",
+          "r": "すこ",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "し",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "歩",
+          "r": "ある",
+          "g": "v_aruku_te_form"
+        },
+        {
+          "k": "いて",
+          "g": "v_aruku_te_form"
+        },
+        {
+          "k": "いく",
+          "g": "v_iku"
+        },
+        {
+          "k": "事",
+          "r": "こと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "大切",
+          "r": "たいせつ",
+          "g": "v_taisetsu_attributive_na"
+        },
+        {
+          "k": "な",
+          "g": "v_taisetsu_attributive_na"
+        },
+        {
+          "k": "んです"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "日本語",
+          "r": "にほんご"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "進歩",
+          "r": "しんぽ"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "進",
+          "r": "すす",
+          "g": "v_susumu_te_form"
+        },
+        {
+          "k": "んで",
+          "g": "v_susumu_te_form"
+        },
+        {
+          "k": "います"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "いろいろ",
+          "g": "v_iroiro"
+        },
+        {
+          "k": "教",
+          "r": "おし",
+          "g": "v_oshieru_te_form"
+        },
+        {
+          "k": "えて",
+          "g": "v_oshieru_te_form"
+        },
+        {
+          "k": "もらいました",
+          "g": "v_morau_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "教",
+          "r": "おし",
+          "g": "v_oshie"
+        },
+        {
+          "k": "え",
+          "g": "v_oshie"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いつも"
+        },
+        {
+          "k": "大切",
+          "r": "たいせつ"
+        },
+        {
+          "k": "でした"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "毎日",
+          "r": "まいにち"
+        },
+        {
+          "k": "少",
+          "r": "すこ",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "し",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "ずつ"
+        },
+        {
+          "k": "進",
+          "r": "すす",
+          "g": "v_susumu_te_form"
+        },
+        {
+          "k": "んで",
+          "g": "v_susumu_te_form"
+        },
+        {
+          "k": "いきます",
+          "g": "v_ikiru_polite_masu"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "やまもと先生",
+          "r": "やまもと"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "うん"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "うれしくなりました",
+          "g": "v_ureshii_polite_become_past"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "つぎに、りきぞうは試食のために教室に入りました。教室の中には、テーブルが大きく、いろいろな食べ物がありました。教室の紙にも、いろいろな事が書いてありました。すずき先生がこう説明しました。「料理を試食してもいいですが、食べ物を外に持ち出してはいけません」とすずき先生が言いました。りきぞうは紙の大切な事を見て、「うん、分かりました」と言いました。すずき先生も「いい体験になりますよ」と言いました。",
+      "en": "Next, Rikizo entered a classroom set up for food tasting. Inside the classroom, the tables were large, and there were various foods. On a paper in the classroom too, various things were written. Suzuki-sensei explained like this: \"You may taste the dishes, but you must not take food outside,\" said Suzuki-sensei. Rikizo looked at the important things on the paper and said, \"Yes, I understand.\" Suzuki-sensei also said, \"It will be a good experience.\"",
+      "tokens": [
+        {
+          "k": "つぎ",
+          "g": "v_tsugi"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "試食",
+          "r": "ししょく"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "ため",
+          "g": "v_tame"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "教室",
+          "r": "きょうしつ"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "入",
+          "r": "はい",
+          "g": "v_hairu_polite_mashita"
+        },
+        {
+          "k": "りました",
+          "g": "v_hairu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "教室",
+          "r": "きょうしつ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "中",
+          "r": "なか"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "テーブル",
+          "r": "てーぶる"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "大",
+          "r": "おお",
+          "g": "v_ookii_adverbial"
+        },
+        {
+          "k": "きく",
+          "g": "v_ookii_adverbial"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いろいろな",
+          "g": "v_iroiro_attributive_na"
+        },
+        {
+          "k": "食べ物",
+          "r": "たべもの"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "ありました"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "教室",
+          "r": "きょうしつ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "紙",
+          "r": "かみ"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いろいろな",
+          "g": "v_iroiro_attributive_na"
+        },
+        {
+          "k": "事",
+          "r": "こと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "書",
+          "r": "か",
+          "g": "v_kaku_te_form"
+        },
+        {
+          "k": "いて",
+          "g": "v_kaku_te_form"
+        },
+        {
+          "k": "ありました"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "すずき先生",
+          "r": "すずき"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "こう"
+        },
+        {
+          "k": "説明",
+          "r": "せつめい"
+        },
+        {
+          "k": "しました",
+          "g": "v_suru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "試食",
+          "r": "ししょく"
+        },
+        {
+          "k": "して",
+          "g": "v_suru_te_form"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "食べ物",
+          "r": "たべもの"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "外",
+          "r": "そと"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "持ち出",
+          "r": "もちだ",
+          "g": "v_mochidasu_te_form"
+        },
+        {
+          "k": "して",
+          "g": "v_mochidasu_te_form"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "いけません",
+          "g": "v_ikeru_polite_negative"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "すずき先生",
+          "r": "すずき"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "紙",
+          "r": "かみ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "大切",
+          "r": "たいせつ",
+          "g": "v_taisetsu_attributive_na"
+        },
+        {
+          "k": "な",
+          "g": "v_taisetsu_attributive_na"
+        },
+        {
+          "k": "事",
+          "r": "こと"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "見",
+          "r": "み",
+          "g": "v_miru_te_form"
+        },
+        {
+          "k": "て",
+          "g": "v_miru_te_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "うん"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "分",
+          "r": "わ",
+          "g": "v_wakaru_polite_mashita"
+        },
+        {
+          "k": "かりました",
+          "g": "v_wakaru_polite_mashita"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "すずき先生",
+          "r": "すずき"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "体験",
+          "r": "たいけん"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "なります",
+          "g": "v_naru_polite_masu"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "りきぞうは色々な料理を試しました。魚の料理や野菜の料理を食べたり、試したりしました。野菜の料理はやさしい味で、ほんとうにおいしかったです。魚の料理は新しい味でした。「こんな体験は試験より楽しいな」とりきぞうは心の中で言いました。すずき先生も「もっと試してもいいですよ」と言いました。りきぞうは色々な料理をゆっくり食べました。ほんとうに楽しい体験でした。",
+      "en": "Rikizo tried all sorts of dishes. He ate and tried fish dishes and vegetable dishes. The vegetable dish had a gentle flavor and was truly delicious. The fish dish was a new flavor. \"This kind of experience is more fun than an exam!\" Rikizo said to himself. Suzuki-sensei also said, \"You may try more if you like.\" Rikizo slowly ate various dishes. It was a truly enjoyable experience.",
+      "tokens": [
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "色々",
+          "r": "いろいろ",
+          "g": "v_iroiro_attributive_na"
+        },
+        {
+          "k": "な",
+          "g": "v_iroiro_attributive_na"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "試",
+          "r": "ため",
+          "g": "v_tamesu_polite_mashita"
+        },
+        {
+          "k": "しました",
+          "g": "v_tamesu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "魚",
+          "r": "さかな"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "や"
+        },
+        {
+          "k": "野菜",
+          "r": "やさい"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_tari_form"
+        },
+        {
+          "k": "べたり",
+          "g": "v_taberu_tari_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "試",
+          "r": "ため",
+          "g": "v_tamesu_tari_form"
+        },
+        {
+          "k": "したり",
+          "g": "v_tamesu_tari_form"
+        },
+        {
+          "k": "しました",
+          "g": "v_suru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "野菜",
+          "r": "やさい"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "やさしい"
+        },
+        {
+          "k": "味",
+          "r": "あじ"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "ほんとうに"
+        },
+        {
+          "k": "おいしかった",
+          "g": "v_oishii_plain_past_adj"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "魚",
+          "r": "さかな"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "新",
+          "r": "あたら",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "しい",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "味",
+          "r": "あじ"
+        },
+        {
+          "k": "でした"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "こんな"
+        },
+        {
+          "k": "体験",
+          "r": "たいけん"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "試験",
+          "r": "しけん"
+        },
+        {
+          "k": "より"
+        },
+        {
+          "k": "楽",
+          "r": "たの",
+          "g": "v_tanoshii"
+        },
+        {
+          "k": "しい",
+          "g": "v_tanoshii"
+        },
+        {
+          "k": "な"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "心",
+          "r": "こころ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "中",
+          "r": "なか"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "すずき先生",
+          "r": "すずき"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "もっと"
+        },
+        {
+          "k": "試",
+          "r": "ため",
+          "g": "v_tamesu_te_form"
+        },
+        {
+          "k": "して",
+          "g": "v_tamesu_te_form"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "色々",
+          "r": "いろいろ",
+          "g": "v_iroiro_attributive_na"
+        },
+        {
+          "k": "な",
+          "g": "v_iroiro_attributive_na"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "ゆっくり"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "べました",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "ほんとうに"
+        },
+        {
+          "k": "楽",
+          "r": "たの",
+          "g": "v_tanoshii"
+        },
+        {
+          "k": "しい",
+          "g": "v_tanoshii"
+        },
+        {
+          "k": "体験",
+          "r": "たいけん"
+        },
+        {
+          "k": "でした"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "その日の後で、けんがりきぞうのところへ来ました。「どうだった？」とけんが聞きました。「体重が重くなってきたと先生が言いました。でも、進歩していると先生も言いました」とりきぞうが言いました。「試食もあって、魚の料理や野菜の料理を食べたり、試したりした。ほんとうにおいしかったよ」とりきぞうが言いました。「いいな。そういう体験をしたかった」とけんが言いました。「試験はむずかしいのに、楽しいね」とけんが言いました。「新しい試みだったね」とけんが言いました。「うん、いい試みだった」とりきぞうが言いました。「日本語も少しずつ上手になってきた。こんな体験を重ねていきたいな」とりきぞうが言いました。「体重の事も大切にしてね」とけんが言いました。「うん、分かった」とりきぞうが言いました。",
+      "en": "After that day, Ken came to where Rikizo was. \"How did it go?\" asked Ken. \"Apparently my body weight has been going up. But apparently I'm making progress,\" said Rikizo. \"There was also food tasting, and I ate and tried fish dishes and vegetable dishes. It was truly delicious,\" said Rikizo. \"Nice. I wanted to have an experience like that,\" said Ken. \"Exams are difficult, but they're fun, aren't they,\" said Ken. \"It was a new attempt, wasn't it,\" said Ken. \"Yeah, it was a good attempt,\" said Rikizo. \"My Japanese has also been getting better little by little. I want to keep accumulating experiences like this,\" said Rikizo. \"Take care of your body too,\" said Ken. \"Yeah, got it,\" said Rikizo.",
+      "tokens": [
+        {
+          "k": "その"
+        },
+        {
+          "k": "日",
+          "r": "ひ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "後",
+          "r": "あと"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "ところ",
+          "g": "v_tokoro"
+        },
+        {
+          "k": "へ",
+          "r": "え"
+        },
+        {
+          "k": "来",
+          "r": "き",
+          "g": "v_kuru_polite_mashita"
+        },
+        {
+          "k": "ました",
+          "g": "v_kuru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "どう"
+        },
+        {
+          "k": "だった",
+          "g": "g_da_da_past"
+        },
+        {
+          "k": "？"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "聞",
+          "r": "き",
+          "g": "v_kiku_polite_mashita"
+        },
+        {
+          "k": "きました",
+          "g": "v_kiku_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "体重",
+          "r": "たいじゅう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "重",
+          "r": "おも",
+          "g": "v_omoi_adverbial"
+        },
+        {
+          "k": "く",
+          "g": "v_omoi_adverbial"
+        },
+        {
+          "k": "なって",
+          "g": "v_naru_te_form"
+        },
+        {
+          "k": "きた",
+          "g": "v_kuru_plain_past"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "先生",
+          "r": "せんせい"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "でも"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "進歩",
+          "r": "しんぽ"
+        },
+        {
+          "k": "して",
+          "g": "v_suru_te_form"
+        },
+        {
+          "k": "いる"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "先生",
+          "r": "せんせい"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "試食",
+          "r": "ししょく"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "あって",
+          "g": "v_aru_te_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "魚",
+          "r": "さかな"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "や"
+        },
+        {
+          "k": "野菜",
+          "r": "やさい"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "料理",
+          "r": "りょうり"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_tari_form"
+        },
+        {
+          "k": "べたり",
+          "g": "v_taberu_tari_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "試",
+          "r": "ため",
+          "g": "v_tamesu_tari_form"
+        },
+        {
+          "k": "したり",
+          "g": "v_tamesu_tari_form"
+        },
+        {
+          "k": "した",
+          "g": "v_suru_plain_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "ほんとうに"
+        },
+        {
+          "k": "おいしかった",
+          "g": "v_oishii_plain_past_adj"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "な"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "そう"
+        },
+        {
+          "k": "いう"
+        },
+        {
+          "k": "体験",
+          "r": "たいけん"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "したかった",
+          "g": "v_suru_plain_desire_tai_past"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "試験",
+          "r": "しけん"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "むずかしい",
+          "g": "v_muzukashii"
+        },
+        {
+          "k": "のに"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "楽",
+          "r": "たの",
+          "g": "v_tanoshii"
+        },
+        {
+          "k": "しい",
+          "g": "v_tanoshii"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "新",
+          "r": "あたら",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "しい",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "試",
+          "r": "こころ",
+          "g": "v_kokoromi"
+        },
+        {
+          "k": "み",
+          "g": "v_kokoromi"
+        },
+        {
+          "k": "だった",
+          "g": "g_da_da_past"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "うん"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "試",
+          "r": "こころ",
+          "g": "v_kokoromi"
+        },
+        {
+          "k": "み",
+          "g": "v_kokoromi"
+        },
+        {
+          "k": "だった",
+          "g": "g_da_da_past"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "日本語",
+          "r": "にほんご"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "少",
+          "r": "すこ",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "し",
+          "g": "v_sukoshi"
+        },
+        {
+          "k": "ずつ"
+        },
+        {
+          "k": "上手",
+          "r": "じょうず"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "なって",
+          "g": "v_naru_te_form"
+        },
+        {
+          "k": "きた",
+          "g": "v_kuru_plain_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "こんな"
+        },
+        {
+          "k": "体験",
+          "r": "たいけん"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "重",
+          "r": "かさ",
+          "g": "v_kasaneru_te_form"
+        },
+        {
+          "k": "ねて",
+          "g": "v_kasaneru_te_form"
+        },
+        {
+          "k": "いきたい",
+          "g": "v_ikiru_plain_desire_tai"
+        },
+        {
+          "k": "な"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "体重",
+          "r": "たいじゅう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "事",
+          "r": "こと"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "大切",
+          "r": "たいせつ"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "して",
+          "g": "v_suru_te_form"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "うん"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "分",
+          "r": "わ",
+          "g": "v_wakaru_plain_past"
+        },
+        {
+          "k": "かった",
+          "g": "v_wakaru_plain_past"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "二人は学校の外に出ました。空はまだ明るくて、道もしずかでした。二人は話しながら帰りました。けんは「また来年も体の日に来たいな」と言いました。りきぞうも「うん、いい日だったね」と言いました。夏休みは短いですが、こんな日があって、ほんとうにいい夏休みでした。",
+      "en": "The two of them went out of the school. The sky was still bright, and the road was quiet. The two of them walked home together, talking as they went. Ken said, \"Next year too, I want to come to the health day.\" Rikizo also said, \"Yeah, it was a good day, wasn't it.\" Summer vacation is short, but with a day like this, it was truly a good summer vacation.",
+      "tokens": [
+        {
+          "k": "二人",
+          "r": "ふたり"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "学校",
+          "r": "がっこう"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "外",
+          "r": "そと"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "出",
+          "r": "で",
+          "g": "v_deru_polite_mashita"
+        },
+        {
+          "k": "ました",
+          "g": "v_deru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "空",
+          "r": "そら"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "まだ"
+        },
+        {
+          "k": "明",
+          "r": "あか",
+          "g": "v_akarui_te_form"
+        },
+        {
+          "k": "るくて",
+          "g": "v_akarui_te_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "道",
+          "r": "みち"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "しずか"
+        },
+        {
+          "k": "でした"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "二人",
+          "r": "ふたり"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "話",
+          "r": "はな",
+          "g": "v_hanasu_nagara_form"
+        },
+        {
+          "k": "しながら",
+          "g": "v_hanasu_nagara_form"
+        },
+        {
+          "k": "帰",
+          "r": "かえ",
+          "g": "v_kaeru_polite_mashita"
+        },
+        {
+          "k": "りました",
+          "g": "v_kaeru_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "また"
+        },
+        {
+          "k": "来年",
+          "r": "らいねん"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "体",
+          "r": "からだ"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "日",
+          "r": "ひ"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "来",
+          "r": "き",
+          "g": "v_kuru_plain_desire_tai"
+        },
+        {
+          "k": "たい",
+          "g": "v_kuru_plain_desire_tai"
+        },
+        {
+          "k": "な"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "「"
+        },
+        {
+          "k": "うん"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "日",
+          "r": "ひ"
+        },
+        {
+          "k": "だった",
+          "g": "g_da_da_past"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_iu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "夏休",
+          "r": "なつやす",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "み",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "短",
+          "r": "みじか",
+          "g": "v_mijikai"
+        },
+        {
+          "k": "い",
+          "g": "v_mijikai"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "こんな"
+        },
+        {
+          "k": "日",
+          "r": "ひ"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "あって",
+          "g": "v_aru_te_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "ほんとうに"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "夏休",
+          "r": "なつやす",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "み",
+          "g": "v_natsuyasumi"
+        },
+        {
+          "k": "でした"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    }
+  ],
+  "vocabUsed": [],
+  "grammarUsed": [],
+  "comprehension": {
+    "intro": "Did you follow the story?",
+    "questions": []
+  }
+}

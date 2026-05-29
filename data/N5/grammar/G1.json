@@ -1,0 +1,950 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G1",
+  "type": "grammar",
+  "title": "です / だ — The Copula",
+  "meta": {
+    "level": "N5",
+    "unlocksAfter": "N5.1",
+    "focus": "Forming 'to be' sentences in all tenses and registers",
+    "estimatedMinutes": 20,
+    "particles": [],
+    "grammarForms": [
+      "polite_adj",
+      "plain_past"
+    ],
+    "icon": "📐"
+  },
+  "targetVocab": [
+    "g_da",
+    "g_desu"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Saying What Something Is",
+      "icon": "📐",
+      "summary": "です and だ are the Japanese words for 'is', 'am', and 'are'. They close nearly every descriptive sentence.",
+      "whyItMatters": "Every Japanese sentence that describes what something or someone is uses です or だ. Mastering all their forms unlocks a huge range of everyday expressions.",
+      "youWillLearn": [
+        "The core pattern: X は Y です",
+        "All polite forms: です / でした / ではありません / ではありませんでした",
+        "All plain (informal) forms: だ / だった / ではない / ではなかった",
+        "Short-form negatives: じゃありません and じゃない",
+        "When to use polite speech vs plain speech"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_desu_pattern",
+      "pattern": [
+        {
+          "label": "TOPIC",
+          "color": "topic",
+          "text": "X"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "predicate",
+          "text": "Y"
+        },
+        {
+          "label": "COPULA",
+          "color": "verb",
+          "text": "です"
+        }
+      ],
+      "meaning": "'X is Y' (polite)",
+      "explanation": "は marks the topic — what you are talking about. Y is the predicate — what you say about it. です closes the sentence politely, equivalent to English 'is', 'am', or 'are'.",
+      "notes": [
+        "は is written with the hiragana は (ha) but pronounced 'wa' as a particle.",
+        "Add か to the end to form a yes/no question: 先生ですか？ (Are you a teacher?)",
+        "です follows nouns and な-adjectives directly. For い-adjectives, add です to the plain form as-is: やさしいです."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "I am a teacher.",
+          "breakdown": "Topic: 'I' → Predicate: 'am a teacher'"
+        },
+        {
+          "parts": [
+            {
+              "text": "父",
+              "role": "topic",
+              "gloss": "my father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "やさしい",
+              "role": "modifier",
+              "gloss": "kind"
+            },
+            {
+              "text": "人",
+              "role": "predicate",
+              "gloss": "person",
+              "tokens": [
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "My father is a kind person.",
+          "breakdown": "Topic: 'my father' → Predicate: 'is a kind person'"
+        },
+        {
+          "parts": [
+            {
+              "text": "あの人",
+              "role": "topic",
+              "gloss": "that person"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "ですか",
+              "role": "verb"
+            }
+          ],
+          "en": "Is that person a teacher?",
+          "breakdown": "Adding か turns the statement into a yes/no question"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_da_casual",
+      "pattern": [
+        {
+          "label": "TOPIC",
+          "color": "topic",
+          "text": "X"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "は"
+        },
+        {
+          "label": "PREDICATE",
+          "color": "predicate",
+          "text": "Y"
+        },
+        {
+          "label": "COPULA",
+          "color": "verb",
+          "text": "だ"
+        }
+      ],
+      "meaning": "'X is Y' (plain / casual)",
+      "explanation": "だ is the plain (informal) equivalent of です. Use it in casual speech with close friends or family. Do NOT use だ after い-adjectives — in plain speech, い-adjectives stand alone without any copula. Only nouns and な-adjectives take だ.",
+      "notes": [
+        "だ follows nouns and な-adjectives directly: 先生だ (is a teacher).",
+        "い-adjectives do NOT take だ in plain speech. Say うれしい — not うれしいだ. The い ending already signals the plain form.",
+        "Using だ with a superior or in a formal setting sounds abrupt or rude — use です in those contexts.",
+        "よ and ね attach after だ in casual speech: 先生だよ (it's a teacher!), 先生だね (a teacher, right?)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "だ",
+              "role": "verb"
+            }
+          ],
+          "en": "I'm a teacher. (casual)",
+          "breakdown": "Same meaning as わたしは先生です — plain register for casual situations"
+        },
+        {
+          "parts": [
+            {
+              "text": "あの人",
+              "role": "topic",
+              "gloss": "that person"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "友だち",
+              "role": "predicate",
+              "gloss": "friend"
+            },
+            {
+              "text": "だ",
+              "role": "verb"
+            },
+            {
+              "text": "よ",
+              "role": "particle"
+            }
+          ],
+          "en": "That person is a friend, you know. (casual assertion)",
+          "breakdown": "だ + よ adds a gentle 'you know' feeling — common in casual speech"
+        },
+        {
+          "parts": [
+            {
+              "text": "父",
+              "role": "topic",
+              "gloss": "my father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "では",
+              "role": "particle"
+            },
+            {
+              "text": "ない",
+              "role": "verb"
+            }
+          ],
+          "en": "My father is not a teacher. (plain negative)",
+          "breakdown": "ではない is the plain negative — polite equivalent is ではありません"
+        }
+      ]
+    },
+    {
+      "type": "grammarTable",
+      "title": "All Forms of です / だ",
+      "description": "The copula has polite (formal) and plain (informal) forms across four tenses and polarities. Use the same form throughout a conversation to maintain consistent register.",
+      "tableType": "conjugation",
+      "headers": [
+        "Form",
+        "Polite (です-style)",
+        "Plain (だ-style)"
+      ],
+      "rows": [
+        {
+          "label": "Present",
+          "cells": [
+            "〜です",
+            "〜だ"
+          ],
+          "meaning": "is / am / are"
+        },
+        {
+          "label": "Past",
+          "cells": [
+            "〜でした",
+            "〜だった"
+          ],
+          "meaning": "was / were"
+        },
+        {
+          "label": "Negative",
+          "cells": [
+            "〜ではありません / 〜じゃありません",
+            "〜ではない / 〜じゃない"
+          ],
+          "meaning": "is not / am not"
+        },
+        {
+          "label": "Past Negative",
+          "cells": [
+            "〜ではありませんでした / 〜じゃありませんでした",
+            "〜ではなかった / 〜じゃなかった"
+          ],
+          "meaning": "was not / were not"
+        }
+      ],
+      "notes": [
+        "じゃ is a casual contraction of では. Both are correct; じゃ sounds more natural in everyday spoken Japanese.",
+        "In very casual speech, だ is often dropped after い-adjectives: うれしい！ (I'm happy!)"
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "です vs だ — Register and Social Context",
+      "items": [
+        {
+          "label": "です — Polite Register",
+          "color": "verb",
+          "points": [
+            "Use in formal situations, with people you have just met, or with superiors",
+            "Standard in school, work, and public settings",
+            "Always safe — never sounds rude"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "わたし",
+                "role": "topic",
+                "gloss": "I"
+              },
+              {
+                "text": "は",
+                "role": "particle"
+              },
+              {
+                "text": "先生",
+                "role": "predicate",
+                "gloss": "teacher",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  }
+                ]
+              },
+              {
+                "text": "です",
+                "role": "verb"
+              }
+            ],
+            "en": "I am a teacher. (polite)"
+          }
+        },
+        {
+          "label": "だ — Plain Register",
+          "color": "predicate",
+          "points": [
+            "Use with close friends, family, or people clearly junior to you",
+            "Standard in casual conversation, diary writing, and texting",
+            "Using だ with a superior or stranger sounds abrupt or rude"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "わたし",
+                "role": "topic",
+                "gloss": "I"
+              },
+              {
+                "text": "は",
+                "role": "particle"
+              },
+              {
+                "text": "先生",
+                "role": "predicate",
+                "gloss": "teacher",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  }
+                ]
+              },
+              {
+                "text": "だ",
+                "role": "verb"
+              }
+            ],
+            "en": "I'm a teacher. (casual)"
+          }
+        }
+      ],
+      "tip": "Meeting someone for the first time or in a formal setting? → です. Close friends or family? → だ."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "です / だ Across Real Situations",
+      "examples": [
+        {
+          "context": "Formal self-introduction",
+          "parts": [
+            {
+              "text": "わたし",
+              "role": "topic",
+              "gloss": "I"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "I am a teacher.",
+          "note": "Use です when meeting someone for the first time or speaking to a superior."
+        },
+        {
+          "context": "Past statement (polite)",
+          "parts": [
+            {
+              "text": "父",
+              "role": "topic",
+              "gloss": "my father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "でした",
+              "role": "verb"
+            }
+          ],
+          "en": "My father was a teacher.",
+          "note": "でした is the polite past. Use it to describe something that was true in the past."
+        },
+        {
+          "context": "Polite denial",
+          "parts": [
+            {
+              "text": "友だち",
+              "role": "topic",
+              "gloss": "my friend"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "では",
+              "role": "particle"
+            },
+            {
+              "text": "ありません",
+              "role": "verb"
+            }
+          ],
+          "en": "My friend is not a teacher.",
+          "note": "ではありません is the formal polite negative. じゃありません carries the same meaning with a slightly softer tone."
+        },
+        {
+          "context": "Casual statement between friends",
+          "parts": [
+            {
+              "text": "あの人",
+              "role": "topic",
+              "gloss": "that person"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "先生",
+              "role": "predicate",
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
+            },
+            {
+              "text": "だ",
+              "role": "verb"
+            },
+            {
+              "text": "よ",
+              "role": "particle"
+            }
+          ],
+          "en": "That person is a teacher, you know.",
+          "note": "Use だ with close friends or family. よ gently informs the listener of something they may not know."
+        },
+        {
+          "context": "Describing an object (polite)",
+          "parts": [
+            {
+              "text": "テレビ",
+              "role": "topic",
+              "gloss": "TV"
+            },
+            {
+              "text": "は",
+              "role": "particle"
+            },
+            {
+              "text": "いい",
+              "role": "predicate",
+              "gloss": "good"
+            },
+            {
+              "text": "です",
+              "role": "verb"
+            }
+          ],
+          "en": "The TV is good.",
+          "note": "い-adjectives take です directly in polite speech — no だ. The pattern: Topic は い-adjective です."
+        },
+        {
+          "context": "Exclamation (casual — dropping the copula after い-adjective)",
+          "parts": [
+            {
+              "text": "うれしい",
+              "role": "modifier",
+              "gloss": "happy"
+            },
+            {
+              "text": "！",
+              "role": "verb"
+            }
+          ],
+          "en": "I'm so happy!",
+          "note": "In very casual speech, だ (and even です) is often dropped after い-adjectives."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: はじめまして（First Meeting）",
+      "context": "A new student introduces herself to the teacher on the first day of class.",
+      "speakers": {
+        "ゆき": "yuki",
+        "先生": "yamamoto"
+      },
+      "lines": [
+        {
+          "spk": "ゆき",
+          "jp": "はじめまして。ゆきです。よろしくおねがいします。",
+          "en": "Nice to meet you. I'm Yuki. Pleased to meet you.",
+          "terms": [
+            "char_yuki",
+            "p_hajimemashite",
+            "g_desu",
+            "p_yoroshiku"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "ようこそ。やまもと先生です。",
+          "en": "Welcome. I'm Teacher Yamamoto.",
+          "terms": [
+            "char_yamamoto",
+            "p_youkoso",
+            "v_sensei",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "先生はどんな先生ですか。",
+          "en": "What kind of teacher are you?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_donna",
+            "v_sensei",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "わたしはやさしいです。よろしくおねがいします！",
+          "en": "I am kind. Pleased to meet you all!",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            {
+              "id": "v_yasashii",
+              "form": "polite_adj"
+            },
+            "p_yoroshiku"
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "とてもうれしいです！",
+          "en": "I'm very happy!",
+          "terms": [
+            "v_totemo",
+            {
+              "id": "v_ureshii",
+              "form": "polite_adj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: ともだちとのはなし（Chatting with Friends）",
+      "context": "Two classmates talk casually after class.",
+      "speakers": {
+        "けん": "ken",
+        "ゆき": "yuki"
+      },
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "ゆき、あの先生はだれ？",
+          "en": "Yuki, who is that teacher?",
+          "terms": [
+            "char_yuki",
+            "v_ano",
+            "v_sensei",
+            "p_wa",
+            "v_dare",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "やまもと先生だよ。",
+          "en": "That's Teacher Yamamoto.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_yo",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "やまもと先生のお母さんは 先生？",
+          "en": "Is Yamamoto-sensei's mom a teacher?",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_no",
+            "v_okaasan",
+            "p_wa",
+            "v_sensei",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ゆき",
+          "jp": "やまもと先生のお母さんは 先生だよ。",
+          "en": "Yeah, Yamamoto-sensei's mom is a teacher.",
+          "terms": [
+            "char_yamamoto",
+            "v_sensei",
+            "p_no",
+            "v_okaasan",
+            "p_wa",
+            "v_sensei",
+            "p_yo",
+            "g_da"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "え、やまもと先生はいいね。",
+          "en": "Oh, Teacher Yamamoto seems great.",
+          "terms": [
+            "v_e_exclaim",
+            "char_yamamoto",
+            "v_sensei",
+            "p_wa",
+            "v_ii",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "sentenceTransform",
+      "title": "Change the Register",
+      "instructions": "Each sentence is given in one form. Choose the correctly transformed version.",
+      "manualProgression": true,
+      "items": [
+        {
+          "given": "わたしは先生です。",
+          "givenLabel": "Polite Present",
+          "targetLabel": "Plain Present",
+          "answer": "わたしは先生だ。",
+          "choices": [
+            "わたしは先生だ。",
+            "わたしは先生でした。",
+            "わたしは先生じゃない。",
+            "わたしは先生だった。"
+          ]
+        },
+        {
+          "given": "父は先生でした。",
+          "givenLabel": "Polite Past",
+          "targetLabel": "Plain Past",
+          "answer": "父は先生だった。",
+          "choices": [
+            "父は先生だ。",
+            "父は先生だった。",
+            "父は先生ではなかった。",
+            "父は先生でした。"
+          ]
+        },
+        {
+          "given": "友だちは先生ではありません。",
+          "givenLabel": "Polite Negative",
+          "targetLabel": "Plain Negative",
+          "answer": "友だちは先生ではない。",
+          "choices": [
+            "友だちは先生だ。",
+            "友だちは先生ではない。",
+            "友だちは先生じゃなかった。",
+            "友だちは先生ではなかった。"
+          ]
+        },
+        {
+          "given": "母は先生ではありませんでした。",
+          "givenLabel": "Polite Past Negative",
+          "targetLabel": "Plain Past Negative",
+          "answer": "母は先生ではなかった。",
+          "choices": [
+            "母は先生ではない。",
+            "母は先生ではなかった。",
+            "母は先生じゃない。",
+            "母は先生だった。"
+          ]
+        },
+        {
+          "given": "友だちだ。",
+          "givenLabel": "Plain Present",
+          "targetLabel": "Polite Present",
+          "answer": "友だちです。",
+          "choices": [
+            "友だちです。",
+            "友だちでした。",
+            "友だちではありません。",
+            "友だちだった。"
+          ]
+        },
+        {
+          "given": "先生じゃなかった。",
+          "givenLabel": "Plain Past Negative",
+          "targetLabel": "Polite Past Negative",
+          "answer": "先生ではありませんでした。",
+          "choices": [
+            "先生ではありません。",
+            "先生ではありませんでした。",
+            "先生じゃない。",
+            "先生ではなかった。"
+          ]
+        },
+        {
+          "given": "パソコンはいいです。",
+          "givenLabel": "Polite Present",
+          "targetLabel": "Plain Present",
+          "answer": "パソコンはいい。",
+          "choices": [
+            "パソコンはいい。",
+            "パソコンはいいだ。",
+            "パソコンはよかった。",
+            "パソコンはいいでした。"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Mixed Practice",
+      "instructions": "Choose the correct answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "でした",
+          "choices": [
+            "is / am / are",
+            "was / were",
+            "is not",
+            "was not"
+          ],
+          "answer": "was / were",
+          "explanation": "でした is the polite past form of です. It describes something that was true in the past."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence is the polite negative form?",
+          "choices": [
+            "先生ではない。",
+            "先生じゃない。",
+            "先生ではありません。",
+            "先生だった。"
+          ],
+          "answer": "先生ではありません。",
+          "terms": [],
+          "explanation": "ではありません is the formal polite negative copula. ではない and じゃない are plain (informal) negatives."
+        },
+        {
+          "kind": "mcq",
+          "q": "You are speaking casually with a close friend. Which copula do you use?",
+          "choices": [
+            "です",
+            "でした",
+            "だ",
+            "ではありません"
+          ],
+          "answer": "だ",
+          "terms": [],
+          "explanation": "だ is the plain (informal) present copula. Use it in casual conversation with friends and family."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence correctly says 'My mother is kind' in polite Japanese?",
+          "choices": [
+            "母はやさしいです。",
+            "母はやさしいでした。",
+            "母はやさしかったです。",
+            "母はやさしくない。"
+          ],
+          "answer": "母はやさしいです。",
+          "terms": [],
+          "explanation": "For い-adjectives in polite speech, add です to the plain form: やさしいです. For past tense, conjugate the adjective itself: やさしかったです (not やさしいでした — the adjective changes, not です)."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which is the plain past negative of 先生です？",
+          "choices": [
+            "先生ではない。",
+            "先生ではなかった。",
+            "先生じゃない。",
+            "先生だった。"
+          ],
+          "answer": "先生ではなかった。",
+          "terms": [],
+          "explanation": "ではなかった is the plain (informal) past negative copula. ではありませんでした is the polite equivalent. ではない is plain present negative."
+        },
+        {
+          "kind": "mcq",
+          "q": "Choose the correct polite negative: 'That is not a toilet.'",
+          "choices": [
+            "トイレではありません。",
+            "トイレじゃない。",
+            "トイレではなかった。",
+            "トイレだ。"
+          ],
+          "answer": "トイレではありません。",
+          "terms": [],
+          "explanation": "ではありません is the polite negative copula. じゃない is the plain negative — correct meaning but wrong register for polite speech."
+        }
+      ]
+    }
+  ]
+}

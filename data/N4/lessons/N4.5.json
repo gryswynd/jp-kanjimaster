@@ -1,0 +1,1409 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.5",
+  "title": "Phase 4 Lesson 5: Food & Ingredients",
+  "meta": {
+    "phase": 4,
+    "lesson": 5,
+    "focus": "Food and ingredient vocabulary (食べ物, 飲み物, 野菜, 牛肉, 料理, 買い物); 物 compounds; manner expression よう.; giving verbs あげる/もらう (G14); comparison expressions より/ほど/くらい/ほう (G15)",
+    "kanji": [
+      "物",
+      "野",
+      "菜",
+      "料",
+      "理",
+      "牛",
+      "肉"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "物",
+      "on": "ぶつ / もつ",
+      "kun": "もの",
+      "meaning": "Thing",
+      "termId": "k_mono"
+    },
+    {
+      "kanji": "野",
+      "on": "や",
+      "kun": "の",
+      "meaning": "Field",
+      "termId": "k_no_3"
+    },
+    {
+      "kanji": "菜",
+      "on": "さい",
+      "kun": "な",
+      "meaning": "Vegetable",
+      "termId": "k_na_2"
+    },
+    {
+      "kanji": "料",
+      "on": "りょう",
+      "kun": "",
+      "meaning": "Fee / Material",
+      "termId": "k_u6599"
+    },
+    {
+      "kanji": "理",
+      "on": "り",
+      "kun": "",
+      "meaning": "Reason / Logic",
+      "termId": "k_u7406"
+    },
+    {
+      "kanji": "牛",
+      "on": "ぎゅう",
+      "kun": "うし",
+      "meaning": "Cow",
+      "termId": "k_ushi"
+    },
+    {
+      "kanji": "肉",
+      "on": "にく",
+      "kun": "",
+      "meaning": "Meat",
+      "termId": "k_u8089"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Review vocabulary and grammar from prior lessons with these questions:",
+      "items": [
+        {
+          "jp": "今日 は 何色の シャツを 着ていますか。",
+          "en": "What color shirt are you wearing today?",
+          "terms": [
+            "v_kyou",
+            "p_wa",
+            "v_nani",
+            "v_iro",
+            "p_no",
+            "v_shatsu",
+            "p_wo",
+            {
+              "id": "v_kiru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "朝ごはんを 食べて、学校に 来られますか。",
+          "en": "Can you eat breakfast and come to school?",
+          "terms": [
+            "v_asagohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "毎日 お茶を 飲んでいますか。",
+          "en": "Do you drink tea every day?",
+          "terms": [
+            "v_mainichi",
+            "v_ocha",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先生は どんな 色が 好きですか。",
+          "en": "What kind of colors does the teacher like?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_donna",
+            "v_iro",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "物",
+          "on": "ぶつ / もつ",
+          "kun": "もの",
+          "meaning": "Thing",
+          "terms": [
+            "k_mono",
+            "v_tabemono",
+            "v_nomimono",
+            "v_kaimono",
+            "v_monogatari"
+          ]
+        },
+        {
+          "kanji": "野",
+          "on": "や",
+          "kun": "の",
+          "meaning": "Field",
+          "terms": [
+            "k_no_3",
+            "v_yasai"
+          ]
+        },
+        {
+          "kanji": "菜",
+          "on": "さい",
+          "kun": "な",
+          "meaning": "Vegetable",
+          "terms": [
+            "k_na_2",
+            "v_yasai"
+          ]
+        },
+        {
+          "kanji": "料",
+          "on": "りょう",
+          "kun": "",
+          "meaning": "Fee / Material",
+          "terms": [
+            "k_u6599",
+            "v_ryouri"
+          ]
+        },
+        {
+          "kanji": "理",
+          "on": "り",
+          "kun": "",
+          "meaning": "Reason / Logic",
+          "terms": [
+            "k_u7406",
+            "v_ryouri"
+          ]
+        },
+        {
+          "kanji": "牛",
+          "on": "ぎゅう",
+          "kun": "うし",
+          "meaning": "Cow",
+          "terms": [
+            "k_ushi",
+            "v_gyuuniku"
+          ]
+        },
+        {
+          "kanji": "肉",
+          "on": "にく",
+          "kun": "",
+          "meaning": "Meat",
+          "terms": [
+            "k_u8089",
+            "v_gyuuniku"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary（語彙リスト）",
+      "groups": [
+        {
+          "label": "Food & Ingredients",
+          "items": [
+            "v_tabemono",
+            "v_nomimono",
+            "v_yasai",
+            "v_gyuuniku",
+            "v_ryouri"
+          ]
+        },
+        {
+          "label": "Compounds with 物",
+          "items": [
+            "v_kaimono",
+            "v_monogatari"
+          ]
+        },
+        {
+          "label": "Giving Verbs",
+          "items": [
+            "v_ageru",
+            "v_morau",
+            "v_kureru"
+          ]
+        },
+        {
+          "label": "Comparison Particles",
+          "items": [
+            "p_yori",
+            "p_hodo",
+            "p_kurai"
+          ]
+        },
+        {
+          "label": "Comparison Words",
+          "items": [
+            "v_hou"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 1（会話）: At the Supermarket",
+      "context": "Rikizo is shopping at the supermarket and asks a staff member where to find vegetables and beef.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "すみません、野菜は どこに ありますか。",
+          "en": "Excuse me, where are the vegetables?",
+          "terms": [
+            "p_sumimasen",
+            "v_yasai",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "野菜は あそこに あります。牛肉も 近くに ありますよ。",
+          "en": "The vegetables are over there. The beef is also nearby.",
+          "terms": [
+            "v_yasai",
+            "p_wa",
+            "v_asoko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_gyuuniku",
+            "p_mo",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "ありがとうございます。料理に 野菜と 牛肉を よく 使いますか。",
+          "en": "Thank you very much. Do you often use vegetables and beef in cooking?",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_ryouri",
+            "p_ni",
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_wo",
+            "v_yoku",
+            {
+              "id": "v_tsukau",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、野菜の 料理が 大好きです。おいしい 食べ物が 作れますよ。",
+          "en": "Yes, I love vegetable dishes. You can make delicious food.",
+          "terms": [
+            "p_hai",
+            "v_yasai",
+            "p_no",
+            "v_ryouri",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "v_oishii",
+            "v_tabemono",
+            "p_ga",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "野菜より 牛肉のほうが 高いですか。",
+          "en": "Is beef more expensive than vegetables?",
+          "terms": [
+            "v_yasai",
+            "p_yori",
+            "v_gyuuniku",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_takai",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "牛肉は 高いですが、野菜くらい おいしいですよ。",
+          "en": "Beef is expensive, but it is about as delicious as vegetables.",
+          "terms": [
+            "v_gyuuniku",
+            "p_wa",
+            {
+              "id": "v_takai",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ga_but",
+            "v_yasai",
+            "p_kurai",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 2（会話）: Planning Dinner",
+      "context": "Yamakawa and Rikizo are at Yamakawa's kitchen, deciding what to cook for dinner.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞうさん、今日は 何 の 料理を 作りますか。",
+          "en": "Rikizo, what dish are you making today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "p_wa",
+            "v_nan",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "野菜と 牛肉の 料理を 作りたいです。食べ物を たくさん 買ってきました。",
+          "en": "I want to make a beef and vegetable dish. I bought lots of food.",
+          "terms": [
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_tabemono",
+            "p_wo",
+            "v_takusan",
+            {
+              "id": "v_kau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "いいですね。牛肉も 買いましたから、いっしょに 使いましょう。",
+          "en": "Sounds great. Since you bought beef too, let's use them together.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_gyuuniku",
+            "p_mo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "p_kara_because",
+            "v_issho",
+            {
+              "id": "v_tsukau",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "飲み物も 作れますか。",
+          "en": "Can you also make drinks?",
+          "terms": [
+            "v_nomimono",
+            "p_mo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "はい、作れますよ。牛肉と 野菜の 料理は おいしいですね。",
+          "en": "Yes, I can. Beef and vegetable dishes are delicious.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            },
+            "p_yo",
+            "v_gyuuniku",
+            "p_to",
+            "v_yasai",
+            "p_no",
+            "v_ryouri",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "やまかわさんに この 野菜を あげますよ。",
+          "en": "I'll give you these vegetables, Yamakawa-san.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_ni",
+            "v_kono",
+            "v_yasai",
+            "p_wo",
+            {
+              "id": "v_ageru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "ありがとうございます。今日 父から 牛肉を もらいました。",
+          "en": "Thank you very much. Today I received beef from my father.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_kyou",
+            "v_chichi",
+            "p_kara",
+            "v_gyuuniku",
+            "p_wo",
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 3（会話）: Cooking at Home",
+      "context": "Ken and Rikizo decide together what to cook for dinner.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "けんさん、今日は 何を 作りますか。",
+          "en": "Ken, what are we making today?",
+          "terms": [
+            "char_ken",
+            "v_san",
+            "v_kyou",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "野菜と 牛肉の 料理を 作りたいです。スーパーで たくさん 買ってきました。",
+          "en": "I want to make a beef and vegetable dish. I bought a lot at the supermarket.",
+          "terms": [
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_suupaa",
+            "p_de",
+            "v_takusan",
+            {
+              "id": "v_kau",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "いいですね！飲み物も 買いましたか。",
+          "en": "Nice! Did you buy drinks too?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_nomimono",
+            "p_mo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、お茶を 買いました。おいしく 作ってみましょう！",
+          "en": "Yes, I bought tea. Let's try to make it delicious!",
+          "terms": [
+            "p_hai",
+            "v_ocha",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            {
+              "id": "v_oishii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "ありがとうございます。今日 母が 野菜を くれました。",
+          "en": "Thank you very much. Today my mother gave me vegetables.",
+          "terms": [
+            "p_arigatou_gozaimasu",
+            "v_kyou",
+            "v_haha",
+            "p_ga",
+            "v_yasai",
+            "p_wo",
+            {
+              "id": "v_kureru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "いいですね。野菜は 牛肉ほど 高くないですよ。",
+          "en": "Nice. Vegetables are not as expensive as beef.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_yasai",
+            "p_wa",
+            "v_gyuuniku",
+            "p_hodo",
+            {
+              "id": "v_takai",
+              "form": "plain_negative"
+            },
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 4（会話）: Supermarket Shopping (Casual)",
+      "context": "Rikizo and Miku are at the supermarket casually shopping for dinner ingredients.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "りきぞう、今日は 何が 食べたい？",
+          "en": "Rikizo, what do you feel like eating today?",
+          "terms": [
+            "char_rikizo",
+            "v_kyou",
+            "p_wa",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "牛肉と 野菜の 料理が 食べたい。いっしょに 買い物しようよ。",
+          "en": "I want to eat a beef and vegetable dish. Let's go shopping together.",
+          "terms": [
+            "v_gyuuniku",
+            "p_to",
+            "v_yasai",
+            "p_no",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "v_issho",
+            "v_kaimono",
+            {
+              "id": "v_suru",
+              "form": "plain_volitional"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "A",
+          "jp": "どんな 食べ物を 買う？",
+          "en": "What kind of food will you buy?",
+          "terms": [
+            "v_donna",
+            "v_tabemono",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "plain_form"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "B",
+          "jp": "おいしい 野菜と 牛肉を 買いたいよ。料理に 使いたいから。",
+          "en": "I want to buy delicious vegetables and beef. Because I want to use them in cooking.",
+          "terms": [
+            "v_oishii",
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "plain_desire_tai"
+            },
+            "p_yo",
+            "v_ryouri",
+            "p_ni",
+            {
+              "id": "v_tsukau",
+              "form": "plain_desire_tai"
+            },
+            "p_kara_because"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 1: Rikizo Goes Shopping",
+      "passage": [
+        {
+          "jp": "りきぞう は 今日 スーパーに 行って、食べ物を 買いました。",
+          "en": "Rikizo went to the supermarket today and bought food.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_kyou",
+            "v_suupaa",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_tabemono",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "野菜と 牛肉を たくさん 買いました。料理が 大好きですから。",
+          "en": "He bought a lot of vegetables and beef. Because he loves cooking.",
+          "terms": [
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_wo",
+            "v_takusan",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            },
+            "v_ryouri",
+            "p_ga",
+            "v_daisuki",
+            "g_desu",
+            "p_kara_because"
+          ]
+        },
+        {
+          "jp": "家に 帰って、牛肉と 野菜の 料理を 作りました。",
+          "en": "He returned home and made a beef and vegetable dish.",
+          "terms": [
+            "v_ie",
+            "p_ni",
+            {
+              "id": "v_kaeru",
+              "form": "te_form"
+            },
+            "v_gyuuniku",
+            "p_to",
+            "v_yasai",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "その 料理は とても おいしかったです。",
+          "en": "That dish was very delicious.",
+          "terms": [
+            "v_sono",
+            "v_ryouri",
+            "p_wa",
+            "v_totemo",
+            {
+              "id": "v_oishii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "飲み物も 作って、おいしく 食べました。",
+          "en": "He also made drinks and ate deliciously.",
+          "terms": [
+            "v_nomimono",
+            "p_mo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_oishii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞうは 食べ物の 物語が とても 好きです。",
+          "en": "Rikizo really likes food stories.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_tabemono",
+            "p_no",
+            "v_monogatari",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞう は 今日 どこに 行きましたか。",
+          "q_en": "Where did Rikizo go today?",
+          "a": "スーパーに 行きました。",
+          "a_en": "He went to the supermarket.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_kyou",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_suupaa",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "りきぞう は 何を 作りましたか。",
+          "q_en": "What did Rikizo make?",
+          "a": "牛肉と 野菜の 料理を 作りました。",
+          "a_en": "He made a dish with beef and vegetables.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_gyuuniku",
+            "p_to",
+            "v_yasai",
+            "p_no",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "その 料理は おいしかったですか。",
+          "q_en": "Was the dish delicious?",
+          "a": "はい、とても おいしかったです。",
+          "a_en": "Yes, it was very delicious.",
+          "terms": [
+            "v_sono",
+            "v_ryouri",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "plain_past_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_totemo",
+            {
+              "id": "v_oishii",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 2: Yamakawa's Cooking",
+      "passage": [
+        {
+          "jp": "やまかわさん は 料理が とても 上手です。",
+          "en": "Yamakawa is very skilled at cooking.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_ryouri",
+            "p_ga",
+            "v_totemo",
+            {
+              "id": "v_jouzu",
+              "form": "polite_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "毎日 野菜と 牛肉を 使って、おいしい 料理を 作っています。",
+          "en": "Every day he uses vegetables and beef to make delicious dishes.",
+          "terms": [
+            "v_mainichi",
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_wo",
+            {
+              "id": "v_tsukau",
+              "form": "te_form"
+            },
+            "v_oishii",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "色々な 食べ物や 飲み物を 上手に 作れます。",
+          "en": "He can skillfully make various foods and drinks.",
+          "terms": [
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_tabemono",
+            "p_ya",
+            "v_nomimono",
+            "p_wo",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞう は やまかわさんの ように 上手に 料理を 作りたいです。",
+          "en": "Rikizo wants to cook as skillfully as Yamakawa.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "char_yamakawa",
+            "v_san",
+            "p_no",
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "買い物も 上手に なりたいです。",
+          "en": "He also wants to become good at shopping.",
+          "terms": [
+            "v_kaimono",
+            "p_mo",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわさんは 料理が 上手ですか。",
+          "q_en": "Is Yamakawa good at cooking?",
+          "a": "はい、とても 上手です。",
+          "a_en": "Yes, he is very good.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_jouzu",
+              "form": "polite_adj"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_totemo",
+            {
+              "id": "v_jouzu",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "q": "やまかわさんは 何を 作れますか。",
+          "q_en": "What can Yamakawa make?",
+          "a": "色々な 食べ物や 飲み物を 作れます。",
+          "a_en": "He can make various foods and drinks.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_iroiro",
+              "form": "attributive_na"
+            },
+            "v_tabemono",
+            "p_ya",
+            "v_nomimono",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "q": "りきぞう は だれの ように 料理が 作りたいですか。",
+          "q_en": "Who does Rikizo want to cook like?",
+          "a": "やまかわさんの ように 作りたいです。",
+          "a_en": "He wants to cook like Yamakawa-san.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_dare",
+            "p_no",
+            "v_you_manner",
+            "p_ni",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_no",
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Choose the correct reading for the kanji word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[野菜] の よみかたは？",
+          "choices": [
+            "やさい",
+            "のな",
+            "やくさ",
+            "ほうれん"
+          ],
+          "answer": "やさい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[牛肉] の よみかたは？",
+          "choices": [
+            "ぎゅうにく",
+            "うしにく",
+            "ぎゅうめ",
+            "ぼくぎゅう"
+          ],
+          "answer": "ぎゅうにく"
+        },
+        {
+          "kind": "mcq",
+          "q": "[料理] の よみかたは？",
+          "choices": [
+            "りょうり",
+            "ざいり",
+            "るいり",
+            "ものり"
+          ],
+          "answer": "りょうり"
+        },
+        {
+          "kind": "mcq",
+          "q": "[食べ物] の よみかたは？",
+          "choices": [
+            "たべもの",
+            "のみもの",
+            "かいもの",
+            "しまもの"
+          ],
+          "answer": "たべもの"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Select the correct meaning for the word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "野菜 [やさい]",
+          "choices": [
+            "vegetable",
+            "beef",
+            "food",
+            "drink"
+          ],
+          "answer": "vegetable",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "牛肉 [ぎゅうにく]",
+          "choices": [
+            "beef",
+            "chicken",
+            "fish",
+            "bread"
+          ],
+          "answer": "beef",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "料理 [りょうり]",
+          "choices": [
+            "cuisine / cooking",
+            "shopping",
+            "story",
+            "vegetable"
+          ],
+          "answer": "cuisine / cooking",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "食べ物 [たべもの]",
+          "choices": [
+            "food",
+            "drink",
+            "story",
+            "thing"
+          ],
+          "answer": "food",
+          "terms": []
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Choose the correct form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "この 店では おいしい 料理が ______。",
+          "choices": [
+            "作れます",
+            "作ります",
+            "作られます",
+            "作りましょう"
+          ],
+          "answer": "作れます",
+          "terms": [
+            "v_kono",
+            "v_mise",
+            "p_dewa",
+            "v_oishii",
+            "v_ryouri",
+            "p_ga",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_potential"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "スーパーで 野菜と 牛肉を 買って、______。",
+          "choices": [
+            "料理を 作りました",
+            "買い物しました",
+            "飲み物でした",
+            "スーパーに 行きました"
+          ],
+          "answer": "料理を 作りました",
+          "terms": [
+            "v_suupaa",
+            "p_de",
+            "v_yasai",
+            "p_to",
+            "v_gyuuniku",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "te_form"
+            },
+            "v_ryouri",
+            {
+              "id": "v_tsukuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "やまかわさんの ______ 上手に 料理を 作りたいです。",
+          "choices": [
+            "ように",
+            "ような",
+            "ようが",
+            "ようと"
+          ],
+          "answer": "ように",
+          "terms": [
+            "v_san",
+            "p_no",
+            "v_you_manner",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "スーパーで 飲み物と ______ を 買いました。",
+          "choices": [
+            "食べ物",
+            "物語",
+            "料理",
+            "買い物"
+          ],
+          "answer": "食べ物",
+          "terms": [
+            "v_suupaa",
+            "p_de",
+            "v_nomimono",
+            "p_to",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

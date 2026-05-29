@@ -1,0 +1,1551 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.34",
+  "title": "Districts, Commuting & Prefectures",
+  "meta": {
+    "level": "N4",
+    "lesson_number": 34,
+    "focus": "Japan's administrative geography — wards, prefectures, and districts — alongside train departures, first trains, and daily commuting patterns; G30 auxiliary verbs てみる/ておく/てしまう and connectives かどうか/について",
+    "estimated_minutes": 35,
+    "kanji": [
+      "区",
+      "発",
+      "県",
+      "通"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "区",
+      "on": "く",
+      "kun": "(なし)",
+      "meaning": "District / Ward",
+      "termId": "k_u533a"
+    },
+    {
+      "kanji": "発",
+      "on": "はつ / ほっ",
+      "kun": "(なし)",
+      "meaning": "Departure / Emit",
+      "termId": "k_hatsu"
+    },
+    {
+      "kanji": "県",
+      "on": "けん",
+      "kun": "(なし)",
+      "meaning": "Prefecture",
+      "termId": "k_ken_pref"
+    },
+    {
+      "kanji": "通",
+      "on": "つう",
+      "kun": "とお(る) / かよ(う)",
+      "meaning": "Pass / Commute",
+      "termId": "k_tsuu"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Use words you already know to answer these questions:",
+      "items": [
+        {
+          "jp": "あの 広い 工場は 先月 建てられました。",
+          "en": "That wide factory was built last month.",
+          "terms": [
+            "v_ano",
+            "v_hiroi",
+            "v_koujou",
+            "p_wa",
+            "v_sengetsu",
+            {
+              "id": "v_tateru",
+              "form": "polite_passive_past"
+            }
+          ]
+        },
+        {
+          "jp": "お母さんは 子どもに 野菜を 食べさせました。",
+          "en": "The mother made the child eat vegetables.",
+          "terms": [
+            "v_okaasan",
+            "p_wa",
+            "v_kodomo",
+            "p_ni",
+            "v_yasai",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_causative_past"
+            }
+          ]
+        },
+        {
+          "jp": "先月から、毎日 早く 起きるように なりました。",
+          "en": "Since last month I have come to wake up early every day.",
+          "terms": [
+            "v_sengetsu",
+            "p_kara",
+            "v_mainichi",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_okiru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "新しい 建物の 中に 入ったことが ありますか。",
+          "en": "Have you ever been inside a new building?",
+          "terms": [
+            "v_atarashii",
+            "v_tatemono",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_hairu",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "区",
+          "on": "く",
+          "kun": "(なし)",
+          "meaning": "District / Ward",
+          "terms": [
+            "k_u533a",
+            "v_ku",
+            "v_kubetsu",
+            "v_kugiru",
+            "v_chiku",
+            "v_tokubetsuku",
+            "v_machimachi"
+          ]
+        },
+        {
+          "kanji": "発",
+          "on": "はつ / ほっ",
+          "kun": "(なし)",
+          "meaning": "Departure / Emit",
+          "terms": [
+            "k_hatsu",
+            "v_hatsu",
+            "v_shuppatsu",
+            "v_hakken",
+            "v_hatsugen",
+            "v_hatsuden",
+            "v_shihatsu",
+            "v_hatsuon"
+          ]
+        },
+        {
+          "kanji": "県",
+          "on": "けん",
+          "kun": "(なし)",
+          "meaning": "Prefecture",
+          "terms": [
+            "k_ken_pref",
+            "v_ken",
+            "v_kengai",
+            "v_aomoriken",
+            "v_akitaken",
+            "v_kenchiji"
+          ]
+        },
+        {
+          "kanji": "通",
+          "on": "つう",
+          "kun": "とお / かよ",
+          "meaning": "Pass / Commute",
+          "terms": [
+            "k_tsuu",
+            "v_kayou",
+            "v_tooru",
+            "v_kayoi",
+            "v_toosu",
+            "v_tsuugaku",
+            "v_oodoori"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Districts & Wards",
+          "items": [
+            "v_ku",
+            "v_kubetsu",
+            "v_kugiru",
+            "v_machimachi",
+            "v_chiku",
+            "v_tokubetsuku"
+          ]
+        },
+        {
+          "label": "Prefectures",
+          "items": [
+            "v_ken",
+            "v_kengai",
+            "v_aomoriken",
+            "v_akitaken",
+            "v_kenchiji"
+          ]
+        },
+        {
+          "label": "Departure & Discovery",
+          "items": [
+            "v_hatsu",
+            "v_shuppatsu",
+            "v_hakken",
+            "v_hatsugen",
+            "v_hatsuden",
+            "v_shihatsu",
+            "v_hatsuon"
+          ]
+        },
+        {
+          "label": "Commuting & Passage",
+          "items": [
+            "v_kayou",
+            "v_tooru",
+            "v_kayoi",
+            "v_toosu",
+            "v_tsuugaku",
+            "v_oodoori"
+          ]
+        },
+        {
+          "label": "Auxiliary Verbs",
+          "items": [
+            "v_oku",
+            "v_shimau"
+          ]
+        },
+        {
+          "label": "Connective Particles",
+          "items": [
+            "p_kadouka",
+            "p_ni_tsuite"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Pronunciation Class and Commuting",
+      "context": "Rikizo and Suzuki-sensei are at school after class. Suzuki-sensei explains what she had students do today, and the conversation turns to commuting.",
+      "lines": [
+        {
+          "spk": "すずき",
+          "jp": "今日は 学生たちに 発音を 大きい 声で 言わせました。 むずかしい 発音を 考えて おきましたから、よかったです。",
+          "en": "Today I had the students say the pronunciation in a loud voice. I had thought through the difficult pronunciations in advance, so it went well.",
+          "terms": [
+            "char_suzuki",
+            "v_kyou",
+            "p_wa",
+            "v_gakusei",
+            "v_tachi",
+            "p_ni",
+            "v_hatsuon",
+            "p_wo",
+            "v_ookii",
+            "v_koe",
+            "p_de",
+            {
+              "id": "v_iu",
+              "form": "polite_causative_past"
+            },
+            "v_muzukashii",
+            "v_hatsuon",
+            "p_wo",
+            {
+              "id": "v_kangaeru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_oku",
+              "form": "polite_mashita"
+            },
+            "p_kara_because",
+            {
+              "id": "v_ii",
+              "form": "polite_past_adj"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "そうですか。むずかしい 発音は 何度も 聞かれましたか。",
+          "en": "Is that so? Were difficult pronunciations heard many times?",
+          "terms": [
+            "char_rikizo",
+            "v_sou",
+            "g_desu",
+            "p_ka",
+            "v_muzukashii",
+            "v_hatsuon",
+            "p_wa",
+            "v_nando",
+            "p_mo",
+            {
+              "id": "v_kiku",
+              "form": "polite_passive_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "すずき",
+          "jp": "はい。声に 出して 言うことが 大切だと 思います。",
+          "en": "Yes. I think saying it aloud is important.",
+          "terms": [
+            "char_suzuki",
+            "p_hai",
+            "v_koe",
+            "p_ni",
+            {
+              "id": "v_dasu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iu",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_taisetsu",
+              "form": "plain_form"
+            },
+            "p_to_quote",
+            "g_da",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "わたしも 毎日 通学しながら、声に 出して 言って みたいと 思います。",
+          "en": "I'd like to try saying things aloud while commuting every day too.",
+          "terms": [
+            "char_rikizo",
+            "v_watashi",
+            "p_mo",
+            "v_mainichi",
+            "v_tsuugaku",
+            {
+              "id": "v_suru",
+              "form": "nagara_form"
+            },
+            "v_koe",
+            "p_ni",
+            {
+              "id": "v_dasu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "すずき",
+          "jp": "毎日 通学しながら 声に 出すのは、とても いい ことですよ。",
+          "en": "Saying things aloud while commuting every day is a very good thing.",
+          "terms": [
+            "char_suzuki",
+            "v_mainichi",
+            "v_tsuugaku",
+            {
+              "id": "v_suru",
+              "form": "nagara_form"
+            },
+            "v_koe",
+            "p_ni",
+            {
+              "id": "v_dasu",
+              "form": "plain_form"
+            },
+            "p_wa",
+            "p_no",
+            "v_totemo",
+            "v_ii",
+            "v_koto",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: At the Station — Which Prefecture?",
+      "context": "Rikizo and Lee are at a train station planning a day trip. They discuss departure times and which prefecture to visit.",
+      "lines": [
+        {
+          "spk": "リー",
+          "jp": "りきぞうさん、始発は 何時ですか。",
+          "en": "Rikizo, what time is the first train?",
+          "terms": [
+            "char_lee",
+            "char_rikizo",
+            "v_san",
+            "v_shihatsu",
+            "p_wa",
+            "v_nanji",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "午前 五時 発だと 思います。出発の 前に 駅で 待ちましょう。",
+          "en": "I think it departs at 5 a.m. Let's wait at the station before departure.",
+          "terms": [
+            "char_rikizo",
+            "v_gozen",
+            {
+              "counter": "ji",
+              "n": 5
+            },
+            "v_hatsu",
+            "p_to_quote",
+            "g_da",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            },
+            "v_shuppatsu",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_eki",
+            "p_de",
+            {
+              "id": "v_matsu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "青森県に 行くかどうか、まだ 分かりません。秋田県と 青森県、どちらが いいですか。",
+          "en": "I'm still not sure whether we should go to Aomori. Akita or Aomori — which is better?",
+          "terms": [
+            "char_lee",
+            "v_aomoriken",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_form"
+            },
+            "p_kadouka",
+            "v_mada",
+            {
+              "id": "v_wakaru",
+              "form": "polite_negative"
+            },
+            "v_akitaken",
+            "p_to",
+            "v_aomoriken",
+            "v_dochira",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "もう 青森県に 行って しまいましたから、秋田県の 方が いいと 思います。",
+          "en": "I've already been to Aomori Prefecture, so I think Akita is better.",
+          "terms": [
+            "char_rikizo",
+            "v_mou",
+            "v_aomoriken",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_shimau",
+              "form": "polite_mashita"
+            },
+            "p_kara_because",
+            "v_akitaken",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_form"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "わかりました。県外から 来る 電車で 行きますね。",
+          "en": "Understood. Let's go on the train coming from outside the prefecture.",
+          "terms": [
+            "char_lee",
+            {
+              "id": "v_wakaru",
+              "form": "polite_mashita"
+            },
+            "v_kengai",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "plain_form"
+            },
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: New Ward, New Neighborhood (Casual)",
+      "context": "Rikizo and Ken are close friends catching up. Ken just moved to a new ward in Tokyo.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "先月、新しい 区に 来たよ。",
+          "en": "I came to a new ward last month.",
+          "terms": [
+            "char_ken",
+            "v_sengetsu",
+            "v_atarashii",
+            "v_ku",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "plain_past"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "えっ、その 区は 駅から 近い？",
+          "en": "What? Is that ward close to the station?",
+          "terms": [
+            "char_rikizo",
+            "v_e",
+            "v_sono",
+            "v_ku",
+            "p_wa",
+            "v_eki",
+            "p_kara",
+            "v_chikai",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "うん、大通りも 通って いるし、店も 多いよ。",
+          "en": "Yeah, there's a main street running through it too, and there are lots of shops.",
+          "terms": [
+            "char_ken",
+            "v_un",
+            "v_oodoori",
+            "p_mo",
+            {
+              "id": "v_tooru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_shi",
+            "v_mise",
+            "p_mo",
+            "v_ooi",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "いいな。特別区の 方が 高すぎる と 思ったけど、どう？",
+          "en": "Nice. I thought special wards would be way too expensive, but how is it?",
+          "terms": [
+            "char_rikizo",
+            "v_ii",
+            "p_na",
+            "v_tokubetsuku",
+            "p_no",
+            "v_hou",
+            "p_ga",
+            {
+              "id": "v_takai",
+              "form": "sugiru_form"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "plain_past"
+            },
+            "p_kedo",
+            "v_dou"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そうだね。新しい 区について 色々 知ったよ。地区が 区切られて いるから、色々 見られるよ。",
+          "en": "Yeah. I've come to know all sorts of things about the new ward. Since the districts are divided up, you can see lots of things.",
+          "terms": [
+            "char_ken",
+            "v_sou",
+            "p_ne",
+            "g_da",
+            "v_atarashii",
+            "v_ku",
+            "p_ni_tsuite",
+            "v_iroiro",
+            {
+              "id": "v_shiru",
+              "form": "plain_past"
+            },
+            "p_yo",
+            "v_chiku",
+            "p_ga",
+            {
+              "id": "v_kugiru",
+              "form": "passive_te"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_kara_because",
+            "v_iroiro",
+            {
+              "id": "v_miru",
+              "form": "potential"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Commuting from Another Prefecture (Casual)",
+      "context": "Rikizo and Yamakawa are close friends. Yamakawa has been commuting to Tokyo from a different prefecture.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "やまかわ、県外から 通って いるって 聞いたよ。",
+          "en": "Yamakawa, I heard you've been commuting from outside the prefecture.",
+          "terms": [
+            "char_rikizo",
+            "char_yamakawa",
+            "v_kengai",
+            "p_kara",
+            {
+              "id": "v_kayou",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_tte_quote",
+            {
+              "id": "v_kiku",
+              "form": "plain_past"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうなんだ。秋田県に 住んで いるんだよ。",
+          "en": "Yeah, I live in Akita Prefecture.",
+          "terms": [
+            "char_yamakawa",
+            "v_sou",
+            "p_na",
+            "p_nda",
+            "v_akitaken",
+            "p_ni",
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_nda",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "始発で 来て いるの？ 毎日 遠いよね。",
+          "en": "You come on the first train? It's far every day, isn't it?",
+          "terms": [
+            "char_rikizo",
+            "v_shihatsu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_no_question",
+            "v_mainichi",
+            "v_tooi",
+            "p_ne",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "うん、始発に して いるよ。遠いけど、電車で 本を 読んだり、音楽を 聞いたり するよ。",
+          "en": "Yeah, I go with the first train. It's far, but on the train I read books and listen to music.",
+          "terms": [
+            "char_yamakawa",
+            "v_un",
+            "v_shihatsu",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_yo",
+            "v_tooi",
+            "p_kedo",
+            "v_densha",
+            "p_de",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "tari_form"
+            },
+            "v_ongaku",
+            "p_wo",
+            {
+              "id": "v_kiku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "毎日 むずかしいけど、ほんとうに すごいよ。",
+          "en": "It's difficult every day, but that's really impressive.",
+          "terms": [
+            "char_rikizo",
+            "v_mainichi",
+            "v_muzukashii",
+            "p_kedo",
+            "p_hontou",
+            "p_ni",
+            "v_sugoi",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: Visiting Aomori Prefecture",
+      "passage": [
+        {
+          "jp": "今月、わたしは 青森県に 行きました。",
+          "en": "This month, I went to Aomori Prefecture.",
+          "terms": [
+            "v_kongetsu",
+            "v_watashi",
+            "p_wa",
+            "v_aomoriken",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "始発の 電車に 乗って から、電車は 長い 大通りを 通りました。",
+          "en": "After boarding the first train, the train passed along a long main street.",
+          "terms": [
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_ni",
+            {
+              "id": "v_noru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_densha",
+            "p_wa",
+            "v_nagai",
+            "v_oodoori",
+            "p_wo",
+            {
+              "id": "v_tooru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "青森県に 着いて から、新しい 発見が たくさん あって、旅行が 楽しく なりました。",
+          "en": "After arriving in Aomori Prefecture, there were many new discoveries, and the trip became fun.",
+          "terms": [
+            "v_aomoriken",
+            "p_ni",
+            {
+              "id": "v_tsuku",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_atarashii",
+            "v_hakken",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "te_form"
+            },
+            "v_ryokou",
+            "p_ga",
+            {
+              "id": "v_tanoshii",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "地区が 区別されて いて、広い 場所も 店も ありました。",
+          "en": "The districts were separated, and there were wide spaces and shops too.",
+          "terms": [
+            "v_chiku",
+            "p_ga",
+            "v_kubetsu",
+            {
+              "id": "v_suru",
+              "form": "passive_te"
+            },
+            {
+              "id": "v_iru",
+              "form": "te_form"
+            },
+            "v_hiroi",
+            "v_basho",
+            "p_mo",
+            "v_mise",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "青森県に また 行きたいと 思います。",
+          "en": "I think I want to go to Aomori Prefecture again.",
+          "terms": [
+            "v_aomoriken",
+            "p_ni",
+            "v_mata",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "どこへ 行きましたか。",
+          "q_en": "Where did they go?",
+          "a": "青森県へ 行きました。",
+          "a_en": "They went to Aomori Prefecture.",
+          "terms": [
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_aomoriken",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "何で 出発しましたか。",
+          "q_en": "What did they depart on?",
+          "a": "始発の 電車に 乗りました。",
+          "a_en": "They boarded the first train.",
+          "terms": [
+            "v_nan",
+            "p_de",
+            "v_shuppatsu",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_ni",
+            {
+              "id": "v_noru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "青森県で 何が ありましたか。",
+          "q_en": "What was there in Aomori Prefecture?",
+          "a": "新しい 発見が たくさん ありました。",
+          "a_en": "There were many new discoveries.",
+          "terms": [
+            "v_aomoriken",
+            "p_de",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_atarashii",
+            "v_hakken",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: A Friend's Daily Commute",
+      "passage": [
+        {
+          "jp": "わたしの 友だちは 秋田県から 毎日 通学して います。",
+          "en": "My friend commutes to school from Akita Prefecture every day.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_tomodachi",
+            "p_wa",
+            "v_akitaken",
+            "p_kara",
+            "v_mainichi",
+            "v_tsuugaku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "友だちは 県外の 学校に 通うように なりました。",
+          "en": "My friend came to commute to a school outside the prefecture.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_kengai",
+            "p_no",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_kayou",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "友だちは 毎日 朝を 早く して、始発の 電車で 学校に 行きます。",
+          "en": "My friend makes their mornings early every day and goes to school on the first train.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_mainichi",
+            "v_asa",
+            "p_wo",
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_de",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "友だちは 電車の 中で 勉強したり、外を 見たり しています。",
+          "en": "My friend does things like study and look outside on the train.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_densha",
+            "p_no",
+            "v_naka",
+            "p_de",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "tari_form"
+            },
+            "v_soto",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "区別された 地区を 毎日 通って いくのは 遠いことだと 思います。",
+          "en": "I think going through the divided districts every day is a long way to go.",
+          "terms": [
+            "v_kubetsu",
+            {
+              "id": "v_suru",
+              "form": "plain_passive_past"
+            },
+            "v_chiku",
+            "p_wo",
+            "v_mainichi",
+            {
+              "id": "v_tooru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iku",
+              "form": "plain_form"
+            },
+            "p_wa",
+            "p_no",
+            "v_tooi",
+            "v_koto",
+            "p_to_quote",
+            "g_da",
+            {
+              "id": "v_omou",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "友だちは どこから 通学して いますか。",
+          "q_en": "Where does the friend commute from?",
+          "a": "秋田県から 通学して います。",
+          "a_en": "They commute from Akita Prefecture.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_doko",
+            "p_kara",
+            "v_tsuugaku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_akitaken",
+            "p_kara",
+            "v_tsuugaku",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "友だちは 何の 電車で 学校に 行きますか。",
+          "q_en": "What train does the friend take to school?",
+          "a": "始発の 電車で 行きます。",
+          "a_en": "They go on the first train.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_nan",
+            "p_no",
+            "v_densha",
+            "p_de",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "友だちは 電車で 何を しますか。",
+          "q_en": "What does the friend do on the train?",
+          "a": "勉強したり、外を 見たり します。",
+          "a_en": "They do things like study and look outside.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_densha",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "tari_form"
+            },
+            "v_soto",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for the underlined word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[区別] の よみかたは？",
+          "choices": [
+            "くべつ",
+            "くほつ",
+            "ちべつ",
+            "くわかる"
+          ],
+          "answer": "くべつ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[発見] の よみかたは？",
+          "choices": [
+            "はっけん",
+            "はつみ",
+            "ほっけん",
+            "はつけん"
+          ],
+          "answer": "はっけん"
+        },
+        {
+          "kind": "mcq",
+          "q": "[県外] の よみかたは？",
+          "choices": [
+            "けんがい",
+            "けんほか",
+            "きんがい",
+            "けんそと"
+          ],
+          "answer": "けんがい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[通学] の よみかたは？",
+          "choices": [
+            "つうがく",
+            "とおがく",
+            "かようがく",
+            "つうこう"
+          ],
+          "answer": "つうがく"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "学校に 毎日 ______。",
+          "choices": [
+            "通います",
+            "発見します",
+            "区切ります",
+            "発言します"
+          ],
+          "answer": "通います",
+          "terms": [
+            "v_gakkou",
+            "p_ni",
+            "v_mainichi",
+            {
+              "id": "v_kayou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 電車は 午前 六時 ______ です。",
+          "choices": [
+            "発",
+            "県",
+            "区",
+            "通"
+          ],
+          "answer": "発",
+          "terms": [
+            "v_kono",
+            "v_densha",
+            "p_wa",
+            "v_gozen",
+            {
+              "counter": "ji",
+              "n": 6
+            },
+            "v_hatsu",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "青森 ______ は 東京の 北に あります。",
+          "choices": [
+            "県",
+            "区",
+            "発",
+            "通"
+          ],
+          "answer": "県",
+          "terms": [
+            "v_aomoriken",
+            "p_wa",
+            "v_toukyou",
+            "p_no",
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "電車は 長い 大通りを ______。",
+          "choices": [
+            "通ります",
+            "発見します",
+            "区切ります",
+            "通学します"
+          ],
+          "answer": "通ります",
+          "terms": [
+            "v_densha",
+            "p_wa",
+            "v_nagai",
+            "v_oodoori",
+            "p_wo",
+            {
+              "id": "v_tooru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "新しい 場所を ______ したいです。",
+          "choices": [
+            "発見",
+            "出発",
+            "発言",
+            "発音"
+          ],
+          "answer": "発見",
+          "terms": [
+            "v_atarashii",
+            "v_basho",
+            "p_wo",
+            "v_hakken",
+            {
+              "id": "v_suru",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the correct particle or form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "学校 ______ 毎日 通います。",
+          "choices": [
+            "に",
+            "で",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_gakkou",
+            "p_ni",
+            "v_mainichi",
+            {
+              "id": "v_kayou",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "県外 ______ 始発で 来ます。",
+          "choices": [
+            "から",
+            "まで",
+            "に",
+            "で"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_kengai",
+            "p_kara",
+            "v_shihatsu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "広い 大通り ______ 通ります。",
+          "choices": [
+            "を",
+            "で",
+            "に",
+            "は"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_hiroi",
+            "v_oodoori",
+            "p_wo",
+            {
+              "id": "v_tooru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生は 学生に 発音を 声で ______。",
+          "choices": [
+            "言わせました",
+            "言いました",
+            "言われました",
+            "言わせます"
+          ],
+          "answer": "言わせました",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_gakusei",
+            "p_ni",
+            "v_hatsuon",
+            "p_wo",
+            "v_koe",
+            "p_de",
+            {
+              "id": "v_iu",
+              "form": "polite_causative_past"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "青森県に 行った ______ が あります。",
+          "choices": [
+            "こと",
+            "もの",
+            "とき",
+            "ため"
+          ],
+          "answer": "こと",
+          "terms": [
+            "v_aomoriken",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_past"
+            },
+            "v_koto",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

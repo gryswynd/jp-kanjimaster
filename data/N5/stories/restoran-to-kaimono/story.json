@@ -1,0 +1,721 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "restoran-to-kaimono",
+  "title": "レストランとかいもの",
+  "englishTitle": "Restaurant and Shopping",
+  "category": "curriculum",
+  "level": "N5",
+  "unlocksAfter": "N5.8",
+  "paragraphs": [
+    {
+      "jp": "こんにちは。わたしはりきぞうです。",
+      "en": "Hello. I am Rikizo.",
+      "tokens": [
+        {
+          "k": "こんにち",
+          "g": "p_konnichiwa"
+        },
+        {
+          "k": "は",
+          "r": "わ",
+          "g": "p_konnichiwa"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "今日、やまかわさんとレストランへ行きました。レストランは新しいです。大きいですよ。",
+      "en": "Today, I went to the restaurant with Yamakawa. The restaurant is new. It is big, you know.",
+      "tokens": [
+        {
+          "k": "今日",
+          "r": "きょう"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "やまかわさん"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "レストラン",
+          "r": "れすとらん"
+        },
+        {
+          "k": "へ",
+          "r": "え"
+        },
+        {
+          "k": "行",
+          "r": "い",
+          "g": "v_iku__polite_past"
+        },
+        {
+          "k": "きました",
+          "g": "v_iku__polite_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "レストラン",
+          "r": "れすとらん"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "新",
+          "r": "あたら",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "しい",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "大",
+          "r": "おお",
+          "g": "v_ookii"
+        },
+        {
+          "k": "きい",
+          "g": "v_ookii"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "いただきます。わたしはカレーを食べました。カレーはおいしいですよ。やまかわさんはパンとサラダを食べました。",
+      "en": "Bon appétit! I ate curry. The curry is delicious, you know. Yamakawa ate bread and salad.",
+      "tokens": [
+        {
+          "k": "いただきます"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "カレ",
+          "r": "かれ",
+          "g": "v_karee"
+        },
+        {
+          "k": "ー",
+          "g": "v_karee"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "べました",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "カレ",
+          "r": "かれ",
+          "g": "v_karee"
+        },
+        {
+          "k": "ー",
+          "g": "v_karee"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "おいしい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "やまかわさん"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "パン",
+          "r": "ぱん"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "サラダ",
+          "r": "さらだ"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "べました",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "「パンも食べてください。」わたしもパンを食べました。コーヒーとジュースも飲みました。コーヒーは大きいです。ジュースは小さいです。おいしいですね。ごちそうさまでした。",
+      "en": "\"Please eat the bread too.\" I also ate bread. I also drank coffee and juice. The coffee is a large size. The juice is a small size. Delicious, isn't it! Thank you for the meal.",
+      "tokens": [
+        {
+          "k": "「"
+        },
+        {
+          "k": "パン",
+          "r": "ぱん"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_te_form"
+        },
+        {
+          "k": "べて",
+          "g": "v_taberu_te_form"
+        },
+        {
+          "k": "ください"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "パン",
+          "r": "ぱん"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "食",
+          "r": "た",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "べました",
+          "g": "v_taberu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "コーヒ",
+          "r": "こーひ",
+          "g": "v_koohii"
+        },
+        {
+          "k": "ー",
+          "g": "v_koohii"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "ジュース",
+          "r": "じゅーす"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "飲",
+          "r": "の",
+          "g": "v_nomu_polite_mashita"
+        },
+        {
+          "k": "みました",
+          "g": "v_nomu_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "コーヒ",
+          "r": "こーひ",
+          "g": "v_koohii"
+        },
+        {
+          "k": "ー",
+          "g": "v_koohii"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "大",
+          "r": "おお",
+          "g": "v_ookii"
+        },
+        {
+          "k": "きい",
+          "g": "v_ookii"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "ジュース",
+          "r": "じゅーす"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "小",
+          "r": "ちい",
+          "g": "v_chiisai"
+        },
+        {
+          "k": "さい",
+          "g": "v_chiisai"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "おいしい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "ごちそうさまでした"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "「デパートへ行きましょう。」プレゼントがほしいです。デパートへ行って、プレゼントを買いました。デパートは大きいですよ。やまかわさんのプレゼントは長いです。安いですよ。すごいですね。",
+      "en": "\"Let's go to the department store!\" I want a present. I went to the department store and bought a present. The department store is big, you know. Yamakawa's present is long. It is cheap, you know. Wonderful, isn't it!",
+      "tokens": [
+        {
+          "k": "「"
+        },
+        {
+          "k": "デパート",
+          "r": "でぱーと"
+        },
+        {
+          "k": "へ",
+          "r": "え"
+        },
+        {
+          "k": "行",
+          "r": "い",
+          "g": "v_iku_polite_volitional_mashou"
+        },
+        {
+          "k": "きましょう",
+          "g": "v_iku_polite_volitional_mashou"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "」"
+        },
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": "ほしい",
+          "g": "v_hoshii"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "デパート",
+          "r": "でぱーと"
+        },
+        {
+          "k": "へ",
+          "r": "え"
+        },
+        {
+          "k": "行",
+          "r": "い",
+          "g": "v_iku_te_form"
+        },
+        {
+          "k": "って",
+          "g": "v_iku_te_form"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "買",
+          "r": "か",
+          "g": "v_kau_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_kau_polite_mashita"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "デパート",
+          "r": "でぱーと"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "大",
+          "r": "おお",
+          "g": "v_ookii"
+        },
+        {
+          "k": "きい",
+          "g": "v_ookii"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "やまかわさん"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "長",
+          "r": "なが",
+          "g": "v_nagai"
+        },
+        {
+          "k": "い",
+          "g": "v_nagai"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "安",
+          "r": "やす",
+          "g": "v_yasui"
+        },
+        {
+          "k": "い",
+          "g": "v_yasui"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "よ"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "すごい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "わたしも新しいプレゼントを買いたいです。古いプレゼントはほしくないです。新しいプレゼントを買いました。",
+      "en": "I also want to buy a new present. I do not want an old present. I bought a new present.",
+      "tokens": [
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "新",
+          "r": "あたら",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "しい",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "買",
+          "r": "か",
+          "g": "v_kau_plain_desire_tai"
+        },
+        {
+          "k": "いたい",
+          "g": "v_kau_plain_desire_tai"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "古",
+          "r": "ふる",
+          "g": "v_furui"
+        },
+        {
+          "k": "い",
+          "g": "v_furui"
+        },
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "ほしくない",
+          "g": "v_hoshii_plain_negative"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "新",
+          "r": "あたら",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "しい",
+          "g": "v_atarashii"
+        },
+        {
+          "k": "プレゼント",
+          "r": "ぷれぜんと"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "買",
+          "r": "か",
+          "g": "v_kau_polite_mashita"
+        },
+        {
+          "k": "いました",
+          "g": "v_kau_polite_mashita"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "いいですね。",
+      "en": "How nice!",
+      "tokens": [
+        {
+          "k": "いい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "ね"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    }
+  ],
+  "vocabUsed": [
+    "p_konnichiwa",
+    "v_watashi",
+    "v_kyou",
+    "v_resutoran",
+    "v_iku__polite_past",
+    "v_atarashii",
+    "v_ookii",
+    "p_itadakimasu",
+    "v_karee",
+    "v_taberu",
+    "v_oishii",
+    "v_pan",
+    "v_sarada",
+    "v_koohii",
+    "v_juusu",
+    "v_nomu",
+    "v_chiisai",
+    "p_gochisousama",
+    "v_depaato",
+    "v_iku",
+    "v_purezento",
+    "v_hoshii",
+    "v_kau",
+    "v_nagai",
+    "v_yasui",
+    "v_sugoi",
+    "v_furui",
+    "v_ii"
+  ],
+  "grammarUsed": [
+    "g_desu"
+  ],
+  "comprehension": {
+    "intro": "Did you follow the story?",
+    "questions": []
+  }
+}

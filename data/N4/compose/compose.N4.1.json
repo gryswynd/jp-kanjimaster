@@ -1,0 +1,175 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.1",
+  "lesson": "N4.1",
+  "level": "N4",
+  "title": "A Busy Working Day",
+  "titleJp": "いそがしい 一日",
+  "emoji": "💼",
+  "theme": "Write about a busy workday — from waking up in the morning to arriving home in the evening, using the new verbs for working, making, using, sending, and returning.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about your morning routine — what time you wake up, and what you put on to get ready for the day.",
+      "targets": [
+        { "id": "v_okiru", "count": 1 },
+        { "id": "v_kiru", "count": 1 }
+      ],
+      "model": "まいにち、六時に 起きます。白い シャツを 着て、会社へ 行きます。",
+      "vocabPool": [
+        "v_okiru", "v_kiru", "v_kaisha", "v_mainichi", "v_kyou",
+        "v_densha", "v_eki", "v_iku", "v_atarashii", "v_furui", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe getting to work — how you travel, and when you arrive at the company.",
+      "targets": [
+        { "id": "v_tsuku", "count": 1 }
+      ],
+      "model": "電車で 会社に 着きます。九時ごろ 着きます。",
+      "vocabPool": [
+        "v_tsuku", "v_densha", "v_kaisha", "v_eki", "v_nanji",
+        "v_iku", "v_kuru", "v_mainichi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "You are at the company working hard. Describe what you do and what tools or technology you use. Mention that you sometimes borrow things from colleagues.",
+      "targets": [
+        { "id": "v_hataraku", "count": 1 },
+        { "id": "v_tsukau", "count": 1 }
+      ],
+      "model": "会社で よく 働きます。パソコンを 使って、大切な ことを します。友だちの 本を 借りることも あります。",
+      "vocabPool": [
+        "v_hataraku", "v_tsukau", "v_kariru", "v_kaisha", "v_tomodachi",
+        "v_hon", "v_yoku", "v_taisetsu", "v_iru", "v_aru", "g_desu"
+      ]
+    },
+    {
+      "prompt": "You make something important at work today. Describe what you make and why it matters.",
+      "targets": [
+        { "id": "v_tsukuru", "count": 1 },
+        { "id": "v_taisetsu", "count": 1 }
+      ],
+      "model": "今日、友だちへの 本を 作りました。大切な ことです。",
+      "vocabPool": [
+        "v_tsukuru", "v_taisetsu", "v_kaisha", "v_kyou", "v_nagai",
+        "v_jikan", "v_ii", "v_totemo", "v_suru", "v_hon", "v_tomodachi",
+        "v_koto", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Before going home, you need to send something to a colleague. Describe what you send and how you buy stamps.",
+      "targets": [
+        { "id": "v_okuru", "count": 1 },
+        { "id": "v_kitte", "count": 1 }
+      ],
+      "model": "友だちに 本を 送ります。切手を 買いに 駅へ 行きました。",
+      "vocabPool": [
+        "v_okuru", "v_kitte", "v_kaisha", "v_tomodachi", "v_hon",
+        "v_eki", "v_kau", "v_iku", "v_taisetsu", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Work is over! Describe your journey home — your route and how you travel.",
+      "targets": [
+        { "id": "v_kaeru", "count": 1 },
+        { "id": "v_kaerimichi", "count": 1 }
+      ],
+      "model": "六時に 会社を 出て、電車で 帰ります。帰り道は 少し 長いですが、いつも 電車です。",
+      "vocabPool": [
+        "v_kaeru", "v_kaerimichi", "v_densha", "v_eki", "v_ie",
+        "v_deru", "v_nanji", "v_nagai", "v_sukoshi", "v_itsumo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "You arrive home. Describe what you do in the evening — perhaps you prepare food by cutting fish, and then you relax.",
+      "targets": [
+        { "id": "v_tsuku", "count": 1 },
+        { "id": "v_kiru_2", "count": 1 }
+      ],
+      "model": "家に 着いて、魚を 切ります。魚を 食べて、少し 休みます。いい 一日でした。",
+      "vocabPool": [
+        "v_tsuku", "v_kiru_2", "v_ie", "v_sakana", "v_taberu",
+        "v_yasumu", "v_ii", "v_sukoshi", "v_mainichi", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["帰り道は 電車です", "大切な 一日です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["いい 一日でした", "長い 時間でした"]
+    },
+    {
+      "pattern": "[noun] + ではありません",
+      "meaning": "is not (polite formal)",
+      "examples": ["借金では ありません", "大切な ことでは ありません"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["長いです", "大きいです", "新しいです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["長かったです", "大きかったです", "よかったです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜く (adverbial)",
+      "meaning": "[adj]-ly (adverb form)",
+      "examples": ["大きく 切ります", "小さく 切ります"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["働きます", "帰ります", "使います"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["働きました", "帰りました", "着きました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["働きません", "帰りません", "使いません"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing (progressive)",
+      "examples": ["働いています", "使っています"]
+    },
+    {
+      "pattern": "[verb]〜てください",
+      "meaning": "please do [verb]",
+      "examples": ["切ってください", "使ってください", "起きてください"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["作りたいです", "送りたいです", "帰りたいです"]
+    },
+    {
+      "pattern": "[verb]〜ましょう",
+      "meaning": "let's [verb]",
+      "examples": ["一緒に 働きましょう", "帰りましょう"]
+    },
+    {
+      "pattern": "[verb]〜ない",
+      "meaning": "do not [verb] (plain negative)",
+      "examples": ["働かない", "帰らない", "使わない"]
+    }
+  ]
+}

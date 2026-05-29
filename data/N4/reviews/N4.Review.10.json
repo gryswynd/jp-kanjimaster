@@ -1,0 +1,1073 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.10",
+  "title": "Phase 4 Review: Maps, Libraries & Night Life",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 19–20.",
+    "kanji": [
+      "地",
+      "図",
+      "質",
+      "問",
+      "題",
+      "説",
+      "夜",
+      "洋",
+      "服",
+      "屋"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "A student visits the library and asks a librarian for help finding a section.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "すみません。地図は どこに ありますか。",
+              "en": "Excuse me. Where are the maps?",
+              "terms": [
+                "p_sumimasen",
+                "v_chizu",
+                "p_wa",
+                "v_doko",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "図書館の 地下に あります。地名の 本も そこに あります。",
+              "en": "They are in the basement of the library. Books on place names are there too.",
+              "terms": [
+                "v_toshokan",
+                "p_no",
+                "v_chika",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_chimei",
+                "p_no",
+                "v_hon",
+                "p_mo",
+                "v_soko",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "問題が あります。地下が どこか 分かりません。説明して もらえますか。",
+              "en": "There is a problem. I don't know where the basement is. Could you explain?",
+              "terms": [
+                "v_mondai",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_chika",
+                "p_ga",
+                "v_doko",
+                "p_ka",
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_negative"
+                },
+                "v_setsumei",
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_morau",
+                  "form": "polite_potential"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい。地図を 見て ください。地上に あります。",
+              "en": "Yes. Please look at the map. It is above ground.",
+              "terms": [
+                "p_hai",
+                "v_chizu",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": "te_form"
+                },
+                "v_kudasai",
+                "v_chijou",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                }
+              ]
+            }
+          ],
+          "question": "Why does the student ask for an explanation?",
+          "choices": [
+            "They cannot find the map section.",
+            "They don't know how to get to the basement.",
+            "They want to borrow a book on place names.",
+            "The library's problem is explained on the map."
+          ],
+          "answer": "They don't know how to get to the basement.",
+          "explanation": "A says 地下への行き方が分かりません (I don't know how to get to the basement) and asks 説明してもらえますか (could you explain it?)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Two colleagues discuss evening plans after work.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今夜は 洋食を 食べに 行きたいです。近くに 洋食の 料理屋が ありますか。",
+              "en": "Tonight I want to go eat Western food. Is there a Western-food restaurant nearby?",
+              "terms": [
+                "v_konya",
+                "p_wa",
+                "v_youshoku",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": null
+                },
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu",
+                {
+                  "id": "v_chikai",
+                  "form": "adverbial"
+                },
+                "p_ni",
+                "v_youshoku",
+                "p_no",
+                "v_ryouriya",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "駅の 近くに 洋風の 料理屋が ありますよ。",
+              "en": "There is a Western-style restaurant near the station.",
+              "terms": [
+                "v_eki",
+                "p_no",
+                {
+                  "id": "v_chikai",
+                  "form": "adverbial"
+                },
+                "p_ni",
+                "v_youfuu",
+                "p_no",
+                "v_ryouriya",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "いいですね。食事の あと、夜空を 見に 行きませんか。",
+              "en": "That sounds good. After the meal, shall we go to see the night sky?",
+              "terms": [
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_ne",
+                "v_shokuji",
+                "p_no",
+                "v_ato",
+                "v_yozora",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": null
+                },
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "polite_negative"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいですよ。屋上から 夜の 海も 見えますね。",
+              "en": "Sure! From the rooftop you can also see the night sea.",
+              "terms": [
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_yo",
+                "v_okujou",
+                "p_kara",
+                "v_yoru",
+                "p_no",
+                "v_umi",
+                "p_mo",
+                {
+                  "id": "v_mieru",
+                  "form": "polite_masu"
+                },
+                "p_ne"
+              ]
+            }
+          ],
+          "question": "What does A want to do after dinner?",
+          "choices": [
+            "Go to a bar in town.",
+            "Look at the night sky.",
+            "Go to the library rooftop.",
+            "Eat Western food again."
+          ],
+          "answer": "Look at the night sky.",
+          "explanation": "A proposes 夜空を見に行きませんか (shall we go to see the night sky?) after the meal."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Two close friends relax at a bar after work. (Casual speech between close friends.)",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "この 飲み屋、安くて いいね。洋食も あるし。",
+              "en": "This bar is cheap and great. They have Western food too.",
+              "terms": [
+                "v_kono",
+                "v_nomiya",
+                {
+                  "id": "v_yasui",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_ii",
+                  "form": "plain_adj"
+                },
+                "p_ne",
+                "v_youshoku",
+                "p_mo",
+                {
+                  "id": "v_aru",
+                  "form": "plain_form"
+                },
+                "p_shi"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうだね。今夜は 仕事で つかれたから、ゆっくり 飲みたい。",
+              "en": "Yeah, you're right. Tonight I'm tired from work, so I want to drink slowly.",
+              "terms": [
+                "v_sou",
+                "p_ne",
+                "g_da",
+                "v_konya",
+                "p_wa",
+                "v_shigoto",
+                "p_de",
+                {
+                  "id": "v_tsukareru",
+                  "form": "plain_past"
+                },
+                "p_kara_because",
+                "v_yukkuri",
+                {
+                  "id": "v_nomu",
+                  "form": "plain_desire_tai"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "毎晩 ここに 来たいな。夜空も きれいだし。",
+              "en": "I want to come here every night. The night sky is beautiful too.",
+              "terms": [
+                "v_maiban",
+                "v_koko",
+                "p_ni",
+                {
+                  "id": "v_kuru",
+                  "form": "plain_desire_tai"
+                },
+                "p_na",
+                "v_yozora",
+                "p_mo",
+                {
+                  "id": "v_kirei",
+                  "form": "plain_adj"
+                },
+                "p_shi",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "わかった。つぎも いっしょに 来よう。",
+              "en": "Got it. Let's come together again next time.",
+              "terms": [
+                {
+                  "id": "v_wakaru",
+                  "form": "plain_past"
+                },
+                "v_tsugi",
+                "p_mo",
+                "v_issho",
+                "p_ni",
+                {
+                  "id": "v_kuru",
+                  "form": "plain_volitional"
+                }
+              ]
+            }
+          ],
+          "question": "Why does B want to drink slowly tonight?",
+          "choices": [
+            "Because they want to stay until the bar closes.",
+            "Because the Western food takes time to enjoy.",
+            "Because they are tired from work tonight.",
+            "Because they came to look at the night sky."
+          ],
+          "answer": "Because they are tired from work tonight.",
+          "explanation": "B says 仕事でつかれたから (because I'm tired from work) as the reason for wanting to drink slowly — ゆっくり飲みたい."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "Place names are written on the map.",
+          "segments": [
+            "地図",
+            "に",
+            "地名",
+            "が",
+            "書いて",
+            "あります"
+          ],
+          "distractors": [
+            "を",
+            "地下",
+            "書きます"
+          ],
+          "explanation": "地図 + に (location of result) + 地名 + が (subject of result state) + 書いて + あります. 書いてある expresses that something has been written and remains in that state. に marks where the writing exists. が marks what is in the result state. を marks a direct object of active transitive verbs — not applicable for result-state constructions."
+        },
+        {
+          "kind": "scramble",
+          "q": "The student went to the library to borrow a book.",
+          "segments": [
+            "学生",
+            "は",
+            "図書館",
+            "に",
+            "本",
+            "を",
+            "借りに",
+            "行きました"
+          ],
+          "distractors": [
+            "が",
+            "で",
+            "来ました"
+          ],
+          "explanation": "学生 + は (topic) + 図書館 + に (destination of movement) + 本 + を (object of purpose verb) + 借りに (masu-stem + に = purpose: in order to borrow) + 行きました. に marks the destination with 行く. で marks the location of an action performed there — not a destination. 来ました means came, not went."
+        },
+        {
+          "kind": "scramble",
+          "q": "After the meal, I often go to the rooftop.",
+          "segments": [
+            "食事",
+            "が",
+            "終わった",
+            "あと",
+            "よく",
+            "屋上",
+            "に",
+            "行きます"
+          ],
+          "alts": [
+            [
+              "食事",
+              "が",
+              "終わった",
+              "あと",
+              "屋上",
+              "に",
+              "よく",
+              "行きます"
+            ]
+          ],
+          "distractors": [
+            "を",
+            "飲み屋",
+            "行きました"
+          ],
+          "explanation": "食事 + が (subject of 終わった) + 終わった + あと (after completing) + よく + 屋上 + に (destination) + 行きます. が marks 食事 as subject of 終わる. あと follows a plain past verb to express 'after doing'. よく (often) can also appear immediately before 行きます. 行きました would be past tense — but the sentence describes a habit."
+        },
+        {
+          "kind": "scramble",
+          "q": "I don't understand this problem at all. Could you explain it?",
+          "segments": [
+            "この",
+            "問題",
+            "が",
+            "ぜんぜん",
+            "分かりません",
+            "説明して",
+            "もらえますか"
+          ],
+          "distractors": [
+            "を",
+            "質問",
+            "分かります"
+          ],
+          "explanation": "この + 問題 + が (subject of stative 分かる) + ぜんぜん + 分かりません + 説明して + もらえますか (can I receive the explanation?). 分かる is a stative verb meaning 'understand'; its subject is marked with が, not を. もらえますか makes a polite request to receive someone's action."
+        },
+        {
+          "kind": "scramble",
+          "q": "Tonight's night sky is very beautiful.",
+          "segments": [
+            "今夜",
+            "の",
+            "夜空",
+            "は",
+            "とても",
+            "きれいです"
+          ],
+          "distractors": [
+            "が",
+            "夜の",
+            "きれいでした"
+          ],
+          "explanation": "今夜 + の (possessive: tonight's) + 夜空 + は (topic) + とても + きれいです. は topics 夜空 as the thing being described. が would emphasize new-information subject. きれいでした would be past tense — the sky is beautiful right now. 夜の is 'of the night' without specifying tonight."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — A Weekend at the Library and a Night Out",
+      "passage": [
+        {
+          "jp": "りきぞうは 図書館で 小説を 読んで います。",
+          "en": "Rikizo is reading novels at the library.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_toshokan",
+            "p_de",
+            "v_shousetsu",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "地図に 地名が 書いて あります。地下にも 本が たくさん あります。",
+          "en": "Place names are written on the map. There are also many books in the basement.",
+          "terms": [
+            "v_chizu",
+            "p_ni",
+            "v_chimei",
+            "p_ga",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_chika",
+            "p_mo",
+            "p_ni",
+            "v_hon",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "その 夜、りきぞうは 洋食の 料理屋に 行きました。",
+          "en": "That evening, Rikizo went to a Western-food restaurant.",
+          "terms": [
+            "v_sono",
+            "v_yoru",
+            "char_rikizo",
+            "p_wa",
+            "v_youshoku",
+            "p_no",
+            "v_ryouriya",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "洋食は おいしくて、洋風の 店も 明るかったです。",
+          "en": "The Western food was delicious, and the Western-style restaurant was bright too.",
+          "terms": [
+            "v_youshoku",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "te_form"
+            },
+            "v_youfuu",
+            "p_no",
+            "v_mise",
+            "p_mo",
+            {
+              "id": "v_akarui",
+              "form": "polite_past_adj"
+            }
+          ]
+        },
+        {
+          "jp": "食事の あと、屋上に 行って 今夜の 夜空を 楽しみました。",
+          "en": "After the meal, he went up to the rooftop and enjoyed tonight's night sky.",
+          "terms": [
+            "v_shokuji",
+            "p_no",
+            "v_ato",
+            "v_okujou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_konya",
+            "p_no",
+            "v_yozora",
+            "p_wo",
+            {
+              "id": "v_tanoshimu",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうは 図書館で 何を して いますか。",
+          "a": "小説を 読んで います",
+          "choices": [
+            "地図を 書いて います",
+            "小説を 読んで います",
+            "質問を して います",
+            "地名を 説明して います"
+          ],
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_toshokan",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            {"id": "v_suru", "form": "te_form"},
+            {"id": "v_iru", "form": "polite_masu"},
+            "p_ka",
+            "v_shousetsu",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "りきぞうは その 夜、どんな 店に 行きましたか。",
+          "a": "洋食の 料理屋",
+          "choices": [
+            "地名の 図書館",
+            "洋食の 料理屋",
+            "地下の 飲み屋",
+            "洋風の 本屋"
+          ],
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_sono",
+            "v_yoru",
+            "v_donna",
+            "v_mise",
+            "p_ni",
+            {"id": "v_iku", "form": "polite_mashita"},
+            "p_ka",
+            "v_youshoku",
+            "p_no",
+            "v_ryouriya"
+          ]
+        },
+        {
+          "q": "食事の あと、りきぞうは 何を しましたか。",
+          "a": "屋上に 行って 夜空を 楽しみました",
+          "choices": [
+            "図書館に 行って 本を 借りました",
+            "屋上に 行って 夜空を 楽しみました",
+            "飲み屋で 洋食を 食べました",
+            "地下に 行って 地図を 見ました"
+          ],
+          "terms": [
+            "v_shokuji",
+            "p_no",
+            "v_ato",
+            "char_rikizo",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {"id": "v_suru", "form": "polite_mashita"},
+            "p_ka",
+            "v_okujou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_yozora",
+            "p_wo",
+            {
+              "id": "v_tanoshimu",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[地図]を 見て ください。",
+          "choices": [
+            "ちず",
+            "じず",
+            "ちと",
+            "ちほ"
+          ],
+          "answer": "ちず",
+          "explanation": "地図 (map) is read as <b>chizu</b>. 地 (chi — ground) + 図 (zu — map/drawing)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[図書館]で 小説を 借りました。",
+          "choices": [
+            "としょかん",
+            "ずしょかん",
+            "としょかい",
+            "とうしょかん"
+          ],
+          "answer": "としょかん",
+          "explanation": "図書館 (library) is read as <b>toshokan</b>. 図 (to — drawing) + 書 (sho — write) + 館 (kan — building)."
+        },
+        {
+          "kind": "mcq",
+          "q": "この [問題]が 分かりません。",
+          "choices": [
+            "もんだい",
+            "とだい",
+            "もんてい",
+            "かんだい"
+          ],
+          "answer": "もんだい",
+          "explanation": "問題 (problem / question) is read as <b>mondai</b>. 問 (mon — question) + 題 (dai — topic/subject)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[説明]して もらえますか。",
+          "choices": [
+            "せつめい",
+            "せつべい",
+            "とくめい",
+            "せつみょう"
+          ],
+          "answer": "せつめい",
+          "explanation": "説明 (explanation) is read as <b>setsumei</b>. 説 (setsu — explain/theory) + 明 (mei — bright/clear)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[夜空]が とても きれいです。",
+          "choices": [
+            "よぞら",
+            "やそら",
+            "よるそら",
+            "やくう"
+          ],
+          "answer": "よぞら",
+          "explanation": "夜空 (night sky) is read as <b>yozora</b>. 夜 (yo — night) + 空 (zora — sky, voiced in compound)."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅の 近くに [洋食]の 料理屋が あります。",
+          "choices": [
+            "ようしょく",
+            "ようじき",
+            "ようしき",
+            "わしょく"
+          ],
+          "answer": "ようしょく",
+          "explanation": "洋食 (Western food) is read as <b>youshoku</b>. 洋 (you — Western/ocean) + 食 (shoku — food/eat)."
+        },
+        {
+          "kind": "mcq",
+          "q": "新しい [洋服]を 買いました。",
+          "choices": [
+            "ようふく",
+            "ようふう",
+            "わふく",
+            "ようぶく"
+          ],
+          "answer": "ようふく",
+          "explanation": "洋服 (Western-style clothes) is read as <b>youfuku</b>. 洋 (you — Western) + 服 (fuku — clothes)."
+        },
+        {
+          "kind": "mcq",
+          "q": "食事の あと [屋上]に 行きました。",
+          "choices": [
+            "おくじょう",
+            "やじょう",
+            "おくかみ",
+            "おくうえ"
+          ],
+          "answer": "おくじょう",
+          "explanation": "屋上 (rooftop) is read as <b>okujou</b>. 屋 (oku — roof/house) + 上 (jou — above/top)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "図書館で ______ を 読んで います。むずかしいですが、おもしろいです。",
+          "choices": [
+            "小説",
+            "地名",
+            "夜空",
+            "洋服"
+          ],
+          "answer": "小説",
+          "explanation": "小説 (shousetsu, novel) fits: reading at the library — difficult but interesting. 地名 (place names) would not be described as having interesting content in this context. 夜空 (night sky) and 洋服 (Western clothes) are not things one reads at a library.",
+          "terms": [
+            "v_toshokan",
+            "p_de",
+            "v_shousetsu",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生だけが この ______ を 説明できます。学生には むずかしすぎます。",
+          "choices": [
+            "問題",
+            "地図",
+            "飲み屋",
+            "夜空"
+          ],
+          "answer": "問題",
+          "explanation": "問題 (mondai, problem) fits: only the teacher can explain this problem — it is too difficult for students. 地図 (map) is not something a teacher explains academically. 飲み屋 (bar) and 夜空 (night sky) are thematically off.",
+          "terms": [
+            "v_sensei",
+            "p_dake",
+            "p_ga",
+            "v_mondai",
+            "p_wo",
+            "v_setsumei",
+            {
+              "id": "v_dekiru",
+              "form": "polite_masu"
+            },
+            "v_gakusei"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今夜は ______ を 食べに、駅の 近くの 料理屋に 行きました。",
+          "choices": [
+            "洋食",
+            "質問",
+            "説明",
+            "地名"
+          ],
+          "answer": "洋食",
+          "explanation": "洋食 (youshoku, Western food) fits: going to a restaurant near the station to eat. 質問 (question) and 説明 (explanation) are not things one eats. 地名 (place names) is a vocabulary term, not food.",
+          "terms": [
+            "v_konya",
+            "p_wa",
+            "v_youshoku",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": null
+            },
+            "p_ni",
+            "v_eki",
+            "p_no",
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
+            "p_no",
+            "v_ryouriya",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "その 飲み屋は ______ で、料理も おいしいです。",
+          "choices": [
+            "洋風",
+            "水質",
+            "地名",
+            "問題"
+          ],
+          "answer": "洋風",
+          "explanation": "洋風 (youfuu, Western style) fits: that bar has a Western style and the food is also delicious. 水質 (water quality), 地名 (place names), and 問題 (problem) do not describe the atmosphere or character of a bar.",
+          "terms": [
+            "v_sono",
+            "v_nomiya",
+            "p_wa",
+            "v_youfuu",
+            "p_de",
+            "v_ryouri",
+            "p_mo",
+            "v_oishii"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "図書館 ______ 本を 借りに 行きました。",
+          "choices": [
+            "に",
+            "で",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "explanation": "Use に to mark the destination of movement with 行く. 図書館に行く = 'to go to the library'. で marks where an action is performed at a location — not the direction of travel.",
+          "terms": [
+            "v_toshokan",
+            "p_ni",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kariru",
+              "form": null
+            },
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "食事が 終わった ______ 、屋上に 行きました。",
+          "choices": [
+            "あと",
+            "まえ",
+            "から",
+            "ので"
+          ],
+          "answer": "あと",
+          "explanation": "あと follows a plain past verb to express 'after doing': 終わったあと = 'after finishing'. まえ means 'before' — the opposite. から after a plain verb can express 'after' in some contexts but 終わったあと is the natural collocation. ので means 'because'.",
+          "terms": [
+            "v_shokuji",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "plain_past"
+            },
+            "v_ato",
+            "v_okujou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "地図に 地名 ______ 書いて あります。",
+          "choices": [
+            "が",
+            "を",
+            "は",
+            "に"
+          ],
+          "answer": "が",
+          "explanation": "Use が to mark the subject of the result-state construction 書いてある. This structure expresses that the place names have been written and remain written. が marks what is in that result state. を marks a direct object of an active transitive verb — not applicable for 書いてある.",
+          "terms": [
+            "v_chizu",
+            "p_ni",
+            "v_chimei",
+            "p_ga",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今夜は 洋食を ______。",
+          "choices": [
+            "食べたいです",
+            "食べたくないです",
+            "食べましょう",
+            "食べません"
+          ],
+          "answer": "食べたいです",
+          "explanation": "食べたいです (tabetai desu, 'I want to eat') fits the context of expressing a desire for Western food tonight. 食べましょう means 'let's eat' (a suggestion to someone else). 食べません means 'I won't eat'. 食べたくないです means 'I don't want to eat', which contradicts the positive context.",
+          "terms": [
+            "v_konya",
+            "p_wa",
+            "v_youshoku",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 洋服、______ ですが、とても きれいですね。",
+          "choices": [
+            "高そう",
+            "高いそう",
+            "高くなさそう",
+            "高そうだ"
+          ],
+          "answer": "高そう",
+          "explanation": "Appearance そうだ for い-adjectives: drop the final い and add そう. 高い → drop い → 高 + そう = 高そう. This is the stem form — it pairs with です to become 高そうです (polite) or stands alone as 高そうだ (casual). 高いそう would be hearsay ('I heard it is expensive'), not appearance.",
+          "terms": [
+            "v_kono",
+            "v_youfuku",
+            {
+              "id": "v_takai",
+              "form": "appearance_sou_stem"
+            },
+            "g_desu",
+            "p_ga_but",
+            "v_totemo",
+            {
+              "id": "v_kirei",
+              "form": "polite_adj"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちから 聞いた んですが、あの 料理屋は ______ そうです。",
+          "choices": [
+            "おいしい",
+            "おいし",
+            "おいしく",
+            "おいしかった"
+          ],
+          "answer": "おいしい",
+          "explanation": "Hearsay そうだ attaches to the full PLAIN FORM — the い stays. おいしい + そうです = おいしいそうです (I heard it's delicious). The stem form おいし + そうです = おいしそうです means APPEARANCE ('it looks delicious'). Hearsay reports what you were told; appearance reports what you observe directly.",
+          "terms": [
+            "v_tomodachi",
+            "p_kara",
+            {
+              "id": "v_kiku",
+              "form": "plain_past"
+            },
+            "p_ndesu",
+            "p_ga_but",
+            "v_ano",
+            "v_ryouriya",
+            "p_wa",
+            {
+              "id": "v_oishii",
+              "form": "plain_form"
+            },
+            "p_sou_da_hearsay"
+          ]
+        }
+      ]
+    }
+  ]
+}

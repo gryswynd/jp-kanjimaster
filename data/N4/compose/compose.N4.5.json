@@ -1,0 +1,173 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.5",
+  "lesson": "N4.5",
+  "level": "N4",
+  "title": "My Favorite Foods",
+  "titleJp": "私の 好きな 食べ物",
+  "emoji": "🍱",
+  "theme": "Write a short personal essay about your favorite foods — what you like to eat, how you shop for ingredients, and what you can cook.",
+  "prompts": [
+    {
+      "prompt": "Begin your essay by introducing your favorite food. What food do you love? Is it a Japanese dish, a vegetable dish, or a beef dish?",
+      "targets": [
+        { "id": "v_tabemono", "count": 1 }
+      ],
+      "model": "私は 食べ物が 大好きです。野菜の 料理が いちばん 好きです。",
+      "vocabPool": [
+        "v_tabemono", "v_ryouri", "v_yasai", "v_gyuuniku", "v_suki", "v_daisuki",
+        "v_watashi", "v_ichiban", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe the vegetables you like. What kind of vegetables do you often eat? Are they delicious?",
+      "targets": [
+        { "id": "v_yasai", "count": 1 }
+      ],
+      "model": "野菜が 大好きです。色々な 野菜を 毎日 食べています。とても おいしいです。",
+      "vocabPool": [
+        "v_yasai", "v_oishii", "v_iroiro", "v_mainichi", "v_tabemono",
+        "v_taberu", "v_watashi", "v_totemo", "v_amari", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Tell us about a beef dish you like. What kind of beef cuisine do you enjoy? Have you tried making it yourself?",
+      "targets": [
+        { "id": "v_gyuuniku", "count": 1 }
+      ],
+      "model": "牛肉の 料理も 好きです。牛肉は おいしいですから、よく 食べます。",
+      "vocabPool": [
+        "v_gyuuniku", "v_ryouri", "v_suki", "v_daisuki", "v_oishii",
+        "v_taberu", "v_tsukuru", "v_watashi", "v_yoku", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe how you go shopping for food. Where do you buy your food? What do you usually buy?",
+      "targets": [
+        { "id": "v_kaimono", "count": 1 }
+      ],
+      "model": "毎週 スーパーに 行って、買い物をします。野菜と 牛肉を よく 買います。",
+      "vocabPool": [
+        "v_kaimono", "v_suupaa", "v_mise", "v_yasai", "v_gyuuniku", "v_tabemono",
+        "v_kau", "v_iku", "v_mainichi", "v_yoku", "v_watashi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Can you cook? What dishes can you make? Do you want to become better at cooking?",
+      "targets": [
+        { "id": "v_ryouri", "count": 1 }
+      ],
+      "model": "料理が 少し 作れます。野菜と 牛肉の 料理を 作ってみました。もっと 上手に 作りたいです。",
+      "vocabPool": [
+        "v_ryouri", "v_tabemono", "v_yasai", "v_gyuuniku", "v_tsukuru", "v_oishii",
+        "v_jouzu", "v_sukoshi", "v_mada", "v_watashi", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "What drinks do you usually enjoy with your meals? Do you like green tea or other beverages?",
+      "targets": [
+        { "id": "v_nomimono", "count": 1 }
+      ],
+      "model": "飲み物は お茶が 大好きです。料理の 後で お茶を 飲みたいです。",
+      "vocabPool": [
+        "v_nomimono", "v_ocha", "v_suki", "v_daisuki", "v_nomu",
+        "v_taberu", "v_ryouri", "v_mainichi", "v_watashi", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Wrap up your essay. Whose cooking would you like to cook like? What food story would you like to tell? Summarize your favorite food and your food goals.",
+      "targets": [
+        { "id": "v_you_manner", "count": 1 }
+      ],
+      "model": "先生の ように 上手に 料理が 作りたいです。食べ物の 物語を 書きたいです。食べ物と 料理が 大好きです。",
+      "vocabPool": [
+        "v_you_manner", "v_jouzu", "v_ryouri", "v_tabemono", "v_monogatari",
+        "v_tsukuru", "v_suki", "v_daisuki", "v_sensei", "v_watashi", "v_totemo", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["大好きです", "料理です", "食べ物です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["大好きでした", "好きじゃありませんでした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["おいしいです", "新しいです", "大きいです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["おいしかったです", "大きかったです", "よかったです"]
+    },
+    {
+      "pattern": "[な-adj] + です",
+      "meaning": "is [na-adj] (polite predicate)",
+      "examples": ["好きです", "大好きです", "上手です"]
+    },
+    {
+      "pattern": "[な-adj] + じゃありません",
+      "meaning": "is not [na-adj] (polite negative)",
+      "examples": ["好きじゃありません", "上手じゃありません"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["食べます", "作ります", "買います"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["食べました", "作りました", "買いました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["食べません", "作りません", "買いません"]
+    },
+    {
+      "pattern": "[RU-verb]〜られます / [U-verb]〜えます",
+      "meaning": "can do [verb] (potential polite)",
+      "examples": ["食べられます", "来られます", "作れます", "買えます"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing / habitual (progressive)",
+      "examples": ["食べています", "作っています", "買っています"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["食べたいです", "作りたいです", "買いたいです"]
+    },
+    {
+      "pattern": "[verb]〜ましょう",
+      "meaning": "let's [verb]",
+      "examples": ["いっしょに 食べましょう", "作りましょう", "買いましょう"]
+    },
+    {
+      "pattern": "[verb]〜てみます",
+      "meaning": "try doing [verb]",
+      "examples": ["食べてみます", "作ってみます", "買ってみます"]
+    },
+    {
+      "pattern": "[な-adj]〜 + に",
+      "meaning": "[na-adj] adverbial (skillfully / beautifully)",
+      "examples": ["上手に 作ります", "上手に 買います"]
+    }
+  ]
+}

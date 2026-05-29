@@ -1,0 +1,158 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.2",
+  "lesson": "N4.2",
+  "level": "N4",
+  "title": "My Journey by Train and Foot",
+  "titleJp": "電車と 歩いて",
+  "emoji": "🚶",
+  "theme": "Write about a journey — describe where you live, how near or far the station is, how you ride and walk to your destination, and what it is like to go on an excursion.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Introduce yourself and describe where you live. Is your home near or far from the station?",
+      "targets": [
+        { "id": "v_chikai", "count": 1 }
+      ],
+      "model": "わたしの 家は 駅から 少し 遠いです。でも、駅は 学校から 近いです。",
+      "vocabPool": [
+        "v_chikai", "v_tooi", "v_ie", "v_eki", "v_gakkou", "v_sukoshi",
+        "v_watashi", "v_mainichi", "v_ima", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe how you travel to school or work each day. Do you ride the train, take the bus, or walk? Tell us what you ride.",
+      "targets": [
+        { "id": "v_noru", "count": 1 }
+      ],
+      "model": "毎日 電車に 乗って 学校へ 行きます。電車は いいです。",
+      "vocabPool": [
+        "v_noru", "v_densha", "v_basu", "v_gakkou", "v_kaisha", "v_eki",
+        "v_mainichi", "v_iku", "v_kuru", "v_ii", "v_itsumo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Now describe the walk from the station to your school or workplace. How far is it? Is it near or far?",
+      "targets": [
+        { "id": "v_aruku", "count": 1 }
+      ],
+      "model": "駅から 学校まで 少し 歩きます。近いですよ。",
+      "vocabPool": [
+        "v_aruku", "v_chikai", "v_tooi", "v_eki", "v_gakkou", "v_kaisha",
+        "v_sukoshi", "v_mainichi", "v_michi", "v_ie", "g_desu"
+      ]
+    },
+    {
+      "prompt": "You are planning a class excursion. Write about the excursion — what it is and where you will go.",
+      "targets": [
+        { "id": "v_ensoku", "count": 1 }
+      ],
+      "model": "今日は クラスの 遠足です。電車に 乗って 山へ 行きます。",
+      "vocabPool": [
+        "v_ensoku", "v_kurasu", "v_densha", "v_noru", "v_yama", "v_iku",
+        "v_kyou", "v_gakkou", "v_eki", "v_tomodachi", "v_issho", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe the destination — is it near or far from school? How long is the train ride?",
+      "targets": [
+        { "id": "v_tooi", "count": 1 }
+      ],
+      "model": "山は 学校から 少し 遠いですが、電車で 行きます。電車で 一時間 乗ります。",
+      "vocabPool": [
+        "v_tooi", "v_chikai", "v_yama", "v_gakkou", "v_densha", "v_noru",
+        "v_sukoshi", "v_iku", "v_jikan", "v_mainichi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "You arrive at the destination. Describe arriving and walking around the mountain path.",
+      "targets": [
+        { "id": "v_tsuku", "count": 1 }
+      ],
+      "model": "山に 着いて、山の 道を 歩きました。道は 長かったですが、いい 遠足でした。",
+      "vocabPool": [
+        "v_tsuku", "v_aruku", "v_yama", "v_michi", "v_nagai", "v_ensoku",
+        "v_sukoshi", "v_ii", "v_totemo", "v_gakkou", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Describe returning to school or home. How was your day?",
+      "targets": [
+        { "id": "v_kaeru", "count": 1 }
+      ],
+      "model": "学校に 帰りました。いい 一日でした。また 遠足に 行きたいです。",
+      "vocabPool": [
+        "v_kaeru", "v_gakkou", "v_ie", "v_densha", "v_ensoku", "v_ichinichi",
+        "v_ii", "v_noru", "v_aruku", "v_iku", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["遠足です", "近いです", "電車です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["いい 一日でした", "遠足でした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["近いです", "遠いです", "長いです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["近かったです", "遠かったです", "長かったです", "よかったです"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["乗ります", "歩きます", "行きます"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["乗りました", "歩きました", "着きました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["乗りません", "歩きません", "行きません"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing (progressive)",
+      "examples": ["歩いています", "乗っています"]
+    },
+    {
+      "pattern": "[verb]〜てください",
+      "meaning": "please do [verb]",
+      "examples": ["歩いてください", "乗ってください"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["乗りたいです", "歩きたいです", "行きたいです"]
+    },
+    {
+      "pattern": "[verb]〜ましょう",
+      "meaning": "let's [verb]",
+      "examples": ["いっしょに 乗りましょう", "歩きましょう"]
+    },
+    {
+      "pattern": "[verb]〜ない",
+      "meaning": "do not [verb] (plain negative)",
+      "examples": ["乗らない", "歩かない", "行かない"]
+    }
+  ]
+}

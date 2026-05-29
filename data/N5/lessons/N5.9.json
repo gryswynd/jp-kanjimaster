@@ -1,0 +1,1549 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.9",
+  "title": "Relative Position",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 9,
+    "focus": "Position words 前・後ろ・中・外 to describe where things are located, compounds 名前・外食・外人, and plain-form connectors が/けど (but), から/ので (because), plus the explanatory form なんです/んだ",
+    "estimated_minutes": 50,
+    "kanji": [
+      "前",
+      "後",
+      "中",
+      "外"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "前",
+      "on": "ぜん",
+      "kun": "まえ",
+      "meaning": "Front / Before",
+      "termId": "k_mae"
+    },
+    {
+      "kanji": "後",
+      "on": "ご/こう",
+      "kun": "うしろ/あと",
+      "meaning": "Behind / After",
+      "termId": "k_ushiro"
+    },
+    {
+      "kanji": "中",
+      "on": "ちゅう",
+      "kun": "なか",
+      "meaning": "Inside / Middle",
+      "termId": "k_naka"
+    },
+    {
+      "kanji": "外",
+      "on": "がい",
+      "kun": "そと",
+      "meaning": "Outside",
+      "termId": "k_soto"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "やまかわさんは コーヒーを 飲んでいます。",
+          "en": "Yamakawa-san is drinking coffee.",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "p_wa",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "今日 デパートへ 行きます。",
+          "en": "I will go to the department store today.",
+          "terms": [
+            "v_kyou",
+            "v_depaato",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "友だちと いっしょに 食べましょう。",
+          "en": "Let's eat together with a friend.",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            "v_issho",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "jp": "駅へ 来てください。",
+          "en": "Please come to the station.",
+          "terms": [
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "前",
+          "on": "ぜん",
+          "kun": "まえ",
+          "meaning": "front / before",
+          "terms": [
+            "k_mae"
+          ]
+        },
+        {
+          "kanji": "後",
+          "on": "ご/こう",
+          "kun": "うしろ/あと",
+          "meaning": "behind / after",
+          "terms": [
+            "k_ushiro"
+          ]
+        },
+        {
+          "kanji": "中",
+          "on": "ちゅう",
+          "kun": "なか",
+          "meaning": "inside / middle",
+          "terms": [
+            "k_naka"
+          ]
+        },
+        {
+          "kanji": "外",
+          "on": "がい",
+          "kun": "そと",
+          "meaning": "outside",
+          "terms": [
+            "k_soto"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_mae",
+            "k_ushiro",
+            "k_naka",
+            "k_soto"
+          ]
+        },
+        {
+          "label": "Position Words",
+          "items": [
+            "v_mae",
+            "v_ushiro",
+            "v_naka",
+            "v_soto"
+          ]
+        },
+        {
+          "label": "後 (あと) — Temporal",
+          "items": [
+            "v_ato"
+          ]
+        },
+        {
+          "label": "Nouns",
+          "items": [
+            "v_namae",
+            "v_gaijin",
+            "v_gaishoku"
+          ]
+        },
+        {
+          "label": "Expressions",
+          "items": [
+            "v_daijoubu",
+            "v_doushite"
+          ]
+        },
+        {
+          "label": "New Particles (Connectors)",
+          "items": [
+            "p_ga_but",
+            "p_kedo",
+            "p_kara_because",
+            "p_node",
+            "p_ndesu",
+            "p_nda"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: 駅の 前に あります（It's in Front of the Station）",
+      "context": "Rikizo asks Yamakawa where the new store is.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "やまかわさん、店は どこに ありますか。",
+          "en": "Yamakawa-san, where is the store?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "v_mise",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "駅の 前に あります。",
+          "en": "It's in front of the station.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "店の 中に 何が ありますか。",
+          "en": "What is inside the store?",
+          "terms": [
+            "v_mise",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "カレーや パンが あります。大きい 店ですよ。",
+          "en": "There is curry and bread. It's a big store, you know.",
+          "terms": [
+            "v_karee",
+            "p_ya",
+            "v_pan",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_ookii",
+            "v_mise",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "外に 車が ありますか。",
+          "en": "Are there any cars outside?",
+          "terms": [
+            "v_soto",
+            "p_ni",
+            "v_kuruma",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、駅の 後ろに も ありますよ。",
+          "en": "Yes, there are some behind the station too, you know.",
+          "terms": [
+            "p_hai",
+            "v_eki",
+            "p_no",
+            "v_ushiro",
+            "p_ni",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "大きい 店ですが、外も いいですよ。",
+          "en": "It's a big store, but the outside is nice too, you know.",
+          "terms": [
+            "v_ookii",
+            "v_mise",
+            "g_desu",
+            "p_ga_but",
+            "v_soto",
+            "p_mo",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 外食を しましょう（Let's Eat Out）",
+      "context": "Yamamoto-sensei and Rikizo plan to eat out together.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "りきぞうさん、今日 外食を しますか。",
+          "en": "Rikizo-san, will you eat out today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "v_gaishoku",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、します。あの レストランへ 行きましょう。",
+          "en": "Yes, I will. Let's go to that restaurant.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
+            "v_ano",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "あの レストランは 駅の 前に ありますね。",
+          "en": "That restaurant is in front of the station, isn't it.",
+          "terms": [
+            "v_ano",
+            "v_resutoran",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "そうです。中で 食べて、外で コーヒーを 飲みましょう。",
+          "en": "That's right. Let's eat inside and drink coffee outside.",
+          "terms": [
+            "p_soudesu",
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_soto",
+            "p_de",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "いいですね。中が いいですか、外が いいですか。",
+          "en": "That sounds great. Is inside better, or outside better?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_naka",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ka",
+            "v_soto",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "中が いいです。店の 中は 新しいですよ。",
+          "en": "Inside is better. The inside of the store is new, you know.",
+          "terms": [
+            "v_naka",
+            "p_ga",
+            "v_ii",
+            "g_desu",
+            "v_mise",
+            "p_no",
+            "v_naka",
+            "p_wa",
+            "v_atarashii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "そうですね。レストランは 高いですけど、おいしいですよ。",
+          "en": "That's right. The restaurant is expensive, but it's delicious, you know.",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_resutoran",
+            "p_wa",
+            "v_takai",
+            "g_desu",
+            "p_kedo",
+            "v_oishii",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: こちらへ どうぞ（This Way, Please）",
+      "context": "A foreign visitor asks Rikizo for directions to the department store.",
+      "lines": [
+        {
+          "spk": "がいじん",
+          "jp": "すみません。デパートは どちら ですか。",
+          "en": "Excuse me. Which way is the department store?",
+          "terms": [
+            "p_sumimasen",
+            "v_depaato",
+            "p_wa",
+            "v_dochira",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "あちらです。駅の 前に あります。",
+          "en": "It's over that way. It's in front of the station.",
+          "terms": [
+            "v_achira",
+            "g_desu",
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "がいじん",
+          "jp": "あの 大きい 店ですか。",
+          "en": "Is it that big store?",
+          "terms": [
+            "v_ano",
+            "v_ookii",
+            "v_mise",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、そうです。こちらへ 来てください。",
+          "en": "Yes, that's right. Please come this way.",
+          "terms": [
+            "p_hai",
+            "p_soudesu",
+            "v_kochira",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "がいじん",
+          "jp": "お名前は？ わたしは 外人です。",
+          "en": "What is your name? I am a foreigner.",
+          "terms": [
+            "v_onamae",
+            "p_wa",
+            "v_watashi",
+            "p_wa",
+            "v_gaijin",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "りきぞうです。だいじょうぶですよ。",
+          "en": "I'm Rikizo. No problem, you know.",
+          "terms": [
+            "char_rikizo",
+            "g_desu",
+            "v_daijoubu",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: どうして 外に いますか（Why Are You Outside?）",
+      "context": "Yamakawa finds Rikizo standing outside the store and asks why.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞうさん、どうして 外に いますか。",
+          "en": "Rikizo-san, why are you outside?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_doushite",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "友だちが 来ます。外で 飲んでいます。",
+          "en": "A friend is coming. I am drinking outside.",
+          "terms": [
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "v_soto",
+            "p_de",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "コーヒーが 安いから、外で 飲みます。中は 高いので、外が いいんです。",
+          "en": "Because the coffee is cheap, I drink it outside. The inside is expensive, so outside is better, you see.",
+          "terms": [
+            "v_koohii",
+            "p_ga",
+            {
+              "id": "v_yasui",
+              "form": "plain_adj"
+            },
+            "p_kara_because",
+            "v_soto",
+            "p_de",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "v_naka",
+            "p_wa",
+            {
+              "id": "v_takai",
+              "form": "plain_adj"
+            },
+            "p_node",
+            "v_soto",
+            "p_ga",
+            {
+              "id": "v_ii",
+              "form": "plain_adj"
+            },
+            "p_ndesu"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうですか。中に 先生が いますよ。",
+          "en": "Is that so. The teacher is inside, you know.",
+          "terms": [
+            "p_soudesuka",
+            "v_naka",
+            "p_ni",
+            "v_sensei",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "先生は 中に います。前に 外に いましたよ。",
+          "en": "The teacher is inside. She was outside before, you know.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_mae",
+            "p_ni",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "後で 中に 来てください。いっしょに 食べましょう。",
+          "en": "Please come inside later. Let's eat together.",
+          "terms": [
+            "v_ato",
+            "p_de",
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_issho",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "いいですね。中で 食べましょう。",
+          "en": "That sounds great. Let's eat inside.",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: 駅の まわり（Around the Station）",
+      "passage": [
+        {
+          "jp": "駅の 前に 大きい 店が あります。",
+          "en": "There is a big store in front of the station.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_ookii",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "店の 中に カレーや パンが あります。",
+          "en": "Inside the store there is curry and bread.",
+          "terms": [
+            "v_mise",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_karee",
+            "p_ya",
+            "v_pan",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "駅の 後ろに 車が あります。",
+          "en": "There are cars behind the station.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_ushiro",
+            "p_ni",
+            "v_kuruma",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "外に 友だちが います。中に 先生が います。",
+          "en": "There is a friend outside. The teacher is inside.",
+          "terms": [
+            "v_soto",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_naka",
+            "p_ni",
+            "v_sensei",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞうは 外で コーヒーを 飲んでいます。",
+          "en": "Rikizo is drinking coffee outside.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_soto",
+            "p_de",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "駅の 前に 何が ありますか。",
+          "q_en": "What is in front of the station?",
+          "a": "大きい 店が あります。",
+          "a_en": "There is a big shop.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ookii",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "りきぞうは いま 何を していますか。",
+          "q_en": "What is Rikizo doing now?",
+          "a": "外で コーヒーを 飲んでいます。",
+          "a_en": "He is drinking coffee outside.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_ima",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_soto",
+            "p_de",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "先生は どこに いますか。",
+          "q_en": "Where is the teacher?",
+          "a": "中に います。",
+          "a_en": "He is inside.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: 外食に 行きました（I Went Out to Eat）",
+      "passage": [
+        {
+          "jp": "今日、やまかわは 外食に 行きました。",
+          "en": "Today, Yamakawa went out to eat.",
+          "terms": [
+            "v_kyou",
+            "char_yamakawa",
+            "p_wa",
+            "v_gaishoku",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "駅の 前に ある レストランへ 行きました。",
+          "en": "She went to the restaurant that is in front of the station.",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_aru",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "レストランの 中は 新しいです。",
+          "en": "The inside of the restaurant is new.",
+          "terms": [
+            "v_resutoran",
+            "p_no",
+            "v_naka",
+            "p_wa",
+            "v_atarashii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "そちらの カレーは とても おいしいですよ。",
+          "en": "The curry there is very delicious, you know.",
+          "terms": [
+            "v_sochira",
+            "p_no",
+            "v_karee",
+            "p_wa",
+            "v_totemo",
+            "v_oishii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "jp": "安くて、とても いいですよ。",
+          "en": "It is cheap and really great, you know.",
+          "terms": [
+            {
+              "id": "v_yasui",
+              "form": "te_form"
+            },
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "jp": "カレーを 食べて、コーヒーも 飲みました。",
+          "en": "She ate curry and also drank coffee.",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_koohii",
+            "p_mo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわは コーヒーが ほしいです。",
+          "en": "Yamakawa wants coffee.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_koohii",
+            "p_ga",
+            "v_hoshii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "来週も とても おいしい でしょう。",
+          "en": "Next week will probably be very delicious too.",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_totemo",
+            "v_oishii",
+            "g_deshou"
+          ]
+        },
+        {
+          "jp": "外食は とても すごいですよ。来週も 行きます。",
+          "en": "Eating out is really amazing, you know. I will go next week too.",
+          "terms": [
+            "v_gaishoku",
+            "p_wa",
+            "v_totemo",
+            "v_sugoi",
+            "g_desu",
+            "p_yo",
+            "v_raishuu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは どこへ 行きましたか。",
+          "q_en": "Where did Yamakawa go?",
+          "a": "駅の 前に ある レストランへ 行きました。",
+          "a_en": "He went to the restaurant in front of the station.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_aru",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "レストランの 中は どうですか。",
+          "q_en": "How is the inside of the restaurant?",
+          "a": "新しいです。",
+          "a_en": "It is new.",
+          "terms": [
+            "v_resutoran",
+            "p_no",
+            "v_naka",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_atarashii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "やまかわは 来週も 行きますか。",
+          "q_en": "Will Yamakawa go again next week?",
+          "a": "はい、来週も 行きます。",
+          "a_en": "Yes, he will go again next week.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_raishuu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_raishuu",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each kanji.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[前] の よみかたは？",
+          "choices": [
+            "まえ",
+            "うしろ",
+            "なか",
+            "そと"
+          ],
+          "answer": "まえ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[後] の よみかたは？",
+          "choices": [
+            "うしろ",
+            "まえ",
+            "そと",
+            "なか"
+          ],
+          "answer": "うしろ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[中] の よみかたは？",
+          "choices": [
+            "なか",
+            "そと",
+            "まえ",
+            "うしろ"
+          ],
+          "answer": "なか"
+        },
+        {
+          "kind": "mcq",
+          "q": "[外] の よみかたは？",
+          "choices": [
+            "そと",
+            "なか",
+            "まえ",
+            "うしろ"
+          ],
+          "answer": "そと"
+        },
+        {
+          "kind": "mcq",
+          "q": "[名前] の よみかたは？",
+          "choices": [
+            "なまえ",
+            "めいぜん",
+            "なまみ",
+            "めいまえ"
+          ],
+          "answer": "なまえ"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word or particle to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "駅の _______ に 店が あります。",
+          "choices": [
+            "前",
+            "後ろ",
+            "外",
+            "中"
+          ],
+          "answer": "前",
+          "terms": [
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "中に 友だちが _______。",
+          "choices": [
+            "います",
+            "あります",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "います",
+          "terms": [
+            "v_naka",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "デパートは _______ ですか。（polite: 'Which way is it?'）",
+          "choices": [
+            "どちら",
+            "どこ",
+            "どれ",
+            "どうして"
+          ],
+          "answer": "どちら",
+          "terms": [
+            "v_depaato",
+            "p_wa",
+            "v_dochira",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日 _______ を します。",
+          "choices": [
+            "外食",
+            "名前",
+            "外人",
+            "だいじょうぶ"
+          ],
+          "answer": "外食",
+          "terms": [
+            "v_kyou",
+            "v_gaishoku",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "レストランの 中は 大きいですか、_______ですか。",
+          "choices": [
+            "小さい",
+            "古い",
+            "高い",
+            "長い"
+          ],
+          "answer": "小さい",
+          "terms": [
+            "v_resutoran",
+            "p_no",
+            "v_naka",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "p_ka",
+            "v_chiisai",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞうは 店の _______ に います。",
+          "choices": [
+            "外",
+            "前",
+            "中",
+            "後ろ"
+          ],
+          "answer": "外",
+          "terms": [
+            "v_mise",
+            "p_no",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "お _______ は やまかわです。",
+          "choices": [
+            "名前",
+            "外食",
+            "外人",
+            "だいじょうぶ"
+          ],
+          "answer": "名前",
+          "terms": [
+            "v_namae",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "だいじょうぶですか。― はい、_______ です。",
+          "choices": [
+            "だいじょうぶ",
+            "外食",
+            "名前",
+            "外人"
+          ],
+          "answer": "だいじょうぶ",
+          "terms": [
+            "p_hai",
+            "v_daijoubu",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle or word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "店は 駅の 前 _______ あります。",
+          "choices": [
+            "に",
+            "で",
+            "を",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_mise",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_mae",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生は 店の _______ にいます。",
+          "choices": [
+            "中",
+            "外",
+            "前",
+            "後ろ"
+          ],
+          "answer": "中",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_mise",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ へ 来てください。（'Please come this way.'）",
+          "choices": [
+            "こちら",
+            "あちら",
+            "そちら",
+            "どちら"
+          ],
+          "answer": "こちら",
+          "terms": [
+            "v_kochira",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "中で 食べて、外で コーヒーを _______。",
+          "choices": [
+            "飲みましょう",
+            "飲みます",
+            "飲みました",
+            "飲みません"
+          ],
+          "answer": "飲みましょう",
+          "terms": [
+            "v_naka",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_soto",
+            "p_de",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "外に 車が _______。",
+          "choices": [
+            "あります",
+            "います",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "あります",
+          "terms": [
+            "v_soto",
+            "p_ni",
+            "v_kuruma",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "外で コーヒーを 飲んで _______。",
+          "choices": [
+            "います",
+            "あります",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "います",
+          "terms": [
+            "v_soto",
+            "p_de",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "どうして 外に _______か。",
+          "choices": [
+            "います",
+            "あります",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "います",
+          "terms": [
+            "v_doushite",
+            "v_soto",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "外食を して、デパートへ _______。",
+          "choices": [
+            "行きましょう",
+            "行きます",
+            "来ました",
+            "来ます"
+          ],
+          "answer": "行きましょう",
+          "terms": [
+            "v_gaishoku",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            "v_depaato",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

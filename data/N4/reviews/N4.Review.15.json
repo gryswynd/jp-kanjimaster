@@ -1,0 +1,693 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.15",
+  "title": "Plans, Typhoons & Thinking Together",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons N4.29 (Typhoons, Clocks, and Knowing) and N4.30 (Thinking, Gathering & Answering).",
+    "kanji": ["台","知","計","以","思","特","集","答"]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and choose the best answer to the question.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Two office workers are discussing a typhoon warning and their safety plans.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "台風が 来るそうです。みんなを 高台に 集めなければ いけませんね。",
+              "terms": [
+                "v_taifuu",
+                "p_ga",
+                { "id": "v_kuru", "form": "plain_form" },
+                "p_sou_da_hearsay",
+                "v_minna",
+                "p_wo",
+                "v_takadai",
+                "p_ni",
+                { "id": "v_atsumeru", "form": "nakereba" },
+                { "id": "v_ikeru", "form": "polite_negative" },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうですね。計画してから、みんなに 知らせましょう。",
+              "terms": [
+                "p_soudesu",
+                "p_ne",
+                "v_keikaku",
+                { "id": "v_suru", "form": "te_form" },
+                "p_tekara",
+                "v_minna",
+                "p_ni",
+                { "id": "v_shiraseru", "form": "polite_volitional_mashou" }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "台風が 来るまでの 時間を 時計で 計れますか。",
+              "terms": [
+                "v_taifuu",
+                "p_ga",
+                { "id": "v_kuru", "form": "plain_form" },
+                "p_made",
+                "p_no",
+                "v_jikan",
+                "p_wo",
+                "v_tokei",
+                "p_de",
+                { "id": "v_hakaru", "form": "polite_potential" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "はい、計れます。早く 知らせた 方が いいと 思います。",
+              "terms": [
+                "p_hai",
+                { "id": "v_hakaru", "form": "polite_potential" },
+                { "id": "v_hayai", "form": "adverbial" },
+                { "id": "v_shiraseru", "form": "plain_past" },
+                "v_hou",
+                "p_ga",
+                "v_ii",
+                "p_to_quote",
+                { "id": "v_omou", "form": "polite_masu" }
+              ]
+            }
+          ],
+          "question": "What does B say they should do first?",
+          "choices": [
+            "Make a plan and notify everyone.",
+            "Measure the typhoon strength with a clock.",
+            "Evacuate immediately without a plan.",
+            "Wait and watch the typhoon pass."
+          ],
+          "answer": "Make a plan and notify everyone.",
+          "explanation": "B says 'keikaku shite kara, minna ni shirasemashoo' — make a plan first and then inform everyone. B also confirms that a clock can be used to track the remaining time before the typhoon."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "A teacher and student discuss an upcoming special school gathering.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今度の 特別な 集会に 何人 集まりますか。",
+              "terms": [
+                "v_kondo",
+                "p_no",
+                { "id": "v_tokubetsu", "form": "attributive_na" },
+                "v_shuukai",
+                "p_ni",
+                "v_nannin",
+                { "id": "v_atsumaru", "form": "polite_masu" },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "三十人以上 集まると 思います。特に 今年の 学生が 多いです。",
+              "terms": [
+                { "counter": "nin", "n": 30 },
+                "v_ijou",
+                { "id": "v_atsumaru", "form": "plain_form" },
+                "p_to_quote",
+                { "id": "v_omou", "form": "polite_masu" },
+                "v_tokuni",
+                "v_kotoshi",
+                "p_no",
+                "v_gakusei",
+                "p_ga",
+                { "id": "v_ooi", "form": "polite_adj" }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "学生が 集中して 答えられるように、この 集会を 計画しました。",
+              "terms": [
+                "v_gakusei",
+                "p_ga",
+                "v_shuuchuu",
+                { "id": "v_suru", "form": "te_form" },
+                { "id": "v_kotaeru", "form": "potential" },
+                "v_you_manner",
+                "p_ni",
+                "v_kono",
+                "v_shuukai",
+                "p_wo",
+                "v_keikaku",
+                { "id": "v_suru", "form": "polite_mashita" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "ありがとうございます。この 集会が いい 思い出に なると いいと 思います。",
+              "terms": [
+                "p_arigatou_gozaimasu",
+                "v_kono",
+                "v_shuukai",
+                "p_ga",
+                "v_ii",
+                "v_omoide",
+                "p_ni",
+                { "id": "v_naru", "form": "plain_form" },
+                "p_to_conditional",
+                "v_ii",
+                "p_to_quote",
+                { "id": "v_omou", "form": "polite_masu" }
+              ]
+            }
+          ],
+          "question": "How many people does B think will attend the gathering?",
+          "choices": [
+            "Thirty or more people.",
+            "Exactly thirty people.",
+            "Less than thirty people.",
+            "Only teachers, not students."
+          ],
+          "answer": "Thirty or more people.",
+          "explanation": "B says 'sanjuu-nin ijou atsumaru to omoimasu' — thirty or more people are expected to gather."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two close friends are looking at old photos together and sharing memories.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "この 写真、思い出すね。中学校の 時、特に 楽しかった。",
+              "terms": [
+                "v_kono",
+                "v_shashin",
+                { "id": "v_omoidasu", "form": "plain_form" },
+                "p_ne",
+                "v_chuugakkou",
+                "p_no",
+                "v_toki",
+                "v_tokuni",
+                { "id": "v_tanoshii", "form": "plain_past_adj" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "うん。いっしょに 集めた 写真を 見ると、思い出が 出てくる よ。",
+              "terms": [
+                "v_un",
+                "v_issho",
+                { "id": "v_atsumeru", "form": "plain_past" },
+                "v_shashin",
+                "p_wo",
+                { "id": "v_miru", "form": "plain_form" },
+                "p_to_conditional",
+                "v_omoide",
+                "p_ga",
+                { "id": "v_deru", "form": "te_form" },
+                { "id": "v_kuru", "form": "plain_form" },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "こんな 楽しい 思い出を 作ったことが あって、よかった。",
+              "terms": [
+                "v_konna",
+                "v_tanoshii",
+                "v_omoide",
+                "p_wo",
+                { "id": "v_tsukuru", "form": "plain_past" },
+                "v_koto",
+                "p_ga",
+                { "id": "v_aru", "form": "te_form" },
+                { "id": "v_ii", "form": "plain_past_adj" }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "また いっしょに 写真を 集めよう。",
+              "terms": [
+                "v_mata",
+                "v_issho",
+                "v_shashin",
+                "p_wo",
+                { "id": "v_atsumeru", "form": "plain_volitional" }
+              ]
+            }
+          ],
+          "question": "What are the two friends doing?",
+          "choices": [
+            "Looking at old photos and talking about memories.",
+            "Planning a new photography club.",
+            "Collecting stamps for a special edition.",
+            "Studying together for an exam."
+          ],
+          "answer": "Looking at old photos and talking about memories.",
+          "explanation": "A and B are looking at old photos (shashin) and talking about memories (omoide) from middle school (chuugakkou no toki)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Put the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I think it is better to inform the teacher.",
+          "segments": ["先生に","知らせた","方が","いいと","思います"],
+          "distractors": ["知りました","先生を","思いました"],
+          "explanation": "'Sensei ni shiraseta hou ga ii to omoimasu' — use 知らせる (to inform) in plain past + ほうがいい + と思います to express that informing the teacher is the better option."
+        },
+        {
+          "kind": "scramble",
+          "q": "After gathering everyone, we will answer the questions.",
+          "segments": ["みんなを","集めてから","質問に","答えます"],
+          "distractors": ["集まります","答えました","みんなに"],
+          "explanation": "'Minna wo atsumete kara, shitsumon ni kotaemasu' — 集める (transitive, to gather people) + てから sequential connector, followed by the action of answering questions."
+        },
+        {
+          "kind": "scramble",
+          "q": "You must evacuate to higher ground during a typhoon.",
+          "segments": ["台風の","時","高台に","集まらなければ","いけません"],
+          "distractors": ["台所に","計画に","集まって"],
+          "explanation": "'Taifuu no toki, takadai ni atsumara nakereba ikemasen' — なければいけない expresses obligation to gather on elevated ground during a typhoon."
+        },
+        {
+          "kind": "scramble",
+          "q": "I think this plan is special.",
+          "segments": ["この","計画は","特別だと","思います"],
+          "distractors": ["思いました","特に","計画が"],
+          "explanation": "'Kono keikaku wa tokubetsu da to omoimasu' — noun + だと思います to express an opinion. 特別 is a na-adjective used predicatively here."
+        },
+        {
+          "kind": "scramble",
+          "q": "I have collected clocks before.",
+          "segments": ["時計を","集めた","ことが","あります"],
+          "distractors": ["集めます","時計に","ありました"],
+          "explanation": "'Tokei wo atsumeta koto ga arimasu' — たことがある (have done) pattern using 集める in plain past form. This expresses a past experience."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — A Typhoon Warning",
+      "instructions": "Read the passage and answer the questions below.",
+      "passage": [
+        {
+          "jp": "先週、大きい 台風が 来ると テレビが 知らせました。",
+          "en": "Last week, the television reported that a big typhoon was coming.",
+          "terms": [
+            "v_senshuu",
+            "v_ookii",
+            "v_taifuu",
+            "p_ga",
+            { "id": "v_kuru", "form": "plain_form" },
+            "p_to_quote",
+            "v_terebi",
+            "p_ga",
+            { "id": "v_shiraseru", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "jp": "先生は 計画して、三十人以上の 学生を 高台に 集めました。",
+          "en": "The teacher made a plan and gathered thirty or more students on high ground.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_keikaku",
+            { "id": "v_suru", "form": "te_form" },
+            { "counter": "nin", "n": 30 },
+            "v_ijou",
+            "p_no",
+            "v_gakusei",
+            "p_wo",
+            "v_takadai",
+            "p_ni",
+            { "id": "v_atsumeru", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "jp": "学生は 先生の 質問に 答えながら、台風の ことを 学びました。",
+          "en": "While answering the teacher's questions, the students learned about typhoons.",
+          "terms": [
+            "v_gakusei",
+            "p_wa",
+            "v_sensei",
+            "p_no",
+            "v_shitsumon",
+            "p_ni",
+            { "id": "v_kotaeru", "form": "nagara_form" },
+            "v_taifuu",
+            "p_no",
+            "v_koto",
+            "p_wo",
+            { "id": "v_manabu", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "jp": "台風の 時、一人で 外に 出ては いけません。",
+          "en": "During a typhoon, you must not go outside alone.",
+          "terms": [
+            "v_taifuu",
+            "p_no",
+            "v_toki",
+            "v_hitori",
+            "p_de",
+            "v_soto",
+            "p_ni",
+            { "id": "v_deru", "form": "te_form" },
+            "p_wa",
+            { "id": "v_ikeru", "form": "polite_negative" }
+          ]
+        },
+        {
+          "jp": "台風が 来たら、早く 高台に 集まるように すれば いいと 思います。",
+          "en": "I think if a typhoon comes, it is best to quickly gather on high ground.",
+          "terms": [
+            "v_taifuu",
+            "p_ga",
+            { "id": "v_kuru", "form": "conditional_tara" },
+            { "id": "v_hayai", "form": "adverbial" },
+            "v_takadai",
+            "p_ni",
+            { "id": "v_atsumaru", "form": "plain_form" },
+            "v_you_manner",
+            "p_ni",
+            { "id": "v_suru", "form": "conditional_ba" },
+            "v_ii",
+            "p_to_quote",
+            { "id": "v_omou", "form": "polite_masu" }
+          ]
+        },
+        {
+          "jp": "台風以外の 日も、高台を 知って いることは 大切 だと 思います。",
+          "en": "I think knowing about high ground is important even on days other than typhoon days.",
+          "terms": [
+            "v_taifuu",
+            "v_igai2",
+            "p_no",
+            "v_hi",
+            "p_mo",
+            "v_takadai",
+            "p_wo",
+            { "id": "v_shiru", "form": "te_form" },
+            { "id": "v_iru", "form": "plain_form" },
+            "v_koto",
+            "p_wa",
+            "v_taisetsu",
+            "p_to_quote",
+            "g_da",
+            { "id": "v_omou", "form": "polite_masu" }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "台風が 来ると 知らせたのは だれですか。",
+          "a": "テレビ",
+          "choices": ["テレビ","先生","学生","高台の 人"],
+          "terms": [
+            "v_taifuu",
+            "p_ga",
+            { "id": "v_kuru", "form": "plain_form" },
+            "p_to_quote",
+            { "id": "v_shiraseru", "form": "plain_past" },
+            "p_wa",
+            "p_no",
+            "v_dare",
+            "g_desu",
+            "p_ka",
+            "v_terebi"
+          ],
+          "explanation": "The first sentence says 'terebi ga shirasemashita' — the television (テレビ) reported that the typhoon was coming."
+        },
+        {
+          "q": "先生は 学生を どこへ 集めましたか。",
+          "a": "高台",
+          "choices": ["高台","台所","学校の 中","駅の 前"],
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_gakusei",
+            "p_wo",
+            "v_doko",
+            "p_e",
+            { "id": "v_atsumeru", "form": "polite_mashita" },
+            "p_ka",
+            "v_takadai"
+          ],
+          "explanation": "The second sentence says 'takadai ni atsumemashita' — the teacher gathered the students on high ground (高台)."
+        },
+        {
+          "q": "台風以外の 日も、何を 知って いることが 大切ですか。",
+          "a": "高台を 知って いること",
+          "choices": [
+            "高台を 知って いること",
+            "時計の 使い方",
+            "特別な 集会の 計画",
+            "答えの 集め方"
+          ],
+          "terms": [
+            "v_taifuu",
+            "v_igai2",
+            "p_no",
+            "v_hi",
+            "p_mo",
+            "v_nani",
+            "p_wo",
+            { "id": "v_shiru", "form": "te_form" },
+            { "id": "v_iru", "form": "plain_form" },
+            "v_koto",
+            "p_ga",
+            { "id": "v_taisetsu", "form": "polite_adj" },
+            "p_ka",
+            "v_takadai"
+          ],
+          "explanation": "The last sentence says 'takadai wo shitte iru koto wa taisetsu' — knowing about high ground (高台) even on non-typhoon days is important."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[台風]が 来ます。",
+          "choices": ["たいふう","だいふう","たいかぜ","だいかぜ"],
+          "answer": "たいふう",
+          "explanation": "台風 (typhoon) is read as <b>taifuu</b>. 台 (N4.29) = stand/platform; 風 (N4.18) = wind."
+        },
+        {
+          "kind": "mcq",
+          "q": "[時計]を 買いました。",
+          "choices": ["じけい","とけい","じき","ときはかる"],
+          "answer": "とけい",
+          "explanation": "時計 (clock/watch) is read as <b>tokei</b>. 時 (N5.2) = time; 計 (N4.29) = measure."
+        },
+        {
+          "kind": "mcq",
+          "q": "明日の [計画]を 話しましょう。",
+          "choices": ["けいかく","はかりかく","けいかん","はかかく"],
+          "answer": "けいかく",
+          "explanation": "計画 (plan) is read as <b>keikaku</b>. 計 (N4.29) = measure/plan; 画 (N4.10) = picture/draw."
+        },
+        {
+          "kind": "mcq",
+          "q": "楽しい [思い出]が あります。",
+          "choices": ["おもいで","かんがえで","おもいだし","しおもいで"],
+          "answer": "おもいで",
+          "explanation": "思い出 (memory/recollection) is read as <b>omoide</b>. 思 (N4.30) = think; 出 (N5.17) = go out."
+        },
+        {
+          "kind": "mcq",
+          "q": "[特別]な 集会ですね。",
+          "choices": ["とくべつ","とくわけ","とっべつ","とくかわ"],
+          "answer": "とくべつ",
+          "explanation": "特別 (special) is read as <b>tokubetsu</b>. 特 (N4.30) = special; 別 (N4.9) = separate/different."
+        },
+        {
+          "kind": "mcq",
+          "q": "先生の 質問に [答え]ました。",
+          "choices": ["こたえ","こたわ","おしえ","かんがえ"],
+          "answer": "こたえ",
+          "explanation": "答えました (answered) is read as <b>kotaemashita</b>. 答 (N4.30) = answer/respond."
+        },
+        {
+          "kind": "mcq",
+          "q": "台風の ことを 先生が [知らせ]ました。",
+          "choices": ["しらせ","ちらせ","しれせ","ちれせ"],
+          "answer": "しらせ",
+          "explanation": "知らせました (notified/informed) is read as shirasemashita. 知 (N4.29) = know/inform; 知らせる = to inform someone."
+        },
+        {
+          "kind": "mcq",
+          "q": "高台に [集まり]ました。",
+          "choices": ["あつまり","しゅうまり","つどまり","あつもり"],
+          "answer": "あつまり",
+          "explanation": "集まりました (gathered) is read as atsumarimashita. 集 (N4.30) = gather/collect; 集まる = to gather together."
+        },
+        {
+          "kind": "mcq",
+          "q": "三十人 [以上] 集まりました。",
+          "choices": ["いじょう","いか","いがい","いぜん"],
+          "answer": "いじょう",
+          "explanation": "以上 (thirty or more / above thirty) is read as ijou. 以 (N4.29) = exceeding/by means of; 上 (N5) = above/more than."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Choose the best word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "知らない 人に 会うと、いつも 話せません。______ が 強いですね。",
+          "choices": ["人見知り","思い上がり","問答","口答え"],
+          "answer": "人見知り",
+          "explanation": "'Hitomishiri' (shyness with strangers) fits — the person cannot speak when meeting people they don't know. 思い上がり is conceit; 問答 is Q&A; 口答え is talking back.",
+          "terms": [
+            { "id": "v_shiru", "form": "plain_negative" },
+            "v_hito",
+            "p_ni",
+            { "id": "v_au", "form": "plain_form" },
+            "p_to_conditional",
+            "v_itsumo",
+            { "id": "v_hanasu", "form": "potential_negative" },
+            "p_ga",
+            { "id": "v_tsuyoi", "form": "polite_adj" },
+            "p_ne"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "急いで いるので、______ 電車で 行きます。",
+          "choices": ["特急","特集","特別","特に"],
+          "answer": "特急",
+          "explanation": "'Tokkyuu' (limited express train) fits — when hurrying, you take the express train. 特集 is a special edition/feature; 特別 is an adjective meaning 'special'; 特に is an adverb meaning 'especially'.",
+          "terms": [
+            { "id": "v_isogu", "form": "te_form" },
+            { "id": "v_iru", "form": "plain_form" },
+            "p_node",
+            "v_densha",
+            "p_de",
+            { "id": "v_iku", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週の 集会に 三十人______ 集まりました。",
+          "choices": ["以上","以外","以下","以前"],
+          "answer": "以上",
+          "explanation": "'Sanjuu-nin ijou' (thirty or more people) fits — more than thirty people gathered at last week's meeting. 以外 means 'other than'; 以下 means 'less than'; 以前 means 'before/previously'.",
+          "terms": [
+            "v_senshuu",
+            "p_no",
+            "v_shuukai",
+            "p_ni",
+            { "counter": "nin", "n": 30 },
+            { "id": "v_atsumaru", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "あの 人は 自分が いちばん 正しいと ______ います。",
+          "choices": ["思い上がって","思い出して","知らせて","集めて"],
+          "answer": "思い上がって",
+          "explanation": "'Omoiagatte imasu' (is conceited/arrogant) fits — the sentence describes someone who thinks they are always right. 思い出して is recalling something; 知らせて is informing; 集めて is gathering/collecting.",
+          "terms": [
+            "v_ano",
+            "v_hito",
+            "p_wa",
+            "v_jibun",
+            "p_ga",
+            "v_ichiban",
+            { "id": "v_tadashii", "form": "plain_form" },
+            "p_to_quote",
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct grammar form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "台風が 来た ______、高台に 行けば いいです。",
+          "choices": ["ら","て","が","でも"],
+          "answer": "ら",
+          "explanation": "'Taifuu ga kita ra, takadai ni ikeba ii desu' — たら conditional ('if/when the typhoon comes') expresses what to do in that situation. The combination of たら and ば gives clear conditional advice.",
+          "terms": [
+            "v_taifuu",
+            "p_ga",
+            { "id": "v_kuru", "form": "plain_past" },
+            "v_takadai",
+            "p_ni",
+            { "id": "v_iku", "form": "conditional_ba" },
+            { "id": "v_ii", "form": "polite_adj" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "この 問題を ______ ために、みんなで 集中しました。",
+          "choices": ["答える","答えて","答えた","答えながら"],
+          "answer": "答える",
+          "explanation": "'Kotaeru tame ni' — ために (in order to) requires the plain dictionary form of the verb (答える), not the te-form, past form, or ながら form.",
+          "terms": [
+            "v_kono",
+            "v_mondai",
+            "p_wo",
+            "v_tame",
+            "p_ni",
+            "v_minna",
+            "p_de",
+            "v_shuuchuu",
+            { "id": "v_suru", "form": "polite_mashita" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 日本語が 話せる ______ にしています。",
+          "choices": ["よう","こと","ため","まで"],
+          "answer": "よう",
+          "explanation": "'Mainichi nihongo ga hanaseru you ni shite imasu' — ようにする with a potential form expresses working toward an ability goal. ことにする (to decide to do) does not combine naturally with potential forms, making よう the only correct choice here.",
+          "terms": [
+            "v_mainichi",
+            "v_nihongo",
+            "p_ga",
+            { "id": "v_hanasu", "form": "potential" },
+            "p_ni",
+            { "id": "v_suru", "form": "te_form" },
+            { "id": "v_iru", "form": "polite_masu" }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "答えを 思い出せない ______、先生に 聞いても いいです。",
+          "choices": ["なら","ので","から","けど"],
+          "answer": "なら",
+          "explanation": "'Kotae wo omoidasenai nara, sensei ni kiite mo ii desu' — ～なら (contextual conditional: if that's the case / if you can't recall the answer) gives permission based on the stated situation. てもいい expresses that asking the teacher is permitted.",
+          "terms": [
+            "v_kotae",
+            "p_wo",
+            { "id": "v_omoidasu", "form": "plain_potential_negative" },
+            "v_sensei",
+            "p_ni",
+            { "id": "v_kiku", "form": "te_form" },
+            "p_mo",
+            { "id": "v_ii", "form": "polite_adj" }
+          ]
+        }
+      ]
+    }
+  ]
+}

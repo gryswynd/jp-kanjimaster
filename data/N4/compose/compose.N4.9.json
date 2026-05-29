@@ -1,0 +1,178 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.9",
+  "lesson": "N4.9",
+  "level": "N4",
+  "title": "My Town",
+  "titleJp": "私の 町",
+  "emoji": "🏘️",
+  "theme": "Write a short essay about your town: describe where you live, what the neighbourhood is like, what places are nearby, how your daily life is, and what you remember from last year.",
+  "prompts": [
+    {
+      "prompt": "Open your essay by saying where you live and what kind of town it is. Use 町 and 住んでいます.",
+      "targets": [
+        { "id": "v_machi", "count": 1 },
+        { "id": "v_sumu", "count": 1 }
+      ],
+      "model": "私は 大きい まちに 住んで います。",
+      "vocabPool": [
+        "v_watashi", "v_machi", "v_sumu", "v_iru", "v_ima",
+        "v_ookii", "v_chiisai", "v_shizuka", "v_kirei",
+        "v_haru", "v_natsu", "v_aki", "v_fuyu", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe your neighbourhood. Is it quiet? Is it convenient? Use 近所 and at least one adjective.",
+      "targets": [
+        { "id": "v_kinjo", "count": 1 }
+      ],
+      "model": "近所は しずかで、とても いい 所 です。",
+      "vocabPool": [
+        "v_kinjo", "v_tokoro", "v_shizuka", "v_benri", "v_kirei",
+        "v_totemo", "v_ii", "v_machi", "v_aru", "g_desu"
+      ]
+    },
+    {
+      "prompt": "What special places are near your house? Use 所 and あります to describe them.",
+      "targets": [
+        { "id": "v_tokoro", "count": 1 }
+      ],
+      "model": "近所に きれいな 川が あります。とても いい 所 です。",
+      "vocabPool": [
+        "v_tokoro", "v_kinjo", "v_kawa", "v_aru", "v_kirei",
+        "v_totemo", "v_ii", "v_gakkou", "v_eki", "v_machi", "g_desu"
+      ]
+    },
+    {
+      "prompt": "How is your health and daily life in this town? Use 元気 to describe how you feel.",
+      "targets": [
+        { "id": "v_genki", "count": 1 }
+      ],
+      "model": "私は 毎日 元気 です。毎日 川を 歩いて います。",
+      "vocabPool": [
+        "v_genki", "v_mainichi", "v_kawa", "v_aruku", "v_suru", "v_iru",
+        "v_watashi", "v_asa", "v_ii", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Think back to last year. What did you do in this town or area? Use 去年.",
+      "targets": [
+        { "id": "v_kyonen", "count": 1 }
+      ],
+      "model": "去年の 春、近所の 川で お花見を しました。",
+      "vocabPool": [
+        "v_kyonen", "v_haru", "v_natsu", "v_aki",
+        "v_kawa", "v_ohanami", "v_suru", "v_iku",
+        "v_kinjo", "v_umi", "v_yama", "v_totemo"
+      ]
+    },
+    {
+      "prompt": "Did you go somewhere with someone last year? What happened at the end? Use 別れました or 別の.",
+      "targets": [
+        { "id": "v_wakareru", "count": 1 }
+      ],
+      "model": "友だちと 海に 行きましたが、夜に 駅で 別れました。",
+      "vocabPool": [
+        "v_wakareru", "v_tomodachi", "v_umi", "v_iku",
+        "v_eki", "v_yoru", "v_kyonen", "v_betsu",
+        "v_tokoro", "v_mata"
+      ]
+    },
+    {
+      "prompt": "Close your essay by saying which kind of place you like most and why. Use 別の 所 or いちばん.",
+      "targets": [
+        { "id": "v_betsu", "count": 1 },
+        { "id": "v_ichiban", "count": 1 }
+      ],
+      "model": "私は しずかな 所が いちばん 好きです。別の まちにも 住みたいです。",
+      "vocabPool": [
+        "v_betsu", "v_ichiban", "v_suki", "v_shizuka",
+        "v_ookii", "v_kirei", "v_machi", "v_tokoro",
+        "v_sumu", "v_watashi", "v_ii", "v_benri"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Add a sentence comparing your current town with another town or place using より.",
+      "targets": [
+        { "id": "v_machi", "count": 1 }
+      ],
+      "model": "今の まちより もっと しずかな 所に 住みたいです。",
+      "vocabPool": [
+        "v_machi", "v_tokoro", "v_shizuka", "v_ookii",
+        "v_sumu", "v_ima", "v_motto", "v_kirei", "v_benri"
+      ]
+    },
+    {
+      "prompt": "Write about a friend who lives far away. Use 住んでいます and 会えません to describe the situation.",
+      "targets": [
+        { "id": "v_sumu", "count": 1 },
+        { "id": "v_au", "count": 1 }
+      ],
+      "model": "友だちは 遠い 所に 住んで いますから、あまり 会えません。",
+      "vocabPool": [
+        "v_sumu", "v_au", "v_tomodachi", "v_tokoro",
+        "v_tooi", "v_amari", "v_sengetsu", "v_mata",
+        "v_eki", "v_wakareru"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo", "p_to",
+    "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne", "p_dewa",
+    "p_ya", "p_ga_but", "p_kara_because", "p_kedo", "p_yori", "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb-て] + います",
+      "meaning": "currently living / doing (progressive state)",
+      "examples": ["住んで います", "川を 歩いて います"]
+    },
+    {
+      "pattern": "[noun / な-adj] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["元気 です", "いい 所 です"]
+    },
+    {
+      "pattern": "い-adj + です",
+      "meaning": "is [adjective] (polite)",
+      "examples": ["大きいです", "遠いです", "しずかです"]
+    },
+    {
+      "pattern": "い-adj + かったです",
+      "meaning": "was [adjective] (polite past)",
+      "examples": ["暑かったです", "楽しかったです", "よかったです"]
+    },
+    {
+      "pattern": "verb-ます / verb-ました",
+      "meaning": "do / did (polite present / past)",
+      "examples": ["行きます", "行きました", "別れました", "会いました"]
+    },
+    {
+      "pattern": "verb-たいです",
+      "meaning": "want to [verb] (polite desire)",
+      "examples": ["住みたいです", "行きたいです", "会いたいです"]
+    },
+    {
+      "pattern": "verb-られます / verb-えます",
+      "meaning": "can [verb] (polite potential)",
+      "examples": ["行けます", "会えます", "食べられます"]
+    },
+    {
+      "pattern": "A は B より [adj]",
+      "meaning": "A is more [adj] than B (comparison)",
+      "examples": ["しずかな まちは 大きい まちより いいです"]
+    },
+    {
+      "pattern": "A が いちばん [adj]",
+      "meaning": "A is the most [adj] (superlative)",
+      "examples": ["しずかな 所が いちばん 好きです"]
+    },
+    {
+      "pattern": "[clause] から",
+      "meaning": "because [clause] (reason)",
+      "examples": ["しずかですから 好きです", "遠いですから あまり 会えません"]
+    }
+  ]
+}

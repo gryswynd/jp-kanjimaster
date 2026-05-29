@@ -1,0 +1,820 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.4",
+  "title": "Phase 4 Review: Family & Seasons",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 7–8.",
+    "kanji": [
+      "族",
+      "親",
+      "兄",
+      "姉",
+      "妹",
+      "弟",
+      "冬",
+      "寒",
+      "春",
+      "暑",
+      "夏",
+      "秋"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo and Yamakawa chat before class about family members.",
+          "lines": [
+            {
+              "spk": "やまかわ",
+              "jp": "りきぞうさんは 兄弟が いますか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "p_wa",
+                "v_kyoudai",
+                "p_ga",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "はい、兄が います。会社で 毎日 働いて います。",
+              "terms": [
+                "p_hai",
+                "v_ani",
+                "p_ga",
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_kaisha",
+                "p_de",
+                "v_mainichi",
+                {
+                  "id": "v_hataraku",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "お兄さんは どんな 人ですか。",
+              "terms": [
+                "v_oniisan",
+                "p_wa",
+                "v_donna",
+                "v_hito",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "兄は 家族の 中で いちばん 親切です。",
+              "terms": [
+                "v_ani",
+                "p_wa",
+                "v_kazoku",
+                "p_no",
+                "v_naka",
+                "p_de",
+                "v_ichiban",
+                "v_shinsetsu",
+                "g_desu"
+              ]
+            }
+          ],
+          "question": "What does Rikizo say about his older brother?",
+          "choices": [
+            "He is the kindest in the family.",
+            "He cooks for the family every day.",
+            "He works far from home.",
+            "He has many siblings."
+          ],
+          "answer": "He is the kindest in the family.",
+          "explanation": "りきぞう says 兄は家族の中でいちばん親切です (my older brother is the kindest in the family)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Two classmates compare their favourite seasons during lunch break.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "春と 秋と、どちらが 好きですか。",
+              "terms": [
+                "v_haru",
+                "p_to",
+                "v_aki",
+                "p_to",
+                "v_dochira",
+                "p_ga",
+                "v_suki",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "秋が 好きです。木の 色が とても きれいですから。",
+              "terms": [
+                "v_aki",
+                "p_ga",
+                "v_suki",
+                "g_desu",
+                "v_ki",
+                "p_no",
+                "v_iro",
+                "p_ga",
+                "v_totemo",
+                "v_kirei",
+                "g_desu",
+                "p_kara_because"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "夏は どうですか。",
+              "terms": [
+                "v_natsu",
+                "p_wa",
+                "v_dou",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "夏は 暑いですが、夏休みが あって いいですね。",
+              "terms": [
+                "v_natsu",
+                "p_wa",
+                "v_atsui",
+                "g_desu",
+                "p_ga_but",
+                "v_natsuyasumi",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "te_form"
+                },
+                "v_ii",
+                "g_desu",
+                "p_ne"
+              ]
+            }
+          ],
+          "question": "Why does B prefer autumn?",
+          "choices": [
+            "Because the colours of the trees are beautiful.",
+            "Because summer vacation is long.",
+            "Because it is not hot.",
+            "Because there is snow."
+          ],
+          "answer": "Because the colours of the trees are beautiful.",
+          "explanation": "B says 木の色がとてもきれいですから (because the colours of the trees are very beautiful)."
+        },
+        {
+          "title": "Conversation 3",
+          "context": "Two close friends chatting casually at school on a cold morning.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今日 寒いね。もう 冬だ。",
+              "terms": [
+                "v_kyou",
+                {
+                  "id": "v_samui",
+                  "form": null
+                },
+                "p_ne",
+                "v_mou",
+                "v_fuyu",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "うん。冬は 寒いけど、ゆきが きれいだから 好き！",
+              "terms": [
+                "v_un",
+                "v_fuyu",
+                "p_wa",
+                {
+                  "id": "v_samui",
+                  "form": null
+                },
+                "p_kedo",
+                "v_yuki",
+                "p_ga",
+                {
+                  "id": "v_kirei",
+                  "form": null
+                },
+                "g_da",
+                "p_kara_because",
+                {
+                  "id": "v_suki",
+                  "form": null
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "私は 姉と 冬の ゆきを 見たい。",
+              "terms": [
+                "v_watashi",
+                "p_wa",
+                "v_ane",
+                "p_to",
+                "v_fuyu",
+                "p_no",
+                "v_yuki",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": "plain_desire_tai"
+                }
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいね！お姉さんは とても 親切だよ。",
+              "terms": [
+                "v_ii",
+                "p_ne",
+                "v_oneesan",
+                "p_wa",
+                "v_totemo",
+                "v_shinsetsu",
+                "p_yo",
+                "g_da"
+              ]
+            }
+          ],
+          "question": "Why does B like winter?",
+          "choices": [
+            "Because the snow is beautiful.",
+            "Because it is not cold.",
+            "Because summer vacation is long.",
+            "Because older siblings are kind."
+          ],
+          "answer": "Because the snow is beautiful.",
+          "explanation": "B says 冬は寒いけど、ゆきがきれいだから好き (B likes winter because the snow is beautiful, even though it is cold)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "My older sister is better at cooking than my older brother.",
+          "segments": [
+            "姉",
+            "は",
+            "兄",
+            "より",
+            "料理",
+            "が",
+            "上手です"
+          ],
+          "distractors": [
+            "を",
+            "弟",
+            "下手です"
+          ],
+          "explanation": "姉 + は (topic) + 兄 + より (than) + 料理 + が (subject of predicate) + 上手です. Use より to express 'more than' in a comparison. を marks a direct object, not relevant here. 弟 (younger brother) is a distractor person; 下手です (bad at) reverses the meaning."
+        },
+        {
+          "kind": "scramble",
+          "q": "My family likes autumn the most.",
+          "segments": [
+            "私",
+            "の",
+            "家族",
+            "は",
+            "秋",
+            "が",
+            "いちばん",
+            "好きです"
+          ],
+          "distractors": [
+            "より",
+            "春",
+            "嫌いです"
+          ],
+          "explanation": "私の + 家族 + は (topic) + 秋 + が (subject) + いちばん (most) + 好きです. Use いちばん for superlative meaning 'the most'. より is used for comparison between two things, not for superlative. 春 (spring) is a distractor season."
+        },
+        {
+          "kind": "scramble",
+          "q": "My older brother works at a company every day.",
+          "segments": [
+            "兄",
+            "は",
+            "毎日",
+            "会社",
+            "で",
+            "働いて",
+            "います"
+          ],
+          "alts": [
+            [
+              "毎日",
+              "兄",
+              "は",
+              "会社",
+              "で",
+              "働いて",
+              "います"
+            ]
+          ],
+          "distractors": [
+            "を",
+            "姉",
+            "働きます"
+          ],
+          "explanation": "兄 + は (topic) + 毎日 + 会社 + で (location of action) + 働いて (te-form) + います (progressive). で marks the place of action. を marks a direct object, which doesn't apply here. 働きます is the simple polite form, not the progressive ています pattern. Time words like 毎日 can also go sentence-initially: 毎日 + 兄は + 会社で + 働いています."
+        },
+        {
+          "kind": "scramble",
+          "q": "Winter is cold, but the snow is very beautiful.",
+          "segments": [
+            "冬",
+            "は",
+            "寒いですが",
+            "ゆき",
+            "が",
+            "とても",
+            "きれいです"
+          ],
+          "distractors": [
+            "を",
+            "暑いですが",
+            "きれいじゃない"
+          ],
+          "explanation": "冬 + は (topic) + 寒いですが (cold, but — contrast connector) + ゆき + が (subject) + とても + きれいです. が in 寒いですが connects contrasting clauses. を marks a direct object. 暑いですが reverses the season's temperature. きれいじゃない negates the beauty."
+        },
+        {
+          "kind": "scramble",
+          "q": "My older sister is kind and the most liked in the family.",
+          "segments": [
+            "姉",
+            "は",
+            "親切で",
+            "家族",
+            "の",
+            "中で",
+            "いちばん",
+            "好きです"
+          ],
+          "distractors": [
+            "を",
+            "兄弟",
+            "嫌いです"
+          ],
+          "explanation": "姉 + は (topic) + 親切で (kind — connective て-form of な-adjective 親切) + 家族の中で (among the family) + いちばん (most) + 好きです. 親切で connects two descriptions with the conjunctive な-adjective form. を marks a direct object and does not fit here."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — 私の 家族と 好きな きせつ",
+      "passage": [
+        {
+          "jp": "私の 家族は 5人です。親と 兄と 姉と 弟が います。",
+          "en": "There are five people in my family: my parents, older brother, older sister, and younger brother.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_kazoku",
+            "p_wa",
+            "v_hito",
+            "g_desu",
+            "v_oya",
+            "p_to",
+            "v_ani",
+            "p_to",
+            "v_ane",
+            "p_to",
+            "v_otouto",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "兄と 姉は 今、会社で 働いて います。",
+          "en": "My older brother and sister are now working at a company.",
+          "terms": [
+            "v_ani",
+            "p_to",
+            "v_ane",
+            "p_wa",
+            "v_ima",
+            "v_kaisha",
+            "p_de",
+            {
+              "id": "v_hataraku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "姉は 家族の 中で いちばん 親切で、毎日 料理を 作って くれます。",
+          "en": "My older sister is the kindest in the family and makes food for me every day.",
+          "terms": [
+            "v_ane",
+            "p_wa",
+            "v_kazoku",
+            "p_no",
+            "v_naka",
+            "p_de",
+            "v_ichiban",
+            {
+              "id": "v_shinsetsu",
+              "form": null
+            },
+            "v_mainichi",
+            "v_ryouri",
+            "p_wo",
+            {
+              "id": "v_tsukuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kureru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "私の 家族は 秋が 好きです。秋は 夏より すずしくて、木の 色が 赤や 茶色に なります。",
+          "en": "My family likes autumn. Autumn is cooler than summer, and the colour of the trees turns red and brown.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_kazoku",
+            "p_wa",
+            "v_aki",
+            "p_ga",
+            "v_suki",
+            "g_desu",
+            "v_aki",
+            "p_wa",
+            "v_natsu",
+            "p_yori",
+            {
+              "id": "v_suzushii",
+              "form": "te_form"
+            },
+            "v_ki",
+            "p_no",
+            "v_iro",
+            "p_ga",
+            "v_aka",
+            "p_ya",
+            "v_chairo",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "冬は 寒いですが、家族で ゆきを 見るのが 好きです。",
+          "en": "Winter is cold, but the family likes watching snow together.",
+          "terms": [
+            "v_fuyu",
+            "p_wa",
+            "v_samui",
+            "g_desu",
+            "p_ga_but",
+            "v_kazoku",
+            "p_de",
+            "v_yuki",
+            "p_wo",
+            "v_miru",
+            "p_no",
+            "p_ga",
+            "v_suki",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "家族は 何人ですか。",
+          "a": "5人",
+          "choices": [
+            "3人",
+            "4人",
+            "5人",
+            "6人"
+          ],
+          "terms": [
+            "v_kazoku",
+            "p_wa",
+            "v_nannin",
+            "g_desu",
+            "p_ka",
+            "v_hito"
+          ],
+          "explanation": "The first sentence says 私の家族は5人です (there are five people in my family)."
+        },
+        {
+          "q": "家族の 中で だれが いちばん 親切ですか。",
+          "a": "姉です。",
+          "choices": [
+            "兄です。",
+            "姉です。",
+            "親です。",
+            "弟です。"
+          ],
+          "terms": [
+            "v_kazoku",
+            "p_no",
+            "v_naka",
+            "p_de",
+            "v_dare",
+            "p_ga",
+            "v_ichiban",
+            "v_shinsetsu",
+            "g_desu",
+            "p_ka",
+            "v_ane",
+            "g_desu"
+          ],
+          "explanation": "Sentence 3 says 姉は家族の中でいちばん親切で (my older sister is the kindest in the family)."
+        },
+        {
+          "q": "冬に 家族で 何を するのが 好きですか。",
+          "a": "ゆきを 見ます。",
+          "choices": [
+            "料理を 作ります。",
+            "会社に 行きます。",
+            "ゆきを 見ます。",
+            "山に 行きます。"
+          ],
+          "terms": [
+            "v_fuyu",
+            "p_ni",
+            "v_kazoku",
+            "p_de",
+            "v_nani",
+            "p_wo",
+            "v_suru",
+            "p_ga",
+            "p_no",
+            "v_suki",
+            "g_desu",
+            "p_ka",
+            "v_yuki",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "Sentence 5 says 家族でゆきを見るのが好きです (the family likes watching snow together)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[家族]は 5人です。",
+          "choices": [
+            "かぞく",
+            "かそく",
+            "けぞく",
+            "ぞくか"
+          ],
+          "answer": "かぞく",
+          "explanation": "家族 (family) is read as <b>kazoku</b>. 家 (N5) + 族 (N4.7)."
+        },
+        {
+          "kind": "mcq",
+          "q": "お兄さんは とても [親切]です。",
+          "choices": [
+            "しんせつ",
+            "おやせつ",
+            "しんきり",
+            "おやきり"
+          ],
+          "answer": "しんせつ",
+          "explanation": "親切 (kind) is read as <b>shinsetsu</b>. 親 (N4.7) + 切 (N4.1)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[兄弟]は 何人 いますか。",
+          "choices": [
+            "きょうだい",
+            "あにおとうと",
+            "きょだい",
+            "けいだい"
+          ],
+          "answer": "きょうだい",
+          "explanation": "兄弟 (siblings) is read as <b>kyoudai</b>. 兄 (N4.7) + 弟 (N4.7). The on-readings combine: けい/きょう + だい → きょうだい."
+        },
+        {
+          "kind": "mcq",
+          "q": "[お姉さん]は 料理が 上手です。",
+          "choices": [
+            "おねえさん",
+            "おにいさん",
+            "おかあさん",
+            "おとうさん"
+          ],
+          "answer": "おねえさん",
+          "explanation": "お姉さん (older sister, polite form) is read as <b>oneesan</b>. 姉 (N4.7) with honorific prefix お and suffix さん."
+        },
+        {
+          "kind": "mcq",
+          "q": "[夏休み]は 長いですね。",
+          "choices": [
+            "なつやすみ",
+            "なつきゅうか",
+            "げやすみ",
+            "なつやすめ"
+          ],
+          "answer": "なつやすみ",
+          "explanation": "夏休み (summer vacation) is read as <b>natsuyasumi</b>. 夏 (N4.8) + 休み (rest/break)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[冬休み]も 好きです。",
+          "choices": [
+            "ふゆやすみ",
+            "とうやすみ",
+            "ふゆきゅうか",
+            "ふゆやすめ"
+          ],
+          "answer": "ふゆやすみ",
+          "explanation": "冬休み (winter vacation) is read as <b>fuyuyasumi</b>. 冬 (N4.8) + 休み (rest/break)."
+        },
+        {
+          "kind": "mcq",
+          "q": "夏は [暑い]ですが、きれいな きせつです。",
+          "choices": [
+            "あつい",
+            "さむい",
+            "つよい",
+            "くらい"
+          ],
+          "answer": "あつい",
+          "explanation": "暑い (hot, weather) is read as <b>atsui</b>. 暑 (N4.8) — note: this kanji means hot weather/air; 熱い (atsui) is for hot objects."
+        },
+        {
+          "kind": "mcq",
+          "q": "冬は [寒い]ですが、ゆきが あります。",
+          "choices": [
+            "さむい",
+            "あつい",
+            "すずしい",
+            "つめたい"
+          ],
+          "answer": "さむい",
+          "explanation": "寒い (cold, weather) is read as <b>samui</b>. 寒 (N4.8) — cold air/weather. すずしい (cool) is a distinct adjective not written with 寒."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "弟は まだ 小さいですが、とても _______ です。",
+          "choices": [
+            "親切",
+            "家族",
+            "兄弟",
+            "親"
+          ],
+          "answer": "親切",
+          "explanation": "親切 (shinsetsu, kind) fits: the younger brother is small but kind. 親切 is a な-adjective describing personality. 家族 (family), 兄弟 (siblings), and 親 (parent) are nouns, not personality adjectives."
+        },
+        {
+          "kind": "mcq",
+          "q": "冬に 北では _______ が あります。白くて きれいです。",
+          "choices": [
+            "ゆき",
+            "みどり",
+            "花",
+            "きせつ"
+          ],
+          "answer": "ゆき",
+          "explanation": "ゆき (snow) fits: in the north in winter there is snow, which is white and beautiful. みどり (green) is associated with spring nature. 花 (flowers) are spring and summer. きせつ (season) is too general."
+        },
+        {
+          "kind": "mcq",
+          "q": "春、夏、秋、冬を 日本語で _______ と 言います。",
+          "choices": [
+            "春夏秋冬",
+            "家族",
+            "きせつ",
+            "兄弟"
+          ],
+          "answer": "春夏秋冬",
+          "explanation": "春夏秋冬 (shunkashuutou) is the compound word naming Japan's four seasons together. きせつ (season) is the general word for season, not the specific compound for all four seasons listed together."
+        },
+        {
+          "kind": "mcq",
+          "q": "秋は 夏より _______ です。だから、外に 行きたいです。",
+          "choices": [
+            "すずしい",
+            "寒い",
+            "暑い",
+            "親切"
+          ],
+          "answer": "すずしい",
+          "explanation": "すずしい (cool and refreshing) fits: autumn is cooler than summer, making it pleasant to go outside. 寒い (cold) describes winter-level cold. 暑い (hot) describes summer. 親切 (kind) is a personality trait, not a weather condition."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "姉 ______ 兄より 料理が 上手です。",
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "に"
+          ],
+          "answer": "は",
+          "explanation": "Use は to mark 姉 as the topic in a comparison. は sets up 姉 as the subject being discussed, and より follows the comparison point (兄). が would mark 姉 as a new-information subject, but は is more natural when contrasting two family members."
+        },
+        {
+          "kind": "mcq",
+          "q": "家族の 中で 夏が いちばん ______ きせつです。",
+          "choices": [
+            "好きな",
+            "好きです",
+            "好き",
+            "より"
+          ],
+          "answer": "好きな",
+          "explanation": "Use 好きな (attributive form of な-adjective 好き) before the noun きせつ. 好きな modifies a noun: 好きな きせつ (the season I like). 好きです is the sentence-final predicate form. より is used for comparison, not for describing a noun."
+        },
+        {
+          "kind": "mcq",
+          "q": "兄は 今 会社で 働いて ______。",
+          "choices": [
+            "います",
+            "いました",
+            "いません",
+            "ありません"
+          ],
+          "answer": "います",
+          "explanation": "Use 働いて います (te-form + います) to express an ongoing action. 兄は今 (the brother is currently) + 働いて (working, te-form) + います (progressive state). います is for people/living things; ありません is for objects. いました is past progressive."
+        },
+        {
+          "kind": "mcq",
+          "q": "春は 夏 ______ すずしいです。",
+          "choices": [
+            "より",
+            "から",
+            "まで",
+            "だけ"
+          ],
+          "answer": "より",
+          "explanation": "Use より (than) to make a comparison: 春は夏より = 'spring is [more] than summer'. から marks a starting point ('from'). まで marks an ending point ('until'). だけ means 'only' and does not make comparisons."
+        }
+      ]
+    }
+  ]
+}

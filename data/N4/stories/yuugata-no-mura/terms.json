@@ -1,0 +1,153 @@
+{
+  "contentVersion": "1.0.0",
+  "storyFile": "story.md",
+  "title": "夕方の村",
+  "englishTitle": "Evening in the Village",
+  "terms": {
+
+    "りきぞう": { "id": "char_rikizo", "form": null },
+    "やまかわ": { "id": "char_yamakawa", "form": null },
+
+    "は": { "id": "p_wa", "form": null },
+    "が": { "id": "p_ga", "form": null },
+    "を": { "id": "p_wo", "form": null },
+    "の": { "id": "p_no", "form": null },
+    "に": { "id": "p_ni", "form": null },
+    "で": { "id": "p_de", "form": null },
+    "も": { "id": "p_mo", "form": null },
+    "と": { "id": "p_to_quote", "form": null },
+    "へ": { "id": "p_e", "form": null },
+    "より": { "id": "p_yori", "form": null },
+    "よ": { "id": "p_yo", "form": null },
+    "ね": { "id": "p_ne", "form": null },
+    "な": { "id": "p_na", "form": null },
+    "でも": { "id": "p_demo", "form": null },
+    "んだ": { "id": "p_nda", "form": null },
+    "から": { "id": "p_tekara", "form": null },
+
+    "七夕": { "id": "v_tanabata", "form": null },
+    "心待ち": { "id": "v_kokoromachi", "form": null },
+    "山村": { "id": "v_sanson", "form": null },
+    "校門": { "id": "v_koumon", "form": null },
+    "待ち合わせ": { "id": "v_machiawase", "form": null },
+    "所": { "id": "v_tokoro", "form": null },
+    "待合": { "id": "v_machiai", "form": null },
+    "村人": { "id": "v_murabito", "form": null },
+    "正門": { "id": "v_seimon", "form": null },
+    "林": { "id": "v_hayashi", "form": null },
+    "道": { "id": "v_michi", "form": null },
+    "池": { "id": "v_ike", "form": null },
+    "花": { "id": "v_hana", "form": null },
+    "山林": { "id": "v_sanrin", "form": null },
+    "夕方": { "id": "v_yuugata", "form": null },
+    "今度": { "id": "v_kondo", "form": null },
+    "夜空": { "id": "v_yozora", "form": null },
+    "歌": { "id": "v_uta", "form": null },
+    "声": { "id": "v_koe", "form": null },
+    "一度": { "id": "v_ichido", "form": null },
+    "毎年": { "id": "v_mainen", "form": null },
+    "心": { "id": "v_kokoro", "form": null },
+    "気持ち": { "id": "v_kimochi", "form": null },
+    "村": { "id": "v_mura", "form": null },
+    "方": { "id": "v_hou", "form": null },
+    "山": { "id": "v_yama", "form": null },
+    "夕飯": { "id": "v_yuuhan", "form": null },
+    "時間": { "id": "v_jikan", "form": null },
+    "料理": { "id": "v_ryouri", "form": null },
+    "口": { "id": "v_kuchi", "form": null },
+    "何度": { "id": "v_nando", "form": null },
+    "前": { "id": "v_mae", "form": null },
+    "中": { "id": "v_naka", "form": null },
+    "こと": { "id": "v_koto", "form": null },
+    "ため": { "id": "v_tame", "form": null },
+    "よう": { "id": "v_you_manner", "form": null },
+    "二人": { "id": "v_futari", "form": null },
+    "この": { "id": "v_kono", "form": null },
+    "もう": { "id": "v_mou", "form": null },
+    "また": { "id": "v_mata", "form": null },
+    "そう": { "id": "v_sou", "form": null },
+    "とても": { "id": "v_totemo", "form": null },
+    "いっしょに": { "id": "v_issho", "form": null },
+
+    "楽しい": { "id": "v_tanoshii", "form": null },
+    "きれい": { "id": "v_kirei", "form": null },
+    "好き": { "id": "v_suki", "form": null },
+
+    "して": { "id": "v_suru", "form": "te_form" },
+    "しなければ": { "id": "v_suru", "form": "nakereba" },
+    "しよう": { "id": "v_suru", "form": "plain_volitional" },
+
+    "いた": { "id": "v_iru", "form": "plain_past" },
+
+    "行く": { "id": "v_iku", "form": "plain_form" },
+    "いったら": { "id": "v_iku", "form": "conditional_tara" },
+
+    "言った": { "id": "v_iu", "form": "plain_past" },
+
+    "待とう": { "id": "v_matsu", "form": "plain_volitional" },
+
+    "分かった": { "id": "v_wakaru", "form": "plain_past" },
+
+    "早く": { "id": "v_hayai", "form": "adverbial" },
+
+    "来れば": { "id": "v_kuru", "form": "conditional_ba" },
+    "来たら": { "id": "v_kuru", "form": "conditional_tara" },
+    "来る": { "id": "v_kuru", "form": "plain_form" },
+    "来たい": { "id": "v_kuru", "form": "plain_desire_tai" },
+
+    "歩ける": { "id": "v_aruku", "form": "potential" },
+    "歩いて": { "id": "v_aruku", "form": "te_form" },
+
+    "考えながら": { "id": "v_kangaeru", "form": "nagara_form" },
+
+    "着いた": { "id": "v_tsuku", "form": "plain_past" },
+    "着いたら": { "id": "v_tsuku", "form": "conditional_tara" },
+
+    "出て": { "id": "v_deru", "form": "te_form" },
+
+    "進んだ": { "id": "v_susumu", "form": "plain_past" },
+
+    "あつまって": { "id": "v_atsumaru", "form": "te_form" },
+    "いる": { "id": "v_iru", "form": "plain_form" },
+
+    "あった": { "id": "v_aru", "form": "plain_past" },
+
+    "始まる": { "id": "v_hajimaru", "form": "plain_form" },
+    "始まった": { "id": "v_hajimaru", "form": "plain_past" },
+
+    "できて": { "id": "v_dekiru", "form": "te_form" },
+
+    "よかった": { "id": "v_ii", "form": "plain_past_adj" },
+
+    "おもった": { "id": "v_omou", "form": "plain_past" },
+
+    "見ながら": { "id": "v_miru", "form": "nagara_form" },
+
+    "聞いて": { "id": "v_kiku", "form": "te_form" },
+
+    "なると": { "id": "v_naru", "form": "to_conditional" },
+    "なったら": { "id": "v_naru", "form": "conditional_tara" },
+    "なって": { "id": "v_naru", "form": "te_form" },
+    "なった": { "id": "v_naru", "form": "plain_past" },
+
+    "きた": { "id": "v_kuru", "form": "plain_past" },
+
+    "大きく": { "id": "v_ookii", "form": "adverbial" },
+
+    "近く": { "id": "v_chikai", "form": "adverbial" },
+
+    "合って": { "id": "v_au_2", "form": "te_form" },
+
+    "食べて": { "id": "v_taberu", "form": "te_form" },
+
+    "おいしかった": { "id": "v_oishii", "form": "plain_past_adj" },
+
+    "いけない": { "id": "v_ikeru", "form": "plain_negative" },
+
+    "帰った": { "id": "v_kaeru", "form": "plain_past" },
+
+    "です": { "id": "g_desu", "form": null },
+    "だ": { "id": "g_da", "form": null }
+
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "rikizo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rikizo — Japanese learning app (Capacitor native shell).",
+  "type": "module",
+  "scripts": {
+    "build:www": "node scripts/validate-stories.mjs && node scripts/validate-audio.mjs && node scripts/build-www.mjs",
+    "validate:stories": "node scripts/validate-stories.mjs",
+    "init:hooks": "git config core.hooksPath .githooks && echo 'pre-commit hook activated (uses .githooks)'",
+    "vendor:fonts": "node scripts/vendor-fonts.mjs",
+    "sync": "npm run build:www && cap sync",
+    "sync:ios": "npm run build:www && cap sync ios",
+    "ios": "cap open ios",
+    "assets": "capacitor-assets generate --ios",
+    "validate:audio": "node scripts/validate-audio.mjs",
+    "gen:audio": "node scripts/build-audio-manifest.mjs && node scripts/generate-audio.mjs"
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.1.0",
+    "@capacitor/core": "^8.3.4",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.3.4",
+    "@capacitor/local-notifications": "^8.0.0",
+    "@capacitor/splash-screen": "^8.0.1",
+    "@capacitor/status-bar": "^8.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.3.4"
+  }
+}

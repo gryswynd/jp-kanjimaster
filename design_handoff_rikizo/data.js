@@ -63,7 +63,7 @@ window.RikizoData = {
   // Character cast — used decoratively on the home screen.
   // Heads are small sprite-y portraits.
   cast: [
-    { id: "rikizo",   name: "Rikizo",   jp: "りきぞ",   portrait: "assets/characters/rikizo_head.png",   seen: true  },
+    { id: "rikizo",   name: "Rikizo",   jp: "りきぞう",   portrait: "assets/characters/rikizo_head.png",   seen: true  },
     { id: "sakura",   name: "Sakura",  jp: "さくら",   portrait: "assets/characters/sakura_head.png",   seen: true  },
     { id: "suzuki",   name: "Suzuki",  jp: "すずき先生", portrait: "assets/characters/suzuki_head.png",   seen: true  },
     { id: "ken",      name: "Ken",     jp: "けん",      portrait: "assets/characters/ken_head.png",      seen: true  },

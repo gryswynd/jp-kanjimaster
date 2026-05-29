@@ -1,0 +1,1453 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.6",
+  "title": "Landscape & Vehicles",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 6,
+    "focus": "Landscape vocabulary (mountain, river, road) and vehicles (car) with location particles に, から, まで and transportation particle で",
+    "estimated_minutes": 50,
+    "kanji": [
+      "山",
+      "川",
+      "道",
+      "車"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "山",
+      "on": "さん",
+      "kun": "やま",
+      "meaning": "Mountain",
+      "termId": "k_yama"
+    },
+    {
+      "kanji": "川",
+      "on": "せん",
+      "kun": "かわ/がわ",
+      "meaning": "River",
+      "termId": "k_kawa"
+    },
+    {
+      "kanji": "道",
+      "on": "どう",
+      "kun": "みち",
+      "meaning": "Road / Street",
+      "termId": "k_michi"
+    },
+    {
+      "kanji": "車",
+      "on": "しゃ",
+      "kun": "くるま",
+      "meaning": "Car / Vehicle",
+      "termId": "k_kuruma"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "毎日 バスで 来ますか。",
+          "en": "Do you come by bus every day?",
+          "terms": [
+            "v_mainichi",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先週 駅へ 行きましたか。",
+          "en": "Did you go to the station last week?",
+          "terms": [
+            "v_senshuu",
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "うちから スーパーへ バスで 行きますか。",
+          "en": "Do you go from home to the supermarket by bus?",
+          "terms": [
+            "v_uchi",
+            "p_kara",
+            "v_suupaa",
+            "p_e",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先週 駅へ 行きませんでしたか。",
+          "en": "Didn't you go to the station last week?",
+          "terms": [
+            "v_senshuu",
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_past_negative"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "山",
+          "on": "さん",
+          "kun": "やま",
+          "meaning": "mountain",
+          "terms": [
+            "k_yama"
+          ]
+        },
+        {
+          "kanji": "川",
+          "on": "せん",
+          "kun": "かわ/がわ",
+          "meaning": "river",
+          "terms": [
+            "k_kawa"
+          ]
+        },
+        {
+          "kanji": "道",
+          "on": "どう",
+          "kun": "みち",
+          "meaning": "road / street",
+          "terms": [
+            "k_michi"
+          ]
+        },
+        {
+          "kanji": "車",
+          "on": "しゃ",
+          "kun": "くるま",
+          "meaning": "car / vehicle",
+          "terms": [
+            "k_kuruma"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_yama",
+            "k_kawa",
+            "k_michi",
+            "k_kuruma"
+          ]
+        },
+        {
+          "label": "Landscape",
+          "items": [
+            "v_yama",
+            "v_kawa",
+            "v_michi",
+            "v_kazan"
+          ]
+        },
+        {
+          "label": "Vehicles",
+          "items": [
+            "v_kuruma"
+          ]
+        },
+        {
+          "label": "Communication",
+          "items": [
+            "v_meeru"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: 今日 山へ 行きますか（Going to the Mountain Today?）",
+      "context": "Rikizo runs into Yamakawa near the bus stop and asks about his plans.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "やまかわさん、今日 どこへ 行きますか。",
+          "en": "Yamakawa-san, where are you going today?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "v_kyou",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "山へ 行きます。",
+          "en": "I am going to the mountain.",
+          "terms": [
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "バスで 行きますか。",
+          "en": "Are you going by bus?",
+          "terms": [
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "いいえ、バスでは 行きません。車で 行きます。山の 道は いいですよ。",
+          "en": "No, I won't go by bus. I'll go by car. The mountain road is nice, you know.",
+          "terms": [
+            "v_iie",
+            "v_basu",
+            "p_wa",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_negative"
+            },
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "山に 川も ありますか。",
+          "en": "Is there also a river at the mountain?",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、山に 川が あります。とても いいです。",
+          "en": "Yes, there is a river at the mountain. It is very nice.",
+          "terms": [
+            "p_hai",
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_totemo",
+            "v_ii",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 山の 道（The Mountain Road）",
+      "context": "Yamamoto-sensei asks Rikizo about his trip to the mountain last week.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "りきぞうさん、先週 山へ 行きましたか。",
+          "en": "Rikizo-san, did you go to the mountain last week?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_senshuu",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、車で 行きました。",
+          "en": "Yes, I went by car.",
+          "terms": [
+            "p_hai",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "山の 道は どうですか。",
+          "en": "How is the mountain road?",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "とても いいです。川が あります。",
+          "en": "It is very nice. There is a river.",
+          "terms": [
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "車で 川まで 行きましたか。",
+          "en": "Did you go to the river by car?",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            "v_kawa",
+            "p_made",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、山から 川まで 車で 行きました。",
+          "en": "Yes, I went from the mountain to the river by car.",
+          "terms": [
+            "p_hai",
+            "v_yama",
+            "p_kara",
+            "v_kawa",
+            "p_made",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: 火山の メール（Email about the Volcano）",
+      "context": "Yamakawa tells Rikizo about an email he received regarding a volcano trip.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞうさん、メールが 来ましたか。",
+          "en": "Rikizo-san, did the email arrive?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_meeru",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、来ました。火山の メールですね。",
+          "en": "Yes, it arrived. It is an email about the volcano, right?",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "v_kazan",
+            "p_no",
+            "v_meeru",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうです。火山へ 行きますか。",
+          "en": "That's right. Are you going to the volcano?",
+          "terms": [
+            "p_soudesu",
+            "v_kazan",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、来週 車で 行きます。山に 火山が ありますか。",
+          "en": "Yes, I will go by car next week. Is there a volcano at the mountain?",
+          "terms": [
+            "p_hai",
+            "v_raishuu",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_yama",
+            "p_ni",
+            "v_kazan",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、山に 火山が あります。道は いいですよ。いっしょに 来てください。",
+          "en": "Yes, there is a volcano at the mountain. The road is nice, you know. Please come together.",
+          "terms": [
+            "p_hai",
+            "v_yama",
+            "p_ni",
+            "v_kazan",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_michi",
+            "p_wa",
+            "v_ii",
+            "g_desu",
+            "p_yo",
+            "v_issho",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、行きます。川も ありますか。",
+          "en": "Yes, I will go. Is there a river too?",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_kawa",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: 来週の ドライブ（Next Week's Drive）",
+      "context": "Yamamoto-sensei asks Rikizo about his plans for next week.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "りきぞうさん、来週 どこへ 行きますか。",
+          "en": "Rikizo-san, where are you going next week?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_raishuu",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "山と 川へ 行きます。",
+          "en": "I am going to the mountain and the river.",
+          "terms": [
+            "v_yama",
+            "p_to",
+            "v_kawa",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "車で 行きますか。",
+          "en": "Are you going by car?",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、車で 行きます。道は いいですか。",
+          "en": "Yes, I am going by car. Is the road good?",
+          "terms": [
+            "p_hai",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_michi",
+            "p_wa",
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "山の 道は とても いいですよ。駅から 行きますか。",
+          "en": "The mountain road is very nice, you know. Are you going from the station?",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "p_yo",
+            "v_eki",
+            "p_kara",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、駅から 車で 山へ 行って来ます。",
+          "en": "Yes, I'll go from the station to the mountain by car and come back.",
+          "terms": [
+            "p_hai",
+            "v_eki",
+            "p_kara",
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: やまかわのドライブ（Yamakawa's Drive）",
+      "passage": [
+        {
+          "jp": "やまかわは 毎週 車で 山へ 行きます。",
+          "en": "Yamakawa goes to the mountain by car every week.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_maishuu",
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "バスでは 行きません。",
+          "en": "He doesn't go by bus.",
+          "terms": [
+            "v_basu",
+            "p_wa",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "jp": "山に 川が あります。",
+          "en": "There is a river at the mountain.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "山の 道は とても いいです。",
+          "en": "The mountain road is very nice.",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_totemo",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "先週 火山へも 行きました。",
+          "en": "Last week he also went to the volcano.",
+          "terms": [
+            "v_senshuu",
+            "v_kazan",
+            "p_mo",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "来週も 山へ 行きます。",
+          "en": "He will go to the mountain next week too.",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "山に 友だちが います。",
+          "en": "A friend is at the mountain.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "友だちと 車で 来ます。",
+          "en": "He will come by car with a friend.",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "やまかわは 毎週 なにで 山へ 行きますか。",
+          "q_en": "What does Yamakawa use every week to go to the mountains?",
+          "a": "車で 行きます。",
+          "a_en": "He goes by car.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_maishuu",
+            "v_nani",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "山に なにが ありますか。",
+          "q_en": "What is there in the mountain?",
+          "a": "川が あります。",
+          "a_en": "There is a river.",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "先週 どこへ 行きましたか。",
+          "q_en": "Where did he go last week?",
+          "a": "火山へ 行きました。",
+          "a_en": "He went to the volcano.",
+          "terms": [
+            "v_senshuu",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kazan",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "来週 だれと 来ますか。",
+          "q_en": "Who will come with him next week?",
+          "a": "友だちと 来ます。",
+          "a_en": "He will come with his friends.",
+          "terms": [
+            "v_raishuu",
+            "v_dare",
+            "p_to",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_tomodachi",
+            "p_to",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: りきぞうの メール（Rikizo's Email）",
+      "passage": [
+        {
+          "jp": "りきぞうに メールが 来ました。",
+          "en": "An email arrived for Rikizo.",
+          "terms": [
+            "char_rikizo",
+            "p_ni",
+            "v_meeru",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわから 来ました。",
+          "en": "It came from Yamakawa.",
+          "terms": [
+            "char_yamakawa",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "山と 川の メールです。",
+          "en": "It is an email about the mountain and river.",
+          "terms": [
+            "v_yama",
+            "p_to",
+            "v_kawa",
+            "p_no",
+            "v_meeru",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "来週 車で 山へ 行きます。",
+          "en": "He will go to the mountain by car next week.",
+          "terms": [
+            "v_raishuu",
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "火山にも 行きます。",
+          "en": "He will also go to the volcano.",
+          "terms": [
+            "v_kazan",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "山の 道は いいです。",
+          "en": "The mountain road is nice.",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_ii",
+            "g_desu"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうに だれから メールが 来ましたか。",
+          "q_en": "Who sent Rikizo an email?",
+          "a": "やまかわから 来ました。",
+          "a_en": "It came from Yamakawa.",
+          "terms": [
+            "char_rikizo",
+            "p_ni",
+            "v_dare",
+            "p_kara",
+            "v_meeru",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "char_yamakawa",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "来週 なにで 山へ 行きますか。",
+          "q_en": "What will he use to go to the mountains next week?",
+          "a": "車で 行きます。",
+          "a_en": "He will go by car.",
+          "terms": [
+            "v_raishuu",
+            "v_nani",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "火山にも 行きますか。",
+          "q_en": "Will he also go to the volcano?",
+          "a": "はい、火山にも 行きます。",
+          "a_en": "Yes, he will also go to the volcano.",
+          "terms": [
+            "v_kazan",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "p_hai",
+            "v_kazan",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each kanji.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[山] の よみかたは？",
+          "choices": [
+            "やま",
+            "かわ",
+            "みち",
+            "くるま"
+          ],
+          "answer": "やま"
+        },
+        {
+          "kind": "mcq",
+          "q": "[川] の よみかたは？",
+          "choices": [
+            "かわ",
+            "やま",
+            "どう",
+            "みち"
+          ],
+          "answer": "かわ"
+        },
+        {
+          "kind": "mcq",
+          "q": "[道] の よみかたは？",
+          "choices": [
+            "みち",
+            "くるま",
+            "かわ",
+            "やま"
+          ],
+          "answer": "みち"
+        },
+        {
+          "kind": "mcq",
+          "q": "[車] の よみかたは？",
+          "choices": [
+            "くるま",
+            "みち",
+            "かわ",
+            "やま"
+          ],
+          "answer": "くるま"
+        },
+        {
+          "kind": "mcq",
+          "q": "[火山] の よみかたは？",
+          "choices": [
+            "かざん",
+            "ひやま",
+            "やまかわ",
+            "かさん"
+          ],
+          "answer": "かざん"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "今日 山 _______ 行きますか。",
+          "choices": [
+            "へ",
+            "で",
+            "は",
+            "に"
+          ],
+          "answer": "へ",
+          "terms": [
+            "v_kyou",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "山に 川が _______。",
+          "choices": [
+            "あります",
+            "います",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "あります",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ で 山へ 行きます。",
+          "choices": [
+            "車",
+            "山",
+            "川",
+            "道"
+          ],
+          "answer": "車",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞうさんに メールが _______。",
+          "choices": [
+            "来ました",
+            "行きました",
+            "あります",
+            "います"
+          ],
+          "answer": "来ました",
+          "terms": [
+            "v_san",
+            "p_ni",
+            "v_meeru",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "山の 道は とても _______。",
+          "choices": [
+            "いいです",
+            "来ます",
+            "行きます",
+            "あります"
+          ],
+          "answer": "いいです",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_totemo",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週 火山へ _______。",
+          "choices": [
+            "行きました",
+            "行きます",
+            "来ます",
+            "あります"
+          ],
+          "answer": "行きました",
+          "terms": [
+            "v_senshuu",
+            "v_kazan",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "山から 川 _______ 車で 行きます。",
+          "choices": [
+            "まで",
+            "から",
+            "に",
+            "を"
+          ],
+          "answer": "まで",
+          "terms": [
+            "v_yama",
+            "p_kara",
+            "v_kawa",
+            "p_made",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "来週も 山 _______ 来ますか。",
+          "choices": [
+            "へ",
+            "は",
+            "の",
+            "が"
+          ],
+          "answer": "へ",
+          "terms": [
+            "v_raishuu",
+            "p_mo",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "車 _______ 山へ 行きますか。",
+          "choices": [
+            "で",
+            "に",
+            "の",
+            "は"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "山 _______ 川が あります。",
+          "choices": [
+            "に",
+            "を",
+            "が",
+            "は"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_yama",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "駅 _______ 山まで 車で 行きます。",
+          "choices": [
+            "から",
+            "まで",
+            "に",
+            "は"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_eki",
+            "p_kara",
+            "v_yama",
+            "p_made",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "山や 川 _______ 行きます。",
+          "choices": [
+            "に",
+            "が",
+            "の",
+            "は"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_yama",
+            "p_ya",
+            "v_kawa",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週は 火山 _______ 行きませんでした。",
+          "choices": [
+            "へ",
+            "の",
+            "が",
+            "に"
+          ],
+          "answer": "へ",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_kazan",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日 バス _______ 来ましたか。",
+          "choices": [
+            "で",
+            "に",
+            "は",
+            "を"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_kyou",
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だち _______ 山へ 行きます。",
+          "choices": [
+            "と",
+            "が",
+            "を",
+            "に"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "山の 道 _______ とても いいですよ。",
+          "choices": [
+            "は",
+            "に",
+            "が",
+            "を"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_yama",
+            "p_no",
+            "v_michi",
+            "p_wa",
+            "v_totemo",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    }
+  ]
+}

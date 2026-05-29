@@ -1,0 +1,1213 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G5",
+  "type": "grammar",
+  "title": "Core Particles III — に, で, へ",
+  "meta": {
+    "level": "N5",
+    "unlocksAfter": "N5.5",
+    "focus": "Location and movement particles: destination, action location, means, and direction",
+    "estimatedMinutes": 25,
+    "particles": [
+      "に",
+      "で",
+      "へ"
+    ],
+    "grammarForms": [],
+    "icon": "📌"
+  },
+  "targetVocab": [
+    "p_ni",
+    "p_de",
+    "p_e",
+    "v_aru",
+    "v_iru"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "Where, How, and Which Way",
+      "icon": "📌",
+      "summary": "Three particles — に, で, and へ — let you say where things exist, where actions happen, how you travel, and which direction you are heading. Each has a distinct job.",
+      "whyItMatters": "Without these particles you can say what you do, but not where or how you do it. に, で, and へ are the core tools for talking about movement through the world — going to the station, arriving by bus, studying at school.",
+      "youWillLearn": [
+        "に — marking a destination with motion verbs (going TO a place)",
+        "に — marking an existence location (something is AT a place)",
+        "に — marking a specific time point (ON Monday, AT 3 o'clock)",
+        "で — marking the location where an action takes place (studying AT school)",
+        "で — marking the means or method used (travelling BY bus)",
+        "へ — marking the direction of movement TOWARD a destination"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_ni",
+      "pattern": [
+        {
+          "label": "PLACE",
+          "color": "topic",
+          "text": "駅"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "に"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "行きます"
+        }
+      ],
+      "meaning": "に — destination / existence location / specific time",
+      "explanation": "に is the most versatile of the three particles. It has three main uses taught here: (1) with motion verbs it marks the destination — the place you arrive at; (2) with existence verbs (います / あります) it marks the location where something is; (3) with calendar times it marks a fixed, specific point — the same 'pinpoint' idea taught in G4.",
+      "notes": [
+        "Destination (motion): 駅に行きます — going TO the station. に marks the endpoint.",
+        "Existence location: ここにいます — I am HERE (at this spot). に marks where the person is.",
+        "Time point: 月曜日に来ます — coming ON Monday. に pins the event to a calendar point.",
+        "に does NOT mark relative time words (毎日, 今日, 今週). Those float without a particle.",
+        "に has further uses not taught here (indirect object: 'giving TO someone'). They share the same 'arrival at a point' logic."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "駅",
+              "role": "topic",
+              "gloss": "station"
+            },
+            {
+              "text": "に",
+              "role": "particle"
+            },
+            {
+              "text": "行き",
+              "role": "verb",
+              "gloss": "go-"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I go to the station.",
+          "breakdown": "に marks the destination — the place the motion arrives at"
+        },
+        {
+          "parts": [
+            {
+              "text": "ここ",
+              "role": "topic",
+              "gloss": "here"
+            },
+            {
+              "text": "に",
+              "role": "particle"
+            },
+            {
+              "text": "い",
+              "role": "verb",
+              "gloss": "be"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I am here (at this spot).",
+          "breakdown": "に marks the location of existence — where the person is"
+        },
+        {
+          "parts": [
+            {
+              "text": "来週",
+              "role": "modifier",
+              "gloss": "next week"
+            },
+            {
+              "text": "来",
+              "role": "verb",
+              "gloss": "come"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I will come next week. (no に — floating time word)",
+          "breakdown": "来週 is a relative time word — no に needed"
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_de",
+      "pattern": [
+        {
+          "label": "PLACE / MEANS",
+          "color": "topic",
+          "text": "バス"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "で"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "来ます"
+        }
+      ],
+      "meaning": "で — location of action / means or method",
+      "explanation": "で marks two related ideas: (1) the place where an action actively occurs — not just where something exists, but where you do something; (2) the means, tool, or method by which an action is performed. Both uses answer the question 'how / in what context is this action happening?'",
+      "notes": [
+        "Action location: コンビニで — doing something AT the convenience store (an active event at a place).",
+        "Means / method: バスで来ます — coming BY bus. タクシーで行きます — going BY taxi.",
+        "Key contrast with に: に marks where something EXISTS or ARRIVES; で marks where an action HAPPENS.",
+        "Example: うちにいます (I am at home — existence). Action-at-location uses of で (e.g. doing something at a place) will be reinforced in later lessons when more action verbs are available.",
+        "で is introduced in N5.5 — it only appears in content from this point onward."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "バス",
+              "role": "topic",
+              "gloss": "bus"
+            },
+            {
+              "text": "で",
+              "role": "particle"
+            },
+            {
+              "text": "来",
+              "role": "verb",
+              "gloss": "come"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I come by bus.",
+          "breakdown": "で marks the means of transport — the method of coming"
+        },
+        {
+          "parts": [
+            {
+              "text": "タクシー",
+              "role": "topic",
+              "gloss": "taxi"
+            },
+            {
+              "text": "で",
+              "role": "particle"
+            },
+            {
+              "text": "行き",
+              "role": "verb",
+              "gloss": "go-"
+            },
+            {
+              "text": "ました",
+              "role": "predicate"
+            }
+          ],
+          "en": "I went by taxi.",
+          "breakdown": "で marks the means — travelling by taxi"
+        },
+        {
+          "parts": [
+            {
+              "text": "バス",
+              "role": "topic",
+              "gloss": "bus"
+            },
+            {
+              "text": "で",
+              "role": "particle"
+            },
+            {
+              "text": "駅",
+              "role": "topic",
+              "gloss": "station"
+            },
+            {
+              "text": "に",
+              "role": "particle"
+            },
+            {
+              "text": "来",
+              "role": "verb",
+              "gloss": "come"
+            },
+            {
+              "text": "ました",
+              "role": "predicate"
+            }
+          ],
+          "en": "I came to the station by bus.",
+          "breakdown": "で marks the means (by bus); に marks the destination. Both particles in one sentence."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_e",
+      "pattern": [
+        {
+          "label": "DESTINATION",
+          "color": "topic",
+          "text": "駅"
+        },
+        {
+          "label": "PARTICLE",
+          "color": "connector",
+          "text": "へ"
+        },
+        {
+          "label": "VERB",
+          "color": "verb",
+          "text": "行きます"
+        }
+      ],
+      "meaning": "へ — direction of movement (toward a destination)",
+      "explanation": "へ (pronounced 'e' as a particle) marks the direction of movement — the way you are heading. It emphasises that you are oriented toward the destination rather than focusing on your arrival at it. Like に for motion verbs, へ is used with verbs of movement (行く, 来る). However, へ highlights the journey's direction, while に highlights the endpoint.",
+      "notes": [
+        "へ is used only with motion verbs. It cannot mark existence locations or time.",
+        "駅へ行きます = going in the direction of the station (emphasis on heading that way).",
+        "駅に行きます = going to the station (emphasis on arriving there).",
+        "In everyday conversation both are often interchangeable for simple destinations. See the comparison section for the key distinction.",
+        "へ cannot replace に for time expressions or existence: 月曜日へ is NOT correct."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "駅",
+              "role": "topic",
+              "gloss": "station"
+            },
+            {
+              "text": "へ",
+              "role": "particle"
+            },
+            {
+              "text": "行き",
+              "role": "verb",
+              "gloss": "go-"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I am heading to (toward) the station.",
+          "breakdown": "へ marks direction — oriented toward the station"
+        },
+        {
+          "parts": [
+            {
+              "text": "うち",
+              "role": "topic",
+              "gloss": "home"
+            },
+            {
+              "text": "へ",
+              "role": "particle"
+            },
+            {
+              "text": "来",
+              "role": "verb",
+              "gloss": "come"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I am coming toward home.",
+          "breakdown": "へ with 来る — heading in the direction of home"
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "に vs で — Existence & Arrival vs Action & Means",
+      "items": [
+        {
+          "label": "に — where something EXISTS or ARRIVES",
+          "color": "particle",
+          "points": [
+            "With existence verbs (います / あります): marks WHERE something IS",
+            "With motion verbs (行く / 来る): marks the DESTINATION — the endpoint of movement",
+            "に pins the sentence to a specific place-point — static presence or arrival",
+            "家にいます → someone IS at home (existence)",
+            "駅に行きます → going TO the station (arrival at endpoint)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "友だち",
+                "role": "subject",
+                "gloss": "friend"
+              },
+              {
+                "text": "が",
+                "role": "particle"
+              },
+              {
+                "text": "家",
+                "role": "topic",
+                "gloss": "home"
+              },
+              {
+                "text": "に",
+                "role": "particle"
+              },
+              {
+                "text": "い",
+                "role": "verb",
+                "gloss": "be"
+              },
+              {
+                "text": "ます",
+                "role": "predicate"
+              }
+            ],
+            "en": "My friend is at home. (existence location)"
+          }
+        },
+        {
+          "label": "で — where an action HAPPENS or HOW it's done",
+          "color": "verb",
+          "points": [
+            "Action location: marks the place where an action actively takes place (NOT just where something is)",
+            "Means / method: marks the tool, vehicle, or method used for an action",
+            "で answers 'In what context or by what means is this action performed?'",
+            "家で生まれました → was born AT home (action location — the birth happened there)",
+            "Key contrast: 家にいます (someone IS at home) vs 家で生まれました (something HAPPENED at home)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "家",
+                "role": "topic",
+                "gloss": "home"
+              },
+              {
+                "text": "で",
+                "role": "particle"
+              },
+              {
+                "text": "生まれ",
+                "role": "verb",
+                "gloss": "was born"
+              },
+              {
+                "text": "ました",
+                "role": "predicate"
+              }
+            ],
+            "en": "I was born at home. (action location — the event happened there)"
+          }
+        }
+      ],
+      "tip": "Quick test: 'Am I saying where something IS, or where/how an action HAPPENS?' Existence or arrival → に. Action location or method → で. Both often appear together: バスで（by bus）駅に（to the station）来ます."
+    },
+    {
+      "type": "grammarComparison",
+      "title": "に vs へ for Motion Verbs — Arrival vs Direction",
+      "items": [
+        {
+          "label": "に — arrival at a point",
+          "color": "particle",
+          "points": [
+            "Emphasises the ENDPOINT — where you arrive",
+            "Used with motion verbs: 行く, 来る",
+            "Also used for existence (います/あります) and time — へ cannot do this",
+            "に has many uses; motion destination is just one of them"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "駅",
+                "role": "topic",
+                "gloss": "station"
+              },
+              {
+                "text": "に",
+                "role": "particle"
+              },
+              {
+                "text": "行き",
+                "role": "verb",
+                "gloss": "go-"
+              },
+              {
+                "text": "ます",
+                "role": "predicate"
+              }
+            ],
+            "en": "I go to the station. (arriving there)"
+          }
+        },
+        {
+          "label": "へ — direction / orientation",
+          "color": "particle",
+          "points": [
+            "Emphasises the DIRECTION — the way you are heading",
+            "Used ONLY with motion verbs — cannot mark existence or time",
+            "Implies movement in progress, not necessarily arrival",
+            "へ and に overlap for simple destination sentences, but に is broader"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "駅",
+                "role": "topic",
+                "gloss": "station"
+              },
+              {
+                "text": "へ",
+                "role": "particle"
+              },
+              {
+                "text": "行き",
+                "role": "verb",
+                "gloss": "go-"
+              },
+              {
+                "text": "ます",
+                "role": "predicate"
+              }
+            ],
+            "en": "I head toward the station. (moving in that direction)"
+          }
+        }
+      ],
+      "tip": "Both に and へ are often used interchangeably for simple 'going to a place' sentences. The key difference: に can mark existence locations, time points, and indirect objects — へ cannot. When in doubt, に is the safer, more versatile choice."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_aru_iru",
+      "pattern": [
+        {
+          "label": "ANIMATE",
+          "color": "verb",
+          "text": "猫がいる"
+        },
+        {
+          "label": "INANIMATE",
+          "color": "modifier",
+          "text": "本がある"
+        }
+      ],
+      "meaning": "いる vs ある — two existence verbs for two kinds of things",
+      "explanation": "Japanese has two verbs meaning 'to exist' or 'to be (somewhere)'. The choice depends on whether the thing that exists is **animate** (living, self-moving) or **inanimate** (non-living, stationary).\n\n**いる** — for animate beings: people, animals, insects — anything that can move on its own.\n- 先生がいます。(The teacher is here.)\n- 猫がいます。(There is a cat.)\n- だれがいますか。(Who is there?)\n\n**ある** — for inanimate objects: things, places, abstract concepts.\n- 本があります。(There is a book.)\n- 時間があります。(There is time.)\n- 何がありますか。(What is there?)\n\nBoth verbs pair with に to mark WHERE something exists: 部屋に猫がいます (The cat is in the room). 部屋に本があります (There is a book in the room).",
+      "notes": [
+        "Quick test: Can it move on its own? → いる. Otherwise → ある.",
+        "いる is an ichidan (RU-verb): いる → います / いた / いて / いない.",
+        "ある is a godan (U-verb) but has an irregular negative: ある → あります / あった / あって. Negative: ない (NOT あらない).",
+        "Question patterns: だれがいますか (who is there? — animate) vs 何がありますか (what is there? — inanimate).",
+        "Plants are treated as inanimate — 木があります (there is a tree), not いる. They don't move on their own.",
+        "The 'animated vehicle' nuance: taxis and buses occasionally use いる when viewed as having agency (タクシーがいる = 'there's a taxi [available/waiting]'), but this is casual usage. Default to ある for vehicles."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "部屋",
+              "role": "topic",
+              "gloss": "room"
+            },
+            {
+              "text": "に",
+              "role": "modifier",
+              "gloss": "in (existence location)"
+            },
+            {
+              "text": "猫",
+              "role": "subject",
+              "gloss": "cat"
+            },
+            {
+              "text": "が",
+              "role": "modifier",
+              "gloss": "(subject)"
+            },
+            {
+              "text": "います。",
+              "role": "predicate",
+              "gloss": "exists (animate)"
+            }
+          ],
+          "en": "There is a cat in the room.",
+          "breakdown": "Cat = animate → いる. に marks the location of existence."
+        },
+        {
+          "parts": [
+            {
+              "text": "部屋",
+              "role": "topic",
+              "gloss": "room"
+            },
+            {
+              "text": "に",
+              "role": "modifier",
+              "gloss": "in (existence location)"
+            },
+            {
+              "text": "本",
+              "role": "subject",
+              "gloss": "book"
+            },
+            {
+              "text": "が",
+              "role": "modifier",
+              "gloss": "(subject)"
+            },
+            {
+              "text": "あります。",
+              "role": "predicate",
+              "gloss": "exists (inanimate)"
+            }
+          ],
+          "en": "There is a book in the room.",
+          "breakdown": "Book = inanimate → ある. Same location (部屋に), different existence verb."
+        },
+        {
+          "parts": [
+            {
+              "text": "先生",
+              "role": "subject",
+              "gloss": "teacher"
+            },
+            {
+              "text": "が",
+              "role": "modifier",
+              "gloss": "(subject)"
+            },
+            {
+              "text": "いません。",
+              "role": "predicate",
+              "gloss": "is not here (animate negative)"
+            }
+          ],
+          "en": "The teacher is not here.",
+          "breakdown": "Teacher = animate → いる. Polite negative: いません."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "いる vs ある — Animate vs Inanimate Existence",
+      "items": [
+        {
+          "label": "いる — animate (people, animals)",
+          "color": "verb",
+          "points": [
+            "Used for people, animals, insects — anything that moves on its own",
+            "部屋に猫がいます (There is a cat in the room)",
+            "先生がいません (The teacher is not here)",
+            "だれがいますか？ (Who is there?)",
+            "Negative: いません / いない"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "友だち",
+                "role": "subject",
+                "gloss": "friend"
+              },
+              {
+                "text": "が",
+                "role": "modifier",
+                "gloss": "(subject)"
+              },
+              {
+                "text": "うちに",
+                "role": "topic",
+                "gloss": "at home"
+              },
+              {
+                "text": "います。",
+                "role": "predicate",
+                "gloss": "is (animate)"
+              }
+            ],
+            "en": "My friend is at home."
+          }
+        },
+        {
+          "label": "ある — inanimate (things, concepts)",
+          "color": "modifier",
+          "points": [
+            "Used for objects, places, abstract things — anything that does NOT move on its own",
+            "部屋に本があります (There is a book in the room)",
+            "時間がありません (There is no time)",
+            "何がありますか？ (What is there?)",
+            "Negative: ありません / ない (irregular — NOT あらない)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "本",
+                "role": "subject",
+                "gloss": "book"
+              },
+              {
+                "text": "が",
+                "role": "modifier",
+                "gloss": "(subject)"
+              },
+              {
+                "text": "部屋に",
+                "role": "topic",
+                "gloss": "in the room"
+              },
+              {
+                "text": "あります。",
+                "role": "predicate",
+                "gloss": "exists (inanimate)"
+              }
+            ],
+            "en": "There is a book in the room."
+          }
+        }
+      ],
+      "tip": "Can it move on its own? → いる. Otherwise → ある. This rule covers almost every case. The only grey area is vehicles (タクシーがいる is sometimes heard casually), but default to ある for non-living things."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "に, で, and へ Together in Natural Sentences",
+      "examples": [
+        {
+          "context": "に — destination with motion verb",
+          "parts": [
+            {
+              "text": "毎日",
+              "role": "modifier",
+              "gloss": "every day"
+            },
+            {
+              "text": "駅",
+              "role": "topic",
+              "gloss": "station"
+            },
+            {
+              "text": "に",
+              "role": "particle"
+            },
+            {
+              "text": "行き",
+              "role": "verb",
+              "gloss": "go-"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I go to the station every day.",
+          "note": "に marks the destination. 毎日 is a floating time word — no particle needed."
+        },
+        {
+          "context": "に — existence location",
+          "parts": [
+            {
+              "text": "今",
+              "role": "modifier",
+              "gloss": "now"
+            },
+            {
+              "text": "うち",
+              "role": "topic",
+              "gloss": "home"
+            },
+            {
+              "text": "に",
+              "role": "particle"
+            },
+            {
+              "text": "友だち",
+              "role": "subject",
+              "gloss": "friend"
+            },
+            {
+              "text": "が",
+              "role": "particle"
+            },
+            {
+              "text": "い",
+              "role": "verb",
+              "gloss": "be"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "My friend is at home right now.",
+          "note": "に marks the existence location — where the friend is."
+        },
+        {
+          "context": "で — means of transport",
+          "parts": [
+            {
+              "text": "バス",
+              "role": "topic",
+              "gloss": "bus"
+            },
+            {
+              "text": "で",
+              "role": "particle"
+            },
+            {
+              "text": "駅",
+              "role": "topic",
+              "gloss": "station"
+            },
+            {
+              "text": "に",
+              "role": "particle"
+            },
+            {
+              "text": "行き",
+              "role": "verb",
+              "gloss": "go-"
+            },
+            {
+              "text": "ます",
+              "role": "predicate"
+            }
+          ],
+          "en": "I go to the station by bus.",
+          "note": "で marks the method (by bus); に marks the destination. Both appear in one sentence."
+        },
+        {
+          "context": "へ — direction of travel",
+          "parts": [
+            {
+              "text": "先週",
+              "role": "modifier",
+              "gloss": "last week"
+            },
+            {
+              "text": "コンビニ",
+              "role": "topic",
+              "gloss": "convenience store"
+            },
+            {
+              "text": "へ",
+              "role": "particle"
+            },
+            {
+              "text": "行き",
+              "role": "verb",
+              "gloss": "go-"
+            },
+            {
+              "text": "ました",
+              "role": "predicate"
+            }
+          ],
+          "en": "Last week I headed to the convenience store.",
+          "note": "へ shows direction of the journey; ました shows the past tense."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: 今日 どこに 行きましたか（Where Did You Go Today?）",
+      "context": "Yamakawa asks Rikizo about his day. They talk about where he went and how he got there.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "りきぞうさん、今日 どこに 行きましたか。",
+          "en": "Rikizo-san, where did you go today?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_kyou",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "コンビニに 行きました。バスで 行きましたよ。",
+          "en": "I went to the convenience store. I went by bus.",
+          "terms": [
+            "v_konbini",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうですか。友だちも コンビニに いましたか。",
+          "en": "Is that so. Was your friend also at the convenience store?",
+          "terms": [
+            "p_soudesuka",
+            "v_tomodachi",
+            "p_mo",
+            "v_konbini",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "いいえ、友だちは スーパーに いました。",
+          "en": "No, my friend was at the supermarket.",
+          "terms": [
+            "v_iie",
+            "v_tomodachi",
+            "p_wa",
+            "v_suupaa",
+            "p_ni",
+            {
+              "id": "v_iru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "スーパーは どこに ありますか。",
+          "en": "Where is the supermarket?",
+          "terms": [
+            "v_suupaa",
+            "p_wa",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "駅に あります。",
+          "en": "It's at the station.",
+          "terms": [
+            "v_eki",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: 来週 どこへ 行きますか（Where Are You Heading Next Week?）",
+      "context": "The teacher asks students about their plans for next week and how they intend to travel.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "来週 どこへ 行きますか。",
+          "en": "Where are you heading next week?",
+          "terms": [
+            "v_raishuu",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "来週 駅へ 行きます。先生も 駅に 来ますか。",
+          "en": "Next week I am heading to the station. Will you also come to the station, sensei?",
+          "terms": [
+            "v_raishuu",
+            "v_eki",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_sensei",
+            "p_mo",
+            "v_eki",
+            "p_ni",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "はい、来ます。バスで 来ます。",
+          "en": "Yes, I will come. I will come by bus.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "v_basu",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "わたしは タクシーで 行きます。バスでは 来ません。",
+          "en": "I will go by taxi. I won't come by bus.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_takushii",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_basu",
+            "p_wa",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "そうですか。友だちも 来ますか。",
+          "en": "Is that so. Will your friends also come?",
+          "terms": [
+            "p_soudesuka",
+            "v_tomodachi",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、友だちが 来ます。友だちは うちから 来ます。",
+          "en": "Yes, my friend will come. My friend will come from home.",
+          "terms": [
+            "p_hai",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "v_tomodachi",
+            "p_wa",
+            "v_uchi",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "sentenceTransform",
+      "title": "Switch the Particle",
+      "instructions": "Each sentence uses one particle. Choose the version with the particle changed as directed.",
+      "manualProgression": true,
+      "items": [
+        {
+          "given": "駅に 行きます。",
+          "givenLabel": "に (destination)",
+          "targetLabel": "Change to へ (direction)",
+          "answer": "駅へ 行きます。",
+          "choices": [
+            "駅へ 行きます。",
+            "駅で 行きます。",
+            "駅が 行きます。",
+            "駅から 行きます。"
+          ]
+        },
+        {
+          "given": "バスで 来ました。",
+          "givenLabel": "で (means)",
+          "targetLabel": "Change the means to タクシー",
+          "answer": "タクシーで 来ました。",
+          "choices": [
+            "タクシーに 来ました。",
+            "タクシーへ 来ました。",
+            "タクシーで 来ました。",
+            "タクシーから 来ました。"
+          ]
+        },
+        {
+          "given": "うちに います。",
+          "givenLabel": "に (existence location)",
+          "targetLabel": "Change location to コンビニ",
+          "answer": "コンビニに います。",
+          "choices": [
+            "コンビニで います。",
+            "コンビニへ います。",
+            "コンビニに います。",
+            "コンビニが います。"
+          ]
+        },
+        {
+          "given": "スーパーへ 行きます。",
+          "givenLabel": "へ (direction)",
+          "targetLabel": "Change to に (destination/arrival)",
+          "answer": "スーパーに 行きます。",
+          "choices": [
+            "スーパーで 行きます。",
+            "スーパーに 行きます。",
+            "スーパーから 行きます。",
+            "スーパーを 行きます。"
+          ]
+        },
+        {
+          "given": "友だちが 駅に います。",
+          "givenLabel": "に (existence location)",
+          "targetLabel": "Change location: friend is now at home",
+          "answer": "友だちが うちに います。",
+          "choices": [
+            "友だちが うちに います。",
+            "友だちが うちで います。",
+            "友だちが うちへ います。",
+            "友だちが うちから います。"
+          ]
+        },
+        {
+          "given": "来週 来ます。",
+          "givenLabel": "No particle (floating time)",
+          "targetLabel": "Specify: coming next week TO the station",
+          "answer": "来週 駅に 来ます。",
+          "choices": [
+            "来週 駅で 来ます。",
+            "来週 駅が 来ます。",
+            "来週 駅に 来ます。",
+            "来週 駅から 来ます。"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Particle Challenge",
+      "instructions": "Choose the correct particle for each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "毎日 駅 ______ 行きます。(I go TO the station every day.)",
+          "choices": [
+            "に",
+            "で",
+            "へ",
+            "が"
+          ],
+          "answer": "に",
+          "terms": [],
+          "explanation": "に marks the destination of a motion verb — the endpoint where you arrive. 'Going to the station' is a destination → に ✓."
+        },
+        {
+          "kind": "mcq",
+          "q": "バス ______ 来ました。(I came BY bus.)",
+          "choices": [
+            "で",
+            "に",
+            "へ",
+            "から"
+          ],
+          "answer": "で",
+          "terms": [],
+          "explanation": "で marks the means or method — the tool or vehicle used for an action. 'Came by bus' = method → で ✓."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちは スーパー ______ います。(My friend is AT the supermarket.)",
+          "choices": [
+            "に",
+            "で",
+            "へ",
+            "も"
+          ],
+          "answer": "に",
+          "terms": [],
+          "explanation": "に marks existence location — where someone IS (います/あります). The friend is existing at the supermarket → に ✓. で would imply an action happening there, not mere presence."
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence is grammatically WRONG?",
+          "choices": [
+            "月よう日に 来ます。",
+            "バスで 来ます。",
+            "月よう日へ 来ます。",
+            "駅に います。"
+          ],
+          "answer": "月よう日へ 来ます。",
+          "explanation": "へ cannot mark time expressions — it is only for direction of movement toward a physical place. 月曜日へ is incorrect. The correct form for a specific day is 月曜日に (pin a calendar point)."
+        },
+        {
+          "kind": "mcq",
+          "q": "コンビニ ______ 行きます。(I am heading TOWARD the convenience store.)",
+          "choices": [
+            "へ",
+            "に",
+            "で",
+            "から"
+          ],
+          "answer": "へ",
+          "terms": [],
+          "explanation": "Both へ and に work here for a simple destination, but this question asks for the particle that specifically emphasises direction/orientation. That is へ."
+        },
+        {
+          "kind": "mcq",
+          "q": "What is the key difference between に and へ for motion verbs?",
+          "choices": [
+            "に emphasises arrival at the endpoint; へ emphasises direction toward the destination",
+            "に is only for buses; へ is only for taxis",
+            "に is past tense; へ is present tense",
+            "They have completely different meanings and cannot be used with the same verbs"
+          ],
+          "answer": "に emphasises arrival at the endpoint; へ emphasises direction toward the destination",
+          "explanation": "For motion verbs, に focuses on the endpoint (arriving there); へ focuses on the direction (heading that way). They often overlap for simple destination sentences, but に is broader — it also works for time and existence, which へ cannot."
+        }
+      ]
+    }
+  ]
+}

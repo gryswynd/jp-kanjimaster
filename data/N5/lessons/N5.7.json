@@ -1,0 +1,1465 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.7",
+  "title": "Size & Food",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 7,
+    "focus": "Size adjectives 大きい / 小さい and eating and drinking vocabulary — 食べる and 飲む — used in restaurant and daily food contexts",
+    "estimated_minutes": 50,
+    "kanji": [
+      "大",
+      "小",
+      "食",
+      "飲"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "大",
+      "on": "だい/たい",
+      "kun": "おお",
+      "meaning": "Big / Large",
+      "termId": "k_oo_2"
+    },
+    {
+      "kanji": "小",
+      "on": "しょう",
+      "kun": "ちい/こ",
+      "meaning": "Small",
+      "termId": "k_chii"
+    },
+    {
+      "kanji": "食",
+      "on": "しょく/じき",
+      "kun": "た",
+      "meaning": "Eat / Food",
+      "termId": "k_shoku"
+    },
+    {
+      "kanji": "飲",
+      "on": "いん",
+      "kun": "の",
+      "meaning": "Drink",
+      "termId": "k_no"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "ウォームアップ",
+      "instructions": "Answer these questions using what you already know.",
+      "items": [
+        {
+          "jp": "毎日 どこへ 行きますか。",
+          "en": "Where do you go every day?",
+          "terms": [
+            "v_mainichi",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先週 山へ 行きましたか。",
+          "en": "Did you go to the mountain last week?",
+          "terms": [
+            "v_senshuu",
+            "v_yama",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "車で 駅から 来ましたか。",
+          "en": "Did you come from the station by car?",
+          "terms": [
+            "v_kuruma",
+            "p_de",
+            "v_eki",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "jp": "先週 車で 来ませんでしたか。",
+          "en": "Didn't you come by car last week?",
+          "terms": [
+            "v_senshuu",
+            "v_kuruma",
+            "p_de",
+            {
+              "id": "v_kuru",
+              "form": "polite_past_negative"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "あたらしい かんじ（New Kanji）",
+      "items": [
+        {
+          "kanji": "大",
+          "on": "だい/たい",
+          "kun": "おお",
+          "meaning": "big / large",
+          "terms": [
+            "k_oo_2"
+          ]
+        },
+        {
+          "kanji": "小",
+          "on": "しょう",
+          "kun": "ちい/こ",
+          "meaning": "small",
+          "terms": [
+            "k_chii"
+          ]
+        },
+        {
+          "kanji": "食",
+          "on": "しょく/じき",
+          "kun": "た",
+          "meaning": "eat / food",
+          "terms": [
+            "k_shoku"
+          ]
+        },
+        {
+          "kanji": "飲",
+          "on": "いん",
+          "kun": "の",
+          "meaning": "drink",
+          "terms": [
+            "k_no"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "ことば（Vocabulary）",
+      "groups": [
+        {
+          "label": "New Kanji",
+          "items": [
+            "k_oo_2",
+            "k_chii",
+            "k_shoku",
+            "k_no"
+          ]
+        },
+        {
+          "label": "Size Adjectives",
+          "items": [
+            "v_ookii",
+            "v_chiisai"
+          ]
+        },
+        {
+          "label": "Verbs",
+          "items": [
+            "v_taberu",
+            "v_nomu"
+          ]
+        },
+        {
+          "label": "Food & Drinks",
+          "items": [
+            "v_karee",
+            "v_pan",
+            "v_sarada",
+            "v_koohii",
+            "v_juusu"
+          ]
+        },
+        {
+          "label": "Places",
+          "items": [
+            "v_resutoran"
+          ]
+        },
+        {
+          "label": "Expressions",
+          "items": [
+            "v_daisuki",
+            "p_itadakimasu",
+            "p_gochisousama"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 1: レストランへ 行きますか（Going to the Restaurant?）",
+      "context": "Rikizo meets Yamakawa near the station and asks about lunch plans.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "やまかわさん、今日 どこへ 行きますか。",
+          "en": "Yamakawa-san, where are you going today?",
+          "terms": [
+            "char_yamakawa",
+            "v_san",
+            "v_kyou",
+            "v_doko",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "レストランへ 行きます。りきぞうさんも 来ますか。",
+          "en": "I am going to the restaurant. Rikizo-san, are you coming too?",
+          "terms": [
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "char_rikizo",
+            "v_san",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、行きます。何を 食べますか。",
+          "en": "Yes, I will go. What will you eat?",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "カレーを 食べます。カレーは 大きいですよ。",
+          "en": "I will eat curry. The curry is big, you know.",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_karee",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "いいですね。コーヒーも 飲みますか。",
+          "en": "That sounds nice. Will you drink coffee too?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_koohii",
+            "p_mo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、飲みます。レストランは 大きいですよ。",
+          "en": "Yes, I will. The restaurant is big, you know.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "v_resutoran",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 2: レストランで（At the Restaurant）",
+      "context": "Yamakawa and Rikizo are at the restaurant ordering food and drinks.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "カレーを 食べますか。",
+          "en": "Will you eat curry?",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、食べます。コーヒーも 飲みますか。",
+          "en": "Yes, I will eat. Will you drink coffee too?",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_koohii",
+            "p_mo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "コーヒーは 飲みません。ジュースを 飲みます。",
+          "en": "I will not drink coffee. I will drink juice.",
+          "terms": [
+            "v_koohii",
+            "p_wa",
+            {
+              "id": "v_nomu",
+              "form": "polite_negative"
+            },
+            "v_juusu",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "ジュースは 大きいですか。",
+          "en": "Is the juice a large size?",
+          "terms": [
+            "v_juusu",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、大きいですよ。パンも 食べますか。",
+          "en": "Yes, it is big, you know. Will you eat bread too?",
+          "terms": [
+            "p_hai",
+            "v_ookii",
+            "g_desu",
+            "p_yo",
+            "v_pan",
+            "p_mo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "カレーは いくらですか。",
+          "en": "How much is the curry?",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            "v_ikura",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "千円です。ここに サラダも あります。",
+          "en": "It's 1000 yen. There is also salad here.",
+          "terms": [
+            "v_sen",
+            "v_en",
+            "g_desu",
+            "v_koko",
+            "p_ni",
+            "v_sarada",
+            "p_mo",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、食べます。いただきます。",
+          "en": "Yes, I will eat. Bon appétit!",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_itadakimasu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 3: 何を 食べますか（What Do You Eat?）",
+      "context": "Yamamoto-sensei and Rikizo talk about food preferences.",
+      "lines": [
+        {
+          "spk": "先生",
+          "jp": "りきぞうさん、何を 飲みますか。",
+          "en": "Rikizo-san, what do you drink?",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "コーヒーを 飲みます。先生は 何を 食べますか。",
+          "en": "I drink coffee. Sensei, what do you eat?",
+          "terms": [
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            },
+            "v_sensei",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "サラダを 食べます。サラダは 小さいですよ。",
+          "en": "I eat salad. The salad is small, you know.",
+          "terms": [
+            "v_sarada",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_sarada",
+            "p_wa",
+            "v_chiisai",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "先生は 何時に 食べますか。",
+          "en": "Sensei, what time do you eat?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nanji",
+            "p_ni",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "一時に 食べます。サラダが 大すきです。",
+          "en": "I eat at one o'clock. I love salad.",
+          "terms": [
+            {
+              "counter": "ji",
+              "n": 1
+            },
+            "p_ni",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_sarada",
+            "p_ga",
+            {
+              "id": "v_daisuki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "先生は レストランで 食べますか。",
+          "en": "Do you eat at a restaurant, Sensei?",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "先生",
+          "jp": "はい、レストランで 食べます。パンも 食べてください。",
+          "en": "Yes, I eat at the restaurant. Please eat the bread too.",
+          "terms": [
+            "p_hai",
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_pan",
+            "p_mo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "はい、食べます。いいですね。",
+          "en": "Yes, I will eat it. That is nice.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "v_ii",
+            "g_desu",
+            "p_ne"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "かいわ 4: ごちそうさまでした（After the Meal）",
+      "context": "Rikizo and Yamakawa talk after finishing their meal at the restaurant.",
+      "lines": [
+        {
+          "spk": "やまかわ",
+          "jp": "ごちそうさまでした。",
+          "en": "Thank you for the meal.",
+          "terms": [
+            "p_gochisousama"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "ごちそうさまでした。今日 カレーを 食べました。",
+          "en": "Thank you for the meal. Today I ate curry.",
+          "terms": [
+            "p_gochisousama",
+            "v_kyou",
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "カレーと パンも 食べました。ジュースも 飲みました。",
+          "en": "I also ate curry and bread. I also drank juice.",
+          "terms": [
+            "v_karee",
+            "p_to",
+            "v_pan",
+            "p_mo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "v_juusu",
+            "p_mo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "コーヒーも 飲みましたか。",
+          "en": "Did you drink coffee too?",
+          "terms": [
+            "v_koohii",
+            "p_mo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、飲みました。レストランは 大きいですね。",
+          "en": "Yes, I did. The restaurant is big, isn't it.",
+          "terms": [
+            "p_hai",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            },
+            "v_resutoran",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "p_ne"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "そうですね。来週も 来ますか。",
+          "en": "Yes, indeed. Will you come next week too?",
+          "terms": [
+            "p_soudesu",
+            "p_ne",
+            "v_raishuu",
+            "p_mo",
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 1: りきぞうの ひるごはん（Rikizo's Lunch）",
+      "passage": [
+        {
+          "jp": "やまかわと りきぞうは 今日 レストランで 食べました。",
+          "en": "Yamakawa and Rikizo ate at the restaurant today.",
+          "terms": [
+            "char_yamakawa",
+            "p_to",
+            "char_rikizo",
+            "p_wa",
+            "v_kyou",
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞうは カレーを 食べました。",
+          "en": "Rikizo ate curry.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "やまかわは カレーと パンを 食べました。",
+          "en": "Yamakawa ate curry and bread.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_karee",
+            "p_to",
+            "v_pan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "りきぞうは コーヒーを 飲みました。やまかわは ジュースを 飲みました。",
+          "en": "Rikizo drank coffee. Yamakawa drank juice.",
+          "terms": [
+            "char_yamakawa",
+            "char_rikizo",
+            "p_wa",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            },
+            "p_wa",
+            "v_juusu",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "カレーは 大きいです。",
+          "en": "The curry is big.",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "レストランも 大きいです。",
+          "en": "The restaurant is also big.",
+          "terms": [
+            "v_resutoran",
+            "p_mo",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "レストランに 友だちが います。",
+          "en": "Friends are at the restaurant.",
+          "terms": [
+            "v_resutoran",
+            "p_ni",
+            "v_tomodachi",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうは 何を 食べましたか。",
+          "q_en": "What did Rikizo eat?",
+          "a": "カレーを 食べました。",
+          "a_en": "He ate curry.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "やまかわは 何を 飲みましたか。",
+          "q_en": "What did Yamakawa drink?",
+          "a": "ジュースを 飲みました。",
+          "a_en": "He drank juice.",
+          "terms": [
+            "char_yamakawa",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_juusu",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "カレーは どうですか。",
+          "q_en": "How is the curry?",
+          "a": "大きいです。",
+          "a_en": "It is big.",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "どこで 食べましたか。",
+          "q_en": "Where did they eat?",
+          "a": "レストランで 食べました。",
+          "a_en": "They ate at a restaurant.",
+          "terms": [
+            "v_doko",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "よむ れんしゅう 2: 先生の ひるごはん（Sensei's Lunch）",
+      "passage": [
+        {
+          "jp": "先生は 今日 レストランで 食べました。",
+          "en": "Sensei ate at the restaurant today.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_kyou",
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "サラダと パンを 食べました。",
+          "en": "Sensei ate salad and bread.",
+          "terms": [
+            "v_sarada",
+            "p_to",
+            "v_pan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "パンを 食べて、コーヒーを 飲みました。",
+          "en": "Sensei ate bread and then drank coffee.",
+          "terms": [
+            "v_pan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "te_form"
+            },
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "サラダは 小さいです。パンは 大きいです。",
+          "en": "The salad is small. The bread is big.",
+          "terms": [
+            "v_sarada",
+            "p_wa",
+            "v_chiisai",
+            "g_desu",
+            "v_pan",
+            "p_wa",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "レストランは いいです。",
+          "en": "The restaurant is nice.",
+          "terms": [
+            "v_resutoran",
+            "p_wa",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "先生は 来週も レストランへ 行きます。",
+          "en": "Sensei will also go to the restaurant next week.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_raishuu",
+            "p_mo",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "先生は 何を 食べましたか。",
+          "q_en": "What did the teacher eat?",
+          "a": "サラダと パンを 食べました。",
+          "a_en": "She ate salad and bread.",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_sarada",
+            "p_to",
+            "v_pan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "何を 飲みましたか。",
+          "q_en": "What did she drink?",
+          "a": "コーヒーを 飲みました。",
+          "a_en": "She drank coffee.",
+          "terms": [
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "q": "サラダは どうですか。",
+          "q_en": "How is the salad?",
+          "a": "小さいです。",
+          "a_en": "It is small.",
+          "terms": [
+            "v_sarada",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_chiisai",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 1: かんじの よみかた（Kanji Readings）",
+      "instructions": "Choose the correct reading for each kanji.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[大] の よみかたは？",
+          "choices": [
+            "おお",
+            "しょう",
+            "た",
+            "いん"
+          ],
+          "answer": "おお"
+        },
+        {
+          "kind": "mcq",
+          "q": "[小] の よみかたは？",
+          "choices": [
+            "ちい",
+            "だい",
+            "の",
+            "おお"
+          ],
+          "answer": "ちい"
+        },
+        {
+          "kind": "mcq",
+          "q": "[食] の よみかたは？",
+          "choices": [
+            "た",
+            "の",
+            "おお",
+            "ちい"
+          ],
+          "answer": "た"
+        },
+        {
+          "kind": "mcq",
+          "q": "[飲] の よみかたは？",
+          "choices": [
+            "の",
+            "た",
+            "しょく",
+            "おお"
+          ],
+          "answer": "の"
+        },
+        {
+          "kind": "mcq",
+          "q": "[食べる] の よみかたは？",
+          "choices": [
+            "たべる",
+            "のむ",
+            "おおきい",
+            "ちいさい"
+          ],
+          "answer": "たべる"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 2: ことばを えらぶ（Vocabulary）",
+      "instructions": "Choose the correct word or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "カレー _______ 食べますか。",
+          "choices": [
+            "を",
+            "は",
+            "に",
+            "で"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "コーヒーを _______。",
+          "choices": [
+            "飲みます",
+            "食べます",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "飲みます",
+          "terms": [
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "レストラン _______ 食べます。",
+          "choices": [
+            "で",
+            "へ",
+            "に",
+            "は"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "カレーは _______。",
+          "choices": [
+            "大きいです",
+            "飲みます",
+            "行きます",
+            "来ます"
+          ],
+          "answer": "大きいです",
+          "terms": [
+            "v_karee",
+            "p_wa",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先週 コーヒーを _______。",
+          "choices": [
+            "飲みました",
+            "飲みます",
+            "食べました",
+            "行きました"
+          ],
+          "answer": "飲みました",
+          "terms": [
+            "v_senshuu",
+            "v_koohii",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "サラダは _______ です。",
+          "choices": [
+            "小さい",
+            "大きい",
+            "いい",
+            "飲みます"
+          ],
+          "answer": "小さい",
+          "terms": [
+            "v_sarada",
+            "p_wa",
+            "v_chiisai",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日 レストランへ _______。",
+          "choices": [
+            "行きました",
+            "食べました",
+            "飲みました",
+            "来ませんでした"
+          ],
+          "answer": "行きました",
+          "terms": [
+            "v_kyou",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "パンは 大きいです。ジュースは _______。",
+          "choices": [
+            "小さいです",
+            "大きいです",
+            "飲みます",
+            "来ます"
+          ],
+          "answer": "小さいです",
+          "terms": [
+            "v_pan",
+            "p_wa",
+            "v_ookii",
+            "g_desu",
+            "v_juusu",
+            "p_wa",
+            "v_chiisai",
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "ドリル 3: ぶんを つくる（Sentence Building）",
+      "instructions": "Choose the best particle or word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "カレー _______ 食べました。",
+          "choices": [
+            "を",
+            "は",
+            "が",
+            "に"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "レストラン _______ 大きいです。",
+          "choices": [
+            "は",
+            "を",
+            "で",
+            "が"
+          ],
+          "answer": "は",
+          "terms": [
+            "v_resutoran",
+            "p_wa",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "コーヒーは 飲みません。ジュース _______ 飲みます。",
+          "choices": [
+            "を",
+            "は",
+            "に",
+            "で"
+          ],
+          "answer": "を",
+          "terms": [
+            "v_koohii",
+            "p_wa",
+            {
+              "id": "v_nomu",
+              "form": "polite_negative"
+            },
+            "v_juusu",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "パン _______ サラダを 食べました。",
+          "choices": [
+            "と",
+            "は",
+            "が",
+            "で"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_pan",
+            "p_to",
+            "v_sarada",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "先生は レストラン _______ 食べますか。",
+          "choices": [
+            "で",
+            "へ",
+            "に",
+            "から"
+          ],
+          "answer": "で",
+          "terms": [
+            "v_sensei",
+            "p_wa",
+            "v_resutoran",
+            "p_de",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "今日 カレーを 食べ _______。",
+          "choices": [
+            "ました",
+            "ます",
+            "ません",
+            "ませんでした"
+          ],
+          "answer": "ました",
+          "terms": [
+            "v_kyou",
+            "v_karee",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "サラダは 小さいです。カレーは _______。",
+          "choices": [
+            "大きいです",
+            "小さいです",
+            "飲みます",
+            "行きます"
+          ],
+          "answer": "大きいです",
+          "terms": [
+            "v_sarada",
+            "p_wa",
+            "v_chiisai",
+            "g_desu",
+            "v_karee",
+            "p_wa",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だち _______ レストランへ 行きます。",
+          "choices": [
+            "と",
+            "を",
+            "に",
+            "は"
+          ],
+          "answer": "と",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            "v_resutoran",
+            "p_e",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

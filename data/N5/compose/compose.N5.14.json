@@ -1,0 +1,149 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.14",
+  "lesson": "N5.14",
+  "level": "N5",
+  "title": "Quantity and Color in My Day",
+  "titleJp": "多い と 少ない",
+  "emoji": "⚖️",
+  "theme": "Write about quantities and the color white in your daily life — what you have many of, what you have little of, and what you see around you.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write about things you have many of at school — books, flowers, or friends.",
+      "targets": [
+        { "id": "v_ooi", "count": 1 }
+      ],
+      "model": "学校に 本が 多いです。毎日 たくさん 読みます。",
+      "vocabPool": [
+        "v_ooi", "v_takusan", "v_hon", "v_gakkou", "v_mainichi",
+        "v_nihongo", "v_tomodachi", "v_hana", "v_watashi",
+        "v_ii", "v_totemo", "v_omoshiroi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about something you have only a little of today — time, books, or Japanese words you know.",
+      "targets": [
+        { "id": "v_sukoshi", "count": 1 }
+      ],
+      "model": "今日は 時間が 少ないです。少し 日本語を 話しました。",
+      "vocabPool": [
+        "v_sukoshi", "v_sukunai", "v_jikan", "v_kyou", "v_mainichi",
+        "v_nihongo", "v_hanasu", "v_hon", "v_watashi",
+        "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about something white you see — flowers outside, clouds, or something at school.",
+      "targets": [
+        { "id": "v_shiroi", "count": 1 }
+      ],
+      "model": "外に 白い 花が あります。とても きれいです。",
+      "vocabPool": [
+        "v_shiroi", "v_hana", "v_soto", "v_kirei",
+        "v_ooi", "v_sukunai", "v_sukoshi",
+        "v_gakkou", "v_watashi", "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about how much time you have for Japanese — reading, speaking, or writing.",
+      "targets": [
+        { "id": "v_jikan", "count": 1 }
+      ],
+      "model": "毎日 日本語を 話す 時間が あります。日本語は とても おもしろいです。",
+      "vocabPool": [
+        "v_jikan", "v_mainichi", "v_nihongo", "v_hanasu",
+        "v_yomu", "v_kaku", "v_gakkou", "v_watashi",
+        "v_ooi", "v_sukoshi", "v_ii", "v_totemo", "v_omoshiroi",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about whether you have many or few friends to speak Japanese with — and what you want to do.",
+      "targets": [
+        { "id": "v_sukunai", "count": 1 }
+      ],
+      "model": "日本語を 話す 友だちが 少ないです。毎日 たくさん 話したいです。",
+      "vocabPool": [
+        "v_sukunai", "v_sukoshi", "v_ooi", "v_takusan",
+        "v_tomodachi", "v_nihongo", "v_hanasu", "v_yomu",
+        "v_mainichi", "v_watashi", "v_taitei", "v_zenzen",
+        "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write about the girls and boys you see at school — do they usually speak Japanese?",
+      "targets": [
+        { "id": "v_shoujo", "count": 1 },
+        { "id": "v_shounen", "count": 1 }
+      ],
+      "model": "学校に 少女と 少年が います。たいてい 日本語を 話しています。",
+      "vocabPool": [
+        "v_shoujo", "v_shounen", "v_gakkou", "v_nihongo",
+        "v_hanasu", "v_yomu", "v_kaku",
+        "v_taitei", "v_zenzen", "v_tabun", "v_mainichi",
+        "v_ooi", "v_sukunai", "v_jikan",
+        "v_ii", "v_totemo",
+        "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made",
+    "p_ni", "p_de", "p_e",
+    "p_ga_but", "p_kara_because", "p_kedo"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[verb ます-stem] + ます",
+      "meaning": "polite present — speaks / reads / writes",
+      "examples": ["話します", "読みます", "休みます"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ました",
+      "meaning": "polite past — spoke / read / wrote",
+      "examples": ["話しました", "読みました", "書きました"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ません",
+      "meaning": "polite negative — does not speak / read / rest",
+      "examples": ["話しません", "読みません", "休みません"]
+    },
+    {
+      "pattern": "[verb て-form] + ください",
+      "meaning": "please do — polite request",
+      "examples": ["話してください", "読んでください", "書いてください"]
+    },
+    {
+      "pattern": "[verb て-form] + います",
+      "meaning": "is doing — ongoing action or state",
+      "examples": ["話しています", "読んでいます", "書いています"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです / たくないです",
+      "meaning": "want / don't want to do",
+      "examples": ["話したいです", "読みたいです", "書きたくないです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's do — invitation or suggestion",
+      "examples": ["話しましょう", "読みましょう", "書きましょう"]
+    },
+    {
+      "pattern": "[い-adj stem] + かったです",
+      "meaning": "polite past adjective — was many / was few / was white (irregular: いい → よかったです)",
+      "examples": ["多かったです", "少なかったです", "白かったです"]
+    },
+    {
+      "pattern": "[い-adj stem] + そうです",
+      "meaning": "looks / seems — appearance",
+      "examples": ["多そうです", "少なそうです", "白そうです"]
+    }
+  ]
+}

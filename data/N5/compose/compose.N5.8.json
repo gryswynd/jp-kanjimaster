@@ -1,0 +1,114 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N5.8",
+  "lesson": "N5.8",
+  "level": "N5",
+  "title": "Shopping at the Department Store",
+  "titleJp": "デパートで 買いもの",
+  "emoji": "🛍️",
+  "theme": "Write about visiting a department store — where you went, what you want to buy, what you ate, and what you brought home.",
+  "prompts": [
+    {
+      "prompt": "Start your composition. Write where you are going today and describe the department store.",
+      "targets": [
+        { "id": "v_iku", "count": 1 }
+      ],
+      "model": "今日 デパートへ 行きます。デパートは 新しいです。",
+      "vocabPool": [
+        "v_depaato", "v_iku", "v_kuru", "v_aru",
+        "v_kyou", "v_mainichi",
+        "v_atarashii", "v_furui", "v_ookii", "v_chiisai",
+        "v_tomodachi", "v_sensei",
+        "v_ii", "v_totemo", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write what you want to buy as a present for a friend and whether it is expensive or cheap.",
+      "targets": [
+        { "id": "v_kau", "count": 1 }
+      ],
+      "model": "友だちに プレゼントを 買いたいです。安いですよ。",
+      "vocabPool": [
+        "v_kau", "v_purezento", "v_hoshii",
+        "v_takai", "v_yasui", "v_atarashii", "v_furui", "v_nagai",
+        "v_ikura", "v_hyaku", "v_sen", "v_en",
+        "v_tomodachi", "v_mise",
+        "v_ii", "v_totemo", "v_amari", "v_mada", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your composition. Write about what you ate or drank at the department store restaurant.",
+      "targets": [
+        { "id": "v_taberu", "count": 1 }
+      ],
+      "model": "デパートで カレーを 食べました。とても おいしいです。コーヒーも 飲みました。",
+      "vocabPool": [
+        "v_taberu", "v_nomu", "v_depaato",
+        "v_karee", "v_pan", "v_sarada", "v_koohii", "v_juusu",
+        "v_resutoran", "v_mise",
+        "v_oishii", "v_ookii", "v_chiisai",
+        "v_ii", "v_totemo", "v_mou", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Write what you bought and describe it — is it new? Cheap or expensive?",
+      "targets": [
+        { "id": "v_atarashii", "count": 1 }
+      ],
+      "model": "新しい プレゼントを 買いました。安いです。とても いいです。",
+      "vocabPool": [
+        "v_kau", "v_purezento",
+        "v_atarashii", "v_furui", "v_takai", "v_yasui", "v_nagai",
+        "v_ikura", "v_hyaku", "v_sen", "v_en",
+        "v_sugoi", "v_hoshii",
+        "v_tomodachi", "v_mata",
+        "v_ii", "v_totemo", "v_mou", "g_desu",
+        "p_itadakimasu", "p_gochisousama"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_no", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "g_desu",
+    "p_mo", "p_to", "p_ya", "p_kara", "p_made", "p_made_ni",
+    "p_ni", "p_de", "p_e"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[godan verb] 買う → 買います",
+      "meaning": "buy (polite forms of 買う)",
+      "examples": ["買います", "買いました", "買いません", "買いませんでした"]
+    },
+    {
+      "pattern": "[い-adjective] + です",
+      "meaning": "is (adj) — polite affirmative",
+      "examples": ["新しいです", "古いです", "高いです", "長いです"]
+    },
+    {
+      "pattern": "[い-adjective] → remove い + くないです",
+      "meaning": "is not (adj) — polite negative",
+      "examples": ["高くないです", "長くないです", "古くないです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たいです",
+      "meaning": "want to (verb) — expresses desire",
+      "examples": ["買いたいです", "食べたいです", "行きたいです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + たくないです",
+      "meaning": "don't want to (verb) — negative desire",
+      "examples": ["買いたくないです", "食べたくないです"]
+    },
+    {
+      "pattern": "[verb ます-stem] + ましょう",
+      "meaning": "let's (verb) — polite invitation or suggestion",
+      "examples": ["買いましょう", "食べましょう", "行きましょう"]
+    },
+    {
+      "pattern": "[て-form] + verb — sequential actions",
+      "meaning": "AてB = 'did A, then B' — tense set by final verb",
+      "examples": ["食べて (ichidan: drop る → て)", "飲んで (godan む → んで)", "買って (godan う → って)"]
+    }
+  ]
+}

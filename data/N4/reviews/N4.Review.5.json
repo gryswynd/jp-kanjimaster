@@ -1,0 +1,911 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N4.Review.5",
+  "title": "Phase 4 Review: Hometowns & Cinema",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 9–10.",
+    "kanji": [
+      "住",
+      "所",
+      "町",
+      "元",
+      "去",
+      "別",
+      "始",
+      "終",
+      "映",
+      "画",
+      "館",
+      "英"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Rikizo asks Yamakawa about his neighborhood during lunch break.",
+          "lines": [
+            {
+              "spk": "りきぞう",
+              "jp": "やまかわさんは どこに 住んで いますか。",
+              "terms": [
+                "char_yamakawa",
+                "v_san",
+                "p_wa",
+                "v_doko",
+                "p_ni",
+                {
+                  "id": "v_sumu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "駅の 近所に 住んで います。とても 元気な 町です。",
+              "terms": [
+                "v_eki",
+                "p_no",
+                "v_kinjo",
+                "p_ni",
+                {
+                  "id": "v_sumu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "v_totemo",
+                {
+                  "id": "v_genki",
+                  "form": "attributive_na"
+                },
+                "v_machi",
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "去年から その 町に 住んで いましたか。",
+              "terms": [
+                "v_kyonen",
+                "p_kara",
+                "v_sono",
+                "v_machi",
+                "p_ni",
+                {
+                  "id": "v_sumu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_mashita"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "いいえ、去年は 別の 所に 住んで いました。今年 ここに 来ました。",
+              "terms": [
+                "v_iie",
+                "v_kyonen",
+                "p_wa",
+                "v_betsu",
+                "p_no",
+                "v_tokoro",
+                "p_ni",
+                {
+                  "id": "v_sumu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_mashita"
+                },
+                "v_kotoshi",
+                "v_koko",
+                "p_ni",
+                {
+                  "id": "v_kuru",
+                  "form": "polite_mashita"
+                }
+              ]
+            }
+          ],
+          "question": "Where does Yamakawa live now?",
+          "choices": [
+            "Near the station in an energetic town.",
+            "Far from the station in a quiet place.",
+            "In the same place he lived last year.",
+            "At his school near the station."
+          ],
+          "answer": "Near the station in an energetic town.",
+          "explanation": "やまかわ says 駅の近所に住んでいます。とても元気な町です (I live near the station. It is a very lively town)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Rikizo and his classmate discuss going to the movie theater after school.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "今日の 午後、映画館に 行きませんか。",
+              "terms": [
+                "v_kyou",
+                "p_no",
+                "v_gogo",
+                "v_eigakan",
+                "p_ni",
+                {
+                  "id": "v_iku",
+                  "form": "polite_negative"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "いいですね。何の 映画が 始まって いますか。",
+              "terms": [
+                {
+                  "id": "v_ii",
+                  "form": "polite_adj"
+                },
+                "p_ne",
+                "v_nan",
+                "p_no",
+                "v_eiga",
+                "p_ga",
+                {
+                  "id": "v_hajimaru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "英語の 映画です。英語を 学ぶ ために 見たいです。",
+              "terms": [
+                "v_eigo",
+                "p_no",
+                "v_eiga",
+                "g_desu",
+                "v_eigo",
+                "p_wo",
+                {
+                  "id": "v_manabu",
+                  "form": "plain_form"
+                },
+                "v_tame",
+                "p_ni",
+                {
+                  "id": "v_miru",
+                  "form": "plain_desire_tai"
+                },
+                "g_desu"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "私も 英語を 学んで いますから、いっしょに 行きましょう。",
+              "terms": [
+                "v_watashi",
+                "p_mo",
+                "v_eigo",
+                "p_wo",
+                {
+                  "id": "v_manabu",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
+                "p_kara_because",
+                "v_issho",
+                {
+                  "id": "v_iku",
+                  "form": "polite_volitional_mashou"
+                }
+              ]
+            }
+          ],
+          "question": "Why does A want to see the English movie?",
+          "choices": [
+            "To learn English.",
+            "Because B recommended it.",
+            "Because it is free at the theater.",
+            "Because it ends early."
+          ],
+          "answer": "To learn English.",
+          "explanation": "A says 英語を学ぶために見たいです (I want to see it in order to learn English). ために marks purpose and follows the plain form of a verb."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Two close friends chat casually about the new movie theater in the neighborhood.",
+          "lines": [
+            {
+              "spk": "A",
+              "jp": "近所に 新しい 映画館が できたね。",
+              "terms": [
+                "v_kinjo",
+                "p_ni",
+                "v_atarashii",
+                "v_eigakan",
+                "p_ga",
+                {
+                  "id": "v_dekiru",
+                  "form": "plain_past"
+                },
+                "p_ne"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "うん。映画を 見たり、メモを 書いたり したい。",
+              "terms": [
+                "v_un",
+                "v_eiga",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": "tari_form"
+                },
+                "v_memo",
+                "p_wo",
+                {
+                  "id": "v_kaku",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_suru",
+                  "form": "plain_desire_tai"
+                }
+              ]
+            },
+            {
+              "spk": "A",
+              "jp": "別に メモは 書かないよ。映画を 見ながら 英語を 聞くのが いちばん いいよ。",
+              "terms": [
+                "v_betsuni",
+                "v_memo",
+                "p_wa",
+                {
+                  "id": "v_kaku",
+                  "form": "plain_negative"
+                },
+                "p_yo",
+                "v_eiga",
+                "p_wo",
+                {
+                  "id": "v_miru",
+                  "form": "nagara_form"
+                },
+                "v_eigo",
+                "p_wo",
+                {
+                  "id": "v_kiku",
+                  "form": "plain_form"
+                },
+                "p_ga",
+                "p_no",
+                "v_ichiban",
+                {
+                  "id": "v_ii",
+                  "form": "plain_form"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "B",
+              "jp": "そうだね。映画が 終わってから、近所の 店で ご飯を 食べよう。",
+              "terms": [
+                "v_sou",
+                "p_ne",
+                "g_da",
+                "v_eiga",
+                "p_ga",
+                {
+                  "id": "v_owaru",
+                  "form": "te_form"
+                },
+                "p_tekara",
+                "v_kinjo",
+                "p_no",
+                "v_mise",
+                "p_de",
+                "v_gohan",
+                "p_wo",
+                {
+                  "id": "v_taberu",
+                  "form": "plain_volitional"
+                }
+              ]
+            }
+          ],
+          "question": "What does B suggest doing after the movie ends?",
+          "choices": [
+            "Eating at a nearby restaurant.",
+            "Going home and watching another movie.",
+            "Buying a notebook at a store.",
+            "Taking a walk in the neighborhood."
+          ],
+          "answer": "Eating at a nearby restaurant.",
+          "explanation": "B says 映画が終わってから、近所の店でご飯を食べよう (after the movie ends, let's eat at a nearby restaurant). て-form + から expresses 'after doing', and ～よう is the plain volitional ('let's')."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Grammar Scramble",
+      "instructions": "Construct the sentence by clicking the words in the correct order.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "I live near the station.",
+          "segments": [
+            "私",
+            "は",
+            "駅",
+            "の",
+            "近所",
+            "に",
+            "住んで",
+            "います"
+          ],
+          "distractors": [
+            "を",
+            "で",
+            "行きます"
+          ],
+          "explanation": "私 + は (topic) + 駅の近所 (near the station) + に (location particle for existence/living) + 住んで + います (progressive — am living). に marks the place where one lives. で marks the place of action; を marks a direct object — neither fits 住む."
+        },
+        {
+          "kind": "scramble",
+          "q": "The movie starts at six o'clock.",
+          "segments": [
+            "映画",
+            "は",
+            "六時",
+            "に",
+            "始まります"
+          ],
+          "alts": [
+            [
+              "六時",
+              "に",
+              "映画",
+              "は",
+              "始まります"
+            ]
+          ],
+          "distractors": [
+            "を",
+            "が",
+            "終わります"
+          ],
+          "explanation": "映画 + は (topic) + 六時 + に (time marker for specific times) + 始まります (begins). に marks specific clock times. Time words like 六時に can also appear sentence-initially. 終わります (ends) reverses the meaning."
+        },
+        {
+          "kind": "scramble",
+          "q": "Last year he lived in a different neighborhood.",
+          "segments": [
+            "去年",
+            "は",
+            "別の",
+            "近所",
+            "に",
+            "住んで",
+            "いました"
+          ],
+          "alts": [
+            [
+              "去年",
+              "別の",
+              "近所",
+              "に",
+              "住んで",
+              "いました"
+            ]
+          ],
+          "distractors": [
+            "を",
+            "所",
+            "住みます"
+          ],
+          "explanation": "去年 + は (topic marker for time contrast) + 別の (different — の connects to 近所) + 近所 (neighborhood) + に (existence location) + 住んで + いました (was living — progressive past). に marks the place of living. を marks a direct object; 住みます is the simple present and does not convey the 'was living' meaning."
+        },
+        {
+          "kind": "scramble",
+          "q": "I want to watch a movie while eating.",
+          "segments": [
+            "食べながら",
+            "映画",
+            "を",
+            "見たい"
+          ],
+          "distractors": [
+            "で",
+            "に",
+            "見ません"
+          ],
+          "explanation": "食べながら (while eating — ながら attaches to the ます-stem 食べ) + 映画 + を (object marker) + 見たい (want to see). ながら expresses doing two things simultaneously. で marks location or means; に marks destination or time."
+        },
+        {
+          "kind": "scramble",
+          "q": "I watch English movies in order to learn English.",
+          "segments": [
+            "英語",
+            "を",
+            "学ぶ",
+            "ために",
+            "英語の",
+            "映画",
+            "を",
+            "見ます"
+          ],
+          "distractors": [
+            "に",
+            "から",
+            "終わります"
+          ],
+          "explanation": "英語を学ぶ (to learn English — plain form before ために) + ために (in order to) + 英語の映画を見ます (I watch English movies). ために follows the plain form of a verb to express purpose. に alone marks location or destination; から marks a starting point or reason."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — 近所の 映画館",
+      "passage": [
+        {
+          "jp": "私の 近所に 去年 新しい 映画館が できました。",
+          "en": "A new movie theater opened in my neighborhood last year.",
+          "terms": [
+            "v_watashi",
+            "p_no",
+            "v_kinjo",
+            "p_ni",
+            "v_kyonen",
+            "v_atarashii",
+            "v_eigakan",
+            "p_ga",
+            {
+              "id": "v_dekiru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
+          "jp": "その 映画館では 日本語の 映画も 英語の 映画も 始まって います。",
+          "en": "At that movie theater, both Japanese movies and English movies are showing.",
+          "terms": [
+            "v_sono",
+            "v_eigakan",
+            "p_dewa",
+            "v_nihongo",
+            "p_no",
+            "v_eiga",
+            "p_mo",
+            "v_eigo",
+            "p_no",
+            "v_eiga",
+            "p_mo",
+            {
+              "id": "v_hajimaru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "私は 英語を 学ぶ ために、毎週 英語の 映画を 見て います。",
+          "en": "I watch English movies every week in order to learn English.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_eigo",
+            "p_wo",
+            {
+              "id": "v_manabu",
+              "form": "plain_form"
+            },
+            "v_tame",
+            "p_ni",
+            "v_maishuu",
+            "v_eigo",
+            "p_no",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "映画を 見ながら メモを 書くのが 好きです。",
+          "en": "I like writing notes while watching movies.",
+          "terms": [
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "nagara_form"
+            },
+            "v_memo",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "plain_form"
+            },
+            "p_ga",
+            "p_no",
+            {
+              "id": "v_suki",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "jp": "映画が 終わってから、近所の 店で 友だちと ご飯を 食べたり、お茶を 飲んだり します。",
+          "en": "After the movie ends, I do things like eat with friends at a nearby shop and drink tea.",
+          "terms": [
+            "v_eiga",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_kinjo",
+            "p_no",
+            "v_mise",
+            "p_de",
+            "v_tomodachi",
+            "p_to",
+            "v_gohan",
+            "p_wo",
+            {
+              "id": "v_taberu",
+              "form": "tari_form"
+            },
+            "v_ocha",
+            "p_wo",
+            {
+              "id": "v_nomu",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "映画館は いつ できましたか。",
+          "a": "去年です。",
+          "choices": [
+            "去年です。",
+            "今年です。",
+            "先月です。",
+            "先週です。"
+          ],
+          "terms": [
+            "v_eigakan",
+            "p_wa",
+            "v_itsu",
+            {"id": "v_dekiru", "form": "polite_mashita"},
+            "p_ka",
+            "v_kyonen",
+            "g_desu"
+          ],
+          "explanation": "The first sentence says 去年新しい映画館ができました (a new movie theater opened last year)."
+        },
+        {
+          "q": "私は どうして 英語の 映画を 見ますか。",
+          "a": "英語を 学ぶ ためです。",
+          "choices": [
+            "英語を 学ぶ ためです。",
+            "友だちと 会う ためです。",
+            "メモを 書く ためです。",
+            "ご飯を 食べる ためです。"
+          ],
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_doushite",
+            "v_eigo",
+            "p_no",
+            "v_eiga",
+            "p_wo",
+            {"id": "v_miru", "form": "polite_masu"},
+            "p_ka",
+            "v_eigo",
+            "p_wo",
+            {"id": "v_manabu", "form": "plain_form"},
+            "v_tame",
+            "g_desu"
+          ],
+          "explanation": "Sentence 3 says 英語を学ぶために英語の映画を見ています (I watch English movies in order to learn English). ために marks purpose and follows the plain form."
+        },
+        {
+          "q": "映画が 終わってから、何を しますか。",
+          "a": "近所の 店で 友だちと ご飯を 食べたり、お茶を 飲んだり します。",
+          "choices": [
+            "近所の 店で 友だちと ご飯を 食べたり、お茶を 飲んだり します。",
+            "家に 帰って メモを 書きます。",
+            "別の 映画館に 行きます。",
+            "映画を 見ながら お茶を 飲みます。"
+          ],
+          "terms": [
+            "v_eiga",
+            "p_ga",
+            {
+              "id": "v_owaru",
+              "form": "te_form"
+            },
+            "p_tekara",
+            "v_nani",
+            "p_wo",
+            {"id": "v_suru", "form": "polite_masu"},
+            "p_ka",
+            "v_kinjo",
+            "p_no",
+            "v_mise",
+            "p_de",
+            "v_tomodachi",
+            "p_to",
+            "v_gohan",
+            "p_wo",
+            {"id": "v_taberu", "form": "tari_form"},
+            "v_ocha",
+            "p_wo",
+            {"id": "v_nomu", "form": "tari_form"},
+            {"id": "v_suru", "form": "polite_masu"}
+          ],
+          "explanation": "The last sentence says 映画が終わってから、近所の店で友だちとご飯を食べたり、お茶を飲んだりします (after the movie ends, things like eating and drinking tea). て + から expresses 'after doing'. ～たり～たりする lists representative actions."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[住所]は 何ですか。",
+          "choices": [
+            "じゅうしょ",
+            "すみしょ",
+            "じゅしょ",
+            "すもしょ"
+          ],
+          "answer": "じゅうしょ",
+          "explanation": "住所 (address) is read as <b>juusho</b>. 住 (じゅう, on-reading) + 所 (しょ, on-reading). Both kanji use their on-readings in this compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "[近所]に 新しい 店が できました。",
+          "choices": [
+            "きんじょ",
+            "ちかしょ",
+            "きんしょ",
+            "ちかじょ"
+          ],
+          "answer": "きんじょ",
+          "explanation": "近所 (neighborhood) is read as <b>kinjo</b>. 近 (きん, on-reading) + 所 (じょ, voiced on-reading). The じょ reading of 所 becomes voiced when combined in this compound."
+        },
+        {
+          "kind": "mcq",
+          "q": "私の 町に [映画館]が あります。",
+          "choices": [
+            "えいがかん",
+            "えいかかん",
+            "えいがかい",
+            "えがかん"
+          ],
+          "answer": "えいがかん",
+          "explanation": "映画館 (movie theater) is read as <b>eigakan</b>. 映 (えい) + 画 (が) + 館 (かん). All three kanji use their on-readings."
+        },
+        {
+          "kind": "mcq",
+          "q": "[英語]を 学んで います。",
+          "choices": [
+            "えいご",
+            "えご",
+            "ひでご",
+            "えいぐ"
+          ],
+          "answer": "えいご",
+          "explanation": "英語 (English language) is read as <b>eigo</b>. 英 (えい, on-reading) + 語 (ご, on-reading). 英 means England or excellent."
+        },
+        {
+          "kind": "mcq",
+          "q": "映画は 何時に [始まります]か。",
+          "choices": [
+            "はじまります",
+            "おわります",
+            "さがります",
+            "たちます"
+          ],
+          "answer": "はじまります",
+          "explanation": "始まります (begins) is read as <b>hajimarimasu</b>. 始 (はじ, kun-reading) + まります. Note: 始まる is intransitive (something begins on its own), while 始める is transitive (someone starts something)."
+        },
+        {
+          "kind": "mcq",
+          "q": "映画は 三時に [終わります]。",
+          "choices": [
+            "おわります",
+            "はじまります",
+            "つづきます",
+            "あわります"
+          ],
+          "answer": "おわります",
+          "explanation": "終わります (ends / finishes) is read as <b>owarimasu</b>. 終 (お, kun-reading) + わります. 終 carries the meaning of ending or finishing."
+        },
+        {
+          "kind": "mcq",
+          "q": "[去年]、この 町に 住んで いました。",
+          "choices": [
+            "きょねん",
+            "さくねん",
+            "こねん",
+            "きねん"
+          ],
+          "answer": "きょねん",
+          "explanation": "去年 (last year) is read as <b>kyonen</b>. 去 (きょ, on-reading) + 年 (ねん, on-reading). 去 has the less common on-reading きょ here; its kun-reading is さ (as in 去る, to leave)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[別の] 町に 住みたいです。",
+          "choices": [
+            "べつの",
+            "わかれの",
+            "ほかの",
+            "べちの"
+          ],
+          "answer": "べつの",
+          "explanation": "別の (a different / another) is read as <b>betsu no</b>. 別 (べつ, on-reading) + の (linking particle). 別 means separate or different. わかれ is the kun-reading used in 別れる (to separate/break up)."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "私は 英語を 学ぶ ______、毎日 英語の 映画を 見ます。",
+          "choices": [
+            "ために",
+            "のに",
+            "ものに",
+            "ところに"
+          ],
+          "answer": "ために",
+          "explanation": "ために (in order to / for the purpose of) connects a purpose verb in plain form to an action. 英語を学ぶために (in order to learn English). のに means 'despite' or has a nuanced contrastive meaning. ものに and ところに are not correct in this purpose construction."
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちは ______を 書きながら、映画を 見て います。",
+          "choices": [
+            "メモ",
+            "映画",
+            "英語",
+            "住所"
+          ],
+          "answer": "メモ",
+          "explanation": "メモ (note / memo) fits: writing notes while watching a movie. メモを書く (to write a note) is a natural pairing. 映画 (movie) would be redundant with 映画を見て. 英語 (English) is a language, not something you 'write' in this context. 住所 (address) does not fit."
+        },
+        {
+          "kind": "mcq",
+          "q": "駅の ______に 住んで いるので、歩いて 行けます。",
+          "choices": [
+            "近所",
+            "元気",
+            "所",
+            "別"
+          ],
+          "answer": "近所",
+          "explanation": "近所 (neighborhood) fits: living near the station means you can walk there. 元気 (healthy/energetic) is a な-adjective, not a place word. 所 (place) is more general and less natural with の before a specific location reference here. 別 (different) is an adjective/noun."
+        },
+        {
+          "kind": "mcq",
+          "q": "この 映画館では 英語の 映画も 日本語の 映画も ______て います。",
+          "choices": [
+            "始まっ",
+            "終わっ",
+            "住んで",
+            "別れ"
+          ],
+          "answer": "始まっ",
+          "explanation": "始まって (is showing / has started — te-form of 始まる + います for ongoing state) fits the context of movies that are currently showing. 終わって (is finished/ended) is the opposite meaning. 住んで fits 人 (people) not 映画 (movies). 別れ (separation) is unrelated."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or verb form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "映画を 見______、お茶を 飲みます。",
+          "choices": [
+            "ながら",
+            "たり",
+            "ために",
+            "のに"
+          ],
+          "answer": "ながら",
+          "explanation": "Use ながら to express doing two actions simultaneously. 映画を見ながらお茶を飲みます = while watching a movie, I drink tea. ながら attaches to the ます-stem of a verb. たり is used for listing representative actions (verb-たり verb-たりする). ために expresses purpose. のに expresses concession."
+        },
+        {
+          "kind": "mcq",
+          "q": "毎日 映画を 見______、本を 読んだり します。",
+          "choices": [
+            "たり",
+            "ながら",
+            "ために",
+            "て"
+          ],
+          "answer": "たり",
+          "explanation": "Use たり to list representative actions with ～たり～たりする. 映画を見たり、本を読んだりします (I do things like watching movies and reading books). ながら expresses simultaneous actions, not a list. ために expresses purpose. て (te-form) makes a sequential connection, not a 'representative listing' construction."
+        },
+        {
+          "kind": "mcq",
+          "q": "英語が 上手に なる ______ 毎日 映画を 見て います。",
+          "choices": [
+            "ために",
+            "のに",
+            "ながら",
+            "たり"
+          ],
+          "answer": "ために",
+          "explanation": "Use ために (in order to) to express purpose. 英語が上手になるために (in order to become good at English) + 毎日映画を見ています (I watch movies every day). The clause before ために must use the plain form of the verb. のに here would mean 'despite' (wrong meaning). ながら and たり are not purpose expressions."
+        },
+        {
+          "kind": "mcq",
+          "q": "映画館に ______ 行って、英語の 映画を 見ました。",
+          "choices": [
+            "一人で",
+            "一人に",
+            "一人が",
+            "一人を"
+          ],
+          "answer": "一人で",
+          "explanation": "Use で to express manner: 一人で (by oneself / alone). 一人で行く = go alone. に marks direction or destination; が marks the subject; を marks the direct object. None of these express how (alone) someone went."
+        }
+      ]
+    }
+  ]
+}

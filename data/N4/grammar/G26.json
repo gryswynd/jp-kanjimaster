@@ -1,0 +1,694 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G26",
+  "type": "grammar",
+  "title": "ように Patterns — ようにする / ようになる",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.27",
+    "focus": "Express deliberate effort to form a habit (ようにする), gradual change of state or ability (ようになる), and purposive intent so that something happens (ように purpose clause).",
+    "estimatedMinutes": 20,
+    "particles": [
+      "ようにする",
+      "ようになる",
+      "ように"
+    ],
+    "grammarForms": [
+      "plain_form",
+      "plain_negative",
+      "potential",
+      "te_form"
+    ],
+    "icon": "🎯"
+  },
+  "targetVocab": [
+    "v_you_manner",
+    "v_suru",
+    "v_naru"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "ように Patterns",
+      "icon": "🎯",
+      "summary": "ように connects to three powerful grammar patterns. ようにする means you are making a conscious, ongoing effort to do something or form a habit. ようになる means a change has happened gradually — you have come to be able to do something, or something has come to be the case over time. ように as a purpose clause means you are taking an action so that a desired result can happen.",
+      "whyItMatters": "These patterns are everywhere in everyday Japanese. 'I've been trying to eat more vegetables' — ようにする. 'I can finally speak Japanese' (because I worked at it over time) — ようになる. 'I write it down so I don't forget' — ように purpose clause. Mastering all three will dramatically expand what you can express about habits, growth, and goals.",
+      "youWillLearn": [
+        "ようにする — making a conscious effort to do or avoid something",
+        "ようになる — gradual change: coming to be able to do something, or a habit that developed",
+        "ようにする vs ようになる — agent-driven effort versus organic change",
+        "ように purpose clause — taking action so that a result can occur"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_youni_suru",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[dict / ない form]"
+        },
+        {
+          "label": "MANNER",
+          "color": "connector",
+          "text": "ように"
+        },
+        {
+          "label": "EFFORT",
+          "color": "verb",
+          "text": "する / している"
+        }
+      ],
+      "meaning": "to make an effort to ~ / to try to make a habit of ~",
+      "explanation": "ようにする expresses a deliberate, ongoing effort on the part of the subject. The subject is actively working to make a behaviour happen (or not happen). It implies willpower and intention. Use the dictionary form for positive habits, and the ない form for habits to avoid. している marks the effort as currently ongoing.",
+      "notes": [
+        "Dictionary form + ようにする: 早く寝るようにしている (I'm making it a habit to go to bed early).",
+        "ない form + ようにする: 遅れないようにする (I try not to be late).",
+        "ようにしている (present progressive) = the habit is actively being maintained right now.",
+        "ようにした (past) = I made an effort (and may have succeeded): 野菜を食べるようにした (I tried to eat vegetables).",
+        "The key nuance: the subject is in control. The effort is conscious and deliberate."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "早く",
+              "role": "adverb",
+              "gloss": "early (adverbial form of 早い)"
+            },
+            {
+              "text": "寝るように",
+              "role": "connector",
+              "gloss": "sleep (dict form of 寝る) + ように"
+            },
+            {
+              "text": "して います。",
+              "role": "predicate",
+              "gloss": "doing (te-form of する + います — ongoing effort)"
+            }
+          ],
+          "en": "I'm making it a habit to go to bed early.",
+          "breakdown": "寝る (dict form) + ように + している = ongoing effort to establish the habit. 早く is the adverbial form of 早い (early → 早く)."
+        },
+        {
+          "parts": [
+            {
+              "text": "遅れない",
+              "role": "predicate",
+              "gloss": "not be late (ない form of 遅れる)"
+            },
+            {
+              "text": "ように",
+              "role": "connector",
+              "gloss": "so as to / in such a way"
+            },
+            {
+              "text": "する。",
+              "role": "predicate",
+              "gloss": "do / make an effort (dict form of する)"
+            }
+          ],
+          "en": "I try not to be late.",
+          "breakdown": "遅れない (ない form) + ようにする = making an effort to avoid a behaviour. ようにしている would also work to mark it as an ongoing habit."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_youni_naru",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[dict / ない form]"
+        },
+        {
+          "label": "MANNER",
+          "color": "connector",
+          "text": "ように"
+        },
+        {
+          "label": "CHANGE",
+          "color": "verb",
+          "text": "なる / なった"
+        }
+      ],
+      "meaning": "to come to ~ / to have reached the point where ~ (gradual change)",
+      "explanation": "ようになる expresses a gradual or natural change of state. Something that was once not the case has now come to be the case — an ability was gained, a habit developed, or circumstances shifted over time. This is not about effort in the moment — it is about the outcome of a process. Often used with the potential form to express new abilities.",
+      "notes": [
+        "Potential form + ようになった: 日本語が話せるようになった (I have come to be able to speak Japanese — 話せる is the potential form of 話す).",
+        "ない form + ようになった: 野菜を食べないようになった (I came to not eat vegetables — a change toward avoidance).",
+        "Potential form + ようになった: できるようになった (I became able to do it) — the most common pattern.",
+        "ようになる (present) = the change is in progress or about to complete.",
+        "The key nuance: the change feels natural or gradual — it happened over time, not due to a single moment of willpower."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "日本語が",
+              "role": "subject",
+              "gloss": "Japanese (が — subject of ability)"
+            },
+            {
+              "text": "話せるように",
+              "role": "connector",
+              "gloss": "be able to speak (potential of 話す) + ように"
+            },
+            {
+              "text": "なった。",
+              "role": "predicate",
+              "gloss": "became (plain past of なる)"
+            }
+          ],
+          "en": "I have become able to speak Japanese.",
+          "breakdown": "話せる (potential of 話す — godan: 話す → 話せる) + ように + なった. The potential form marks the new ability; なった indicates the change is complete."
+        },
+        {
+          "parts": [
+            {
+              "text": "毎日",
+              "role": "adverb",
+              "gloss": "every day"
+            },
+            {
+              "text": "運動するように",
+              "role": "connector",
+              "gloss": "exercise (dict form of 運動する) + ように"
+            },
+            {
+              "text": "なった。",
+              "role": "predicate",
+              "gloss": "became (plain past of なる)"
+            }
+          ],
+          "en": "I came to exercise every day (it became a natural habit).",
+          "breakdown": "運動する (suru compound: dict form) + ように + なった. The habit developed naturally over time — contrast with ようにした, which would emphasise the initial conscious effort."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "ようにする vs ようになる",
+      "items": [
+        {
+          "label": "ようにする",
+          "color": "verb",
+          "points": [
+            "AGENT-DRIVEN — the subject is making a conscious effort",
+            "Expresses willpower and active intention",
+            "The behaviour may or may not be fully established yet",
+            "Focus: the effort being made right now",
+            "Example: 野菜を食べるようにしている (my willpower)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "野菜を",
+                "role": "object",
+                "gloss": "vegetables (を)"
+              },
+              {
+                "text": "食べるように",
+                "role": "connector",
+                "gloss": "eat (dict form) + ように"
+              },
+              {
+                "text": "して いる。",
+                "role": "predicate",
+                "gloss": "doing (て-form + いる — ongoing effort)"
+              }
+            ],
+            "en": "I'm making an effort to eat vegetables."
+          }
+        },
+        {
+          "label": "ようになる",
+          "color": "connector",
+          "points": [
+            "CHANGE OVER TIME — the result developed naturally or gradually",
+            "Expresses an outcome, not the effort that produced it",
+            "The change is complete or in progress — focus is the new state",
+            "Often used with potential form: できるようになった",
+            "Example: 野菜を食べるようになった (change over time)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "野菜を",
+                "role": "object",
+                "gloss": "vegetables (を)"
+              },
+              {
+                "text": "食べるように",
+                "role": "connector",
+                "gloss": "eat (dict form) + ように"
+              },
+              {
+                "text": "なった。",
+                "role": "predicate",
+                "gloss": "became (plain past of なる — gradual change)"
+              }
+            ],
+            "en": "I came to eat vegetables (a change happened over time)."
+          }
+        }
+      ],
+      "tip": "Quick test: Is the subject currently working hard at it? → ようにする. Has a change already happened over time? → ようになる. Both can appear together: 毎日 運動するようにしたら、できるようになった (I made an effort to exercise every day, and I became able to do it)."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_youni_purpose",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[dict / potential / ない form]"
+        },
+        {
+          "label": "PURPOSE",
+          "color": "connector",
+          "text": "ように"
+        },
+        {
+          "label": "ACTION",
+          "color": "verb",
+          "text": "～する / ～書く / ～話す…"
+        }
+      ],
+      "meaning": "so that ~ / in order that ~",
+      "explanation": "ように as a purpose clause links a desired outcome to the action taken to achieve it. The clause before ように states the result you want; the main clause states what you do to make that result possible. Unlike ために (also 'in order to'), ように is used when the desired result involves ability, possibility, or a state — often with potential or negative verb forms.",
+      "notes": [
+        "ない form + ように: 忘れないように書く (I write so that I won't forget).",
+        "Potential form + ように: 聞こえるように大きい声で話す (speak in a loud voice so that it can be heard).",
+        "ない form + ように: 遅れないように早く出発する (leave early so as not to be late).",
+        "Contrast with ために: ために is used with volitional actions (for goals you choose). ように is used with states, abilities, or outcomes that are not purely volitional.",
+        "The main clause verb is always volitional — it is the action the subject consciously takes.",
+        "Common pattern: ように書く, ように話す, ように気をつける (be careful so that ~)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "忘れないように",
+              "role": "connector",
+              "gloss": "not forget (ない form) + ように — so that I don't forget"
+            },
+            {
+              "text": "書きます。",
+              "role": "predicate",
+              "gloss": "write (polite form of 書く)"
+            }
+          ],
+          "en": "I write it down so that I don't forget.",
+          "breakdown": "忘れない (ない form of 忘れる — potential/state) + ように (purpose) + 書きます (volitional main action). The writing is done to prevent the forgetting."
+        },
+        {
+          "parts": [
+            {
+              "text": "聞こえるように",
+              "role": "connector",
+              "gloss": "be audible / can be heard (potential of 聞こえる) + ように"
+            },
+            {
+              "text": "大きい",
+              "role": "modifier",
+              "gloss": "loud / large (attributive い-adjective)"
+            },
+            {
+              "text": "声で",
+              "role": "adverb",
+              "gloss": "with a voice (声 = voice, で = with/by)"
+            },
+            {
+              "text": "話して ください。",
+              "role": "predicate",
+              "gloss": "please speak (te-form of 話す + ください — polite request)"
+            }
+          ],
+          "en": "Please speak in a loud voice so that it can be heard.",
+          "breakdown": "聞こえる (potential of 聞こえる — spontaneous potential) + ように + 大きい声で話してください. The action (speaking loudly) is taken so the result (being heard) is possible."
+        }
+      ]
+    },
+    {
+      "type": "annotatedExample",
+      "title": "All Three ように Patterns in Context",
+      "examples": [
+        {
+          "context": "ようにする — deliberate effort (health)",
+          "parts": [
+            {
+              "text": "毎日",
+              "role": "adverb",
+              "gloss": "every day"
+            },
+            {
+              "text": "野菜を",
+              "role": "object",
+              "gloss": "vegetables (を)"
+            },
+            {
+              "text": "食べるように",
+              "role": "connector",
+              "gloss": "eat (dict form) + ように"
+            },
+            {
+              "text": "して います。",
+              "role": "predicate",
+              "gloss": "doing (て-form of する + います — ongoing conscious effort)"
+            }
+          ],
+          "en": "I'm making it a habit to eat vegetables every day.",
+          "note": "ようにしている = the person is actively working on this habit. It is not automatic yet — they are exerting effort."
+        },
+        {
+          "context": "ようになる — gradual change (study)",
+          "parts": [
+            {
+              "text": "日本語で",
+              "role": "adverb",
+              "gloss": "in Japanese (で — means/medium)"
+            },
+            {
+              "text": "話せるように",
+              "role": "connector",
+              "gloss": "be able to speak (potential) + ように"
+            },
+            {
+              "text": "なって きました。",
+              "role": "predicate",
+              "gloss": "has come to be (なる te-form + きました — change coming toward the speaker)"
+            }
+          ],
+          "en": "I have gradually become able to speak in Japanese.",
+          "note": "なってきました = the change has been accumulating over time and has arrived at the current state. This nuance of progressive change is common with ようになる."
+        },
+        {
+          "context": "ように purpose clause (self-improvement)",
+          "parts": [
+            {
+              "text": "上手に",
+              "role": "adverb",
+              "gloss": "skillfully (adverbial form of 上手 — skilled → 上手に)"
+            },
+            {
+              "text": "なるように、",
+              "role": "connector",
+              "gloss": "become skilled + ように — so that I get better"
+            },
+            {
+              "text": "毎日",
+              "role": "adverb",
+              "gloss": "every day"
+            },
+            {
+              "text": "勉強して います。",
+              "role": "predicate",
+              "gloss": "studying (te-form of 勉強する + います — ongoing action)"
+            }
+          ],
+          "en": "I study every day so that I will get better.",
+          "note": "上手に なるように = ように purpose clause with a state-change outcome. The action (studying) is taken deliberately to achieve the desired outcome (getting better)."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Goals and Habits (Casual)",
+      "context": "りきぞう and けん are college friends catching up about their recent health goals and self-improvement. Casual register.",
+      "lines": [
+        {
+          "spk": "けん",
+          "jp": "りきぞう、毎日 運動 する ように して いる？",
+          "en": "Rikizo, are you trying to exercise every day?",
+          "terms": [
+            "char_rikizo",
+            "v_mainichi",
+            "v_undou",
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "うん、野菜 も 食べる ように して いる よ。体 に いい から。",
+          "en": "Yeah, I'm also trying to eat vegetables. Because it's good for the body.",
+          "terms": [
+            "v_un",
+            "v_yasai",
+            "p_mo",
+            {
+              "id": "v_taberu",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
+            "p_yo",
+            "v_karada",
+            "p_ni",
+            "v_ii",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "すごい！日本語 も 話せる ように なった？",
+          "en": "Amazing! Have you also become able to speak Japanese?",
+          "terms": [
+            "v_sugoi",
+            "v_nihongo",
+            "p_mo",
+            {
+              "id": "v_hanasu",
+              "form": "potential"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_past"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "うん、少し 話せる ように なった よ。でも、もっと 勉強 しなければ いけない けど。",
+          "en": "Yeah, I've become able to speak a little. But I still have to study more.",
+          "terms": [
+            "v_un",
+            "v_sukoshi",
+            {
+              "id": "v_hanasu",
+              "form": "potential"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_naru",
+              "form": "plain_past"
+            },
+            "p_yo",
+            "p_demo_but",
+            "v_motto",
+            "v_benkyou",
+            {
+              "id": "v_suru",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "plain_negative"
+            },
+            "p_kedo"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "毎朝 早起き すれば、日本語 が もっと 上手に なる よ。",
+          "en": "If you wake up early every morning, your Japanese will get even better.",
+          "terms": [
+            "v_maiasa",
+            "v_hayaoki",
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
+            "v_nihongo",
+            "p_ga",
+            "v_motto",
+            {
+              "id": "v_jouzu",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "sentenceTransform",
+      "title": "ようにする or ようになる?",
+      "instructions": "Choose the correct ending — ようにする or ようになる — based on the English cue. ようにする = deliberate, ongoing effort. ようになる = gradual change of state.",
+      "manualProgression": true,
+      "items": [
+        {
+          "given": "毎日 運動する",
+          "givenReading": "まいにち うんどうする",
+          "targetLabel": "I'm making an effort to exercise every day.",
+          "answer": "毎日 運動する ように して いる。",
+          "answerReading": "まいにち うんどうする ように して いる。",
+          "hint": "The subject is actively trying to build this habit — effort is ongoing.",
+          "choices": [
+            "毎日 運動する ように して いる。",
+            "毎日 運動する ように なって いる。",
+            "毎日 運動する ために して いる。",
+            "毎日 運動する ために なって いる。"
+          ]
+        },
+        {
+          "given": "日本語が 話せる",
+          "givenReading": "にほんごが はなせる",
+          "targetLabel": "I have become able to speak Japanese.",
+          "answer": "日本語が 話せる ように なった。",
+          "answerReading": "にほんごが はなせる ように なった。",
+          "hint": "This describes a new ability that developed gradually over time.",
+          "choices": [
+            "日本語が 話せる ように なった。",
+            "日本語が 話せる ように した。",
+            "日本語が 話せる ために なった。",
+            "日本語が 話せる ために した。"
+          ]
+        },
+        {
+          "given": "野菜を 食べる",
+          "givenReading": "やさいを たべる",
+          "targetLabel": "I try to eat vegetables (ongoing effort).",
+          "answer": "野菜を 食べる ように して いる。",
+          "answerReading": "やさいを たべる ように して いる。",
+          "hint": "The person is consciously working at this — it has not become automatic yet.",
+          "choices": [
+            "野菜を 食べる ように して いる。",
+            "野菜を 食べる ように なって いる。",
+            "野菜を 食べる ために して いる。",
+            "野菜を 食べる ように なった。"
+          ]
+        },
+        {
+          "given": "毎日 早起き する",
+          "givenReading": "まいにち はやおき する",
+          "targetLabel": "I came to wake up early every day (it became a natural habit).",
+          "answer": "毎日 早起き する ように なった。",
+          "answerReading": "まいにち はやおき する ように なった。",
+          "hint": "The habit developed naturally over time — focus is on the outcome, not the effort.",
+          "choices": [
+            "毎日 早起き する ように なった。",
+            "毎日 早起き する ように した。",
+            "毎日 早起き する ために なった。",
+            "毎日 早起き する ように して いる。"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: ように Patterns",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "Which sentence means 'I'm making an effort to eat vegetables every day'?",
+          "choices": [
+            "毎日 野菜を 食べる ように して いる。",
+            "毎日 野菜を 食べる ように なった。",
+            "毎日 野菜を 食べる ために いる。",
+            "毎日 野菜を 食べる ように した。"
+          ],
+          "answer": "毎日 野菜を 食べる ように して いる。",
+          "explanation": "ようにしている = ongoing conscious effort to establish a habit. The subject is actively working at it right now. ようになった would mean the change has already happened naturally. した = past effort (no longer active).",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞう studied very hard for a year. Now he can speak Japanese well. Which sentence best describes this?",
+          "choices": [
+            "日本語が 上手に 話せる ように なった。",
+            "日本語が 上手に 話せる ように して いる。",
+            "日本語が 上手に 話す ために なった。",
+            "日本語が 上手に 話す ように した。"
+          ],
+          "answer": "日本語が 上手に 話せる ように なった。",
+          "explanation": "ようになった with the potential form (話せる) expresses a new ability that developed over time. The change is complete — he can now speak well. ようにしている would express ongoing effort, not the achieved result.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "野菜を 食べるように 書きます。— What is the function of ように here?",
+          "choices": [
+            "Purpose clause — 'so that I eat vegetables'",
+            "Gradual change — 'I came to eat vegetables'",
+            "Deliberate effort — 'I'm trying to eat vegetables'",
+            "Comparison — 'just like eating vegetables'"
+          ],
+          "answer": "Purpose clause — 'so that I eat vegetables'",
+          "explanation": "食べる (dictionary form) + ように + 書く = 'I write so that I eat vegetables.' This is the purpose-clause use of ように: the ように clause states the desired outcome; the main clause (書く) is the action taken to achieve it.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence uses ようになる correctly?",
+          "choices": [
+            "毎日 運動する ように なって、体が 元気に なった。",
+            "毎日 運動する ように なって ください。",
+            "もっと 勉強 する ように なって いる。",
+            "早く 帰る ように なります。"
+          ],
+          "answer": "毎日 運動する ように なって、体が 元気に なった。",
+          "explanation": "毎日 運動するようになって = having come to exercise every day (gradual change) → 体が 元気になった = the body became energetic. This natural cause-effect chain using ようになる is correct. The other options either mix up ようにする/ようになる or use unnatural constructions.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "りきぞう wants to say: 'I woke up early so that I could exercise.' Which ように pattern fits?",
+          "choices": [
+            "運動 できる ように、早起き した。",
+            "運動 できる ように なって、早起き した。",
+            "運動 する ように、早起き した。",
+            "運動 する ように なった。"
+          ],
+          "answer": "運動 できる ように、早起き した。",
+          "explanation": "運動 できるように = ように purpose clause with potential form (so that I can exercise). The main clause 早起きした = the volitional action taken. This is the purpose-clause pattern: potential/state + ように + volitional action. ようになった would describe a gradual change, not a purpose.",
+          "terms": []
+        }
+      ]
+    }
+  ],
+  "unlocksAfter": "N4.27"
+}

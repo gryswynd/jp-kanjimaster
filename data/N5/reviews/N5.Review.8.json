@@ -1,0 +1,961 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.Review.8",
+  "title": "Cardinal Directions & Sides",
+  "meta": {
+    "phase": 4,
+    "type": "assessment",
+    "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 15–16.",
+    "kanji": [
+      "北",
+      "南",
+      "東",
+      "西",
+      "右",
+      "左",
+      "上",
+      "下"
+    ]
+  },
+  "sections": [
+    {
+      "type": "conversation",
+      "title": "Part 1: Conversation Check",
+      "instructions": "Read each conversation and select the best answer.",
+      "items": [
+        {
+          "title": "Conversation 1",
+          "context": "Yamamoto-sensei quizzes Rikizo about what is located in each direction from the school.",
+          "lines": [
+            {
+              "spk": "先生",
+              "jp": "りきぞうさん、学校の 北に 何が ありますか。",
+              "terms": [
+                "char_rikizo",
+                "v_san",
+                "v_gakkou",
+                "p_ga",
+                "v_kita",
+                "p_ni",
+                "v_nani",
+                "p_no",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "北に 駅が あります。南には 大きい 店も ありますよ。",
+              "terms": [
+                "v_kita",
+                "p_wa",
+                "v_eki",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_minami",
+                "p_mo",
+                "p_ni",
+                "v_ookii",
+                "v_mise",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "そうですか。東と 西には 何が ありますか。",
+              "terms": [
+                "p_soudesu",
+                "p_ka",
+                "v_higashi",
+                "p_to",
+                "v_nishi",
+                "p_wa",
+                "p_ni",
+                "v_nani",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "東に 高い 山が あります。西には 川が ありますよ。",
+              "terms": [
+                "v_higashi",
+                "p_wa",
+                "v_takai",
+                "v_yama",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "v_nishi",
+                "p_ni",
+                "p_ni",
+                "v_kawa",
+                "p_ga",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "Where is the station relative to the school?",
+          "choices": [
+            "To the north",
+            "To the south",
+            "To the east",
+            "To the west"
+          ],
+          "answer": "To the north",
+          "explanation": "りきぞう says 北に駅があります — 'There is a station to the north.' 北 (N5.15, きた) = north. に marks the location of existence (X に Y が あります). He also mentions 南には大きい店もあります (to the south there is also a big store), 東に高い山があります (to the east there is a tall mountain), and 西には川があります (to the west there is a river). The question asks about the station (駅, N5.5), which is to the north (北)."
+        },
+        {
+          "title": "Conversation 2",
+          "context": "Rikizo asks Yamamoto-sensei for help finding books in the school library.",
+          "lines": [
+            {
+              "spk": "りきぞう",
+              "jp": "先生、新しい 本は どこに ありますか。",
+              "terms": [
+                "v_sensei",
+                "v_atarashii",
+                "v_hon",
+                "p_wa",
+                "v_doko",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "右に ありますよ。あの 大きい 本は 上に あります。",
+              "terms": [
+                "v_migi",
+                "p_wa",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo",
+                "v_ano",
+                "v_ookii",
+                "v_hon",
+                "p_ni",
+                "v_ue",
+                "p_ni",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                }
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "上ですか。左の 小さい 本は 何ですか。",
+              "terms": [
+                "v_ue",
+                "g_desu",
+                "p_ka",
+                "v_hidari",
+                "p_wa",
+                "v_chiisai",
+                "v_hon",
+                "p_no",
+                "v_nan",
+                "g_desu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "先生",
+              "jp": "それは 日本語の 本です。下にも 本が たくさん ありますよ。",
+              "terms": [
+                "v_sore",
+                "p_wa",
+                "v_nihongo",
+                "p_ga",
+                "v_hon",
+                "g_desu",
+                "v_shita",
+                "p_mo",
+                "p_ni",
+                "v_hon",
+                "p_no",
+                "v_takusan",
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
+                "p_yo"
+              ]
+            }
+          ],
+          "question": "Where are the new books?",
+          "choices": [
+            "On the right",
+            "On the left",
+            "On the top",
+            "Down below"
+          ],
+          "answer": "On the right",
+          "explanation": "先生 says 右にありますよ — 'They are on the right.' 右 (N5.16, みぎ) = right. The teacher also explains that あの大きい本は上にあります (that big book is up above) — 上 (N5.16, うえ) = above/on top. りきぞう asks about 左の小さい本 (the small book on the left) — 左 (N5.16, ひだり) = left. The teacher adds 下にも本がたくさんあります (there are also many books down below) — 下 (N5.16, した) = below."
+        },
+        {
+          "title": "Conversation 3 (Casual)",
+          "context": "Rikizo and Yamakawa, close friends, chat casually after school about their Japanese skills.",
+          "lines": [
+            {
+              "spk": "りきぞう",
+              "jp": "やまかわ、日本語 読むのは 上手？",
+              "terms": [
+                "char_yamakawa",
+                "v_nihongo",
+                "v_yomu",
+                "p_wa",
+                "p_no",
+                "v_jouzu",
+                "p_ka"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "うん、読むのは 上手だよ。けど、書くのは 下手だ。",
+              "terms": [
+                "v_un",
+                "v_yomu",
+                "p_wa",
+                "p_wa",
+                "v_jouzu",
+                "p_yo",
+                "g_da",
+                "p_kedo",
+                "v_kaku",
+                "p_no",
+                "p_no",
+                "v_heta",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "りきぞう",
+              "jp": "わたしも 書くのが 下手だよ。読むのが いちばん すきだ。",
+              "terms": [
+                "v_watashi",
+                "p_mo",
+                "v_kaku",
+                "p_ga",
+                "p_ga",
+                "v_heta",
+                "p_yo",
+                "g_da",
+                "v_yomu",
+                "p_no",
+                "p_no",
+                "v_ichiban",
+                "v_suki",
+                "g_da"
+              ]
+            },
+            {
+              "spk": "やまかわ",
+              "jp": "うん。話すのも すきだけど、下手だよ。",
+              "terms": [
+                "v_un",
+                "v_hanasu",
+                "p_mo",
+                "p_no",
+                "v_suki",
+                "p_yo",
+                "p_kedo",
+                "v_heta",
+                "g_da",
+                "g_da"
+              ]
+            }
+          ],
+          "question": "What does Yamakawa say he is bad at?",
+          "choices": [
+            "Writing and speaking",
+            "Reading and writing",
+            "Speaking and reading",
+            "Only writing"
+          ],
+          "answer": "Writing and speaking",
+          "explanation": "やまかわ says 書くのは下手だ (I'm bad at writing) in Line 2 and 話すのも好きだけど、下手だよ (I like speaking too, but I'm bad at it) in Line 4. 下手 (N5.16, へた) = unskilled/bad at — a な-adjective. 上手 (N5.16, じょうず) = skilled/good at — its antonym. In casual speech: 上手だ/下手だ uses だ (g_da, plain copula) instead of です. けど (p_kedo, G9) = casual 'but' — やまかわ uses it to soften: 'I like it, but...' The の in 読むの/書くの/話すの is the nominalizer (p_no) turning verbs into noun phrases: 'the act of reading/writing/speaking.' Note: all lines use plain forms with no です/ます — this is consistent casual register between close friends."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 2: Sentence Scramble",
+      "instructions": "Tap the words in the correct order to build the sentence.",
+      "items": [
+        {
+          "kind": "scramble",
+          "q": "There is a station to the north of the school.",
+          "segments": [
+            "学校",
+            "の",
+            "北",
+            "に",
+            "駅",
+            "が",
+            "あります"
+          ],
+          "distractors": [
+            "南",
+            "は",
+            "です"
+          ],
+          "explanation": "学校 + の (possessive: 'of the school') + 北 (N5.15, north) + に (location of existence) + 駅 + が (subject marker) + あります. に marks 北 as where the station exists (Xに Yが あります pattern). の connects 学校 to 北: 'north of the school.' 南 (N5.15) = south — wrong direction. は would mark 駅 as topic instead of が as subject; in existence statements, が is standard. です would be a copula — the sentence uses あります (existence verb for inanimate)."
+        },
+        {
+          "kind": "scramble",
+          "q": "Please go to the right.",
+          "segments": [
+            "右",
+            "に",
+            "行ってください"
+          ],
+          "distractors": [
+            "左",
+            "は",
+            "です"
+          ],
+          "explanation": "右 (N5.16, right) + に (destination) + 行ってください (te-form of 行く + ください = polite request, G7: 'please go'). に marks 右 as the destination of movement. 行って is the te-form of 行く (godan く-verb: く → って). 左 (N5.16) = left — wrong direction. は marks a topic, not a destination. です is a copula — does not fit with the request pattern."
+        },
+        {
+          "kind": "scramble",
+          "q": "The big book is on top.",
+          "segments": [
+            "大きい",
+            "本",
+            "は",
+            "上",
+            "に",
+            "あります"
+          ],
+          "distractors": [
+            "下",
+            "が",
+            "です"
+          ],
+          "explanation": "大きい (N5.7) + 本 (N5.12) + は (topic) + 上 (N5.16, above/on top) + に (location) + あります. は marks 大きい本 as the topic ('as for the big book'). に marks 上 as where the book exists. 下 (N5.16) = below — the opposite direction. が could replace は but changes nuance to new information ('a big book is on top'). です would make this 上です = 'it is the top' — a different sentence structure."
+        },
+        {
+          "kind": "scramble",
+          "q": "There is a mountain to the east and a river to the west.",
+          "segments": [
+            "東",
+            "に",
+            "山",
+            "が",
+            "あって",
+            "西",
+            "に",
+            "川",
+            "が",
+            "あります"
+          ],
+          "distractors": [
+            "北",
+            "は",
+            "です"
+          ],
+          "explanation": "東 (N5.15, east) + に + 山 (N5.6) + が + あって (te-form of ある, connecting two clauses, G7) + 西 (N5.15, west) + に + 川 (N5.6) + が + あります. あって is the te-form connector: 'there is X, and there is Y' — two existence statements joined by the て connector (G7, N5.5+). 北 (N5.15) = north — wrong direction. は marks topic, not subject of existence. です is a copula, not the existence verb."
+        },
+        {
+          "kind": "scramble",
+          "q": "I am bad at writing Japanese.",
+          "segments": [
+            "日本語",
+            "を",
+            "書くの",
+            "が",
+            "下手です"
+          ],
+          "distractors": [
+            "上手",
+            "は",
+            "に"
+          ],
+          "explanation": "日本語 + を (object) + 書くの (writing — nominalized verb: 書く + の) + が (subject marker) + 下手です (N5.16, unskilled — na-adj + です). を marks 日本語 as the object of 書く. の nominalizes the verb phrase 日本語を書く into 'the act of writing Japanese.' が marks this nominalized phrase as the subject of 下手です. 上手 (N5.16) = skilled — the opposite meaning. は could replace が but changes nuance. に marks destination/location — not needed here."
+        },
+        {
+          "kind": "scramble",
+          "q": "The small store is on the left.",
+          "segments": [
+            "小さい",
+            "店",
+            "は",
+            "左",
+            "に",
+            "あります"
+          ],
+          "distractors": [
+            "右",
+            "が",
+            "です"
+          ],
+          "explanation": "小さい (N5.7, small) + 店 (N5.5, store) + は (topic) + 左 (N5.16, left) + に (location of existence) + あります. は marks 小さい店 as the topic. に marks 左 as where the store exists. 右 (N5.16) = right — wrong direction. が could replace は (changes nuance to new information). です would make 左です = 'it is the left' — a copula sentence, not an existence statement."
+        },
+        {
+          "kind": "scramble",
+          "q": "She is very good at speaking Japanese.",
+          "segments": [
+            "日本語",
+            "を",
+            "話すの",
+            "が",
+            "とても",
+            "上手です"
+          ],
+          "distractors": [
+            "下手",
+            "は",
+            "に"
+          ],
+          "explanation": "日本語 + を (object) + 話すの (speaking — nominalized verb: 話す + の) + が (subject) + とても (very) + 上手です (N5.16, skilled — na-adj + です). を marks 日本語 as what is spoken. の nominalizes 日本語を話す into a noun phrase. が marks this as the subject of 上手です. とても (N5.7) = very — adverb intensifying 上手. 下手 (N5.16) = unskilled — opposite meaning. は could replace が. に is a location/destination particle — does not fit."
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Part 3: Reading — Directions Around Town",
+      "instructions": "Read the passage and answer the questions.",
+      "passage": [
+        {
+          "jp": "わたしは 毎日 学校に 行きます。",
+          "en": "I go to school every day.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_mainichi",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "学校の 北に 駅が あります。毎日 駅から 学校に 行きます。",
+          "en": "There is a station to the north of the school. I go from the station to school every day.",
+          "terms": [
+            "v_gakkou",
+            "p_ga",
+            "v_kita",
+            "p_ni",
+            "v_eki",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_mainichi",
+            "v_eki",
+            "p_kara",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "東に 高い 山が あります。西に 川が あります。",
+          "en": "There is a tall mountain to the east. There is a river to the west.",
+          "terms": [
+            "v_higashi",
+            "p_ni",
+            "v_takai",
+            "v_yama",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_nishi",
+            "p_ni",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "南に 大きい 店が あります。新しい 本を 買いたいですから、よく 南に 行きます。",
+          "en": "There is a big store to the south. Because I want to buy new books, I often go south.",
+          "terms": [
+            "v_minami",
+            "p_ni",
+            "v_ookii",
+            "v_mise",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_atarashii",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_kara_because",
+            "v_yoku",
+            "v_minami",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "店の 中で 右に 本が あります。左には 花が あります。",
+          "en": "Inside the store, books are on the right. Flowers are on the left.",
+          "terms": [
+            "v_mise",
+            "p_ga",
+            "v_naka",
+            "p_wa",
+            "v_migi",
+            "p_de",
+            "v_hon",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_hidari",
+            "p_ni",
+            "p_ni",
+            "v_hana",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "学校の 東に 何が ありますか。",
+          "a": "高い 山が あります。",
+          "choices": [
+            "高い 山が あります。",
+            "川が あります。",
+            "大きい 店が あります。",
+            "駅が あります。"
+          ],
+          "terms": [
+            "v_gakkou",
+            "p_ga",
+            "v_higashi",
+            "p_ni",
+            "v_nani",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_takai",
+            "v_yama"
+          ],
+          "explanation": "Line 3 states 東に高い山があります — 'There is a tall mountain to the east.' 東 (N5.15, ひがし) = east. 高い (N5.8) = tall/high. 川 (river) is to the west (西). 大きい店 (big store) is to the south (南). 駅 (station) is to the north (北). The に marks location of existence."
+        },
+        {
+          "q": "どうして よく 南に 行きますか。",
+          "a": "新しい 本を 買いたいからです。",
+          "choices": [
+            "新しい 本を 買いたいからです。",
+            "駅が 南に あるからです。",
+            "山を 見たいからです。",
+            "学校が 南に あるからです。"
+          ],
+          "terms": [
+            "v_doushite",
+            "v_yoku",
+            "v_minami",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_atarashii",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "plain_desire_tai"
+            },
+            "p_kara_because",
+            "g_desu"
+          ],
+          "explanation": "Line 4 states 新しい本を買いたいですから、よく南に行きます — 'Because I want to buy new books, I often go south.' 買いたいです (desire_tai, G8) = 'want to buy' — 買う (N5.8) in desire form. から (p_kara_because, G9) = 'because' after a verb/adjective. よく (N5.7) = often. 南 (N5.15, みなみ) = south. The other choices incorrectly place the station, mountain, or school to the south."
+        },
+        {
+          "q": "店の 中で 本は どこに ありますか。",
+          "a": "右に あります。",
+          "choices": [
+            "右に あります。",
+            "左に あります。",
+            "上に あります。",
+            "下に あります。"
+          ],
+          "terms": [
+            "v_mise",
+            "p_wa",
+            "v_naka",
+            "p_no",
+            "v_hon",
+            "p_de",
+            "v_doko",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka",
+            "v_migi"
+          ],
+          "explanation": "Line 5 states 店の中で右に本があります — 'Inside the store, books are on the right.' 右 (N5.16, みぎ) = right. 中 (N5.9) = inside. で marks the location of the action/situation. 左 (N5.16, ひだり) = left — that is where the flowers (花, N5.11) are. 上 (N5.16, うえ) and 下 (N5.16, した) are not mentioned for the store interior."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 4: Kanji Readings",
+      "instructions": "Select the correct reading for the [bracketed] word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "学校の [北] に 駅が あります。",
+          "choices": [
+            "きた",
+            "みなみ",
+            "ひがし",
+            "にし"
+          ],
+          "answer": "きた",
+          "explanation": "北 (north) is read as <b>kita</b> (kun-reading). 北 (ほく/きた) — kun-reading きた. On-reading ほく is used in compounds like 北西 (ほくせい = north-west) and 北東 (ほくとう = north-east). Compare: 南 (みなみ = south), 東 (ひがし = east), 西 (にし = west) — all four cardinal-direction kanji from N5.15."
+        },
+        {
+          "kind": "mcq",
+          "q": "[南] に 大きい 店が あります。",
+          "choices": [
+            "みなみ",
+            "きた",
+            "にし",
+            "ひがし"
+          ],
+          "answer": "みなみ",
+          "explanation": "南 (south) is read as <b>minami</b> (kun-reading). 南 (なん/みなみ) — kun-reading みなみ. On-reading なん is used in compounds like 南西 (なんせい = south-west) and 南東 (なんとう = south-east). Compare: 北 (きた = north), 西 (にし = west), 東 (ひがし = east) — all N5.15 cardinal directions."
+        },
+        {
+          "kind": "mcq",
+          "q": "[東] に 山が あります。",
+          "choices": [
+            "ひがし",
+            "にし",
+            "みなみ",
+            "きた"
+          ],
+          "answer": "ひがし",
+          "explanation": "東 (east) is read as <b>higashi</b> (kun-reading). 東 (とう/ひがし) — kun-reading ひがし. On-reading とう is used in compounds like 北東 (ほくとう = north-east) and 南東 (なんとう = south-east). The kanji is also found in 東京 (とうきょう = Tokyo, N4.17). Compare: 西 (にし = west), 南 (みなみ = south), 北 (きた = north)."
+        },
+        {
+          "kind": "mcq",
+          "q": "[西] に 川が あります。",
+          "choices": [
+            "にし",
+            "ひがし",
+            "きた",
+            "みなみ"
+          ],
+          "answer": "にし",
+          "explanation": "西 (west) is read as <b>nishi</b> (kun-reading). 西 (せい/にし) — kun-reading にし. On-reading せい is used in compounds like 北西 (ほくせい = north-west) and 南西 (なんせい = south-west). Compare: 東 (ひがし = east), 北 (きた = north), 南 (みなみ = south) — all N5.15 cardinal directions."
+        },
+        {
+          "kind": "mcq",
+          "q": "[右] に 本が あります。",
+          "choices": [
+            "みぎ",
+            "ひだり",
+            "うえ",
+            "した"
+          ],
+          "answer": "みぎ",
+          "explanation": "右 (right) is read as <b>migi</b> (kun-reading). 右 (ゆう/みぎ) — kun-reading みぎ. On-reading ゆう is used in formal compounds like 右折 (うせつ = right turn). Compare: 左 (ひだり = left), 上 (うえ = above), 下 (した = below) — all N5.16 positional kanji."
+        },
+        {
+          "kind": "mcq",
+          "q": "[左] の 小さい 本は 何ですか。",
+          "choices": [
+            "ひだり",
+            "みぎ",
+            "した",
+            "うえ"
+          ],
+          "answer": "ひだり",
+          "explanation": "左 (left) is read as <b>hidari</b> (kun-reading). 左 (さ/ひだり) — kun-reading ひだり. On-reading さ is used in compounds like 左右 (さゆう = left and right). Compare: 右 (みぎ = right), 下 (した = below), 上 (うえ = above) — all N5.16 positional kanji."
+        },
+        {
+          "kind": "mcq",
+          "q": "あの 本は [上] に あります。",
+          "choices": [
+            "うえ",
+            "した",
+            "みぎ",
+            "ひだり"
+          ],
+          "answer": "うえ",
+          "explanation": "上 (above / on top) is read as <b>ue</b> (kun-reading). 上 (じょう/うえ) — kun-reading うえ. On-reading じょう is used in compounds like 上手 (じょうず = skilled, N5.16). Compare: 下 (した = below), 右 (みぎ = right), 左 (ひだり = left) — all N5.16 positional kanji."
+        },
+        {
+          "kind": "mcq",
+          "q": "[下] にも 本が たくさん あります。",
+          "choices": [
+            "した",
+            "うえ",
+            "ひだり",
+            "みぎ"
+          ],
+          "answer": "した",
+          "explanation": "下 (below / underneath) is read as <b>shita</b> (kun-reading). 下 (か/げ/した) — kun-reading した. On-reading か/げ is used in compounds like 下手 (へた = unskilled, N5.16) and 地下 (ちか = underground, N4.19). Compare: 上 (うえ = above), 左 (ひだり = left), 右 (みぎ = right) — all N5.16 positional kanji."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 5: Context & Vocabulary",
+      "instructions": "Select the best word to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "日本語を 書くのが _______ です。（I am good at writing Japanese.）",
+          "choices": [
+            "上手",
+            "下手",
+            "上",
+            "下"
+          ],
+          "answer": "上手",
+          "terms": [
+            "v_nihongo",
+            "p_wo",
+            "v_kaku",
+            "p_ga",
+            "p_no",
+            "v_jouzu",
+            "g_desu"
+          ],
+          "explanation": "上手 (N5.16, じょうず) = skilled/good at — a な-adjective describing ability. 上手です = 'is good at.' 下手 (N5.16, へた) = unskilled/bad at — the antonym; would change the meaning to 'bad at writing Japanese.' 上 (N5.16, うえ) = above — a positional noun, not a skill description. 下 (N5.16, した) = below — a positional noun. Note: 上手 uses the on-reading of 上 (じょう), not the kun-reading (うえ). Similarly, 下手 uses the on-reading of 下 (へ/げ, as in へた), not した."
+        },
+        {
+          "kind": "mcq",
+          "q": "学校の _______ に 山が あります。（There is a mountain to the east of the school.）",
+          "choices": [
+            "東",
+            "西",
+            "北",
+            "南"
+          ],
+          "answer": "東",
+          "terms": [
+            "v_gakkou",
+            "p_ga",
+            "v_higashi",
+            "p_ni",
+            "v_yama",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "東 (N5.15, ひがし) = east — matches the English 'to the east.' The pattern 学校の東に = 'to the east of the school.' 西 (にし) = west, 北 (きた) = north, 南 (みなみ) = south — all cardinal directions (N5.15) but wrong for this sentence. の connects 学校 (school) to the direction word; に marks the location of existence."
+        },
+        {
+          "kind": "mcq",
+          "q": "_______ に 行ってください。（Please go to the left.）",
+          "choices": [
+            "左",
+            "右",
+            "上",
+            "下"
+          ],
+          "answer": "左",
+          "terms": [
+            "v_hidari",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ],
+          "explanation": "左 (N5.16, ひだり) = left — matches the English 'to the left.' 行ってください = te-form of 行く + ください = polite request 'please go' (G7). に marks 左 as the destination. 右 (みぎ) = right — wrong direction. 上 (うえ) = above — 上に行ってください = 'please go up.' 下 (した) = below — 下に行ってください = 'please go down.' All are valid directions (N5.16), but the English specifies left."
+        },
+        {
+          "kind": "mcq",
+          "q": "北東は 北と _______ です。（North-east is north and _____.）",
+          "choices": [
+            "東",
+            "西",
+            "南",
+            "右"
+          ],
+          "answer": "東",
+          "terms": [
+            "v_hokutou",
+            "p_wa",
+            "v_kita",
+            "p_to",
+            "v_higashi",
+            "g_desu"
+          ],
+          "explanation": "東 (N5.15, ひがし) = east — 北東 (ほくとう, N5.15) is a compound direction meaning 'north-east,' combining 北 (ほく, north) + 東 (とう, east). The compound uses on-readings: ほく + とう = ほくとう. と connects 北 and 東 as 'and.' Similarly: 南西 (なんせい) = south + west, 北西 (ほくせい) = north + west, 南東 (なんとう) = south + east. 西 (にし) would make 北西 (north-west). 南 (みなみ) would make 南東 (not 北東). 右 (みぎ) is a positional direction, not a cardinal direction used in compounds."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Part 6: Grammar Check",
+      "instructions": "Choose the correct particle or form to complete the sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "東 ___ 山が あります。（There is a mountain to the east.）",
+          "choices": [
+            "に",
+            "で",
+            "を",
+            "は"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_higashi",
+            "p_ni",
+            "v_yama",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "に (p_ni) marks the location of existence — 東に山があります = 'there is a mountain to the east.' The pattern Xに Yが あります uses に for static existence of inanimate objects. で marks a location where an ACTION takes place (東で食べます = 'I eat in the east'). を marks a direct object — not a location. は marks the topic — 東は山があります changes nuance to 'as for the east, there is a mountain.'"
+        },
+        {
+          "kind": "mcq",
+          "q": "右 ___ 行ってください。（Please go to the right.）",
+          "choices": [
+            "に",
+            "で",
+            "が",
+            "の"
+          ],
+          "answer": "に",
+          "terms": [
+            "v_migi",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ],
+          "explanation": "に (p_ni) marks the destination/direction of movement — 右に行ってください = 'Please go to the right.' 行ってください = te-form of 行く + ください = polite request (G7). で marks a location of an action ('at/in the right') — grammatically awkward here because 行く describes movement to a destination. が marks a subject — 右が行って makes no sense. の is possessive — 右の would need a noun after it (右の本 = 'the book on the right')."
+        },
+        {
+          "kind": "mcq",
+          "q": "新しい 本を 買いたいです ___、南に 行きます。（Because I want to buy new books, I go south.）",
+          "choices": [
+            "から",
+            "が",
+            "けど",
+            "も"
+          ],
+          "answer": "から",
+          "terms": [
+            "v_atarashii",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_kau",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_kara_because",
+            "v_minami",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "から (p_kara_because, G9) after a verb/adjective/です gives a reason: 'because.' 買いたいですから = 'because I want to buy.' 買いたいです (desire_tai, G8) = 'want to buy.' が (p_ga_but) would mean 'but' — 買いたいですが = 'I want to buy, but...' — contradicts the English meaning 'because.' けど (p_kedo, G9) is casual 'but' — same issue. も (p_mo) = 'also/too' — does not create a causal link."
+        },
+        {
+          "kind": "mcq",
+          "q": "学校は 小さいです ___、北に 駅が あります。（The school is small, but there is a station to the north.）",
+          "choices": [
+            "が",
+            "から",
+            "に",
+            "も"
+          ],
+          "answer": "が",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_chiisai",
+            "g_desu",
+            "p_ga_but",
+            "v_kita",
+            "p_ni",
+            "v_eki",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ],
+          "explanation": "が (p_ga_but, G9) is the polite clause-connector 'but' — it follows a polite form (小さいです) to contrast: 'the school is small, BUT there is a station to the north.' This が is p_ga_but (conjunction 'but') — position determines role: が after a clause-final form (です/ます) = 'but.' Note: the second が in 駅が is p_ga (subject marker after a noun). から (p_kara_because) would mean 'because the school is small' — wrong meaning. に marks location — already used in 北に. も = 'also' — does not create a contrast."
+        }
+      ]
+    }
+  ]
+}

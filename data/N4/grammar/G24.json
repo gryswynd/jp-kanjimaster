@@ -1,0 +1,844 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "G24",
+  "type": "grammar",
+  "title": "Directional & Resultant て-Form — てくる / ていく / てある",
+  "meta": {
+    "level": "N4",
+    "unlocksAfter": "N4.23",
+    "focus": "Use てくる for actions/changes directed toward the speaker or arriving in the present; ていく for actions/changes directed away or continuing into the future; てある for states created by intentional past action.",
+    "estimatedMinutes": 25,
+    "particles": [
+      "てくる",
+      "ていく",
+      "てある"
+    ],
+    "grammarForms": [
+      "te_form"
+    ],
+    "icon": "↔️"
+  },
+  "targetVocab": [
+    "v_kuru",
+    "v_iku",
+    "v_aru"
+  ],
+  "sections": [
+    {
+      "type": "grammarIntro",
+      "title": "てくる / ていく / てある — Direction and Result",
+      "icon": "↔️",
+      "summary": "Japanese adds directional and resultant meaning to verbs by attaching くる, いく, or ある to their て-form. てくる moves the action toward the speaker or the present; ていく moves it away or into the future; てある leaves a lasting intentional result.",
+      "whyItMatters": "These three patterns appear constantly in natural Japanese — in stories, daily conversation, and descriptions of change. They let you express not just what happened, but where the action is headed and what effect it left behind.",
+      "youWillLearn": [
+        "てくる — expressing movement toward the speaker or a change arriving at the present",
+        "ていく — expressing movement away from the speaker or a change continuing into the future",
+        "てある — expressing a resultant state from an intentional transitive action",
+        "The が particle rule for てある (affected object takes が, not を)",
+        "The contrast between ている (neutral ongoing state) and てある (intentional resultant state)"
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_tekuru",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "DIRECTION",
+          "color": "connector",
+          "text": "くる"
+        }
+      ],
+      "meaning": "~ and come / ~ toward the speaker / a change arriving at the present",
+      "explanation": "てくる (te-form + くる) has four uses: (1) going somewhere, doing something, and returning — the action moves toward the speaker; (2) a change that began in the past and has arrived at the present moment; (3) the onset or start of a change; (4) continuing to do something up to now.",
+      "notes": [
+        "Formation: conjugate the verb to its て-form, then add くる. 持つ → 持って + くる → 持ってくる (take and bring back).",
+        "Past tense: てきた (てくる → past). 寒くなってきた = It has gotten cold (the change arrived at now).",
+        "てくる expresses movement toward HERE or toward NOW. The direction is always inward — toward the speaker's location or the present moment.",
+        "Use てくる for gradual changes that have built up and reached the present: だんだん 寒くなってきた (it has been gradually getting cold).",
+        "Contrast with ていく: てくる = toward / arriving; ていく = away / departing."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "本を",
+              "role": "object",
+              "gloss": "book (を)"
+            },
+            {
+              "text": "持って",
+              "role": "predicate",
+              "gloss": "carry (te-form of 持つ)"
+            },
+            {
+              "text": "きた。",
+              "role": "connector",
+              "gloss": "came — brought it here toward the speaker"
+            }
+          ],
+          "en": "I brought the book (here).",
+          "breakdown": "持つ (godan: to hold/carry) → te-form 持って + きた (past of くる) = brought here toward the speaker."
+        },
+        {
+          "parts": [
+            {
+              "text": "寒く",
+              "role": "modifier",
+              "gloss": "cold (adverbial form of 寒い)"
+            },
+            {
+              "text": "なって",
+              "role": "predicate",
+              "gloss": "become (te-form of なる)"
+            },
+            {
+              "text": "きた。",
+              "role": "connector",
+              "gloss": "came — the change has arrived at now"
+            }
+          ],
+          "en": "It has gotten cold. (A change has arrived at the present.)",
+          "breakdown": "寒い → adverbial 寒く + なって (te-form of なる) + きた = the coldness has built up and arrived at now."
+        },
+        {
+          "parts": [
+            {
+              "text": "雨が",
+              "role": "subject",
+              "gloss": "rain (が)"
+            },
+            {
+              "text": "ふって",
+              "role": "predicate",
+              "gloss": "fall (te-form of ふる)"
+            },
+            {
+              "text": "きた。",
+              "role": "connector",
+              "gloss": "came — onset of the rain"
+            }
+          ],
+          "en": "It started raining. (The rain has arrived.)",
+          "breakdown": "ふる (godan: to fall/rain) → te-form ふって + きた = the rain arrived / started coming down."
+        },
+        {
+          "parts": [
+            {
+              "text": "ずっと",
+              "role": "adverb",
+              "gloss": "all along / the whole time (up to now)"
+            },
+            {
+              "text": "にほんごを",
+              "role": "object",
+              "gloss": "Japanese (を)"
+            },
+            {
+              "text": "べんきょうして",
+              "role": "predicate",
+              "gloss": "study (te-form of べんきょうする)"
+            },
+            {
+              "text": "きた。",
+              "role": "connector",
+              "gloss": "came — continuing this action all the way to now"
+            }
+          ],
+          "en": "I have been studying Japanese all along (up to now).",
+          "breakdown": "ずっと = all along; べんきょうして (te-form) + きた = have been doing this action continuously up until the present moment. This is てくる use #4: continuing an action or effort up to now."
+        }
+      ]
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_teiku",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[て-form]"
+        },
+        {
+          "label": "DIRECTION",
+          "color": "connector",
+          "text": "いく"
+        }
+      ],
+      "meaning": "~ and go / ~ away from the speaker / a change continuing into the future",
+      "explanation": "ていく (te-form + いく) has three uses: (1) taking something and going away — the action moves away from the speaker's location; (2) a change that starts now and continues into the future; (3) beginning an action here and moving away with it.",
+      "notes": [
+        "Formation: te-form + いく. 持つ → 持って + いく → 持っていく (take it and go / carry it away).",
+        "ていく expresses movement away from HERE or toward the FUTURE. The direction is always outward — away from the speaker or away from now.",
+        "For gradual future change: だんだん 暑くなっていく = it will keep getting hotter (moving away from now into the future).",
+        "Contrast with てくる: てくる = action/change moves toward; ていく = action/change moves away.",
+        "In very casual speech, ていく can contract to てく: 持ってく (gonna take it along)."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "食べ物を",
+              "role": "object",
+              "gloss": "food (を)"
+            },
+            {
+              "text": "持って",
+              "role": "predicate",
+              "gloss": "carry (te-form of 持つ)"
+            },
+            {
+              "text": "いく。",
+              "role": "connector",
+              "gloss": "go — taking it away from here"
+            }
+          ],
+          "en": "I'll take the food (away with me).",
+          "breakdown": "持つ (godan) → te-form 持って + いく = carry and go, taking the food away from the speaker's location."
+        },
+        {
+          "parts": [
+            {
+              "text": "もっと",
+              "role": "adverb",
+              "gloss": "even more / further"
+            },
+            {
+              "text": "寒く",
+              "role": "modifier",
+              "gloss": "cold (adverbial form of 寒い)"
+            },
+            {
+              "text": "なって",
+              "role": "predicate",
+              "gloss": "become (te-form of なる)"
+            },
+            {
+              "text": "いく。",
+              "role": "connector",
+              "gloss": "go — the change continues away into the future"
+            }
+          ],
+          "en": "It will keep getting colder.",
+          "breakdown": "寒く + なって + いく = the coldness is going / will continue to grow away into the future."
+        },
+        {
+          "parts": [
+            {
+              "text": "すこしずつ",
+              "role": "adverb",
+              "gloss": "little by little"
+            },
+            {
+              "text": "おぼえて",
+              "role": "predicate",
+              "gloss": "memorize (te-form of おぼえる)"
+            },
+            {
+              "text": "いく。",
+              "role": "connector",
+              "gloss": "go — continuing the action into the future"
+            }
+          ],
+          "en": "I'll keep learning little by little.",
+          "breakdown": "おぼえる (ichidan: to memorize/learn) → te-form おぼえて + いく = keep learning going forward."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "てくる vs ていく — Direction",
+      "items": [
+        {
+          "label": "てくる",
+          "color": "predicate",
+          "points": [
+            "Action or change moves TOWARD the speaker or the present",
+            "Someone goes somewhere, does something, and returns here",
+            "A change has been building and has now arrived at now",
+            "Past form: てきた"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "友だちが",
+                "role": "subject",
+                "gloss": "friend (が)"
+              },
+              {
+                "text": "ケーキを",
+                "role": "object",
+                "gloss": "cake (を)"
+              },
+              {
+                "text": "持って",
+                "role": "predicate",
+                "gloss": "carry (te-form of 持つ)"
+              },
+              {
+                "text": "きた。",
+                "role": "connector",
+                "gloss": "came here — brought it toward speaker"
+              }
+            ],
+            "en": "My friend brought a cake here."
+          }
+        },
+        {
+          "label": "ていく",
+          "color": "connector",
+          "points": [
+            "Action or change moves AWAY from the speaker or into the future",
+            "Someone takes something and goes away from here",
+            "A change starts now and continues away into the future",
+            "Plain form: ていく; past form: ていった"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "友だちに",
+                "role": "modifier",
+                "gloss": "to/for friend (に)"
+              },
+              {
+                "text": "ケーキを",
+                "role": "object",
+                "gloss": "cake (を)"
+              },
+              {
+                "text": "持って",
+                "role": "predicate",
+                "gloss": "carry (te-form of 持つ)"
+              },
+              {
+                "text": "いく。",
+                "role": "connector",
+                "gloss": "go away — taking it away from here"
+              }
+            ],
+            "en": "I'll take a cake to my friend."
+          }
+        }
+      ],
+      "tip": "Think of it as direction relative to the speaker: てくる = inward (toward me / toward now); ていく = outward (away from me / away into the future)."
+    },
+    {
+      "type": "grammarRule",
+      "id": "rule_tearu",
+      "pattern": [
+        {
+          "label": "VERB",
+          "color": "predicate",
+          "text": "[transitive て-form]"
+        },
+        {
+          "label": "RESULT",
+          "color": "connector",
+          "text": "ある"
+        }
+      ],
+      "meaning": "~ has been done (and the result remains) / ~ is in a prepared state",
+      "explanation": "てある (te-form + ある) expresses a state that exists because someone intentionally performed a transitive action. Unlike ている (which describes a neutral ongoing state), てある implies human agency — someone did it on purpose and the effect is still there. The affected object takes が (not を).",
+      "notes": [
+        "Formation: transitive verb te-form + ある. 入れる → 入れて + ある → 入れてある (has been put in / is prepared).",
+        "The affected object takes が: お茶が 入れてある (the tea が has been prepared). The を object marker shifts to が in てある.",
+        "てある always implies intentional action by an agent — someone purposely set up this state. It is never accidental.",
+        "Contrast with ている: まどが あいている (the window is open — neutral state) vs まどが あけてある (the window has been opened — someone did it intentionally).",
+        "Common contexts: preparation before an event, things left ready for someone, a state set up in advance."
+      ],
+      "examples": [
+        {
+          "parts": [
+            {
+              "text": "まどが",
+              "role": "subject",
+              "gloss": "window (が — affected object)"
+            },
+            {
+              "text": "あけて",
+              "role": "predicate",
+              "gloss": "open (te-form of あける — transitive)"
+            },
+            {
+              "text": "ある。",
+              "role": "connector",
+              "gloss": "is in a prepared state — someone opened it intentionally"
+            }
+          ],
+          "en": "The window has been opened (intentionally, and is still open).",
+          "breakdown": "あける (ichidan, transitive: to open something) → te-form あけて + ある = the window is in an opened state due to intentional action."
+        },
+        {
+          "parts": [
+            {
+              "text": "テーブルに",
+              "role": "modifier",
+              "gloss": "on the table (に)"
+            },
+            {
+              "text": "りょうりが",
+              "role": "subject",
+              "gloss": "food (が — affected object)"
+            },
+            {
+              "text": "おいて",
+              "role": "predicate",
+              "gloss": "place (te-form of おく — transitive)"
+            },
+            {
+              "text": "ある。",
+              "role": "connector",
+              "gloss": "is in a placed state — someone set it there"
+            }
+          ],
+          "en": "Food has been placed on the table (and is still there).",
+          "breakdown": "おく (godan, transitive: to place/put) → te-form おいて + ある = the food is in a placed state due to intentional action."
+        }
+      ]
+    },
+    {
+      "type": "grammarComparison",
+      "title": "ている vs てある — Natural State vs Intentional State",
+      "items": [
+        {
+          "label": "ている",
+          "color": "predicate",
+          "points": [
+            "Describes an ongoing or resulting state — neutral",
+            "In resultant-state contexts, uses intransitive verbs (describes how something naturally came to be in this state, no agent implied)",
+            "No implication of purpose — it just is that way",
+            "Subject is the thing in the state (が is subject of the intransitive verb)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "まどが",
+                "role": "subject",
+                "gloss": "window (が — subject of intransitive verb)"
+              },
+              {
+                "text": "あいて",
+                "role": "predicate",
+                "gloss": "open (te-form of あく — intransitive)"
+              },
+              {
+                "text": "いる。",
+                "role": "connector",
+                "gloss": "is in an open state (neutral, no agent)"
+              }
+            ],
+            "en": "The window is open. (No agent implied.)"
+          }
+        },
+        {
+          "label": "てある",
+          "color": "connector",
+          "points": [
+            "Describes a state resulting from intentional human action",
+            "Uses transitive verbs — someone DID something to create this state",
+            "Always implies an agent acted on purpose",
+            "The affected object takes が (shifted from the original を)"
+          ],
+          "example": {
+            "parts": [
+              {
+                "text": "まどが",
+                "role": "subject",
+                "gloss": "window (が — affected object, shifted from を)"
+              },
+              {
+                "text": "あけて",
+                "role": "predicate",
+                "gloss": "open (te-form of あける — transitive)"
+              },
+              {
+                "text": "ある。",
+                "role": "connector",
+                "gloss": "is in an opened state — someone did it on purpose"
+              }
+            ],
+            "en": "The window has been opened (by someone, on purpose)."
+          }
+        }
+      ],
+      "tip": "The key is verb type and intentionality: ている uses intransitive verbs and describes a neutral state; てある uses transitive verbs and marks that someone purposely created that state."
+    },
+    {
+      "type": "annotatedExample",
+      "title": "All Three Patterns in Context",
+      "examples": [
+        {
+          "context": "Reflecting on sustained effort — てくる (continuing an action all the way up to now)",
+          "parts": [
+            {
+              "text": "ずっと",
+              "role": "adverb",
+              "gloss": "all along / the whole time"
+            },
+            {
+              "text": "にほんごを",
+              "role": "object",
+              "gloss": "Japanese (を)"
+            },
+            {
+              "text": "べんきょうして",
+              "role": "predicate",
+              "gloss": "study (te-form of べんきょうする)"
+            },
+            {
+              "text": "きた。",
+              "role": "connector",
+              "gloss": "came — this effort has continued all the way to now"
+            }
+          ],
+          "en": "I have been studying Japanese all along (up to now).",
+          "note": "ずっと + てきた = the action has been happening continuously and has arrived at the present. Use this pattern to describe sustained effort or experience."
+        },
+        {
+          "context": "Someone arriving and entering — てくる (physical movement toward the speaker)",
+          "parts": [
+            {
+              "text": "こどもが",
+              "role": "subject",
+              "gloss": "child (が)"
+            },
+            {
+              "text": "そとから",
+              "role": "modifier",
+              "gloss": "from outside (から)"
+            },
+            {
+              "text": "はいって",
+              "role": "predicate",
+              "gloss": "enter (te-form of はいる)"
+            },
+            {
+              "text": "きた。",
+              "role": "connector",
+              "gloss": "came — moved toward the speaker's location"
+            }
+          ],
+          "en": "The child came in from outside.",
+          "note": "はいって + きた = entered and came (toward here). The movement is directed toward the speaker."
+        },
+        {
+          "context": "Seasonal temperature rising — ていく (gradual change continuing into the future)",
+          "parts": [
+            {
+              "text": "だんだん",
+              "role": "adverb",
+              "gloss": "gradually / little by little"
+            },
+            {
+              "text": "あたたかく",
+              "role": "modifier",
+              "gloss": "warm (adverbial form of あたたかい)"
+            },
+            {
+              "text": "なって",
+              "role": "predicate",
+              "gloss": "become (te-form of なる)"
+            },
+            {
+              "text": "いく。",
+              "role": "connector",
+              "gloss": "go — the change continues away into the future"
+            }
+          ],
+          "en": "It's gradually getting warmer.",
+          "note": "だんだん + なっていく = a change unfolding going forward from now. The warmth is moving away from this moment into the future."
+        },
+        {
+          "context": "Heading out prepared — ていく (taking something away from here)",
+          "parts": [
+            {
+              "text": "かさを",
+              "role": "object",
+              "gloss": "umbrella (を)"
+            },
+            {
+              "text": "もって",
+              "role": "predicate",
+              "gloss": "carry (te-form of 持つ)"
+            },
+            {
+              "text": "いく。",
+              "role": "connector",
+              "gloss": "go — taking it away from here"
+            }
+          ],
+          "en": "I'll take an umbrella (with me).",
+          "note": "もって + いく = carry and go away. The umbrella moves away from the speaker's location."
+        },
+        {
+          "context": "Room secured before leaving — てある (intentional resultant state)",
+          "parts": [
+            {
+              "text": "ドアに",
+              "role": "modifier",
+              "gloss": "on the door (に)"
+            },
+            {
+              "text": "かぎが",
+              "role": "subject",
+              "gloss": "lock/key (が — affected object)"
+            },
+            {
+              "text": "かけて",
+              "role": "predicate",
+              "gloss": "hang/lock (te-form of かける — transitive)"
+            },
+            {
+              "text": "ある。",
+              "role": "connector",
+              "gloss": "is in a locked state — someone did it intentionally"
+            }
+          ],
+          "en": "The door has been locked (and is still locked).",
+          "note": "が marks the affected object in てある. Someone locked the door on purpose; the result — a locked door — remains."
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Weather Changes and the Mountain Trip (Casual)",
+      "context": "りきぞう and けん chat casually about the cooling weather and りきぞう's upcoming trip to the mountains.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "寒く なってきたね。もう 秋だよ。",
+          "en": "It's gotten cold, hasn't it. Autumn has arrived already!",
+          "terms": [
+            "char_rikizo",
+            {
+              "id": "v_samui",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_kuru",
+              "form": "plain_past"
+            },
+            "p_ne",
+            "v_mou",
+            "p_yo",
+            "g_da",
+            "v_aki"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "そうだね。寒く なっていくね。",
+          "en": "Yeah. It's just going to keep getting colder.",
+          "terms": [
+            "char_ken",
+            "v_sou",
+            "p_ne",
+            "g_da",
+            {
+              "id": "v_samui",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iku",
+              "form": "plain_form"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "来週、山に 旅行に 行くんだ。食べ物を 持って 行くよ。",
+          "en": "Next week I'm going on a trip to the mountains. I'll take food along.",
+          "terms": [
+            "char_rikizo",
+            "v_raishuu",
+            "v_yama",
+            "p_ni",
+            "v_ryokou",
+            {
+              "id": "v_iku",
+              "form": "plain_form"
+            },
+            "p_nda",
+            "v_tabemono",
+            "p_wo",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            "p_yo"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "いいな！お茶も 持って 行く？",
+          "en": "Nice! Are you taking tea along too?",
+          "terms": [
+            "char_ken",
+            "v_ii",
+            "p_na",
+            "v_ocha",
+            "p_mo",
+            {
+              "id": "v_motsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iku",
+              "form": "plain_form"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "うん。お茶が もう 入れて あるよ。",
+          "en": "Yeah. The tea has already been prepared and is ready.",
+          "terms": [
+            "char_rikizo",
+            "v_un",
+            "v_ocha",
+            "p_ga",
+            "v_mou",
+            {
+              "id": "v_ireru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_aru",
+              "form": "plain_form"
+            },
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fillSlot",
+      "id": "fill_1",
+      "instructions": "Choose the correct てくる / ていく / てある form to complete each sentence.",
+      "items": [
+        {
+          "before": "秋に なっ",
+          "after": "ね。",
+          "translation": "Autumn has come (arrived), hasn't it.",
+          "choices": [
+            "てきた",
+            "ていく",
+            "てある"
+          ],
+          "answer": "てきた",
+          "explanation": "てくる (てきた = past) expresses a change that has arrived at the present: なってきた。"
+        },
+        {
+          "before": "食べ物を 持っ",
+          "after": "よ。",
+          "translation": "I'll take food along.",
+          "choices": [
+            "ていく",
+            "てきた",
+            "てある"
+          ],
+          "answer": "ていく",
+          "explanation": "ていく expresses movement or action directed away from the speaker: 持っていく (carry and go)。"
+        },
+        {
+          "before": "お茶は もう 入れ",
+          "after": "よ。",
+          "translation": "The tea has already been prepared.",
+          "choices": [
+            "てある",
+            "てきた",
+            "ていく"
+          ],
+          "answer": "てある",
+          "explanation": "てある expresses a state resulting from intentional action: 入れてある (was poured/prepared, and the result remains)。"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Practice: てくる / ていく / てある",
+      "instructions": "Choose the best answer for each question.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "寒く ____ きた。",
+          "choices": [
+            "なって",
+            "なる",
+            "なった",
+            "なり"
+          ],
+          "answer": "なって",
+          "explanation": "てくる requires the て-form of the preceding verb: なって (て-form of なる) + きた。",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "お茶 ____ もう 入れてある。",
+          "choices": [
+            "が",
+            "を",
+            "に",
+            "は"
+          ],
+          "answer": "が",
+          "explanation": "The affected object in a てある sentence takes が, not を: お茶が もう 入れてある。",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "お茶が 入れてある。— What does this sentence express?",
+          "choices": [
+            "The tea has been prepared (result of intentional action)",
+            "Someone is making tea right now",
+            "Tea was made and brought here",
+            "Tea will be made later"
+          ],
+          "answer": "The tea has been prepared (result of intentional action)",
+          "explanation": "てある expresses a resultant state from intentional action — the tea was put in/prepared and the effect remains.",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "食べ物を 持って 行く。— What does this mean?",
+          "choices": [
+            "I will take food (along with me)",
+            "Food was brought here",
+            "Food has been prepared",
+            "I am eating food now"
+          ],
+          "answer": "I will take food (along with me)",
+          "explanation": "持っていく means to carry something away from the speaker's location: 持って (て-form of 持つ) + 行く (to go)。",
+          "terms": []
+        },
+        {
+          "kind": "mcq",
+          "q": "Which sentence expresses a gradual change that has arrived at the present moment?",
+          "choices": [
+            "だんだん 寒く なってきた。",
+            "だんだん 寒く なっていく。",
+            "寒く なってある。",
+            "寒く なった。"
+          ],
+          "answer": "だんだん 寒く なってきた。",
+          "explanation": "てきた (past of てくる) expresses a gradual change that has been building and has now arrived at the present. なっていく means the change continues away into the future. なってある is ungrammatical — てある requires a transitive verb, and なる is intransitive.",
+          "terms": []
+        }
+      ]
+    }
+  ],
+  "unlocksAfter": "N4.23"
+}

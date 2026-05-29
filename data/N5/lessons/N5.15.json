@@ -1,0 +1,1344 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N5.15",
+  "title": "Cardinal Directions",
+  "meta": {
+    "level": "N5",
+    "lesson_number": 15,
+    "focus": "Cardinal directions (北/南/東/西) and intercardinal directions (北東/北西/南東/南西) used to describe locations, give directions, and discuss Japan's regions",
+    "estimated_minutes": 30,
+    "kanji": [
+      "北",
+      "南",
+      "東",
+      "西"
+    ]
+  },
+  "newKanji": [
+    {
+      "kanji": "北",
+      "on": "ほく",
+      "kun": "きた",
+      "meaning": "north",
+      "termId": "k_kita"
+    },
+    {
+      "kanji": "南",
+      "on": "なん",
+      "kun": "みなみ",
+      "meaning": "south",
+      "termId": "k_minami"
+    },
+    {
+      "kanji": "東",
+      "on": "とう",
+      "kun": "ひがし",
+      "meaning": "east",
+      "termId": "k_higashi"
+    },
+    {
+      "kanji": "西",
+      "on": "せい",
+      "kun": "にし",
+      "meaning": "west",
+      "termId": "k_nishi"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up: Quick Review",
+      "instructions": "Read each sentence and choose the correct English meaning.",
+      "items": [
+        {
+          "jp": "友だちは 学校で 本を 読んでいます。",
+          "en": "My friend is reading a book at school.",
+          "terms": [
+            "v_tomodachi",
+            "p_wa",
+            "v_gakkou",
+            "p_de",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "先週の テストは 少し 長かったです。",
+          "en": "Last week's test was a little long.",
+          "terms": [
+            "v_senshuu",
+            "p_wa",
+            "v_tesuto",
+            "p_no",
+            "v_sukoshi",
+            {
+              "id": "v_nagai",
+              "form": "plain_past_adj"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "ここに 名前を 書いてください。",
+          "en": "Please write your name here.",
+          "terms": [
+            "v_koko",
+            "p_ni",
+            "v_namae",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "jp": "いっしょに 学校に 行きましょう。",
+          "en": "Let's go to school together.",
+          "terms": [
+            "v_issho",
+            "v_gakkou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji",
+      "items": [
+        {
+          "kanji": "北",
+          "on": "ほく",
+          "kun": "きた",
+          "meaning": "north",
+          "terms": [
+            "k_kita"
+          ]
+        },
+        {
+          "kanji": "南",
+          "on": "なん",
+          "kun": "みなみ",
+          "meaning": "south",
+          "terms": [
+            "k_minami"
+          ]
+        },
+        {
+          "kanji": "東",
+          "on": "とう",
+          "kun": "ひがし",
+          "meaning": "east",
+          "terms": [
+            "k_higashi"
+          ]
+        },
+        {
+          "kanji": "西",
+          "on": "せい",
+          "kun": "にし",
+          "meaning": "west",
+          "terms": [
+            "k_nishi"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary",
+      "groups": [
+        {
+          "label": "Cardinal Directions",
+          "items": [
+            "v_kita",
+            "v_minami",
+            "v_higashi",
+            "v_nishi"
+          ]
+        },
+        {
+          "label": "Intercardinal Directions",
+          "items": [
+            "v_hokutou",
+            "v_hokusei",
+            "v_nantou",
+            "v_nansei"
+          ]
+        },
+        {
+          "label": "Kanji",
+          "items": [
+            "k_kita",
+            "k_minami",
+            "k_higashi",
+            "k_nishi"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 1: Asking for Directions",
+      "context": "Rikizo asks Yamakawa at the station which direction the school is.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "すみません。学校は どちらですか。",
+          "en": "Excuse me. Which way is the school?",
+          "terms": [
+            "p_sumimasen",
+            "v_gakkou",
+            "p_wa",
+            "v_dochira",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "学校は 駅の 北に あります。",
+          "en": "The school is to the north of the station.",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "北ですね。この 道を 北に 行きます。いいですか。",
+          "en": "North, I see. I'll go north on this road — is that okay?",
+          "terms": [
+            "v_kita",
+            "g_desu",
+            "p_ne",
+            "v_kono",
+            "v_michi",
+            "p_wo",
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_ii",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "はい、北に 行ってください。東には ありません。",
+          "en": "Yes, please go north. It is not to the east.",
+          "terms": [
+            "p_hai",
+            "v_kita",
+            "p_wa",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kudasai",
+            "v_higashi",
+            "p_ni",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "南にも 西にも ありませんか。",
+          "en": "It is not to the south or west either?",
+          "terms": [
+            "v_minami",
+            "p_mo",
+            "p_mo",
+            "v_nishi",
+            "p_ni",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "やまかわ",
+          "jp": "そうです。南にも 西にも ありません。学校は 北に あります。",
+          "en": "That's right. It's not to the south or west. The school is to the north.",
+          "terms": [
+            "p_soudesu",
+            "v_minami",
+            "p_wa",
+            "p_mo",
+            "v_nishi",
+            "p_mo",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_negative"
+            },
+            "v_gakkou",
+            "p_ni",
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 2: Where Are Your Homes?",
+      "context": "Miki and Lee compare which direction their homes are from school.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "リーさんの 家は 学校の どちらですか。",
+          "en": "Which way is your home from school, Lee?",
+          "terms": [
+            "char_lee",
+            "v_san",
+            "p_wa",
+            "v_ie",
+            "p_no",
+            "v_gakkou",
+            "p_no",
+            "v_dochira",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "学校の 北に あります。ミキさんは？",
+          "en": "It is to the north of the school. What about you, Miki?",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_kita",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "char_miki",
+            "v_san",
+            "p_ni",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "わたしの 家は 学校の 南に あります。",
+          "en": "My home is to the south of the school.",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_ie",
+            "p_no",
+            "v_gakkou",
+            "p_no",
+            "v_minami",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "北と 南ですね。毎日 学校から 北に 行きますか。",
+          "en": "North and south, I see. Do you go north from school every day?",
+          "terms": [
+            "v_kita",
+            "p_to",
+            "v_minami",
+            "g_desu",
+            "p_ne",
+            "v_mainichi",
+            "v_gakkou",
+            "p_kara",
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "はい、毎日 南に 行きます。わたしは 南から 来ています。",
+          "en": "Yes, I go south every day. I come from the south.",
+          "terms": [
+            "p_hai",
+            "v_mainichi",
+            "v_minami",
+            "p_wa",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_watashi",
+            "p_ni",
+            "v_minami",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "わたしも 毎日 北から 来ています。道は 長いですが、いいですよ。",
+          "en": "I also come from the north every day. The road is long, but that's okay.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_mainichi",
+            "v_kita",
+            "p_kara",
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_michi",
+            "p_wa",
+            "v_nagai",
+            "g_desu",
+            "p_ga_but",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 3: Planning a Trip East",
+      "context": "Rikizo and Ken discuss a plan to visit mountains in the east and northeast.",
+      "lines": [
+        {
+          "spk": "りきぞう",
+          "jp": "東の 山に 行きたいです。けんさんは？",
+          "en": "I want to go to the mountains in the east. What about you, Ken?",
+          "terms": [
+            "v_higashi",
+            "p_wa",
+            "v_yama",
+            "p_no",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "char_ken",
+            "v_san",
+            "p_ni",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "わたしも 東に 行きたいですよ。北東にも 山が 多いです。",
+          "en": "I want to go east too! There are also many mountains in the northeast.",
+          "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_higashi",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_yo",
+            "v_hokutou",
+            "p_ni",
+            "p_ni",
+            "v_yama",
+            "p_ga",
+            "v_ooi",
+            "g_desu"
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "北東の 山は 大きいですか。川も ありますか。",
+          "en": "Are the mountains in the northeast large? Are there rivers too?",
+          "terms": [
+            "v_hokutou",
+            "p_wa",
+            "v_yama",
+            "p_mo",
+            "v_ookii",
+            "g_desu",
+            "p_ka",
+            "v_kawa",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "はい、とても 大きいです。川も 多いですよ。いっしょに 行きましょう。",
+          "en": "Yes, they are very large. There are many rivers too. Let's go together!",
+          "terms": [
+            "p_hai",
+            "v_totemo",
+            "v_ookii",
+            "g_desu",
+            "v_kawa",
+            "p_mo",
+            "v_ooi",
+            "g_desu",
+            "p_yo",
+            "v_issho",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        },
+        {
+          "spk": "りきぞう",
+          "jp": "いいですね。北東から 南東まで 行きます。道は 長いですか。",
+          "en": "Sounds great. We'll go from northeast to southeast. Is the road long?",
+          "terms": [
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_hokutou",
+            "p_kara",
+            "v_nantou",
+            "p_made",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_michi",
+            "p_wa",
+            "v_nagai",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "けん",
+          "jp": "少し 長いですが、いいですよ。東の 山は きれいですよ。",
+          "en": "It is a little long, but that's fine. The mountains in the east are beautiful.",
+          "terms": [
+            "v_sukoshi",
+            "v_nagai",
+            "g_desu",
+            "p_ga_but",
+            "v_ii",
+            "g_desu",
+            "p_yo",
+            "v_higashi",
+            "p_wa",
+            "v_yama",
+            "p_no",
+            "v_kirei",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation 4: Let's Go South! (Casual)",
+      "context": "Close friends Miki and Ren casually make plans to travel south this week.",
+      "lines": [
+        {
+          "spk": "ミキ",
+          "jp": "今週、南に 行かない？",
+          "en": "Wanna go south this week?",
+          "terms": [
+            "v_konshuu",
+            "v_minami",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_negative"
+            },
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいね！南の どこに 行く？",
+          "en": "Sounds good! Where in the south will we go?",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            "v_minami",
+            "p_no",
+            "v_doko",
+            "p_ni",
+            "v_iku",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "南西に 山と 川が あるよ。行きたい！",
+          "en": "There are mountains and rivers in the southwest. I want to go!",
+          "terms": [
+            "v_nansei",
+            "p_ni",
+            "v_yama",
+            "p_to",
+            "v_kawa",
+            "p_ga",
+            "v_aru",
+            "p_yo",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            }
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "北東にも 山が あるよ。南西と 北東、どちらがいい？",
+          "en": "There are also mountains in the northeast. Which is better, southwest or northeast?",
+          "terms": [
+            "v_hokutou",
+            "p_mo",
+            "p_ni",
+            "v_yama",
+            "p_ga",
+            "v_aru",
+            "p_yo",
+            "v_nansei",
+            "p_to",
+            "v_hokutou",
+            "v_dochira",
+            "p_ga",
+            "v_ii",
+            "p_ka"
+          ]
+        },
+        {
+          "spk": "ミキ",
+          "jp": "南西がいいよ。南の 天気は いいから。",
+          "en": "Southwest is better. Because the weather in the south is nice.",
+          "terms": [
+            "v_nansei",
+            "p_ga",
+            "v_ii",
+            "p_yo",
+            "v_minami",
+            "p_wa",
+            "v_tenki",
+            "p_no",
+            "v_ii",
+            "p_kara_because"
+          ]
+        },
+        {
+          "spk": "レン",
+          "jp": "いいね！南西に 行こう！",
+          "en": "Sounds great! Let's go to the southwest!",
+          "terms": [
+            "v_ii",
+            "p_ne",
+            "v_nansei",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_volitional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 1: Japan's Directions",
+      "passage": [
+        {
+          "jp": "日本の 北には 山が たくさん あります。北東と 北西にも 山が あります。",
+          "en": "There are many mountains in the north of Japan. There are also mountains in the northeast and northwest.",
+          "terms": [
+            "v_nihon",
+            "p_ga",
+            "v_kita",
+            "p_wa",
+            "p_mo",
+            "v_yama",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_hokutou",
+            "p_to",
+            "v_hokusei",
+            "p_ni",
+            "p_ni",
+            "v_yama",
+            "p_no",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "東には 大きい 川が あります。北から 東まで 川が 多いです。",
+          "en": "There are large rivers to the east. From north to east, there are many rivers.",
+          "terms": [
+            "v_higashi",
+            "p_wa",
+            "p_ni",
+            "v_ookii",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_kita",
+            "p_kara",
+            "v_higashi",
+            "p_made",
+            "v_kawa",
+            "p_ga",
+            "v_ooi",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "南の 天気は いいです。南西にも 南東にも 白い 花が 多いです。",
+          "en": "The weather in the south is nice. There are many white flowers in both the southwest and southeast.",
+          "terms": [
+            "v_minami",
+            "p_ga",
+            "v_tenki",
+            "p_wa",
+            "v_ii",
+            "g_desu",
+            "v_nansei",
+            "p_mo",
+            "p_mo",
+            "v_nantou",
+            "p_ni",
+            "p_ni",
+            "v_shiroi",
+            "v_hana",
+            "p_no",
+            "v_ooi",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "北から 南まで 行きたいです。東の 山と 西の 道も いいですよ。",
+          "en": "I want to go from north to south. The mountains in the east and the roads in the west are also nice.",
+          "terms": [
+            "v_kita",
+            "p_kara",
+            "v_minami",
+            "p_made",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_higashi",
+            "p_mo",
+            "v_yama",
+            "p_to",
+            "v_nishi",
+            "p_no",
+            "v_michi",
+            "p_no",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "北に 何が たくさん ありますか。",
+          "q_en": "What are there many of in the north?",
+          "a": "山が たくさん あります。",
+          "a_en": "There are many mountains.",
+          "terms": [
+            "v_kita",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_yama",
+            "p_ga",
+            "v_takusan",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "南の 天気は どうですか。",
+          "q_en": "What is the weather like in the south?",
+          "a": "南の 天気は いいです。",
+          "a_en": "The weather in the south is nice.",
+          "terms": [
+            "v_minami",
+            "p_no",
+            "v_tenki",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_minami",
+            "p_no",
+            "v_tenki",
+            "p_wa",
+            "v_ii",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "どこから どこまで 行きたいですか。",
+          "q_en": "Where does the narrator want to go from and to?",
+          "a": "北から 南まで 行きたいです。",
+          "a_en": "They want to go from north to south.",
+          "terms": [
+            "v_doko",
+            "p_kara",
+            "v_doko",
+            "p_made",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_kita",
+            "p_kara",
+            "v_minami",
+            "p_made",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading 2: Rikizo's Travel Plan",
+      "passage": [
+        {
+          "jp": "りきぞうさんは 東の 山に 行きたいです。今週 友だちと 北東に 行きます。",
+          "en": "Rikizo wants to go to the mountains in the east. This week he is going to the northeast with friends.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_higashi",
+            "p_no",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_konshuu",
+            "v_tomodachi",
+            "p_to",
+            "v_hokutou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "jp": "北東には 大きい 山と 長い 川が あります。南の 花も きれいです。",
+          "en": "In the northeast there are large mountains and long rivers. The flowers in the south are also beautiful.",
+          "terms": [
+            "v_hokutou",
+            "p_wa",
+            "p_mo",
+            "v_ookii",
+            "v_yama",
+            "p_to",
+            "v_nagai",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "v_minami",
+            "p_no",
+            "v_hana",
+            "p_ni",
+            "v_kirei",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "電車で 北東に 行きます。道は 少し 長いです。",
+          "en": "They are going to the northeast by train. The road is a little long.",
+          "terms": [
+            "v_densha",
+            "p_wa",
+            "v_hokutou",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "v_michi",
+            "p_ni",
+            "v_sukoshi",
+            "v_nagai",
+            "g_desu"
+          ]
+        },
+        {
+          "jp": "りきぞうさんは また 南西にも 行きたいです。南西の 花は とても きれいですよ。",
+          "en": "Rikizo also wants to go to the southwest again. The flowers in the southwest are very beautiful.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_mata",
+            "v_nansei",
+            "p_wa",
+            "p_mo",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "v_nansei",
+            "p_no",
+            "v_hana",
+            "p_ni",
+            "v_totemo",
+            "v_kirei",
+            "g_desu",
+            "p_yo"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうさんは どこの 山に 行きたいですか。",
+          "q_en": "Where does Rikizo want to go?",
+          "a": "東の 山に 行きたいです。",
+          "a_en": "They want to go to the mountains in the east.",
+          "terms": [
+            "char_rikizo",
+            "v_san",
+            "p_wa",
+            "v_doko",
+            "p_no",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_higashi",
+            "p_no",
+            "v_yama",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "q": "北東に 何が ありますか。",
+          "q_en": "What is there in the northeast?",
+          "a": "大きい 山と 長い 川が あります。",
+          "a_en": "There are large mountains and long rivers.",
+          "terms": [
+            "v_hokutou",
+            "p_ni",
+            "v_nani",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_ookii",
+            "v_yama",
+            "p_to",
+            "v_nagai",
+            "v_kawa",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "q": "何で 北東に 行きますか。",
+          "q_en": "How is Rikizo getting to the northeast?",
+          "a": "電車で 行きます。",
+          "a_en": "They are going by train.",
+          "terms": [
+            "v_nani",
+            "p_de",
+            "v_hokutou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_densha",
+            "p_de",
+            {
+              "id": "v_iku",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Vocabulary",
+      "instructions": "Choose the correct English meaning for each word.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "北",
+          "choices": [
+            "north",
+            "south",
+            "east",
+            "west"
+          ],
+          "answer": "north"
+        },
+        {
+          "kind": "mcq",
+          "q": "南",
+          "choices": [
+            "south",
+            "north",
+            "east",
+            "west"
+          ],
+          "answer": "south"
+        },
+        {
+          "kind": "mcq",
+          "q": "東",
+          "choices": [
+            "east",
+            "west",
+            "north",
+            "south"
+          ],
+          "answer": "east"
+        },
+        {
+          "kind": "mcq",
+          "q": "西",
+          "choices": [
+            "west",
+            "east",
+            "south",
+            "north"
+          ],
+          "answer": "west"
+        },
+        {
+          "kind": "mcq",
+          "q": "北東",
+          "choices": [
+            "northeast",
+            "northwest",
+            "southeast",
+            "southwest"
+          ],
+          "answer": "northeast"
+        },
+        {
+          "kind": "mcq",
+          "q": "南西",
+          "choices": [
+            "southwest",
+            "southeast",
+            "northwest",
+            "northeast"
+          ],
+          "answer": "southwest"
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Directions in Context",
+      "instructions": "Choose the correct word to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "学校は 駅の ___ に あります。（The school is to the north of the station.）",
+          "choices": [
+            "北",
+            "南",
+            "高い",
+            "前"
+          ],
+          "answer": "北",
+          "terms": [
+            "v_gakkou",
+            "p_wa",
+            "v_eki",
+            "p_no",
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "___ には 大きい 山が あります。（There are large mountains in the northeast.）",
+          "choices": [
+            "北東",
+            "南西",
+            "多い",
+            "少ない"
+          ],
+          "answer": "北東",
+          "terms": [
+            "v_hokutou",
+            "p_wa",
+            "p_ni",
+            "v_ookii",
+            "v_yama",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "南の 天気は ___ ですよ。（The weather in the south is nice.）",
+          "choices": [
+            "いい",
+            "長い",
+            "多い",
+            "少ない"
+          ],
+          "answer": "いい",
+          "terms": [
+            "v_minami",
+            "p_wa",
+            "v_tenki",
+            "p_no",
+            "v_ii",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "北から ___ まで 道が あります。（There is a road from north to east.）",
+          "choices": [
+            "東",
+            "古い",
+            "毎日",
+            "いい"
+          ],
+          "answer": "東",
+          "terms": [
+            "v_kita",
+            "p_kara",
+            "v_higashi",
+            "p_made",
+            "v_michi",
+            "p_ga",
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Verb and Adjective Forms",
+      "instructions": "Choose the correct form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "北に ___。（Please go north.）",
+          "choices": [
+            "行ってください",
+            "行きます",
+            "行きました",
+            "行かない"
+          ],
+          "answer": "行ってください",
+          "terms": [
+            "v_kita",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "te_form"
+            },
+            "v_kudasai"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "東の 山は ___。（The mountains in the east are large.）",
+          "choices": [
+            "大きいです",
+            "大きかったです",
+            "大きくないです",
+            "大きそうです"
+          ],
+          "answer": "大きいです",
+          "terms": [
+            "v_higashi",
+            "p_wa",
+            "v_yama",
+            "p_no",
+            "v_ookii",
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "わたしは 南西に ___。（I want to go to the southwest.）",
+          "choices": [
+            "行きたいです",
+            "行きます",
+            "行きましょう",
+            "行かない"
+          ],
+          "answer": "行きたいです",
+          "terms": [
+            "v_watashi",
+            "p_wa",
+            "v_nansei",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
+          ]
+        },
+        {
+          "kind": "mcq",
+          "q": "友だちと いっしょに 北東に ___。（Let's go to the northeast together with friends.）",
+          "choices": [
+            "行きましょう",
+            "行きます",
+            "行かない",
+            "行きたい"
+          ],
+          "answer": "行きましょう",
+          "terms": [
+            "v_tomodachi",
+            "p_to",
+            "v_issho",
+            "v_hokutou",
+            "p_ni",
+            {
+              "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

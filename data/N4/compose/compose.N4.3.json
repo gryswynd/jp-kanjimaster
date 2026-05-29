@@ -1,0 +1,164 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.3",
+  "lesson": "N4.3",
+  "level": "N4",
+  "title": "My Morning and Evening",
+  "titleJp": "私の 朝と 晩",
+  "emoji": "🌅",
+  "theme": "Write a personal daily routine from morning to evening — introduce yourself with 私, describe when you wake up, what you eat for breakfast, how you travel to school, how bright the morning is, your plans for tomorrow, and what you do in the evening.",
+  "prompts": [
+    {
+      "prompt": "Start your composition by introducing your morning routine. What time do you wake up every morning? What did you do this morning?",
+      "targets": [
+        { "id": "v_maiasa", "count": 1 }
+      ],
+      "model": "私は 毎朝 六時に 起きます。今朝も 六時に 起きました。",
+      "vocabPool": [
+        "v_maiasa", "v_watashi", "v_kesa", "v_asa", "v_okiru",
+        "v_mainichi", "v_kyou", "v_nanji", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Continue your routine — what do you eat for breakfast each morning? Does someone make it for you?",
+      "targets": [
+        { "id": "v_asagohan", "count": 1 }
+      ],
+      "model": "朝ごはんは 大切です。母が 朝ごはんを 作って くれました。",
+      "vocabPool": [
+        "v_asagohan", "v_asa", "v_haha", "v_tsukuru", "v_kureru",
+        "v_taberu", "v_maiasa", "v_kesa", "v_taisetsu", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Introduce yourself formally using 私 and describe how you get to school or work each morning.",
+      "targets": [
+        { "id": "v_watashi", "count": 1 }
+      ],
+      "model": "私は 毎朝 電車に 乗って 学校へ 行きます。学校は 駅から 近いです。",
+      "vocabPool": [
+        "v_watashi", "v_densha", "v_noru", "v_gakkou", "v_eki",
+        "v_iku", "v_chikai", "v_tooi", "v_maiasa", "v_aruku", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Describe what the morning looks like as you travel. Is it bright outside? Tell us about the weather this morning.",
+      "targets": [
+        { "id": "v_akarui", "count": 1 }
+      ],
+      "model": "今朝は 明るい 朝でした。朝から 天気が いいです。",
+      "vocabPool": [
+        "v_akarui", "v_asa", "v_kesa", "v_tenki", "v_ii",
+        "v_kyou", "v_totemo", "v_sukoshi", "v_ashita", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Think ahead to tomorrow morning. What time can you wake up? What will you do after eating breakfast?",
+      "targets": [
+        { "id": "v_ashita", "count": 1 }
+      ],
+      "model": "明日も 六時に 起きられます。朝ごはんを 食べてから 学校へ 行きます。",
+      "vocabPool": [
+        "v_ashita", "v_okiru", "v_asagohan", "v_taberu",
+        "v_gakkou", "v_iku", "v_asa", "v_maiasa", "v_kuru", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Now shift to the evening. What are you doing this evening? Where will you eat dinner tonight?",
+      "targets": [
+        { "id": "v_konban", "count": 1 }
+      ],
+      "model": "今晩は 家で 晩ごはんを 食べます。毎晩 家で 食べます。",
+      "vocabPool": [
+        "v_konban", "v_ban", "v_maiban", "v_bangohan", "v_taberu",
+        "v_ie", "v_kaisha", "v_gakkou", "v_kaeru", "v_watashi",
+        "v_shuumatsu", "g_desu"
+      ]
+    },
+    {
+      "prompt": "Finish your composition. Describe who makes dinner and how you feel at the end of the day.",
+      "targets": [
+        { "id": "v_bangohan", "count": 1 }
+      ],
+      "model": "晩ごはんは 母が 作って くれました。いい 一日でした。",
+      "vocabPool": [
+        "v_bangohan", "v_haha", "v_tsukuru", "v_kureru", "v_taberu",
+        "v_konban", "v_maiban", "v_ichinichi", "v_ii", "v_watashi", "g_desu"
+      ]
+    }
+  ],
+  "challengePrompts": [],
+  "particles": [
+    "p_wa", "p_ga", "p_wo", "p_ni", "p_de", "p_no", "p_mo",
+    "p_to", "p_kara", "p_made", "p_e", "p_ka", "p_yo", "p_ne",
+    "p_dewa", "p_ja", "p_ya", "p_ga_but", "p_kara_because", "p_kedo",
+    "g_desu"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[noun] + です",
+      "meaning": "is / am / are (polite)",
+      "examples": ["朝ごはんです", "大切な 一日です", "今晩です"]
+    },
+    {
+      "pattern": "[noun] + でした",
+      "meaning": "was (polite past)",
+      "examples": ["いい 一日でした", "明るい 朝でした"]
+    },
+    {
+      "pattern": "[い-adj] + です",
+      "meaning": "is [adj] (polite)",
+      "examples": ["明るいです", "近いです", "遠いです"]
+    },
+    {
+      "pattern": "[い-adj]〜い → 〜かったです",
+      "meaning": "was [adj] (polite past)",
+      "examples": ["明るかったです", "近かったです", "よかったです"]
+    },
+    {
+      "pattern": "[verb]〜ます",
+      "meaning": "verb present / future (polite)",
+      "examples": ["起きます", "食べます", "行きます"]
+    },
+    {
+      "pattern": "[verb]〜ました",
+      "meaning": "verb past (polite)",
+      "examples": ["起きました", "食べました", "作りました"]
+    },
+    {
+      "pattern": "[verb]〜ません",
+      "meaning": "verb negative (polite)",
+      "examples": ["起きません", "食べません", "行きません"]
+    },
+    {
+      "pattern": "[RU-verb]〜られます / [U-verb]〜えます",
+      "meaning": "can do [verb] / be able to (polite potential)",
+      "examples": ["起きられます", "来られます", "行けます", "食べられます"]
+    },
+    {
+      "pattern": "[verb]〜ています",
+      "meaning": "is currently doing (progressive)",
+      "examples": ["起きています", "食べています", "歩いています"]
+    },
+    {
+      "pattern": "[verb]〜てください",
+      "meaning": "please do [verb]",
+      "examples": ["起きてください", "食べてください", "作ってください"]
+    },
+    {
+      "pattern": "[verb]〜たいです",
+      "meaning": "want to [verb]",
+      "examples": ["起きたいです", "食べたいです", "行きたいです"]
+    },
+    {
+      "pattern": "[verb]〜ましょう",
+      "meaning": "let's [verb]",
+      "examples": ["一緒に 食べましょう", "起きましょう", "帰りましょう"]
+    },
+    {
+      "pattern": "[verb]〜ない",
+      "meaning": "do not [verb] (plain negative)",
+      "examples": ["起きない", "食べない", "行かない"]
+    }
+  ]
+}

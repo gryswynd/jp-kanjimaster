@@ -1,0 +1,480 @@
+{
+  "schemaVersion": "2.0.0",
+  "id": "my-family",
+  "title": "わたしのかぞく",
+  "englishTitle": "My Family",
+  "category": "curriculum",
+  "level": "N5",
+  "unlocksAfter": "G4",
+  "paragraphs": [
+    {
+      "jp": "こんにちは！わたしはりきぞうです。",
+      "en": "Hello! I am Rikizo.",
+      "tokens": [
+        {
+          "k": "こんにち",
+          "g": "p_konnichiwa"
+        },
+        {
+          "k": "は",
+          "r": "わ",
+          "g": "p_konnichiwa"
+        },
+        {
+          "k": "！"
+        },
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "これは わたしの かぞくです。",
+      "en": "This is my family.",
+      "tokens": [
+        {
+          "k": "これ"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "かぞく",
+          "g": "v_kazoku"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "父のなまえはたろうです。父はとてもやさしい人です。",
+      "en": "My father's name is Taro. My father is a very kind person.",
+      "tokens": [
+        {
+          "k": "父",
+          "r": "ちち"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "なまえ",
+          "g": "v_namae"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "たろう"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "父",
+          "r": "ちち"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "とても"
+        },
+        {
+          "k": "やさしい"
+        },
+        {
+          "k": "人",
+          "r": "ひと"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "母のなまえはさくらです。母もやさしい人です。",
+      "en": "My mother's name is Sakura. My mother is also a kind person.",
+      "tokens": [
+        {
+          "k": "母",
+          "r": "はは"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "なまえ",
+          "g": "v_namae"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "さくら"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "母",
+          "r": "はは"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "やさしい"
+        },
+        {
+          "k": "人",
+          "r": "ひと"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "友だちのなまえはケンです。ケンはとてもいい友だちです。いっしょに ゲームをします。",
+      "en": "My friend's name is Ken. Ken is a very good friend. We play games together.",
+      "tokens": [
+        {
+          "k": "友",
+          "r": "とも",
+          "g": "v_tomodachi_hybrid"
+        },
+        {
+          "k": "だち",
+          "g": "v_tomodachi_hybrid"
+        },
+        {
+          "k": "の"
+        },
+        {
+          "k": "なまえ",
+          "g": "v_namae"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "ケン"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "ケン"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "とても"
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": "友",
+          "r": "とも",
+          "g": "v_tomodachi_hybrid"
+        },
+        {
+          "k": "だち",
+          "g": "v_tomodachi_hybrid"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "いっしょに",
+          "g": "v_issho"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "ゲーム"
+        },
+        {
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "します"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    },
+    {
+      "jp": "今日は金よう日です。金よう日にケンといっしょにいます。金よう日には ゲームが あります。それも うれしいです！",
+      "en": "Today is Friday. On Fridays, I am together with Ken. On Fridays, there are games. That, too, makes me happy!",
+      "tokens": [
+        {
+          "k": "今日",
+          "r": "きょう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "金よう日",
+          "r": "きんようび",
+          "g": "v_kinyoubi"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "金よう日",
+          "r": "きんようび",
+          "g": "v_kinyoubi"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "ケン"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "いっしょに",
+          "g": "v_issho"
+        },
+        {
+          "k": "います"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "金よう日",
+          "r": "きんようび",
+          "g": "v_kinyoubi"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "ゲーム"
+        },
+        {
+          "k": "が"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "あります"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "それ"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "うれしい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "！"
+        }
+      ]
+    },
+    {
+      "jp": "いい かぞくですか。はい、とても いい かぞくです。毎日、うれしいです！おやすみなさい。",
+      "en": "Is it a good family? Yes, it is a very good family. Every day, I am happy! Good night.",
+      "tokens": [
+        {
+          "k": "いい"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "かぞく",
+          "g": "v_kazoku"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "か"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "はい"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "とても"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "いい"
+        },
+        {
+          "k": " "
+        },
+        {
+          "k": "かぞく",
+          "g": "v_kazoku"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "毎日",
+          "r": "まいにち"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "うれしい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "！"
+        },
+        {
+          "k": "おやすみなさい"
+        },
+        {
+          "k": "。"
+        }
+      ]
+    }
+  ],
+  "vocabUsed": [
+    "p_konnichiwa",
+    "v_kore",
+    "v_sore",
+    "v_kazoku",
+    "v_chichi",
+    "v_haha",
+    "v_hito",
+    "v_namae",
+    "v_yasashii",
+    "v_ii",
+    "v_totemo",
+    "v_tomodachi_hybrid",
+    "v_geemu",
+    "v_suru__polite",
+    "v_aru__polite",
+    "v_kyou",
+    "v_kinyoubi",
+    "v_mainichi",
+    "v_issho",
+    "v_iru__polite",
+    "v_ureshii",
+    "p_hai",
+    "p_oyasuminasai"
+  ],
+  "grammarUsed": [
+    "g_desu",
+    "p_ga",
+    "p_mo",
+    "p_ni",
+    "p_ka",
+    "v_iru__polite",
+    "v_aru__polite",
+    "k_i_2"
+  ],
+  "comprehension": {
+    "intro": "Did you follow the story?",
+    "questions": []
+  }
+}

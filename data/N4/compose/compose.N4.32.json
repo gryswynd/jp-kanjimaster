@@ -1,0 +1,410 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.32",
+  "lesson": "N4.32",
+  "level": "N4",
+  "title": "A Day at the City Morning Market",
+  "titleJp": "都市の 朝市の 一日",
+  "emoji": "🏙️",
+  "theme": "Write about visiting the morning market in the city — from hearing it was being held, to arriving and watching calligraphy practice, learning from a teacher, and reflecting on why markets like this matter to the community.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that you heard a morning market would be held in the city. Use 朝市 and 都市.",
+      "targets": [
+        {
+          "id": "v_asaichi",
+          "count": 1
+        },
+        {
+          "id": "v_toshi",
+          "count": 1
+        }
+      ],
+      "model": "都市の 中で 朝市が 開かれると 聞きました。",
+      "vocabPool": [
+        "v_asaichi",
+        "v_toshi",
+        "v_hiraku",
+        "v_kiku",
+        "v_aru",
+        "v_naka",
+        "v_kyou",
+        "p_de",
+        "p_no",
+        "p_ga",
+        "p_to_quote",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that you had been to this city once before. Use 都市 and たことがある.",
+      "targets": [
+        {
+          "id": "v_toshi",
+          "count": 1
+        },
+        {
+          "id": "v_kuru",
+          "count": 1
+        }
+      ],
+      "model": "この 都市に 前に 一度 来たことが あります。",
+      "vocabPool": [
+        "v_toshi",
+        "v_aru",
+        "v_kuru",
+        "v_koto",
+        "v_kono",
+        "v_ichido",
+        "v_mae",
+        "p_ni",
+        "p_ga",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that when you arrived, the market was already open. Use 市 and 開く.",
+      "targets": [
+        {
+          "id": "v_ichi",
+          "count": 1
+        },
+        {
+          "id": "v_hiraku",
+          "count": 1
+        }
+      ],
+      "model": "着いた 時、市は もう 開かれて いました。",
+      "vocabPool": [
+        "v_ichi",
+        "v_hiraku",
+        "v_tsuku",
+        "v_toki",
+        "v_mou",
+        "v_iru",
+        "p_wa",
+        "p_ni",
+        "p_te",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that people had various things to do there — errands and business. Use 用事 and 用.",
+      "targets": [
+        {
+          "id": "v_youji",
+          "count": 1
+        },
+        {
+          "id": "v_you",
+          "count": 1
+        }
+      ],
+      "model": "みんな 用事や 用が あって、たくさんの 人が 来て いました。",
+      "vocabPool": [
+        "v_youji",
+        "v_you",
+        "v_hito",
+        "v_kuru",
+        "v_aru",
+        "v_iru",
+        "v_ooi",
+        "v_minna",
+        "p_ga",
+        "p_ya",
+        "p_de",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that you watched someone practicing calligraphy and emulated them. Use 習字 and 見習う.",
+      "targets": [
+        {
+          "id": "v_shuuji",
+          "count": 1
+        },
+        {
+          "id": "v_minarau",
+          "count": 1
+        }
+      ],
+      "model": "習字を して いる 人を 見て、見習いました。",
+      "vocabPool": [
+        "v_shuuji",
+        "v_minarau",
+        "v_hito",
+        "v_suru",
+        "v_iru",
+        "v_miru",
+        "p_wo",
+        "p_te",
+        "p_ga",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that a teacher taught you calligraphy — you learned by watching and practicing. Use 習う and 学習.",
+      "targets": [
+        {
+          "id": "v_narau",
+          "count": 1
+        },
+        {
+          "id": "v_gakushuu",
+          "count": 1
+        }
+      ],
+      "model": "先生に 習字を 習いました。学習は 楽しかったです。",
+      "vocabPool": [
+        "v_narau",
+        "v_gakushuu",
+        "v_shuuji",
+        "v_sensei",
+        "v_suru",
+        "v_tanoshii",
+        "v_ii",
+        "p_ni",
+        "p_wo",
+        "p_wa",
+        "g_desu"
+      ]
+    },
+    {
+      "prompt": "Write that the teacher had students practice to make them skilled. Use 起用 and 習う in the causative form.",
+      "targets": [
+        {
+          "id": "v_kiyou",
+          "count": 1
+        },
+        {
+          "id": "v_narau",
+          "count": 1
+        }
+      ],
+      "model": "起用された 人たちに、先生は 習字を 習わせました。",
+      "vocabPool": [
+        "v_kiyou",
+        "v_narau",
+        "v_suru",
+        "v_sensei",
+        "v_shuuji",
+        "v_hito",
+        "v_hitobito",
+        "p_ni",
+        "p_wa",
+        "p_wo",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that at the market, a guidebook was pulled out and text was quoted. Use 手引書 and 引用.",
+      "targets": [
+        {
+          "id": "v_tebikisyo",
+          "count": 1
+        },
+        {
+          "id": "v_inyou",
+          "count": 1
+        }
+      ],
+      "model": "先生は 手引書を 引き出して、古い 文を 引用しました。",
+      "vocabPool": [
+        "v_tebikisyo",
+        "v_inyou",
+        "v_suru",
+        "v_hikidasu",
+        "v_furui",
+        "v_bun",
+        "v_sensei",
+        "p_wa",
+        "p_wo",
+        "p_de",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write about the city mayor making the morning market available to everyone. Use 市長 and 使わせる (causative of 使う).",
+      "targets": [
+        {
+          "id": "v_shichou",
+          "count": 1
+        },
+        {
+          "id": "v_tsukau",
+          "count": 1
+        }
+      ],
+      "model": "市長は 市の 人々に 朝市を 使わせます。",
+      "vocabPool": [
+        "v_shichou",
+        "v_tsukau",
+        "v_asaichi",
+        "v_shi",
+        "v_hitobito",
+        "v_minna",
+        "p_wa",
+        "p_no",
+        "p_ni",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write your reflection — that you think places like this market are important for the city. Use 市 and と思う.",
+      "targets": [
+        {
+          "id": "v_shi",
+          "count": 1
+        },
+        {
+          "id": "v_omou",
+          "count": 1
+        }
+      ],
+      "model": "この 市の 朝市は、都市に 大切だと 思います。",
+      "vocabPool": [
+        "v_shi",
+        "v_omou",
+        "v_asaichi",
+        "v_toshi",
+        "v_taisetsu",
+        "v_kono",
+        "g_da",
+        "p_wa",
+        "p_no",
+        "p_to_quote",
+        "p_ni"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "On a different visit, you were made to practice calligraphy by the teacher even though it was difficult. Write a casual note to a friend about it. Use 習わせる (causative-passive) and 習字.",
+      "targets": [
+        {
+          "id": "v_narau",
+          "count": 1
+        },
+        {
+          "id": "v_shuuji",
+          "count": 1
+        }
+      ],
+      "model": "先生に 習字を 習わせられたよ。むずかしかったけど、楽しかった！",
+      "vocabPool": [
+        "v_narau",
+        "v_shuuji",
+        "v_sensei",
+        "v_muzukashii",
+        "v_tanoshii",
+        "v_ii",
+        "p_ni",
+        "p_wo",
+        "p_kedo",
+        "p_yo"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_ya",
+    "p_dewa",
+    "p_ga_but",
+    "p_kedo",
+    "p_node",
+    "p_hodo",
+    "p_yori",
+    "p_dake",
+    "p_shika",
+    "p_made",
+    "p_made_ni",
+    "p_bakari",
+    "p_demo",
+    "p_shi",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_demo_but",
+    "p_sou_da",
+    "p_sou_da_hearsay",
+    "p_tte_quote",
+    "p_zutsu",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[u-verb あ-row] + れる / [ru-verb] + られる (passive)",
+      "meaning": "be done / be [verb]-ed (passive voice — the subject is acted upon)",
+      "examples": [
+        "朝市が 開かれました",
+        "古い 文が 引用されました",
+        "起用された 人たちが 来ました"
+      ]
+    },
+    {
+      "pattern": "[u-verb あ-row] + せる / [ru-verb] + させる (causative)",
+      "meaning": "make / let [someone] do [verb] (causative — expressing compulsion or permission)",
+      "examples": [
+        "先生は 習字を 習わせました",
+        "市長は 人々に 朝市を 使わせます",
+        "学生に 文を 引用させました"
+      ]
+    },
+    {
+      "pattern": "[plain form] + と + 思う",
+      "meaning": "I think that … / I feel that … (expressing opinions and thoughts)",
+      "examples": [
+        "大切だと 思います",
+        "楽しいと 思いました",
+        "また 来たいと 思います"
+      ]
+    },
+    {
+      "pattern": "[verb-た] + ことが + ある",
+      "meaning": "have done [verb] before / have had the experience of doing (experiential past)",
+      "examples": [
+        "この 都市に 来たことが あります",
+        "習字を 習ったことが あります",
+        "朝市に 行ったことが ありません"
+      ]
+    },
+    {
+      "pattern": "[te-form] + いる / います",
+      "meaning": "is doing / is in a state of (progressive or resultant state)",
+      "examples": [
+        "習字を して います",
+        "市が 開かれて いました",
+        "たくさんの 人が 来て います"
+      ]
+    },
+    {
+      "pattern": "[plain past] + そうです",
+      "meaning": "I heard that … / apparently … (hearsay — reporting what you were told)",
+      "examples": [
+        "朝市が 開かれた そうです",
+        "先生が 習字を 教えた そうです",
+        "市長が 来た そうです"
+      ]
+    }
+  ]
+}

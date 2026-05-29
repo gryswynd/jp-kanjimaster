@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#272320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Rikizo · 力蔵</title>
+
+<!-- ============================================================
+  Rikizo Japanese — standalone phone web app.
+  Single self-hosted entry point (no Webflow embed). All code,
+  data, and assets are served from this app's own origin via
+  relative URLs (config.assetMode === 'local').
+
+  Load order (mirrors the legacy embed):
+    Eager (before menu renders): asset-loader, streak
+    Deferred (on first launch):  tts, stamp-settings, tts-settings,
+                                 progress, unlock, text-processor, term-modal
+                                 then the requested feature module.
+  ============================================================ -->
+
+<!-- Self-hosted Latin display fonts (offline). Japanese text falls back to the
+     system font (Hiragino on iOS/macOS). Regenerate with scripts/vendor-fonts.mjs. -->
+<link href="app/shared/fonts.css" rel="stylesheet">
+<script>
+  // Cache-bust jp-text.css — Capacitor/WKWebView is aggressive about caching
+  // stylesheets, which masked CSS updates during development.
+  (function(){
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'app/shared/jp-text.css?t=' + Date.now();
+    document.head.appendChild(l);
+  })();
+</script>
+
+<style>
+:root {
+  --washi:      oklch(0.97 0.008 80);
+  --washi-2:    oklch(0.94 0.012 75);
+  --washi-3:    oklch(0.90 0.015 75);
+  --ink:        oklch(0.22 0.012 60);
+  --ink-2:      oklch(0.38 0.012 60);
+  --ink-3:      oklch(0.55 0.012 60);
+  --hairline:   oklch(0.22 0.012 60 / 0.12);
+  --hairline-2: oklch(0.22 0.012 60 / 0.06);
+  --vermilion:  oklch(0.60 0.18 30);
+  --vermilion-ink: oklch(0.52 0.18 30);
+  --moss:       oklch(0.58 0.09 140);
+  --indigo:     oklch(0.42 0.08 250);
+  --gold:       oklch(0.78 0.10 85);
+
+  --font-ui:         "Schibsted Grotesk", "Work Sans", system-ui, sans-serif;
+  --font-jp:         "Noto Sans JP", system-ui, sans-serif;
+  --font-jp-display: "Noto Serif JP", "Shippori Mincho", serif;
+  --font-mono:       "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+
+  --tabbar-h: 64px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-ui);
+  background: oklch(0.88 0.012 70);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button { font-family: inherit; }
+
+/* App shell — a centered phone column that fills the screen on mobile. */
+#app-main-container {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  background:
+    radial-gradient(1200px 800px at 20% 10%, oklch(0.99 0.01 80 / 0.6), transparent 50%),
+    radial-gradient(900px 600px at 90% 90%, oklch(0.94 0.015 40 / 0.35), transparent 55%),
+    var(--washi);
+  overflow-x: hidden;
+  box-shadow: 0 0 60px rgba(0,0,0,0.10);
+}
+
+/* Paper grain overlay */
+.rk-home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 2px, oklch(0.2 0.01 60 / 0.012) 2px 3px),
+    repeating-linear-gradient(90deg, transparent 0 2px, oklch(0.2 0.01 60 / 0.012) 2px 3px);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+.rk-home { position: relative; }
+.rk-home > * { position: relative; z-index: 1; }
+
+.jp-serif { font-family: var(--font-jp-display); }
+.jp-sans  { font-family: var(--font-jp); }
+.mono     { font-family: var(--font-mono); letter-spacing: 0; }
+.pixel    { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+ruby { ruby-position: over; }
+rt {
+  font-size: 0.5em;
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0;
+}
+
+/* Hanko (red seal) */
+.hanko {
+  font-family: var(--font-jp-display);
+  font-weight: 700;
+  color: #fff;
+  background: var(--vermilion);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  line-height: 1;
+  box-shadow: 0 2px 0 oklch(0.45 0.18 30 / 0.4);
+  position: relative;
+  flex-shrink: 0;
+}
+.hanko::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid oklch(1 0 0 / 0.35);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.noscroll::-webkit-scrollbar { display: none; }
+.noscroll { scrollbar-width: none; }
+
+.rk-press { transition: transform 0.12s ease; cursor: pointer; }
+.rk-press:active { transform: scale(0.985); }
+
+/* Bottom tab bar — fixed, blurred washi */
+.rk-tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  z-index: 50;
+  padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+  background: oklch(0.97 0.008 80 / 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.rk-tab {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--ink-3);
+}
+.rk-tab.active { color: var(--ink); }
+.rk-tab .rk-tab-ind {
+  width: 14px; height: 2px; border-radius: 999px;
+  background: var(--vermilion); margin-top: -1px;
+}
+
+@keyframes glossFadeIn { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes hanabiPop { 0% { opacity: 0; transform: scale(0.5);} 20% { opacity:1; transform:scale(1.2);} 50%{opacity:1;transform:scale(1);} 80%{opacity:1;transform:scale(1);} 100%{opacity:0;transform:scale(1.1);} }
+@keyframes jpFadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+@keyframes jpBounce { 0%{transform:scale(0);} 60%{transform:scale(1.15);} 100%{transform:scale(1);} }
+@keyframes jpScaleIn { 0%{transform:scale(0) rotate(-10deg);opacity:0;} 60%{transform:scale(1.1) rotate(3deg);opacity:1;} 100%{transform:scale(1) rotate(0);opacity:1;} }
+
+/* Return / rank-up overlays */
+.jp-return-overlay {
+  position: fixed; inset: 0;
+  background: oklch(0.22 0.012 60 / 0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999; animation: jpFadeIn 0.3s;
+  padding: 24px;
+}
+.jp-return-card {
+  background: var(--washi); border-radius: var(--r-xl); padding: 30px;
+  max-width: 340px; text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25); animation: jpFadeIn 0.4s;
+}
+.jp-return-jp { font-family: var(--font-jp-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+.jp-return-text { font-size: 1rem; color: var(--ink-2); margin-bottom: 16px; }
+.jp-return-belt { width: 100px; height: auto; margin: 8px auto 12px; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); }
+.jp-rankup-card {
+  background: var(--ink); border-radius: var(--r-xl); padding: 30px;
+  max-width: 360px; text-align: center; position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4); animation: jpFadeIn 0.4s; overflow: hidden;
+}
+.jp-rankup-rikizo { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 12px; border: 3px solid oklch(1 0 0 / 0.3); animation: jpBounce 0.6s ease 0.3s both; }
+.jp-rankup-title { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--vermilion); margin-bottom: 4px; }
+.jp-rankup-stage { font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; color: var(--washi); }
+.jp-rankup-stage-jp { font-family: var(--font-jp-display); font-size: 1.1rem; color: oklch(1 0 0 / 0.7); margin-bottom: 16px; }
+.jp-rankup-belt { width: 140px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); animation: jpScaleIn 0.5s ease 0.2s both; }
+.jp-rankup-streak { font-family: var(--font-mono); font-size: 0.8rem; color: oklch(1 0 0 / 0.5); margin-bottom: 16px; }
+.jp-rankup-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.jp-rankup-particle { position: absolute; border-radius: 50%; opacity: 0; }
+
+.rk-loading {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 60vh; flex-direction: column; gap: 10px;
+  color: var(--ink-3); font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- Phone app: default to 'free' (all modules visible). Override before this
+     script to gate content for brand-new students: window.RIKIZO_CONFIG = { mode:'gated' } -->
+<script>
+window.RIKIZO_CONFIG = { mode: 'free' }; /* dev-unlocked entry — everything visible */
+</script>
+
+<!-- ============================================================
+  QA reset helper. Visit ?reset=<scope> to wipe specific state and
+  reload to a clean URL. Never fires unless the query is present.
+    ?reset=all          — every k-* key (full fresh-install state)
+    ?reset=onboarding   — re-run first-launch onboarding
+    ?reset=tutorial     — re-run the N5.1 + G1 + Dojo + Compose in-content tutorials
+    ?reset=progress     — roll lesson scores/completion back to zero
+    ?reset=grammar      — strip all G* progress + grammar tutorial seen
+                           (Today card returns to G1; N5.1 progress preserved)
+    ?reset=n52          — mark everything through N5.2 as passed
+                           (N5.1 + G1 + G2 + G3 + N5.2 all completed @ 60%).
+                           Unlocks Stories, Review, Compose, Game day 1, Dojo,
+                           Scramble — full module surface for QA.
+    ?reset=reading-aids — turn off Furigana + Romaji toggles
+    ?reset=all-content  — mark every N5+N4 lesson, grammar, and review
+                           complete at 60%. Unlocks every story (curriculum +
+                           custom). Use for full QA across all modules.
+    ?demo=ruby          — open a persistent Reading Aids preview panel on
+                           the home screen for live toggle testing
+============================================================ -->
+<script>
+(function () {
+  var scope = new URLSearchParams(location.search).get('reset');
+  if (!scope) return;
+  var remove = function (keys) {
+    keys.forEach(function (k) { try { localStorage.removeItem(k); } catch (e) {} });
+  };
+  if (scope === '1' || scope === 'all') {
+    var toRemove = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf('k-') === 0) toRemove.push(k);
+    }
+    remove(toRemove);
+  } else if (scope === 'onboarding') {
+    remove(['k-rikizo-onboarded']);
+  } else if (scope === 'tutorial') {
+    remove(['k-rikizo-lesson-tutorial-seen', 'k-rikizo-lesson-tutorial-done',
+            'k-rikizo-grammar-tutorial-seen', 'k-rikizo-dojo-tutorial-seen',
+            'k-rikizo-compose-tutorial-seen']);
+  } else if (scope === 'progress') {
+    remove(['k-lesson-completed', 'k-lesson-scores', 'k-lesson-resume']);
+  } else if (scope === 'grammar') {
+    // Strip every G* key from completed + scores, AND guarantee N5.1 is
+    // marked passed (≥60%) so Grammar module + G1 are unlocked. Net effect:
+    // Today card lands on G1 no matter what state the user was in before
+    // (including never having completed N5.1). Also wipes the grammar
+    // tutorial seen-set.
+    var completedMap = {}, scoresMap = {};
+    try { completedMap = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}'); } catch (e) {}
+    try { scoresMap    = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}'); } catch (e) {}
+    Object.keys(completedMap).forEach(function (k) { if (/^G\d+$/.test(k)) delete completedMap[k]; });
+    Object.keys(scoresMap).forEach(function (k) { if (/^G\d+$/.test(k)) delete scoresMap[k]; });
+    completedMap['N5.1'] = true;
+    if ((scoresMap['N5.1'] || 0) < 60) scoresMap['N5.1'] = 60;
+    try {
+      localStorage.setItem('k-lesson-completed', JSON.stringify(completedMap));
+      localStorage.setItem('k-lesson-scores',    JSON.stringify(scoresMap));
+      // Mark onboarded so QA lands as a returning user (time-of-day greeting)
+      // instead of re-running the home onboarding tour.
+      localStorage.setItem('k-rikizo-onboarded', '1');
+    } catch (e) {}
+    remove(['k-rikizo-grammar-tutorial-seen']);
+  } else if (scope === 'n52') {
+    // QA shortcut: jump to the state where every module type is unlocked —
+    // Stories + Review need G4 completed; Compose/Game/Dojo need N5.1 passed;
+    // Grammar lessons up to G4 need any-completion of their prereq. Walks the
+    // chain N5.1 → G1 → G2 → G3 → N5.2 → G4 and marks each completed at 60%.
+    // Also marks onboarded so QA lands on Home directly, and wipes
+    // tutorial-seen so first-time tutorials replay for QA.
+    var doneMap = {}, scoreMap = {};
+    try { doneMap  = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}'); } catch (e) {}
+    try { scoreMap = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}'); } catch (e) {}
+    ['N5.1', 'G1', 'G2', 'G3', 'N5.2', 'G4'].forEach(function (id) {
+      doneMap[id] = true;
+      if ((scoreMap[id] || 0) < 60) scoreMap[id] = 60;
+    });
+    try {
+      localStorage.setItem('k-lesson-completed', JSON.stringify(doneMap));
+      localStorage.setItem('k-lesson-scores',    JSON.stringify(scoreMap));
+      localStorage.setItem('k-rikizo-onboarded', '1');
+    } catch (e) {}
+    remove(['k-rikizo-lesson-tutorial-seen', 'k-rikizo-lesson-tutorial-done',
+            'k-rikizo-grammar-tutorial-seen', 'k-rikizo-dojo-tutorial-seen',
+            'k-rikizo-compose-tutorial-seen']);
+  } else if (scope === 'reading-aids') {
+    remove(['k-furigana-on', 'k-romaji-on']);
+  } else if (scope === 'all-content') {
+    // QA shortcut: mark every lesson, grammar lesson, and review across N5
+    // + N4 as completed at 60%. Unlocks ALL stories (curriculum + custom)
+    // plus every other gated module. Idempotent — re-running this never
+    // lowers existing scores.
+    var doneMap2 = {}, scoreMap2 = {};
+    try { doneMap2  = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}'); } catch (e) {}
+    try { scoreMap2 = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}'); } catch (e) {}
+    var fetchManifestSync = function () {
+      var x = new XMLHttpRequest();
+      x.open('GET', 'manifest.json?t=' + Date.now(), false);
+      try { x.send(null); return JSON.parse(x.responseText); } catch (e) { return null; }
+    };
+    var manifest = fetchManifestSync();
+    if (manifest && manifest.data) {
+      Object.keys(manifest.data).forEach(function (lvl) {
+        ['lessons', 'reviews', 'grammar'].forEach(function (kind) {
+          (manifest.data[lvl][kind] || []).forEach(function (item) {
+            if (!item.id) return;
+            doneMap2[item.id] = true;
+            if ((scoreMap2[item.id] || 0) < 60) scoreMap2[item.id] = 60;
+          });
+        });
+      });
+      try {
+        localStorage.setItem('k-lesson-completed', JSON.stringify(doneMap2));
+        localStorage.setItem('k-lesson-scores',    JSON.stringify(scoreMap2));
+        localStorage.setItem('k-rikizo-onboarded', '1');
+      } catch (e) {}
+    }
+  }
+  // Strip the query so a refresh doesn't repeat the wipe.
+  location.replace(location.pathname);
+})();
+</script>
+
+<div id="app-main-container"></div>
+
+<script>
+window.JPApp = {
+  // --- CONFIGURATION ---
+  // assetMode 'local' → every file (code, data, assets) is fetched relative to
+  // this app's own origin instead of the GitHub raw CDN.
+  config: {
+    owner: "gryswynd",
+    repo: "jp-kanjimaster",
+    branch: "main",
+    assetMode: "local",
+    codeBase: ""
+  },
+
+  _manifest: null,
+
+  // --- INLINE GATE CHECK (works before unlock.js loads) ---
+  _isModuleVisible: function(module) {
+    var cfg = window.RIKIZO_CONFIG;
+    if (cfg && cfg.mode === 'free') return true;
+    if (window.JPShared && window.JPShared.unlock) {
+      return window.JPShared.unlock.isModuleVisible(module);
+    }
+    var scores    = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}');
+    var completed = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}');
+    var pass = function(id) { return (scores[id] || 0) >= 60; };
+    var done = function(id) { return !!completed[id]; };
+    switch (module) {
+      case 'lesson':   return true;
+      case 'grammar':  return done('N5.1');
+      case 'practice': return done('N5.1');
+      case 'compose':  return pass('N5.1');
+      case 'game':     return pass('N5.1');
+      case 'story':    return done('G4');
+      case 'review':   return done('G4');
+      case 'map':      return true;
+      case 'custom':   return true;
+      // Writing modules live under the Dojo's Writing hub; entry is already
+      // gated by 'practice'. Once a user is inside the hub, writing is free.
+      case 'writing-kanji': return true;
+      case 'writing-kana':  return true;
+      default:         return false;
+    }
+  },
+
+  // --- HELPER: Fetch and inject a JS module (relative to app origin) ---
+  loadModule: async function(fileName) {
+    var base = this.config.codeBase || '';
+    var url = base + fileName + '?t=' + Date.now();
+    try {
+      var res = await fetch(url);
+      if (!res.ok) throw new Error('Failed to load ' + fileName);
+      var code = await res.text();
+      var script = document.createElement('script');
+      script.textContent = code;
+      document.body.appendChild(script);
+      console.log('[JPApp] Loaded:', fileName);
+      return true;
+    } catch (err) {
+      console.error('[JPApp] Error loading ' + fileName + ':', err);
+      this.container.innerHTML =
+        '<div style="color:var(--vermilion);text-align:center;padding:24px;font-family:var(--font-ui);">' +
+        'Error loading ' + fileName + ':<br>' + err.message + '</div>' +
+        '<button onclick="JPApp.renderMenu()" style="margin:20px auto;display:block;padding:10px 22px;border:1px solid var(--hairline);border-radius:999px;background:var(--ink);color:var(--washi);cursor:pointer;">Back</button>';
+      return false;
+    }
+  },
+
+  _assetUrl: function(path) {
+    if (window.getAssetUrl) return window.getAssetUrl(this.config, path);
+    return path;
+  },
+
+  // QA-only: persistent Reading Aids demo card. Triggered by ?demo=ruby and
+  // pinned to the viewport so toggle changes (in Settings) repaint live.
+  _renderRubyDemo: function () {
+    var rk = window.JPShared && window.JPShared.jpText;
+    if (!rk) return;
+    var old = document.getElementById('rk-ruby-demo');
+    if (old) old.remove();
+    var panel = document.createElement('div');
+    panel.id = 'rk-ruby-demo';
+    panel.style.cssText =
+      'position:fixed;top:60px;left:8px;right:8px;background:#fff;' +
+      'padding:18px 18px 16px;border-radius:14px;z-index:9999;' +
+      'box-shadow:0 6px 24px rgba(0,0,0,0.15);' +
+      'font-size:1.55rem;font-family:"Noto Sans JP",serif;color:#1a1816;';
+    // All rows use linguistically-correct readings. Particle は always reads
+    // わ (no furigana shown — standard Japanese typography — but romaji
+    // mode picks up "wa" from the r-field, demonstrating the data model.
+    var rows = [
+      [{k:'私',r:'わたし'},{k:'は',r:'わ'},{k:'学生',r:'がくせい'},{k:'です。'}],
+      [{k:'花',r:'はな'},{k:'は',r:'わ'},{k:'きれい'},{k:'です。'}],
+      [{k:'今日',r:'きょう'},{k:'は',r:'わ'},{k:'いい'},{k:'天気',r:'てんき'},{k:'です。'}],
+      // 一日 disambiguation: ついたち (1st of month) vs いちにち (one day).
+      [{k:'一日',r:'ついたち'},{k:'に'},{k:'勉強',r:'べんきょう'},{k:'します。'}]
+    ];
+    var body = rows.map(function (t) {
+      return '<div style="margin-bottom:18px;line-height:2.6">' + rk.render({tokens:t}) + '</div>';
+    }).join('');
+    panel.innerHTML =
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">' +
+        '<div style="font-size:.62rem;text-transform:uppercase;color:#888;letter-spacing:.18em;font-family:monospace">Reading Aids · demo</div>' +
+        '<button id="rk-ruby-demo-close" style="background:none;border:none;color:#888;font-size:1.1rem;cursor:pointer;padding:4px 8px">✕</button>' +
+      '</div>' +
+      body +
+      '<div style="font-size:.7rem;color:#888;margin-top:6px;font-family:system-ui;font-style:italic">Open Settings → Reading Aids to toggle furigana + romaji.</div>';
+    document.body.appendChild(panel);
+    var close = document.getElementById('rk-ruby-demo-close');
+    if (close) close.onclick = function () {
+      panel.remove();
+      // Strip the demo query so a refresh doesn't reopen it.
+      var u = new URL(location.href); u.searchParams.delete('demo');
+      history.replaceState(null, '', u.pathname + (u.search ? u.search : ''));
+    };
+  },
+
+  // --- INIT ---
+  init: async function() {
+    this.container = document.getElementById('app-main-container');
+    if (!this.container) return console.error('Container #app-main-container not found');
+    this.container.innerHTML = '<div class="rk-loading">力 · loading</div>';
+    await this.loadModule('app/shared/asset-loader.js');
+    await this.loadModule('app/shared/user-profile.js');
+    await this.loadModule('app/shared/streak.js');
+    await this.loadModule('app/shared/haptics.js');
+    await this.loadModule('app/shared/practice-helpers.js');
+    // Load Reading Aids renderer EARLY so the html.k-furigana / .k-romaji
+    // classes are set before first paint (no flash of bare-then-furigana).
+    await this.loadModule('app/shared/jp-text.js');
+    if (window.JPShared && window.JPShared.jpText) {
+      window.JPShared.jpText.applyReadingAids();
+      // QA demo: ?demo=ruby renders a persistent reading-aids preview card on
+      // top of the home screen so the toggles can be exercised on real content
+      // before any data migration has shipped.
+      if (new URLSearchParams(location.search).get('demo') === 'ruby') {
+        this._renderRubyDemo();
+      }
+    }
+    await this.loadModule('app/shared/rikizo-companion.js');
+    if (window.JPShared && window.JPShared.rikizoCompanion) {
+      window.JPShared.rikizoCompanion.init(this.config);
+    }
+    try {
+      this._manifest = await window.getManifest(this.config);
+    } catch (e) {
+      console.warn('[JPApp] manifest unavailable at boot:', e);
+      this._manifest = null;
+    }
+    this.renderMenu();
+    this._nativeBoot();
+
+    // When the user updates their profile in Settings (first name, etc.),
+    // refresh the home masthead so the new greeting appears immediately. If
+    // they're inside a lesson/module, the next return to Home will pick it up.
+    var self = this;
+    document.addEventListener('jp-user-profile-changed', function () {
+      if (self._view === 'home') self.renderMenu();
+    });
+  },
+
+  // --- NATIVE (Capacitor) boot tweaks: no-op in a plain browser ---
+  _nativeBoot: function() {
+    var Cap = window.Capacitor;
+    if (!Cap || !Cap.isNativePlatform || !Cap.isNativePlatform()) return;
+    var P = Cap.Plugins || {};
+    try { P.StatusBar && P.StatusBar.setStyle({ style: 'LIGHT' }); } catch (e) {}
+    try { P.StatusBar && P.StatusBar.setBackgroundColor && P.StatusBar.setBackgroundColor({ color: '#272320' }); } catch (e) {}
+    try { P.SplashScreen && P.SplashScreen.hide(); } catch (e) {}
+
+    // Local study reminders: reschedule on startup + every resume so the escalating
+    // copy stays in sync with how many days the user has been away. Only loads the
+    // module for users who have actually turned reminders on.
+    var self = this;
+    function rescheduleReminders() {
+      if (localStorage.getItem('k-notif-enabled') !== '1') return;
+      var run = function() {
+        if (window.JPShared.notifications) window.JPShared.notifications.reschedule();
+      };
+      if (window.JPShared.notifications) { run(); return; }
+      self.loadModule('app/shared/notification-settings.js').then(run).catch(function(e){
+        console.error('Could not load notifications engine:', e);
+      });
+    }
+    rescheduleReminders();
+    try {
+      P.App && P.App.addListener && P.App.addListener('appStateChange', function(s) {
+        if (s && s.isActive) rescheduleReminders();
+      });
+    } catch (e) {}
+  },
+
+  // =====================================================================
+  //  HOME SCREEN
+  // =====================================================================
+
+  _esc: function(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  },
+
+  _accent: function(key) {
+    return ({
+      ink: 'var(--ink)', vermilion: 'var(--vermilion)',
+      moss: 'var(--moss)', indigo: 'var(--indigo)', gold: 'var(--gold)'
+    })[key] || 'var(--ink)';
+  },
+
+  // Build last-14-days active flags (oldest → newest) from the streak history.
+  _streakHistory14: function(state) {
+    var set = {};
+    (state.history || []).forEach(function(d) { set[d] = true; });
+    var arr = [];
+    for (var i = 13; i >= 0; i--) {
+      var d = new Date();
+      d.setDate(d.getDate() - i);
+      arr.push(!!set[d.toLocaleDateString('en-CA')]);
+    }
+    return arr;
+  },
+
+  // Real N5 progress + the next item to do, from manifest + localStorage.
+  // `today` is the user's CURRENT BLOCKER — the next thing in the chain. It
+  // walks both lessons and grammars (grammars first when both are available),
+  // so after finishing N5.1 the card surfaces G1, after G1 it surfaces G2, etc.
+  // When everything available is done but the next lesson is gated by an
+  // `extraRequirePass` that's still failing (e.g. N5.1 not passed), the
+  // returned `today` is a "retake" entry for that lesson.
+  _computeProgress: function() {
+    var m = this._manifest;
+    if (!m || !m.data || !m.data.N5) return null;
+    var lessons   = m.data.N5.lessons || [];
+    var completed = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}');
+    var scores    = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}');
+    var free      = !window.RIKIZO_CONFIG || window.RIKIZO_CONFIG.mode !== 'gated';
+
+    function done(id) { return !!completed[id]; }
+    function passed(id) { return (scores[id] || 0) >= 60; }
+
+    // Lesson "unlocked" check — pass-based for lesson prereqs, any-completion
+    // for grammar prereqs, plus the optional extraRequirePass rule.
+    function lessonUnlocked(l) {
+      if (free) return true;
+      if (l.extraRequirePass && !passed(l.extraRequirePass)) return false;
+      if (!l.unlocksAfter) return true;
+      if (/^G\d+$/.test(l.unlocksAfter)) return done(l.unlocksAfter);
+      return passed(l.unlocksAfter);
+    }
+    function grammarUnlocked(g) {
+      if (free) return true;
+      return !g.unlocksAfter || done(g.unlocksAfter);
+    }
+
+    var lessonsTotal = lessons.length, lessonsDone = 0, kanjiTotal = 0, kanjiDone = 0;
+    lessons.forEach(function(l) {
+      var n = (l.kanji || []).length;
+      kanjiTotal += n;
+      if (done(l.id)) { lessonsDone++; kanjiDone += n; }
+    });
+
+    // Walk grammars + lessons in order; first unlocked-not-done wins. Grammars
+    // first so the natural chain (N5.1 → G1 → G2 → G3 → N5.2) appears.
+    var today = null;
+    var grammars = m.data.N5.grammar || [];
+    var grammarTotal = grammars.length, grammarDone = 0, grammarNext = null;
+    grammars.forEach(function(g) {
+      if (passed(g.id)) grammarDone++;
+      else if (!grammarNext && grammarUnlocked(g)) grammarNext = g;
+    });
+    for (var i = 0; i < grammars.length; i++) {
+      var g = grammars[i];
+      if (grammarUnlocked(g) && !done(g.id)) {
+        today = { kind: 'grammar', entry: g };
+        break;
+      }
+    }
+    if (!today) {
+      for (var j = 0; j < lessons.length; j++) {
+        var l = lessons[j];
+        if (lessonUnlocked(l) && !done(l.id)) {
+          today = { kind: 'lesson', entry: l };
+          break;
+        }
+      }
+    }
+    // Nothing available? Surface a "retake" if a later lesson is blocked by
+    // extraRequirePass on a still-unpassed lesson (the N5.2-needs-N5.1 case).
+    if (!today) {
+      for (var k = 0; k < lessons.length; k++) {
+        var lk = lessons[k];
+        if (lk.extraRequirePass && !passed(lk.extraRequirePass)) {
+          var src = lessons.find(function(x){ return x.id === lk.extraRequirePass; });
+          if (src) { today = { kind: 'retake', entry: src, blocking: lk }; break; }
+        }
+      }
+    }
+
+    return {
+      lessonsTotal: lessonsTotal, lessonsDone: lessonsDone,
+      kanjiTotal: kanjiTotal, kanjiDone: kanjiDone,
+      grammarTotal: grammarTotal, grammarDone: grammarDone, grammarNext: grammarNext,
+      today: today
+    };
+  },
+
+  _kanjiOfDay: function() {
+    var m = this._manifest;
+    if (!m || !m.data || !m.data.N5) return null;
+    var all = [];
+    (m.data.N5.lessons || []).forEach(function(l) {
+      (l.kanji || []).forEach(function(k) { all.push(k); });
+    });
+    if (!all.length) return null;
+    var now = new Date();
+    var doy = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+    return all[doy % all.length];
+  },
+
+  _findDraft: function() {
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (!k || k.indexOf('compose-draft-') !== 0) continue;
+      // Compose stores both the text and a `__promptIdx` companion under the
+      // same prefix — skip the companion or the preview shows the index.
+      if (k.indexOf('__promptIdx') !== -1) continue;
+      var v = localStorage.getItem(k);
+      if (!v || !v.trim()) continue;
+      var id = k.slice('compose-draft-'.length);
+      // Compose drafts with a best score ≥75 are "complete" — don't nag
+      // the user from the home page to keep editing them.
+      var best = parseInt(localStorage.getItem('compose-best-' + id), 10);
+      if (!isNaN(best) && best >= 75) continue;
+      return { id: id, text: v };
+    }
+    return null;
+  },
+
+  _ICONS: {
+    search: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.8-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    bell:   '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 18V10a6 6 0 1112 0v8h1.5M4.5 18h15M10 21.5a2 2 0 004 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    gear:   '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    arrow:  '<svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    chev:   '<svg width="10" height="14" viewBox="0 0 10 14" fill="none" style="color:var(--ink-3)"><path d="M1 1l7 6-7 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    tabHome:  '<path d="M3 11l9-8 9 8v10a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1V11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none"/>',
+    tabPath:  '<path d="M4 5h12a4 4 0 010 8H8a4 4 0 000 8h12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="4" cy="5" r="1.5" fill="currentColor"/><circle cx="20" cy="21" r="1.5" fill="currentColor"/>',
+    tabDojo:  '<path d="M3 10l9-6 9 6v10H3V10z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M8 20v-5h8v5" stroke="currentColor" stroke-width="1.8" fill="none"/>',
+    tabAtlas: '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" stroke="currentColor" stroke-width="1.8"/>',
+    tabMe:    '<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
+  },
+
+  // --- TopBar ---
+  _topBar: function() {
+    var I = this._ICONS;
+    var today = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    function ib(glyph, onclick, dot, tour) {
+      return '<button' + (tour ? ' data-tour="' + tour + '"' : '') + ' onclick="' + onclick + '" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--hairline);background:transparent;color:var(--ink-2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative;padding:0;">' +
+        I[glyph] +
+        (dot ? '<span style="position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:999px;background:var(--vermilion);"></span>' : '') +
+        '</button>';
+    }
+    var bellDot = localStorage.getItem('k-notif-enabled') === '1';
+    return '<div style="display:flex;align-items:center;justify-content:space-between;padding:max(28px,env(safe-area-inset-top)) 22px 0;">' +
+      '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">' + this._esc(today) + ' · N5</div>' +
+      '<div style="display:flex;gap:10px;align-items:center;">' +
+        ib('bell', "JPApp.openNotificationSettings()", bellDot, 'notify') +
+        ib('gear', "JPApp.openTtsSettings()", false, 'settings') +
+      '</div>' +
+    '</div>';
+  },
+
+  // --- Masthead ---
+  _masthead: function(prog) {
+    var s = (window.JPShared && window.JPShared.streak) ? window.JPShared.streak.getState() : { current: 0 };
+    var greet = s.current >= 1
+      ? '<ruby>お<rt>o</rt></ruby><ruby>帰<rt>kae</rt></ruby><ruby>り<rt>ri</rt></ruby>なさい'
+      : 'こんにちは';
+    var sub;
+    if (prog) {
+      var pct = prog.lessonsTotal ? Math.round((prog.lessonsDone / prog.lessonsTotal) * 100) : 0;
+      sub = 'N5 · Foundations · <span style="color:var(--ink-2);">' + pct + '% complete</span>';
+    } else {
+      sub = 'N5 · Foundations';
+    }
+    // First name from Settings → Profile replaces "Rikizo-san" once set.
+    var up = window.JPShared && window.JPShared.userProfile;
+    var first = up ? up.getFirst() : '';
+    var safeFirst = first ? this._esc(first) : '';
+    var nameLine = safeFirst ? (safeFirst + '-san.') : 'Rikizo-san.';
+    return '<div style="padding:18px 22px 8px;">' +
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">' +
+        '<div style="flex:1;min-width:0;">' +
+          '<div style="font-family:var(--font-jp-display);font-size:26px;font-weight:500;line-height:1.15;color:var(--ink);margin-bottom:6px;">' +
+            greet + '<span style="color:var(--vermilion);">、</span><br>' +
+            '<span style="font-size:22px;color:var(--ink-2);">' + nameLine + '</span>' +
+          '</div>' +
+          '<div style="font-size:13px;color:var(--ink-3);line-height:1.45;font-style:italic;">' + sub + '</div>' +
+        '</div>' +
+        '<span class="hanko jp-serif" style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);">力</span>' +
+      '</div>' +
+    '</div>';
+  },
+
+  // --- Streak card (replaces the old _buildStreakBar) ---
+  _buildStreakBar: function() {
+    var streak = window.JPShared && window.JPShared.streak;
+    if (!streak) return '';
+    var s = streak.getState();
+    if (s.current === 0 && !s.lastActive) {
+      // Never used — a quiet invitation instead of an empty card.
+      return '<div data-tour="streak" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;">' +
+        '<img src="' + this._assetUrl('assets/ui/belt-white.png') + '" alt="white belt" style="width:54px;height:auto;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.15));">' +
+        '<div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:600;color:var(--ink);">Begin your streak</div>' +
+        '<div style="font-size:12px;color:var(--ink-3);margin-top:2px;">Complete an activity today to start training.</div></div>' +
+      '</div>';
+    }
+
+    var stage = s.stage;
+    var belt = ({
+      beginner: 'belt-white', daily: 'belt-yellow', week: 'belt-green',
+      fortnight: 'belt-blue', month: 'belt-purple', season: 'belt-brown', legend: 'belt-black'
+    })[stage.key] || 'belt-white';
+    var beltSrc = this._assetUrl('assets/ui/' + belt + '.png');
+
+    var hist = this._streakHistory14(s);
+    var dots = hist.map(function(active, i) {
+      var op = active ? (0.55 + (i / hist.length) * 0.45) : 1;
+      var bg = active ? 'var(--vermilion)' : 'oklch(1 0 0 / 0.14)';
+      return '<div style="width:8px;height:8px;border-radius:2px;background:' + bg + ';opacity:' + op.toFixed(2) + ';"></div>';
+    }).join('');
+
+    var freezeHtml = s.freezes > 0
+      ? '<div style="margin-top:4px;color:oklch(0.8 0.08 220);">❄ ' + s.freezes + ' freeze' + (s.freezes > 1 ? 's' : '') + '</div>'
+      : '';
+
+    return '<div data-tour="streak" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--ink);color:var(--washi);display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;">' +
+      '<div style="position:absolute;right:-20px;top:-30px;font-family:var(--font-jp-display);font-size:180px;font-weight:700;color:rgba(255,255,255,0.04);pointer-events:none;line-height:1;">続</div>' +
+      '<img src="' + beltSrc + '" alt="' + this._esc(stage.en) + ' belt" style="width:62px;height:auto;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25));position:relative;z-index:1;">' +
+      '<div style="flex:1;min-width:0;position:relative;z-index:1;">' +
+        '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">' +
+          '<div style="font-size:32px;font-weight:700;letter-spacing:-0.02em;line-height:1;">' + s.current + '</div>' +
+          '<div class="mono" style="font-size:10px;opacity:0.7;text-transform:uppercase;letter-spacing:0.12em;">day streak</div>' +
+        '</div>' +
+        '<div style="font-family:var(--font-jp-display);font-size:13px;opacity:0.8;margin-bottom:8px;">' + this._esc(stage.jp) + ' · <span style="font-family:var(--font-ui);font-weight:500;">' + this._esc(stage.en) + '</span></div>' +
+        '<div style="display:flex;gap:4px;">' + dots + '</div>' +
+      '</div>' +
+      '<div style="text-align:right;font-size:11px;color:oklch(1 0 0 / 0.5);line-height:1.5;position:relative;z-index:1;">' +
+        '<div class="mono" style="letter-spacing:0.1em;text-transform:uppercase;">Best</div>' +
+        '<div style="font-size:18px;font-weight:600;color:var(--washi);">' + s.best + '</div>' +
+        freezeHtml +
+      '</div>' +
+    '</div>';
+  },
+
+  _sectionHeader: function(label, meta) {
+    return '<div style="padding:22px 22px 10px;display:flex;align-items:baseline;gap:12px;">' +
+      '<div class="jp-serif" style="font-size:13px;color:var(--ink-2);white-space:nowrap;">' + this._esc(label) + '</div>' +
+      '<div style="flex:1;height:1px;background:var(--hairline);"></div>' +
+      (meta ? '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.08em;white-space:nowrap;">' + this._esc(meta) + '</div>' : '') +
+    '</div>';
+  },
+
+  // --- Today card ---
+  _todayCard: function(prog) {
+    if (!prog) return '';
+    var I = this._ICONS;
+    var self = this;
+
+    // No blocker — everything available is done. Reassuring empty state.
+    if (!prog.today) {
+      return '<div data-tour="lesson" style="margin:0 16px;padding:20px;border-radius:var(--r-xl);background:var(--washi);border:1px solid var(--hairline);text-align:center;">' +
+        '<div style="font-family:var(--font-jp-display);font-size:22px;color:var(--ink);margin-bottom:6px;">よくできました</div>' +
+        '<div style="font-size:13px;color:var(--ink-3);">All N5 lessons complete. Keep your streak alive in the Dojo.</div>' +
+      '</div>';
+    }
+
+    var kind  = prog.today.kind;       // 'lesson' | 'grammar' | 'retake'
+    var entry = prog.today.entry;
+    var blocking = prog.today.blocking; // present when kind === 'retake'
+
+    function stat(val, label, mono) {
+      return '<div><div style="font-size:18px;font-weight:600;line-height:1;' + (mono ? 'font-family:var(--font-mono);' : '') + '">' + val + '</div>' +
+        '<div class="mono" style="font-size:9.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.12em;margin-top:2px;">' + label + '</div></div>';
+    }
+    var sep = '<div style="width:1px;background:var(--hairline);"></div>';
+
+    // ---------- GRAMMAR card ----------
+    if (kind === 'grammar') {
+      var gn = (entry.id || '').replace(/^G/, '');
+      var icon = entry.icon || '📐';
+      var minsG = entry.estimatedMinutes || 15;
+      return '<div data-tour="lesson" style="margin:0 16px;border-radius:var(--r-xl);background:var(--washi);border:1px solid var(--hairline);overflow:hidden;position:relative;box-shadow:0 10px 30px oklch(0.58 0.09 140 / 0.15);">' +
+        '<div style="padding:12px 20px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--washi);">' +
+          '<div class="mono" style="font-size:10.5px;color:oklch(1 0 0 / 0.55);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">● Up next · Grammar ' + self._esc(entry.id) + '</div>' +
+          '<div class="mono" style="font-size:11px;color:oklch(1 0 0 / 0.6);">~' + minsG + ' min</div>' +
+        '</div>' +
+        '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · ぶんぽう ' + self._esc(gn) + '</div>' +
+            '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
+            '<div style="display:flex;gap:14px;margin-top:12px;">' +
+              stat(prog.lessonsDone + '/' + prog.lessonsTotal, 'lessons') + sep +
+              stat(entry.id, 'grammar', true) +
+            '</div>' +
+            '<button onclick="JPApp.launch(\'grammar\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:16px;padding:11px 18px;border-radius:999px;border:none;background:var(--moss);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin grammar ' + I.arrow + '</button>' +
+          '</div>' +
+          '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--moss);color:var(--washi);border-radius:var(--r-md);font-size:48px;line-height:1;">' + icon + '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    // ---------- RETAKE card (e.g. need to re-pass N5.1 to unlock N5.2) ----------
+    if (kind === 'retake') {
+      var rn = parseInt((entry.id || '').split('.')[1], 10) || 0;
+      var blockTitle = blocking && blocking.id ? ('Lesson ' + (blocking.id.split('.')[1] || '')) : 'the next lesson';
+      return '<div data-tour="lesson" style="margin:0 16px;border-radius:var(--r-xl);background:var(--washi);border:1px solid var(--hairline);overflow:hidden;position:relative;box-shadow:0 10px 30px oklch(0.6 0.18 30 / 0.12);">' +
+        '<div style="padding:12px 20px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--washi);">' +
+          '<div class="mono" style="font-size:10.5px;color:oklch(1 0 0 / 0.55);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">● Retake · ' + self._esc(entry.id) + '</div>' +
+          '<div class="mono" style="font-size:11px;color:oklch(1 0 0 / 0.6);">Score 60%+ to unlock</div>' +
+        '</div>' +
+        '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · 第' + rn + '課 · Retake</div>' +
+            '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
+            '<div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.45;">Pass with 60% or higher to unlock <strong>' + self._esc(blockTitle) + '</strong>.</div>' +
+            '<button onclick="JPApp.launch(\'lesson\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:14px;padding:11px 18px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Retake lesson ' + I.arrow + '</button>' +
+          '</div>' +
+          '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--vermilion);color:var(--washi);border-radius:var(--r-md);font-family:var(--font-jp-display);font-size:54px;font-weight:500;line-height:1;">復</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    // ---------- LESSON card (default) ----------
+    var l = entry;
+    var n = parseInt((l.id || '').split('.')[1], 10) || 0;
+    var kanji = l.kanji || [];
+    var accent = kanji[0] || '本';
+    var minutes = Math.max(5, Math.round(kanji.length * 1.2 + 4));
+    var tiles = kanji.map(function(k) {
+      return '<div style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px;background:var(--washi-2);color:var(--ink);font-family:var(--font-jp-display);font-size:17px;font-weight:500;border:1px solid var(--hairline);">' + k + '</div>';
+    }).join('');
+
+    return '<div data-tour="lesson" style="margin:0 16px;border-radius:var(--r-xl);background:var(--washi);border:1px solid var(--hairline);overflow:hidden;position:relative;box-shadow:0 10px 30px oklch(0.6 0.18 30 / 0.12);">' +
+      '<div style="padding:12px 20px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--washi);">' +
+        '<div class="mono" style="font-size:10.5px;color:oklch(1 0 0 / 0.55);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">● Today’s lesson · ' + self._esc(l.id) + '</div>' +
+        '<div class="mono" style="font-size:11px;color:oklch(1 0 0 / 0.6);">~' + minutes + ' min</div>' +
+      '</div>' +
+      '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
+        '<div style="flex:1;min-width:0;">' +
+          '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · 第' + n + '課</div>' +
+          '<h2 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:var(--ink);">' + self._esc(l.title) + '</h2>' +
+          '<div style="display:flex;gap:14px;margin-top:12px;">' +
+            stat(kanji.length, 'new kanji') + sep +
+            stat(prog.lessonsDone + '/' + prog.lessonsTotal, 'lessons') + sep +
+            stat(l.id, 'chapter', true) +
+          '</div>' +
+          '<button onclick="JPApp.launch(\'lesson\',\'' + self._esc(l.id) + '\')" class="rk-press" style="margin-top:16px;padding:11px 18px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin lesson ' + I.arrow + '</button>' +
+        '</div>' +
+        '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--vermilion);color:var(--washi);border-radius:var(--r-md);font-family:var(--font-jp-display);font-size:68px;font-weight:500;line-height:1;">' + accent + '</div>' +
+      '</div>' +
+      (kanji.length ? '<div style="padding:14px 20px 18px;border-top:1px dashed var(--hairline);">' +
+        '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">In this lesson</div>' +
+        '<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">' + tiles + '</div>' +
+      '</div>' : '') +
+    '</div>';
+  },
+
+  // --- Resume card (only when a real compose draft exists) ---
+  _resumeCard: function() {
+    var draft = this._findDraft();
+    if (!draft) return '';
+    var I = this._ICONS;
+    var preview = draft.text.replace(/\s+/g, ' ').trim().slice(0, 28);
+    return '<div onclick="JPApp.launch(\'compose\')" class="rk-press" style="margin:12px 16px 0;padding:14px 18px;border-radius:var(--r-lg);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;background:transparent;">' +
+      '<div style="width:40px;height:40px;flex-shrink:0;border-radius:10px;background:var(--moss);color:var(--washi);font-family:var(--font-jp-display);font-size:24px;font-weight:500;display:flex;align-items:center;justify-content:center;">作</div>' +
+      '<div style="flex:1;min-width:0;">' +
+        '<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:2px;"><div style="font-size:14px;font-weight:600;">Continue writing</div><div style="font-size:12px;color:var(--ink-3);">· Compose</div></div>' +
+        '<div class="jp-sans" style="font-size:12px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">“' + this._esc(preview) + '”</div>' +
+      '</div>' +
+      '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase;">Draft</div>' +
+      I.chev +
+    '</div>';
+  },
+
+  // --- Module grid ---
+  _moduleGrid: function() {
+    var self = this;
+    var mods = [
+      { key: 'lesson',   label: 'Lessons',   jp: 'レッスン',   kanji: '本', accent: 'ink' },
+      { key: 'grammar',  label: 'Grammar',   jp: 'ぶんぽう',   kanji: '文', accent: 'moss' },
+      { key: 'practice', label: 'Dojo',      jp: 'どうじょう', kanji: '道', accent: 'vermilion' },
+      { key: 'compose',  label: 'Compose',   jp: 'さくぶん',   kanji: '作', accent: 'indigo' },
+      { key: 'story',    label: 'Stories',   jp: 'ものがたり', kanji: '語', accent: 'gold' },
+      { key: 'review',   label: 'Review',    jp: 'ふくしゅう', kanji: '習', accent: 'ink' },
+      { key: 'game',     label: 'Adventure', jp: 'ぼうけん',   kanji: '険', accent: 'vermilion' }
+    ];
+    var cells = mods.map(function(m) {
+      var color = self._accent(m.accent);
+      var visible = self._isModuleVisible(m.key);
+      if (visible) {
+        return '<button data-mod="' + m.key + '" onclick="JPApp.launch(\'' + m.key + '\')" class="rk-press" style="text-align:left;padding:14px 14px 12px;background:var(--washi);border:1px solid var(--hairline);border-top:3px solid ' + color + ';border-radius:var(--r-md);position:relative;overflow:hidden;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;">' +
+          '<div style="display:flex;justify-content:space-between;align-items:flex-start;">' +
+            '<div><div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px;">' + m.label + '</div>' +
+            '<div class="jp-serif" style="font-size:11px;color:var(--ink-3);">' + m.jp + '</div></div>' +
+            '<div style="font-family:var(--font-jp-display);font-size:22px;font-weight:500;color:' + color + ';line-height:1;">' + m.kanji + '</div>' +
+          '</div>' +
+          '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase;">Open</div>' +
+        '</button>';
+      }
+      // Locked cell — muted, teaches progression.
+      return '<div style="text-align:left;padding:14px 14px 12px;background:var(--washi-2);border:1px solid var(--hairline);border-radius:var(--r-md);min-height:92px;display:flex;flex-direction:column;justify-content:space-between;opacity:0.55;">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;">' +
+          '<div><div style="font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:2px;">' + m.label + '</div>' +
+          '<div class="jp-serif" style="font-size:11px;color:var(--ink-3);">' + m.jp + '</div></div>' +
+          '<div style="font-family:var(--font-jp-display);font-size:22px;font-weight:500;color:var(--ink-3);line-height:1;">' + m.kanji + '</div>' +
+        '</div>' +
+        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase;">🔒 Locked</div>' +
+      '</div>';
+    }).join('');
+
+    return '<div style="margin:0 16px;">' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">' + cells + '</div>' +
+    '</div>';
+  },
+
+  // --- Level progress strip ---
+  _levelStrip: function(prog) {
+    if (!prog) return '';
+    var pct = prog.lessonsTotal ? Math.round((prog.lessonsDone / prog.lessonsTotal) * 100) : 0;
+    function row(icon, label, value, total, color) {
+      var p = total ? Math.max(0, Math.min(1, value / total)) : 0;
+      return '<div>' +
+        '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">' +
+          '<div style="display:flex;align-items:baseline;gap:5px;"><span class="jp-serif" style="font-size:12px;color:var(--ink-3);">' + icon + '</span>' +
+          '<span style="font-size:11px;color:var(--ink-2);">' + label + '</span></div>' +
+          '<div style="font-size:12px;font-weight:600;">' + value + '<span style="color:var(--ink-3);font-weight:400;">/' + total + '</span></div>' +
+        '</div>' +
+        '<div style="position:relative;height:4px;border-radius:999px;background:var(--hairline-2);overflow:hidden;"><div style="position:absolute;left:0;top:0;bottom:0;width:' + (p * 100) + '%;background:' + color + ';border-radius:999px;"></div></div>' +
+      '</div>';
+    }
+    return '<div style="margin:0 16px;padding:14px 18px;border:1px solid var(--hairline);border-radius:var(--r-lg);">' +
+      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">' +
+        '<div style="display:flex;align-items:baseline;gap:8px;"><div style="font-size:18px;font-weight:700;letter-spacing:-0.02em;">N5</div><div style="font-size:12px;color:var(--ink-3);">Foundations</div></div>' +
+        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">' + pct + '% complete</div>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">' +
+        row('本', 'Lessons', prog.lessonsDone, prog.lessonsTotal, 'var(--ink)') +
+        row('字', 'Kanji', prog.kanjiDone, prog.kanjiTotal, 'var(--vermilion)') +
+      '</div>' +
+    '</div>';
+  },
+
+  // --- Grammar progress card ---
+  _grammarCard: function(prog) {
+    if (!prog || !prog.grammarTotal) return '';
+    var done = prog.grammarDone, total = prog.grammarTotal;
+    var pct = total ? Math.round((done / total) * 100) : 0;
+    var p = total ? Math.max(0, Math.min(1, done / total)) : 0;
+    var nx = prog.grammarNext;
+    var subtitle;
+    if (nx) {
+      subtitle = 'Currently on ' + this._esc(nx.id) + ' · ' + this._esc(nx.title || '');
+    } else if (done >= total) {
+      subtitle = 'All N5 grammar complete';
+    } else {
+      subtitle = 'Complete Lesson N5.1 to begin';
+    }
+    var clickable = !!nx;
+    var attrs = clickable
+      ? ' onclick="JPApp.launch(\'grammar\',\'' + this._esc(nx.id) + '\')" class="rk-press"'
+      : '';
+    return '<div' + attrs + ' style="margin:12px 16px 0;padding:14px 18px;border:1px solid var(--hairline);border-radius:var(--r-lg);' + (clickable ? 'cursor:pointer;' : '') + '">' +
+      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px;">' +
+        '<div style="display:flex;align-items:baseline;gap:8px;">' +
+          '<span style="font-size:16px;">🌿</span>' +
+          '<div style="font-size:14px;font-weight:600;">Grammar Garden</div>' +
+        '</div>' +
+        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">' + pct + '%</div>' +
+      '</div>' +
+      '<div style="font-size:11px;color:var(--ink-3);margin-bottom:10px;">' + subtitle + '</div>' +
+      '<div style="display:flex;align-items:center;gap:10px;">' +
+        '<div style="position:relative;flex:1;height:4px;border-radius:999px;background:var(--hairline-2);overflow:hidden;"><div style="position:absolute;left:0;top:0;bottom:0;width:' + (p * 100) + '%;background:var(--moss);border-radius:999px;"></div></div>' +
+        '<div style="font-size:12px;font-weight:600;">' + done + '<span style="color:var(--ink-3);font-weight:400;">/' + total + '</span></div>' +
+      '</div>' +
+    '</div>';
+  },
+
+  // --- Cast row ---
+  _castRow: function() {
+    var self = this;
+    var cast = [
+      { id: 'rikizo',   jp: 'りきぞう' },
+      { id: 'sakura',   jp: 'さくら' },
+      { id: 'suzuki',   jp: 'すずき先生' },
+      { id: 'ken',      jp: 'けん' },
+      { id: 'miki',     jp: 'ミキ' },
+      { id: 'yuki',     jp: 'ゆき' },
+      { id: 'yamamoto', jp: 'やまもと先生' }
+    ];
+    var items = cast.map(function(c) {
+      var src = self._assetUrl('assets/characters/' + c.id + '/' + c.id + '_head.png');
+      var ring = c.id === 'rikizo';
+      return '<div style="flex-shrink:0;width:58px;text-align:center;">' +
+        '<div style="width:48px;height:48px;margin:0 auto;border-radius:999px;background:var(--washi-2);border:' + (ring ? '2px solid var(--vermilion)' : '1px solid var(--hairline)') + ';padding:2px;">' +
+          '<div style="width:100%;height:100%;border-radius:999px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--washi);">' +
+            '<img class="pixel" src="' + src + '" style="width:110%;height:110%;object-fit:cover;object-position:center top;" onerror="this.style.display=\'none\'">' +
+          '</div>' +
+        '</div>' +
+        '<div class="jp-serif" style="font-size:10px;margin-top:5px;color:var(--ink-2);">' + c.jp + '</div>' +
+      '</div>';
+    }).join('');
+    return '<div style="padding:0 16px;">' +
+      '<div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:2px;" class="noscroll">' + items + '</div>' +
+    '</div>';
+  },
+
+  // --- Daily challenge ---
+  _challengeCard: function() {
+    var k = this._kanjiOfDay();
+    if (!k) return '';
+    var I = this._ICONS;
+    return '<div onclick="JPApp.launch(\'practice\')" class="rk-press" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;">' +
+      '<div style="width:58px;height:58px;flex-shrink:0;background:var(--washi);border:1px solid var(--hairline);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-jp-display);font-size:42px;font-weight:500;color:var(--ink);">' + k + '</div>' +
+      '<div style="flex:1;min-width:0;">' +
+        '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">今日の漢字 · Kanji of the day</div>' +
+        '<div style="font-size:14px;font-weight:600;margin-top:4px;">Practice ' + k + ' in the Dojo</div>' +
+        '<div style="font-size:12px;color:var(--ink-3);margin-top:2px;">Flashcards & quizzes to lock it in.</div>' +
+      '</div>' +
+      I.chev +
+    '</div>';
+  },
+
+  // --- Colophon ---
+  _colophon: function() {
+    return '<div style="padding:18px 16px 12px;text-align:center;">' +
+      '<div class="mono" style="font-size:9.5px;color:var(--ink-3);letter-spacing:0.22em;text-transform:uppercase;">Rikizo · 力蔵 · est. 2026</div>' +
+    '</div>';
+  },
+
+  // --- Bottom tab bar ---
+  _tabBar: function() {
+    var I = this._ICONS;
+    var self = this;
+    var tabs = [
+      { key: 'home',   label: 'Home',     glyph: I.tabHome,  action: "JPApp.renderMenu()" },
+      { key: 'path',   label: 'Lessons',  glyph: I.tabPath,  action: "JPApp.launch('lesson')",   mod: 'lesson' },
+      { key: 'dojo',   label: 'Dojo',     glyph: I.tabDojo,  action: "JPApp.launch('practice')", mod: 'practice' },
+      { key: 'atlas',  label: 'Map',      glyph: I.tabAtlas, action: "JPApp.launch('map')" },
+      { key: 'me',     label: 'Settings', glyph: I.tabMe,    action: "JPApp.openTtsSettings()" }
+    ];
+    var active = 'home';
+    var btns = tabs.map(function(t) {
+      var on = t.key === active;
+      var locked = t.mod ? !self._isModuleVisible(t.mod) : false;
+      var dimStyle = locked ? 'opacity:0.42;' : '';
+      // Locked tabs still wire the action — JPApp.launch's guard will toast the reason.
+      return '<button class="rk-tab' + (on ? ' active' : '') + '" style="' + dimStyle + '" onclick="' + t.action + '">' +
+        '<div style="position:relative;display:inline-flex;">' +
+          '<svg width="22" height="22" viewBox="0 0 24 24">' + t.glyph + '</svg>' +
+          (locked ? '<span style="position:absolute;right:-6px;top:-3px;font-size:9px;line-height:1;">🔒</span>' : '') +
+        '</div>' +
+        '<span style="font-size:10px;font-weight:' + (on ? 600 : 500) + ';letter-spacing:0.02em;">' + t.label + '</span>' +
+        (on ? '<div class="rk-tab-ind"></div>' : '') +
+      '</button>';
+    }).join('');
+    return '<nav class="rk-tabbar">' + btns + '</nav>';
+  },
+
+  // --- RENDER MENU ---
+  renderMenu: function() {
+    this._view = 'home';
+    var prog = this._computeProgress();
+    var html =
+      '<div class="rk-home" style="padding-bottom:calc(var(--tabbar-h) + 28px + env(safe-area-inset-bottom));">' +
+        this._topBar() +
+        this._masthead(prog) +
+        this._buildStreakBar() +
+        this._resumeCard() +
+        this._sectionHeader('きょう · Today', prog && prog.today && prog.today.entry ? prog.today.entry.id : '') +
+        this._todayCard(prog) +
+        this._sectionHeader('けいこ · Practice', '7 paths') +
+        this._moduleGrid() +
+        this._sectionHeader('しんちょく · Progress') +
+        this._levelStrip(prog) +
+        this._grammarCard(prog) +
+        this._sectionHeader('とうじょう人物 · Cast') +
+        this._castRow() +
+        this._sectionHeader('まいにち · Daily') +
+        this._challengeCard() +
+        this._colophon() +
+      '</div>' +
+      this._tabBar();
+    this.container.innerHTML = html;
+    this._rikizoGreet();
+  },
+
+  // --- RIKIZO GREETING DISPATCHER ---
+  // Priority order, once per app-open:
+  //   1. rank-up celebration (existing)
+  //   2. pending lesson/dojo celebration (newly written by Lesson.js on finish)
+  //   3. first-launch onboarding
+  //   4. time-based greeting
+  // Re-renders of the home screen (e.g. returning from a module) re-apply
+  // presence but do not re-trigger a greeting in the same session.
+  _rikizoGreet: function() {
+    var rc = window.JPShared && window.JPShared.rikizoCompanion;
+    var streak = window.JPShared && window.JPShared.streak;
+
+    if (rc) rc.applyPresence();
+
+    // 1) Rank-up wins.
+    if (window._jp_activity_this_session && streak) {
+      var rankUp = streak.consumeRankUp();
+      if (rankUp) { this._showRankUpPopup(rankUp, streak.getState()); return; }
+    }
+
+    // 2) Pending lesson/dojo celebration. Checked BEFORE the session-greeted
+    //    guard so a celebration can fire when the user returns home after a
+    //    lesson — even if the time-greeting already played at app open.
+    //    The key itself is one-shot (consumed on read), so it can never fire
+    //    twice in a row by itself.
+    var pending = null;
+    try {
+      var raw = localStorage.getItem('k-rikizo-pending-celebration');
+      if (raw) {
+        pending = JSON.parse(raw);
+        localStorage.removeItem('k-rikizo-pending-celebration');
+      }
+    } catch (e) { pending = null; }
+    if (pending && rc && rc.runLessonCompleteCelebration) {
+      rc.runLessonCompleteCelebration(pending);
+      return;
+    }
+
+    // 3) Otherwise — onboarding or time greeting, once per app-open.
+    if (window._rikizo_greeted_this_session) return;
+    window._rikizo_greeted_this_session = true;
+
+    if (rc) {
+      if (!rc.isOnboarded()) { rc.runOnboarding(); return; }
+      rc.greetByTime();
+      return;
+    }
+    this._showReturnMessage();
+  },
+
+  // --- RETURN MESSAGE (legacy Rikizo greeting; now a fallback only) ---
+  _showReturnMessage: function() {
+    var streak = window.JPShared && window.JPShared.streak;
+    if (!streak) return;
+    var s = streak.getState();
+
+    if (window._jp_activity_this_session) {
+      var rankUp = streak.consumeRankUp();
+      if (rankUp) { this._showRankUpPopup(rankUp, s); return; }
+    }
+
+    if (s.daysAway === 0) return;
+    if (s.daysAway === -1) return;
+
+    if (!window.JPShared._rikizo_messages) {
+      var self = this;
+      var url = this._assetUrl('data/shared/rikizo-messages.json') + '?t=' + Date.now();
+      fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+        window.JPShared._rikizo_messages = data;
+        self._showReturnMessage();
+      }).catch(function() {});
+      return;
+    }
+
+    var msg = streak.getReturnMessage(s.daysAway);
+    if (!msg) return;
+    if (window._rikizo_return_shown) return;
+    window._rikizo_return_shown = true;
+
+    var belt = ({
+      beginner: 'belt-white', daily: 'belt-yellow', week: 'belt-green',
+      fortnight: 'belt-blue', month: 'belt-purple', season: 'belt-brown', legend: 'belt-black'
+    })[s.stage.key] || 'belt-white';
+    var beltHtml = s.current > 0
+      ? '<img class="jp-return-belt" src="' + this._assetUrl('assets/ui/' + belt + '.png') + '" alt="' + this._esc(s.stage.en) + ' belt">'
+      : '';
+
+    var overlay = document.createElement('div');
+    overlay.className = 'jp-return-overlay';
+    overlay.innerHTML =
+      '<div class="jp-return-card">' +
+        '<div class="jp-return-jp">' + this._esc(msg.jp || '') + '</div>' +
+        '<div class="jp-return-text">' + this._esc(msg.text) + '</div>' +
+        beltHtml +
+        (s.current > 0 ? '<div class="mono" style="font-size:0.82rem;color:var(--ink-3);margin-bottom:14px;">🔥 ' + s.current + ' day streak</div>' : '') +
+        '<button onclick="this.closest(\'.jp-return-overlay\').remove()" style="background:var(--vermilion);color:var(--washi);border:none;padding:10px 28px;border-radius:999px;font-size:1rem;font-weight:600;cursor:pointer;">Let’s Go!</button>' +
+      '</div>';
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+    document.body.appendChild(overlay);
+    setTimeout(function() { if (overlay.parentNode) overlay.remove(); }, 5000);
+  },
+
+  // --- RANK-UP CELEBRATION POPUP ---
+  _showRankUpPopup: function(stage, streakState) {
+    var belt = ({
+      beginner: 'belt-white', daily: 'belt-yellow', week: 'belt-green',
+      fortnight: 'belt-blue', month: 'belt-purple', season: 'belt-brown', legend: 'belt-black'
+    })[stage.key] || 'belt-white';
+    var beltSrc = this._assetUrl('assets/ui/' + belt + '.png');
+    var rikizoSrc = this._assetUrl('assets/characters/rikizo/rikizo_head.png');
+
+    var overlay = document.createElement('div');
+    overlay.className = 'jp-return-overlay';
+    overlay.innerHTML =
+      '<div class="jp-rankup-card">' +
+        '<div class="jp-rankup-particles" id="jp-rankup-particles"></div>' +
+        '<img class="jp-rankup-rikizo" src="' + rikizoSrc + '" alt="Rikizo">' +
+        '<div class="jp-rankup-title">Rank Up!</div>' +
+        '<div class="jp-rankup-stage" style="color:' + stage.color + ';">' + this._esc(stage.en) + '</div>' +
+        '<div class="jp-rankup-stage-jp">' + this._esc(stage.jp) + '</div>' +
+        '<img class="jp-rankup-belt" src="' + beltSrc + '" alt="' + this._esc(stage.en) + ' belt">' +
+        '<div class="jp-rankup-streak">🔥 ' + streakState.current + ' day streak</div>' +
+        '<button onclick="this.closest(\'.jp-return-overlay\').remove()" style="background:' + stage.color + ';color:#fff;border:none;padding:12px 32px;border-radius:999px;font-size:1rem;font-weight:700;cursor:pointer;position:relative;z-index:1;">Let’s Go!</button>' +
+      '</div>';
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+    document.body.appendChild(overlay);
+
+    var container = document.getElementById('jp-rankup-particles');
+    if (container) {
+      var colors = [stage.color, '#FFD700', '#FF6B6B', '#4ECDC4', '#A78BFA'];
+      var burstPoints = [{ x: 0.2, y: 0.2 }, { x: 0.8, y: 0.2 }, { x: 0.5, y: 0.15 }, { x: 0.3, y: 0.8 }, { x: 0.7, y: 0.8 }];
+      burstPoints.forEach(function(bp, bIdx) {
+        for (var i = 0; i < 8; i++) {
+          var p = document.createElement('div');
+          p.className = 'jp-rankup-particle';
+          var angle = (Math.PI * 2 * i / 8) + (Math.random() * 0.3);
+          var dist = 40 + Math.random() * 80;
+          var color = colors[Math.floor(Math.random() * colors.length)];
+          var size = 4 + Math.random() * 6;
+          var delay = bIdx * 120 + Math.random() * 150;
+          var dx = Math.cos(angle) * dist, dy = Math.sin(angle) * dist;
+          p.style.cssText = 'left:' + (bp.x * 100) + '%;top:' + (bp.y * 100) + '%;width:' + size + 'px;height:' + size + 'px;background:' + color + ';box-shadow:0 0 ' + (size + 2) + 'px ' + color + ';transition:transform 1s cubic-bezier(0.25,0.46,0.45,0.94),opacity 1s ease-out;transition-delay:' + delay + 'ms;';
+          container.appendChild(p);
+          (function(particle, tdx, tdy) {
+            requestAnimationFrame(function() { requestAnimationFrame(function() {
+              particle.style.opacity = '1';
+              particle.style.transform = 'translate(' + tdx + 'px,' + tdy + 'px)';
+              setTimeout(function() { particle.style.opacity = '0'; }, delay + 400);
+            }); });
+          })(p, dx, dy);
+        }
+      });
+    }
+    setTimeout(function() { if (overlay.parentNode) overlay.remove(); }, 8000);
+  },
+
+  // --- NOTIFICATION SETTINGS ---
+  openNotificationSettings: async function() {
+    if (window.JPShared && window.JPShared.notificationSettings) {
+      window.JPShared.notificationSettings.open();
+      return;
+    }
+    try {
+      window.JPShared = window.JPShared || {};
+      await this.loadModule('app/shared/notification-settings.js');
+      if (window.JPShared.notificationSettings) window.JPShared.notificationSettings.open();
+    } catch (e) {
+      console.error('Could not load notification settings:', e);
+    }
+  },
+
+  // --- TTS SETTINGS ---
+  openTtsSettings: async function() {
+    if (window.JPShared && window.JPShared.ttsSettings) {
+      window.JPShared.ttsSettings.open();
+      return;
+    }
+    try {
+      window.JPShared = window.JPShared || {};
+      var savedHtml = this.container.innerHTML;
+      await this.loadModule('app/shared/tts-normalize.js');
+      await this.loadModule('app/shared/tts.js');
+      if (window.JPShared.tts) window.JPShared.tts.setConfig(this.config);
+      await this.loadModule('app/shared/stamp-settings.js');
+      if (window.JPShared.stampSettings) window.JPShared.stampSettings.setConfig(this.config);
+      await this.loadModule('app/shared/tts-settings.js');
+      if (!window.JPShared.ttsSettings) { this.container.innerHTML = savedHtml; return; }
+      if (window.JPShared.stampSettings) window.JPShared.stampSettings.setConfig(this.config);
+      this.container.innerHTML = savedHtml;
+      window.JPShared.ttsSettings.open();
+    } catch (e) {
+      console.error('Could not load TTS settings:', e);
+    }
+  },
+
+  // --- ADVENTURE TEASER (web placeholder; the game ships on iOS/Android) ---
+  _showAdventureTeaser: function() {
+    var mapUrl = this._assetUrl('assets/backgrounds/map.png');
+    var rikizoUrl = this._assetUrl('assets/characters/rikizo/rikizo_convo.png');
+    this.container.innerHTML =
+      '<div style="position:relative;min-height:100vh;min-height:100dvh;background:var(--ink);color:var(--washi);overflow:hidden;display:flex;flex-direction:column;">' +
+        '<div style="position:absolute;inset:0;background-image:url(\'' + mapUrl + '\');background-size:cover;background-position:center;opacity:0.14;image-rendering:pixelated;pointer-events:none;"></div>' +
+        '<div style="position:absolute;right:-30px;top:-20px;font-family:var(--font-jp-display);font-size:300px;line-height:0.85;font-weight:500;color:oklch(0.97 0.008 80 / 0.04);pointer-events:none;">険</div>' +
+        '<div style="position:relative;z-index:1;padding:max(28px,env(safe-area-inset-top)) 18px 14px;display:flex;align-items:center;gap:12px;">' +
+          '<button onclick="JPApp.renderMenu()" style="width:32px;height:32px;border-radius:999px;border:1px solid oklch(1 0 0 / 0.25);background:transparent;color:var(--washi);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>' +
+          '<div class="mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.18em;font-weight:600;">N5 · ADVENTURE</div>' +
+        '</div>' +
+        '<div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px 28px 60px;">' +
+          '<img src="' + rikizoUrl + '" alt="Rikizo" class="pixel" style="width:140px;height:auto;margin-bottom:24px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.4));" onerror="this.style.display=\'none\'">' +
+          '<div class="jp-serif" style="font-size:36px;font-weight:600;line-height:1.1;">ぼうけん</div>' +
+          '<div style="font-size:18px;font-weight:600;color:oklch(1 0 0 / 0.85);margin-top:4px;">Adventure</div>' +
+          '<div style="font-size:13px;color:oklch(1 0 0 / 0.6);margin-top:14px;line-height:1.5;max-width:280px;">A pixel-art RPG to practice Japanese in the wild. Coming to <strong style="color:var(--washi);">iOS &amp; Android</strong>.</div>' +
+          '<div style="margin-top:28px;width:100%;max-width:280px;">' +
+            '<div class="mono" style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:oklch(1 0 0 / 0.55);margin-bottom:6px;"><span>N5 Game Days</span><span>17 remaining</span></div>' +
+            '<div style="height:4px;border-radius:999px;background:oklch(1 0 0 / 0.15);overflow:hidden;"><div style="height:100%;width:6%;background:var(--vermilion);border-radius:999px;"></div></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  },
+
+  // Reason for why a module is currently locked — used by the lock toast.
+  _lockReason: function(mode) {
+    var completed = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}');
+    var scores    = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}');
+    var done = function(id) { return !!completed[id]; };
+    if (mode === 'grammar' || mode === 'practice') return 'Complete Lesson 1 to unlock.';
+    if (mode === 'compose' || mode === 'game') {
+      if (!done('N5.1')) return 'Complete Lesson 1 to unlock.';
+      return 'Score 60% on Lesson 1 to unlock.';
+    }
+    if (mode === 'story' || mode === 'review') {
+      if (!done('N5.2')) return 'Reach Lesson 2 first.';
+      return 'Score 60% on Lesson 2 to unlock.';
+    }
+    return 'Locked.';
+  },
+
+  // Brief non-blocking toast at the top of the screen.
+  _toast: function(msg) {
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;left:50%;top:max(60px,env(safe-area-inset-top));transform:translateX(-50%);' +
+      'background:var(--ink);color:var(--washi);padding:10px 18px;border-radius:999px;font-size:13px;' +
+      'font-weight:600;z-index:9999;box-shadow:0 6px 22px rgba(0,0,0,0.32);max-width:340px;text-align:center;' +
+      'transition:opacity 0.3s ease;opacity:0;';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    requestAnimationFrame(function () { t.style.opacity = '1'; });
+    setTimeout(function () {
+      t.style.opacity = '0';
+      setTimeout(function () { if (t.parentNode) t.remove(); }, 320);
+    }, 2400);
+  },
+
+  // --- LAUNCHER ---
+  // Optional extra args (e.g. a lesson id) are forwarded to the module's start().
+  launch: async function(mode /*, ...args */) {
+    var extraArgs = Array.prototype.slice.call(arguments, 1);
+    // Gating guard — refuse locked modules with a brief toast. The home grid
+    // already hides locked cells; this catches taps from the bottom tab bar.
+    if (mode !== 'home' && !this._isModuleVisible(mode)) {
+      this._toast(this._lockReason(mode));
+      return;
+    }
+    this._view = mode;
+    if (mode === 'game') { this._showAdventureTeaser(); return; }
+    this.container.innerHTML = '<div class="rk-loading">力 · loading ' + this._esc(mode) + '</div>';
+    // Leaving Home — re-apply presence (contextual/home modes hide; always stays).
+    if (window.JPShared && window.JPShared.rikizoCompanion) window.JPShared.rikizoCompanion.applyPresence();
+
+    if (!window.JPShared || !window.JPShared.textProcessor) {
+      var sharedModules = [
+        'app/shared/tts-normalize.js',
+        'app/shared/tts.js',
+        'app/shared/stamp-settings.js',
+        'app/shared/user-profile.js',
+        'app/shared/tts-settings.js',
+        'app/shared/progress.js',
+        'app/shared/unlock.js',
+        'app/shared/vocab-display.js',
+        'app/shared/text-processor.js',
+        'app/shared/term-modal.js',
+        'app/shared/haptics.js'
+      ];
+      for (var i = 0; i < sharedModules.length; i++) {
+        var ok = await this.loadModule(sharedModules[i]);
+        if (!ok) return;
+      }
+      if (window.JPShared.stampSettings) window.JPShared.stampSettings.setConfig(this.config);
+      if (window.JPShared.tts) window.JPShared.tts.setConfig(this.config);
+    }
+
+    var onExit = (function(self) { return function() { self.renderMenu(); }; })(this);
+
+    var map = {
+      lesson:         { global: 'LessonModule',              file: 'Lesson.js' },
+      practice:       { global: 'PracticeModule',            file: 'Practice.js' },
+      review:         { global: 'ReviewModule',              file: 'Review.js' },
+      compose:        { global: 'ComposeModule',             file: 'Compose.js' },
+      story:          { global: 'StoryModule',               file: 'Stories.js' },
+      audiodojo:      { global: 'AudioDojoModule',           file: 'AudioDojo.js' },
+      grammar:        { global: 'GrammarModule',             file: 'Grammar.js' },
+      game:           { global: 'GameModule',                file: 'Game.js' },
+      custom:         { global: 'CustomStoriesModule',       file: 'Stories.js' },
+      'teacher-bingo':{ global: 'KanjiBingoGeneratorModule', file: 'KanjiBingoGenerator.js' },
+      'writing-kanji':{ global: 'WritingKanjiModule',        file: 'WritingKanji.js',
+                        deps: ['app/shared/stroke-canvas.js', 'app/shared/ink-morph.js'] },
+      'writing-kana': { global: 'WritingKanaModule',         file: 'WritingKana.js',
+                        deps: ['app/shared/stroke-canvas.js'] },
+      map:            { global: 'MapModule',                 file: 'Map.js' }
+    };
+    var entry = map[mode];
+    if (entry && entry.deps) {
+      for (var di = 0; di < entry.deps.length; di++) {
+        var dep = entry.deps[di];
+        // Use the JPShared key as the load-once sentinel.
+        var key = dep.indexOf('stroke-canvas') >= 0 ? 'strokeCanvas'
+                : dep.indexOf('ink-morph') >= 0    ? 'inkMorph'
+                : null;
+        if (key && window.JPShared && window.JPShared[key]) continue;
+        var okDep = await this.loadModule(dep);
+        if (!okDep) return;
+      }
+    }
+    if (!entry) return;
+    if (!window[entry.global]) {
+      var loaded = await this.loadModule(entry.file);
+      if (!loaded) return;
+    }
+    if (window[entry.global]) {
+      var startArgs = [this.container, this.config, onExit].concat(extraArgs);
+      window[entry.global].start.apply(window[entry.global], startArgs);
+    }
+  }
+};
+
+window.JPShared = window.JPShared || {};
+window.JPShared._rankUpHandler = function(stage) {
+  var streak = window.JPShared && window.JPShared.streak;
+  var s = streak ? streak.getState() : { current: 0 };
+  streak && streak.consumeRankUp();
+  window.JPApp._showRankUpPopup(stage, s);
+};
+
+document.addEventListener('DOMContentLoaded', function() { window.JPApp.init(); });
+</script>
+</body>
+</html>

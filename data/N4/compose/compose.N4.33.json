@@ -1,0 +1,402 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "compose.N4.33",
+  "lesson": "N4.33",
+  "level": "N4",
+  "title": "The New Building and the Wide Square",
+  "titleJp": "新しい 建物と 広い 広場",
+  "emoji": "🏗️",
+  "theme": "Write about a town's new building and the wide square in front of it — from hearing about the construction, visiting the venue, learning who built it, exploring the open space, and reflecting on how the place has grown.",
+  "prompts": [
+    {
+      "prompt": "Open by writing that a new building was built in the town. Use 建物 and 建てる.",
+      "targets": [
+        {
+          "id": "v_tatemono",
+          "count": 1
+        },
+        {
+          "id": "v_tateru",
+          "count": 1
+        }
+      ],
+      "model": "町に 新しい 建物が 建てられました。",
+      "vocabPool": [
+        "v_tatemono",
+        "v_tateru",
+        "v_machi",
+        "v_atarashii",
+        "v_aru",
+        "v_dekiru",
+        "p_ni",
+        "p_ga",
+        "p_wa",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that the town's carpenters built it using woodworking. Use 大工 and 木工.",
+      "targets": [
+        {
+          "id": "v_daiku",
+          "count": 1
+        },
+        {
+          "id": "v_mokkou",
+          "count": 1
+        }
+      ],
+      "model": "町の 大工さんたちが 木工を 使って 建てました。",
+      "vocabPool": [
+        "v_daiku",
+        "v_mokkou",
+        "v_machi",
+        "v_tateru",
+        "v_tsukau",
+        "v_san",
+        "p_no",
+        "p_ga",
+        "p_wo",
+        "p_de"
+      ]
+    },
+    {
+      "prompt": "Write that in front of the building there is a wide square. Use 広場 and 広い.",
+      "targets": [
+        {
+          "id": "v_hiroba",
+          "count": 1
+        },
+        {
+          "id": "v_hiroi",
+          "count": 1
+        }
+      ],
+      "model": "建物の 前には、広い 広場が あります。",
+      "vocabPool": [
+        "v_hiroba",
+        "v_hiroi",
+        "v_tatemono",
+        "v_mae",
+        "v_aru",
+        "p_no",
+        "p_ni",
+        "p_wa",
+        "p_ga"
+      ]
+    },
+    {
+      "prompt": "Write that the square has the widest space in town. Use 広さ.",
+      "targets": [
+        {
+          "id": "v_hirosa",
+          "count": 1
+        }
+      ],
+      "model": "この 広場は 町で いちばん 広さが あります。",
+      "vocabPool": [
+        "v_hirosa",
+        "v_ichiban",
+        "v_hiroba",
+        "v_machi",
+        "v_hiroi",
+        "v_aru",
+        "p_de",
+        "p_wa",
+        "p_ga",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that an event was held there, and that you paid admission to enter. Use 会場 and 入場.",
+      "targets": [
+        {
+          "id": "v_kaijou",
+          "count": 1
+        },
+        {
+          "id": "v_nyuujou",
+          "count": 1
+        }
+      ],
+      "model": "広場が 会場に なって、入場して 見ました。",
+      "vocabPool": [
+        "v_kaijou",
+        "v_nyuujou",
+        "v_hiroba",
+        "v_naru",
+        "v_miru",
+        "v_suru",
+        "p_ga",
+        "p_ni",
+        "p_de",
+        "p_wo"
+      ]
+    },
+    {
+      "prompt": "Write that the factory nearby also has many workers. Use 工場 and 工員.",
+      "targets": [
+        {
+          "id": "v_koujou",
+          "count": 1
+        },
+        {
+          "id": "v_kouin",
+          "count": 1
+        }
+      ],
+      "model": "近くの 工場には、たくさんの 工員が います。",
+      "vocabPool": [
+        "v_koujou",
+        "v_kouin",
+        "v_chikaku",
+        "v_takusan",
+        "v_iru",
+        "v_hataraku",
+        "p_no",
+        "p_ni",
+        "p_wa",
+        "p_ga",
+        "p_de"
+      ]
+    },
+    {
+      "prompt": "Seeing all the construction work around you, write that you think it would be interesting to study engineering. Also mention that you heard there is an artificial river nearby. Use 工学 and 人工.",
+      "targets": [
+        {
+          "id": "v_kougaku",
+          "count": 1
+        },
+        {
+          "id": "v_jinkou",
+          "count": 1
+        }
+      ],
+      "model": "工学を 勉強したいと 思います。近くに 人工の 川も あると 聞きました。",
+      "vocabPool": [
+        "v_kougaku",
+        "v_jinkou",
+        "v_benkyou",
+        "v_omou",
+        "v_kiku",
+        "v_kawa",
+        "v_chikaku",
+        "v_aru",
+        "p_wo",
+        "p_ni",
+        "p_no",
+        "p_mo",
+        "p_to_quote"
+      ]
+    },
+    {
+      "prompt": "Write that you want to spread the wide space further. Use 広める and 広大.",
+      "targets": [
+        {
+          "id": "v_hiromeru",
+          "count": 1
+        },
+        {
+          "id": "v_koudai",
+          "count": 1
+        }
+      ],
+      "model": "広大な 場所を もっと 広めたいと 思います。",
+      "vocabPool": [
+        "v_hiromeru",
+        "v_koudai",
+        "v_basho",
+        "v_omou",
+        "v_motto",
+        "v_hiroba",
+        "p_wo",
+        "p_no",
+        "p_to_quote",
+        "p_ni"
+      ]
+    },
+    {
+      "prompt": "Write that in some cases the square is used as a venue. Mention that there are various situations. Use 場合 and 場所.",
+      "targets": [
+        {
+          "id": "v_baai",
+          "count": 1
+        },
+        {
+          "id": "v_basho",
+          "count": 1
+        }
+      ],
+      "model": "この 場所は、会場に なる 場合も あります。",
+      "vocabPool": [
+        "v_baai",
+        "v_basho",
+        "v_kaijou",
+        "v_naru",
+        "v_aru",
+        "v_iroiro",
+        "p_wa",
+        "p_ni",
+        "p_ga",
+        "p_mo",
+        "p_no"
+      ]
+    },
+    {
+      "prompt": "Write that many buildings have gone up and that it feels like a new nation is being built. Use 建国 and 建つ.",
+      "targets": [
+        {
+          "id": "v_kenkoku",
+          "count": 1
+        },
+        {
+          "id": "v_tatsu_build",
+          "count": 1
+        }
+      ],
+      "model": "建物が たくさん 建って、建国のように 新しい 町が できたと 思います。",
+      "vocabPool": [
+        "v_kenkoku",
+        "v_tatsu_build",
+        "v_tatemono",
+        "v_takusan",
+        "v_atarashii",
+        "v_machi",
+        "v_omou",
+        "v_naru",
+        "v_you_manner",
+        "p_ga",
+        "p_no",
+        "p_ni",
+        "p_to_quote"
+      ]
+    }
+  ],
+  "challengePrompts": [
+    {
+      "prompt": "Imagine you are a factory worker who was made to work in a very wide place for a long time. Write casually to a friend about the experience, using the causative-passive. Use 工員 and 広大 and 広場.",
+      "targets": [
+        {
+          "id": "v_kouin",
+          "count": 1
+        },
+        {
+          "id": "v_koudai",
+          "count": 1
+        },
+        {
+          "id": "v_hiroba",
+          "count": 1
+        }
+      ],
+      "model": "工員として、広大な 広場で 長い 間 働かせられた よ。",
+      "vocabPool": [
+        "v_kouin",
+        "v_koudai",
+        "v_hiroba",
+        "v_hataraku",
+        "v_nagai",
+        "v_aida",
+        "v_iu",
+        "g_da",
+        "p_de",
+        "p_wo",
+        "p_yo",
+        "p_to",
+        "p_kedo"
+      ]
+    }
+  ],
+  "particles": [
+    "p_wa",
+    "p_ga",
+    "p_wo",
+    "p_no",
+    "p_ni",
+    "p_de",
+    "p_mo",
+    "p_to",
+    "p_to_quote",
+    "p_to_conditional",
+    "p_kara",
+    "p_kara_because",
+    "p_nara",
+    "p_e",
+    "p_ka",
+    "p_yo",
+    "p_ne",
+    "p_na",
+    "p_ya",
+    "p_yori",
+    "p_dake",
+    "p_shika",
+    "p_made",
+    "p_bakari",
+    "p_demo",
+    "p_noni",
+    "p_tekara",
+    "p_nagara",
+    "p_ndesu",
+    "p_nda",
+    "p_demo_but",
+    "p_tte_quote",
+    "g_desu",
+    "g_da"
+  ],
+  "conjugations": [
+    {
+      "pattern": "[plain form] + と + 思う",
+      "meaning": "I think that … / I feel that … (expressing opinions and thoughts)",
+      "examples": [
+        "工学を 勉強したいと 思います",
+        "広大な 場所を もっと 広めたいと 思います",
+        "建物が もっと 建つと 思います"
+      ]
+    },
+    {
+      "pattern": "[verb-passive] + れる / られる",
+      "meaning": "is done / was done (passive — something is done to the subject)",
+      "examples": [
+        "新しい 建物が 建てられました",
+        "工場で 毎日 車が 作られます",
+        "木工の 教室が 作られました"
+      ]
+    },
+    {
+      "pattern": "[verb-causative-passive] + せられる / させられる",
+      "meaning": "be made to do / was forced to do (causative-passive)",
+      "examples": [
+        "工員として 広場で 働かせられた",
+        "大工さんたちが 建てさせられました",
+        "長い 間 仕事を させられました"
+      ]
+    },
+    {
+      "pattern": "[plain form] + ために",
+      "meaning": "in order to / for the purpose of [verb]",
+      "examples": [
+        "広場を 広める ために 計画が 始まりました",
+        "入場する ために 並びました",
+        "工学を 学ぶ ために 勉強します"
+      ]
+    },
+    {
+      "pattern": "[verb-て] + くる / いく",
+      "meaning": "has been doing / continues to do (directional change over time)",
+      "examples": [
+        "建物が 建って きました",
+        "広場が 広く なって いきます",
+        "工場が 大きく なって きました"
+      ]
+    },
+    {
+      "pattern": "A + より + B + が + い-adj",
+      "meaning": "B is [adjective] more than A (comparison)",
+      "examples": [
+        "あの 工場より この 工場の 方が 広い",
+        "学校より この 広場の 方が 広さが ある",
+        "去年より 今年の 方が 建物が 多い"
+      ]
+    }
+  ]
+}
