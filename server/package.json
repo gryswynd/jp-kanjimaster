@@ -1,0 +1,19 @@
+{
+  "name": "rikizo-tutor-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloud Run backend for the Rikizo AI tutor (V1: Press-to-Ask).",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "predeploy": "node scripts/stage-curriculum.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@google-cloud/firestore": "^7.10.0",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.0"
+  }
+}

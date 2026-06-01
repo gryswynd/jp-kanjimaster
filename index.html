@@ -171,6 +171,16 @@ rt {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+/* Persistent nav: the bar lives in #rk-tabbar-root (a sibling of the app
+   container) so a module's container.innerHTML can't wipe it. It auto-hides on
+   focused task screens via body.jp-tabbar-hidden; on nav-visible screens the
+   scroll area reserves the bar's strip so content isn't covered. */
+body.jp-tabbar-hidden #rk-tabbar-root { display: none; }
+body:not(.jp-tabbar-hidden) #app-main-container { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+/* Inner-scroller menus (root pinned to 100dvh, content scrolls inside) reserve
+   the strip on that scroller instead. */
+body:not(.jp-tabbar-hidden) .lh-body,
+body:not(.jp-tabbar-hidden) .gr-body { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
 .rk-tab {
   background: transparent;
   border: none;
@@ -238,6 +248,20 @@ rt {
      script to gate content for brand-new students: window.RIKIZO_CONFIG = { mode:'gated' } -->
 <script>
 window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
+
+// Firebase config for accounts + progress sync (app/shared/auth.js, sync.js).
+// LEFT EMPTY ON PURPOSE → auth + sync stay INERT and the app is purely local,
+// exactly as before. Paste the values from your Firebase project's Web App
+// (Project settings → Your apps) to switch cloud sync on. These are public/safe
+// to embed. The sync server URL reuses the tutor base URL (config.tutorBaseUrl).
+window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
+  apiKey: 'AIzaSyCM5cl50FisyrusONgAhkz_zYCB4DsM7RY',
+  authDomain: 'project-9c65f87c-e8c8-409b-843.firebaseapp.com',
+  projectId: 'project-9c65f87c-e8c8-409b-843',
+  appId: '1:979574126888:web:d0ccc19e53465c9914b81d',
+  messagingSenderId: '979574126888',
+  storageBucket: 'project-9c65f87c-e8c8-409b-843.firebasestorage.app'
+};
 </script>
 
 <!-- ============================================================
@@ -364,6 +388,9 @@ window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
 </script>
 
 <div id="app-main-container"></div>
+<!-- Persistent bottom nav — sibling of the app container so module renders can't
+     wipe it. Populated by JPApp.renderTabBar(); hidden on tasks via body class. -->
+<div id="rk-tabbar-root"></div>
 
 <script>
 window.JPApp = {
@@ -375,7 +402,13 @@ window.JPApp = {
     repo: "jp-kanjimaster",
     branch: "main",
     assetMode: "local",
-    codeBase: ""
+    codeBase: "",
+    // Progress-sync server (Cloud Run). Used by app/shared/sync.js only — the AI
+    // tutor stays off until tutorBaseUrl is set separately.
+    apiBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app",
+    // AI tutor (Rikizo Press-to-Ask) — same Cloud Run service as apiBaseUrl.
+    // Overridable at runtime via ?tutor= or localStorage k-tutor-base-url.
+    tutorBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app"
   },
 
   _manifest: null,
@@ -399,6 +432,7 @@ window.JPApp = {
       case 'game':     return pass('N5.1');
       case 'story':    return done('G4');
       case 'review':   return done('G4');
+      case 'audiodojo': return pass('N5.3');
       case 'map':      return true;
       case 'custom':   return true;
       // Writing modules live under the Dojo's Writing hub; entry is already
@@ -490,6 +524,8 @@ window.JPApp = {
     await this.loadModule('app/shared/user-profile.js');
     await this.loadModule('app/shared/streak.js');
     await this.loadModule('app/shared/haptics.js');
+    await this.loadModule('app/shared/scene-kit.js');
+    await this.loadModule('app/shared/page-curl.js');
     await this.loadModule('app/shared/practice-helpers.js');
     // Load Reading Aids renderer EARLY so the html.k-furigana / .k-romaji
     // classes are set before first paint (no flash of bare-then-furigana).
@@ -507,6 +543,26 @@ window.JPApp = {
     if (window.JPShared && window.JPShared.rikizoCompanion) {
       window.JPShared.rikizoCompanion.init(this.config);
     }
+    // Ambient "Ask Rikizo" tutor overlay — always-on when the beta is enabled,
+    // so its transport + quota + context deps load eagerly at boot.
+    await this.loadModule('app/shared/device-id.js');
+    // Accounts + cloud progress sync. Inert unless RIKIZO_FIREBASE is configured
+    // AND a server URL is set, so this is a no-op in the current local-only build.
+    await this.loadModule('app/shared/auth.js');
+    await this.loadModule('app/shared/sync.js');
+    await this.loadModule('app/shared/tutor-quota.js');
+    await this.loadModule('app/shared/tutor-client.js');
+    await this.loadModule('app/shared/tutor-context.js');
+    await this.loadModule('app/shared/tutor-curriculum.js');
+    await this.loadModule('app/shared/audio-capture.js');
+    await this.loadModule('app/shared/tutor-overlay.js');
+    if (window.JPShared && window.JPShared.tutorCurriculum) {
+      // Preload manifest + glossary for curriculum awareness (non-blocking).
+      window.JPShared.tutorCurriculum.init(this.config);
+    }
+    if (window.JPShared && window.JPShared.tutorOverlay) {
+      window.JPShared.tutorOverlay.init(this.config);
+    }
     try {
       this._manifest = await window.getManifest(this.config);
     } catch (e) {
@@ -516,10 +572,24 @@ window.JPApp = {
     this.renderMenu();
     this._nativeBoot();
 
+    var self = this;
+
+    // Accounts + progress sync (all no-ops unless Firebase + server are set).
+    if (window.JPShared && window.JPShared.auth) {
+      window.JPShared.sync && window.JPShared.sync.start();
+      window.JPShared.auth.ensureSignedIn().then(function () {
+        if (window.JPShared.sync) window.JPShared.sync.pull();
+        if (self._view === 'home') self.renderMenu(); // reflect signed-in state
+      });
+    }
+    // When a cloud pull merges in newer progress, refresh Home so it shows.
+    window.addEventListener('jp-progress-synced', function () {
+      if (self._view === 'home') self.renderMenu();
+    });
+
     // When the user updates their profile in Settings (first name, etc.),
     // refresh the home masthead so the new greeting appears immediately. If
     // they're inside a lesson/module, the next return to Home will pick it up.
-    var self = this;
     document.addEventListener('jp-user-profile-changed', function () {
       if (self._view === 'home') self.renderMenu();
     });
@@ -588,8 +658,10 @@ window.JPApp = {
 
   // Real N5 progress + the next item to do, from manifest + localStorage.
   // `today` is the user's CURRENT BLOCKER — the next thing in the chain. It
-  // walks both lessons and grammars (grammars first when both are available),
-  // so after finishing N5.1 the card surfaces G1, after G1 it surfaces G2, etc.
+  // walks grammars, then reviews, then lessons (in that priority), so the
+  // natural chain surfaces in order: N5.1 → G1 → G2 → G3 → N5.2 → G4 →
+  // N5.Review.1 → N5.3 → …  Reviews are included so a freshly-unlocked review
+  // lands in the "up next" spot instead of leaving the card blank.
   // When everything available is done but the next lesson is gated by an
   // `extraRequirePass` that's still failing (e.g. N5.1 not passed), the
   // returned `today` is a "retake" entry for that lesson.
@@ -613,9 +685,22 @@ window.JPApp = {
       if (/^G\d+$/.test(l.unlocksAfter)) return done(l.unlocksAfter);
       return passed(l.unlocksAfter);
     }
+    // Mirror unlock.js isGrammarUnlocked: grammar-on-grammar uses completion,
+    // grammar gated on a lesson requires a *pass* (a failed lesson must not
+    // unlock the grammar that builds on it).
     function grammarUnlocked(g) {
       if (free) return true;
-      return !g.unlocksAfter || done(g.unlocksAfter);
+      if (!g.unlocksAfter) return true;
+      if (/^G\d+$/.test(g.unlocksAfter)) return done(g.unlocksAfter);
+      return passed(g.unlocksAfter);
+    }
+    // Reviews are graded; they unlock when their prereq is satisfied (grammar
+    // prereq → completion, lesson prereq → pass).
+    function reviewUnlocked(r) {
+      if (free) return true;
+      if (!r.unlocksAfter) return true;
+      if (/^G\d+$/.test(r.unlocksAfter)) return done(r.unlocksAfter);
+      return passed(r.unlocksAfter);
     }
 
     var lessonsTotal = lessons.length, lessonsDone = 0, kanjiTotal = 0, kanjiDone = 0;
@@ -641,17 +726,38 @@ window.JPApp = {
         break;
       }
     }
+    // Reviews sit in the chain between a grammar/lesson and the lesson they
+    // gate (e.g. G4 → N5.Review.1 → N5.3). Surface an unlocked-but-not-passed
+    // review here so it lands in the "up next" spot instead of leaving the
+    // card blank. Uses !passed (not !done) so a failed review keeps surfacing
+    // for a retake until the student clears the 60% gate.
     if (!today) {
-      for (var j = 0; j < lessons.length; j++) {
-        var l = lessons[j];
-        if (lessonUnlocked(l) && !done(l.id)) {
-          today = { kind: 'lesson', entry: l };
+      var reviews = m.data.N5.reviews || [];
+      for (var r = 0; r < reviews.length; r++) {
+        var rv = reviews[r];
+        if (reviewUnlocked(rv) && !passed(rv.id)) {
+          today = { kind: 'review', entry: rv };
           break;
         }
       }
     }
-    // Nothing available? Surface a "retake" if a later lesson is blocked by
-    // extraRequirePass on a still-unpassed lesson (the N5.2-needs-N5.1 case).
+    // First unlocked lesson that still needs work. A never-started lesson is a
+    // fresh "lesson"; an unlocked lesson that was completed but FAILED (<60%)
+    // re-surfaces as a "retake" — the chain is pass-gated, so a failed lesson
+    // silently blocks everything after it (e.g. fail N5.2 → G4/Review.1/N5.3
+    // all stay locked). Passing lessons are skipped.
+    if (!today) {
+      for (var j = 0; j < lessons.length; j++) {
+        var l = lessons[j];
+        if (!lessonUnlocked(l)) continue;
+        if (!done(l.id))   { today = { kind: 'lesson', entry: l }; break; }
+        if (!passed(l.id)) { today = { kind: 'retake', entry: l }; break; }
+      }
+    }
+    // Backstop: a later lesson blocked by extraRequirePass on a still-unpassed
+    // lesson (the N5.2-needs-N5.1 case). The loop above normally catches this
+    // first; kept as a defensive fallback that also carries the blocked-lesson
+    // context for a more specific retake message.
     if (!today) {
       for (var k = 0; k < lessons.length; k++) {
         var lk = lessons[k];
@@ -753,6 +859,9 @@ window.JPApp = {
     var first = up ? up.getFirst() : '';
     var safeFirst = first ? this._esc(first) : '';
     var nameLine = safeFirst ? (safeFirst + '-san.') : 'Rikizo-san.';
+    // Account sign-in has moved into Settings → Profile → Account. The home
+    // masthead no longer carries a sign-in chip (single entry point).
+    var acctChip = '';
     return '<div style="padding:18px 22px 8px;">' +
       '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">' +
         '<div style="flex:1;min-width:0;">' +
@@ -762,7 +871,10 @@ window.JPApp = {
           '</div>' +
           '<div style="font-size:13px;color:var(--ink-3);line-height:1.45;font-style:italic;">' + sub + '</div>' +
         '</div>' +
-        '<span class="hanko jp-serif" style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);">力</span>' +
+        '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">' +
+          acctChip +
+          '<span class="hanko jp-serif" style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);">力</span>' +
+        '</div>' +
       '</div>' +
     '</div>';
   },
@@ -840,7 +952,7 @@ window.JPApp = {
       '</div>';
     }
 
-    var kind  = prog.today.kind;       // 'lesson' | 'grammar' | 'retake'
+    var kind  = prog.today.kind;       // 'lesson' | 'grammar' | 'review' | 'retake'
     var entry = prog.today.entry;
     var blocking = prog.today.blocking; // present when kind === 'retake'
 
@@ -871,6 +983,28 @@ window.JPApp = {
             '<button onclick="JPApp.launch(\'grammar\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:16px;padding:11px 18px;border-radius:999px;border:none;background:var(--moss);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin grammar ' + I.arrow + '</button>' +
           '</div>' +
           '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--moss);color:var(--washi);border-radius:var(--r-md);font-size:48px;line-height:1;">' + icon + '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    // ---------- REVIEW card ----------
+    if (kind === 'review') {
+      var rvMatch = (entry.id || '').match(/\.Review\.(\d+)/);
+      var rvLabel = rvMatch ? ('ふくしゅう ' + rvMatch[1]) : 'ふくしゅう';
+      var minsR = entry.estimatedMinutes || 10;
+      return '<div data-tour="lesson" style="margin:0 16px;border-radius:var(--r-xl);background:var(--washi);border:1px solid var(--hairline);overflow:hidden;position:relative;box-shadow:0 10px 30px oklch(0.42 0.08 250 / 0.16);">' +
+        '<div style="padding:12px 20px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--washi);">' +
+          '<div class="mono" style="font-size:10.5px;color:oklch(1 0 0 / 0.55);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">● Up next · Review ' + self._esc(entry.id) + '</div>' +
+          '<div class="mono" style="font-size:11px;color:oklch(1 0 0 / 0.6);">~' + minsR + ' min</div>' +
+        '</div>' +
+        '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · ' + rvLabel + '</div>' +
+            '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
+            '<div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.45;">Pass with 60% or higher to continue your path.</div>' +
+            '<button onclick="JPApp.launch(\'review\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:14px;padding:11px 18px;border-radius:999px;border:none;background:var(--indigo);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin review ' + I.arrow + '</button>' +
+          '</div>' +
+          '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--indigo);color:var(--washi);border-radius:var(--r-md);font-family:var(--font-jp-display);font-size:54px;font-weight:500;line-height:1;">習</div>' +
         '</div>' +
       '</div>';
     }
@@ -960,6 +1094,13 @@ window.JPApp = {
       { key: 'review',   label: 'Review',    jp: 'ふくしゅう', kanji: '習', accent: 'ink' },
       { key: 'game',     label: 'Adventure', jp: 'ぼうけん',   kanji: '険', accent: 'vermilion' }
     ];
+    // Custom module is an opt-in demo tile — surfaced only after the user enables
+    // it in Settings → Upgrades → Custom Content (k-custom-enabled).
+    var customOn = false;
+    try { customOn = localStorage.getItem('k-custom-enabled') === '1'; } catch (e) {}
+    if (customOn) {
+      mods.push({ key: 'custom', label: 'Custom', jp: 'カスタム', kanji: '創', accent: 'gold' });
+    }
     var cells = mods.map(function(m) {
       var color = self._accent(m.accent);
       var visible = self._isModuleVisible(m.key);
@@ -1114,7 +1255,9 @@ window.JPApp = {
       { key: 'atlas',  label: 'Map',      glyph: I.tabAtlas, action: "JPApp.launch('map')" },
       { key: 'me',     label: 'Settings', glyph: I.tabMe,    action: "JPApp.openTtsSettings()" }
     ];
-    var active = 'home';
+    // Active tab follows the current view; non-tab modules (grammar/stories/
+    // reviews/compose) leave nothing highlighted.
+    var active = ({ home: 'home', lesson: 'path', practice: 'dojo', map: 'atlas' })[this._view] || '';
     var btns = tabs.map(function(t) {
       var on = t.key === active;
       var locked = t.mod ? !self._isModuleVisible(t.mod) : false;
@@ -1132,12 +1275,29 @@ window.JPApp = {
     return '<nav class="rk-tabbar">' + btns + '</nav>';
   },
 
+  // Render the persistent nav into its sibling node (refreshes active tab + lock
+  // dimming). Safe to call repeatedly.
+  renderTabBar: function() {
+    var root = document.getElementById('rk-tabbar-root');
+    if (root) root.innerHTML = this._tabBar();
+  },
+  // Show on navigation/menu screens; hide during a focused task. Modules call
+  // these as they render their menu vs task views.
+  showTabBar: function() {
+    document.body.classList.remove('jp-tabbar-hidden');
+    this.renderTabBar();
+  },
+  hideTabBar: function() {
+    document.body.classList.add('jp-tabbar-hidden');
+  },
+
   // --- RENDER MENU ---
   renderMenu: function() {
     this._view = 'home';
+    this.showTabBar();
     var prog = this._computeProgress();
     var html =
-      '<div class="rk-home" style="padding-bottom:calc(var(--tabbar-h) + 28px + env(safe-area-inset-bottom));">' +
+      '<div class="rk-home" style="padding-bottom:28px;">' +
         this._topBar() +
         this._masthead(prog) +
         this._buildStreakBar() +
@@ -1154,8 +1314,7 @@ window.JPApp = {
         this._sectionHeader('まいにち · Daily') +
         this._challengeCard() +
         this._colophon() +
-      '</div>' +
-      this._tabBar();
+      '</div>';
     this.container.innerHTML = html;
     this._rikizoGreet();
   },
@@ -1394,6 +1553,7 @@ window.JPApp = {
       if (!done('N5.2')) return 'Reach Lesson 2 first.';
       return 'Score 60% on Lesson 2 to unlock.';
     }
+    if (mode === 'audiodojo') return 'Score 60% on Lesson 3 to unlock Audio Dojo.';
     return 'Locked.';
   },
 
@@ -1424,10 +1584,16 @@ window.JPApp = {
       return;
     }
     this._view = mode;
-    if (mode === 'game') { this._showAdventureTeaser(); return; }
+    if (mode === 'game') { this.hideTabBar(); this._showAdventureTeaser(); return; }
     this.container.innerHTML = '<div class="rk-loading">力 · loading ' + this._esc(mode) + '</div>';
     // Leaving Home — re-apply presence (contextual/home modes hide; always stays).
     if (window.JPShared && window.JPShared.rikizoCompanion) window.JPShared.rikizoCompanion.applyPresence();
+    // Tutor: record what the student is looking at (extraArgs[0] is the lesson/
+    // grammar/story id for content modules) and keep the ask-button visible.
+    if (window.JPShared && window.JPShared.tutorContext) {
+      window.JPShared.tutorContext.set({ view: mode, lessonId: extraArgs[0] || null });
+    }
+    if (window.JPShared && window.JPShared.tutorOverlay) window.JPShared.tutorOverlay.applyVisibility();
 
     if (!window.JPShared || !window.JPShared.textProcessor) {
       var sharedModules = [
@@ -1441,6 +1607,7 @@ window.JPApp = {
         'app/shared/vocab-display.js',
         'app/shared/text-processor.js',
         'app/shared/term-modal.js',
+        'app/shared/characters.js',
         'app/shared/haptics.js'
       ];
       for (var i = 0; i < sharedModules.length; i++) {

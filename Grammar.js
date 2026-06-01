@@ -135,6 +135,99 @@ window.GrammarModule = {
         .gr-menu-right { display: flex; align-items: center; gap: 8px; }
         .gr-menu-score { font-size: 0.75rem; font-weight: 700; color: #5E8C5F; }
 
+        /* ── Grammar Garden scene (menu) ──────────────────────────────────
+           Scene CSS standardizes on the GLOBAL :root tokens (--moss/--gold/
+           --vermilion/--ink*). The legacy --gr-primary above stays for the
+           grammar-PLAYING screens; do not reference it from these classes. */
+        .gr-body-garden { padding: 0; display: block; }
+        .gr-garden {
+          position: relative; width: 100%; overflow: hidden;
+          background-image:
+            var(--garden-tile, none),
+            radial-gradient(130% 55% at 50% -8%, oklch(0.99 0.012 95 / 0.9), transparent 60%),
+            linear-gradient(180deg, var(--washi) 0%, oklch(0.93 0.026 132) 100%);
+          background-repeat: repeat-y, no-repeat, no-repeat;
+          background-size: 100% auto, 100% 100%, 100% 100%;
+          background-position: top center, center, center;
+        }
+        .gr-garden-empty {
+          text-align: center; color: var(--ink-3); padding: 64px 26px;
+          font-family: var(--font-jp-display); line-height: 1.85; font-size: 1rem;
+        }
+        /* PNG art over code-drawn fallback (sceneKit.artLayer) */
+        .sk-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+        .has-art > .sk-fallback { display: none; }
+
+        .gr-scenery { width: 84px; height: 84px; pointer-events: none; opacity: 0.62; z-index: 0; position: relative; }
+        .gr-scenery .sk-fallback, .gr-scenery svg { width: 100%; height: 100%; display: block; }
+
+        .gr-stone {
+          width: 66px; height: 18px; border-radius: 50%; z-index: 1;
+          background: radial-gradient(ellipse at 50% 32%, oklch(0.80 0.012 250), oklch(0.62 0.012 250));
+          box-shadow: 0 4px 8px oklch(0.22 0.012 60 / 0.18);
+        }
+        .gr-steppingstone {
+          width: 34px; height: 12px; border-radius: 50%; z-index: 0; opacity: 0.92;
+          background: radial-gradient(ellipse at 50% 32%, oklch(0.82 0.01 250), oklch(0.66 0.012 250));
+          box-shadow: 0 3px 6px oklch(0.22 0.012 60 / 0.14);
+        }
+
+        .gr-lantern {
+          width: 156px; display: flex; flex-direction: column; align-items: center;
+          cursor: pointer; z-index: 2; -webkit-tap-highlight-color: transparent;
+        }
+        .gr-lantern-fig { position: relative; width: 60px; height: 92px; }
+        .gr-lantern-art { object-fit: contain; }
+        .gr-lantern-svg { position: relative; width: 100%; height: 100%; color: oklch(0.60 0.014 250); }
+        .gr-lantern-svg svg { width: 100%; height: 100%; display: block;
+          -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+        .gr-lantern-light { fill: oklch(0.80 0.012 250); transition: fill 0.4s ease; }
+        .gr-lantern.lit .gr-lantern-svg { color: oklch(0.56 0.018 255); }
+        .gr-lantern.lit .gr-lantern-light { fill: var(--gold); }
+        .gr-lantern.lit .gr-lantern-svg svg {
+          filter: drop-shadow(0 0 6px oklch(0.82 0.12 85)) drop-shadow(0 0 13px oklch(0.82 0.12 85 / 0.55));
+        }
+        .gr-lantern--next .gr-lantern-fig::after {
+          content: ''; position: absolute; left: 50%; top: 46%; width: 66px; height: 66px;
+          transform: translate(-50%, -50%); border-radius: 50%; z-index: -1; pointer-events: none;
+          background: radial-gradient(circle, oklch(0.82 0.12 85 / 0.5), transparent 70%);
+          animation: grLanternPulse 2.4s ease-in-out infinite;
+        }
+        @keyframes grLanternPulse {
+          0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.9); }
+          50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.12); }
+        }
+        /* readable wooden hanging sign (木札) — replaces the trailing-off label */
+        .gr-lantern-sign {
+          position: relative; margin-top: 13px; max-width: 160px; text-align: center;
+          padding: 7px 13px 8px; border-radius: 5px;
+          background: linear-gradient(180deg, oklch(0.67 0.055 72), oklch(0.57 0.065 66));
+          border: 1px solid oklch(0.44 0.06 60);
+          box-shadow: 0 4px 9px oklch(0.22 0.03 60 / 0.3), inset 0 1px 0 oklch(0.82 0.06 82 / 0.45);
+        }
+        .gr-lantern-sign::before {
+          content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+          width: 4px; height: 8px; background: oklch(0.40 0.05 55); border-radius: 2px;
+        }
+        .gr-lantern-id { font-family: var(--font-mono); font-weight: 700; font-size: 11px;
+          letter-spacing: 0.06em; color: oklch(0.30 0.06 50); }
+        .gr-lantern-title { font-family: var(--font-jp-display); font-size: 13.5px; font-weight: 600;
+          color: oklch(0.18 0.03 55); line-height: 1.3; margin-top: 3px; }
+        .gr-lantern-stamp { position: absolute; top: -4px; right: 16px; width: 34px; height: 34px; z-index: 3; }
+        .gr-lantern-stamp img { width: 100%; height: 100%; object-fit: contain; opacity: 0.9; }
+
+        .gr-level-marker { text-align: center; pointer-events: none; z-index: 1; }
+        .gr-level-marker span {
+          display: inline-block; font-family: var(--font-jp-display); font-size: 12px;
+          letter-spacing: 0.2em; color: var(--ink-3);
+          background: oklch(0.97 0.008 80 / 0.72); border: 1px solid var(--hairline);
+          border-radius: 999px; padding: 4px 15px; backdrop-filter: blur(2px);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .gr-lantern--next .gr-lantern-fig::after { animation: none; }
+          .gr-lantern-light { transition: none; }
+        }
+
         /* Intro section */
         .gr-intro-card { text-align: center; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .gr-intro-icon { font-size: 3.5rem; margin-bottom: 10px; }
@@ -1031,26 +1124,6 @@ window.GrammarModule = {
       return div;
     }
 
-    // Resolve a character id (e.g. "yuki") to its head-portrait URL.
-    function _grHeadUrl(charId) {
-        if (!charId) return '';
-        return 'assets/characters/' + charId + '/' + charId + '_head.png';
-    }
-    // Pretty display name from a character id ("yuki" → "Yuki", "yamamoto" → "Yamamoto-sensei").
-    function _grCharDisplay(charId) {
-        if (!charId) return '';
-        const senseis = { yamamoto: true, suzuki: true };
-        const name = charId.charAt(0).toUpperCase() + charId.slice(1);
-        return senseis[charId] ? name + '-sensei' : name;
-    }
-    // Pick which speaker sits on the right ("you") side of the chat. Rikizo
-    // always wins if he's a speaker; otherwise the first spk key takes right.
-    function _grRightSpeaker(speakers, lines) {
-        if (speakers) {
-            for (const k in speakers) if (speakers[k] === 'rikizo') return k;
-        }
-        return (lines && lines[0] && lines[0].spk) || '';
-    }
     // Apply Grammar Garden's focus-particle highlights to JP DOM produced by
     // textProcessor.processText. Pulled out of renderConversation so the chat
     // layout below stays compact.
@@ -1102,12 +1175,12 @@ window.GrammarModule = {
         div.appendChild(toggle);
 
         const speakers = sec.speakers || {};
-        const rightSpk = _grRightSpeaker(speakers, sec.lines);
+        const rightSpk = window.JPShared.characters.rightSpeaker(sec.lines, speakers, termMapData);
         const msgWrap = el('div', '');
         msgWrap.style.cssText = 'padding:6px 8px 0;display:flex;flex-direction:column;gap:6px;';
         (sec.lines || []).forEach((line, idx) => {
             const spk = String(line.spk || '');
-            const charId = speakers[spk] || '';
+            const who = window.JPShared.characters.resolve(spk, speakers, termMapData, getCdnUrl);
             const isRight = spk === rightSpk;
             const prevSpk = idx > 0 ? String(sec.lines[idx - 1].spk || '') : null;
             const sameAsPrev = prevSpk === spk;
@@ -1120,10 +1193,10 @@ window.GrammarModule = {
                 const header = el('div', '');
                 header.innerHTML =
                     '<div style="display:flex;align-items:center;gap:8px;flex-direction:' + (isRight ? 'row-reverse' : 'row') + ';padding:0 4px;margin-bottom:2px;">' +
-                      (charId
-                        ? '<img src="' + _grHeadUrl(charId) + '" alt="' + esc(_grCharDisplay(charId)) + '" style="width:30px;height:30px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--washi-2,#efe9d8);border:1px solid var(--hairline,rgba(40,35,30,0.14));" onerror="this.style.visibility=\'hidden\'">'
-                        : '<div style="width:30px;height:30px;border-radius:999px;background:var(--washi-2,#efe9d8);border:1px solid var(--hairline,rgba(40,35,30,0.14));display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3,#7a7167);font-weight:600;">' + esc(spk.slice(0, 1)) + '</div>') +
-                      '<div style="font-size:11px;font-weight:600;color:var(--ink-2,#4a4138);letter-spacing:0.01em;">' + esc(charId ? _grCharDisplay(charId) : spk) + '</div>' +
+                      (who.portraitUrl
+                        ? '<img src="' + who.portraitUrl + '" alt="' + esc(who.name) + '" style="width:30px;height:30px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--washi-2,#efe9d8);border:1px solid var(--hairline,rgba(40,35,30,0.14));" onerror="this.style.visibility=\'hidden\'">'
+                        : '<div style="width:30px;height:30px;border-radius:999px;background:var(--washi-2,#efe9d8);border:1px solid var(--hairline,rgba(40,35,30,0.14));display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3,#7a7167);font-weight:600;">' + esc(who.initial) + '</div>') +
+                      '<div style="font-size:11px;font-weight:600;color:var(--ink-2,#4a4138);letter-spacing:0.01em;">' + esc(who.name) + '</div>' +
                     '</div>';
                 row.appendChild(header);
             }
@@ -1219,6 +1292,7 @@ window.GrammarModule = {
     // ──────────────────────────────────────────────
 
     function renderCurrentStep() {
+      if (window.JPApp) window.JPApp.hideTabBar();
       const body = root.querySelector('.gr-body');
       const title = root.querySelector('.gr-title');
       const bar = root.querySelector('.gr-progress-bar');
@@ -1307,6 +1381,19 @@ window.GrammarModule = {
 
       const sec = grammarData.sections[currentStep];
       title.innerText = sec.title || grammarData.title;
+
+      // Tell Ask-Rikizo what grammar section is on screen for in-context answers.
+      try {
+        const tc = window.JPShared && window.JPShared.tutorContext;
+        if (tc) tc.patch({
+          view: 'grammar',
+          lessonId: grammarId,
+          title: grammarData.title || sec.title || '',
+          page: currentStep,
+          sectionType: sec.type,
+          sample: tc.sampleFromSection(sec)
+        });
+      } catch (e) {}
 
       const wrap = el('div', '');
       let content = null;
@@ -1443,75 +1530,176 @@ window.GrammarModule = {
       }
     }
 
+    // ── Grammar Garden scene assets (inline SVG, themed via currentColor/vars) ──
+    function lanternSVG() {
+      return '<svg viewBox="0 0 60 92" aria-hidden="true">' +
+        '<ellipse cx="30" cy="88" rx="17" ry="4.5" fill="currentColor" opacity="0.5"/>' +
+        '<rect x="25.5" y="62" width="9" height="24" rx="2.5" fill="currentColor"/>' +
+        '<path d="M19 62 H41 L37 55 H23 Z" fill="currentColor"/>' +
+        '<rect x="19" y="33" width="22" height="22" rx="3.5" fill="currentColor"/>' +
+        '<rect class="gr-lantern-light" x="25" y="38" width="10" height="12" rx="2.5"/>' +
+        '<path d="M12 33 Q30 13 48 33 Q40 27 30 25 Q20 27 12 33 Z" fill="currentColor"/>' +
+        '<circle cx="30" cy="15" r="3.2" fill="currentColor"/>' +
+      '</svg>';
+    }
+    var GARDEN_SCENERY = [
+      // koi pond
+      '<svg viewBox="0 0 80 80" aria-hidden="true"><ellipse cx="40" cy="48" rx="33" ry="19" fill="oklch(0.72 0.07 220)"/>' +
+        '<path d="M28 44 q7 -6 13 0 q-4 4 -13 0z" fill="oklch(0.68 0.16 40)"/>' +
+        '<path d="M45 53 q6 -5 11 0 q-3 3 -11 0z" fill="oklch(0.7 0.15 30)"/></svg>',
+      // bonsai
+      '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="34" r="16" fill="oklch(0.55 0.1 142)"/>' +
+        '<circle cx="27" cy="40" r="10" fill="oklch(0.56 0.1 142)"/><circle cx="53" cy="40" r="10" fill="oklch(0.54 0.1 145)"/>' +
+        '<rect x="38" y="42" width="4" height="18" fill="oklch(0.4 0.05 60)"/>' +
+        '<path d="M26 60 H54 L50 70 H30 Z" fill="oklch(0.45 0.08 40)"/></svg>',
+      // torii gate
+      '<svg viewBox="0 0 80 80" aria-hidden="true"><rect x="18" y="22" width="44" height="7" rx="2" fill="var(--vermilion)"/>' +
+        '<rect x="24" y="32" width="32" height="4.5" fill="var(--vermilion)"/>' +
+        '<rect x="26" y="22" width="6.5" height="46" fill="var(--vermilion)"/>' +
+        '<rect x="47.5" y="22" width="6.5" height="46" fill="var(--vermilion)"/></svg>',
+      // bamboo
+      '<svg viewBox="0 0 80 80" aria-hidden="true"><rect x="31" y="12" width="6" height="58" rx="3" fill="oklch(0.6 0.12 135)"/>' +
+        '<rect x="44" y="20" width="5" height="50" rx="2.5" fill="oklch(0.63 0.11 138)"/>' +
+        '<path d="M37 26 q12 -4 18 -12" stroke="oklch(0.6 0.13 135)" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+        '<path d="M31 34 q-12 -3 -18 -10" stroke="oklch(0.6 0.13 135)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
+      // maple
+      '<svg viewBox="0 0 80 80" aria-hidden="true"><rect x="38" y="42" width="4" height="20" fill="oklch(0.4 0.05 60)"/>' +
+        '<circle cx="40" cy="34" r="15" fill="oklch(0.56 0.16 35)"/><circle cx="29" cy="40" r="9" fill="oklch(0.55 0.16 35)"/>' +
+        '<circle cx="51" cy="40" r="9" fill="oklch(0.55 0.16 30)"/></svg>'
+    ];
+    // PNG filenames parallel to GARDEN_SCENERY (koi, bonsai, torii, bamboo, maple).
+    var GARDEN_SCENERY_ART = ['garden-koi.png', 'garden-bonsai.png', 'garden-torii.png', 'garden-bamboo.png', 'garden-maple.png'];
+
     function renderMenu() {
+      if (window.JPApp) window.JPApp.showTabBar();
       root.innerHTML = `
         <div class="gr-header">
           <div class="gr-title">🌿 Grammar Garden</div>
           <div style="display:flex;gap:8px;align-items:center;"><button class="jp-settings-gear" onclick="window.JPShared.ttsSettings.open()" title="Voice Settings">\u2699</button><button class="gr-exit-btn">Exit</button></div>
         </div>
-        <div class="gr-body">
-          <div style="font-size:0.8rem;color:#888;margin-bottom:16px;text-transform:uppercase;font-weight:700;letter-spacing:1px;">Grammar Lessons</div>
-          <div class="gr-menu-grid" id="gr-menu-container"></div>
+        <div class="gr-body gr-body-garden">
+          <div class="gr-garden" id="gr-garden"></div>
         </div>`;
       root.querySelector('.gr-exit-btn').onclick = exitCallback;
-      const menuEl = document.getElementById('gr-menu-container');
+      const garden = document.getElementById('gr-garden');
+
+      const sk = window.JPShared && window.JPShared.sceneKit;
+      const artUrl = name => window.getAssetUrl ? window.getAssetUrl(REPO_CONFIG, 'assets/scenes/' + name) : '';
+
+      // Garden ground tile (repeats down the scroll) over the gradient fallback.
+      const tileUrl = artUrl('garden-tile.png');
+      if (tileUrl) garden.style.setProperty('--garden-tile', "url('" + tileUrl + "')");
 
       const unlockApi = window.JPShared && window.JPShared.unlock;
       const visibleGrammars = currentGrammars.filter(g =>
         !unlockApi || unlockApi.isFree() || unlockApi.isGrammarUnlocked(g)
       );
 
+      if (visibleGrammars.length === 0) {
+        garden.style.height = 'auto';
+        garden.innerHTML = '<div class="gr-garden-empty">この庭はまだ眠っています。<br>Finish your first lessons to plant the garden.</div>';
+        return;
+      }
+
       const stampApi = window.JPShared && window.JPShared.stampSettings;
       const stampUrl = stampApi && stampApi.getStampUrl ? stampApi.getStampUrl() : '';
       const pooUrl = stampApi && stampApi.getPooUrl ? stampApi.getPooUrl() : '';
 
+      const TOP = 50;       // px above the first lantern
+      const STEP = 198;     // vertical px between lanterns (room for the wood sign)
+      const AMP = 19;       // horizontal swing (% of width)
+      const SVG_H = 92;     // lantern figure height
+      const N = visibleGrammars.length;
+
+      const xPctAt = i => 50 + AMP * Math.sin(i * 0.92);
+      const lanternTopAt = i => TOP + i * STEP;
+      const stoneCenterAt = i => lanternTopAt(i) + SVG_H + 9; // center of the base stone
+
+      garden.style.height = (lanternTopAt(N - 1) + SVG_H + 210) + 'px';
+
+      function place(node, xPct, yPx) {
+        node.style.position = 'absolute';
+        node.style.left = xPct + '%';
+        node.style.top = yPx + 'px';
+        node.style.transform = 'translate(-50%, -50%)';
+        garden.appendChild(node);
+        return node;
+      }
+
+      // 1) Background scenery — decorative, every other lantern, opposite side.
+      //    PNG (garden-<element>.png) layers over the inline-SVG fallback.
+      for (let i = 0; i < N; i += 2) {
+        const g = visibleGrammars[i];
+        const side = xPctAt(i) >= 50 ? 15 : 85;
+        const jitter = sk ? (sk.hashIndexSalted(g.id, 'sy', 5) - 2) * 11 : 0;
+        const sIdx = sk ? sk.hashIndex(g.id, GARDEN_SCENERY.length) : (i % GARDEN_SCENERY.length);
+        const scenery = el('div', 'gr-scenery');
+        if (sk) scenery.appendChild(sk.artLayer(artUrl(GARDEN_SCENERY_ART[sIdx]), 'gr-scenery-art'));
+        scenery.appendChild(el('div', 'sk-fallback', GARDEN_SCENERY[sIdx]));
+        place(scenery, side, lanternTopAt(i) + 30 + jitter);
+      }
+
+      // 2) Stepping-stone path — connector stones between consecutive lanterns.
+      for (let i = 0; i < N - 1; i++) {
+        for (let t = 1; t <= 2; t++) {
+          const f = t / 3;
+          const x = xPctAt(i) + (xPctAt(i + 1) - xPctAt(i)) * f;
+          const y = stoneCenterAt(i) + (stoneCenterAt(i + 1) - stoneCenterAt(i)) * f;
+          place(el('div', 'gr-steppingstone'), x, y);
+        }
+      }
+
+      // 3) Level markers + lanterns.
       let lastLevel = null;
-      visibleGrammars.forEach(g => {
+      let firstNotDoneSeen = false;
+      visibleGrammars.forEach((g, i) => {
         if (g.level !== lastLevel) {
           lastLevel = g.level;
-          menuEl.appendChild(el('div', 'gr-menu-level-header', g.level));
+          const marker = el('div', 'gr-level-marker', '<span>' + esc(g.level) + ' · ぶんぽう</span>');
+          marker.style.position = 'absolute';
+          marker.style.left = '0';
+          marker.style.right = '0';
+          marker.style.top = (lanternTopAt(i) - STEP / 2 + 14) + 'px';
+          garden.appendChild(marker);
         }
 
         const done = isGrammarComplete(g.id);
-        const item = el('div', 'gr-menu-item' + (false ? ' locked' : ''));
-        const left = el('div', '', '');
-        left.style.display = 'flex'; left.style.alignItems = 'center';
-        left.appendChild(el('span', 'gr-menu-icon', g.icon || '📐'));
-        const info = el('div', '');
-        info.appendChild(el('div', 'gr-menu-id', g.id));
-        info.appendChild(el('div', 'gr-menu-name', g.title));
-        left.appendChild(info);
-        item.appendChild(left);
-
         const score = done ? progressGet('grammar_' + g.id + '_drill_score') : null;
         const hasScore = score !== undefined && score !== null;
 
+        const lantern = el('div', 'gr-lantern' + (done ? ' lit' : ''));
+        if (!done && !firstNotDoneSeen) { lantern.classList.add('gr-lantern--next'); firstNotDoneSeen = true; }
+
+        // lantern figure: PNG (lit/unlit) over the inline-SVG fallback
+        const fig = el('div', 'gr-lantern-fig');
+        if (sk) fig.appendChild(sk.artLayer(artUrl(done ? 'lantern-lit.png' : 'lantern-unlit.png'), 'gr-lantern-art'));
+        fig.appendChild(el('div', 'gr-lantern-svg sk-fallback', lanternSVG()));
+        lantern.appendChild(fig);
+        lantern.appendChild(el('div', 'gr-stone'));
+        const sign = el('div', 'gr-lantern-sign', '');
+        sign.appendChild(el('div', 'gr-lantern-id', esc(g.id)));
+        sign.appendChild(el('div', 'gr-lantern-title', esc(g.title || '')));
+        lantern.appendChild(sign);
+
         if (done && hasScore && (stampUrl || pooUrl)) {
           const passing = score >= 60;
-          const rightWrap = el('div', 'gr-menu-right', '');
-          const scoreEl = el('span', 'gr-menu-score', score + '%');
-          if (!passing) scoreEl.style.color = '#999';
-          rightWrap.appendChild(scoreEl);
-          const tilt = Math.floor(Math.random() * 41) - 20;
-          const stampDiv = el('div', 'gr-menu-stamp', '');
+          const stampDiv = el('div', 'gr-lantern-stamp', '');
           const img = document.createElement('img');
           img.src = passing ? stampUrl : (pooUrl || stampUrl);
           img.alt = passing ? '✓' : '✗';
+          const tilt = sk ? (sk.hashIndexSalted(g.id, 'tilt', 31) - 15) : 0;
           img.style.transform = 'rotate(' + tilt + 'deg)';
           stampDiv.appendChild(img);
-          rightWrap.appendChild(stampDiv);
-          item.appendChild(rightWrap);
-        } else {
-          item.appendChild(el('span', 'gr-menu-badge lock', '→'));
+          lantern.appendChild(stampDiv);
         }
 
-        item.onclick = () => loadGrammarLesson(g.file, g.id);
-        menuEl.appendChild(item);
+        lantern.style.position = 'absolute';
+        lantern.style.left = xPctAt(i) + '%';
+        lantern.style.top = lanternTopAt(i) + 'px';
+        lantern.style.transform = 'translateX(-50%)';
+        lantern.onclick = () => { if (sk) sk.tapFeedback(lantern); loadGrammarLesson(g.file, g.id); };
+        garden.appendChild(lantern);
       });
-
-      if (visibleGrammars.length === 0) {
-        menuEl.innerHTML = '<div style="text-align:center;color:#aaa;padding:40px;">No grammar lessons available yet.</div>';
-      }
     }
 
     // --- Modal ---

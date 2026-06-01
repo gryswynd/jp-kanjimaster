@@ -179,6 +179,7 @@ window.WritingKanjiModule = (function () {
 
     // ---------- Level picker ----------
     function renderLevels() {
+      if (window.JPApp) window.JPApp.showTabBar();
       destroyActiveCanvas();
       state.view = 'level';
       root.innerHTML = '';
@@ -208,6 +209,7 @@ window.WritingKanjiModule = (function () {
 
     // ---------- Lesson list ----------
     async function renderLessons() {
+      if (window.JPApp) window.JPApp.showTabBar();
       destroyActiveCanvas();
       state.view = 'lessons';
       root.innerHTML = '';
@@ -325,6 +327,7 @@ window.WritingKanjiModule = (function () {
 
     // ---------- Drill (single kanji) ----------
     function openDrill(idx) {
+      if (window.JPApp) window.JPApp.hideTabBar();
       destroyActiveCanvas();
       state.view = 'drill';
       state.drillIdx = idx;

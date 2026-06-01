@@ -140,6 +140,7 @@
     },
 
     renderLevelPickerView: function(byLevel) {
+      if (window.JPApp) window.JPApp.showTabBar();
       const stage = document.getElementById('jp-stage');
       const levels = ['N5', 'N4'].filter(l => byLevel[l] && byLevel[l].length);
 
@@ -172,6 +173,7 @@
     },
 
     renderReviewMenu: function(level, reviews) {
+      if (window.JPApp) window.JPApp.showTabBar();
       this._selectedLevel = level;
       const stage = document.getElementById('jp-stage');
 
@@ -183,43 +185,85 @@
       const stampApi = window.JPShared && window.JPShared.stampSettings;
       const stampUrl = stampApi && stampApi.getStampUrl ? stampApi.getStampUrl() : '';
       const pooUrl = stampApi && stampApi.getPooUrl ? stampApi.getPooUrl() : '';
+      const sk = window.JPShared && window.JPShared.sceneKit;
+      const cfg = this.config;
+      const artUrl = name => window.getAssetUrl ? window.getAssetUrl(cfg, 'assets/scenes/' + name) : '';
+
+      // Hand-drawn "maru" grade ring (open circle), inherits color via currentColor.
+      const ring = '<svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 5 C46 5 56 17 55 31 C54 46 41 56 28 55 C14 54 5 41 6 27 C7 15 18 5 32 6" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg>';
+
+      if (visibleReviews.length === 0) {
+        stage.innerHTML = '<button class="jp-review-level-back-btn" id="jp-back-to-levels">← Levels</button>' +
+          '<div style="text-align:center;color:#888;padding:40px;">No reviews on the desk yet.</div>';
+        document.getElementById('jp-back-to-levels').onclick = () => this.renderLevelPickerView(this._reviewsByLevel);
+        return;
+      }
 
       let html = `<button class="jp-review-level-back-btn" id="jp-back-to-levels">← Levels</button>`;
-      html += '<div class="jp-review-menu-grid">';
+      html += '<div class="jp-review-desk"><div class="jp-review-papers">';
+
+      // First not-passed review = "current" (the next paper to hand in / retake).
+      let currentMarked = false;
       visibleReviews.forEach(review => {
         const topScore = window.JPShared.progress.getReviewScore(review.id);
         const hasScore = topScore !== undefined;
         const passing = hasScore && topScore >= 60;
-        const tilt = Math.floor(Math.random() * 41) - 20;
+        const tilt = sk ? (sk.hashIndexSalted(review.id, 'tilt', 7) - 3) * 0.8 : 0; // ±2.4°
+        const isCurrent = !passing && !currentMarked;
+        if (isCurrent) currentMarked = true;
 
-        let rightHtml;
-        if (hasScore && (stampUrl || pooUrl)) {
-          const scoreColor = passing ? 'var(--jp-primary)' : '#999';
-          const imgSrc = passing ? stampUrl : (pooUrl || stampUrl);
-          rightHtml = `<div class="jp-review-menu-right">` +
-            `<span class="jp-review-menu-score" style="color:${scoreColor}">${topScore}%</span>` +
-            `<div class="jp-review-menu-stamp"><img src="${imgSrc}" alt="${passing ? '✓' : '✗'}" style="transform:rotate(${tilt}deg);"></div>` +
-            `</div>`;
+        let gradeHtml = '', stampHtml = '', goHtml = '';
+        if (hasScore) {
+          gradeHtml = `<div class="jp-review-paper-grade${passing ? '' : ' jp-review-paper-grade--fail'}" style="color:${passing ? 'var(--vermilion)' : 'var(--ink-3)'};">${ring}<span class="num">${topScore}</span></div>`;
+          if (stampUrl || pooUrl) {
+            const stTilt = sk ? (sk.hashIndexSalted(review.id, 'st', 31) - 15) : 0;
+            const imgSrc = passing ? stampUrl : (pooUrl || stampUrl);
+            stampHtml = `<div class="jp-review-paper-stamp"><img src="${imgSrc}" alt="${passing ? '✓' : '✗'}" style="transform:rotate(${stTilt}deg);"></div>`;
+          }
         } else {
-          rightHtml = `<span class="jp-review-menu-badge">→</span>`;
+          goHtml = `<span class="jp-review-paper-go">→</span>`;
         }
 
         html += `
-          <div class="jp-review-menu-item" data-file="${review.file}" data-id="${review.id}">
-            <div class="jp-review-menu-id">${review.id}</div>
-            <div class="jp-review-menu-title">${review.title || ''}</div>
-            ${rightHtml}
+          <div class="jp-review-paper${hasScore ? '' : ' jp-review-paper--ungraded'}${isCurrent ? ' jp-review-paper--current' : ''}" data-file="${review.file}" data-id="${review.id}" style="transform:rotate(${tilt}deg);">
+            <div class="sk-fallback jp-review-sheet"></div>
+            ${gradeHtml}
+            <div class="jp-review-paper-head"><span class="jp-review-paper-id">${review.id}</span><span class="jp-review-paper-title">${review.title || ''}</span></div>
+            <div class="jp-review-paper-body"></div>
+            ${goHtml}${stampHtml}
           </div>
         `;
       });
-      html += '</div>';
+      html += '</div>'; // .jp-review-papers
+      // student desk furniture at the bottom (art over CSS fallback)
+      html += '<div class="jp-review-deskbase" id="jp-review-deskbase">' +
+        '<div class="sk-fallback jp-review-deskbase-fallback">' +
+          '<div class="jp-review-desk-surface"></div>' +
+          '<div class="jp-review-desk-leg jp-review-desk-leg--l"></div>' +
+          '<div class="jp-review-desk-leg jp-review-desk-leg--r"></div>' +
+        '</div></div>';
+      html += '</div>'; // .jp-review-desk
 
       stage.innerHTML = html;
 
+      // optional room backdrop + per-element art layers (graceful fallback)
+      const deskScene = stage.querySelector('.jp-review-desk');
+      if (deskScene) {
+        const roomUrl = artUrl('reviews-room-bg.png');
+        if (roomUrl) deskScene.style.setProperty('--reviews-room', "url('" + roomUrl + "')");
+      }
+      if (sk) {
+        stage.querySelectorAll('.jp-review-paper').forEach(item => {
+          item.insertBefore(sk.artLayer(artUrl('paper-test.png'), 'jp-review-paper-art'), item.firstChild);
+        });
+        const deskbase = document.getElementById('jp-review-deskbase');
+        if (deskbase) deskbase.insertBefore(sk.artLayer(artUrl('desk-student.png'), 'jp-review-deskbase-art'), deskbase.firstChild);
+      }
+
       document.getElementById('jp-back-to-levels').onclick = () => this.renderLevelPickerView(this._reviewsByLevel);
 
-      stage.querySelectorAll('.jp-review-menu-item').forEach(item => {
-        item.onclick = () => this.loadReview(item.dataset.file, item.dataset.id);
+      stage.querySelectorAll('.jp-review-paper').forEach(item => {
+        item.onclick = () => { if (sk) sk.tapFeedback(item); this.loadReview(item.dataset.file, item.dataset.id); };
       });
     },
 
@@ -243,6 +287,7 @@
     },
 
     buildUI: function() {
+      if (window.JPApp) window.JPApp.hideTabBar();
       this.container.innerHTML = `
         <div id="jp-test-wrapper">
             <div id="jp-test-embed">
@@ -487,6 +532,75 @@
                 min-height: 100vh; min-height: 100dvh;
                 overflow: hidden;
             }
+
+            /* ── Student-desk returned-papers scene (menu). Papers stack up;
+               the student desk sits at the BOTTOM (mirrors Lessons). PNG art
+               (assets/scenes/*) layers over CSS via sceneKit.artLayer. Global
+               :root gives --vermilion/--gold/--font-mono; wrapper gives
+               --washi/--ink*. Legacy .jp-review-menu-* classes stay unused. ── */
+            .sk-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+            .has-art > .sk-fallback { display: none; }
+
+            .jp-review-desk {
+                position: relative; display: flex; flex-direction: column;
+                padding: 20px 16px calc(16px + env(safe-area-inset-bottom));
+                min-height: calc(100dvh - 116px); background-color: oklch(0.93 0.012 70);
+                background-image: var(--reviews-room, none), radial-gradient(150% 45% at 50% 0%, oklch(0.96 0.012 78 / 0.7), transparent 60%);
+                background-repeat: no-repeat, no-repeat; background-size: cover, 100% 100%; background-position: center, center;
+            }
+            .jp-review-papers { display: flex; flex-direction: column; gap: 13px; max-width: 520px; width: 100%; margin: 0 auto; }
+            .jp-review-paper { position: relative; min-height: 78px; padding: 18px 20px 16px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+            .jp-review-paper-art { object-fit: fill; z-index: 1; }
+            /* stapled test booklet (packet): cover + page-edge layers + a staple */
+            .jp-review-sheet {
+                position: absolute; inset: 0; z-index: 0; border-radius: 3px;
+                border: 1px solid oklch(0.22 0.012 60 / 0.12);
+                background:
+                  repeating-linear-gradient(180deg, transparent 0 26px, oklch(0.55 0.07 250 / 0.12) 26px 27px),
+                  linear-gradient(180deg, oklch(0.99 0.005 90), oklch(0.975 0.008 85));
+                box-shadow:
+                  3px 4px 0 -1px oklch(0.94 0.008 85),
+                  6px 8px 0 -2px oklch(0.90 0.010 85),
+                  0 9px 16px oklch(0.20 0.02 60 / 0.22);
+            }
+            .jp-review-sheet::after { /* corner staple */
+                content: ''; position: absolute; top: 11px; left: 14px; width: 13px; height: 4px;
+                background: linear-gradient(180deg, oklch(0.80 0.01 255), oklch(0.62 0.015 255));
+                border-radius: 1px; transform: rotate(-42deg);
+                box-shadow: 0 1px 1px oklch(0.20 0.02 60 / 0.35);
+            }
+            .jp-review-paper-head { position: relative; z-index: 2; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-right: 54px; }
+            .jp-review-paper-id { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--vermilion); }
+            .jp-review-paper-title { font-family: var(--font-jp-display); font-size: 15px; font-weight: 600; color: var(--ink); }
+            .jp-review-paper-body { position: relative; z-index: 2; height: 26px; }
+            .jp-review-paper-grade {
+                position: absolute; top: -12px; right: 14px; width: 56px; height: 56px; z-index: 3;
+                display: flex; align-items: center; justify-content: center;
+            }
+            .jp-review-paper-grade svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+            .jp-review-paper-grade .num { position: relative; font-family: var(--font-mono); font-weight: 800; font-size: 16px; }
+            .jp-review-paper-stamp { position: absolute; right: 16px; bottom: 12px; width: 40px; height: 40px; z-index: 3; }
+            .jp-review-paper-stamp img { width: 100%; height: 100%; object-fit: contain; opacity: 0.9; }
+            .jp-review-paper-go { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--ink-3); font-size: 14px; z-index: 3; }
+            .jp-review-paper--ungraded { opacity: 0.94; }
+            .jp-review-paper--current .jp-review-sheet { box-shadow: 0 8px 20px oklch(0.20 0.02 60 / 0.28), 0 0 0 2px var(--gold); }
+            .jp-review-paper--current.has-art { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+            /* student desk furniture at the bottom of the pile */
+            .jp-review-deskbase { position: relative; height: 132px; margin-top: 8px; }
+            .jp-review-deskbase-art { object-fit: contain; object-position: center bottom; }
+            .jp-review-deskbase-fallback { position: absolute; inset: 0; }
+            .jp-review-desk-surface {
+                position: absolute; top: 0; left: 0; right: 0; height: 50px; border-radius: 4px;
+                background:
+                  repeating-linear-gradient(90deg, oklch(0.58 0.04 60) 0 4px, oklch(0.55 0.04 58) 4px 9px),
+                  linear-gradient(180deg, oklch(0.62 0.04 62), oklch(0.54 0.04 58));
+                border-top: 3px solid oklch(0.42 0.045 55);
+                box-shadow: 0 7px 13px oklch(0.25 0.03 50 / 0.3);
+            }
+            .jp-review-desk-leg { position: absolute; top: 46px; width: 15px; height: 74px; background: linear-gradient(90deg, oklch(0.55 0.04 58), oklch(0.47 0.04 56)); border-radius: 0 0 3px 3px; }
+            .jp-review-desk-leg--l { left: 34px; }
+            .jp-review-desk-leg--r { right: 34px; }
 
             /* Header */
             .jp-header {
@@ -827,6 +941,7 @@
                 title: item.title,
                 context: item.context,
                 lines: item.lines,
+                speakers: item.speakers || {},
                 q: item.question,
                 choices: item.choices,
                 answer: item.answer,
@@ -861,6 +976,24 @@
       const q = this.state.questions[this.state.idx];
       const stage = this.el('jp-stage');
 
+      // Tell Ask-Rikizo which review question is on screen. Sample the question's
+      // own Japanese only — never the answer (don't let Rikizo leak it).
+      try {
+        const tc = window.JPShared && window.JPShared.tutorContext;
+        if (tc) {
+          let sample = q ? (q.jp || q.prompt || q.stem || q.question || '') : '';
+          if (!sample && q && q.lines && q.lines[0]) sample = q.lines[0].jp || '';
+          tc.patch({
+            view: 'review',
+            lessonId: this.config && this.config._reviewId,
+            title: (q && q.section) || 'Review',
+            page: this.state.idx,
+            sectionType: 'review',
+            sample: String(sample).slice(0, 200)
+          });
+        }
+      } catch (e) {}
+
       const pct = (this.state.idx / this.state.questions.length) * 100;
       this.el('jp-progress').style.width = pct + "%";
 
@@ -874,11 +1007,19 @@
         this._ttsLines = convLines;
         html += `<div class="jp-passage">`;
         if(q.context) html += `<div style="font-style:italic; color:#666; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">Context: ${q.context}</div>`;
+        const getUrl = this.getUrl.bind(this);
         q.lines.forEach((line, li) => {
+          const who = window.JPShared.characters.resolve(line.spk, q.speakers, this.state.termMap, getUrl);
+          const avatar = who.portraitUrl
+            ? `<img src="${who.portraitUrl}" alt="${who.name}" style="width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;background:#eee;" onerror="this.style.visibility='hidden'">`
+            : `<div style="width:34px;height:34px;border-radius:50%;background:var(--jp-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;">${who.initial}</div>`;
           html += `
-            <div class="jp-convo-line" style="display:flex;align-items:flex-start;">
-              <div class="jp-convo-spk">${line.spk}</div>
-              <div class="jp-convo-text" style="flex:1">${window.JPShared.textProcessor.processText(line.jp, line.terms, this.state.termMap, this.state.conjugations, this.state.counterRules)}</div>
+            <div class="jp-convo-line" style="display:flex;align-items:flex-start;gap:10px;">
+              ${avatar}
+              <div style="flex:1;min-width:0;">
+                <div class="jp-convo-spk">${who.name}</div>
+                <div class="jp-convo-text">${window.JPShared.textProcessor.processText(line.jp, line.terms, this.state.termMap, this.state.conjugations, this.state.counterRules)}</div>
+              </div>
               <button class="jp-speak-sentence" title="Listen" data-tts-idx="${li}">\uD83D\uDD0A</button>
             </div>
           `;
@@ -900,7 +1041,9 @@
       // Question Text (Processed for highlighting)
       // Don't make terms tappable in bracketed questions — the bracketed word IS the answer
       const qTerms = /\[/.test(q.q) ? [] : q.terms;
-      const qText = window.JPShared.textProcessor.processText(q.q, qTerms, this.state.termMap, this.state.conjugations, this.state.counterRules).replace(/\[(.*?)\]/g, '<span class="jp-highlight">$1</span>');
+      // The bracketed word is the graded recognition target — keep it bare
+      // (no-ruby) so furigana/romaji never leak the reading being tested.
+      const qText = window.JPShared.textProcessor.processText(q.q, qTerms, this.state.termMap, this.state.conjugations, this.state.counterRules).replace(/\[(.*?)\]/g, '<span class="jp-highlight no-ruby">$1</span>');
       html += `<div class="jp-q-text">${qText}</div>`;
 
       html += `<div id="jp-interaction"></div>`;

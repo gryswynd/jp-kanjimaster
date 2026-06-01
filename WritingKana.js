@@ -178,6 +178,7 @@ window.WritingKanaModule = (function () {
     }
 
     async function renderGrid() {
+      if (window.JPApp) window.JPApp.showTabBar();
       destroyActiveCanvas();
       state.view = 'grid';
       root.innerHTML = '';
@@ -231,6 +232,7 @@ window.WritingKanaModule = (function () {
     }
 
     function openDrill(ch) {
+      if (window.JPApp) window.JPApp.hideTabBar();
       destroyActiveCanvas();
       state.view = 'drill';
       var glyph = state.data[ch];

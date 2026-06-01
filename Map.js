@@ -227,6 +227,7 @@ window.MapModule = (function () {
 
   // ── Render ──────────────────────────────────────────────────────────────
   function _renderScene(state, level) {
+    if (window.JPApp) window.JPApp.showTabBar();
     var stampUrl = '';
     if (window.JPShared && window.JPShared.stampSettings) {
       try { stampUrl = window.JPShared.stampSettings.getStampUrl(); } catch (e) {}

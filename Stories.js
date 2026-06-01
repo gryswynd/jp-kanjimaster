@@ -35,6 +35,9 @@ window.StoriesModule = (function () {
   let storyList = [];           // all known stories (filtered by `opts.category`)
   let currentStory = null;      // currently loaded story.json
   let currentIndex = 0;         // position in storyList
+  let pages = [];               // paginated pages of the current story
+  let currentPage = 0;          // position within pages
+  let isFlipping = false;       // guards re-entrant page flips
   let categoryOpt = null;       // 'curriculum' | 'custom' | null (both)
   let termMapData = {};         // id → term entry, for modal lookups
   let surfaceIdx = null;        // surface → entry, for runtime fallback
@@ -87,13 +90,6 @@ window.StoriesModule = (function () {
         .jp-story-nav-btn:hover, .jp-story-back-btn:hover { background: rgba(255,255,255,0.2); }
       }
       .jp-story-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-      .jp-story-content {
-        background: oklch(0.97 0.008 80);
-        padding: 24px 18px 60px; margin: 0; border-radius: 0; overflow-y: auto;
-      }
-      .jp-story-content h1 { color: #9A7B1F; font-size: 2rem; margin: 0 0 0.5rem; font-weight: 700; }
-      .jp-story-content h2 { color: #6E5A18; font-size: 1.4rem; margin: 0 0 2rem; font-weight: 600; }
-      .jp-story-content hr { border: none; border-top: 2px solid oklch(0.22 0.012 60 / 0.12); margin: 2rem 0; }
 
       .jp-story-paragraph {
         font-size: 1.15rem; line-height: 2.2;
@@ -102,20 +98,6 @@ window.StoriesModule = (function () {
         margin: 0 0 1.4rem; padding: 0;
         position: relative;
       }
-      .jp-story-en-section {
-        margin-top: 36px; padding-top: 24px;
-        border-top: 2px solid oklch(0.22 0.012 60 / 0.12);
-      }
-      .jp-story-en-section h3 {
-        color: #9A7B1F; font-size: 1.05rem; font-weight: 700;
-        letter-spacing: -0.01em; margin: 0 0 18px;
-      }
-      .jp-story-en-section p {
-        font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
-        font-size: 1rem; line-height: 1.7; margin: 0 0 1rem;
-        color: oklch(0.32 0.012 60);
-      }
-
       .jp-term {
         color: #C2410C; font-weight: 700; cursor: pointer;
         border-bottom: 2px solid rgba(78,84,200,0.2);
@@ -198,63 +180,210 @@ window.StoriesModule = (function () {
         border-radius: 14px; text-align: center;
       }
 
-      .jp-story-selector { background: white; padding: 30px; margin: 20px;
-        border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-      .jp-story-selector h2 { color: #9A7B1F; font-size: 1.3rem; font-weight: 700; margin: 0 0 5px; }
-      .jp-story-selector > p { color: #888; font-size: 0.9rem; margin: 0 0 20px; }
-      .jp-story-level-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-      .jp-story-level-card {
-        background: oklch(0.94 0.012 75); border-radius: 12px;
-        padding: 28px 16px; cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
-        border: 2px solid transparent; text-align: center;
-      }
-      @media (hover: hover) {
-        .jp-story-level-card:hover {
-          transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-          border-color: #9A7B1F;
-        }
-      }
-      .jp-story-level-name { font-size: 1.4rem; font-weight: 900; color: #9A7B1F; margin-bottom: 6px; }
-      .jp-story-level-count { font-size: 0.85rem; color: #6E5A18; font-weight: 700;
-        text-transform: uppercase; letter-spacing: 0.05em; }
       .jp-story-level-back-btn {
         background: transparent; border: none; color: #9A7B1F; font-weight: 700;
         cursor: pointer; padding: 0 0 12px; font-size: 0.9rem; display: block; font-family: inherit;
       }
       @media (hover: hover) { .jp-story-level-back-btn:hover { text-decoration: underline; } }
-      .jp-story-selector-grid {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px;
-      }
-      .jp-story-card {
-        background: oklch(0.94 0.012 75); border-radius: 12px; padding: 24px 16px;
-        cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-        border: 2px solid transparent; text-align: center;
-      }
-      @media (hover: hover) {
-        .jp-story-card:hover {
-          transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); border-color: #9A7B1F;
-        }
-      }
-      .jp-story-level-badge {
-        display: inline-block; background: #9A7B1F; color: white;
-        font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 10px;
-        margin-bottom: 12px; letter-spacing: 0.05em;
-      }
-      .jp-story-card-jp {
-        font-size: 1.3rem; font-weight: 700; color: oklch(0.22 0.012 60);
-        margin-bottom: 6px; font-family: 'Noto Sans JP', sans-serif;
-      }
-      .jp-story-card-en { font-size: 0.85rem; color: #666; margin-bottom: 16px; }
-      .jp-story-card-read-btn {
-        background: #9A7B1F; color: white; border: none;
-        padding: 8px 20px; border-radius: 20px; font-weight: 600;
-        font-size: 0.85rem; cursor: pointer; pointer-events: none;
-      }
 
       @media (max-width: 600px) {
         .jp-story-header { flex-direction: column; align-items: stretch; }
         .jp-story-nav { justify-content: center; }
+      }
+
+      /* ── Bookshelves (level selector) ─────────────────────────────────── */
+      .jp-shelf-wrap { padding: 18px 16px 40px; }
+      .jp-shelf-wrap > h2 { color: #9A7B1F; font-size: 1.3rem; font-weight: 800; margin: 4px 4px 4px; }
+      .jp-shelf-wrap > p { color: oklch(0.45 0.012 60); font-size: 0.9rem; margin: 0 4px 22px; }
+      .jp-shelf {
+        margin: 0 0 26px; cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .jp-shelf-label {
+        font-size: 0.95rem; font-weight: 800; color: oklch(0.30 0.012 60);
+        margin: 0 2px 8px; display: flex; align-items: baseline; gap: 8px;
+      }
+      .jp-shelf-label .jp-shelf-count {
+        font-size: 0.72rem; font-weight: 700; color: oklch(0.55 0.012 60);
+        text-transform: uppercase; letter-spacing: 0.05em;
+      }
+      .jp-shelf-books {
+        display: flex; align-items: flex-end; gap: 5px;
+        min-height: 132px; padding: 0 10px;
+        overflow-x: auto; -webkit-overflow-scrolling: touch;
+      }
+      .jp-spine {
+        height: 124px; flex: 0 0 auto; border-radius: 3px 4px 4px 3px;
+        box-shadow: inset -6px 0 10px rgba(0,0,0,0.22), inset 2px 0 3px rgba(255,255,255,0.18),
+                    0 4px 8px rgba(0,0,0,0.18);
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(255,255,255,0.95); position: relative;
+        transition: transform 0.18s ease;
+      }
+      .jp-spine::before {
+        content: ''; position: absolute; left: 3px; top: 6px; bottom: 6px; width: 2px;
+        background: rgba(255,255,255,0.20); border-radius: 2px;
+      }
+      .jp-spine-title {
+        writing-mode: vertical-rl; text-orientation: mixed;
+        font-family: 'Noto Serif JP','Shippori Mincho',serif;
+        font-size: 0.74rem; font-weight: 600; line-height: 1.1;
+        max-height: 104px; overflow: hidden; white-space: nowrap;
+        letter-spacing: 0.02em; text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      }
+      @media (hover: hover) { .jp-shelf:hover .jp-spine { transform: translateY(-4px); } }
+      .jp-shelf-plank {
+        height: 14px; margin-top: -2px; border-radius: 0 0 5px 5px;
+        background: linear-gradient(oklch(0.52 0.05 60), oklch(0.40 0.05 55));
+        box-shadow: 0 6px 12px rgba(0,0,0,0.22);
+      }
+
+      /* ── Book covers (story list within a shelf) ──────────────────────── */
+      .jp-covers-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px 16px; padding: 6px 2px;
+      }
+      /* Cover = a leaf (face) over a page; the face swings open on its spine to
+         reveal the page beneath, then the reader loads. perspective is on the
+         cover (parent of the rotating face) so the open reads as real 3D. */
+      .jp-book-cover {
+        position: relative; aspect-ratio: 3 / 4; cursor: pointer;
+        perspective: 900px; -webkit-perspective: 900px;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .jp-book-cover-page {
+        position: absolute; inset: 0; border-radius: 4px 8px 8px 4px;
+        background: oklch(0.985 0.01 85);
+        box-shadow: inset 6px 0 10px rgba(0,0,0,0.10), 0 4px 10px rgba(0,0,0,0.14);
+      }
+      .jp-book-cover-face {
+        position: absolute; inset: 0; border-radius: 4px 8px 8px 4px;
+        padding: 16px 14px 16px 20px; color: rgba(255,255,255,0.97);
+        display: flex; flex-direction: column; justify-content: flex-start;
+        box-shadow: inset 7px 0 12px rgba(0,0,0,0.28), inset -2px 0 4px rgba(255,255,255,0.12),
+                    0 6px 14px rgba(0,0,0,0.22);
+        transform-origin: left center; transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden; backface-visibility: hidden;
+        transition: transform 0.5s cubic-bezier(.4,.05,.2,1), box-shadow 0.2s;
+      }
+      .jp-book-cover-face::before {
+        content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px;
+        background: rgba(255,255,255,0.22); border-radius: 2px;
+      }
+      @media (hover: hover) { .jp-book-cover:hover .jp-book-cover-face { transform: translateY(-4px); } }
+      .jp-book-cover.jp-opening .jp-book-cover-face { transform: rotateY(-158deg); box-shadow: 0 10px 26px rgba(0,0,0,0.3); }
+      .jp-book-cover-title {
+        font-family: 'Noto Serif JP','Shippori Mincho',serif;
+        font-size: 1.05rem; font-weight: 700; line-height: 1.4;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      }
+      .jp-book-cover-en {
+        margin-top: auto; font-size: 0.78rem; font-weight: 500;
+        color: rgba(255,255,255,0.85); line-height: 1.3;
+      }
+      .jp-book-cover-badge {
+        position: absolute; top: 10px; right: 10px;
+        background: rgba(0,0,0,0.28); color: white; font-size: 0.6rem; font-weight: 700;
+        padding: 2px 7px; border-radius: 8px; letter-spacing: 0.05em;
+      }
+
+      /* ── Paged book reader ────────────────────────────────────────────── */
+      .jp-story-container.jp-reading {
+        height: 100dvh; min-height: 100dvh; display: flex; flex-direction: column;
+        animation: jpReaderIn 0.3s ease;
+      }
+      @keyframes jpReaderIn { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+      .jp-reading .jp-story-header { position: static; }
+      .jp-book {
+        flex: 1 1 auto; min-height: 0; padding: 16px 14px 0;
+        display: flex; flex-direction: column;
+      }
+      /* The FRAME clips + styles the book. It is an ANCESTOR of the perspective
+         element, so its overflow:hidden does NOT flatten the page turn — the
+         WebKit bug only triggers when perspective + overflow share one element. */
+      .jp-book-frame {
+        position: relative; flex: 1 1 auto; min-height: 0;
+        overflow: hidden; border-radius: 6px 10px 10px 6px;
+        background: oklch(0.985 0.01 85);
+        box-shadow: inset 9px 0 16px rgba(0,0,0,0.06), 0 8px 22px rgba(0,0,0,0.12);
+        border: 1px solid oklch(0.22 0.012 60 / 0.08);
+      }
+      .jp-book-viewport {
+        position: absolute; inset: 0;
+        perspective: 1500px; -webkit-perspective: 1500px;
+      }
+      /* Each page is a rigid leaf with a front (content) and a blank back, so a
+         turn shows the page's reverse mid-flip like a real book. */
+      .jp-page {
+        position: absolute; inset: 0; transform-origin: left center;
+        transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+      }
+      .jp-page--incoming { z-index: 0; }
+      .jp-page--current { z-index: 1; }
+      /* WebGL page-curl overlay — above the pages, inside the clipped book frame. */
+      .jp-curl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; pointer-events: none; z-index: 4; }
+      .jp-page { transition: opacity 0.18s ease; }
+      .jp-page-face, .jp-page-back {
+        position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;
+        -webkit-backface-visibility: hidden; backface-visibility: hidden;
+        background: oklch(0.985 0.01 85);
+      }
+      .jp-page-back {
+        transform: rotateY(180deg);
+        background: linear-gradient(90deg, rgba(0,0,0,0.10), transparent 22%), oklch(0.975 0.012 85);
+      }
+      /* Lifting shadow on the turning leaf's front for depth (gone past 90°). */
+      .jp-page-face::after {
+        content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+        background: linear-gradient(90deg, rgba(0,0,0,0.30), rgba(0,0,0,0.06) 32%, transparent 56%);
+        transition: opacity 0.22s ease;
+      }
+      .jp-page.jp-flipping { z-index: 3; will-change: transform;
+        transition: transform 520ms cubic-bezier(.32,.04,.22,1); }
+      .jp-page.jp-flipping .jp-page-face::after { opacity: 1; }
+      .jp-page.jp-flip-fwd-end { transform: rotateY(-180deg); }
+      .jp-page.jp-flip-back-start { transform: rotateY(-180deg); }
+      .jp-page-inner {
+        flex: 1 1 auto; min-height: 0; overflow-y: auto;
+        padding: 26px 22px 18px; -webkit-overflow-scrolling: touch;
+      }
+      .jp-page-inner .jp-story-paragraph:last-child { margin-bottom: 0; }
+      .jp-page-en {
+        border-top: 1px dashed oklch(0.22 0.012 60 / 0.18);
+        padding: 14px 22px 16px; font-size: 0.95rem; line-height: 1.6;
+        color: oklch(0.34 0.012 60);
+        font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+        background: oklch(0.97 0.012 80);
+      }
+      .jp-page-foot {
+        text-align: center; font-size: 0.72rem; color: oklch(0.55 0.012 60);
+        padding: 6px 0 4px; font-variant-numeric: tabular-nums;
+      }
+      .jp-book-controls {
+        display: flex; align-items: center; justify-content: space-between; gap: 10px;
+        padding: 12px 6px max(12px, env(safe-area-inset-bottom));
+      }
+      .jp-book-controls-mid { display: flex; align-items: center; gap: 8px; }
+      .jp-book-controls .jp-speak-all-btn { margin-bottom: 0; padding: 8px 14px; }
+      .jp-page-btn {
+        background: oklch(0.22 0.012 60); color: white; border: none;
+        padding: 10px 18px; border-radius: 999px; font: inherit; font-weight: 700;
+        font-size: 0.9rem; cursor: pointer; transition: opacity 0.15s;
+        font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+      }
+      .jp-page-btn:disabled { opacity: 0.32; cursor: not-allowed; }
+      .jp-page-en-toggle {
+        background: oklch(0.60 0.18 30 / 0.08); border: 1px solid oklch(0.60 0.18 30 / 0.24);
+        color: oklch(0.52 0.18 30); padding: 8px 14px; border-radius: 999px;
+        font: inherit; font-weight: 700; font-size: 0.8rem; cursor: pointer;
+        font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+      }
+      .jp-page-en-toggle.jp-en-on { background: oklch(0.55 0.18 30 / 0.16); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .jp-page.jp-flipping { transition: none; }
+        .jp-book-cover-face { transition: none; }
+        .jp-story-container.jp-reading { animation: none; }
       }
     `;
     document.head.appendChild(style);
@@ -424,6 +553,7 @@ window.StoriesModule = (function () {
   let selectorLevel = null;
 
   function renderSelector() {
+    if (window.JPApp) window.JPApp.showTabBar();
     selectorView = 'levels';
     selectorLevel = null;
     const unlockApi = window.JPShared && window.JPShared.unlock;
@@ -448,59 +578,83 @@ window.StoriesModule = (function () {
     if (groupKeys.length === 0) {
       html += '<div class="jp-story-error">No stories unlocked yet — finish more lessons to unlock them.</div>';
     } else {
-      html += '<div class="jp-story-selector">' +
-        '<h2>Choose a Level</h2>' +
-        '<p>Read short stories with vocabulary and reading aids.</p>' +
-        '<div class="jp-story-level-grid">';
+      html += '<div class="jp-shelf-wrap">' +
+        '<h2>Your Library</h2>' +
+        '<p>Pick a shelf, then choose a book to read.</p>';
       for (const k of groupKeys) {
         const name = k === 'custom' ? 'Custom Stories' : `JLPT ${k}`;
-        const count = grouped[k].length;
-        html += `<div class="jp-story-level-card" data-group="${escAttr(k)}">
-          <div class="jp-story-level-name">${escHtml(name)}</div>
-          <div class="jp-story-level-count">${count} stor${count === 1 ? 'y' : 'ies'}</div>
-        </div>`;
+        const books = grouped[k];
+        const count = books.length;
+        const thickness = spineThickness(count);
+        let spines = '';
+        for (const s of books) {
+          const title = s.title || s.subtitle || s.id;
+          spines += `<div class="jp-spine" style="width:${thickness}px;background:${colorFromId(s.id)};">` +
+            `<span class="jp-spine-title">${escHtml(title)}</span></div>`;
+        }
+        html += `<div class="jp-shelf" data-group="${escAttr(k)}">` +
+          `<div class="jp-shelf-label">${escHtml(name)}` +
+            `<span class="jp-shelf-count">${count} book${count === 1 ? '' : 's'}</span></div>` +
+          `<div class="jp-shelf-books">${spines}</div>` +
+          `<div class="jp-shelf-plank"></div>` +
+        `</div>`;
       }
-      html += '</div></div>';
+      html += '</div>';
     }
     html += '</div>';
     container.innerHTML = html;
 
     document.getElementById('jp-stories-exit').onclick = onExit;
-    container.querySelectorAll('.jp-story-level-card').forEach(card => {
-      card.onclick = () => renderStoriesInGroup(card.dataset.group, grouped[card.dataset.group]);
+    container.querySelectorAll('.jp-shelf').forEach(shelf => {
+      shelf.onclick = () => renderStoriesInGroup(shelf.dataset.group, grouped[shelf.dataset.group]);
     });
   }
 
   function renderStoriesInGroup(groupKey, stories) {
+    if (window.JPApp) window.JPApp.showTabBar();
     selectorView = 'stories';
     selectorLevel = groupKey;
     const groupName = groupKey === 'custom' ? 'Custom Stories' : `JLPT ${groupKey} Stories`;
     let html = '<div class="jp-story-container">' +
       '<div class="jp-story-header"><div class="jp-story-title">📖 ' + escHtml(groupName) + '</div>' +
       '<div class="jp-story-nav"><button class="jp-story-back-btn" id="jp-stories-exit">← Back</button></div></div>' +
-      '<div class="jp-story-selector">' +
-      '<button class="jp-story-level-back-btn" id="jp-stories-back-to-levels">← Levels</button>' +
-      '<div class="jp-story-selector-grid">';
+      '<div class="jp-shelf-wrap">' +
+      '<button class="jp-story-level-back-btn" id="jp-stories-back-to-levels">← Library</button>' +
+      '<div class="jp-covers-grid">';
     for (const s of stories) {
       const badge = s.category === 'custom' ? 'CUSTOM' : (s.level || 'STORY');
-      html += `<div class="jp-story-card" data-id="${escAttr(s.id)}">
-        <div class="jp-story-level-badge">${escHtml(badge)}</div>
-        <div class="jp-story-card-jp">${escHtml(s.title || s.subtitle || s.id)}</div>
-        <div class="jp-story-card-en">${escHtml(s.subtitle || '')}</div>
-        <button class="jp-story-card-read-btn">Read →</button>
+      html += `<div class="jp-book-cover" data-id="${escAttr(s.id)}">
+        <div class="jp-book-cover-page"></div>
+        <div class="jp-book-cover-face" style="background:${colorFromId(s.id)};">
+          <div class="jp-book-cover-badge">${escHtml(badge)}</div>
+          <div class="jp-book-cover-title">${escHtml(s.title || s.subtitle || s.id)}</div>
+          <div class="jp-book-cover-en">${escHtml(s.subtitle || '')}</div>
+        </div>
       </div>`;
     }
     html += '</div></div></div>';
     container.innerHTML = html;
     document.getElementById('jp-stories-exit').onclick = onExit;
     document.getElementById('jp-stories-back-to-levels').onclick = renderSelector;
-    container.querySelectorAll('.jp-story-card').forEach(card => {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    container.querySelectorAll('.jp-book-cover').forEach(card => {
       card.onclick = () => {
         const id = card.dataset.id;
         const idx = storyList.findIndex(s => s.id === id);
         if (idx < 0) return;
         currentIndex = idx;
-        loadStory(storyList[idx]);
+        if (reduceMotion) { loadStory(storyList[idx]); return; }
+        // Cover swings open on its spine to reveal the page, then the reader
+        // loads (which fades in). Idempotent guard + timeout fallback; only the
+        // face's transform transitionend counts (ignore box-shadow/hover).
+        let done = false;
+        const open = (e) => {
+          if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
+          done = true; loadStory(storyList[idx]);
+        };
+        card.addEventListener('transitionend', open);
+        setTimeout(open, 650);
+        card.classList.add('jp-opening');
       };
     });
   }
@@ -525,10 +679,15 @@ window.StoriesModule = (function () {
   }
 
   function renderStory(data) {
+    if (window.JPApp) window.JPApp.hideTabBar();
+    pages = paginateStory(data.paragraphs, data.comprehension);
+    currentPage = 0;
+    isFlipping = false;
+
     const prevDisabled = currentIndex <= 0 ? 'disabled' : '';
     const nextDisabled = currentIndex >= storyList.length - 1 ? 'disabled' : '';
 
-    let html = '<div class="jp-story-container">' +
+    const html = '<div class="jp-story-container jp-reading">' +
       '<div class="jp-story-header">' +
         '<div class="jp-story-title">' + escHtml(data.title || '') + '</div>' +
         '<div class="jp-story-nav">' +
@@ -538,47 +697,103 @@ window.StoriesModule = (function () {
           '<button class="jp-story-back-btn" id="jp-stories-exit">Exit</button>' +
         '</div>' +
       '</div>' +
-      '<div class="jp-story-content">' +
-        '<h1>' + escHtml(data.title || '') + '</h1>' +
-        '<h2>' + escHtml(data.englishTitle || '') + '</h2>' +
-        '<button class="jp-speak-all-btn" id="jp-stories-play-all" data-tts-play-all="story">🔊 Play Story</button>' +
-        '<article id="jp-stories-prose">';
-
-    data.paragraphs.forEach((p, idx) => {
-      const tokensHtml = renderTokens(p.tokens);
-      html += '<p class="jp-story-paragraph" data-para="' + idx + '">' +
-        '<span class="jp-story-jp">' + tokensHtml + '</span>' +
-        '<button class="jp-speak-sentence" data-speak-idx="' + idx + '" aria-label="Speak this paragraph">🔊</button>' +
-      '</p>';
-    });
-
-    html += '</article>';
-
-    // English translation block — full text, mirroring old MD path's
-    // "### English Translation" section. Authors keep per-paragraph `en` in
-    // the data; the renderer concats them here in story order.
-    const enParas = data.paragraphs.map(p => p.en).filter(Boolean);
-    if (enParas.length) {
-      html += '<section class="jp-story-en-section">' +
-        '<h3>English Translation</h3>' +
-        enParas.map(en => '<p>' + escHtml(en) + '</p>').join('') +
-      '</section>';
-    }
-
-    // Comprehension card (only if questions present)
-    if (data.comprehension && Array.isArray(data.comprehension.questions) && data.comprehension.questions.length > 0) {
-      html += renderComprehensionCard(data.comprehension);
-    }
-    html += '</div></div>';
+      '<div class="jp-book">' +
+        '<div class="jp-book-frame">' +
+          '<div class="jp-book-viewport">' +
+            '<div class="jp-page jp-page--incoming"></div>' +
+            '<div class="jp-page jp-page--current"></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="jp-book-controls">' +
+          '<button class="jp-page-btn" id="jp-page-prev">← Page</button>' +
+          '<div class="jp-book-controls-mid">' +
+            '<button class="jp-speak-all-btn" id="jp-stories-play-all" data-tts-play-all="story">🔊 Play</button>' +
+            '<button class="jp-page-en-toggle" id="jp-page-en-toggle">EN</button>' +
+          '</div>' +
+          '<button class="jp-page-btn" id="jp-page-next">Page →</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
 
     container.innerHTML = html;
     wireStoryEvents(data);
-    // Reset scroll to top
-    const content = container.querySelector('.jp-story-content');
-    if (content) content.scrollTop = 0;
   }
 
+  // Build the inner HTML for one page (prose or quiz). Mirrors the old
+  // markup exactly so furigana/romaji/term spans render identically.
+  function renderPageHtml(page, data) {
+    if (!page) return '';
+    // Content lives in .jp-page-face; .jp-page-back is the blank reverse shown
+    // mid-flip. Wrapping here means both render sites (current + incoming) get
+    // the leaf structure automatically; wirePage selectors still match (they
+    // query descendants of the page node).
+    let face;
+    if (page.type === 'quiz') {
+      face = '<div class="jp-page-inner">' + renderComprehensionCard(page.comprehension) + '</div>' +
+             '<div class="jp-page-foot"></div>';
+    } else {
+      let inner = '';
+      page.segments.forEach(seg => {
+        const para = data.paragraphs[seg.paraIdx] || {};
+        const tokens = seg.tokens != null ? seg.tokens : para.tokens;
+        const speakJp = seg.jp != null ? seg.jp : para.jp;
+        inner += '<p class="jp-story-paragraph" data-para="' + seg.paraIdx + '" ' +
+          'data-speak-jp="' + escAttr(speakJp || '') + '">' +
+          '<span class="jp-story-jp">' + renderTokens(tokens) + '</span>' +
+          '<button class="jp-speak-sentence" data-speak-idx="' + seg.paraIdx + '" aria-label="Speak this paragraph">🔊</button>' +
+        '</p>';
+      });
+      face = '<div class="jp-page-inner">' + inner + '</div>';
+      if (page.enText) {
+        face += '<div class="jp-page-en" hidden>' + escHtml(page.enText) + '</div>';
+      }
+      face += '<div class="jp-page-foot"></div>';
+    }
+    return '<div class="jp-page-face">' + face + '</div><div class="jp-page-back" aria-hidden="true"></div>';
+  }
+
+  // Wire only the handlers that live INSIDE one page node (per-paragraph TTS,
+  // term clicks, comprehension). Header/play-all/page-nav are wired once.
+  function wirePage(node, data) {
+    if (!node) return;
+    // Per-paragraph speak (prefer the sub-segment text for split paragraphs).
+    node.querySelectorAll('.jp-speak-sentence').forEach(btn => {
+      btn.onclick = function (e) {
+        e.stopPropagation();
+        const para = this.closest('.jp-story-paragraph');
+        const jp = (para && para.dataset.speakJp) ||
+          (data.paragraphs[parseInt(this.dataset.speakIdx, 10)] || {}).jp;
+        if (jp && window.JPShared && window.JPShared.tts) window.JPShared.tts.speak(jp);
+      };
+    });
+    // Term click handlers (inline tokens that match glossary surfaces).
+    // Synthetic conjugation ids ("<root>_<ruleKey>") split back to (rootId, ruleKey)
+    // so the modal can generate the inflected entry on-demand.
+    node.querySelectorAll('[data-term-id]').forEach(el => {
+      el.onclick = function (e) {
+        e.stopPropagation();
+        const id = this.dataset.termId;
+        if (!id || !window.JP_OPEN_TERM) return;
+        const split = splitConjugatedId(id);
+        if (split) window.JP_OPEN_TERM(split.rootId, split.form, true);
+        else window.JP_OPEN_TERM(id, null, true);
+      };
+    });
+    // Comprehension wiring (only present on a quiz page).
+    if (node.querySelector('#jp-stories-end-card')) wireComprehensionCard();
+    // Reflect per-page EN reveal state onto this freshly rendered page's block.
+    const en = node.querySelector('.jp-page-en');
+    if (en) en.hidden = !enRevealed;
+  }
+
+  // ── Per-page English reveal ───────────────────────────────────────────────
+  let enRevealed = false;
+
   function wireStoryEvents(data) {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    enRevealed = false;
+
+    // ── Once-per-story: header nav ──
     document.getElementById('jp-stories-exit').onclick = onExit;
     document.getElementById('jp-stories-list').onclick = renderSelector;
     document.getElementById('jp-stories-prev').onclick = () => {
@@ -587,22 +802,91 @@ window.StoriesModule = (function () {
     document.getElementById('jp-stories-next').onclick = () => {
       if (currentIndex < storyList.length - 1) { currentIndex++; loadStory(storyList[currentIndex]); }
     };
-    // Per-paragraph speak
-    container.querySelectorAll('.jp-speak-sentence').forEach(btn => {
-      btn.onclick = function () {
-        const idx = parseInt(this.dataset.speakIdx, 10);
-        const p = data.paragraphs[idx];
-        if (p && window.JPShared.tts) window.JPShared.tts.speak(p.jp);
+
+    // ── EN toggle (applies to the visible page) ──
+    const enToggle = document.getElementById('jp-page-en-toggle');
+    if (enToggle) {
+      enToggle.onclick = () => {
+        enRevealed = !enRevealed;
+        const en = container.querySelector('.jp-page--current .jp-page-en');
+        if (en) en.hidden = !enRevealed;
+        updatePageControls();
       };
-    });
-    // Play-all
+    }
+
+    // ── Page navigation ──
+    const prevBtn = document.getElementById('jp-page-prev');
+    const nextBtn = document.getElementById('jp-page-next');
+    function updatePageControls() {
+      const lastPage = currentPage >= pages.length - 1;
+      prevBtn.disabled = currentPage <= 0;
+      if (lastPage) {
+        const hasNextStory = currentIndex < storyList.length - 1;
+        nextBtn.textContent = hasNextStory ? 'Next story →' : 'Page →';
+        nextBtn.disabled = !hasNextStory;
+      } else {
+        nextBtn.textContent = 'Page →';
+        nextBtn.disabled = false;
+      }
+      const foot = container.querySelector('.jp-page--current .jp-page-foot');
+      if (foot) foot.textContent = (currentPage + 1) + ' / ' + pages.length;
+      // EN toggle reflects the visible page: hidden when the page has no EN.
+      if (enToggle) {
+        const hasEn = !!container.querySelector('.jp-page--current .jp-page-en');
+        enToggle.style.visibility = hasEn ? 'visible' : 'hidden';
+        enToggle.classList.toggle('jp-en-on', enRevealed);
+      }
+
+      // Tell Ask-Rikizo which story/page is on screen (visible JP as sample).
+      try {
+        const tc = window.JPShared && window.JPShared.tutorContext;
+        const d = currentStory;
+        if (tc && d) {
+          let sample = '';
+          const segs = (pages[currentPage] && pages[currentPage].segments) || [];
+          for (let i = 0; i < segs.length && sample.length < 240; i++) {
+            const p = (d.paragraphs || [])[segs[i].paraIdx];
+            if (p && p.jp) sample += (sample ? ' ' : '') + p.jp;
+          }
+          tc.patch({
+            view: 'story', lessonId: d.id, title: d.title || d.englishTitle || '',
+            page: currentPage, sectionType: 'story', sample: sample.slice(0, 240)
+          });
+        }
+      } catch (e) {}
+    }
+
+    function nextAction() {
+      if (currentPage < pages.length - 1) goPage(currentPage + 1, data, reduceMotion, updatePageControls);
+      else if (currentIndex < storyList.length - 1) { currentIndex++; loadStory(storyList[currentIndex]); }
+    }
+    function prevAction() {
+      if (currentPage > 0) goPage(currentPage - 1, data, reduceMotion, updatePageControls);
+    }
+
+    prevBtn.onclick = prevAction;
+    nextBtn.onclick = nextAction;
+    // Tap-to-flip on the page surface. Bail on interactive elements (term /
+    // speak / quiz buttons) so their own handlers run instead of flipping.
+    // Left third = prev page, right two-thirds = next page.
+    const viewport = container.querySelector('.jp-book-viewport');
+    if (viewport) {
+      viewport.onclick = function (e) {
+        if (e.target.closest('.jp-term, .jp-speak-sentence, button, a')) return;
+        const rect = viewport.getBoundingClientRect();
+        if (e.clientX - rect.left < rect.width * 0.30) prevAction();
+        else nextAction();
+      };
+    }
+
+    // ── Play-all (whole story, unchanged behaviour) ──
     const playBtn = document.getElementById('jp-stories-play-all');
     if (playBtn) {
       const lines = data.paragraphs.map(p => p.jp);
       let playing = false;
       function setPlaying(p) {
         playing = p;
-        playBtn.textContent = playing ? '⏹ Stop' : '🔊 Play Story';
+        playBtn.textContent = playing ? '⏹ Stop' : '🔊 Play';
         playBtn.classList.toggle('jp-speak-all-active', playing);
       }
       playBtn.onclick = function () {
@@ -614,22 +898,224 @@ window.StoriesModule = (function () {
         }
       };
     }
-    // Term click handlers (inline tokens that match glossary surfaces).
-    // If the term-id is a synthetic conjugation form (id = "<root>_<ruleKey>"
-    // where ruleKey is a known entry in CONJUGATION_RULES), split it back
-    // into (rootId, ruleKey) so the modal generates the inflected entry
-    // on-demand via the existing JPShared.textProcessor.conjugate path.
-    container.querySelectorAll('[data-term-id]').forEach(el => {
-      el.onclick = function () {
-        const id = this.dataset.termId;
-        if (!id || !window.JP_OPEN_TERM) return;
-        const split = splitConjugatedId(id);
-        if (split) window.JP_OPEN_TERM(split.rootId, split.form, true);
-        else window.JP_OPEN_TERM(id, null, true);
+
+    // ── Render the first page ──
+    const cur = container.querySelector('.jp-page--current');
+    cur.innerHTML = renderPageHtml(pages[currentPage], data);
+    wirePage(cur, data);
+    updatePageControls();
+  }
+
+  // 3D page-turn controller. Renders the destination page into the hidden
+  // buffer, animates the spine-edge rotation, then swaps node roles. Idempotent
+  // finish (transitionend + timeout fallback) and an isFlipping guard keep the
+  // UI from wedging in the WKWebView.
+  function goPage(targetPage, data, reduceMotion, afterSwap) {
+    if (isFlipping) return;
+    targetPage = Math.max(0, Math.min(pages.length - 1, targetPage));
+    if (targetPage === currentPage) return;
+    const forward = targetPage > currentPage;
+    const cur = container.querySelector('.jp-page--current');
+    const inc = container.querySelector('.jp-page--incoming');
+    if (!cur || !inc) return;
+
+    inc.innerHTML = renderPageHtml(pages[targetPage], data);
+    wirePage(inc, data);
+
+    const finish = () => {
+      // Swap roles: incoming becomes current.
+      cur.className = 'jp-page jp-page--incoming';
+      cur.style.transform = '';
+      cur.style.opacity = '';
+      inc.className = 'jp-page jp-page--current';
+      inc.style.transform = '';
+      inc.style.opacity = '';
+      currentPage = targetPage;
+      isFlipping = false;
+      if (typeof afterSwap === 'function') afterSwap();
+    };
+
+    if (reduceMotion) { finish(); return; }
+    isFlipping = true;
+
+    // NOTE: the experimental WebGL page-curl (app/shared/page-curl.js) is disabled
+    // — a blank sweeping sheet can't show the page text, so it never read as a real
+    // turn. Pending a DOM page-flip approach. Using the CSS leaf-flip below.
+    const DUR = 520;
+
+    if (forward) {
+      // Current leaf turns away on its spine (0 → -180°), revealing the next
+      // page beneath; its front darkens then its blank back shows past 90°.
+      const leaf = cur;
+      let done = false;
+      const onEnd = (e) => {
+        if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
+        done = true; leaf.removeEventListener('transitionend', onEnd); finish();
+      };
+      leaf.addEventListener('transitionend', onEnd);
+      leaf.classList.add('jp-flipping');
+      void leaf.offsetWidth; // commit start state before animating
+      leaf.classList.add('jp-flip-fwd-end');
+      setTimeout(onEnd, DUR + 120);
+    } else {
+      // Incoming leaf (the previous page) starts open at -180° and swings shut
+      // over the current page, landing flat (0°).
+      const leaf = inc;
+      leaf.classList.add('jp-flip-back-start'); // -180°, no transition yet
+      void leaf.offsetWidth;
+      let done = false;
+      const onEnd = (e) => {
+        if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
+        done = true; leaf.removeEventListener('transitionend', onEnd);
+        leaf.classList.remove('jp-flip-back-start'); finish();
+      };
+      leaf.addEventListener('transitionend', onEnd);
+      leaf.classList.add('jp-flipping');
+      leaf.classList.remove('jp-flip-back-start'); // transition back to base 0°
+      setTimeout(onEnd, DUR + 120);
+    }
+  }
+
+  // ── Pagination (deterministic greedy grouping — no DOM measurement) ───────
+  // Tuned for the .jp-story-paragraph rule (font-size:1.15rem; line-height:2.2)
+  // on a ~320px phone content width. Conservative so furigana/romaji vertical
+  // inflation never overflows a page. Three named knobs — retune after device test.
+  const PAGE_CHAR_BUDGET = 140; // soft target: stop ADDING paragraphs once exceeded
+  const PAGE_HARD_CAP    = 220; // a single paragraph longer than this is split at 。
+  const PAGE_MAX_PARAS   = 4;   // never pack more than N paragraphs onto one page
+
+  // paginateStory(paragraphs, comprehension) -> Page[]
+  //   Page = { type:'prose', segments:[Segment], enText, jpLines }
+  //        | { type:'quiz', comprehension }
+  //   Segment = { paraIdx, part?, tokens?, jp?, en? }  (tokens/jp present only for
+  //              sentence-split sub-segments; otherwise read from paragraphs[paraIdx])
+  // Pure: data in -> pages out. `type` leaves room for a future 'checkpoint' page.
+  function paginateStory(paragraphs, comprehension) {
+    const pages = [];
+    let cur = null; // { segments:[], chars:0 }
+    function flush() {
+      if (cur && cur.segments.length) {
+        pages.push({ type: 'prose', segments: cur.segments });
+      }
+      cur = { segments: [], chars: 0 };
+    }
+    flush();
+    (paragraphs || []).forEach((p, idx) => {
+      const len = (p.jp || '').length;
+      if (len > PAGE_HARD_CAP) {
+        // Oversized paragraph: own page(s), sentence-split.
+        flush();
+        const segs = splitParagraphAtSentences(p, idx, PAGE_HARD_CAP);
+        segs.forEach(seg => pages.push({ type: 'prose', segments: [seg] }));
+        return;
+      }
+      if (cur.segments.length > 0 &&
+          (cur.chars + len > PAGE_CHAR_BUDGET || cur.segments.length >= PAGE_MAX_PARAS)) {
+        flush();
+      }
+      cur.segments.push({ paraIdx: idx });
+      cur.chars += len;
+    });
+    flush();
+    // Drop the trailing empty page the final flush() may have created.
+    const prose = pages.filter(pg => pg.type !== 'prose' || pg.segments.length);
+    // Precompute per-page EN + jpLines (for per-page EN toggle / per-page TTS).
+    for (const pg of prose) {
+      if (pg.type !== 'prose') continue;
+      pg.enText = pg.segments
+        .map(s => (s.en != null ? s.en : (paragraphs[s.paraIdx] && paragraphs[s.paraIdx].en)))
+        .filter(Boolean).join(' ');
+      pg.jpLines = pg.segments
+        .map(s => (s.jp != null ? s.jp : (paragraphs[s.paraIdx] && paragraphs[s.paraIdx].jp)))
+        .filter(Boolean);
+    }
+    if (comprehension && Array.isArray(comprehension.questions) && comprehension.questions.length > 0) {
+      prose.push({ type: 'quiz', comprehension });
+    }
+    return prose;
+  }
+
+  // Split one long paragraph into sentence-grouped sub-page segments. Splits
+  // p.jp on 。 (kept) and walks p.tokens in lockstep via a char cursor (tokens
+  // are contiguous; concatenated `k` === p.jp). Greedily re-packs sentences up
+  // to `cap` chars. Only the first sub-segment carries `en` (no duplication).
+  function splitParagraphAtSentences(p, idx, cap) {
+    const jp = p.jp || '';
+    const tokens = Array.isArray(p.tokens) ? p.tokens : [];
+    // Sentence boundaries: end offsets (exclusive) after each 。 plus the tail.
+    const sentences = []; // { start, end }
+    let s = 0;
+    for (let i = 0; i < jp.length; i++) {
+      if (jp[i] === '。') {
+        sentences.push({ start: s, end: i + 1 });
+        s = i + 1;
+      }
+    }
+    if (s < jp.length) sentences.push({ start: s, end: jp.length });
+    if (!sentences.length) sentences.push({ start: 0, end: jp.length });
+
+    // Map a char range -> the contiguous tokens fully inside it.
+    function tokensForRange(start, end) {
+      const out = [];
+      let cursor = 0;
+      for (const t of tokens) {
+        const tlen = (t.k || '').length;
+        const tStart = cursor, tEnd = cursor + tlen;
+        cursor = tEnd;
+        if (tStart >= start && tEnd <= end) out.push(t);
+        else if (tStart < end && tEnd > start) out.push(t); // overlap fallback
+      }
+      return out;
+    }
+
+    // Greedily pack sentences into sub-pages up to `cap`.
+    const subPages = []; // arrays of sentence indices
+    let bucket = [], bucketLen = 0;
+    sentences.forEach((sen, si) => {
+      const len = sen.end - sen.start;
+      if (bucket.length && bucketLen + len > cap) { subPages.push(bucket); bucket = []; bucketLen = 0; }
+      bucket.push(si); bucketLen += len;
+    });
+    if (bucket.length) subPages.push(bucket);
+
+    return subPages.map((senIdxs, pi) => {
+      const start = sentences[senIdxs[0]].start;
+      const end = sentences[senIdxs[senIdxs.length - 1]].end;
+      return {
+        paraIdx: idx,
+        part: pi,
+        tokens: tokensForRange(start, end),
+        jp: jp.slice(start, end),
+        en: pi === 0 ? p.en : undefined
       };
     });
-    // Comprehension Q answer wiring
-    wireComprehensionCard();
+  }
+
+  // ── Book-spine appearance ─────────────────────────────────────────────────
+  // Curated washi/ink spine palette (deep, saturated enough to read white text).
+  const SPINE_PALETTE = [
+    'oklch(0.45 0.10 200)', // deep teal
+    'oklch(0.45 0.16 25)',  // oxblood
+    'oklch(0.62 0.13 85)',  // mustard
+    'oklch(0.45 0.10 150)', // forest
+    'oklch(0.42 0.10 260)', // navy
+    'oklch(0.45 0.12 330)', // plum
+    'oklch(0.55 0.14 45)',  // terracotta
+    'oklch(0.48 0.04 250)', // slate
+    'oklch(0.52 0.09 120)', // olive
+    'oklch(0.42 0.14 10)'   // burgundy
+  ];
+  // Stable hash of an id -> palette colour (same id -> same colour every load).
+  function colorFromId(id) {
+    let h = 0;
+    const str = String(id || '');
+    for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0;
+    return SPINE_PALETTE[Math.abs(h) % SPINE_PALETTE.length];
+  }
+  // Inverse thickness: fewer stories on a shelf -> thicker spines (shelf still
+  // looks full). Clamped so spines stay tappable and sane.
+  function spineThickness(count) {
+    return Math.max(26, Math.min(64, 64 - (count - 1) * 6));
   }
 
   // ── Token + term rendering ───────────────────────────────────────────────
@@ -750,10 +1236,7 @@ window.StoriesModule = (function () {
         };
       } else {
         cta.textContent = `${score}/${total} — give it another read`;
-        cta.onclick = () => {
-          const c = container.querySelector('.jp-story-content');
-          if (c) c.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        cta.onclick = () => { loadStory(storyList[currentIndex]); };
       }
     }
   }
