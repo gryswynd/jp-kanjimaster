@@ -68,10 +68,12 @@
         'pointer-events:auto;cursor:pointer;display:none;' +
         'filter:drop-shadow(0 3px 5px rgba(0,0,0,0.28));' +
         'image-rendering:pixelated;image-rendering:crisp-edges;will-change:left,top;}' +
-      '.rk-comp-bubble{position:absolute;max-width:248px;min-width:120px;' +
+      /* Standardized: every bubble is the same width (capped to the viewport) so
+         they never render skinny or run off-screen — only the height varies. */
+      '.rk-comp-bubble{position:absolute;width:min(300px,calc(100vw - 28px));box-sizing:border-box;' +
         'background:var(--washi,#f7f4ee);color:var(--ink,#2a2520);' +
         'border:1px solid var(--hairline,rgba(40,35,30,0.14));border-radius:16px;' +
-        'padding:11px 15px;box-shadow:0 6px 22px rgba(0,0,0,0.18);' +
+        'padding:12px 16px;box-shadow:0 6px 22px rgba(0,0,0,0.18);' +
         'pointer-events:auto;cursor:pointer;display:none;text-align:center;' +
         'transform:translateX(-50%);animation:jpFadeIn 0.25s ease;z-index:2;}' +
       /* Arrow at bottom (bubble sits ABOVE sprite — the default) */
@@ -1386,6 +1388,9 @@
     resetComposeTutorial: resetComposeTutorial,
     runSettingsTutorial: runSettingsTutorial,
     resetSettingsTutorial: resetSettingsTutorial,
+    // True while a tutorial/onboarding is mid-run — callers (JPApp.launch) use
+    // this to ignore stray taps on highlighted modules so the tour can't break.
+    isBusy: function () { return !!(state.busy || state.onboarding); },
     resetRuntime: resetRuntime,
     getPresence: getPresence, setPresence: setPresence, applyPresence: applyPresence,
     PRESENCE_LEVELS: PRESENCE_LEVELS

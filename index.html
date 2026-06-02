@@ -1626,6 +1626,11 @@ window.JPApp = {
   // Optional extra args (e.g. a lesson id) are forwarded to the module's start().
   launch: async function(mode /*, ...args */) {
     var extraArgs = Array.prototype.slice.call(arguments, 1);
+    // Tutorial guard — while a tour/onboarding is running, ignore stray taps on
+    // highlighted modules (the tour is tap-to-advance only). Prevents accidentally
+    // launching e.g. Compose mid-tour, which used to break the walkthrough.
+    var rc = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rc && rc.isBusy && rc.isBusy()) return;
     // Gating guard — refuse locked modules with a brief toast. The home grid
     // already hides locked cells; this catches taps from the bottom tab bar.
     if (mode !== 'home' && !this._isModuleVisible(mode)) {

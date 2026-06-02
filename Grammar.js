@@ -448,6 +448,17 @@ window.GrammarModule = {
         .gr-conv-toggle { font-size: 0.75rem; font-weight: 700; color: #747d8c; background: #fff; border: 2px solid #EDE7DA; padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 20px; width: 100%; }
         .gr-conv-row { display: flex; gap: 12px; margin-bottom: 20px; align-items: flex-start; }
         .gr-speaker-bubble { background: #ECE7D8; color: #5E8C5F; font-weight: 900; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); font-family: 'Noto Sans JP', sans-serif; font-size: 0.75rem; }
+        /* iMessage-style chat bubbles (matches Lessons): blue "sent" + grey
+           "received"; reading aids recoloured light on the blue bubble. */
+        .gr-bubble { max-width: 82%; padding: 9px 13px; border-radius: 19px; position: relative; box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+        .gr-bubble-jp { font-family: 'Noto Serif JP', serif; font-size: 15px; line-height: 1.6; font-weight: 500; }
+        .gr-bubble--sent { background: #0a84ff; color: #fff; border-bottom-right-radius: 5px; }
+        .gr-bubble--recv { background: #e9e9eb; color: #2a2520; border-bottom-left-radius: 5px; }
+        .gr-bubble-en { font-size: 11.5px; margin-top: 4px; line-height: 1.45; font-style: italic; }
+        .gr-bubble--sent .gr-bubble-en { color: rgba(255,255,255,0.85); }
+        .gr-bubble--recv .gr-bubble-en { color: #7a7167; }
+        .gr-bubble--sent .jp-term { color: #fff !important; border-bottom-color: rgba(255,255,255,0.5) !important; }
+        .gr-bubble--sent .rt-furigana, .gr-bubble--sent .rt-romaji, .gr-bubble--sent .rt-romaji-group { color: rgba(255,255,255,0.85); }
         .gr-jp { font-size: 1.15rem; line-height: 1.6; font-family: 'Noto Sans JP', sans-serif; color: #2f3542; }
         .gr-en { font-size: 0.9rem; color: #747d8c; margin-top: 6px; }
         .gr-term { color: #5E8C5F; font-weight: 700; cursor: pointer; margin-right: 1px; border-bottom: 2px solid oklch(0.22 0.012 60 / 0.18); transition: 0.2s; }
@@ -868,6 +879,15 @@ window.GrammarModule = {
       return div;
     }
 
+    // Sound + haptic feedback on a graded answer — matches the N-lesson drills.
+    function fxAnswer(ok) {
+      try {
+        const s = window.JPShared.sfx, h = window.JPShared.haptics;
+        if (ok) { if (s) s.success(); if (h) h.success(); }
+        else { if (s) s.error(); if (h) h.error(); }
+      } catch (e) {}
+    }
+
     function renderConjugationDrill(sec, onComplete, stepIdx) {
       const div = el('div', '');
       const items = sec.items || [];
@@ -922,6 +942,7 @@ window.GrammarModule = {
           const btn = el('button', 'gr-choice-chip', esc(ch));
           btn.onclick = () => {
             if (solved) return;
+            fxAnswer(ch === item.answer);
             if (ch === item.answer) {
               btn.classList.add('correct');
               if (!solved) { correct++; answered++; solved = true; }
@@ -994,6 +1015,7 @@ window.GrammarModule = {
             if (answered) return;
             answered = true; total++;
             expEl.style.display = 'block';
+            fxAnswer(isCorrectChoice === item.answer);
             if (isCorrectChoice === item.answer) {
               correct++;
               btn.classList.add('correct-choice');
@@ -1070,6 +1092,7 @@ window.GrammarModule = {
           const btn = el('button', 'gr-choice-chip', esc(ch));
           btn.onclick = () => {
             if (solved) return;
+            fxAnswer(ch === item.answer);
             if (ch === item.answer) {
               btn.classList.add('correct');
               if (!solved) { correct++; answered++; solved = true; }
@@ -1155,7 +1178,7 @@ window.GrammarModule = {
         nextBtn.onclick = () => { idx++; renderItem(); };
 
         let solved = false;
-        (item.choices || []).forEach(ch => {
+        [...(item.choices || [])].sort(() => Math.random() - 0.5).forEach(ch => {
           const chip = el('button', 'gr-slot-chip', esc(ch));
           chip.onclick = () => {
             if (solved) return;
@@ -1163,6 +1186,7 @@ window.GrammarModule = {
             blank.textContent = ch;
             const fullSentence = (item.before || '') + ch + (item.after || '');
             var isCorrect = ch === item.answer || (item.also_accept && item.also_accept.includes(ch));
+            fxAnswer(isCorrect);
             if (isCorrect) {
               correct++; answered++;
               blank.classList.add('filled-correct');
@@ -1270,24 +1294,15 @@ window.GrammarModule = {
                 row.appendChild(header);
             }
 
-            const bubbleBg    = isRight ? 'var(--ink,#2a2520)' : '#fff';
-            const bubbleColor = isRight ? 'var(--washi,#f5f1e8)' : 'var(--ink,#2a2520)';
-            const enColor     = isRight ? 'oklch(1 0 0 / 0.78)' : 'var(--ink-3,#7a7167)';
-            const radius      = isRight ? '18px 18px 4px 18px' : '18px 18px 18px 4px';
-            const bubble = el('div', '');
-            bubble.style.cssText = 'max-width:82%;padding:9px 13px;background:' + bubbleBg + ';color:' + bubbleColor +
-                ';border:' + (isRight ? 'none' : '1px solid var(--hairline,rgba(40,35,30,0.14))') +
-                ';border-radius:' + radius + ';box-shadow:0 1px 2px rgba(0,0,0,0.06);position:relative;';
+            const bubble = el('div', 'gr-bubble ' + (isRight ? 'gr-bubble--sent' : 'gr-bubble--recv'));
 
-            const jp = el('div', '');
-            jp.style.cssText = 'font-family:var(--font-jp-display,serif);font-size:15px;line-height:1.55;font-weight:500;';
+            const jp = el('div', 'gr-bubble-jp');
             jp.innerHTML = window.JPShared.textProcessor.processText(line.jp, line.terms, termMapData, CONJUGATION_RULES, COUNTER_RULES);
             _applyParticleHighlights(jp);
             bubble.appendChild(jp);
 
             if (showEN) {
-                const enDiv = el('div', '');
-                enDiv.style.cssText = 'font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;';
+                const enDiv = el('div', 'gr-bubble-en');
                 enDiv.textContent = line.en || '';
                 bubble.appendChild(enDiv);
             }
@@ -1326,6 +1341,7 @@ window.GrammarModule = {
             const btn = el('button', 'gr-mcq-opt', esc(choice));
             btn.onclick = () => {
               if (solved) return; solved = true;
+              fxAnswer(choice === item.answer);
               if (choice === item.answer) {
                 btn.classList.add('correct');
                 if (!drillAnswered.has(itemKey)) { drillAnswered.add(itemKey); drillCorrect++; secCorrect++; }

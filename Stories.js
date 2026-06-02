@@ -859,9 +859,12 @@ window.StoriesModule = (function () {
         nextBtn.textContent = 'Open →';
         nextBtn.disabled = false;
       } else if (lastPage) {
-        const hasNextStory = currentIndex < storyList.length - 1;
-        nextBtn.textContent = hasNextStory ? 'Next story →' : 'Page →';
-        nextBtn.disabled = !hasNextStory;
+        // Offer the next story only if it exists AND is unlocked.
+        const next = storyList[currentIndex + 1];
+        const nextUnlocked = !!next && nextStoryUnlocked();
+        if (!next) { nextBtn.textContent = 'Page →'; nextBtn.disabled = true; }
+        else if (nextUnlocked) { nextBtn.textContent = 'Next story →'; nextBtn.disabled = false; }
+        else { nextBtn.textContent = '🔒 Locked'; nextBtn.disabled = true; }
       } else {
         nextBtn.textContent = 'Page →';
         nextBtn.disabled = false;
@@ -907,12 +910,30 @@ window.StoriesModule = (function () {
       updatePageControls();
     }
 
+    // The next story in the list is reachable only when unlocked (or in free mode).
+    function nextStoryUnlocked() {
+      const next = storyList[currentIndex + 1];
+      if (!next) return false;
+      const unlockApi = window.JPShared && window.JPShared.unlock;
+      return !unlockApi || unlockApi.isFree() || unlockApi.isStoryUnlocked(next);
+    }
     function nextAction() {
-      if (currentPage < pages.length - 1) { if (pf) pf.flipNext(); else showPage(currentPage + 1); }
-      else if (currentIndex < storyList.length - 1) { currentIndex++; loadStory(storyList[currentIndex]); }
+      if (currentPage < pages.length) { if (pf) pf.flipNext(); else showPage(currentPage + 1); }
+      else if (nextStoryUnlocked()) { currentIndex++; loadStory(storyList[currentIndex]); }
     }
     function prevAction() {
-      if (currentPage > 0) { if (pf) pf.flipPrev(); else showPage(currentPage - 1); }
+      if (currentPage <= 0) return;
+      // StPageFlip's animated back-flip (flipPrev / flip(i)) is broken in portrait
+      // mode — it no-ops. turnToPrevPage() reliably steps back (instant), so we
+      // drive it and sync our page state + sound ourselves (it fires no 'flip').
+      if (pf && pf.turnToPrevPage) {
+        pf.turnToPrevPage();
+        if (pf.getCurrentPageIndex) currentPage = pf.getCurrentPageIndex();
+        updatePageControls();
+        try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (e) {}
+      } else {
+        showPage(currentPage - 1);
+      }
     }
     prevBtn.onclick = prevAction;
     nextBtn.onclick = nextAction;
