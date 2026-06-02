@@ -74,22 +74,65 @@
             {
               "text": "わたしは",
               "role": "topic",
-              "gloss": "I (topic: は)"
+              "gloss": "I (topic: は)",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だちに",
               "role": "object",
-              "gloss": "to my friend (recipient: に)"
+              "gloss": "to my friend (recipient: に)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "プレゼントを",
               "role": "object",
-              "gloss": "a present (direct object: を)"
+              "gloss": "a present (direct object: を)",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "あげました。",
               "role": "predicate",
-              "gloss": "gave (あげる → あげました, polite past)"
+              "gloss": "gave (あげる → あげました, polite past)",
+              "tokens": [
+                {
+                  "k": "あげました",
+                  "g": "v_ageru_raise_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I gave a present to my friend.",
@@ -100,22 +143,69 @@
             {
               "text": "お母さんは",
               "role": "topic",
-              "gloss": "Mom (topic: は)"
+              "gloss": "Mom (topic: は)",
+              "tokens": [
+                {
+                  "k": "お",
+                  "g": "v_okaasan"
+                },
+                {
+                  "k": "母",
+                  "r": "かあ",
+                  "g": "v_okaasan"
+                },
+                {
+                  "k": "さん",
+                  "g": "v_okaasan"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "object",
-              "gloss": "to the teacher (recipient: に)"
+              "gloss": "to the teacher (recipient: に)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "花を",
               "role": "object",
-              "gloss": "flowers (object: を)"
+              "gloss": "flowers (object: を)",
+              "tokens": [
+                {
+                  "k": "花",
+                  "r": "はな"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "あげます。",
               "role": "predicate",
-              "gloss": "gives (あげる, polite present — in-group giving to outsider)"
+              "gloss": "gives (あげる, polite present — in-group giving to outsider)",
+              "tokens": [
+                {
+                  "k": "あげます",
+                  "g": "v_ageru_raise_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Mom gives flowers to the teacher.",
@@ -161,22 +251,64 @@
             {
               "text": "友だちが",
               "role": "subject",
-              "gloss": "my friend (subject: が — the giver)"
+              "gloss": "my friend (subject: が — the giver)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "わたしに",
               "role": "object",
-              "gloss": "to me (recipient: に — the speaker receives)"
+              "gloss": "to me (recipient: に — the speaker receives)",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "プレゼントを",
               "role": "object",
-              "gloss": "a present (object: を)"
+              "gloss": "a present (object: を)",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "くれました。",
               "role": "predicate",
-              "gloss": "gave (to me) — くれる, polite past"
+              "gloss": "gave (to me) — くれる, polite past",
+              "tokens": [
+                {
+                  "k": "くれました",
+                  "g": "v_kureru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "My friend gave me a present.",
@@ -187,22 +319,59 @@
             {
               "text": "先生が",
               "role": "subject",
-              "gloss": "the teacher (subject: が — giver)"
+              "gloss": "the teacher (subject: が — giver)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "わたしに",
               "role": "object",
-              "gloss": "to me (recipient: に)"
+              "gloss": "to me (recipient: に)",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "本を",
               "role": "object",
-              "gloss": "a book (object: を)"
+              "gloss": "a book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "くれました。",
               "role": "predicate",
-              "gloss": "gave (to me) — polite past of くれる"
+              "gloss": "gave (to me) — polite past of くれる",
+              "tokens": [
+                {
+                  "k": "くれました",
+                  "g": "v_kureru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The teacher gave me a book.",
@@ -228,22 +397,65 @@
               {
                 "text": "わたしは",
                 "role": "topic",
-                "gloss": "I (topic: は — the giver)"
+                "gloss": "I (topic: は — the giver)",
+                "tokens": [
+                  {
+                    "k": "わたし",
+                    "g": "v_watashi"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "友だちに",
                 "role": "object",
-                "gloss": "to my friend (recipient: に)"
+                "gloss": "to my friend (recipient: に)",
+                "tokens": [
+                  {
+                    "k": "友",
+                    "r": "とも",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "だち",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "プレゼントを",
                 "role": "object",
-                "gloss": "a present (object: を)"
+                "gloss": "a present (object: を)",
+                "tokens": [
+                  {
+                    "k": "プレゼント",
+                    "r": "ぷれぜんと"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "あげた。",
                 "role": "predicate",
-                "gloss": "gave (あげる, plain past — outward direction)"
+                "gloss": "gave (あげる, plain past — outward direction)",
+                "tokens": [
+                  {
+                    "k": "あげた",
+                    "g": "v_ageru_raise_plain_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I gave a present to my friend."
@@ -263,22 +475,64 @@
               {
                 "text": "友だちが",
                 "role": "subject",
-                "gloss": "my friend (subject: が — the giver)"
+                "gloss": "my friend (subject: が — the giver)",
+                "tokens": [
+                  {
+                    "k": "友",
+                    "r": "とも",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "だち",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "わたしに",
                 "role": "object",
-                "gloss": "to me (recipient: に)"
+                "gloss": "to me (recipient: に)",
+                "tokens": [
+                  {
+                    "k": "わたし",
+                    "g": "v_watashi"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "プレゼントを",
                 "role": "object",
-                "gloss": "a present (object: を)"
+                "gloss": "a present (object: を)",
+                "tokens": [
+                  {
+                    "k": "プレゼント",
+                    "r": "ぷれぜんと"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "くれた。",
                 "role": "predicate",
-                "gloss": "gave (to me) — くれる, plain past — inward direction"
+                "gloss": "gave (to me) — くれる, plain past — inward direction",
+                "tokens": [
+                  {
+                    "k": "くれた",
+                    "g": "v_kureru_plain_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "My friend gave me a present."
@@ -325,22 +579,65 @@
             {
               "text": "わたしは",
               "role": "topic",
-              "gloss": "I (topic: は — the receiver)"
+              "gloss": "I (topic: は — the receiver)",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だちに",
               "role": "subject",
-              "gloss": "from my friend (source: に)"
+              "gloss": "from my friend (source: に)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "プレゼントを",
               "role": "object",
-              "gloss": "a present (object: を)"
+              "gloss": "a present (object: を)",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "もらいました。",
               "role": "predicate",
-              "gloss": "received (もらう → もらいました, polite past)"
+              "gloss": "received (もらう → もらいました, polite past)",
+              "tokens": [
+                {
+                  "k": "もらいました",
+                  "g": "v_morau_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I received a present from my friend.",
@@ -351,22 +648,59 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (topic: は — receiver)"
+              "gloss": "Rikizo (topic: は — receiver)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "subject",
-              "gloss": "from the teacher (source: に)"
+              "gloss": "from the teacher (source: に)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "本を",
               "role": "object",
-              "gloss": "a book (object: を)"
+              "gloss": "a book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "もらいました。",
               "role": "predicate",
-              "gloss": "received — polite past of もらう"
+              "gloss": "received — polite past of もらう",
+              "tokens": [
+                {
+                  "k": "もらいました",
+                  "g": "v_morau_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo received a book from the teacher.",
@@ -477,17 +811,47 @@
             {
               "text": "本を",
               "role": "object",
-              "gloss": "the book (object: を)"
+              "gloss": "the book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "読んで",
               "role": "connector",
-              "gloss": "read — て-form of 読む (godan: む → んで)"
+              "gloss": "read — て-form of 読む (godan: む → んで)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_te_form"
+                },
+                {
+                  "k": "んで",
+                  "g": "v_yomu_te_form"
+                }
+              ]
             },
             {
               "text": "あげます。",
               "role": "predicate",
-              "gloss": "will give (= I'll read it for you)"
+              "gloss": "will give (= I'll read it for you)",
+              "tokens": [
+                {
+                  "k": "あげます",
+                  "g": "v_ageru_raise_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll read the book for you.",
@@ -498,22 +862,66 @@
             {
               "text": "友だちが",
               "role": "subject",
-              "gloss": "my friend (subject: が — the giver of the action)"
+              "gloss": "my friend (subject: が — the giver of the action)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "本を",
               "role": "object",
-              "gloss": "a book (object: を)"
+              "gloss": "a book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "読んで",
               "role": "connector",
-              "gloss": "read — te-form of 読む"
+              "gloss": "read — te-form of 読む",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_te_form"
+                },
+                {
+                  "k": "んで",
+                  "g": "v_yomu_te_form"
+                }
+              ]
             },
             {
               "text": "くれました。",
               "role": "predicate",
-              "gloss": "gave to me (くれる, polite past) — friend's kindness benefits speaker"
+              "gloss": "gave to me (くれる, polite past) — friend's kindness benefits speaker",
+              "tokens": [
+                {
+                  "k": "くれました",
+                  "g": "v_kureru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "My friend read the book for me.",
@@ -524,22 +932,66 @@
             {
               "text": "友だちに",
               "role": "object",
-              "gloss": "from my friend (source: に)"
+              "gloss": "from my friend (source: に)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "本を",
               "role": "object",
-              "gloss": "a book (object: を)"
+              "gloss": "a book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "読んで",
               "role": "connector",
-              "gloss": "read — te-form"
+              "gloss": "read — te-form",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_te_form"
+                },
+                {
+                  "k": "んで",
+                  "g": "v_yomu_te_form"
+                }
+              ]
             },
             {
               "text": "もらいました。",
               "role": "predicate",
-              "gloss": "received (もらう, polite past) — speaker received the favor"
+              "gloss": "received (もらう, polite past) — speaker received the favor",
+              "tokens": [
+                {
+                  "k": "もらいました",
+                  "g": "v_morau_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I had my friend read the book for me.",
@@ -577,17 +1029,49 @@
             {
               "text": "先生に",
               "role": "object",
-              "gloss": "the teacher (に — the person I want to act)"
+              "gloss": "the teacher (に — the person I want to act)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "教えて",
               "role": "connector",
-              "gloss": "teach — て-form of 教える"
+              "gloss": "teach — て-form of 教える",
+              "tokens": [
+                {
+                  "k": "教",
+                  "r": "おし",
+                  "g": "v_oshieru_te_form"
+                },
+                {
+                  "k": "えて",
+                  "g": "v_oshieru_te_form"
+                }
+              ]
             },
             {
               "text": "ほしいです。",
               "role": "predicate",
-              "gloss": "want (someone to do) — polite"
+              "gloss": "want (someone to do) — polite",
+              "tokens": [
+                {
+                  "k": "ほしい",
+                  "g": "v_hoshii"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want the teacher to teach me.",
@@ -598,17 +1082,51 @@
             {
               "text": "友だちに",
               "role": "object",
-              "gloss": "my friend (に — desired actor)"
+              "gloss": "my friend (に — desired actor)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来て",
               "role": "connector",
-              "gloss": "come — て-form of 来る (irregular: きて)"
+              "gloss": "come — て-form of 来る (irregular: きて)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_te_form"
+                },
+                {
+                  "k": "て",
+                  "g": "v_kuru_te_form"
+                }
+              ]
             },
             {
               "text": "ほしい。",
               "role": "predicate",
-              "gloss": "want (someone to do) — plain"
+              "gloss": "want (someone to do) — plain",
+              "tokens": [
+                {
+                  "k": "ほしい",
+                  "g": "v_hoshii"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want my friend to come.",
@@ -619,17 +1137,45 @@
             {
               "text": "そこに",
               "role": "modifier",
-              "gloss": "there (location)"
+              "gloss": "there (location)",
+              "tokens": [
+                {
+                  "k": "そこ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行って",
               "role": "connector",
-              "gloss": "go — て-form of 行く (行って)"
+              "gloss": "go — て-form of 行く (行って)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_iku_te_form"
+                }
+              ]
             },
             {
               "text": "ほしくない。",
               "role": "predicate",
-              "gloss": "don't want (someone to do)"
+              "gloss": "don't want (someone to do)",
+              "tokens": [
+                {
+                  "k": "ほしくない",
+                  "g": "v_hoshii_plain_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I don't want you to go there.",
@@ -647,22 +1193,64 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (topic: は — the giver)"
+              "gloss": "Rikizo (topic: は — the giver)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だちに",
               "role": "object",
-              "gloss": "to his friend (recipient: に)"
+              "gloss": "to his friend (recipient: に)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "花を",
               "role": "object",
-              "gloss": "flowers (object: を)"
+              "gloss": "flowers (object: を)",
+              "tokens": [
+                {
+                  "k": "花",
+                  "r": "はな"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "あげました。",
               "role": "predicate",
-              "gloss": "gave (あげる, polite past) — Rikizo's action, directed outward"
+              "gloss": "gave (あげる, polite past) — Rikizo's action, directed outward",
+              "tokens": [
+                {
+                  "k": "あげました",
+                  "g": "v_ageru_raise_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo gave flowers to his friend.",
@@ -674,22 +1262,63 @@
             {
               "text": "友だちも",
               "role": "subject",
-              "gloss": "his friend also (も = also — the giver)"
+              "gloss": "his friend also (も = also — the giver)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "りきぞうに",
               "role": "object",
-              "gloss": "to Rikizo (recipient: に — in-group)"
+              "gloss": "to Rikizo (recipient: に — in-group)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "本を",
               "role": "object",
-              "gloss": "a book (object: を)"
+              "gloss": "a book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "くれました。",
               "role": "predicate",
-              "gloss": "gave (to him) — くれる, polite past — outsider gives to in-group"
+              "gloss": "gave (to him) — くれる, polite past — outsider gives to in-group",
+              "tokens": [
+                {
+                  "k": "くれました",
+                  "g": "v_kureru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "His friend also gave Rikizo a book.",
@@ -701,22 +1330,64 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (topic: は — now the active receiver)"
+              "gloss": "Rikizo (topic: は — now the active receiver)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だちから",
               "role": "subject",
-              "gloss": "from his friend (source: から — slightly more distance than に)"
+              "gloss": "from his friend (source: から — slightly more distance than に)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "本を",
               "role": "object",
-              "gloss": "a book (object: を)"
+              "gloss": "a book (object: を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "もらいました。",
               "role": "predicate",
-              "gloss": "received (もらう, polite past) — Rikizo actively acquired it"
+              "gloss": "received (もらう, polite past) — Rikizo actively acquired it",
+              "tokens": [
+                {
+                  "k": "もらいました",
+                  "g": "v_morau_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo received a book from his friend.",

@@ -170,12 +170,43 @@
             {
               "text": "今日の 花火は",
               "role": "topic",
-              "gloss": "today's fireworks (topic)"
+              "gloss": "today's fireworks (topic)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "花火",
+                  "r": "はなび"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "きれいでした。",
               "role": "predicate",
-              "gloss": "was beautiful (na-adj past: きれい + でした)"
+              "gloss": "was beautiful (na-adj past: きれい + でした)",
+              "tokens": [
+                {
+                  "k": "きれい"
+                },
+                {
+                  "k": "でした"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Today's fireworks were beautiful.",
@@ -186,12 +217,44 @@
             {
               "text": "この 川は",
               "role": "topic",
-              "gloss": "this river (topic)"
+              "gloss": "this river (topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "川",
+                  "r": "かわ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "ゆうめいじゃないです。",
               "role": "predicate",
-              "gloss": "is not famous (polite negative: ゆうめい + じゃないです)"
+              "gloss": "is not famous (polite negative: ゆうめい + じゃないです)",
+              "tokens": [
+                {
+                  "k": "ゆうめい",
+                  "g": "v_yuumei"
+                },
+                {
+                  "k": "じゃない",
+                  "g": "g_da_da_negative"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This river is not famous.",
@@ -233,17 +296,49 @@
             {
               "text": "金魚は",
               "role": "topic",
-              "gloss": "goldfish (topic)"
+              "gloss": "goldfish (topic)",
+              "tokens": [
+                {
+                  "k": "金魚",
+                  "r": "きんぎょ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "きれいで、",
               "role": "modifier",
-              "gloss": "beautiful and… (na-adj te-form: きれい + で)"
+              "gloss": "beautiful and… (na-adj te-form: きれい + で)",
+              "tokens": [
+                {
+                  "k": "きれい"
+                },
+                {
+                  "k": "で"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "かわいいです。",
               "role": "predicate",
-              "gloss": "cute (i-adj polite)"
+              "gloss": "cute (i-adj polite)",
+              "tokens": [
+                {
+                  "k": "かわいい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Goldfish are beautiful and cute.",
@@ -254,17 +349,52 @@
             {
               "text": "花火は",
               "role": "topic",
-              "gloss": "fireworks (topic)"
+              "gloss": "fireworks (topic)",
+              "tokens": [
+                {
+                  "k": "花火",
+                  "r": "はなび"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "大きくて、",
               "role": "modifier",
-              "gloss": "big and… (i-adj te-form: 大き + くて)"
+              "gloss": "big and… (i-adj te-form: 大き + くて)",
+              "tokens": [
+                {
+                  "k": "大",
+                  "r": "おお",
+                  "g": "v_ookii_te_form"
+                },
+                {
+                  "k": "きくて",
+                  "g": "v_ookii_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "きれいです。",
               "role": "predicate",
-              "gloss": "beautiful (na-adj polite)"
+              "gloss": "beautiful (na-adj polite)",
+              "tokens": [
+                {
+                  "k": "きれい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The fireworks are big and beautiful.",
@@ -275,22 +405,60 @@
             {
               "text": "空気が",
               "role": "topic",
-              "gloss": "air (subject)"
+              "gloss": "air (subject)",
+              "tokens": [
+                {
+                  "k": "空気",
+                  "r": "くうき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "よくて、",
               "role": "modifier",
-              "gloss": "nice and… (いい irregular te-form: よ + くて)"
+              "gloss": "nice and… (いい irregular te-form: よ + くて)",
+              "tokens": [
+                {
+                  "k": "よくて",
+                  "g": "v_ii_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "気分が",
               "role": "topic",
-              "gloss": "mood (subject)"
+              "gloss": "mood (subject)",
+              "tokens": [
+                {
+                  "k": "気分",
+                  "r": "きぶん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いいです。",
               "role": "predicate",
-              "gloss": "good (polite)"
+              "gloss": "good (polite)",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The air is nice and my mood is good.",
@@ -308,12 +476,33 @@
             {
               "text": "花は",
               "role": "topic",
-              "gloss": "flowers (topic: は)"
+              "gloss": "flowers (topic: は)",
+              "tokens": [
+                {
+                  "k": "花",
+                  "r": "はな"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "きれいで、",
               "role": "connector",
-              "gloss": "beautiful and… (na-adj て-form: きれい + で)"
+              "gloss": "beautiful and… (na-adj て-form: きれい + で)",
+              "tokens": [
+                {
+                  "k": "きれい"
+                },
+                {
+                  "k": "で"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             }
           ],
           "en": "The flowers are beautiful and…",
@@ -325,7 +514,16 @@
             {
               "text": "かわいくて、",
               "role": "connector",
-              "gloss": "cute and… (i-adj て-form: かわいい → かわい + くて)"
+              "gloss": "cute and… (i-adj て-form: かわいい → かわい + くて)",
+              "tokens": [
+                {
+                  "k": "かわいくて",
+                  "g": "v_kawaii_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             }
           ],
           "en": "…cute and…",
@@ -337,17 +535,42 @@
             {
               "text": "空気も",
               "role": "topic",
-              "gloss": "air also (topic: も = also)"
+              "gloss": "air also (topic: も = also)",
+              "tokens": [
+                {
+                  "k": "空気",
+                  "r": "くうき"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "きれいに",
               "role": "adverb",
-              "gloss": "cleanly (na-adj adverb form: きれい + に)"
+              "gloss": "cleanly (na-adj adverb form: きれい + に)",
+              "tokens": [
+                {
+                  "k": "きれい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なりました。",
               "role": "predicate",
-              "gloss": "became (なる, polite past — 'became clean')"
+              "gloss": "became (なる, polite past — 'became clean')",
+              "tokens": [
+                {
+                  "k": "なりました"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "…and the air also became clean.",

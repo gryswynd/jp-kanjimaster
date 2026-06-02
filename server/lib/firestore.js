@@ -154,6 +154,16 @@ export async function saveProgress(uid, incoming) {
   });
 }
 
+// ── Bug reports (beta) ──────────────────────────────────────────────────────
+// bug-reports/{auto-id} — one doc per submission. Read in the Firebase console.
+export async function saveBugReport(report) {
+  const ref = await client().collection('bug-reports').add({
+    ...report,
+    serverAt: FieldValue.serverTimestamp(),
+  });
+  return ref.id;
+}
+
 export function httpError(status, reason) {
   const e = new Error(reason);
   e.status = status;

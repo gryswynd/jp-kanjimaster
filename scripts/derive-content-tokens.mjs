@@ -1,81 +1,101 @@
 #!/usr/bin/env node
 /**
  * scripts/derive-content-tokens.mjs
- * Demo-data pass: walks specific content files and adds `tokens` to fields
- * that match a glossary entry exactly (by surface). Conjugated / inflected
- * forms are skipped because the base tokens don't fit.
+ * Bakes `tokens` onto every grammar example `parts[].text` so the grammar
+ * "new rules" and "compare" views render furigana + romaji through the shared
+ * jpText renderer (Grammar.js renderParts() already passes {text, tokens}).
  *
- * Currently targets:
- *   - data/N5/grammar/G1.json  →  every parts[].text
+ * Uses the SAME deterministic glossary-greedy tokenizer as the story pipeline
+ * (scripts/lib/tokenize.mjs) — NOT exact whole-surface matching — so sentence
+ * fragments like 本を / 持って / 寒く tokenize correctly. Conjugated forms are
+ * matched via the pre-generated inflection index.
+ *
+ * Targets every parts[] array (examples[].parts and items[].example.parts) in:
+ *   - data/N5/grammar/*.json
+ *   - data/N4/grammar/*.json
+ *   - data/N3/grammar/*.json
+ *
+ * NEVER hand-edit grammar tokens — re-run this script.
  *
  * Run:
  *   node scripts/derive-content-tokens.mjs
  */
 
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { tokenizeText, buildGlossaryIndex, reconstructFromTokens } from './lib/tokenize.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-// Build a single surface→entry lookup across all glossaries + particles.
-async function buildIndex() {
-  const idx = new Map();
-  const sources = [
-    'data/N5/glossary.N5.json',
-    'data/N4/glossary.N4.json',
-    'data/N3/glossary.N3.json'
-  ];
-  for (const s of sources) {
-    const data = JSON.parse(await readFile(path.join(ROOT, s), 'utf8'));
-    for (const e of (data.entries || [])) {
-      if (e.surface && !idx.has(e.surface)) idx.set(e.surface, e);
-    }
-  }
-  const particles = JSON.parse(await readFile(path.join(ROOT, 'shared/particles.json'), 'utf8'));
-  for (const p of (particles.particles || [])) {
-    if (p.particle && !idx.has(p.particle)) idx.set(p.particle, p);
-  }
-  return idx;
-}
+// Build the canonical glossary index (vocab + particles + characters +
+// pre-generated inflections), identical to the story migration setup.
+const conjugationRules = JSON.parse(await readFile(path.join(ROOT, 'conjugation_rules.json'), 'utf8'));
+const glossaryIndex = await buildGlossaryIndex(
+  [
+    path.join(ROOT, 'data/N5/glossary.N5.json'),
+    path.join(ROOT, 'data/N4/glossary.N4.json'),
+    path.join(ROOT, 'data/N3/glossary.N3.json'),
+    path.join(ROOT, 'shared/particles.json'),
+    path.join(ROOT, 'shared/characters.json')
+  ],
+  readFile,
+  { includeReadings: true, conjugationRules }
+);
+console.log(`Indexed ${glossaryIndex.size} surfaces (incl. readings + characters + inflections).`);
 
-// Walk a tree and add tokens to every `parts[].text` field via glossary lookup.
-function deriveOnParts(node, idx) {
-  let added = 0;
+const stats = { parts: 0, withReading: 0, mismatches: [] };
+
+// Walk a tree; tokenize the .text of every member of any `parts` array.
+function deriveOnParts(node, file) {
   if (Array.isArray(node)) {
-    for (const child of node) added += deriveOnParts(child, idx);
-    return added;
+    for (const child of node) deriveOnParts(child, file);
+    return;
   }
   if (node && typeof node === 'object') {
     if (Array.isArray(node.parts)) {
       for (const part of node.parts) {
-        if (part && typeof part === 'object' && typeof part.text === 'string' && !part.tokens) {
-          const entry = idx.get(part.text);
-          if (entry && entry.tokens) {
-            part.tokens = entry.tokens;
-            added++;
+        if (part && typeof part === 'object' && typeof part.text === 'string' && part.text) {
+          const tokens = tokenizeText(part.text, glossaryIndex);
+          const reconstructed = reconstructFromTokens(tokens);
+          if (reconstructed !== part.text) {
+            // Don't write tokens that don't reconstruct — leave the part bare
+            // rather than render drifted text.
+            stats.mismatches.push(`${file}: "${part.text}" → "${reconstructed}"`);
+            delete part.tokens;
+          } else {
+            part.tokens = tokens;
+            stats.parts++;
+            if (tokens.some(t => t && t.r)) stats.withReading++;
           }
         }
       }
     }
-    for (const key in node) added += deriveOnParts(node[key], idx);
+    for (const key in node) deriveOnParts(node[key], file);
   }
-  return added;
 }
 
-const idx = await buildIndex();
-console.log(`Indexed ${idx.size} surfaces.`);
-
-const targets = ['data/N5/grammar/G1.json'];
-for (const file of targets) {
-  const full = path.join(ROOT, file);
-  const data = JSON.parse(await readFile(full, 'utf8'));
-  const added = deriveOnParts(data, idx);
-  if (added > 0) {
-    await writeFile(full, JSON.stringify(data, null, 2) + '\n', 'utf8');
-    console.log(`[${file}] added tokens to ${added} parts`);
-  } else {
-    console.log(`[${file}] nothing to add`);
+const GRAMMAR_DIRS = ['data/N5/grammar', 'data/N4/grammar', 'data/N3/grammar'];
+let filesWritten = 0;
+for (const dir of GRAMMAR_DIRS) {
+  let files;
+  try {
+    files = (await readdir(path.join(ROOT, dir))).filter(f => f.endsWith('.json'));
+  } catch {
+    continue; // level dir may not exist
   }
+  for (const f of files) {
+    const full = path.join(ROOT, dir, f);
+    const data = JSON.parse(await readFile(full, 'utf8'));
+    deriveOnParts(data, `${dir}/${f}`);
+    await writeFile(full, JSON.stringify(data, null, 2) + '\n', 'utf8');
+    filesWritten++;
+  }
+}
+
+console.log(`Tokenized ${stats.parts} parts (${stats.withReading} carry a reading) across ${filesWritten} grammar files.`);
+if (stats.mismatches.length) {
+  console.log(`\n⚠ ${stats.mismatches.length} parts left bare (token reconstruction mismatch):`);
+  for (const m of stats.mismatches) console.log('  ' + m);
 }

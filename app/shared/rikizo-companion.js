@@ -550,6 +550,94 @@
     }).catch(restore);
   }
 
+  // ----------------------------------------------- first-open Settings tour
+  // Settings has grown into many sections; the first time the panel is opened
+  // (fired by tts-settings open()), Rikizo walks through each one. Gated by a
+  // seen-key + the global skip-tutorials switch. The panel is already open and
+  // sits at z-9999, so we lift our layers above it (as _runSettingsHelp does)
+  // and lock the screen so taps step the tour forward. Leaves Settings open.
+  var SETTINGS_TUT_SEEN_KEY = 'k-rikizo-settings-tutorial-seen';
+  function settingsTutorialSeen() {
+    try { return localStorage.getItem(SETTINGS_TUT_SEEN_KEY) === '1'; } catch (e) { return false; }
+  }
+  function resetSettingsTutorial() {
+    try { localStorage.removeItem(SETTINGS_TUT_SEEN_KEY); } catch (e) {}
+    _tutorialSeq++;
+  }
+
+  function runSettingsTutorial() {
+    var SCOPE = '.jp-set-overlay';
+    if (state.busy || tutorialsSkipped() || settingsTutorialSeen()) return Promise.resolve();
+    if (!document.querySelector(SCOPE)) return Promise.resolve();
+    // Mark seen up front so an abort mid-tour (panel closed) still records it.
+    try { localStorage.setItem(SETTINGS_TUT_SEEN_KEY, '1'); } catch (e) {}
+    var mySeq = ++_tutorialSeq;
+    var current = function () { return mySeq === _tutorialSeq; };
+    ensureLayer(); clearBubble(); cancelLoop();
+
+    var restore = function () {
+      clearBubble(); clearHighlight();
+      _liftAboveSettings(false);
+      unlockScreen();
+      if (current()) state.busy = false;
+      applyPresence();
+    };
+
+    return loadMessages().then(function (data) {
+      if (!current() || !document.querySelector(SCOPE)) { restore(); return; }
+      var st = (data && data.settingsTutorial) || {};
+      var txt = function (k, fb) { var m = st[k]; return (m && m.text) || fb; };
+
+      // [messageKey, targetSelector] — null target = Rikizo speaks from center
+      // (intro walks in; outro steps back to center).
+      var steps = [
+        { msg: 'intro',     sel: null, walkIn: true },
+        { msg: 'profile',   sel: '[data-tour-set="profile"]' },
+        { msg: 'account',   sel: '#jp-set-account-field' },
+        { msg: 'companion', sel: '[data-tour-set="companion"]' },
+        { msg: 'tutorials', sel: '[data-tour-set="tutorials"]' },
+        { msg: 'voice',     sel: '[data-tour-set="voice"]' },
+        { msg: 'sound',     sel: '[data-tour-set="sound"]' },
+        { msg: 'aids',      sel: '[data-tour-set="aids"]' },
+        { msg: 'helpers',   sel: '[data-tour-set="helpers"]' },
+        { msg: 'upgrades',  sel: '[data-tour-set="upgrades"]' },
+        { msg: 'about',     sel: '[data-tour-set="about"]' },
+        { msg: 'outro',     sel: null }
+      ];
+
+      state.busy = true;
+      lockScreen();
+      _liftAboveSettings(true);
+
+      var chain = wait(220);
+      steps.forEach(function (step) {
+        chain = chain.then(function () {
+          if (!current() || !document.querySelector(SCOPE)) return;
+          var line = txt(step.msg, '');
+          if (!line) return;
+          if (step.sel) {
+            return tourStep(step.sel, line, { scope: SCOPE });
+          }
+          clearHighlight();
+          if (step.walkIn) {
+            place(offscreenLeft(), restY()); show();
+            return walkTo(centerX(), { speed: 160 }).then(function () {
+              if (!current()) return;
+              state.facing = 'down'; idle();
+              return speak(line);
+            });
+          }
+          return moveTo(centerX(), restY(), { duration: 600 }).then(function () {
+            if (!current()) return;
+            state.facing = 'down'; idle();
+            return speak(line);
+          });
+        });
+      });
+      return chain.then(restore, restore);
+    }).catch(restore);
+  }
+
   function runOnboarding() {
     if (state.onboarding) return Promise.resolve();
     // Skipped: mark onboarded so the first-launch gate stops firing, then bail.
@@ -598,14 +686,33 @@
     }).then(function () {
       return tourStep('[data-tour="streak"]',   ob.tourStreak   && ob.tourStreak.text);
     }).then(function () {
-      return tourStep('[data-tour="lesson"]',   ob.tourLessons  && ob.tourLessons.text);
+      // Next Up — what to tackle next (grammar / lesson / review).
+      return tourStep('[data-tour="lesson"]',   ob.tourNextUp   && ob.tourNextUp.text);
     }).then(function () {
+      // All practice modules — more unlock as lessons/reviews are cleared at 60%+.
+      return tourStep('[data-tour="modules"]',  ob.tourModules  && ob.tourModules.text);
+    }).then(function () {
+      // Progress bars.
+      return tourStep('[data-tour="progress"]', ob.tourProgress && ob.tourProgress.text);
+    }).then(function () {
+      // Cast — unlocks as you meet friends & family in the adventure.
+      return tourStep('[data-tour="cast"]',     ob.tourCast     && ob.tourCast.text);
+    }).then(function () {
+      // Daily challenge.
+      return tourStep('[data-tour="daily"]',    ob.tourDaily    && ob.tourDaily.text);
+    }).then(function () {
+      // Bottom navigation bar.
+      return tourStep('[data-tour="nav"]',      ob.tourNav      && ob.tourNav.text);
+    }).then(function () {
+      // "Phew — that was a lot." Drop the spotlight and step back to center.
       clearHighlight();
-      // Walk back to a friendly center-rest spot for the parting line.
       return moveTo(centerX(), restY(), { duration: 700 });
     }).then(function () {
       state.facing = 'down'; idle();
-      return speak((ob.tourDone && ob.tourDone.text) || "Let's start with Lesson 1!");
+      return speak((ob.tourPhew && ob.tourPhew.text) || 'Phew — that was a lot! 😅');
+    }).then(function () {
+      // Back to Next Up for the call to action.
+      return tourStep('[data-tour="lesson"]',   (ob.tourDone && ob.tourDone.text) || "Let's do your first lesson!");
     }).then(finishOnboarding, finishOnboarding);
   }
 
@@ -1039,27 +1146,25 @@
     var current = function () { return mySeq === _tutorialSeq; };
 
     var seen = _loadDojoTutorialSeen();
-    // The verbPractice variant key is collapsed onto a single seen-slot so the
-    // other variant never sneaks in later.
-    var stepOrder = ['intro','stats','kanjiPractice','vocabPractice','verbPractice','sentencePractice','flagged'];
+    var stepOrder = ['intro','stats','kanjiPractice','vocabPractice','writingPractice','audioPractice','games','flagged'];
     if (stepOrder.every(function (k) { return seen[k]; })) return Promise.resolve();
 
     return loadMessages().then(function (data) {
       if (!current()) return;
       var dt = (data && data.dojoTutorial) || {};
-      var completed = {};
-      try { completed = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}'); } catch (e) {}
-      var g1Done = !!completed.G1;
 
       // [seenKey, messageKey, targetSelector] per step. null target = no spotlight,
       // Rikizo just walks to center and speaks (used for the "intro" step).
+      // Mirrors the Dojo's current tiles: Kanji, Vocab (incl. Conjugation Station),
+      // Writing, Audio, Games (Scramble + Link Up), and Flags.
       var steps = [
         { seen: 'intro',           msg: 'intro',           sel: null },
         { seen: 'stats',           msg: 'stats',           sel: '[data-tour-dojo="stats"]' },
         { seen: 'kanjiPractice',   msg: 'kanjiPractice',   sel: '[data-tour-dojo="kanjiPractice"]' },
         { seen: 'vocabPractice',   msg: 'vocabPractice',   sel: '[data-tour-dojo="vocabPractice"]' },
-        { seen: 'verbPractice',    msg: g1Done ? 'verbPracticeUnlocked' : 'verbPractice', sel: '[data-tour-dojo="verbPractice"]' },
-        { seen: 'sentencePractice',msg: 'sentencePractice',sel: '[data-tour-dojo="sentencePractice"]' },
+        { seen: 'writingPractice', msg: 'writingPractice', sel: '[data-tour-dojo="writingPractice"]' },
+        { seen: 'audioPractice',   msg: 'audioPractice',   sel: '[data-tour-dojo="audioPractice"]' },
+        { seen: 'games',           msg: 'games',           sel: '[data-tour-dojo="games"]' },
         { seen: 'flagged',         msg: 'flagged',         sel: '[data-tour-dojo="flagged"]' }
       ];
 
@@ -1279,6 +1384,8 @@
     resetDojoTutorial: resetDojoTutorial,
     runComposeTutorialStep: runComposeTutorialStep,
     resetComposeTutorial: resetComposeTutorial,
+    runSettingsTutorial: runSettingsTutorial,
+    resetSettingsTutorial: resetSettingsTutorial,
     resetRuntime: resetRuntime,
     getPresence: getPresence, setPresence: setPresence, applyPresence: applyPresence,
     PRESENCE_LEVELS: PRESENCE_LEVELS

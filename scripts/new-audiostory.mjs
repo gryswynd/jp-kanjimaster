@@ -35,9 +35,11 @@ const level = flags.level;
 const title = flags.title || '';
 const englishTitle = flags.english || flags['english-title'] || '';
 const order = flags.order != null ? Number(flags.order) : null;
+// Lesson this passage unlocks after (gating, like Stories). e.g. --unlocks-after=N5.3
+const unlocksAfter = (flags['unlocks-after'] || flags.unlocksAfter || null) || null;
 
 if (!slug || !level || !['N5', 'N4', 'N3', 'custom'].includes(level)) {
-  console.error('Usage: node scripts/new-audiostory.mjs <slug> --level=N5|N4|N3|custom [--title=…] [--english=…] [--order=N]');
+  console.error('Usage: node scripts/new-audiostory.mjs <slug> --level=N5|N4|N3|custom [--title=…] [--english=…] [--order=N] [--unlocks-after=N5.x]');
   process.exit(1);
 }
 
@@ -58,7 +60,7 @@ const skeleton = {
   title: title || `(set title in ${dir}/audiostory.json)`,
   englishTitle: englishTitle || '(set English title)',
   level,
-  unlocksAfter: null,
+  unlocksAfter: unlocksAfter,
   difficulty: 1,
   // Filled by scripts/generate-audio.mjs (concatenated passage + breakpoints + peaks).
   audio: { file: 'passage.m4a', dur: 0, breakpoints: [], peaks: [] },
@@ -87,7 +89,8 @@ if (index.audiostories.some((s) => s.id === slug)) {
     englishTitle: englishTitle || '(English title)',
     dir,
     file: 'audiostory.json',
-    order: order != null ? order : index.audiostories.length * 10
+    order: order != null ? order : index.audiostories.length * 10,
+    unlocksAfter: unlocksAfter           // selector gates on this (see AudioDojo.js)
   });
   index.audiostories.sort((a, b) => (a.order || 0) - (b.order || 0));
   await writeFile(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');

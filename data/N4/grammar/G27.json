@@ -78,17 +78,50 @@
             {
               "text": "日本語は",
               "role": "topic",
-              "gloss": "Japanese (は — topic)"
+              "gloss": "Japanese (は — topic)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "むずかしいと",
               "role": "connector",
-              "gloss": "difficult (plain い-adj) + と (quotation marker)"
+              "gloss": "difficult (plain い-adj) + と (quotation marker)",
+              "tokens": [
+                {
+                  "k": "むずかしい",
+                  "g": "v_muzukashii"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思います。",
               "role": "predicate",
-              "gloss": "think (polite form of 思う)"
+              "gloss": "think (polite form of 思う)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "います",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I think Japanese is difficult.",
@@ -99,17 +132,55 @@
             {
               "text": "明日は",
               "role": "topic",
-              "gloss": "tomorrow (は — topic)"
+              "gloss": "tomorrow (は — topic)",
+              "tokens": [
+                {
+                  "k": "明日",
+                  "r": "あした"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "来ないと",
               "role": "connector",
-              "gloss": "won't come (plain negative of 来る) + と (quotation marker)"
+              "gloss": "won't come (plain negative of 来る) + と (quotation marker)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "こ",
+                  "g": "v_kuru_plain_negative"
+                },
+                {
+                  "k": "ない",
+                  "g": "v_kuru_plain_negative"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思う。",
               "role": "predicate",
-              "gloss": "think (plain form of 思う)"
+              "gloss": "think (plain form of 思う)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou"
+                },
+                {
+                  "k": "う",
+                  "g": "v_omou"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I think (they) won't come tomorrow.",
@@ -152,22 +223,73 @@
             {
               "text": "田中さんは",
               "role": "topic",
-              "gloss": "Tanaka (は — topic)"
+              "gloss": "Tanaka (は — topic)",
+              "tokens": [
+                {
+                  "k": "田中",
+                  "r": "たなか"
+                },
+                {
+                  "k": "さん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "日本語が",
               "role": "subject",
-              "gloss": "Japanese (が — subject of the embedded clause)"
+              "gloss": "Japanese (が — subject of the embedded clause)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "上手だと",
               "role": "connector",
-              "gloss": "skilled (な-adj stem 上手 + だ) + と"
+              "gloss": "skilled (な-adj stem 上手 + だ) + と",
+              "tokens": [
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "だ"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思っている。",
               "role": "predicate",
-              "gloss": "thinks (te-form of 思う + いる — ongoing state)"
+              "gloss": "thinks (te-form of 思う + いる — ongoing state)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "いる"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Tanaka thinks he is good at Japanese (his ongoing belief).",
@@ -178,17 +300,64 @@
             {
               "text": "旅行は",
               "role": "topic",
-              "gloss": "travel (は — topic)"
+              "gloss": "travel (は — topic)",
+              "tokens": [
+                {
+                  "k": "旅行",
+                  "r": "りょこう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "楽しいと",
               "role": "connector",
-              "gloss": "fun (plain い-adj) + と"
+              "gloss": "fun (plain い-adj) + と",
+              "tokens": [
+                {
+                  "k": "楽",
+                  "r": "たの",
+                  "g": "v_tanoshii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_tanoshii"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "ずっと 思っています。",
               "role": "predicate",
-              "gloss": "have always thought (ずっと = always/continuously + 思っています)"
+              "gloss": "have always thought (ずっと = always/continuously + 思っています)",
+              "tokens": [
+                {
+                  "k": "ずっと"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have always thought travel is fun.",
@@ -215,17 +384,50 @@
               {
                 "text": "日本語は",
                 "role": "topic",
-                "gloss": "Japanese (topic)"
+                "gloss": "Japanese (topic)",
+                "tokens": [
+                  {
+                    "k": "日本語",
+                    "r": "にほんご"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "むずかしいと",
                 "role": "connector",
-                "gloss": "difficult (plain adj) + と"
+                "gloss": "difficult (plain adj) + と",
+                "tokens": [
+                  {
+                    "k": "むずかしい",
+                    "g": "v_muzukashii"
+                  },
+                  {
+                    "k": "と"
+                  }
+                ]
               },
               {
                 "text": "思う。",
                 "role": "predicate",
-                "gloss": "think (plain form)"
+                "gloss": "think (plain form)",
+                "tokens": [
+                  {
+                    "k": "思",
+                    "r": "おも",
+                    "g": "v_omou"
+                  },
+                  {
+                    "k": "う",
+                    "g": "v_omou"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I think Japanese is difficult (my current opinion)."
@@ -246,17 +448,56 @@
               {
                 "text": "日本語は",
                 "role": "topic",
-                "gloss": "Japanese (topic)"
+                "gloss": "Japanese (topic)",
+                "tokens": [
+                  {
+                    "k": "日本語",
+                    "r": "にほんご"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "大切だと",
                 "role": "connector",
-                "gloss": "important (な-adj + だ) + と"
+                "gloss": "important (な-adj + だ) + と",
+                "tokens": [
+                  {
+                    "k": "大切",
+                    "r": "たいせつ"
+                  },
+                  {
+                    "k": "だ"
+                  },
+                  {
+                    "k": "と"
+                  }
+                ]
               },
               {
                 "text": "思っている。",
                 "role": "predicate",
-                "gloss": "believe (te-form + いる — ongoing)"
+                "gloss": "believe (te-form + いる — ongoing)",
+                "tokens": [
+                  {
+                    "k": "思",
+                    "r": "おも",
+                    "g": "v_omou_te_form"
+                  },
+                  {
+                    "k": "って",
+                    "g": "v_omou_te_form"
+                  },
+                  {
+                    "k": "いる"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I believe Japanese is important (a conviction I hold)."
@@ -301,17 +542,51 @@
             {
               "text": "日本に",
               "role": "object",
-              "gloss": "to Japan (に — destination)"
+              "gloss": "to Japan (に — destination)",
+              "tokens": [
+                {
+                  "k": "日本",
+                  "r": "にほん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行ったことが",
               "role": "predicate",
-              "gloss": "gone (た-form of 行く) + こと (nominalizer) + が (subject)"
+              "gloss": "gone (た-form of 行く) + こと (nominalizer) + が (subject)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_plain_past"
+                },
+                {
+                  "k": "った",
+                  "g": "v_iku_plain_past"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あります。",
               "role": "predicate",
-              "gloss": "exists (polite form of ある — the experience exists)"
+              "gloss": "exists (polite form of ある — the experience exists)",
+              "tokens": [
+                {
+                  "k": "あります"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have been to Japan.",
@@ -322,17 +597,51 @@
             {
               "text": "すしを",
               "role": "object",
-              "gloss": "sushi (を — object)"
+              "gloss": "sushi (を — object)",
+              "tokens": [
+                {
+                  "k": "すし"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べたことが",
               "role": "predicate",
-              "gloss": "eaten (た-form of 食べる) + こと + が"
+              "gloss": "eaten (た-form of 食べる) + こと + が",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_past"
+                },
+                {
+                  "k": "べた",
+                  "g": "v_taberu_plain_past"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ありません。",
               "role": "predicate",
-              "gloss": "does not exist (polite negative of ある)"
+              "gloss": "does not exist (polite negative of ある)",
+              "tokens": [
+                {
+                  "k": "ありません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have never eaten sushi.",
@@ -375,17 +684,64 @@
             {
               "text": "朝 ご飯を",
               "role": "object",
-              "gloss": "breakfast (を — object)"
+              "gloss": "breakfast (を — object)",
+              "tokens": [
+                {
+                  "k": "朝",
+                  "r": "あさ"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "ご",
+                  "g": "v_gohan"
+                },
+                {
+                  "k": "飯",
+                  "r": "はん",
+                  "g": "v_gohan"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べないことが",
               "role": "predicate",
-              "gloss": "not eat (plain negative of 食べる) + こと (nominalizer) + が"
+              "gloss": "not eat (plain negative of 食べる) + こと (nominalizer) + が",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_negative"
+                },
+                {
+                  "k": "べない",
+                  "g": "v_taberu_plain_negative"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ある。",
               "role": "predicate",
-              "gloss": "exists (plain form of ある — the occasion exists)"
+              "gloss": "exists (plain form of ある — the occasion exists)",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I sometimes skip breakfast. (There are times when I don't eat breakfast.)",
@@ -396,17 +752,62 @@
             {
               "text": "映画を",
               "role": "object",
-              "gloss": "movies (を — object)"
+              "gloss": "movies (を — object)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "一人で 見ることが",
               "role": "predicate",
-              "gloss": "watch alone (dictionary form of 見る + 一人で) + こと + が"
+              "gloss": "watch alone (dictionary form of 見る + 一人で) + こと + が",
+              "tokens": [
+                {
+                  "k": "一人",
+                  "r": "ひとり"
+                },
+                {
+                  "k": "で"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_miru"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あります。",
               "role": "predicate",
-              "gloss": "exists (polite form of ある)"
+              "gloss": "exists (polite form of ある)",
+              "tokens": [
+                {
+                  "k": "あります"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I sometimes watch movies alone. (There are times when I watch movies alone.)",
@@ -433,17 +834,51 @@
               {
                 "text": "日本に",
                 "role": "object",
-                "gloss": "to Japan (に)"
+                "gloss": "to Japan (に)",
+                "tokens": [
+                  {
+                    "k": "日本",
+                    "r": "にほん"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "行ったことが",
                 "role": "predicate",
-                "gloss": "gone (た-form) + こと + が"
+                "gloss": "gone (た-form) + こと + が",
+                "tokens": [
+                  {
+                    "k": "行",
+                    "r": "い",
+                    "g": "v_iku_plain_past"
+                  },
+                  {
+                    "k": "った",
+                    "g": "v_iku_plain_past"
+                  },
+                  {
+                    "k": "こと"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "ある。",
                 "role": "predicate",
-                "gloss": "exists — the experience exists in my history"
+                "gloss": "exists — the experience exists in my history",
+                "tokens": [
+                  {
+                    "k": "ある"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I have been to Japan."
@@ -464,17 +899,51 @@
               {
                 "text": "日本に",
                 "role": "object",
-                "gloss": "to Japan (に)"
+                "gloss": "to Japan (に)",
+                "tokens": [
+                  {
+                    "k": "日本",
+                    "r": "にほん"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "行くことが",
                 "role": "predicate",
-                "gloss": "go (dictionary form) + こと + が"
+                "gloss": "go (dictionary form) + こと + が",
+                "tokens": [
+                  {
+                    "k": "行",
+                    "r": "い",
+                    "g": "v_iku"
+                  },
+                  {
+                    "k": "く",
+                    "g": "v_iku"
+                  },
+                  {
+                    "k": "こと"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "ある。",
                 "role": "predicate",
-                "gloss": "exists — the occasion exists (recurring)"
+                "gloss": "exists — the occasion exists (recurring)",
+                "tokens": [
+                  {
+                    "k": "ある"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I sometimes go to Japan."
@@ -493,17 +962,62 @@
             {
               "text": "海外 旅行は",
               "role": "topic",
-              "gloss": "overseas travel (は — topic)"
+              "gloss": "overseas travel (は — topic)",
+              "tokens": [
+                {
+                  "k": "海外",
+                  "r": "かいがい"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "旅行",
+                  "r": "りょこう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "楽しいと",
               "role": "connector",
-              "gloss": "fun (plain い-adj) + と (quotation marker)"
+              "gloss": "fun (plain い-adj) + と (quotation marker)",
+              "tokens": [
+                {
+                  "k": "楽",
+                  "r": "たの",
+                  "g": "v_tanoshii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_tanoshii"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思います。",
               "role": "predicate",
-              "gloss": "think (polite form of 思う)"
+              "gloss": "think (polite form of 思う)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "います",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I think overseas travel is fun.",
@@ -515,22 +1029,73 @@
             {
               "text": "けんは",
               "role": "topic",
-              "gloss": "Ken (は — topic)"
+              "gloss": "Ken (は — topic)",
+              "tokens": [
+                {
+                  "k": "けん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "海外 旅行が",
               "role": "subject",
-              "gloss": "overseas travel (が — subject of belief)"
+              "gloss": "overseas travel (が — subject of belief)",
+              "tokens": [
+                {
+                  "k": "海外",
+                  "r": "かいがい"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "旅行",
+                  "r": "りょこう"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "むずかしいと",
               "role": "connector",
-              "gloss": "difficult (plain adj) + と"
+              "gloss": "difficult (plain adj) + と",
+              "tokens": [
+                {
+                  "k": "むずかしい",
+                  "g": "v_muzukashii"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思っている。",
               "role": "predicate",
-              "gloss": "thinks (te-form of 思う + いる — ongoing belief)"
+              "gloss": "thinks (te-form of 思う + いる — ongoing belief)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "いる"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Ken thinks overseas travel is difficult (his ongoing view).",
@@ -542,22 +1107,62 @@
             {
               "text": "一度",
               "role": "adverb",
-              "gloss": "once (一度 — one time)"
+              "gloss": "once (一度 — one time)",
+              "tokens": [
+                {
+                  "k": "一度",
+                  "r": "いちど"
+                }
+              ]
             },
             {
               "text": "海外に",
               "role": "object",
-              "gloss": "overseas (に — destination)"
+              "gloss": "overseas (に — destination)",
+              "tokens": [
+                {
+                  "k": "海外",
+                  "r": "かいがい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行ったことが",
               "role": "predicate",
-              "gloss": "gone (た-form of 行く) + こと + が"
+              "gloss": "gone (た-form of 行く) + こと + が",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_plain_past"
+                },
+                {
+                  "k": "った",
+                  "g": "v_iku_plain_past"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あります。",
               "role": "predicate",
-              "gloss": "exists (polite form of ある — the experience exists)"
+              "gloss": "exists (polite form of ある — the experience exists)",
+              "tokens": [
+                {
+                  "k": "あります"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have been abroad once.",
@@ -569,17 +1174,67 @@
             {
               "text": "友だちと",
               "role": "modifier",
-              "gloss": "with friends (と — with)"
+              "gloss": "with friends (と — with)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "映画を 見ることが",
               "role": "predicate",
-              "gloss": "watch movies (dictionary form of 見る) + こと + が"
+              "gloss": "watch movies (dictionary form of 見る) + こと + が",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_miru"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ある。",
               "role": "predicate",
-              "gloss": "exists (plain form of ある)"
+              "gloss": "exists (plain form of ある)",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I sometimes watch movies with friends.",

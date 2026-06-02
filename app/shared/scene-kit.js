@@ -41,6 +41,7 @@
   // Idempotent and safe off-device; skips the visual press under reduced motion.
   function tapFeedback(el) {
     try { if (window.JPShared.haptics) window.JPShared.haptics.light(); } catch (e) {}
+    try { if (window.JPShared.sfx) window.JPShared.sfx.tap(); } catch (e) {}
     if (!el || prefersReducedMotion()) return;
     if (el.dataset.skPressing) return;          // don't stack on rapid taps
     var base = el.style.transform || '';

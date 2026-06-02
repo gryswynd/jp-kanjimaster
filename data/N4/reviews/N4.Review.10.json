@@ -610,8 +610,14 @@
             "p_de",
             "v_nani",
             "p_wo",
-            {"id": "v_suru", "form": "te_form"},
-            {"id": "v_iru", "form": "polite_masu"},
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_shousetsu",
             "p_wo",
@@ -642,7 +648,10 @@
             "v_donna",
             "v_mise",
             "p_ni",
-            {"id": "v_iku", "form": "polite_mashita"},
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
             "p_ka",
             "v_youshoku",
             "p_no",
@@ -666,7 +675,10 @@
             "p_wa",
             "v_nani",
             "p_wo",
-            {"id": "v_suru", "form": "polite_mashita"},
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
             "p_ka",
             "v_okujou",
             "p_ni",
@@ -1049,7 +1061,7 @@
           "answer": "おいしい",
           "explanation": "Hearsay そうだ attaches to the full PLAIN FORM — the い stays. おいしい + そうです = おいしいそうです (I heard it's delicious). The stem form おいし + そうです = おいしそうです means APPEARANCE ('it looks delicious'). Hearsay reports what you were told; appearance reports what you observe directly.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_kara",
             {
               "id": "v_kiku",

@@ -68,17 +68,57 @@
             {
               "text": "いる",
               "role": "verb",
-              "gloss": "dictionary form"
+              "gloss": "dictionary form",
+              "tokens": [
+                {
+                  "k": "いる"
+                }
+              ]
             },
             {
               "text": "→ い",
               "role": "modifier",
-              "gloss": "drop る"
+              "gloss": "drop る",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "+ て = いて",
               "role": "predicate",
-              "gloss": "て-form"
+              "gloss": "て-form",
+              "tokens": [
+                {
+                  "k": "+"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "て"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "="
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "いて",
+                  "g": "v_iru_te_form"
+                }
+              ]
             }
           ],
           "en": "to be here → being here (and then...)",
@@ -89,37 +129,78 @@
             {
               "text": "友だち",
               "role": "subject",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
               "role": "connector",
-              "gloss": "subject marker — WHO is here (G3)"
+              "gloss": "subject marker — WHO is here (G3)",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ここ",
               "role": "modifier",
-              "gloss": "here"
+              "gloss": "here",
+              "tokens": [
+                {
+                  "k": "ここ"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "existence location — WHERE they are (G5)"
+              "gloss": "existence location — WHERE they are (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be / exist (animate)"
+              "gloss": "be / exist (animate)",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "て connector"
+              "gloss": "て connector",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "…",
               "role": "modifier",
-              "gloss": "next action"
+              "gloss": "next action",
+              "tokens": [
+                {
+                  "k": "…"
+                }
+              ]
             }
           ],
           "en": "My friend is here, and then... (connects to next clause)",
@@ -163,12 +244,40 @@
             {
               "text": "行く",
               "role": "verb",
-              "gloss": "dictionary form (to go)"
+              "gloss": "dictionary form (to go)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "く",
+                  "g": "v_iku"
+                }
+              ]
             },
             {
               "text": "→ 行って",
               "role": "predicate",
-              "gloss": "EXCEPTION: not 行いて!"
+              "gloss": "EXCEPTION: not 行いて!",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_iku_te_form"
+                }
+              ]
             }
           ],
           "en": "to go → going (and then...) — famous irregular て-form!",
@@ -179,12 +288,40 @@
             {
               "text": "分かる",
               "role": "verb",
-              "gloss": "dictionary form (to understand)"
+              "gloss": "dictionary form (to understand)",
+              "tokens": [
+                {
+                  "k": "分",
+                  "r": "わ",
+                  "g": "v_wakaru"
+                },
+                {
+                  "k": "かる",
+                  "g": "v_wakaru"
+                }
+              ]
             },
             {
               "text": "→ 分かって",
               "role": "predicate",
-              "gloss": "る→って (godan る-verb)"
+              "gloss": "る→って (godan る-verb)",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "分",
+                  "r": "わ",
+                  "g": "v_wakaru_te_form"
+                },
+                {
+                  "k": "かって",
+                  "g": "v_wakaru_te_form"
+                }
+              ]
             }
           ],
           "en": "to understand → understanding (and then...)",
@@ -195,32 +332,63 @@
             {
               "text": "駅",
               "role": "object",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE I went (G5)"
+              "gloss": "destination — WHERE I went (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行っ",
               "role": "verb",
-              "gloss": "go(て-form)-"
+              "gloss": "go(て-form)-",
+              "tokens": [
+                {
+                  "k": "行っ"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "connector"
+              "gloss": "connector",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
               "role": "predicate",
-              "gloss": "polite past"
+              "gloss": "polite past",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I went to the station and then came (back).",
@@ -260,12 +428,29 @@
             {
               "text": "する",
               "role": "verb",
-              "gloss": "dictionary form (to do)"
+              "gloss": "dictionary form (to do)",
+              "tokens": [
+                {
+                  "k": "する"
+                }
+              ]
             },
             {
               "text": "→ して",
               "role": "predicate",
-              "gloss": "irregular て-form"
+              "gloss": "irregular て-form",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                }
+              ]
             }
           ],
           "en": "to do → doing (and then...)",
@@ -276,12 +461,40 @@
             {
               "text": "来る",
               "role": "verb",
-              "gloss": "dictionary form (to come) — read くる"
+              "gloss": "dictionary form (to come) — read くる",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "く",
+                  "g": "v_kuru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_kuru"
+                }
+              ]
             },
             {
               "text": "→ 来て",
               "role": "predicate",
-              "gloss": "irregular て-form — read きて"
+              "gloss": "irregular て-form — read きて",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_te_form"
+                },
+                {
+                  "k": "て",
+                  "g": "v_kuru_te_form"
+                }
+              ]
             }
           ],
           "en": "to come → coming (and then...)",
@@ -292,37 +505,77 @@
             {
               "text": "勉強",
               "role": "object",
-              "gloss": "studying"
+              "gloss": "studying",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                }
+              ]
             },
             {
               "text": "し",
               "role": "verb",
-              "gloss": "do(て)-"
+              "gloss": "do(て)-",
+              "tokens": [
+                {
+                  "k": "し"
+                }
+              ]
             },
             {
               "text": "て、",
               "role": "predicate",
-              "gloss": "connector — links to next action"
+              "gloss": "connector — links to next action",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "object",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE I came (G5)"
+              "gloss": "destination — WHERE I came (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
               "role": "predicate",
-              "gloss": "polite past — sets tense for both"
+              "gloss": "polite past — sets tense for both",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I studied and then came to the station.",
@@ -365,42 +618,88 @@
             {
               "text": "駅",
               "role": "object",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "へ",
               "role": "connector",
-              "gloss": "direction — emphasises heading TOWARD the station (G5)"
+              "gloss": "direction — emphasises heading TOWARD the station (G5)",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行っ",
               "role": "verb",
-              "gloss": "go(て)-"
+              "gloss": "go(て)-",
+              "tokens": [
+                {
+                  "k": "行っ"
+                }
+              ]
             },
             {
               "text": "て、",
               "role": "predicate",
-              "gloss": "connector — links to next action"
+              "gloss": "connector — links to next action",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "コンビニ",
               "role": "object",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — emphasises ARRIVING at the store (G5)"
+              "gloss": "destination — emphasises ARRIVING at the store (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
               "role": "predicate",
-              "gloss": "polite past — sets tense for both actions"
+              "gloss": "polite past — sets tense for both actions",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I went to the station and then came to the convenience store.",
@@ -411,42 +710,91 @@
             {
               "text": "うち",
               "role": "object",
-              "gloss": "home"
+              "gloss": "home",
+              "tokens": [
+                {
+                  "k": "うち"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "existence location — WHERE I was (に marks location with いる, G5)"
+              "gloss": "existence location — WHERE I was (に marks location with いる, G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be / exist (animate)"
+              "gloss": "be / exist (animate)",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "て、",
               "role": "predicate",
-              "gloss": "connector — links to next event"
+              "gloss": "connector — links to next event",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "友だち",
               "role": "subject",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
               "role": "connector",
-              "gloss": "subject marker — marks WHO came (new information, G3)"
+              "gloss": "subject marker — marks WHO came (new information, G3)",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
               "role": "predicate",
-              "gloss": "polite past"
+              "gloss": "polite past",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I was at home, and then my friend came.",
@@ -457,37 +805,73 @@
             {
               "text": "駅",
               "role": "object",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE I am going (G5)"
+              "gloss": "destination — WHERE I am going (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行っ",
               "role": "verb",
-              "gloss": "go(て)-"
+              "gloss": "go(て)-",
+              "tokens": [
+                {
+                  "k": "行っ"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "connector — links to next action"
+              "gloss": "connector — links to next action",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "また",
               "role": "adverb",
-              "gloss": "again"
+              "gloss": "again",
+              "tokens": [
+                {
+                  "k": "また"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
               "role": "predicate",
-              "gloss": "polite present/future — sets tense for both"
+              "gloss": "polite present/future — sets tense for both",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I will go to the station and come again.",
@@ -532,27 +916,52 @@
             {
               "text": "ここ",
               "role": "object",
-              "gloss": "here"
+              "gloss": "here",
+              "tokens": [
+                {
+                  "k": "ここ"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE to come (G5)"
+              "gloss": "destination — WHERE to come (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come(て)-"
+              "gloss": "come(て)-",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "て-form"
+              "gloss": "て-form",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "ください",
               "role": "predicate",
-              "gloss": "please"
+              "gloss": "please",
+              "tokens": [
+                {
+                  "k": "ください"
+                }
+              ]
             }
           ],
           "en": "Please come here.",
@@ -563,17 +972,36 @@
             {
               "text": "書い",
               "role": "verb",
-              "gloss": "write(て)-"
+              "gloss": "write(て)-",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か"
+                },
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "て-form"
+              "gloss": "て-form",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "ください",
               "role": "predicate",
-              "gloss": "please"
+              "gloss": "please",
+              "tokens": [
+                {
+                  "k": "ください"
+                }
+              ]
             }
           ],
           "en": "Please write.",
@@ -584,27 +1012,60 @@
             {
               "text": "コンビニ",
               "role": "object",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE not to go (G5)"
+              "gloss": "destination — WHERE not to go (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行か",
               "role": "verb",
-              "gloss": "go(negative stem: く→か, あ-row shift)"
+              "gloss": "go(negative stem: く→か, あ-row shift)",
+              "tokens": [
+                {
+                  "k": "行"
+                },
+                {
+                  "k": "か"
+                }
+              ]
             },
             {
               "text": "ないで",
               "role": "predicate",
-              "gloss": "please don't—"
+              "gloss": "please don't—",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "ください",
               "role": "predicate",
-              "gloss": "please"
+              "gloss": "please",
+              "tokens": [
+                {
+                  "k": "ください"
+                }
+              ]
             }
           ],
           "en": "Please don't go to the convenience store.",
@@ -741,12 +1202,29 @@
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(ます-stem)"
+              "gloss": "eat(ます-stem)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "なさい",
               "role": "predicate",
-              "gloss": "firm command"
+              "gloss": "firm command",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "さい"
+                }
+              ]
             }
           ],
           "en": "Eat! (parent to child)",
@@ -757,12 +1235,29 @@
             {
               "text": "書き",
               "role": "verb",
-              "gloss": "write(ます-stem)"
+              "gloss": "write(ます-stem)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か"
+                },
+                {
+                  "k": "き"
+                }
+              ]
             },
             {
               "text": "なさい",
               "role": "predicate",
-              "gloss": "firm command"
+              "gloss": "firm command",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "さい"
+                }
+              ]
             }
           ],
           "en": "Write! (teacher to student)",
@@ -773,12 +1268,25 @@
             {
               "text": "き",
               "role": "verb",
-              "gloss": "come(ます-stem: きます)"
+              "gloss": "come(ます-stem: きます)",
+              "tokens": [
+                {
+                  "k": "き"
+                }
+              ]
             },
             {
               "text": "なさい",
               "role": "predicate",
-              "gloss": "firm command"
+              "gloss": "firm command",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "さい"
+                }
+              ]
             }
           ],
           "en": "Come here! (teacher calling a student)",
@@ -858,47 +1366,98 @@
             {
               "text": "きのう",
               "role": "time",
-              "gloss": "yesterday (relative time — no particle needed, G4)"
+              "gloss": "yesterday (relative time — no particle needed, G4)",
+              "tokens": [
+                {
+                  "k": "きのう",
+                  "g": "v_kinou"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "object",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE I went (G5)"
+              "gloss": "destination — WHERE I went (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行っ",
               "role": "verb",
-              "gloss": "go(て)-"
+              "gloss": "go(て)-",
+              "tokens": [
+                {
+                  "k": "行っ"
+                }
+              ]
             },
             {
               "text": "て、",
               "role": "predicate",
-              "gloss": "connector — links to next action"
+              "gloss": "connector — links to next action",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "コンビニ",
               "role": "object",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE I came to (G5)"
+              "gloss": "destination — WHERE I came to (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
               "role": "predicate",
-              "gloss": "polite past — sets tense for both"
+              "gloss": "polite past — sets tense for both",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "Yesterday I went to the station and then came to the convenience store.",
@@ -910,47 +1469,103 @@
             {
               "text": "来週",
               "role": "time",
-              "gloss": "next week (relative time — no particle, G4)"
+              "gloss": "next week (relative time — no particle, G4)",
+              "tokens": [
+                {
+                  "k": "来週",
+                  "r": "らいしゅう"
+                }
+              ]
             },
             {
               "text": "コンビニ",
               "role": "object",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination (G5)"
+              "gloss": "destination (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行っ",
               "role": "verb",
-              "gloss": "go(て)-"
+              "gloss": "go(て)-",
+              "tokens": [
+                {
+                  "k": "行っ"
+                }
+              ]
             },
             {
               "text": "て、",
               "role": "predicate",
-              "gloss": "connector"
+              "gloss": "connector",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "スーパー",
               "role": "object",
-              "gloss": "supermarket"
+              "gloss": "supermarket",
+              "tokens": [
+                {
+                  "k": "スーパ",
+                  "r": "すーぱ",
+                  "g": "v_suupaa"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_suupaa"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination (G5)"
+              "gloss": "destination (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
               "role": "predicate",
-              "gloss": "polite present/future — sets tense"
+              "gloss": "polite present/future — sets tense",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "Next week I will go to the convenience store and then come to the supermarket.",
@@ -962,37 +1577,76 @@
             {
               "text": "うち",
               "role": "object",
-              "gloss": "home"
+              "gloss": "home",
+              "tokens": [
+                {
+                  "k": "うち"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "existence location — WHERE I am (に + いる, G5)"
+              "gloss": "existence location — WHERE I am (に + いる, G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be / exist (animate)"
+              "gloss": "be / exist (animate)",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "て、",
               "role": "predicate",
-              "gloss": "connector"
+              "gloss": "connector",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "毎日",
               "role": "time",
-              "gloss": "every day (relative time, no particle)"
+              "gloss": "every day (relative time, no particle)",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
               "role": "predicate",
-              "gloss": "polite present/future"
+              "gloss": "polite present/future",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "Being at home, and coming every day.",
@@ -1004,27 +1658,52 @@
             {
               "text": "ここ",
               "role": "object",
-              "gloss": "here"
+              "gloss": "here",
+              "tokens": [
+                {
+                  "k": "ここ"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE to come (G5)"
+              "gloss": "destination — WHERE to come (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come(て)-"
+              "gloss": "come(て)-",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "て-form"
+              "gloss": "て-form",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "ください",
               "role": "predicate",
-              "gloss": "please"
+              "gloss": "please",
+              "tokens": [
+                {
+                  "k": "ください"
+                }
+              ]
             }
           ],
           "en": "Please come here.",
@@ -1036,27 +1715,60 @@
             {
               "text": "コンビニ",
               "role": "object",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "connector",
-              "gloss": "destination — WHERE not to go (G5)"
+              "gloss": "destination — WHERE not to go (G5)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行か",
               "role": "verb",
-              "gloss": "go(negative stem: く→か, あ-row shift)"
+              "gloss": "go(negative stem: く→か, あ-row shift)",
+              "tokens": [
+                {
+                  "k": "行"
+                },
+                {
+                  "k": "か"
+                }
+              ]
             },
             {
               "text": "ないで",
               "role": "predicate",
-              "gloss": "please don't—"
+              "gloss": "please don't—",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "ください",
               "role": "predicate",
-              "gloss": "please"
+              "gloss": "please",
+              "tokens": [
+                {
+                  "k": "ください"
+                }
+              ]
             }
           ],
           "en": "Please don't go to the convenience store.",
@@ -1068,12 +1780,29 @@
             {
               "text": "書き",
               "role": "verb",
-              "gloss": "write(ます-stem)"
+              "gloss": "write(ます-stem)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か"
+                },
+                {
+                  "k": "き"
+                }
+              ]
             },
             {
               "text": "なさい",
               "role": "predicate",
-              "gloss": "command suffix"
+              "gloss": "command suffix",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "さい"
+                }
+              ]
             }
           ],
           "en": "Write! (firm instruction)",

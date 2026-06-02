@@ -236,9 +236,36 @@ body:not(.jp-tabbar-hidden) .gr-body { padding-bottom: calc(var(--tabbar-h) + en
 
 .rk-loading {
   display: flex; align-items: center; justify-content: center;
-  min-height: 60vh; flex-direction: column; gap: 10px;
+  min-height: 60vh; flex-direction: column; gap: 14px;
   color: var(--ink-3); font-family: var(--font-mono); font-size: 12px;
   letter-spacing: 0.1em; text-transform: uppercase;
+}
+/* Breathing 力 mark so a load reads as "working", not "frozen". The text node
+   stays inline (callers pass "力 · loading X"); we animate the whole block subtly
+   and add a dot row beneath via ::after. */
+.rk-loading {
+  animation: rkLoadFade 0.4s ease-out both;
+}
+.rk-loading::before {
+  content: '力';
+  font-family: var(--font-jp-display, serif);
+  font-size: 40px; line-height: 1; color: var(--vermilion);
+  animation: rkLoadPulse 1.3s ease-in-out infinite;
+  text-transform: none;
+}
+.rk-loading::after {
+  content: '· · ·';
+  letter-spacing: 0.3em;
+  animation: rkLoadDots 1.3s steps(4, end) infinite;
+}
+@keyframes rkLoadPulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.94); }
+  50%      { opacity: 1;    transform: scale(1.04); }
+}
+@keyframes rkLoadDots { 0% { opacity: 0.2; } 50% { opacity: 0.9; } 100% { opacity: 0.2; } }
+@keyframes rkLoadFade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .rk-loading::before, .rk-loading::after, .rk-loading { animation: none; }
 }
 </style>
 </head>
@@ -303,7 +330,7 @@ window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
   } else if (scope === 'tutorial') {
     remove(['k-rikizo-lesson-tutorial-seen', 'k-rikizo-lesson-tutorial-done',
             'k-rikizo-grammar-tutorial-seen', 'k-rikizo-dojo-tutorial-seen',
-            'k-rikizo-compose-tutorial-seen']);
+            'k-rikizo-compose-tutorial-seen', 'k-rikizo-settings-tutorial-seen']);
   } else if (scope === 'progress') {
     remove(['k-lesson-completed', 'k-lesson-scores', 'k-lesson-resume']);
   } else if (scope === 'grammar') {
@@ -403,6 +430,20 @@ window.JPApp = {
     branch: "main",
     assetMode: "local",
     codeBase: "",
+    // ── Version (OTA spine) ───────────────────────────────────────────────
+    // buildNumber is the single source of truth for "what build is this".
+    //   • Bump it by 1 every time you ship a web-code/data fix testers should
+    //     receive via Settings → Check for updates.
+    //   • scripts/build-www.mjs READS these fields and writes www/version.json,
+    //     so the bundled build and the hosted version.json can never drift.
+    //   • The OTA updater compares this bundled buildNumber to the hosted one.
+    // appVersion is the human-facing label (keep ~in sync with Xcode MARKETING_VERSION).
+    appVersion: "0.1.0",
+    buildNumber: 1,
+    // Where the OTA updater looks for newer builds. Empty = OTA disabled (app just
+    // runs its bundled copy, fully offline). Set to the Firebase Hosting URL once
+    // hosting is live, e.g. "https://rikizo-app.web.app".
+    updateBaseUrl: "",
     // Progress-sync server (Cloud Run). Used by app/shared/sync.js only — the AI
     // tutor stays off until tutorBaseUrl is set separately.
     apiBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app",
@@ -519,13 +560,18 @@ window.JPApp = {
   init: async function() {
     this.container = document.getElementById('app-main-container');
     if (!this.container) return console.error('Container #app-main-container not found');
-    this.container.innerHTML = '<div class="rk-loading">力 · loading</div>';
+    this.container.innerHTML = '<div class="rk-loading">loading</div>';
+    // Diagnostics first — installs global JS-error capture so any error during the
+    // rest of boot is caught and available to the bug-report tool.
+    await this.loadModule('app/shared/diagnostics.js');
     await this.loadModule('app/shared/asset-loader.js');
     await this.loadModule('app/shared/user-profile.js');
     await this.loadModule('app/shared/streak.js');
     await this.loadModule('app/shared/haptics.js');
+    await this.loadModule('app/shared/sfx.js');
     await this.loadModule('app/shared/scene-kit.js');
-    await this.loadModule('app/shared/page-curl.js');
+    await this.loadModule('app/shared/garden-stage.js'); // living koi ponds (Grammar Garden)
+    await this.loadModule('vendor/page-flip.browser.js'); // StPageFlip (Stories reader)
     await this.loadModule('app/shared/practice-helpers.js');
     // Load Reading Aids renderer EARLY so the html.k-furigana / .k-romaji
     // classes are set before first paint (no flash of bare-then-furigana).
@@ -556,6 +602,7 @@ window.JPApp = {
     await this.loadModule('app/shared/tutor-curriculum.js');
     await this.loadModule('app/shared/audio-capture.js');
     await this.loadModule('app/shared/tutor-overlay.js');
+    await this.loadModule('app/shared/bug-report.js');
     if (window.JPShared && window.JPShared.tutorCurriculum) {
       // Preload manifest + glossary for curriculum awareness (non-blocking).
       window.JPShared.tutorCurriculum.init(this.config);
@@ -1125,7 +1172,7 @@ window.JPApp = {
       '</div>';
     }).join('');
 
-    return '<div style="margin:0 16px;">' +
+    return '<div data-tour="modules" style="margin:0 16px;">' +
       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">' + cells + '</div>' +
     '</div>';
   },
@@ -1216,7 +1263,7 @@ window.JPApp = {
         '<div class="jp-serif" style="font-size:10px;margin-top:5px;color:var(--ink-2);">' + c.jp + '</div>' +
       '</div>';
     }).join('');
-    return '<div style="padding:0 16px;">' +
+    return '<div data-tour="cast" style="padding:0 16px;">' +
       '<div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:2px;" class="noscroll">' + items + '</div>' +
     '</div>';
   },
@@ -1226,7 +1273,7 @@ window.JPApp = {
     var k = this._kanjiOfDay();
     if (!k) return '';
     var I = this._ICONS;
-    return '<div onclick="JPApp.launch(\'practice\')" class="rk-press" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;">' +
+    return '<div data-tour="daily" onclick="JPApp.launch(\'practice\')" class="rk-press" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;">' +
       '<div style="width:58px;height:58px;flex-shrink:0;background:var(--washi);border:1px solid var(--hairline);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-jp-display);font-size:42px;font-weight:500;color:var(--ink);">' + k + '</div>' +
       '<div style="flex:1;min-width:0;">' +
         '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">今日の漢字 · Kanji of the day</div>' +
@@ -1272,7 +1319,7 @@ window.JPApp = {
         (on ? '<div class="rk-tab-ind"></div>' : '') +
       '</button>';
     }).join('');
-    return '<nav class="rk-tabbar">' + btns + '</nav>';
+    return '<nav class="rk-tabbar" data-tour="nav">' + btns + '</nav>';
   },
 
   // Render the persistent nav into its sibling node (refreshes active tab + lock
@@ -1307,8 +1354,10 @@ window.JPApp = {
         this._sectionHeader('けいこ · Practice', '7 paths') +
         this._moduleGrid() +
         this._sectionHeader('しんちょく · Progress') +
-        this._levelStrip(prog) +
-        this._grammarCard(prog) +
+        '<div data-tour="progress">' +
+          this._levelStrip(prog) +
+          this._grammarCard(prog) +
+        '</div>' +
         this._sectionHeader('とうじょう人物 · Cast') +
         this._castRow() +
         this._sectionHeader('まいにち · Daily') +
@@ -1585,7 +1634,7 @@ window.JPApp = {
     }
     this._view = mode;
     if (mode === 'game') { this.hideTabBar(); this._showAdventureTeaser(); return; }
-    this.container.innerHTML = '<div class="rk-loading">力 · loading ' + this._esc(mode) + '</div>';
+    this.container.innerHTML = '<div class="rk-loading">loading ' + this._esc(mode) + '</div>';
     // Leaving Home — re-apply presence (contextual/home modes hide; always stays).
     if (window.JPShared && window.JPShared.rikizoCompanion) window.JPShared.rikizoCompanion.applyPresence();
     // Tutor: record what the student is looking at (extraArgs[0] is the lesson/

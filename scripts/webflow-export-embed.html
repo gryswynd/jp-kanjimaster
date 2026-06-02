@@ -1,0 +1,76 @@
+<!--
+  ONE-TIME PROGRESS EXPORT — for the OLD Webflow app.
+
+  Paste this whole block into a Webflow "Embed" element on the old app page
+  (Webflow Designer → Add element → Components → Embed), then Publish.
+
+  It adds a small "Export my progress" button. A student taps it on their
+  iPhone; it copies a code to the clipboard (and shows it in a box as a
+  fallback). They then paste that code into the NEW app:
+      Settings → Profile → Import old progress → Import & replace progress.
+
+  Remove this embed from Webflow once your existing students are migrated.
+
+  NOTE: this reads localStorage on the OLD app's own origin (allowed), so it
+  must live ON the Webflow page — it cannot be run from the new app.
+-->
+<div id="jp-export-wrap" style="font-family:system-ui,sans-serif;max-width:420px;margin:16px auto;text-align:center;">
+  <button id="jp-export-btn" style="padding:12px 20px;border:none;border-radius:999px;background:#c2410c;color:#fff;font-size:15px;font-weight:700;cursor:pointer;">
+    Export my progress
+  </button>
+  <p id="jp-export-msg" style="font-size:13px;color:#555;margin:10px 0 6px;"></p>
+  <textarea id="jp-export-out" readonly rows="3" style="display:none;width:100%;box-sizing:border-box;font-family:ui-monospace,Menlo,monospace;font-size:12px;padding:8px;border:1px solid #ccc;border-radius:8px;"></textarea>
+</div>
+<script>
+(function () {
+  var btn = document.getElementById('jp-export-btn');
+  var msg = document.getElementById('jp-export-msg');
+  var out = document.getElementById('jp-export-out');
+
+  function collect() {
+    var data = {};
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        // Export every learning key: k-* progress + compose drafts.
+        if (k && (k.indexOf('k-') === 0 || k.indexOf('compose-draft-') === 0)) {
+          var v = localStorage.getItem(k);
+          // Store parsed JSON where possible so the new app gets clean objects.
+          try { data[k] = JSON.parse(v); } catch (e) { data[k] = v; }
+        }
+      }
+    } catch (e) {}
+    return data;
+  }
+
+  btn.addEventListener('click', function () {
+    var data = collect();
+    var keys = Object.keys(data);
+    if (!keys.length) {
+      msg.textContent = 'No progress found in this browser. Make sure you are signed in on the same browser you study with.';
+      return;
+    }
+    var code = JSON.stringify(data);
+    out.value = code;
+    out.style.display = 'block';
+    out.focus(); out.select();
+
+    var copied = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code);
+        copied = true;
+      } else if (document.execCommand) {
+        copied = document.execCommand('copy');
+      }
+    } catch (e) {}
+
+    var lessons = (data['k-lesson-completed'] && Object.keys(data['k-lesson-completed']).length)
+               || (data['k-lesson-scores'] && Object.keys(data['k-lesson-scores']).length) || 0;
+    msg.textContent = (copied ? '✓ Copied! ' : '') +
+      'Found ' + lessons + ' lessons. ' +
+      (copied ? 'Now paste it into the new app’s Import box.'
+              : 'Tap and hold the text below, Copy, then paste it into the new app.');
+  });
+})();
+</script>

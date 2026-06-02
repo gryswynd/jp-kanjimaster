@@ -86,17 +86,47 @@
             {
               "text": "えーと、",
               "role": "connector",
-              "gloss": "um / let me think (floor-holding)"
+              "gloss": "um / let me think (floor-holding)",
+              "tokens": [
+                {
+                  "k": "えーと"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "名前は",
               "role": "topic",
-              "gloss": "name (topic: は)"
+              "gloss": "name (topic: は)",
+              "tokens": [
+                {
+                  "k": "名前",
+                  "r": "なまえ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "なんだっけ？",
               "role": "predicate",
-              "gloss": "what was it again? (casual memory check)"
+              "gloss": "what was it again? (casual memory check)",
+              "tokens": [
+                {
+                  "k": "なんだ",
+                  "g": "p_nda"
+                },
+                {
+                  "k": "っけ"
+                },
+                {
+                  "k": "？"
+                }
+              ]
             }
           ],
           "en": "Um… what was his name again?",
@@ -107,22 +137,63 @@
             {
               "text": "あのう、",
               "role": "connector",
-              "gloss": "um / excuse me (hesitant opener)"
+              "gloss": "um / excuse me (hesitant opener)",
+              "tokens": [
+                {
+                  "k": "あのう"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "ちょっと",
               "role": "adverb",
-              "gloss": "a little / just"
+              "gloss": "a little / just",
+              "tokens": [
+                {
+                  "k": "ちょっと"
+                }
+              ]
             },
             {
               "text": "聞いても",
               "role": "predicate",
-              "gloss": "even if [I] ask (te-form + も)"
+              "gloss": "even if [I] ask (te-form + も)",
+              "tokens": [
+                {
+                  "k": "聞",
+                  "r": "き",
+                  "g": "v_kiku_te_form"
+                },
+                {
+                  "k": "いて",
+                  "g": "v_kiku_te_form"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "いいですか？",
               "role": "predicate",
-              "gloss": "is it okay? (permission)"
+              "gloss": "is it okay? (permission)",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "？"
+                }
+              ]
             }
           ],
           "en": "Um… would it be okay if I asked you something?",
@@ -133,17 +204,39 @@
             {
               "text": "うーん、",
               "role": "connector",
-              "gloss": "hmm… (weighing, deliberating)"
+              "gloss": "hmm… (weighing, deliberating)",
+              "tokens": [
+                {
+                  "k": "うーん"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "むずかしい",
               "role": "predicate",
-              "gloss": "difficult (plain form)"
+              "gloss": "difficult (plain form)",
+              "tokens": [
+                {
+                  "k": "むずかしい",
+                  "g": "v_muzukashii"
+                }
+              ]
             },
             {
               "text": "な。",
               "role": "predicate",
-              "gloss": "(casual sentence-final particle)"
+              "gloss": "(casual sentence-final particle)",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Hmm… that's a tough one.",
@@ -186,17 +279,43 @@
             {
               "text": "さあ、",
               "role": "connector",
-              "gloss": "hmm / I wonder (uncertainty)"
+              "gloss": "hmm / I wonder (uncertainty)",
+              "tokens": [
+                {
+                  "k": "さあ"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "よくは",
               "role": "topic",
-              "gloss": "well / clearly (よく + は — rhetorical)"
+              "gloss": "well / clearly (よく + は — rhetorical)",
+              "tokens": [
+                {
+                  "k": "よく"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "わかりません。",
               "role": "predicate",
-              "gloss": "I don't know (polite)"
+              "gloss": "I don't know (polite)",
+              "tokens": [
+                {
+                  "k": "わかりません",
+                  "g": "v_wakaru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Hmm, I'm really not sure.",
@@ -208,12 +327,34 @@
             {
               "text": "さあ、",
               "role": "connector",
-              "gloss": "right then / well (commencement)"
+              "gloss": "right then / well (commencement)",
+              "tokens": [
+                {
+                  "k": "さあ"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "始めましょう！",
               "role": "predicate",
-              "gloss": "let's begin! (polite volitional)"
+              "gloss": "let's begin! (polite volitional)",
+              "tokens": [
+                {
+                  "k": "始",
+                  "r": "はじ",
+                  "g": "v_hajimeru_polite_volitional_mashou"
+                },
+                {
+                  "k": "めましょう",
+                  "g": "v_hajimeru_polite_volitional_mashou"
+                },
+                {
+                  "k": "！"
+                }
+              ]
             }
           ],
           "en": "Right then, let's begin!",
@@ -318,12 +459,37 @@
               {
                 "text": "うん、",
                 "role": "connector",
-                "gloss": "yeah / yes (casual affirmative)"
+                "gloss": "yeah / yes (casual affirmative)",
+                "tokens": [
+                  {
+                    "k": "うん"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "知ってる。",
                 "role": "predicate",
-                "gloss": "I know (plain progressive)"
+                "gloss": "I know (plain progressive)",
+                "tokens": [
+                  {
+                    "k": "知",
+                    "r": "し",
+                    "g": "v_shiru_te_form"
+                  },
+                  {
+                    "k": "って",
+                    "g": "v_shiru_te_form"
+                  },
+                  {
+                    "k": "る"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Yeah, I know."
@@ -343,17 +509,39 @@
               {
                 "text": "うーん、",
                 "role": "connector",
-                "gloss": "hmm… (deliberation — NOT agreement)"
+                "gloss": "hmm… (deliberation — NOT agreement)",
+                "tokens": [
+                  {
+                    "k": "うーん"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "むずかしい",
                 "role": "predicate",
-                "gloss": "difficult (plain)"
+                "gloss": "difficult (plain)",
+                "tokens": [
+                  {
+                    "k": "むずかしい",
+                    "g": "v_muzukashii"
+                  }
+                ]
               },
               {
                 "text": "な。",
                 "role": "predicate",
-                "gloss": "(casual sentence-final particle)"
+                "gloss": "(casual sentence-final particle)",
+                "tokens": [
+                  {
+                    "k": "な"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Hmm… that's a tough one."
@@ -398,12 +586,37 @@
             {
               "text": "なるほど、",
               "role": "connector",
-              "gloss": "I see / that makes sense (comprehension aizuchi)"
+              "gloss": "I see / that makes sense (comprehension aizuchi)",
+              "tokens": [
+                {
+                  "k": "なるほど"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "そういうことか。",
               "role": "predicate",
-              "gloss": "so that's how it is (casual realization)"
+              "gloss": "so that's how it is (casual realization)",
+              "tokens": [
+                {
+                  "k": "そう"
+                },
+                {
+                  "k": "いう"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Ah, I see — so that's how it works.",
@@ -415,12 +628,28 @@
             {
               "text": "へえ！",
               "role": "connector",
-              "gloss": "Oh really! / Wow! (surprise aizuchi)"
+              "gloss": "Oh really! / Wow! (surprise aizuchi)",
+              "tokens": [
+                {
+                  "k": "へえ"
+                },
+                {
+                  "k": "！"
+                }
+              ]
             },
             {
               "text": "ほんとうに？",
               "role": "predicate",
-              "gloss": "Really? / Is that so? (seeking confirmation)"
+              "gloss": "Really? / Is that so? (seeking confirmation)",
+              "tokens": [
+                {
+                  "k": "ほんとうに"
+                },
+                {
+                  "k": "？"
+                }
+              ]
             }
           ],
           "en": "Oh wow! Really?",
@@ -432,12 +661,34 @@
             {
               "text": "そうそう、",
               "role": "connector",
-              "gloss": "yes, exactly! / right, right! (enthusiastic casual agreement)"
+              "gloss": "yes, exactly! / right, right! (enthusiastic casual agreement)",
+              "tokens": [
+                {
+                  "k": "そうそう"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "それだよ。",
               "role": "predicate",
-              "gloss": "that's exactly it (casual)"
+              "gloss": "that's exactly it (casual)",
+              "tokens": [
+                {
+                  "k": "それ"
+                },
+                {
+                  "k": "だ"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Yes, exactly — that's it!",
@@ -564,22 +815,54 @@
             {
               "text": "なんか、",
               "role": "adverb",
-              "gloss": "kind of / like (casual filler)"
+              "gloss": "kind of / like (casual filler)",
+              "tokens": [
+                {
+                  "k": "なんか"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "うまく",
               "role": "adverb",
-              "gloss": "well / skillfully (adverbial form)"
+              "gloss": "well / skillfully (adverbial form)",
+              "tokens": [
+                {
+                  "k": "うまく"
+                }
+              ]
             },
             {
               "text": "言えない",
               "role": "predicate",
-              "gloss": "can't say well (plain potential negative)"
+              "gloss": "can't say well (plain potential negative)",
+              "tokens": [
+                {
+                  "k": "言",
+                  "r": "い",
+                  "g": "v_iu_plain_potential_negative"
+                },
+                {
+                  "k": "えない",
+                  "g": "v_iu_plain_potential_negative"
+                }
+              ]
             },
             {
               "text": "けど。",
               "role": "connector",
-              "gloss": "but / though (casual clause connector)"
+              "gloss": "but / though (casual clause connector)",
+              "tokens": [
+                {
+                  "k": "けど"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I can't really explain it well, but…",
@@ -591,17 +874,45 @@
             {
               "text": "まあ、",
               "role": "adverb",
-              "gloss": "well / sort of (moderate, resigned acceptance)"
+              "gloss": "well / sort of (moderate, resigned acceptance)",
+              "tokens": [
+                {
+                  "k": "まあ"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "しかたない",
               "role": "predicate",
-              "gloss": "can't be helped (plain)"
+              "gloss": "can't be helped (plain)",
+              "tokens": [
+                {
+                  "k": "しか"
+                },
+                {
+                  "k": "た"
+                },
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             },
             {
               "text": "か。",
               "role": "predicate",
-              "gloss": "(casual rhetorical particle)"
+              "gloss": "(casual rhetorical particle)",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Well, I suppose there's nothing to be done.",
@@ -640,22 +951,60 @@
             {
               "text": "じつは、",
               "role": "connector",
-              "gloss": "actually / to tell you the truth (discourse marker)"
+              "gloss": "actually / to tell you the truth (discourse marker)",
+              "tokens": [
+                {
+                  "k": "じつは"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "明日は",
               "role": "time",
-              "gloss": "tomorrow (は)"
+              "gloss": "tomorrow (は)",
+              "tokens": [
+                {
+                  "k": "明日",
+                  "r": "あした"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "仕事が",
               "role": "subject",
-              "gloss": "work (が)"
+              "gloss": "work (が)",
+              "tokens": [
+                {
+                  "k": "仕事",
+                  "r": "しごと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あるんです。",
               "role": "predicate",
-              "gloss": "there is (explanatory んです — polite)"
+              "gloss": "there is (explanatory んです — polite)",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "んです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Actually, I have work tomorrow.",
@@ -667,22 +1016,56 @@
             {
               "text": "つまり、",
               "role": "connector",
-              "gloss": "in other words / to sum up (discourse marker)"
+              "gloss": "in other words / to sum up (discourse marker)",
+              "tokens": [
+                {
+                  "k": "つまり"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "時間が",
               "role": "subject",
-              "gloss": "time (が)"
+              "gloss": "time (が)",
+              "tokens": [
+                {
+                  "k": "時間",
+                  "r": "じかん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ない",
               "role": "predicate",
-              "gloss": "there isn't (plain negative)"
+              "gloss": "there isn't (plain negative)",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             },
             {
               "text": "ってこと？",
               "role": "predicate",
-              "gloss": "is that what you mean? (casual clarification)"
+              "gloss": "is that what you mean? (casual clarification)",
+              "tokens": [
+                {
+                  "k": "って"
+                },
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "？"
+                }
+              ]
             }
           ],
           "en": "In other words, you're saying there's no time?",
@@ -700,47 +1083,124 @@
             {
               "text": "えーと、",
               "role": "connector",
-              "gloss": "um / let me think (floor-holding)"
+              "gloss": "um / let me think (floor-holding)",
+              "tokens": [
+                {
+                  "k": "えーと"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "じつは、",
               "role": "connector",
-              "gloss": "actually (discourse reveal marker)"
+              "gloss": "actually (discourse reveal marker)",
+              "tokens": [
+                {
+                  "k": "じつは"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "来週は",
               "role": "time",
-              "gloss": "next week (は)"
+              "gloss": "next week (は)",
+              "tokens": [
+                {
+                  "k": "来週",
+                  "r": "らいしゅう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "仕事が",
               "role": "subject",
-              "gloss": "work (が)"
+              "gloss": "work (が)",
+              "tokens": [
+                {
+                  "k": "仕事",
+                  "r": "しごと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いそがしい",
               "role": "predicate",
-              "gloss": "busy (plain form)"
+              "gloss": "busy (plain form)",
+              "tokens": [
+                {
+                  "k": "いそがしい",
+                  "g": "v_isogashii"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also (listing reasons: し)"
+              "gloss": "and also (listing reasons: し)",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "むずかしい",
               "role": "predicate",
-              "gloss": "difficult (plain form)"
+              "gloss": "difficult (plain form)",
+              "tokens": [
+                {
+                  "k": "むずかしい",
+                  "g": "v_muzukashii"
+                }
+              ]
             },
             {
               "text": "のに、",
               "role": "connector",
-              "gloss": "even though (のに — frustrating, unexpected contrast)"
+              "gloss": "even though (のに — frustrating, unexpected contrast)",
+              "tokens": [
+                {
+                  "k": "のに"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "休めない。",
               "role": "predicate",
-              "gloss": "can't rest (plain potential negative)"
+              "gloss": "can't rest (plain potential negative)",
+              "tokens": [
+                {
+                  "k": "休",
+                  "r": "やす",
+                  "g": "v_yasumu_plain_potential_negative"
+                },
+                {
+                  "k": "めない",
+                  "g": "v_yasumu_plain_potential_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Um… actually, next week work is busy, and even though it's tough, I can't take a break.",
@@ -752,42 +1212,122 @@
             {
               "text": "へえ！",
               "role": "connector",
-              "gloss": "Oh wow! (surprise aizuchi)"
+              "gloss": "Oh wow! (surprise aizuchi)",
+              "tokens": [
+                {
+                  "k": "へえ"
+                },
+                {
+                  "k": "！"
+                }
+              ]
             },
             {
               "text": "そうですね。",
               "role": "connector",
-              "gloss": "I see / right (polite agreement aizuchi)"
+              "gloss": "I see / right (polite agreement aizuchi)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "ね"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             },
             {
               "text": "さあ、",
               "role": "connector",
-              "gloss": "well then / right then (commencement — shifting to action)"
+              "gloss": "well then / right then (commencement — shifting to action)",
+              "tokens": [
+                {
+                  "k": "さあ"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "つまり、",
               "role": "connector",
-              "gloss": "in other words (discourse summary marker)"
+              "gloss": "in other words (discourse summary marker)",
+              "tokens": [
+                {
+                  "k": "つまり"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "今週まつに",
               "role": "time",
-              "gloss": "this weekend (に)"
+              "gloss": "this weekend (に)",
+              "tokens": [
+                {
+                  "k": "今"
+                },
+                {
+                  "k": "週",
+                  "r": "しゅう",
+                  "g": "v_shuumatsu"
+                },
+                {
+                  "k": "まつ",
+                  "g": "v_shuumatsu"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "会う",
               "role": "predicate",
-              "gloss": "meet (plain form)"
+              "gloss": "meet (plain form)",
+              "tokens": [
+                {
+                  "k": "会",
+                  "r": "あ",
+                  "g": "v_au"
+                },
+                {
+                  "k": "う",
+                  "g": "v_au"
+                }
+              ]
             },
             {
               "text": "しかない",
               "role": "predicate",
-              "gloss": "there's no choice but to (plain)"
+              "gloss": "there's no choice but to (plain)",
+              "tokens": [
+                {
+                  "k": "しか"
+                },
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             },
             {
               "text": "か。",
               "role": "predicate",
-              "gloss": "(casual rhetorical question)"
+              "gloss": "(casual rhetorical question)",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Oh wow! I see. Well then — in other words, we have no choice but to meet this weekend, huh?",

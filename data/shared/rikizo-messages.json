@@ -92,7 +92,28 @@
     "settingsKana":     { "text": "And Kana Writing Practice adds stroke-by-stroke drills for hiragana and katakana — the quickest way to stop needing those aids at all. Turn it on and practice anytime." },
     "tourStreak":   { "text": "This is your training streak. Your belt advances as you train — miss a day and a streak freeze covers you, but miss two in a row and you'll fall back a belt until you are back at white." },
     "tourLessons":  { "text": "And this is your next task to advance — score 60% or higher to unlock more." },
-    "tourDone":     { "text": "Alright — let's start with Lesson 1!" }
+    "tourNextUp":   { "text": "This is your Next Up. It always shows what to tackle next — your next grammar point, lesson, or review." },
+    "tourModules":  { "text": "These are your practice modules. You'll unlock more of them as you clear lessons and reviews with a score of 60% or higher." },
+    "tourProgress": { "text": "Here's your progress. These bars track how many lessons, kanji, and grammar points you've cleared at this level." },
+    "tourCast":     { "text": "This is the cast. New faces unlock here as you meet friends and family on your adventure." },
+    "tourDaily":    { "text": "And every day there's a fresh challenge waiting here to keep your streak alive." },
+    "tourNav":      { "text": "Down here is your menu bar — hop to Home, Lessons, the Dojo, the Map, and Settings anytime." },
+    "tourPhew":     { "text": "Phew — that was a lot, huh? 😅" },
+    "tourDone":     { "text": "Alright — let's do your first lesson!" }
+  },
+  "settingsTutorial": {
+    "intro":     { "text": "Your settings have grown a fair bit — let me give you the quick tour." },
+    "profile":   { "text": "Up top is your profile. Your first name is how I'll greet you on the home screen." },
+    "account":   { "text": "Sign in here to back up your progress to the cloud and sync it across your devices." },
+    "companion": { "text": "This is where you set how often I tag along — and pick which character is your stamp." },
+    "tutorials": { "text": "Had enough of my walkthroughs? Flip this on and I'll stop running tutorials like this one." },
+    "voice":     { "text": "Pick the Japanese voice you like best, and set how fast it speaks." },
+    "sound":     { "text": "Sound & Haptics: little chimes and taps as you study, plus vibration feedback. Turn either off here." },
+    "aids":      { "text": "Reading aids: furigana puts kana above each kanji, and romaji spells words out in the Latin alphabet." },
+    "helpers":   { "text": "Practice helpers add extra drills — like writing hiragana and katakana stroke by stroke." },
+    "upgrades":  { "text": "Upgrades live here — the AI tutor and custom content built around what you're studying." },
+    "about":     { "text": "And down here you can report a bug and check which app version you're on." },
+    "outro":     { "text": "That's the whole tour! Change anything you like — your settings save as you go." }
   },
   "lessonComplete": {
     "passedOpening": [
@@ -193,7 +214,7 @@
   },
   "dojoTutorial": {
     "intro": [
-      { "text": "Welcome to the Dojo! This is where you sharpen everything — vocab, kanji readings, verbs, and sentence structure. Mix and match whatever you want to drill." }
+      { "text": "Welcome to the Dojo — your training ground. Every tile here drills a different skill, all built from the lessons you've cleared. Let me show you around." }
     ],
     "stats": [
       { "text": "Up top: your Kanji / Vocab / Verbs / Flags count, all based on lessons you've completed. Tap them to pick which lessons to focus on — useful when you want to drill just a few." }
@@ -202,19 +223,19 @@
       { "text": "Kanji Practice covers the basics — Flashcards flip through what you've learned. Meaning Quiz tests English↔Kanji. Reading Quiz tests Reading↔Kanji. Mix mode shuffles directions." }
     ],
     "vocabPractice": [
-      { "text": "Vocab Practice does the same but with compound words built from your kanji. Flashcards for review, Quiz for testing." }
+      { "text": "Vocab Practice has flashcards and a quiz for the compound words from your kanji — and inside, the Conjugation Station drills verb forms once you've started learning grammar." }
     ],
-    "verbPractice": [
-      { "text": "The Conjugation Station drills verb forms — polite, casual, past, te-form, all of it. Locked for now — Grammar 1 will open it once you've got the copula down." }
+    "writingPractice": [
+      { "text": "Writing Practice lets you draw kanji stroke-by-stroke in gold ink on parchment — perfect a character to unlock its meaning." }
     ],
-    "verbPracticeUnlocked": [
-      { "text": "The Conjugation Station drills verb forms — polite, casual, past, te-form, all of it. Nice — Grammar 1 already unlocked it for you." }
+    "audioPractice": [
+      { "text": "Audio Practice is listening training — play a passage, scrub the waveform to catch the details, then answer questions on what you heard." }
     ],
-    "sentencePractice": [
-      { "text": "Sentence Practice puts everything in motion. Scramble re-orders sentences for you to rebuild. Link Up sorts words into groups. Both unlock as your vocab grows." }
+    "games": [
+      { "text": "Games keep it fun: Scramble rebuilds shuffled sentences, and Link Up sorts words into groups. More modes unlock as your vocab grows." }
     ],
     "flagged": [
-      { "text": "Anything you got wrong in a drill gets flagged automatically — Review Flagged lets you hammer just those weak spots. Use it often." }
+      { "text": "Anything you got wrong in a drill gets flagged automatically — Flags lets you hammer just those weak spots, vocab and grammar alike. Use it often." }
     ]
   },
   "composeTutorial": {

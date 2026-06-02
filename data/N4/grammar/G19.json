@@ -78,17 +78,61 @@
             {
               "text": "ご飯を",
               "role": "object",
-              "gloss": "meal (object: を)"
+              "gloss": "meal (object: を)",
+              "tokens": [
+                {
+                  "k": "ご",
+                  "g": "v_gohan"
+                },
+                {
+                  "k": "飯",
+                  "r": "はん",
+                  "g": "v_gohan"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べてから、",
               "role": "connector",
-              "gloss": "after eating (食べる → て-form 食べて + から)"
+              "gloss": "after eating (食べる → て-form 食べて + から)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_te_form"
+                },
+                {
+                  "k": "べて",
+                  "g": "v_taberu_te_form"
+                },
+                {
+                  "k": "から"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "出かけます。",
               "role": "predicate",
-              "gloss": "will go out (polite)"
+              "gloss": "will go out (polite)",
+              "tokens": [
+                {
+                  "k": "出"
+                },
+                {
+                  "k": "かけます",
+                  "g": "v_kaku_polite_potential"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll go out after eating.",
@@ -99,17 +143,63 @@
             {
               "text": "宿題をしたあとで、",
               "role": "connector",
-              "gloss": "after doing homework (した = plain past of する + あとで)"
+              "gloss": "after doing homework (した = plain past of する + あとで)",
+              "tokens": [
+                {
+                  "k": "宿"
+                },
+                {
+                  "k": "題",
+                  "r": "だい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "した",
+                  "g": "v_suru_plain_past"
+                },
+                {
+                  "k": "あとで"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "テレビを",
               "role": "object",
-              "gloss": "TV (object: を)"
+              "gloss": "TV (object: を)",
+              "tokens": [
+                {
+                  "k": "テレビ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "見ます。",
               "role": "predicate",
-              "gloss": "will watch (polite)"
+              "gloss": "will watch (polite)",
+              "tokens": [
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru_polite_masu"
+                },
+                {
+                  "k": "ます",
+                  "g": "v_miru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll watch TV after doing my homework.",
@@ -150,12 +240,52 @@
             {
               "text": "寝るまえに、",
               "role": "connector",
-              "gloss": "before sleeping (寝る = dictionary form + まえに)"
+              "gloss": "before sleeping (寝る = dictionary form + まえに)",
+              "tokens": [
+                {
+                  "k": "寝",
+                  "r": "ね",
+                  "g": "v_neru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_neru"
+                },
+                {
+                  "k": "まえ",
+                  "g": "v_mae"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "歯をみがきます。",
               "role": "predicate",
-              "gloss": "brush (my) teeth (polite)"
+              "gloss": "brush (my) teeth (polite)",
+              "tokens": [
+                {
+                  "k": "歯"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "みが"
+                },
+                {
+                  "k": "きます",
+                  "g": "v_kuru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I brush my teeth before going to sleep.",
@@ -166,17 +296,77 @@
             {
               "text": "日本に",
               "role": "object",
-              "gloss": "to Japan (direction: に)"
+              "gloss": "to Japan (direction: に)",
+              "tokens": [
+                {
+                  "k": "日本",
+                  "r": "にほん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来るまえに、",
               "role": "connector",
-              "gloss": "before coming (来る = dictionary form + まえに)"
+              "gloss": "before coming (来る = dictionary form + まえに)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "く",
+                  "g": "v_kuru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_kuru"
+                },
+                {
+                  "k": "まえ",
+                  "g": "v_mae"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "少し日本語を勉強しました。",
               "role": "predicate",
-              "gloss": "studied a little Japanese (polite past)"
+              "gloss": "studied a little Japanese (polite past)",
+              "tokens": [
+                {
+                  "k": "少",
+                  "r": "すこ",
+                  "g": "v_sukoshi"
+                },
+                {
+                  "k": "し",
+                  "g": "v_sukoshi"
+                },
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "しました",
+                  "g": "v_suru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Before coming to Japan, I studied a little Japanese.",
@@ -217,22 +407,74 @@
             {
               "text": "日本語を",
               "role": "object",
-              "gloss": "Japanese (object: を)"
+              "gloss": "Japanese (object: を)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "勉強するために、",
               "role": "connector",
-              "gloss": "in order to study (勉強する = plain form + ために)"
+              "gloss": "in order to study (勉強する = plain form + ために)",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "する"
+                },
+                {
+                  "k": "ため",
+                  "g": "v_tame"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "日本に",
               "role": "object",
-              "gloss": "to Japan (direction: に)"
+              "gloss": "to Japan (direction: に)",
+              "tokens": [
+                {
+                  "k": "日本",
+                  "r": "にほん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来ました。",
               "role": "predicate",
-              "gloss": "came (polite past)"
+              "gloss": "came (polite past)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_polite_mashita"
+                },
+                {
+                  "k": "ました",
+                  "g": "v_kuru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I came to Japan in order to study Japanese.",
@@ -243,17 +485,55 @@
             {
               "text": "健康のために、",
               "role": "connector",
-              "gloss": "for the sake of health (健康 = noun + の + ために)"
+              "gloss": "for the sake of health (健康 = noun + の + ために)",
+              "tokens": [
+                {
+                  "k": "健康"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "ため",
+                  "g": "v_tame"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "毎日",
               "role": "time",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "歩きます。",
               "role": "predicate",
-              "gloss": "walk (polite)"
+              "gloss": "walk (polite)",
+              "tokens": [
+                {
+                  "k": "歩",
+                  "r": "ある",
+                  "g": "v_aruku_polite_masu"
+                },
+                {
+                  "k": "きます",
+                  "g": "v_aruku_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I walk every day for the sake of my health.",
@@ -294,17 +574,50 @@
             {
               "text": "音楽を",
               "role": "object",
-              "gloss": "music (object: を)"
+              "gloss": "music (object: を)",
+              "tokens": [
+                {
+                  "k": "音楽",
+                  "r": "おんがく"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "聞きながら",
               "role": "connector",
-              "gloss": "while listening (聞く → masu-stem 聞き + ながら)"
+              "gloss": "while listening (聞く → masu-stem 聞き + ながら)",
+              "tokens": [
+                {
+                  "k": "聞",
+                  "r": "き",
+                  "g": "v_kiku_nagara_form"
+                },
+                {
+                  "k": "きながら",
+                  "g": "v_kiku_nagara_form"
+                }
+              ]
             },
             {
               "text": "勉強します。",
               "role": "predicate",
-              "gloss": "study (polite)"
+              "gloss": "study (polite)",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I study while listening to music.",
@@ -315,12 +628,37 @@
             {
               "text": "歩きながら",
               "role": "connector",
-              "gloss": "while walking (歩く → masu-stem 歩き + ながら)"
+              "gloss": "while walking (歩く → masu-stem 歩き + ながら)",
+              "tokens": [
+                {
+                  "k": "歩",
+                  "r": "ある",
+                  "g": "v_aruku_nagara_form"
+                },
+                {
+                  "k": "きながら",
+                  "g": "v_aruku_nagara_form"
+                }
+              ]
             },
             {
               "text": "話しましょう。",
               "role": "predicate",
-              "gloss": "let's talk (polite volitional)"
+              "gloss": "let's talk (polite volitional)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_polite_volitional_mashou"
+                },
+                {
+                  "k": "しましょう",
+                  "g": "v_hanasu_polite_volitional_mashou"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's talk while walking.",
@@ -371,17 +709,74 @@
             {
               "text": "週末は",
               "role": "topic",
-              "gloss": "on weekends (topic: は)"
+              "gloss": "on weekends (topic: は)",
+              "tokens": [
+                {
+                  "k": "週末",
+                  "r": "しゅうまつ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "映画を見たり、",
               "role": "predicate",
-              "gloss": "watch movies (見る → plain past 見た → 見たり)"
+              "gloss": "watch movies (見る → plain past 見た → 見たり)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru_tari_form"
+                },
+                {
+                  "k": "たり",
+                  "g": "v_miru_tari_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "本を読んだりします。",
               "role": "predicate",
-              "gloss": "read books (読む → 読んだ → 読んだり) + します"
+              "gloss": "read books (読む → 読んだ → 読んだり) + します",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_tari_form"
+                },
+                {
+                  "k": "んだり",
+                  "g": "v_yomu_tari_form"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "On weekends, I do things like watch movies and read books.",
@@ -392,17 +787,63 @@
             {
               "text": "友だちと",
               "role": "topic",
-              "gloss": "with friends (と = with)"
+              "gloss": "with friends (と = with)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "話したり、",
               "role": "predicate",
-              "gloss": "talk (話す → 話した → 話したり)"
+              "gloss": "talk (話す → 話した → 話したり)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_tari_form"
+                },
+                {
+                  "k": "したり",
+                  "g": "v_hanasu_tari_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "食べたりしました。",
               "role": "predicate",
-              "gloss": "eat (食べる → 食べた → 食べたり) + しました (polite past)"
+              "gloss": "eat (食べる → 食べた → 食べたり) + しました (polite past)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_tari_form"
+                },
+                {
+                  "k": "べたり",
+                  "g": "v_taberu_tari_form"
+                },
+                {
+                  "k": "しました",
+                  "g": "v_suru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I did things like chatted and ate with my friends.",
@@ -420,22 +861,73 @@
             {
               "text": "朝ご飯を",
               "role": "object",
-              "gloss": "breakfast (object: を)"
+              "gloss": "breakfast (object: を)",
+              "tokens": [
+                {
+                  "k": "朝ご飯",
+                  "r": "あさごはん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べてから、",
               "role": "connector",
-              "gloss": "after eating (食べる → て-form + から)"
+              "gloss": "after eating (食べる → て-form + から)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_te_form"
+                },
+                {
+                  "k": "べて",
+                  "g": "v_taberu_te_form"
+                },
+                {
+                  "k": "から"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "家を",
               "role": "object",
-              "gloss": "house (object: を)"
+              "gloss": "house (object: を)",
+              "tokens": [
+                {
+                  "k": "家",
+                  "r": "いえ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "出ます。",
               "role": "predicate",
-              "gloss": "leave (polite)"
+              "gloss": "leave (polite)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "で",
+                  "g": "v_deru_polite_masu"
+                },
+                {
+                  "k": "ます",
+                  "g": "v_deru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "After eating breakfast, I leave home.",
@@ -447,17 +939,53 @@
             {
               "text": "試験のまえに、",
               "role": "connector",
-              "gloss": "before the exam (試験 = noun + の + まえに)"
+              "gloss": "before the exam (試験 = noun + の + まえに)",
+              "tokens": [
+                {
+                  "k": "試験",
+                  "r": "しけん"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "まえ",
+                  "g": "v_mae"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "よく",
               "role": "adverb",
-              "gloss": "well / thoroughly"
+              "gloss": "well / thoroughly",
+              "tokens": [
+                {
+                  "k": "よく"
+                }
+              ]
             },
             {
               "text": "準備します。",
               "role": "predicate",
-              "gloss": "prepare (polite)"
+              "gloss": "prepare (polite)",
+              "tokens": [
+                {
+                  "k": "準備",
+                  "r": "じゅんび"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I prepare well before the exam.",
@@ -469,22 +997,77 @@
             {
               "text": "日本語を",
               "role": "object",
-              "gloss": "Japanese (object: を)"
+              "gloss": "Japanese (object: を)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "上手に話すために、",
               "role": "connector",
-              "gloss": "in order to speak skillfully (話す = plain form + ために)"
+              "gloss": "in order to speak skillfully (話す = plain form + ために)",
+              "tokens": [
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu"
+                },
+                {
+                  "k": "す",
+                  "g": "v_hanasu"
+                },
+                {
+                  "k": "ため",
+                  "g": "v_tame"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "毎日",
               "role": "time",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "練習します。",
               "role": "predicate",
-              "gloss": "practice (polite)"
+              "gloss": "practice (polite)",
+              "tokens": [
+                {
+                  "k": "練習"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I practice every day in order to speak Japanese well.",
@@ -496,22 +1079,68 @@
             {
               "text": "電車に",
               "role": "object",
-              "gloss": "on the train (に = on/in)"
+              "gloss": "on the train (に = on/in)",
+              "tokens": [
+                {
+                  "k": "電車",
+                  "r": "でんしゃ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "乗りながら、",
               "role": "connector",
-              "gloss": "while riding (乗る → masu-stem 乗り + ながら)"
+              "gloss": "while riding (乗る → masu-stem 乗り + ながら)",
+              "tokens": [
+                {
+                  "k": "乗",
+                  "r": "の",
+                  "g": "v_noru_nagara_form"
+                },
+                {
+                  "k": "りながら",
+                  "g": "v_noru_nagara_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "ポッドキャストを",
               "role": "object",
-              "gloss": "podcast (object: を)"
+              "gloss": "podcast (object: を)",
+              "tokens": [
+                {
+                  "k": "ポッドキャスト"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "聞きます。",
               "role": "predicate",
-              "gloss": "listen to (polite)"
+              "gloss": "listen to (polite)",
+              "tokens": [
+                {
+                  "k": "聞",
+                  "r": "き",
+                  "g": "v_kiku_polite_masu"
+                },
+                {
+                  "k": "きます",
+                  "g": "v_kiku_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I listen to podcasts while riding the train.",
@@ -523,17 +1152,80 @@
             {
               "text": "休みの日は",
               "role": "topic",
-              "gloss": "on days off (topic: は)"
+              "gloss": "on days off (topic: は)",
+              "tokens": [
+                {
+                  "k": "休",
+                  "r": "やす",
+                  "g": "v_yasumi"
+                },
+                {
+                  "k": "み",
+                  "g": "v_yasumi"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "日",
+                  "r": "ひ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "買い物をしたり、",
               "role": "predicate",
-              "gloss": "shop (買い物をする → した → したり)"
+              "gloss": "shop (買い物をする → した → したり)",
+              "tokens": [
+                {
+                  "k": "買い物",
+                  "r": "かいもの"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "したり",
+                  "g": "v_suru_tari_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "公園を歩いたりします。",
               "role": "predicate",
-              "gloss": "walk in the park (歩く → 歩いた → 歩いたり) + します"
+              "gloss": "walk in the park (歩く → 歩いた → 歩いたり) + します",
+              "tokens": [
+                {
+                  "k": "公園"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "歩",
+                  "r": "ある",
+                  "g": "v_aruku_tari_form"
+                },
+                {
+                  "k": "いたり",
+                  "g": "v_aruku_tari_form"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "On days off, I do things like shop and walk in the park.",

@@ -6,7 +6,16 @@
     "phase": 4,
     "type": "assessment",
     "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 21–22.",
-    "kanji": ["売", "品", "持", "貸", "漢", "字", "紙", "意"]
+    "kanji": [
+      "売",
+      "品",
+      "持",
+      "貸",
+      "漢",
+      "字",
+      "紙",
+      "意"
+    ]
   },
   "sections": [
     {
@@ -298,39 +307,97 @@
         {
           "kind": "scramble",
           "q": "Is it okay to take this item home?",
-          "segments": ["この", "品物", "を", "持ち帰っても", "いいですか"],
-          "distractors": ["持ち出しても", "品名", "いけません"],
+          "segments": [
+            "この",
+            "品物",
+            "を",
+            "持ち帰っても",
+            "いいですか"
+          ],
+          "distractors": [
+            "持ち出しても",
+            "品名",
+            "いけません"
+          ],
           "explanation": "Permission pattern: <b>て-form + も + いいですか</b> — 持ち帰る (take home) → 持ち帰って + も + いいですか."
         },
         {
           "kind": "scramble",
           "q": "You must not take the goods outside.",
-          "segments": ["品物", "を", "外へ", "持ち出しては", "いけません"],
-          "distractors": ["持ち帰っても", "品名", "いいです"],
+          "segments": [
+            "品物",
+            "を",
+            "外へ",
+            "持ち出しては",
+            "いけません"
+          ],
+          "distractors": [
+            "持ち帰っても",
+            "品名",
+            "いいです"
+          ],
           "alts": [
-            ["外へ", "品物", "を", "持ち出しては", "いけません"]
+            [
+              "外へ",
+              "品物",
+              "を",
+              "持ち出しては",
+              "いけません"
+            ]
           ],
           "explanation": "Prohibition pattern: <b>て-form + は + いけません</b> — 持ち出す (take out) → 持ち出して + は + いけません."
         },
         {
           "kind": "scramble",
           "q": "I wrote a letter on paper and sent it.",
-          "segments": ["紙", "に", "手紙", "を", "書いて", "送りました"],
-          "distractors": ["漢字", "読んで", "売りました"],
+          "segments": [
+            "紙",
+            "に",
+            "手紙",
+            "を",
+            "書いて",
+            "送りました"
+          ],
+          "distractors": [
+            "漢字",
+            "読んで",
+            "売りました"
+          ],
           "explanation": "Sequential te-form: <b>書いて (wrote and) + 送りました (sent)</b>. に after 紙 marks the surface written on."
         },
         {
           "kind": "scramble",
           "q": "What is the meaning of this kanji?",
-          "segments": ["この", "漢字", "の", "意味", "は", "何ですか"],
-          "distractors": ["意見", "字体", "どこですか"],
+          "segments": [
+            "この",
+            "漢字",
+            "の",
+            "意味",
+            "は",
+            "何ですか"
+          ],
+          "distractors": [
+            "意見",
+            "字体",
+            "どこですか"
+          ],
           "explanation": "<b>漢字の意味は何ですか</b> — 'What is the meaning of this kanji?' の connects 漢字 to 意味 (meaning)."
         },
         {
           "kind": "scramble",
           "q": "Please lend me this book.",
-          "segments": ["この", "本", "を", "貸して", "ください"],
-          "distractors": ["持ち出して", "いけません", "売り物"],
+          "segments": [
+            "この",
+            "本",
+            "を",
+            "貸して",
+            "ください"
+          ],
+          "distractors": [
+            "持ち出して",
+            "いけません",
+            "売り物"
+          ],
           "explanation": "Request pattern: <b>て-form + ください</b> — 貸す (lend) → 貸して + ください = Please lend (me). この本を is the direct object."
         }
       ]
@@ -606,42 +673,72 @@
         {
           "kind": "mcq",
           "q": "[売り物]は ありますか。",
-          "choices": ["うりもの", "うりこと", "ばいもの", "うったもの"],
+          "choices": [
+            "うりもの",
+            "うりこと",
+            "ばいもの",
+            "うったもの"
+          ],
           "answer": "うりもの",
           "explanation": "売り物 (item for sale) is read as <b>urimono</b>. 売 (う) + り + 物 (もの)."
         },
         {
           "kind": "mcq",
           "q": "[品物]を 見て ください。",
-          "choices": ["しなもの", "ひんぶつ", "ひんもの", "しなごと"],
+          "choices": [
+            "しなもの",
+            "ひんぶつ",
+            "ひんもの",
+            "しなごと"
+          ],
           "answer": "しなもの",
           "explanation": "品物 (goods / article) is read as <b>shinamono</b>. 品 (しな) + 物 (もの)."
         },
         {
           "kind": "mcq",
           "q": "[漢字]が 読めます。",
-          "choices": ["かんじ", "かんご", "かんいち", "もじ"],
+          "choices": [
+            "かんじ",
+            "かんご",
+            "かんいち",
+            "もじ"
+          ],
           "answer": "かんじ",
           "explanation": "漢字 (kanji characters) is read as <b>kanji</b>. 漢 (かん) + 字 (じ)."
         },
         {
           "kind": "mcq",
           "q": "[手紙]を 書きます。",
-          "choices": ["てがみ", "てかみ", "しゅし", "てし"],
+          "choices": [
+            "てがみ",
+            "てかみ",
+            "しゅし",
+            "てし"
+          ],
           "answer": "てがみ",
           "explanation": "手紙 (letter) is read as <b>tegami</b>. 手 (て) + 紙 (がみ) — 紙 voices to がみ in compound."
         },
         {
           "kind": "mcq",
           "q": "[意味]が 分かりません。",
-          "choices": ["いみ", "いけん", "もくてき", "いがい"],
+          "choices": [
+            "いみ",
+            "いけん",
+            "もくてき",
+            "いがい"
+          ],
           "answer": "いみ",
           "explanation": "意味 (meaning) is read as <b>imi</b>. 意 (い) + 味 (み)."
         },
         {
           "kind": "mcq",
           "q": "本を [貸して] ください。",
-          "choices": ["かして", "かりて", "はかして", "たして"],
+          "choices": [
+            "かして",
+            "かりて",
+            "はかして",
+            "たして"
+          ],
           "answer": "かして",
           "explanation": "貸す (to lend) in te-form is read as <b>kashite</b>. 貸 (か) + して."
         }
@@ -655,7 +752,12 @@
         {
           "kind": "mcq",
           "q": "この 漢字の ______ は 何ですか。",
-          "choices": ["意味", "意見", "品名", "名字"],
+          "choices": [
+            "意味",
+            "意見",
+            "品名",
+            "名字"
+          ],
           "answer": "意味",
           "terms": [
             "v_kono",
@@ -672,7 +774,12 @@
         {
           "kind": "mcq",
           "q": "この ______ を 家に 持ち帰っても いいですか。",
-          "choices": ["品物", "手紙", "意見", "漢字"],
+          "choices": [
+            "品物",
+            "手紙",
+            "意見",
+            "漢字"
+          ],
           "answer": "品物",
           "terms": [
             "v_shinamono",
@@ -695,10 +802,15 @@
         {
           "kind": "mcq",
           "q": "友だちに 本を ______。",
-          "choices": ["貸しました", "売り出しました", "持ち出しました", "意見しました"],
+          "choices": [
+            "貸しました",
+            "売り出しました",
+            "持ち出しました",
+            "意見しました"
+          ],
           "answer": "貸しました",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_hon",
             "p_wo",
@@ -712,7 +824,12 @@
         {
           "kind": "mcq",
           "q": "あなたの ______ を 聞いて ください。",
-          "choices": ["意見", "赤字", "売り物", "ローマ字"],
+          "choices": [
+            "意見",
+            "赤字",
+            "売り物",
+            "ローマ字"
+          ],
           "answer": "意見",
           "terms": [
             "v_anata",
@@ -737,7 +854,12 @@
         {
           "kind": "mcq",
           "q": "この 紙に 書いて______ いいですか。",
-          "choices": ["も", "は", "を", "が"],
+          "choices": [
+            "も",
+            "は",
+            "を",
+            "が"
+          ],
           "answer": "も",
           "terms": [
             "v_kono",
@@ -759,7 +881,12 @@
         {
           "kind": "mcq",
           "q": "ここでは 写真を とって______ いけません。",
-          "choices": ["は", "も", "が", "の"],
+          "choices": [
+            "は",
+            "も",
+            "が",
+            "の"
+          ],
           "answer": "は",
           "terms": [
             "v_koko",
@@ -781,7 +908,12 @@
         {
           "kind": "mcq",
           "q": "この 品物を 外へ ______。",
-          "choices": ["持ち出しても いいです", "持ち出しては いけません", "持ち帰っても いいですか", "持って います"],
+          "choices": [
+            "持ち出しても いいです",
+            "持ち出しては いけません",
+            "持ち帰っても いいですか",
+            "持って います"
+          ],
           "answer": "持ち出しては いけません",
           "terms": [
             "v_kono",
@@ -804,7 +936,12 @@
         {
           "kind": "mcq",
           "q": "漢字の 意味が 分からない ______、先生に 聞きます。",
-          "choices": ["から", "のに", "ほど", "まで"],
+          "choices": [
+            "から",
+            "のに",
+            "ほど",
+            "まで"
+          ],
           "answer": "から",
           "terms": [
             "v_kanji",

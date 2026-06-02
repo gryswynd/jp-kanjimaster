@@ -160,14 +160,25 @@ window.GrammarModule = {
 
         .gr-scenery { width: 84px; height: 84px; pointer-events: none; opacity: 0.62; z-index: 0; position: relative; }
         .gr-scenery .sk-fallback, .gr-scenery svg { width: 100%; height: 100%; display: block; }
+        /* Living pond — bigger + full opacity since koi swim in it (canvas). */
+        .gr-scenery--pond { width: 124px; height: 124px; opacity: 1; }
+        .gr-pond-canvas { display: block; }
 
-        .gr-stone {
-          width: 66px; height: 18px; border-radius: 50%; z-index: 1;
+        /* Base stone the lantern rests on + path stepping-stones. Painted
+           watercolor PNG (stone-step.png) layers over the grey-ellipse fallback
+           so the path matches the garden instead of reading as flat blobs. */
+        .gr-stone { position: relative; width: 92px; height: 48px; z-index: 1; margin-top: -7px; }
+        .gr-steppingstone { position: relative; width: 52px; height: 30px; z-index: 0; opacity: 0.96; }
+        .gr-stone .sk-art, .gr-steppingstone .sk-art { object-fit: contain; }
+        .gr-stone .sk-fallback {
+          position: absolute; left: 50%; top: 26%; transform: translateX(-50%);
+          width: 66px; height: 18px; border-radius: 50%;
           background: radial-gradient(ellipse at 50% 32%, oklch(0.80 0.012 250), oklch(0.62 0.012 250));
           box-shadow: 0 4px 8px oklch(0.22 0.012 60 / 0.18);
         }
-        .gr-steppingstone {
-          width: 34px; height: 12px; border-radius: 50%; z-index: 0; opacity: 0.92;
+        .gr-steppingstone .sk-fallback {
+          position: absolute; left: 50%; top: 26%; transform: translateX(-50%);
+          width: 34px; height: 12px; border-radius: 50%;
           background: radial-gradient(ellipse at 50% 32%, oklch(0.82 0.01 250), oklch(0.66 0.012 250));
           box-shadow: 0 3px 6px oklch(0.22 0.012 60 / 0.14);
         }
@@ -196,6 +207,22 @@ window.GrammarModule = {
         @keyframes grLanternPulse {
           0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.9); }
           50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.12); }
+        }
+        /* Warm flickering glow around a LIT lantern (PNG or SVG). */
+        .gr-lantern.lit .gr-lantern-fig::before {
+          content: ''; position: absolute; left: 50%; top: 42%; width: 78px; height: 78px;
+          transform: translate(-50%, -50%); border-radius: 50%; z-index: -1; pointer-events: none;
+          background: radial-gradient(circle, oklch(0.86 0.13 85 / 0.55), transparent 68%);
+          animation: grGlowFlicker 4.2s ease-in-out infinite;
+        }
+        @keyframes grGlowFlicker {
+          0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+          28% { opacity: 0.82; transform: translate(-50%, -50%) scale(1.07); }
+          46% { opacity: 0.58; transform: translate(-50%, -50%) scale(0.98); }
+          68% { opacity: 0.78; transform: translate(-50%, -50%) scale(1.04); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .gr-lantern.lit .gr-lantern-fig::before { animation: none; opacity: 0.6; }
         }
         /* readable wooden hanging sign (木札) — replaces the trailing-off label */
         .gr-lantern-sign {
@@ -1584,6 +1611,8 @@ window.GrammarModule = {
       const garden = document.getElementById('gr-garden');
 
       const sk = window.JPShared && window.JPShared.sceneKit;
+      const stage = window.JPShared && window.JPShared.gardenStage;
+      if (stage) stage.reset(); // tear down any ponds from a previous render
       const artUrl = name => window.getAssetUrl ? window.getAssetUrl(REPO_CONFIG, 'assets/scenes/' + name) : '';
 
       // Garden ground tile (repeats down the scroll) over the gradient fallback.
@@ -1628,24 +1657,40 @@ window.GrammarModule = {
 
       // 1) Background scenery — decorative, every other lantern, opposite side.
       //    PNG (garden-<element>.png) layers over the inline-SVG fallback.
+      //    Koi spots (sIdx 0) become LIVING ponds: a canvas with swimming koi
+      //    (gardenStage) instead of the static painting — nudged inward + larger
+      //    so the koi are actually visible.
       for (let i = 0; i < N; i += 2) {
         const g = visibleGrammars[i];
-        const side = xPctAt(i) >= 50 ? 15 : 85;
-        const jitter = sk ? (sk.hashIndexSalted(g.id, 'sy', 5) - 2) * 11 : 0;
         const sIdx = sk ? sk.hashIndex(g.id, GARDEN_SCENERY.length) : (i % GARDEN_SCENERY.length);
-        const scenery = el('div', 'gr-scenery');
-        if (sk) scenery.appendChild(sk.artLayer(artUrl(GARDEN_SCENERY_ART[sIdx]), 'gr-scenery-art'));
-        scenery.appendChild(el('div', 'sk-fallback', GARDEN_SCENERY[sIdx]));
+        const isPond = (sIdx === 0);
+        const right = xPctAt(i) >= 50;
+        const side = right ? (isPond ? 24 : 15) : (isPond ? 76 : 85);
+        const jitter = sk ? (sk.hashIndexSalted(g.id, 'sy', 5) - 2) * 11 : 0;
+        const scenery = el('div', 'gr-scenery' + (isPond ? ' gr-scenery--pond' : ''));
+        if (isPond && stage) {
+          stage.createPond(scenery);
+        } else {
+          if (sk) scenery.appendChild(sk.artLayer(artUrl(GARDEN_SCENERY_ART[sIdx]), 'gr-scenery-art'));
+          scenery.appendChild(el('div', 'sk-fallback', GARDEN_SCENERY[sIdx]));
+        }
         place(scenery, side, lanternTopAt(i) + 30 + jitter);
       }
 
       // 2) Stepping-stone path — connector stones between consecutive lanterns.
+      //    Painted stone PNG over the grey-ellipse fallback; alternating flip so
+      //    the repeated art doesn't read as identical.
+      let stepN = 0;
       for (let i = 0; i < N - 1; i++) {
         for (let t = 1; t <= 2; t++) {
           const f = t / 3;
           const x = xPctAt(i) + (xPctAt(i + 1) - xPctAt(i)) * f;
           const y = stoneCenterAt(i) + (stoneCenterAt(i + 1) - stoneCenterAt(i)) * f;
-          place(el('div', 'gr-steppingstone'), x, y);
+          const step = el('div', 'gr-steppingstone');
+          if (sk) step.appendChild(sk.artLayer(artUrl('stone-step.png'), 'gr-stone-art'));
+          step.appendChild(el('div', 'sk-fallback'));
+          place(step, x, y);
+          if (stepN++ % 2) step.style.transform += ' scaleX(-1)';
         }
       }
 
@@ -1675,7 +1720,11 @@ window.GrammarModule = {
         if (sk) fig.appendChild(sk.artLayer(artUrl(done ? 'lantern-lit.png' : 'lantern-unlit.png'), 'gr-lantern-art'));
         fig.appendChild(el('div', 'gr-lantern-svg sk-fallback', lanternSVG()));
         lantern.appendChild(fig);
-        lantern.appendChild(el('div', 'gr-stone'));
+        const baseStone = el('div', 'gr-stone');
+        if (sk) baseStone.appendChild(sk.artLayer(artUrl('stone-step.png'), 'gr-stone-art'));
+        baseStone.appendChild(el('div', 'sk-fallback'));
+        if (sk && sk.hashIndexSalted(g.id, 'flip', 2)) baseStone.style.transform = 'scaleX(-1)';
+        lantern.appendChild(baseStone);
         const sign = el('div', 'gr-lantern-sign', '');
         sign.appendChild(el('div', 'gr-lantern-id', esc(g.id)));
         sign.appendChild(el('div', 'gr-lantern-title', esc(g.title || '')));

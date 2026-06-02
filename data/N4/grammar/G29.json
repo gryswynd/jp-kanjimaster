@@ -206,22 +206,65 @@
             {
               "text": "先生は",
               "role": "topic",
-              "gloss": "the teacher (は — topic / causer)"
+              "gloss": "the teacher (は — topic / causer)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "学生に",
               "role": "modifier",
-              "gloss": "the students (に — causee marker)"
+              "gloss": "the students (に — causee marker)",
+              "tokens": [
+                {
+                  "k": "学生",
+                  "r": "がくせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "漢字を",
               "role": "object",
-              "gloss": "kanji (を — object of writing)"
+              "gloss": "kanji (を — object of writing)",
+              "tokens": [
+                {
+                  "k": "漢字",
+                  "r": "かんじ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "書かせました。",
               "role": "predicate",
-              "gloss": "made them write (書く → 書かせる — U-verb causative, polite past)"
+              "gloss": "made them write (書く → 書かせる — U-verb causative, polite past)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か",
+                  "g": "v_kaku_polite_causative_past"
+                },
+                {
+                  "k": "かせました",
+                  "g": "v_kaku_polite_causative_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The teacher made the students write kanji.",
@@ -232,22 +275,70 @@
             {
               "text": "母は",
               "role": "topic",
-              "gloss": "mother (は — topic / causer)"
+              "gloss": "mother (は — topic / causer)",
+              "tokens": [
+                {
+                  "k": "母",
+                  "r": "はは"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "子どもに",
               "role": "modifier",
-              "gloss": "the child (に — causee)"
+              "gloss": "the child (に — causee)",
+              "tokens": [
+                {
+                  "k": "子",
+                  "r": "こ",
+                  "g": "v_kodomo"
+                },
+                {
+                  "k": "ども",
+                  "g": "v_kodomo"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "野菜を",
               "role": "object",
-              "gloss": "vegetables (を — object)"
+              "gloss": "vegetables (を — object)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べさせた。",
               "role": "predicate",
-              "gloss": "made them eat (食べる → 食べさせる — RU-verb causative, plain past)"
+              "gloss": "made them eat (食べる → 食べさせる — RU-verb causative, plain past)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_causative_past"
+                },
+                {
+                  "k": "べさせた",
+                  "g": "v_taberu_plain_causative_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Mom made the child eat vegetables.",
@@ -290,22 +381,84 @@
             {
               "text": "母は",
               "role": "topic",
-              "gloss": "mother (は — topic / causer)"
+              "gloss": "mother (は — topic / causer)",
+              "tokens": [
+                {
+                  "k": "母",
+                  "r": "はは"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "子どもに",
               "role": "modifier",
-              "gloss": "the child (に — causee)"
+              "gloss": "the child (に — causee)",
+              "tokens": [
+                {
+                  "k": "子",
+                  "r": "こ",
+                  "g": "v_kodomo"
+                },
+                {
+                  "k": "ども",
+                  "g": "v_kodomo"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "好きな ものを",
               "role": "object",
-              "gloss": "things they like (好きな + もの + を — object of eating)"
+              "gloss": "things they like (好きな + もの + を — object of eating)",
+              "tokens": [
+                {
+                  "k": "好",
+                  "r": "す",
+                  "g": "v_suki_attributive_na"
+                },
+                {
+                  "k": "きな",
+                  "g": "v_suki_attributive_na"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "も"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べさせた。",
               "role": "predicate",
-              "gloss": "let them eat (食べる → 食べさせる — RU-verb causative, plain past; permissive reading)"
+              "gloss": "let them eat (食べる → 食べさせる — RU-verb causative, plain past; permissive reading)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_causative_past"
+                },
+                {
+                  "k": "べさせた",
+                  "g": "v_taberu_plain_causative_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Mom let the child eat whatever they liked.",
@@ -316,22 +469,67 @@
             {
               "text": "先生は",
               "role": "topic",
-              "gloss": "the teacher (は — topic / causer)"
+              "gloss": "the teacher (は — topic / causer)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "学生を",
               "role": "object",
-              "gloss": "the students (を — marks the causee when the causative is used with intransitive homeward movement)"
+              "gloss": "the students (を — marks the causee when the causative is used with intransitive homeward movement)",
+              "tokens": [
+                {
+                  "k": "学生",
+                  "r": "がくせい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "早く",
               "role": "adverb",
-              "gloss": "early (早い → 早く — adverbial form)"
+              "gloss": "early (早い → 早く — adverbial form)",
+              "tokens": [
+                {
+                  "k": "早",
+                  "r": "はや",
+                  "g": "v_hayai_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_hayai_adverbial"
+                }
+              ]
             },
             {
               "text": "帰らせました。",
               "role": "predicate",
-              "gloss": "let them go home (帰る → 帰らせる — U-verb causative, polite past; permissive)"
+              "gloss": "let them go home (帰る → 帰らせる — U-verb causative, polite past; permissive)",
+              "tokens": [
+                {
+                  "k": "帰",
+                  "r": "かえ",
+                  "g": "v_kaeru_polite_causative_past"
+                },
+                {
+                  "k": "らせました",
+                  "g": "v_kaeru_polite_causative_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The teacher let the students go home early.",
@@ -357,22 +555,70 @@
               {
                 "text": "母は",
                 "role": "topic",
-                "gloss": "mother (は — topic)"
+                "gloss": "mother (は — topic)",
+                "tokens": [
+                  {
+                    "k": "母",
+                    "r": "はは"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "子どもに",
                 "role": "modifier",
-                "gloss": "the child (に — causee)"
+                "gloss": "the child (に — causee)",
+                "tokens": [
+                  {
+                    "k": "子",
+                    "r": "こ",
+                    "g": "v_kodomo"
+                  },
+                  {
+                    "k": "ども",
+                    "g": "v_kodomo"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "野菜を",
                 "role": "object",
-                "gloss": "vegetables (を)"
+                "gloss": "vegetables (を)",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べさせた。",
                 "role": "predicate",
-                "gloss": "made eat (causative, plain past)"
+                "gloss": "made eat (causative, plain past)",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu_plain_causative_past"
+                  },
+                  {
+                    "k": "べさせた",
+                    "g": "v_taberu_plain_causative_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Mom MADE the child eat vegetables. (no choice)"
@@ -392,22 +638,84 @@
               {
                 "text": "母は",
                 "role": "topic",
-                "gloss": "mother (は — topic)"
+                "gloss": "mother (は — topic)",
+                "tokens": [
+                  {
+                    "k": "母",
+                    "r": "はは"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "子どもに",
                 "role": "modifier",
-                "gloss": "the child (に — causee)"
+                "gloss": "the child (に — causee)",
+                "tokens": [
+                  {
+                    "k": "子",
+                    "r": "こ",
+                    "g": "v_kodomo"
+                  },
+                  {
+                    "k": "ども",
+                    "g": "v_kodomo"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "好きな ものを",
                 "role": "object",
-                "gloss": "things they like (を)"
+                "gloss": "things they like (を)",
+                "tokens": [
+                  {
+                    "k": "好",
+                    "r": "す",
+                    "g": "v_suki_attributive_na"
+                  },
+                  {
+                    "k": "きな",
+                    "g": "v_suki_attributive_na"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "も"
+                  },
+                  {
+                    "k": "の"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べさせた。",
                 "role": "predicate",
-                "gloss": "let eat (causative, plain past)"
+                "gloss": "let eat (causative, plain past)",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu_plain_causative_past"
+                  },
+                  {
+                    "k": "べさせた",
+                    "g": "v_taberu_plain_causative_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Mom LET the child eat what they liked. (permission given)"
@@ -451,22 +759,80 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic / sufferer)"
+              "gloss": "Rikizo (は — topic / sufferer)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "modifier",
-              "gloss": "by the teacher (に — authority figure)"
+              "gloss": "by the teacher (に — authority figure)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "長い 文を",
               "role": "object",
-              "gloss": "a long sentence (長い + 文 + を)"
+              "gloss": "a long sentence (長い + 文 + を)",
+              "tokens": [
+                {
+                  "k": "長",
+                  "r": "なが",
+                  "g": "v_nagai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_nagai"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "文",
+                  "r": "ぶん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "書かせられました。",
               "role": "predicate",
-              "gloss": "was made to write (書く → 書かせられる — causative-passive, polite past)"
+              "gloss": "was made to write (書く → 書かせられる — causative-passive, polite past)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "せられ"
+                },
+                {
+                  "k": "ました"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo was made to write a long sentence by the teacher.",
@@ -477,22 +843,62 @@
             {
               "text": "私は",
               "role": "topic",
-              "gloss": "I (は — topic / sufferer)"
+              "gloss": "I (は — topic / sufferer)",
+              "tokens": [
+                {
+                  "k": "私",
+                  "r": "わたし"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "毎日",
               "role": "adverb",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "野菜を",
               "role": "object",
-              "gloss": "vegetables (を)"
+              "gloss": "vegetables (を)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べさせられた。",
               "role": "predicate",
-              "gloss": "was made to eat (食べる → 食べさせられる — causative-passive, plain past)"
+              "gloss": "was made to eat (食べる → 食べさせられる — causative-passive, plain past)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_causative_passive_past"
+                },
+                {
+                  "k": "べさせられた",
+                  "g": "v_taberu_plain_causative_passive_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I was made to eat vegetables every day. (I didn't want to.)",

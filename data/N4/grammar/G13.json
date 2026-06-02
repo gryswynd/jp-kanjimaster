@@ -74,12 +74,35 @@
             {
               "text": "日本語が",
               "role": "subject",
-              "gloss": "Japanese (subject — note が, not を)"
+              "gloss": "Japanese (subject — note が, not を)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "話せます。",
               "role": "predicate",
-              "gloss": "can speak (U-verb: 話す → 話せる → 話せます)"
+              "gloss": "can speak (U-verb: 話す → 話せる → 話せます)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_polite_potential"
+                },
+                {
+                  "k": "せます",
+                  "g": "v_hanasu_polite_potential"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I can speak Japanese.",
@@ -90,12 +113,41 @@
             {
               "text": "この 本が",
               "role": "subject",
-              "gloss": "this book (subject — shifted from を)"
+              "gloss": "this book (subject — shifted from を)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "読めます。",
               "role": "predicate",
-              "gloss": "can read (U-verb: 読む → 読める → 読めます)"
+              "gloss": "can read (U-verb: 読む → 読める → 読めます)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_polite_potential"
+                },
+                {
+                  "k": "めます",
+                  "g": "v_yomu_polite_potential"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I can read this book.",
@@ -106,12 +158,33 @@
             {
               "text": "今日は",
               "role": "topic",
-              "gloss": "today (topic)"
+              "gloss": "today (topic)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "来られません。",
               "role": "predicate",
-              "gloss": "cannot come (irregular: 来る → 来られる → 来られません, negative polite)"
+              "gloss": "cannot come (irregular: 来る → 来られる → 来られません, negative polite)",
+              "tokens": [
+                {
+                  "k": "来られ"
+                },
+                {
+                  "k": "ません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I cannot come today.",
@@ -228,17 +301,50 @@
             {
               "text": "私は",
               "role": "topic",
-              "gloss": "I (topic: は)"
+              "gloss": "I (topic: は)",
+              "tokens": [
+                {
+                  "k": "私",
+                  "r": "わたし"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "日本語が",
               "role": "subject",
-              "gloss": "Japanese (potential object: が)"
+              "gloss": "Japanese (potential object: が)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "話せます。",
               "role": "predicate",
-              "gloss": "can speak (potential: 話す → 話せます)"
+              "gloss": "can speak (potential: 話す → 話せます)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_polite_potential"
+                },
+                {
+                  "k": "せます",
+                  "g": "v_hanasu_polite_potential"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I can speak Japanese.",
@@ -249,17 +355,49 @@
             {
               "text": "電車に",
               "role": "object",
-              "gloss": "train (movement target: に stays as に)"
+              "gloss": "train (movement target: に stays as に)",
+              "tokens": [
+                {
+                  "k": "電車",
+                  "r": "でんしゃ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "一人で",
               "role": "manner",
-              "gloss": "alone / by myself"
+              "gloss": "alone / by myself",
+              "tokens": [
+                {
+                  "k": "一人",
+                  "r": "ひとり"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "乗れます。",
               "role": "predicate",
-              "gloss": "can ride/board (potential: 乗る → 乗れます)"
+              "gloss": "can ride/board (potential: 乗る → 乗れます)",
+              "tokens": [
+                {
+                  "k": "乗",
+                  "r": "の",
+                  "g": "v_noru_polite_potential"
+                },
+                {
+                  "k": "れます",
+                  "g": "v_noru_polite_potential"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I can ride the train by myself.",
@@ -300,12 +438,29 @@
             {
               "text": "明日、",
               "role": "time",
-              "gloss": "tomorrow"
+              "gloss": "tomorrow",
+              "tokens": [
+                {
+                  "k": "明日",
+                  "r": "あした"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "来れる？",
               "role": "predicate",
-              "gloss": "can you come? (colloquial: 来られる → 来れる)"
+              "gloss": "can you come? (colloquial: 来られる → 来れる)",
+              "tokens": [
+                {
+                  "k": "来れる"
+                },
+                {
+                  "k": "？"
+                }
+              ]
             }
           ],
           "en": "Can you come tomorrow? (casual)",
@@ -343,22 +498,59 @@
             {
               "text": "日本語を",
               "role": "object",
-              "gloss": "Japanese (object: を)"
+              "gloss": "Japanese (object: を)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "話す",
               "role": "verb",
-              "gloss": "speak (dictionary form)"
+              "gloss": "speak (dictionary form)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu"
+                },
+                {
+                  "k": "す",
+                  "g": "v_hanasu"
+                }
+              ]
             },
             {
               "text": "ことが",
               "role": "connector",
-              "gloss": "the act of ~ (nominalizer + subject marker)"
+              "gloss": "the act of ~ (nominalizer + subject marker)",
+              "tokens": [
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "できます。",
               "role": "predicate",
-              "gloss": "can do (polite — formal potential)"
+              "gloss": "can do (polite — formal potential)",
+              "tokens": [
+                {
+                  "k": "できます"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I am able to speak Japanese. (formal)",
@@ -369,22 +561,57 @@
             {
               "text": "ここで",
               "role": "modifier",
-              "gloss": "here (location of action: で)"
+              "gloss": "here (location of action: で)",
+              "tokens": [
+                {
+                  "k": "ここ"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "食べる",
               "role": "verb",
-              "gloss": "eat (dictionary form)"
+              "gloss": "eat (dictionary form)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu"
+                },
+                {
+                  "k": "べる",
+                  "g": "v_taberu"
+                }
+              ]
             },
             {
               "text": "ことが",
               "role": "connector",
-              "gloss": "the act of ~ (nominalizer + subject)"
+              "gloss": "the act of ~ (nominalizer + subject)",
+              "tokens": [
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "できます。",
               "role": "predicate",
-              "gloss": "can do (polite)"
+              "gloss": "can do (polite)",
+              "tokens": [
+                {
+                  "k": "できます"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It is possible to eat here. (e.g. a sign or announcement)",
@@ -395,22 +622,58 @@
             {
               "text": "電車に",
               "role": "object",
-              "gloss": "the train (target: に)"
+              "gloss": "the train (target: に)",
+              "tokens": [
+                {
+                  "k": "電車",
+                  "r": "でんしゃ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "乗る",
               "role": "verb",
-              "gloss": "board/ride (dictionary form)"
+              "gloss": "board/ride (dictionary form)",
+              "tokens": [
+                {
+                  "k": "乗",
+                  "r": "の",
+                  "g": "v_noru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_noru"
+                }
+              ]
             },
             {
               "text": "ことが",
               "role": "connector",
-              "gloss": "the act of ~"
+              "gloss": "the act of ~",
+              "tokens": [
+                {
+                  "k": "こと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "できません。",
               "role": "predicate",
-              "gloss": "cannot (polite negative)"
+              "gloss": "cannot (polite negative)",
+              "tokens": [
+                {
+                  "k": "できません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It is not possible to board the train. (formal negative)",
@@ -437,12 +700,35 @@
               {
                 "text": "日本語が",
                 "role": "subject",
-                "gloss": "Japanese (が — potential object)"
+                "gloss": "Japanese (が — potential object)",
+                "tokens": [
+                  {
+                    "k": "日本語",
+                    "r": "にほんご"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "話せます。",
                 "role": "predicate",
-                "gloss": "can speak (conjugated potential)"
+                "gloss": "can speak (conjugated potential)",
+                "tokens": [
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu_polite_potential"
+                  },
+                  {
+                    "k": "せます",
+                    "g": "v_hanasu_polite_potential"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I can speak Japanese. (conversational)"
@@ -463,22 +749,59 @@
               {
                 "text": "日本語を",
                 "role": "object",
-                "gloss": "Japanese (を — stays as を)"
+                "gloss": "Japanese (を — stays as を)",
+                "tokens": [
+                  {
+                    "k": "日本語",
+                    "r": "にほんご"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "話す",
                 "role": "verb",
-                "gloss": "speak (dictionary form)"
+                "gloss": "speak (dictionary form)",
+                "tokens": [
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu"
+                  },
+                  {
+                    "k": "す",
+                    "g": "v_hanasu"
+                  }
+                ]
               },
               {
                 "text": "ことが",
                 "role": "connector",
-                "gloss": "the act of ~"
+                "gloss": "the act of ~",
+                "tokens": [
+                  {
+                    "k": "こと"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "できます。",
                 "role": "predicate",
-                "gloss": "can do"
+                "gloss": "can do",
+                "tokens": [
+                  {
+                    "k": "できます"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I am able to speak Japanese. (formal)"
@@ -497,32 +820,97 @@
             {
               "text": "私は",
               "role": "topic",
-              "gloss": "I (topic marker は)"
+              "gloss": "I (topic marker は)",
+              "tokens": [
+                {
+                  "k": "私",
+                  "r": "わたし"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "日本語が",
               "role": "subject",
-              "gloss": "Japanese (potential object — を shifts to が)"
+              "gloss": "Japanese (potential object — を shifts to が)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "話せますが、",
               "role": "predicate",
-              "gloss": "can speak — but (U-verb: 話す → 話せ + ます; が = clause connector 'but')"
+              "gloss": "can speak — but (U-verb: 話す → 話せ + ます; が = clause connector 'but')",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_polite_potential"
+                },
+                {
+                  "k": "せます",
+                  "g": "v_hanasu_polite_potential"
+                },
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "まだ",
               "role": "adverb",
-              "gloss": "still / not yet (used with negative)"
+              "gloss": "still / not yet (used with negative)",
+              "tokens": [
+                {
+                  "k": "まだ"
+                }
+              ]
             },
             {
               "text": "上手に",
               "role": "adverb",
-              "gloss": "well / skilfully (na-adj adverb: 上手 + に)"
+              "gloss": "well / skilfully (na-adj adverb: 上手 + に)",
+              "tokens": [
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "書けません。",
               "role": "predicate",
-              "gloss": "cannot write (U-verb: 書く → 書け + ません, polite negative potential)"
+              "gloss": "cannot write (U-verb: 書く → 書け + ません, polite negative potential)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か"
+                },
+                {
+                  "k": "け"
+                },
+                {
+                  "k": "ません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I can speak Japanese, but I still cannot write it well.",

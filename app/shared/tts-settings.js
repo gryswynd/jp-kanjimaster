@@ -166,6 +166,46 @@
       }
       .jp-set-help strong { font-style: normal; color: var(--ink, #1a1816); }
 
+      /* Account / sign-in field (replaces the old email input) */
+      .jp-set-account-btn {
+        width: 100%;
+        display: flex; align-items: center; justify-content: space-between; gap: 10px;
+        padding: 12px 14px;
+        border: 1.5px solid var(--hairline, oklch(0.22 0.012 60 / 0.12));
+        border-radius: 12px;
+        background: #fff;
+        color: var(--ink, #1a1816);
+        font-family: inherit; font-size: 0.95rem;
+        cursor: pointer; text-align: left;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      @media (hover: hover) {
+        .jp-set-account-btn:not([disabled]):hover { border-color: var(--vermilion, #c2410c); }
+      }
+      .jp-set-account-btn[disabled] {
+        cursor: default; opacity: 0.6; background: var(--washi-2, #efebe2);
+      }
+      .jp-set-account-state {
+        display: inline-flex; align-items: center; gap: 7px;
+        min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        color: var(--ink-2, oklch(0.32 0.012 60));
+      }
+      .jp-set-account-state strong {
+        font-weight: 600; color: var(--ink, #1a1816);
+      }
+      .jp-set-account-dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--moss, #5f8a4e); flex-shrink: 0;
+      }
+      .jp-set-account-action {
+        flex-shrink: 0;
+        font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+        font-size: 0.66rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.14em;
+        color: var(--ink-3, oklch(0.55 0.012 60));
+      }
+      .jp-set-account-action-cta { color: var(--vermilion, #c2410c); }
+
       /* Speed slider */
       .jp-set-speed-row {
         display: flex; align-items: center; gap: 12px;
@@ -321,6 +361,131 @@
         cursor: not-allowed;
       }
 
+      /* AI Tutor drill-down row (a card that behaves like a button) */
+      button.jp-set-drilldown {
+        display: block; width: 100%; text-align: left;
+        font: inherit; cursor: pointer;
+        -webkit-appearance: none; appearance: none;
+        transition: box-shadow 0.18s, transform 0.06s;
+      }
+      button.jp-set-drilldown:active { transform: scale(0.995); }
+      @media (hover: hover) {
+        button.jp-set-drilldown:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+      }
+      .jp-set-drilldown .jp-set-upgrade-head { align-items: center; }
+      .jp-set-drill-chevron {
+        margin-left: auto;
+        font-size: 1.5rem; line-height: 1;
+        color: var(--ink-3, oklch(0.55 0.012 60));
+        flex-shrink: 0;
+      }
+
+      /* Drill-down sub-panel header (Back) */
+      .jp-set-subhead {
+        display: flex; align-items: center; gap: 10px;
+        margin-bottom: 4px;
+      }
+      .jp-set-back {
+        background: none; border: none; padding: 4px 2px;
+        cursor: pointer;
+        font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+        font-size: 0.78rem; font-weight: 700;
+        color: var(--vermilion, #c2410c);
+        letter-spacing: 0.02em;
+      }
+      .jp-set-subtitle {
+        font-size: 1.02rem; font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--ink, #1a1816);
+      }
+      .jp-set-tier-intro {
+        font-size: 0.82rem; line-height: 1.45;
+        color: var(--ink-3, oklch(0.55 0.012 60));
+        margin: 2px 0 14px;
+      }
+
+      /* Tier cards */
+      .jp-set-tier {
+        background: #fff;
+        border: 1px solid var(--hairline-2, oklch(0.22 0.012 60 / 0.06));
+        border-radius: 18px;
+        padding: 16px 18px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      }
+      .jp-set-tier + .jp-set-tier { margin-top: 10px; }
+      .jp-set-tier-active {
+        border-color: var(--moss, #5f8a4e);
+        box-shadow: 0 0 0 1px var(--moss, #5f8a4e), 0 4px 14px rgba(0,0,0,0.04);
+      }
+      .jp-set-tier-top {
+        display: flex; align-items: baseline; justify-content: space-between;
+        gap: 10px;
+      }
+      .jp-set-tier-name {
+        font-size: 1.05rem; font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--ink, #1a1816);
+      }
+      .jp-set-tier-badge {
+        font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+        font-size: 0.56rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.14em;
+        color: #fff; background: var(--moss, #5f8a4e);
+        padding: 2px 6px; border-radius: 999px;
+        vertical-align: middle; margin-left: 4px;
+      }
+      .jp-set-tier-price {
+        font-size: 1.15rem; font-weight: 700;
+        color: var(--ink, #1a1816);
+        white-space: nowrap;
+      }
+      .jp-set-tier-cadence {
+        font-size: 0.72rem; font-weight: 600;
+        color: var(--ink-3, oklch(0.55 0.012 60));
+        margin-left: 1px;
+      }
+      .jp-set-tier-tagline {
+        font-size: 0.84rem; font-style: italic;
+        color: var(--ink-2, oklch(0.32 0.012 60));
+        margin: 3px 0 10px;
+      }
+      .jp-set-tier-perks {
+        list-style: none; margin: 0 0 14px; padding: 0;
+      }
+      .jp-set-tier-perks li {
+        position: relative;
+        padding: 3px 0 3px 22px;
+        font-size: 0.88rem; line-height: 1.45;
+        color: var(--ink-2, oklch(0.32 0.012 60));
+      }
+      .jp-set-tier-perks li::before {
+        content: '✓';
+        position: absolute; left: 2px; top: 3px;
+        color: var(--moss, #5f8a4e);
+        font-weight: 700; font-size: 0.82rem;
+      }
+      .jp-set-tier-cta {
+        width: 100%;
+        padding: 10px 14px;
+        background: var(--washi-2, #efebe2);
+        color: var(--ink-2, oklch(0.32 0.012 60));
+        border: 1px dashed var(--hairline, oklch(0.22 0.012 60 / 0.2));
+        border-radius: 999px;
+        font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+        font-size: 0.7rem; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.18em;
+        cursor: not-allowed;
+      }
+      .jp-set-tier-cta-on {
+        background: var(--moss, #5f8a4e);
+        color: #fff;
+        border: 1px solid var(--moss, #5f8a4e);
+        cursor: pointer;
+      }
+      @media (hover: hover) {
+        .jp-set-tier-cta-on:hover { filter: brightness(1.06); }
+      }
+
       /* ====== Shared globals — kept stable; used outside the modal ====== */
       .jp-settings-gear {
         background: rgba(255,255,255,0.18);
@@ -453,7 +618,7 @@
     var esc = function (s) { return String(s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;'); };
     return (
       '<div class="jp-set-section-label">Profile</div>' +
-      '<div class="jp-set-card">' +
+      '<div class="jp-set-card" data-tour-set="profile">' +
         '<div class="jp-set-field">' +
           '<div class="jp-set-field-label">First name <span class="jp-set-required">*</span></div>' +
           '<input type="text" class="jp-set-input" id="jp-set-first" autocomplete="given-name" ' +
@@ -464,16 +629,84 @@
           '<input type="text" class="jp-set-input" id="jp-set-last" autocomplete="family-name" ' +
             'placeholder="Optional" value="' + esc(p.last) + '" maxlength="60">' +
         '</div>' +
-        '<div class="jp-set-field">' +
-          '<div class="jp-set-field-label">Email</div>' +
-          '<input type="email" class="jp-set-input" id="jp-set-email" autocomplete="email" ' +
-            'inputmode="email" placeholder="Optional" value="' + esc(p.email) + '" maxlength="120">' +
-        '</div>' +
+        buildAccountField() +
         '<div class="jp-set-help" id="jp-set-name-help">' +
           (p.first
             ? 'Home will greet you as <strong>' + esc(p.first) + '-san</strong>.'
             : 'Set a first name to be greeted by it on the home screen instead of <strong>Rikizo-san</strong>.') +
         '</div>' +
+      '</div>' +
+      buildImportCard()
+    );
+  }
+
+  // ---- TEMP: one-time progress importer ----
+  // Migrates a student's progress out of the OLD Webflow app and into this one.
+  // The student exports a code there (Export button / console snippet), pastes it
+  // here, and we OVERWRITE this app's progress keys with it. Remove this card once
+  // the handful of existing students are migrated. Tracked by REMOVE-AFTER-MIGRATION.
+  function buildImportCard() {
+    return (
+      '<div class="jp-set-section-label">Import old progress</div>' +
+      '<div class="jp-set-card">' +
+        '<div class="jp-set-help" style="margin-top:0;">' +
+          'Moving from the old web app? Paste the progress code you exported there. ' +
+          'This <strong>replaces</strong> your progress in this app.' +
+        '</div>' +
+        '<div class="jp-set-field" style="margin-top:10px;">' +
+          '<textarea class="jp-set-input" id="jp-set-import-code" rows="3" ' +
+            'placeholder="Paste your progress code here" ' +
+            'style="resize:vertical;font-family:var(--font-mono,ui-monospace,Menlo,monospace);font-size:0.8rem;"></textarea>' +
+        '</div>' +
+        '<button class="jp-set-account-btn" id="jp-set-import-btn" type="button" ' +
+            'style="justify-content:center;font-weight:700;">Import &amp; replace progress</button>' +
+        '<div class="jp-set-help" id="jp-set-import-status" style="min-height:1.2em;"></div>' +
+      '</div>'
+    );
+  }
+
+  // Account / sign-in field — sits where the email field used to. Replaces the
+  // standalone email capture with the real Firebase account flow (auth.js).
+  // When auth is unconfigured (inert build) it shows a disabled "unavailable"
+  // state so the row still reads sensibly.
+  function buildAccountField() {
+    var auth = window.JPShared && window.JPShared.auth;
+    var esc = function (s) { return String(s || '').replace(/</g, '&lt;'); };
+
+    if (!auth || !auth.isEnabled()) {
+      return (
+        '<div class="jp-set-field" id="jp-set-account-field">' +
+          '<div class="jp-set-field-label">Account</div>' +
+          '<button class="jp-set-account-btn" id="jp-set-account-btn" type="button" disabled>' +
+            '<span class="jp-set-account-state">Sign-in unavailable</span>' +
+          '</button>' +
+        '</div>'
+      );
+    }
+
+    var u = auth.currentUser && auth.currentUser();
+    var signedIn = !!(u && !u.isAnonymous && u.email);
+
+    var inner;
+    if (signedIn) {
+      inner =
+        '<span class="jp-set-account-state">' +
+          '<span class="jp-set-account-dot"></span>' +
+          'Signed in · <strong>' + esc(u.email) + '</strong>' +
+        '</span>' +
+        '<span class="jp-set-account-action">Manage</span>';
+    } else {
+      inner =
+        '<span class="jp-set-account-state">Not signed in</span>' +
+        '<span class="jp-set-account-action jp-set-account-action-cta">Sign in</span>';
+    }
+
+    return (
+      '<div class="jp-set-field" id="jp-set-account-field">' +
+        '<div class="jp-set-field-label">Account</div>' +
+        '<button class="jp-set-account-btn" id="jp-set-account-btn" type="button">' +
+          inner +
+        '</button>' +
       '</div>'
     );
   }
@@ -536,7 +769,7 @@
 
     return (
       '<div class="jp-set-section-label">Companion</div>' +
-      '<div class="jp-set-card">' + presenceHtml + stampHtml + '</div>'
+      '<div class="jp-set-card" data-tour-set="companion">' + presenceHtml + stampHtml + '</div>'
     );
   }
 
@@ -562,7 +795,7 @@
     }
     return (
       '<div class="jp-set-section-label">Tutorials</div>' +
-      '<div class="jp-set-card">' +
+      '<div class="jp-set-card" data-tour-set="tutorials">' +
         row('jp-set-skip-tutorials', 'Skip tutorials',
             'Turn off Rikizo&rsquo;s onboarding tour and in-app walkthroughs.', skip) +
       '</div>'
@@ -588,7 +821,7 @@
 
     return (
       '<div class="jp-set-section-label">Voice</div>' +
-      '<div class="jp-set-card">' +
+      '<div class="jp-set-card" data-tour-set="voice">' +
         '<div class="jp-set-field">' +
           '<div class="jp-set-field-label">Japanese voice</div>' +
           '<select class="jp-set-select" id="jp-tts-voice-select">' + voiceOptions + '</select>' +
@@ -612,6 +845,33 @@
 
   // Reading Aids — furigana + romaji toggles. State lives in localStorage via
   // window.JPShared.jpText; this section is skipped if the module isn't loaded.
+  function buildSoundSection() {
+    var sfx = window.JPShared && window.JPShared.sfx;
+    var hap = window.JPShared && window.JPShared.haptics;
+    if (!sfx && !hap) return '';
+    function row(id, label, sub, checked) {
+      return (
+        '<label class="jp-set-toggle-row" for="' + id + '">' +
+          '<div>' +
+            '<span class="jp-set-toggle-label">' + label + '</span>' +
+            '<span class="jp-set-toggle-sub">' + sub + '</span>' +
+          '</div>' +
+          '<span class="jp-set-switch">' +
+            '<input type="checkbox" id="' + id + '"' + (checked ? ' checked' : '') + '>' +
+            '<span class="jp-set-switch-slider"></span>' +
+          '</span>' +
+        '</label>'
+      );
+    }
+    var rows = '';
+    if (sfx) rows += row('jp-set-sfx', 'Sound effects', 'Taps, page turns, and answer chimes.', sfx.enabled());
+    if (hap) rows += row('jp-set-haptics', 'Haptics', 'Vibration feedback on supported devices.', hap.isEnabled());
+    return (
+      '<div class="jp-set-section-label">Sound &amp; Haptics</div>' +
+      '<div class="jp-set-card" data-tour-set="sound">' + rows + '</div>'
+    );
+  }
+
   function buildReadingAidsSection() {
     var rk = window.JPShared && window.JPShared.jpText;
     if (!rk) return '';
@@ -633,7 +893,7 @@
     }
     return (
       '<div class="jp-set-section-label">Reading Aids</div>' +
-      '<div class="jp-set-card">' +
+      '<div class="jp-set-card" data-tour-set="aids">' +
         row('jp-set-furigana', 'Furigana',
             'Small hiragana above every kanji.', furiOn) +
         row('jp-set-romaji', 'Romaji',
@@ -666,7 +926,7 @@
     }
     return (
       '<div class="jp-set-section-label">Practice Helpers</div>' +
-      '<div class="jp-set-card">' +
+      '<div class="jp-set-card" data-tour-set="helpers">' +
         row('jp-set-kana-writing', 'Kana Writing Practice',
             'Practice writing hiragana &amp; katakana, stroke by stroke.', kanaOn) +
         // Future helpers: add more row(...) calls here.
@@ -676,6 +936,28 @@
 
   // Tiny credits line at the bottom of the modal body. Currently only carries
   // the KanjiVG attribution required by CC-BY-SA 4.0.
+  // Beta: report-a-bug + app version. (The "Check for updates" action is wired in
+  // Phase 3 once Firebase Hosting is live; for now it shows the bundled build.)
+  function buildAboutSection() {
+    var ver = window.JPShared && window.JPShared.diagnostics && window.JPShared.diagnostics.version();
+    var verLabel = ver && ver.buildNumber != null
+      ? ('v' + (ver.appVersion || '?') + ' · Build ' + ver.buildNumber)
+      : '';
+    return (
+      '<div class="jp-set-section-label">App</div>' +
+      '<div class="jp-set-card" data-tour-set="about">' +
+        '<button class="jp-set-account-btn" id="jp-set-bug-btn" type="button" ' +
+            'style="justify-content:space-between;">' +
+          '<span class="jp-set-account-state">🐞 Report a bug</span>' +
+          '<span class="jp-set-account-action jp-set-account-action-cta">Report</span>' +
+        '</button>' +
+        (verLabel
+          ? '<div class="jp-set-help" style="text-align:center;margin-top:10px;">' + verLabel + '</div>'
+          : '') +
+      '</div>'
+    );
+  }
+
   function buildCreditsSection() {
     return (
       '<div style="margin: 24px 6px 6px; font-size: 0.68rem; line-height: 1.5; ' +
@@ -693,34 +975,303 @@
     // Teaser cards only — no purchase flow yet. CTAs are visually disabled.
     return (
       '<div class="jp-set-section-label">Upgrades</div>' +
-      '<div class="jp-set-upgrade">' +
+      '<div data-tour-set="upgrades">' +
+      // AI Tutor → drills down into the tier menu (buildTutorPlansPanel).
+      '<button class="jp-set-upgrade jp-set-drilldown" id="jp-set-tutor-drill" type="button">' +
         '<div class="jp-set-upgrade-head">' +
           '<div class="jp-set-upgrade-icon">🎓</div>' +
           '<div>' +
             '<div class="jp-set-upgrade-title">AI Tutor</div>' +
-            '<div class="jp-set-upgrade-kind">Monthly subscription</div>' +
+            '<div class="jp-set-upgrade-kind">' + tutorDrillKind() + '</div>' +
           '</div>' +
+          '<div class="jp-set-drill-chevron">›</div>' +
         '</div>' +
         '<div class="jp-set-upgrade-body">' +
-          'Real-time conversation practice with an AI tutor tuned to your level. ' +
-          'Get corrections, explanations, and roleplay scenarios on demand.' +
+          'Tap Rikizo anywhere in the app to ask about whatever you\'re studying. ' +
+          'See plans &amp; turn on the free beta.' +
         '</div>' +
-        '<button class="jp-set-upgrade-cta" disabled>Coming soon</button>' +
-      '</div>' +
-      '<div class="jp-set-upgrade">' +
+      '</button>' +
+      // Custom Content → drills down into the custom-content menu.
+      '<button class="jp-set-upgrade jp-set-drilldown" id="jp-set-custom-drill" type="button">' +
         '<div class="jp-set-upgrade-head">' +
           '<div class="jp-set-upgrade-icon">✨</div>' +
           '<div>' +
-            '<div class="jp-set-upgrade-title">Custom Lessons</div>' +
-            '<div class="jp-set-upgrade-kind">One-time purchase</div>' +
+            '<div class="jp-set-upgrade-title">Custom Content</div>' +
+            '<div class="jp-set-upgrade-kind">' + customDrillKind() + '</div>' +
           '</div>' +
+          '<div class="jp-set-drill-chevron">›</div>' +
         '</div>' +
         '<div class="jp-set-upgrade-body">' +
-          'Bespoke lessons built around your life — your name, your job, your hobbies, ' +
-          'the places you actually visit. Yours forever once made.' +
+          'Content that targets what you struggle with — built from your flagged ' +
+          'items, questions, and test scores. See what\'s coming &amp; turn on the demo.' +
         '</div>' +
-        '<button class="jp-set-upgrade-cta" disabled>Coming soon</button>' +
+      '</button>' +
       '</div>'
+    );
+  }
+
+  // Subtitle on the AI Tutor drill-down row — reflects current beta state.
+  function tutorDrillKind() {
+    var to = window.JPShared && window.JPShared.tutorOverlay;
+    return (to && to.isEnabled()) ? 'Free beta · ON' : 'Subscription plans';
+  }
+
+  // Subtitle on the Custom Content drill-down row.
+  function customDrillKind() {
+    return customEnabled() ? 'Demo module · ON' : 'Personalized content';
+  }
+
+  // ---- AI Tutor plans drill-down ----
+  // Demo-only tier menu. The free tier's button actually enables/disables the
+  // ambient overlay (reuses tutorOverlay.enable/disable). The three paid tiers
+  // are disabled teasers that explain what each unlocks.
+  var TUTOR_TIERS = [
+    {
+      id: 'free', name: 'Free', price: '$0', cadence: '',
+      tagline: 'The beta, on the house.',
+      perks: [
+        '5 questions a day',
+        'Ask about any vocab, grammar or kanji you\'re studying',
+        'Type or talk — Rikizo answers right where you are',
+        'Answers cite the exact lesson it was taught'
+      ],
+      free: true
+    },
+    {
+      id: 'lite', name: 'Lite', price: '$9.99', cadence: '/mo',
+      tagline: 'Room to lean on Rikizo every day.',
+      perks: [
+        '10 questions a day',
+        'Everything in Free',
+        'Priority answers'
+      ]
+    },
+    {
+      id: 'standard', name: 'Standard', price: '$24.99', cadence: '/mo',
+      tagline: 'Talk it through, out loud.',
+      perks: [
+        '50 questions a day',
+        '2 live tutor sessions a week',
+        'Back-and-forth voice conversation with Rikizo',
+        'Everything in Lite'
+      ]
+    },
+    {
+      id: 'premium', name: 'Premium', price: '$49.99', cadence: '/mo',
+      tagline: 'Rikizo on call.',
+      perks: [
+        'Unlimited questions',
+        'A live tutor session every day',
+        'First access to new tutor features',
+        'Everything in Standard'
+      ]
+    }
+  ];
+
+  function tutorTierEnabled() {
+    var to = window.JPShared && window.JPShared.tutorOverlay;
+    return !!(to && to.isEnabled());
+  }
+
+  function buildTutorPlansPanel() {
+    var on = tutorTierEnabled();
+    var cards = TUTOR_TIERS.map(function (t) {
+      var btn;
+      if (t.free) {
+        btn = '<button class="jp-set-tier-cta jp-set-tier-cta-on" id="jp-set-tier-free">' +
+          (on ? 'Turn off' : 'Enable') + '</button>';
+      } else {
+        btn = '<button class="jp-set-tier-cta" disabled>Coming soon</button>';
+      }
+      var perks = t.perks.map(function (p) {
+        return '<li>' + p + '</li>';
+      }).join('');
+      return (
+        '<div class="jp-set-tier' + (t.free && on ? ' jp-set-tier-active' : '') + '">' +
+          '<div class="jp-set-tier-top">' +
+            '<div class="jp-set-tier-name">' + t.name +
+              (t.free && on ? ' <span class="jp-set-tier-badge">ACTIVE</span>' : '') +
+            '</div>' +
+            '<div class="jp-set-tier-price">' + t.price +
+              (t.cadence ? '<span class="jp-set-tier-cadence">' + t.cadence + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+          '<div class="jp-set-tier-tagline">' + t.tagline + '</div>' +
+          '<ul class="jp-set-tier-perks">' + perks + '</ul>' +
+          btn +
+        '</div>'
+      );
+    }).join('');
+
+    return (
+      '<div class="jp-set-subhead">' +
+        '<button class="jp-set-back" id="jp-set-tutor-back" aria-label="Back">‹ Back</button>' +
+        '<div class="jp-set-subtitle">AI Tutor plans</div>' +
+      '</div>' +
+      '<div class="jp-set-tier-intro">Choose a plan. The free beta is live now — paid tiers are a preview.</div>' +
+      cards
+    );
+  }
+
+  function openTutorPlans() {
+    var body = overlay && overlay.querySelector('.jp-set-body');
+    if (!body) return;
+    body.innerHTML = buildTutorPlansPanel();
+    body.scrollTop = 0;
+    wireTutorPlans();
+  }
+
+  function closeTutorPlans() {
+    var body = overlay && overlay.querySelector('.jp-set-body');
+    if (!body) return;
+    body.innerHTML = buildModalBody();
+    body.scrollTop = 0;
+    rewireBody();
+  }
+
+  function wireTutorPlans() {
+    var back = document.getElementById('jp-set-tutor-back');
+    if (back) back.addEventListener('click', closeTutorPlans);
+
+    var freeBtn = document.getElementById('jp-set-tier-free');
+    var to = window.JPShared && window.JPShared.tutorOverlay;
+    if (freeBtn && to) {
+      freeBtn.addEventListener('click', function () {
+        if (to.isEnabled()) {
+          to.disable();
+          openTutorPlans(); // re-render to flip the button + ACTIVE badge
+        } else {
+          to.enable();
+          // Close settings so the student can see Rikizo's face appear.
+          close();
+        }
+      });
+    }
+  }
+
+  // ---- Custom Content drill-down ----
+  // Demo-only. "Enable" sets k-custom-enabled, which surfaces a Custom tile on
+  // the home module grid (see index.html _moduleGrid). The three sub-features
+  // are disabled teasers describing what custom content will offer.
+  var CUSTOM_KEY = 'k-custom-enabled';
+
+  function customEnabled() {
+    try { return localStorage.getItem(CUSTOM_KEY) === '1'; } catch (e) { return false; }
+  }
+  function setCustomEnabled(on) {
+    try { localStorage.setItem(CUSTOM_KEY, on ? '1' : '0'); } catch (e) {}
+  }
+
+  var CUSTOM_FEATURES = [
+    {
+      icon: '📖', name: 'Custom Stories',
+      body: 'Stories that weave in the vocab and grammar you\'ve struggled with — ' +
+            'and star you, your town, and the people in your life along the way.'
+    },
+    {
+      icon: '🎓', name: 'Custom Lessons',
+      body: 'Targeted lessons built from your flagged items, the questions you asked ' +
+            'Rikizo, and your weakest test scores — so you drill exactly what trips you up.'
+    },
+    {
+      icon: '📝', name: 'Custom Test',
+      body: 'A quiz focused on your problem areas, then re-tuned each time from your ' +
+            'latest results to keep closing the gaps.'
+    }
+  ];
+
+  function buildCustomPanel() {
+    var on = customEnabled();
+    var enableCard =
+      '<div class="jp-set-tier' + (on ? ' jp-set-tier-active' : '') + '">' +
+        '<div class="jp-set-tier-top">' +
+          '<div class="jp-set-tier-name">Custom module' +
+            (on ? ' <span class="jp-set-tier-badge">ON</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="jp-set-tier-tagline">' +
+          (on ? 'Live on your home screen.' : 'Turn on the demo tile on your home screen.') +
+        '</div>' +
+        '<button class="jp-set-tier-cta jp-set-tier-cta-on" id="jp-set-custom-enable">' +
+          (on ? 'Disable' : 'Enable') +
+        '</button>' +
+      '</div>';
+
+    var featureCards = CUSTOM_FEATURES.map(function (f) {
+      return (
+        '<div class="jp-set-tier">' +
+          '<div class="jp-set-tier-top">' +
+            '<div class="jp-set-tier-name">' + f.icon + ' ' + f.name + '</div>' +
+          '</div>' +
+          '<div class="jp-set-tier-tagline">' + f.body + '</div>' +
+          '<button class="jp-set-tier-cta" disabled>Coming soon</button>' +
+        '</div>'
+      );
+    }).join('');
+
+    return (
+      '<div class="jp-set-subhead">' +
+        '<button class="jp-set-back" id="jp-set-custom-back" aria-label="Back">‹ Back</button>' +
+        '<div class="jp-set-subtitle">Custom Content</div>' +
+      '</div>' +
+      '<div class="jp-set-tier-intro">Content that targets your weak spots — built from ' +
+        'your flagged items, the questions you\'ve asked, and your test scores. Enable the ' +
+        'demo module now; the pieces below are a preview.</div>' +
+      enableCard +
+      featureCards
+    );
+  }
+
+  function openCustomPanel() {
+    var body = overlay && overlay.querySelector('.jp-set-body');
+    if (!body) return;
+    body.innerHTML = buildCustomPanel();
+    body.scrollTop = 0;
+    wireCustomPanel();
+  }
+
+  function closeCustomPanel() {
+    var body = overlay && overlay.querySelector('.jp-set-body');
+    if (!body) return;
+    body.innerHTML = buildModalBody();
+    body.scrollTop = 0;
+    rewireBody();
+  }
+
+  function wireCustomPanel() {
+    var back = document.getElementById('jp-set-custom-back');
+    if (back) back.addEventListener('click', closeCustomPanel);
+
+    var enableBtn = document.getElementById('jp-set-custom-enable');
+    if (enableBtn) {
+      enableBtn.addEventListener('click', function () {
+        setCustomEnabled(!customEnabled());
+        if (customEnabled()) {
+          // Close settings so the student sees the new home tile appear.
+          close();
+          if (window.JPApp && window.JPApp._view === 'home' &&
+              typeof window.JPApp.renderMenu === 'function') {
+            window.JPApp.renderMenu();
+          }
+        } else {
+          openCustomPanel(); // re-render to flip the button + badge
+        }
+      });
+    }
+  }
+
+  function buildModalBody() {
+    return (
+      buildProfileSection() +
+      buildCompanionSection() +
+      buildTutorialsSection() +
+      buildVoiceSection() +
+      buildSoundSection() +
+      buildReadingAidsSection() +
+      buildPracticeHelpersSection() +
+      buildUpgradesSection() +
+      buildAboutSection() +
+      buildCreditsSection()
     );
   }
 
@@ -732,17 +1283,47 @@
           '<button class="jp-set-close" id="jp-set-close" aria-label="Close">✕</button>' +
         '</div>' +
         '<div class="jp-set-body">' +
-          buildProfileSection() +
-          buildCompanionSection() +
-          buildTutorialsSection() +
-          buildVoiceSection() +
-          buildReadingAidsSection() +
-          buildPracticeHelpersSection() +
-          buildUpgradesSection() +
-          buildCreditsSection() +
+          buildModalBody() +
         '</div>' +
       '</div>';
     return html;
+  }
+
+  // Re-attach every body-level interaction. Called on first open and after
+  // returning from the AI Tutor drill-down (which replaces the body HTML).
+  function rewireBody() {
+    wireProfile();
+    wireCompanion();
+    wireVoice();
+    wireSound();
+    wireReadingAids();
+    wirePracticeHelpers();
+    wireTutorials();
+    wireUpgrades();
+    wireAbout();
+  }
+
+  function wireSound() {
+    var sfx = window.JPShared && window.JPShared.sfx;
+    var hap = window.JPShared && window.JPShared.haptics;
+    var s = document.getElementById('jp-set-sfx');
+    if (s && sfx) s.addEventListener('change', function () {
+      sfx.setEnabled(s.checked);
+      if (s.checked) sfx.tap(); // confirmation blip when turning on
+    });
+    var h = document.getElementById('jp-set-haptics');
+    if (h && hap) h.addEventListener('change', function () {
+      hap.setEnabled(h.checked);
+      if (h.checked) hap.light();
+    });
+  }
+
+  function wireAbout() {
+    var bug = document.getElementById('jp-set-bug-btn');
+    var br = window.JPShared && window.JPShared.bugReport;
+    if (bug && br && br.open) {
+      bug.addEventListener('click', function () { br.open(); });
+    }
   }
 
   // ---- Wire interactions ----
@@ -752,15 +1333,13 @@
     if (!up) return;
     var first = document.getElementById('jp-set-first');
     var last  = document.getElementById('jp-set-last');
-    var email = document.getElementById('jp-set-email');
     var help  = document.getElementById('jp-set-name-help');
     var esc   = function (s) { return String(s || '').replace(/</g, '&lt;'); };
 
     function commit() {
       up.set({
         first: first ? first.value : undefined,
-        last:  last  ? last.value  : undefined,
-        email: email ? email.value : undefined
+        last:  last  ? last.value  : undefined
       });
       if (help) {
         var f = (first && first.value || '').trim();
@@ -770,7 +1349,7 @@
       }
     }
 
-    [first, last, email].forEach(function (el) {
+    [first, last].forEach(function (el) {
       if (!el) return;
       // Persist on blur (avoids re-firing on every keystroke), and live-update the help line.
       el.addEventListener('blur', commit);
@@ -784,6 +1363,154 @@
         });
       }
     });
+
+    wireAccount();
+    wireImport();
+  }
+
+  // ---- TEMP: import wiring (REMOVE-AFTER-MIGRATION) ----
+  // Synced progress keys we accept from the old app. Mirrors sync.js EXACT/PREFIXES
+  // so an import flows straight up to the cloud on next push.
+  var IMPORT_EXACT = [
+    'k-lesson-scores', 'k-lesson-completed', 'k-review-scores',
+    'k-flags', 'k-active-flags', 'k-n4-unlocked',
+    'k-streak-current', 'k-streak-best', 'k-streak-last-active',
+    'k-streak-history', 'k-streak-freezes',
+    'k-user-first', 'k-user-last',
+  ];
+  var IMPORT_PREFIXES = ['k-best-', 'compose-draft-'];
+
+  function importKeyAllowed(k) {
+    if (!k) return false;
+    if (IMPORT_EXACT.indexOf(k) >= 0) return true;
+    for (var i = 0; i < IMPORT_PREFIXES.length; i++) {
+      if (k.indexOf(IMPORT_PREFIXES[i]) === 0) return true;
+    }
+    return false;
+  }
+
+  function wireImport() {
+    var btn = document.getElementById('jp-set-import-btn');
+    var ta = document.getElementById('jp-set-import-code');
+    var status = document.getElementById('jp-set-import-status');
+    if (!btn || !ta) return;
+
+    function say(msg, ok) {
+      if (!status) return;
+      status.innerHTML = msg;
+      status.style.color = ok === false ? 'var(--vermilion, #c2410c)'
+        : ok === true ? 'var(--moss, #5f8a4e)'
+        : '';
+      status.style.fontStyle = 'normal';
+    }
+
+    btn.addEventListener('click', function () {
+      var raw = (ta.value || '').trim();
+      if (!raw) { say('Paste your progress code first.', false); return; }
+
+      var data;
+      try {
+        data = JSON.parse(raw);
+      } catch (e) {
+        say('That code isn’t valid — copy it again from the old app.', false);
+        return;
+      }
+      if (!data || typeof data !== 'object' || Array.isArray(data)) {
+        say('That code doesn’t look like exported progress.', false);
+        return;
+      }
+
+      // Keep only recognized k-*/compose-draft- keys; ignore anything else.
+      var keys = Object.keys(data).filter(importKeyAllowed);
+      if (!keys.length) {
+        say('No progress found in that code.', false);
+        return;
+      }
+
+      // OVERWRITE: clear the app's current synced keys, then write the imported
+      // ones. (Per the migration decision — replace, don't merge.)
+      try {
+        // Remove existing synced keys so a partial import can't leave stale data.
+        var toClear = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var ek = localStorage.key(i);
+          if (importKeyAllowed(ek)) toClear.push(ek);
+        }
+        toClear.forEach(function (ek) { try { localStorage.removeItem(ek); } catch (e) {} });
+
+        // Write imported values. Stringify objects/arrays; pass through primitives.
+        keys.forEach(function (k) {
+          var v = data[k];
+          var out = (typeof v === 'string') ? v : JSON.stringify(v);
+          try { localStorage.setItem(k, out); } catch (e) {}
+        });
+      } catch (e) {
+        say('Import failed: ' + (e && e.message ? e.message : 'unknown error') + '.', false);
+        return;
+      }
+
+      // Count what landed, for a confident confirmation.
+      var lessons = countObj(data['k-lesson-completed']) || countObj(data['k-lesson-scores']);
+      var flags = countObj(data['k-flags']) || countObj(data['k-active-flags']);
+      say('✓ Imported — ' + lessons + ' lessons, ' + flags + ' flags. ' +
+          (isSignedInForSync() ? 'Backing up to your account…' : 'Sign in to back it up.'), true);
+
+      // Push to the cloud if signed in; refresh Home so unlocks/greeting reflect it.
+      try { if (window.JPShared.sync && window.JPShared.sync.push) window.JPShared.sync.push(); } catch (e) {}
+      try {
+        if (window.JPApp && window.JPApp._view === 'home' && window.JPApp.renderMenu) {
+          window.JPApp.renderMenu();
+        }
+      } catch (e) {}
+    });
+  }
+
+  function countObj(o) {
+    if (!o || typeof o !== 'object') return 0;
+    return Object.keys(o).length;
+  }
+  function isSignedInForSync() {
+    var a = window.JPShared && window.JPShared.auth;
+    var u = a && a.currentUser && a.currentUser();
+    return !!(u && !u.isAnonymous);
+  }
+
+  // Wire the Account field: tapping it opens the existing auth.js account modal,
+  // and an auth-state listener refreshes the field in place when the user signs
+  // in/out without leaving Settings.
+  function wireAccount() {
+    var auth = window.JPShared && window.JPShared.auth;
+    if (!auth || !auth.isEnabled()) return;
+
+    var btn = document.getElementById('jp-set-account-btn');
+    if (btn && auth.openAccountUI) {
+      btn.addEventListener('click', function () { auth.openAccountUI(); });
+    }
+
+    // Refresh the field on sign-in/out. Registered once per modal open; the node
+    // is replaced on close so a stale listener simply finds nothing to update.
+    if (!accountListenerBound && auth.onChange) {
+      accountListenerBound = true;
+      auth.onChange(function () { refreshAccountField(); });
+    }
+  }
+
+  var accountListenerBound = false;
+
+  function refreshAccountField() {
+    if (!isOpen) return;
+    var field = document.getElementById('jp-set-account-field');
+    if (!field || !field.parentNode) return;
+    var wrap = document.createElement('div');
+    wrap.innerHTML = buildAccountField();
+    var fresh = wrap.firstChild;
+    field.parentNode.replaceChild(fresh, field);
+    // Re-attach the click handler to the new button.
+    var auth = window.JPShared && window.JPShared.auth;
+    var btn = document.getElementById('jp-set-account-btn');
+    if (btn && auth && auth.openAccountUI && auth.isEnabled()) {
+      btn.addEventListener('click', function () { auth.openAccountUI(); });
+    }
   }
 
   function wireCompanion() {
@@ -869,12 +1596,23 @@
     var closeBtn = document.getElementById('jp-set-close');
     if (closeBtn) closeBtn.addEventListener('click', close);
 
-    wireProfile();
-    wireCompanion();
-    wireVoice();
-    wireReadingAids();
-    wirePracticeHelpers();
-    wireTutorials();
+    rewireBody();
+
+    // First time Settings is opened, Rikizo walks through the (now sizeable)
+    // panel. No-ops on later opens (seen-key) or when tutorials are skipped.
+    var rc = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rc && rc.runSettingsTutorial) {
+      setTimeout(function () { rc.runSettingsTutorial(); }, 350);
+    }
+  }
+
+  function wireUpgrades() {
+    // AI Tutor card drills down into the tier menu (buildTutorPlansPanel).
+    var drill = document.getElementById('jp-set-tutor-drill');
+    if (drill) drill.addEventListener('click', openTutorPlans);
+    // Custom Content card drills down into the custom-content menu.
+    var customDrill = document.getElementById('jp-set-custom-drill');
+    if (customDrill) customDrill.addEventListener('click', openCustomPanel);
   }
 
   function wireTutorials() {
@@ -914,11 +1652,9 @@
     if (up) {
       var f = document.getElementById('jp-set-first');
       var l = document.getElementById('jp-set-last');
-      var e = document.getElementById('jp-set-email');
       up.set({
         first: f ? f.value : undefined,
-        last:  l ? l.value : undefined,
-        email: e ? e.value : undefined
+        last:  l ? l.value : undefined
       });
     }
 

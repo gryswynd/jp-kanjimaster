@@ -68,7 +68,7 @@ window.MapModule = (function () {
     _onExit = onExit;
 
     _injectStyles();
-    _container.innerHTML = '<div class="jp-map-loading">力 · loading map</div>';
+    _container.innerHTML = '<div class="rk-loading">loading map</div>';
 
     var manifest = null;
     try {

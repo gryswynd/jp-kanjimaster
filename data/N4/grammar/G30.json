@@ -81,17 +81,53 @@
             {
               "text": "この 料理を",
               "role": "object",
-              "gloss": "this dish (を — object)"
+              "gloss": "this dish (を — object)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べて",
               "role": "predicate",
-              "gloss": "eat (て-form of 食べる)"
+              "gloss": "eat (て-form of 食べる)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_te_form"
+                },
+                {
+                  "k": "べて",
+                  "g": "v_taberu_te_form"
+                }
+              ]
             },
             {
               "text": "みた。",
               "role": "connector",
-              "gloss": "tried (tried eating it to see)"
+              "gloss": "tried (tried eating it to see)",
+              "tokens": [
+                {
+                  "k": "みた",
+                  "g": "v_miru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I tried eating this dish (to see how it was).",
@@ -102,17 +138,46 @@
             {
               "text": "日本語で",
               "role": "modifier",
-              "gloss": "in Japanese (で — means/manner)"
+              "gloss": "in Japanese (で — means/manner)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "話して",
               "role": "predicate",
-              "gloss": "speak (te-form of 話す)"
+              "gloss": "speak (te-form of 話す)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_te_form"
+                },
+                {
+                  "k": "して",
+                  "g": "v_hanasu_te_form"
+                }
+              ]
             },
             {
               "text": "みましょう。",
               "role": "connector",
-              "gloss": "let's try (みましょう — polite volitional of みる as auxiliary)"
+              "gloss": "let's try (みましょう — polite volitional of みる as auxiliary)",
+              "tokens": [
+                {
+                  "k": "みましょう",
+                  "g": "v_miru_polite_volitional_mashou"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's try speaking in Japanese!",
@@ -123,27 +188,78 @@
             {
               "text": "その 店に",
               "role": "modifier",
-              "gloss": "at that shop (に — direction/target)"
+              "gloss": "at that shop (に — direction/target)",
+              "tokens": [
+                {
+                  "k": "その"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行って",
               "role": "predicate",
-              "gloss": "go (te-form of 行く)"
+              "gloss": "go (te-form of 行く)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_iku_te_form"
+                }
+              ]
             },
             {
               "text": "みても",
               "role": "connector",
-              "gloss": "even if (we) try going (て-form of みる + も)"
+              "gloss": "even if (we) try going (て-form of みる + も)",
+              "tokens": [
+                {
+                  "k": "みて",
+                  "g": "v_miru_te_form"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good / okay (い-adjective)"
+              "gloss": "good / okay (い-adjective)",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "ですよ。",
               "role": "predicate",
-              "gloss": "you know (polite copula + yo)"
+              "gloss": "you know (polite copula + yo)",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It's fine to try going to that shop, you know.",
@@ -181,22 +297,74 @@
             {
               "text": "旅行の 前に",
               "role": "time",
-              "gloss": "before the trip (旅行 + の + 前に)"
+              "gloss": "before the trip (旅行 + の + 前に)",
+              "tokens": [
+                {
+                  "k": "旅行",
+                  "r": "りょこう"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "前",
+                  "r": "まえ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "切符を",
               "role": "object",
-              "gloss": "ticket (を — object)"
+              "gloss": "ticket (を — object)",
+              "tokens": [
+                {
+                  "k": "切",
+                  "r": "き"
+                },
+                {
+                  "k": "符"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "買って",
               "role": "predicate",
-              "gloss": "buy (te-form of 買う)"
+              "gloss": "buy (te-form of 買う)",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か",
+                  "g": "v_kau_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_kau_te_form"
+                }
+              ]
             },
             {
               "text": "おきました。",
               "role": "connector",
-              "gloss": "did in advance (おく — auxiliary, polite past)"
+              "gloss": "did in advance (おく — auxiliary, polite past)",
+              "tokens": [
+                {
+                  "k": "おきました",
+                  "g": "v_okiru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I bought the ticket in advance before the trip.",
@@ -207,22 +375,56 @@
             {
               "text": "窓を",
               "role": "object",
-              "gloss": "window (を — object)"
+              "gloss": "window (を — object)",
+              "tokens": [
+                {
+                  "k": "窓"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "開けて",
               "role": "predicate",
-              "gloss": "open (te-form of 開ける)"
+              "gloss": "open (te-form of 開ける)",
+              "tokens": [
+                {
+                  "k": "開",
+                  "r": "あ",
+                  "g": "v_akeru_te_form"
+                },
+                {
+                  "k": "けて",
+                  "g": "v_akeru_te_form"
+                }
+              ]
             },
             {
               "text": "おいて",
               "role": "connector",
-              "gloss": "left in state (te-form of おく as auxiliary)"
+              "gloss": "left in state (te-form of おく as auxiliary)",
+              "tokens": [
+                {
+                  "k": "おいて",
+                  "g": "v_oku_te_form"
+                }
+              ]
             },
             {
               "text": "ください。",
               "role": "predicate",
-              "gloss": "please (request form)"
+              "gloss": "please (request form)",
+              "tokens": [
+                {
+                  "k": "ください"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Please leave the window open.",
@@ -233,22 +435,71 @@
             {
               "text": "テストの ために",
               "role": "modifier",
-              "gloss": "in order to / for the test (ために — purpose)"
+              "gloss": "in order to / for the test (ために — purpose)",
+              "tokens": [
+                {
+                  "k": "テスト",
+                  "r": "てすと"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "ため",
+                  "g": "v_tame"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "漢字を",
               "role": "object",
-              "gloss": "kanji (を — object)"
+              "gloss": "kanji (を — object)",
+              "tokens": [
+                {
+                  "k": "漢字",
+                  "r": "かんじ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "覚えて",
               "role": "predicate",
-              "gloss": "memorize (te-form of 覚える)"
+              "gloss": "memorize (te-form of 覚える)",
+              "tokens": [
+                {
+                  "k": "覚",
+                  "r": "おぼ",
+                  "g": "v_oboeru_te_form"
+                },
+                {
+                  "k": "えて",
+                  "g": "v_oboeru_te_form"
+                }
+              ]
             },
             {
               "text": "おこう。",
               "role": "connector",
-              "gloss": "let's do in advance (おく → plain volitional おこう)"
+              "gloss": "let's do in advance (おく → plain volitional おこう)",
+              "tokens": [
+                {
+                  "k": "おこう",
+                  "g": "v_oku_plain_volitional"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's memorize the kanji in advance for the test.",
@@ -287,22 +538,58 @@
             {
               "text": "ケーキを",
               "role": "object",
-              "gloss": "cake (を — object)"
+              "gloss": "cake (を — object)",
+              "tokens": [
+                {
+                  "k": "ケーキ",
+                  "r": "けーき"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "全部",
               "role": "adverb",
-              "gloss": "all of it / everything"
+              "gloss": "all of it / everything",
+              "tokens": [
+                {
+                  "k": "全部",
+                  "r": "ぜんぶ"
+                }
+              ]
             },
             {
               "text": "食べて",
               "role": "predicate",
-              "gloss": "eat (te-form of 食べる)"
+              "gloss": "eat (te-form of 食べる)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_te_form"
+                },
+                {
+                  "k": "べて",
+                  "g": "v_taberu_te_form"
+                }
+              ]
             },
             {
               "text": "しまった。",
               "role": "connector",
-              "gloss": "ended up doing (しまう — auxiliary, plain past; completion / slight regret)"
+              "gloss": "ended up doing (しまう — auxiliary, plain past; completion / slight regret)",
+              "tokens": [
+                {
+                  "k": "しまった",
+                  "g": "v_shimau_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I ended up eating all the cake. (I ate the whole thing!)",
@@ -313,17 +600,60 @@
             {
               "text": "大切な 書類を",
               "role": "object",
-              "gloss": "important documents (大切な = important, な-adj attributive; 書類 = documents; を)"
+              "gloss": "important documents (大切な = important, な-adj attributive; 書類 = documents; を)",
+              "tokens": [
+                {
+                  "k": "大切",
+                  "r": "たいせつ",
+                  "g": "v_taisetsu_attributive_na"
+                },
+                {
+                  "k": "な",
+                  "g": "v_taisetsu_attributive_na"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "書類",
+                  "r": "しょるい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "なくして",
               "role": "predicate",
-              "gloss": "lose (te-form of なくす)"
+              "gloss": "lose (te-form of なくす)",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "く"
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                }
+              ]
             },
             {
               "text": "しまいました。",
               "role": "connector",
-              "gloss": "accidentally did (しまう — auxiliary, polite past; strong regret)"
+              "gloss": "accidentally did (しまう — auxiliary, polite past; strong regret)",
+              "tokens": [
+                {
+                  "k": "しまいました",
+                  "g": "v_shimau_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I accidentally lost the important documents.",
@@ -334,22 +664,57 @@
             {
               "text": "宿題を",
               "role": "object",
-              "gloss": "homework (を — object)"
+              "gloss": "homework (を — object)",
+              "tokens": [
+                {
+                  "k": "宿"
+                },
+                {
+                  "k": "題",
+                  "r": "だい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "もう",
               "role": "adverb",
-              "gloss": "already"
+              "gloss": "already",
+              "tokens": [
+                {
+                  "k": "もう"
+                }
+              ]
             },
             {
               "text": "やって",
               "role": "predicate",
-              "gloss": "do (te-form of やる)"
+              "gloss": "do (te-form of やる)",
+              "tokens": [
+                {
+                  "k": "や"
+                },
+                {
+                  "k": "って"
+                }
+              ]
             },
             {
               "text": "しまいました。",
               "role": "connector",
-              "gloss": "finished completely (しまう — auxiliary, polite past; completion — positive sense)"
+              "gloss": "finished completely (しまう — auxiliary, polite past; completion — positive sense)",
+              "tokens": [
+                {
+                  "k": "しまいました",
+                  "g": "v_shimau_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I've already finished my homework (all done).",
@@ -388,17 +753,44 @@
             {
               "text": "昨日、",
               "role": "time",
-              "gloss": "yesterday"
+              "gloss": "yesterday",
+              "tokens": [
+                {
+                  "k": "昨日",
+                  "r": "きのう"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "飲み",
               "role": "predicate",
-              "gloss": "drink (masu-stem of 飲む)"
+              "gloss": "drink (masu-stem of 飲む)",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の"
+                },
+                {
+                  "k": "み"
+                }
+              ]
             },
             {
               "text": "すぎました。",
               "role": "predicate",
-              "gloss": "too much (すぎる — excessive, polite past)"
+              "gloss": "too much (すぎる — excessive, polite past)",
+              "tokens": [
+                {
+                  "k": "すぎました",
+                  "g": "v_sugiru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I drank too much yesterday.",
@@ -409,17 +801,58 @@
             {
               "text": "この 店の 料理は",
               "role": "topic",
-              "gloss": "this shop's food (この + 店 + の + 料理 + は — topic)"
+              "gloss": "this shop's food (この + 店 + の + 料理 + は — topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "高",
               "role": "modifier",
-              "gloss": "expensive (高い → stem 高)"
+              "gloss": "expensive (高い → stem 高)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか"
+                }
+              ]
             },
             {
               "text": "すぎます。",
               "role": "predicate",
-              "gloss": "too much (すぎる — excessive, polite present)"
+              "gloss": "too much (すぎる — excessive, polite present)",
+              "tokens": [
+                {
+                  "k": "すぎます",
+                  "g": "v_sugiru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The food at this restaurant is too expensive.",
@@ -430,22 +863,70 @@
             {
               "text": "その 部屋は",
               "role": "topic",
-              "gloss": "that room (その + 部屋 + は — topic)"
+              "gloss": "that room (その + 部屋 + は — topic)",
+              "tokens": [
+                {
+                  "k": "その"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "部屋",
+                  "r": "へや"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "静か",
               "role": "modifier",
-              "gloss": "quiet (な-adjective stem 静か)"
+              "gloss": "quiet (な-adjective stem 静か)",
+              "tokens": [
+                {
+                  "k": "静"
+                },
+                {
+                  "k": "か"
+                }
+              ]
             },
             {
               "text": "すぎて、",
               "role": "predicate",
-              "gloss": "too quiet (すぎる + て = te-form, connecting to next clause)"
+              "gloss": "too quiet (すぎる + て = te-form, connecting to next clause)",
+              "tokens": [
+                {
+                  "k": "すぎて",
+                  "g": "v_sugiru_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "集中 できません。",
               "role": "predicate",
-              "gloss": "cannot concentrate (集中 + できません — potential negative)"
+              "gloss": "cannot concentrate (集中 + できません — potential negative)",
+              "tokens": [
+                {
+                  "k": "集中",
+                  "r": "しゅうちゅう"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "できません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That room is too quiet, so I can't concentrate.",
@@ -489,32 +970,91 @@
             {
               "text": "出かけ",
               "role": "predicate",
-              "gloss": "go out (masu-stem of 出かける)"
+              "gloss": "go out (masu-stem of 出かける)",
+              "tokens": [
+                {
+                  "k": "出"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "け"
+                }
+              ]
             },
             {
               "text": "ようと",
               "role": "connector",
-              "gloss": "volitional + と (attempt marker — was about to go out)"
+              "gloss": "volitional + と (attempt marker — was about to go out)",
+              "tokens": [
+                {
+                  "k": "よう"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "した",
               "role": "predicate",
-              "gloss": "did (plain past of する — completed the attempt pattern)"
+              "gloss": "did (plain past of する — completed the attempt pattern)",
+              "tokens": [
+                {
+                  "k": "した",
+                  "g": "v_suru_plain_past"
+                }
+              ]
             },
             {
               "text": "とき、",
               "role": "time",
-              "gloss": "when / at that moment (時 — time noun)"
+              "gloss": "when / at that moment (時 — time noun)",
+              "tokens": [
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "き"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "電話が",
               "role": "subject",
-              "gloss": "phone call (が — subject marker)"
+              "gloss": "phone call (が — subject marker)",
+              "tokens": [
+                {
+                  "k": "電話",
+                  "r": "でんわ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "来た。",
               "role": "predicate",
-              "gloss": "came (plain past of くる)"
+              "gloss": "came (plain past of くる)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "た",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Just as I was about to go out, a phone call came.",
@@ -525,37 +1065,97 @@
             {
               "text": "ドアを",
               "role": "object",
-              "gloss": "door (を — object)"
+              "gloss": "door (を — object)",
+              "tokens": [
+                {
+                  "k": "ドア"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "開け",
               "role": "predicate",
-              "gloss": "open (masu-stem of 開ける)"
+              "gloss": "open (masu-stem of 開ける)",
+              "tokens": [
+                {
+                  "k": "開け"
+                }
+              ]
             },
             {
               "text": "ようと",
               "role": "connector",
-              "gloss": "volitional + と (attempt marker)"
+              "gloss": "volitional + と (attempt marker)",
+              "tokens": [
+                {
+                  "k": "よう"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "した",
               "role": "predicate",
-              "gloss": "tried (plain past of する)"
+              "gloss": "tried (plain past of する)",
+              "tokens": [
+                {
+                  "k": "した",
+                  "g": "v_suru_plain_past"
+                }
+              ]
             },
             {
               "text": "が、",
               "role": "connector",
-              "gloss": "but (が — clause connector)"
+              "gloss": "but (が — clause connector)",
+              "tokens": [
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "鍵が",
               "role": "subject",
-              "gloss": "key/lock (が — subject)"
+              "gloss": "key/lock (が — subject)",
+              "tokens": [
+                {
+                  "k": "鍵"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "かかっていた。",
               "role": "predicate",
-              "gloss": "was locked (かかる te-form + いた — resultant state)"
+              "gloss": "was locked (かかる te-form + いた — resultant state)",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "かって",
+                  "g": "v_kau_te_form"
+                },
+                {
+                  "k": "いた",
+                  "g": "v_iru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I tried to open the door, but it was locked.",
@@ -566,37 +1166,116 @@
             {
               "text": "この 人が",
               "role": "subject",
-              "gloss": "this person (が — subject)"
+              "gloss": "this person (が — subject)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "先生 だと",
               "role": "predicate",
-              "gloss": "is a teacher + と (assumption marker: だ + と)"
+              "gloss": "is a teacher + と (assumption marker: だ + と)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "だ"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "すると、",
               "role": "predicate",
-              "gloss": "assuming (すると — te-form of とする, expressing hypothesis)"
+              "gloss": "assuming (すると — te-form of とする, expressing hypothesis)",
+              "tokens": [
+                {
+                  "k": "する"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "どこで",
               "role": "adverb",
-              "gloss": "where (どこ + で)"
+              "gloss": "where (どこ + で)",
+              "tokens": [
+                {
+                  "k": "どこ"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "働いて",
               "role": "predicate",
-              "gloss": "work (te-form of 働く)"
+              "gloss": "work (te-form of 働く)",
+              "tokens": [
+                {
+                  "k": "働",
+                  "r": "はたら",
+                  "g": "v_hataraku_te_form"
+                },
+                {
+                  "k": "いて",
+                  "g": "v_hataraku_te_form"
+                }
+              ]
             },
             {
               "text": "いる",
               "role": "predicate",
-              "gloss": "is (working) (plain form of いる — progressive)"
+              "gloss": "is (working) (plain form of いる — progressive)",
+              "tokens": [
+                {
+                  "k": "いる"
+                }
+              ]
             },
             {
               "text": "んでしょうか。",
               "role": "predicate",
-              "gloss": "I wonder (んです + でしょうか — explanatory + conjecture question)"
+              "gloss": "I wonder (んです + でしょうか — explanatory + conjecture question)",
+              "tokens": [
+                {
+                  "k": "ん"
+                },
+                {
+                  "k": "でしょう"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Assuming this person is a teacher, I wonder where they work.",
@@ -623,17 +1302,53 @@
               {
                 "text": "この 料理を",
                 "role": "object",
-                "gloss": "this dish (を)"
+                "gloss": "this dish (を)",
+                "tokens": [
+                  {
+                    "k": "この"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "料理",
+                    "r": "りょうり"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べて",
                 "role": "predicate",
-                "gloss": "eat (te-form)"
+                "gloss": "eat (te-form)",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu_te_form"
+                  },
+                  {
+                    "k": "べて",
+                    "g": "v_taberu_te_form"
+                  }
+                ]
               },
               {
                 "text": "みました。",
                 "role": "connector",
-                "gloss": "tried (みる — auxiliary, polite past)"
+                "gloss": "tried (みる — auxiliary, polite past)",
+                "tokens": [
+                  {
+                    "k": "みました",
+                    "g": "v_miru_polite_mashita"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I tried eating this dish (to see how it was)."
@@ -653,22 +1368,64 @@
               {
                 "text": "この 料理を",
                 "role": "object",
-                "gloss": "this dish (を)"
+                "gloss": "this dish (を)",
+                "tokens": [
+                  {
+                    "k": "この"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "料理",
+                    "r": "りょうり"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べ",
                 "role": "predicate",
-                "gloss": "eat (masu-stem of 食べる)"
+                "gloss": "eat (masu-stem of 食べる)",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た"
+                  },
+                  {
+                    "k": "べ"
+                  }
+                ]
               },
               {
                 "text": "ようと",
                 "role": "connector",
-                "gloss": "volitional + と (attempt)"
+                "gloss": "volitional + と (attempt)",
+                "tokens": [
+                  {
+                    "k": "よう"
+                  },
+                  {
+                    "k": "と"
+                  }
+                ]
               },
               {
                 "text": "した。",
                 "role": "predicate",
-                "gloss": "tried (plain past of する)"
+                "gloss": "tried (plain past of する)",
+                "tokens": [
+                  {
+                    "k": "した",
+                    "g": "v_suru_plain_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I tried to eat this dish (was about to eat it — but something happened)."
@@ -709,37 +1466,95 @@
             {
               "text": "明日、",
               "role": "time",
-              "gloss": "tomorrow"
+              "gloss": "tomorrow",
+              "tokens": [
+                {
+                  "k": "明日",
+                  "r": "あした"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "パーティーに",
               "role": "modifier",
-              "gloss": "to the party (に — direction/target)"
+              "gloss": "to the party (に — direction/target)",
+              "tokens": [
+                {
+                  "k": "パーティーに"
+                }
+              ]
             },
             {
               "text": "行く",
               "role": "predicate",
-              "gloss": "go (plain form of 行く)"
+              "gloss": "go (plain form of 行く)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "く",
+                  "g": "v_iku"
+                }
+              ]
             },
             {
               "text": "かどうか、",
               "role": "connector",
-              "gloss": "whether or not (かどうか — yes/no embedded question)"
+              "gloss": "whether or not (かどうか — yes/no embedded question)",
+              "tokens": [
+                {
+                  "k": "かどうか"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "まだ",
               "role": "adverb",
-              "gloss": "not yet / still"
+              "gloss": "not yet / still",
+              "tokens": [
+                {
+                  "k": "まだ"
+                }
+              ]
             },
             {
               "text": "決めて",
               "role": "predicate",
-              "gloss": "decide (te-form of 決める)"
+              "gloss": "decide (te-form of 決める)",
+              "tokens": [
+                {
+                  "k": "決",
+                  "r": "き",
+                  "g": "v_kimeru_te_form"
+                },
+                {
+                  "k": "めて",
+                  "g": "v_kimeru_te_form"
+                }
+              ]
             },
             {
               "text": "いません。",
               "role": "predicate",
-              "gloss": "haven't (ていません — negative progressive, polite)"
+              "gloss": "haven't (ていません — negative progressive, polite)",
+              "tokens": [
+                {
+                  "k": "いません",
+                  "g": "v_iru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I haven't decided yet whether or not I'll go to the party tomorrow.",
@@ -750,27 +1565,75 @@
             {
               "text": "日本語の 歴史に",
               "role": "topic",
-              "gloss": "the history of Japanese (日本語 + の + 歴史 + に)"
+              "gloss": "the history of Japanese (日本語 + の + 歴史 + に)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "歴史"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "ついて",
               "role": "connector",
-              "gloss": "about / regarding (〜について — compound postposition)"
+              "gloss": "about / regarding (〜について — compound postposition)",
+              "tokens": [
+                {
+                  "k": "ついて",
+                  "g": "v_tsuku_te_form"
+                }
+              ]
             },
             {
               "text": "もっと",
               "role": "adverb",
-              "gloss": "more"
+              "gloss": "more",
+              "tokens": [
+                {
+                  "k": "もっと"
+                }
+              ]
             },
             {
               "text": "知りたい",
               "role": "predicate",
-              "gloss": "want to know (知る → plain desire 知りたい)"
+              "gloss": "want to know (知る → plain desire 知りたい)",
+              "tokens": [
+                {
+                  "k": "知",
+                  "r": "し",
+                  "g": "v_shiru_plain_desire_tai"
+                },
+                {
+                  "k": "りたい",
+                  "g": "v_shiru_plain_desire_tai"
+                }
+              ]
             },
             {
               "text": "です。",
               "role": "predicate",
-              "gloss": "is (polite copula)"
+              "gloss": "is (polite copula)",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want to know more about the history of the Japanese language.",
@@ -781,27 +1644,70 @@
             {
               "text": "この 薬が",
               "role": "subject",
-              "gloss": "this medicine (が — subject)"
+              "gloss": "this medicine (が — subject)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "薬",
+                  "r": "くすり"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "体に",
               "role": "modifier",
-              "gloss": "for the body (に — indirect object/target)"
+              "gloss": "for the body (に — indirect object/target)",
+              "tokens": [
+                {
+                  "k": "体",
+                  "r": "からだ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good (い-adjective attributive)"
+              "gloss": "good (い-adjective attributive)",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "かどうか",
               "role": "connector",
-              "gloss": "whether or not (かどうか)"
+              "gloss": "whether or not (かどうか)",
+              "tokens": [
+                {
+                  "k": "かどうか"
+                }
+              ]
             },
             {
               "text": "わかりません。",
               "role": "predicate",
-              "gloss": "I don't know (polite negative of わかる)"
+              "gloss": "I don't know (polite negative of わかる)",
+              "tokens": [
+                {
+                  "k": "わかりません",
+                  "g": "v_wakaru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I don't know whether or not this medicine is good for the body.",
@@ -820,22 +1726,65 @@
             {
               "text": "新しい",
               "role": "modifier",
-              "gloss": "new (い-adjective, attributive)"
+              "gloss": "new (い-adjective, attributive)",
+              "tokens": [
+                {
+                  "k": "新",
+                  "r": "あたら",
+                  "g": "v_atarashii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_atarashii"
+                }
+              ]
             },
             {
               "text": "レストランに",
               "role": "modifier",
-              "gloss": "to the new restaurant (に — direction)"
+              "gloss": "to the new restaurant (に — direction)",
+              "tokens": [
+                {
+                  "k": "レストラン",
+                  "r": "れすとらん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行って",
               "role": "predicate",
-              "gloss": "go (te-form of 行く)"
+              "gloss": "go (te-form of 行く)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_iku_te_form"
+                }
+              ]
             },
             {
               "text": "みましょうか。",
               "role": "connector",
-              "gloss": "shall we try going? (みる → polite volitional みましょう + か)"
+              "gloss": "shall we try going? (みる → polite volitional みましょう + か)",
+              "tokens": [
+                {
+                  "k": "みましょう",
+                  "g": "v_miru_polite_volitional_mashou"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Shall we try going to the new restaurant?",
@@ -847,22 +1796,73 @@
             {
               "text": "会議の 前に",
               "role": "time",
-              "gloss": "before the meeting (会議 + の + 前に)"
+              "gloss": "before the meeting (会議 + の + 前に)",
+              "tokens": [
+                {
+                  "k": "会議",
+                  "r": "かいぎ"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "前",
+                  "r": "まえ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "資料を",
               "role": "object",
-              "gloss": "documents/materials (を — object)"
+              "gloss": "documents/materials (を — object)",
+              "tokens": [
+                {
+                  "k": "資"
+                },
+                {
+                  "k": "料"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "読んで",
               "role": "predicate",
-              "gloss": "read (te-form of 読む)"
+              "gloss": "read (te-form of 読む)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_te_form"
+                },
+                {
+                  "k": "んで",
+                  "g": "v_yomu_te_form"
+                }
+              ]
             },
             {
               "text": "おきます。",
               "role": "connector",
-              "gloss": "will do in advance (おく — auxiliary, polite present)"
+              "gloss": "will do in advance (おく — auxiliary, polite present)",
+              "tokens": [
+                {
+                  "k": "おきます",
+                  "g": "v_okiru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll read the materials in advance before the meeting.",
@@ -874,17 +1874,44 @@
             {
               "text": "また",
               "role": "adverb",
-              "gloss": "again"
+              "gloss": "again",
+              "tokens": [
+                {
+                  "k": "また"
+                }
+              ]
             },
             {
               "text": "寝坊して",
               "role": "predicate",
-              "gloss": "oversleep (te-form of 寝坊する — sleep in)"
+              "gloss": "oversleep (te-form of 寝坊する — sleep in)",
+              "tokens": [
+                {
+                  "k": "寝",
+                  "r": "ね"
+                },
+                {
+                  "k": "坊"
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                }
+              ]
             },
             {
               "text": "しまいました…",
               "role": "connector",
-              "gloss": "ended up doing (しまう — auxiliary, polite past; regret)"
+              "gloss": "ended up doing (しまう — auxiliary, polite past; regret)",
+              "tokens": [
+                {
+                  "k": "しまいました",
+                  "g": "v_shimau_polite_mashita"
+                },
+                {
+                  "k": "…"
+                }
+              ]
             }
           ],
           "en": "I overslept again… (I can't believe I did it again.)",
@@ -896,22 +1923,66 @@
             {
               "text": "この バッグは",
               "role": "topic",
-              "gloss": "this bag (この + バッグ + は — topic)"
+              "gloss": "this bag (この + バッグ + は — topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "バッグ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "軽",
               "role": "modifier",
-              "gloss": "light (軽い → stem 軽)"
+              "gloss": "light (軽い → stem 軽)",
+              "tokens": [
+                {
+                  "k": "軽"
+                }
+              ]
             },
             {
               "text": "すぎて",
               "role": "predicate",
-              "gloss": "too light (すぎる te-form — connecting clause)"
+              "gloss": "too light (すぎる te-form — connecting clause)",
+              "tokens": [
+                {
+                  "k": "すぎて",
+                  "g": "v_sugiru_te_form"
+                }
+              ]
             },
             {
               "text": "心配 です。",
               "role": "predicate",
-              "gloss": "I'm worried (心配 + です — na-adjective predicate)"
+              "gloss": "I'm worried (心配 + です — na-adjective predicate)",
+              "tokens": [
+                {
+                  "k": "心",
+                  "r": "こころ"
+                },
+                {
+                  "k": "配"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This bag is too light, so I'm worried (about what's inside).",
@@ -923,27 +1994,78 @@
             {
               "text": "逃げ",
               "role": "predicate",
-              "gloss": "run away (masu-stem of 逃げる)"
+              "gloss": "run away (masu-stem of 逃げる)",
+              "tokens": [
+                {
+                  "k": "逃",
+                  "r": "に"
+                },
+                {
+                  "k": "げ"
+                }
+              ]
             },
             {
               "text": "ようと",
               "role": "connector",
-              "gloss": "volitional + と (attempt marker)"
+              "gloss": "volitional + と (attempt marker)",
+              "tokens": [
+                {
+                  "k": "よう"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "した",
               "role": "predicate",
-              "gloss": "tried (plain past of する)"
+              "gloss": "tried (plain past of する)",
+              "tokens": [
+                {
+                  "k": "した",
+                  "g": "v_suru_plain_past"
+                }
+              ]
             },
             {
               "text": "が、",
               "role": "connector",
-              "gloss": "but (が — clause connector)"
+              "gloss": "but (が — clause connector)",
+              "tokens": [
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "間に合わなかった。",
               "role": "predicate",
-              "gloss": "didn't make it in time (間に合う → plain past negative)"
+              "gloss": "didn't make it in time (間に合う → plain past negative)",
+              "tokens": [
+                {
+                  "k": "間"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": "合",
+                  "r": "あ",
+                  "g": "v_au_2_plain_past_negative"
+                },
+                {
+                  "k": "わなかった",
+                  "g": "v_au_2_plain_past_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I tried to escape, but didn't make it in time.",
@@ -955,27 +2077,77 @@
             {
               "text": "彼が",
               "role": "subject",
-              "gloss": "he (が — subject)"
+              "gloss": "he (が — subject)",
+              "tokens": [
+                {
+                  "k": "彼",
+                  "r": "かれ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "来る",
               "role": "predicate",
-              "gloss": "come (plain form of くる)"
+              "gloss": "come (plain form of くる)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "く",
+                  "g": "v_kuru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_kuru"
+                }
+              ]
             },
             {
               "text": "かどうか、",
               "role": "connector",
-              "gloss": "whether or not (かどうか)"
+              "gloss": "whether or not (かどうか)",
+              "tokens": [
+                {
+                  "k": "かどうか"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "知って",
               "role": "predicate",
-              "gloss": "know (te-form of 知る)"
+              "gloss": "know (te-form of 知る)",
+              "tokens": [
+                {
+                  "k": "知",
+                  "r": "し",
+                  "g": "v_shiru_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_shiru_te_form"
+                }
+              ]
             },
             {
               "text": "いますか。",
               "role": "predicate",
-              "gloss": "do you know? (ていますか — polite progressive question)"
+              "gloss": "do you know? (ていますか — polite progressive question)",
+              "tokens": [
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Do you know whether or not he is coming?",
@@ -987,27 +2159,85 @@
             {
               "text": "環境 問題に",
               "role": "topic",
-              "gloss": "environmental issues (環境 + 問題 + に)"
+              "gloss": "environmental issues (環境 + 問題 + に)",
+              "tokens": [
+                {
+                  "k": "環境"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "問題",
+                  "r": "もんだい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "ついて",
               "role": "connector",
-              "gloss": "about / regarding (〜について)"
+              "gloss": "about / regarding (〜について)",
+              "tokens": [
+                {
+                  "k": "ついて",
+                  "g": "v_tsuku_te_form"
+                }
+              ]
             },
             {
               "text": "話し合いたい",
               "role": "predicate",
-              "gloss": "want to discuss (話し合う → plain desire 話し合いたい)"
+              "gloss": "want to discuss (話し合う → plain desire 話し合いたい)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はなし"
+                },
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "合",
+                  "r": "あ",
+                  "g": "v_au_2_plain_desire_tai"
+                },
+                {
+                  "k": "いたい",
+                  "g": "v_au_2_plain_desire_tai"
+                }
+              ]
             },
             {
               "text": "と",
               "role": "connector",
-              "gloss": "quotation marker (と — thought/intention content)"
+              "gloss": "quotation marker (と — thought/intention content)",
+              "tokens": [
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思います。",
               "role": "predicate",
-              "gloss": "I think (思う → polite present)"
+              "gloss": "I think (思う → polite present)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "います",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I think I would like to discuss environmental issues.",

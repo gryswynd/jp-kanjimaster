@@ -116,4 +116,14 @@ export async function saveProgress(uid, incoming) {
   return merged;
 }
 
+// Bug reports — in memory store just logs + counts them (no console to read, but
+// keeps the route working in local/no-GCP mode).
+let bugSeq = 0;
+export async function saveBugReport(report) {
+  bugSeq += 1;
+  const id = 'mem-bug-' + bugSeq;
+  console.log(JSON.stringify({ severity: 'NOTICE', kind: 'bug_report', id, category: report.category }));
+  return id;
+}
+
 export { httpError };

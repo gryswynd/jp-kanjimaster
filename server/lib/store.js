@@ -29,5 +29,6 @@ export const getProfile = impl.getProfile;
 export const saveProfile = impl.saveProfile;
 export const getProgress = impl.getProgress;
 export const saveProgress = impl.saveProgress;
+export const saveBugReport = impl.saveBugReport;
 
 export { httpError } from './errors.js';

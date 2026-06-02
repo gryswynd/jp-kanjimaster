@@ -132,10 +132,10 @@
               "jp": "いつも 月よう日と 水よう日と 金よう日に います。",
               "terms": [
                 "v_itsumo",
-                "v_getsuyoubi",
+                "v_getsuyoubi_hybrid",
                 "p_to",
-                "v_suiyoubi",
-                "v_kinyoubi",
+                "v_suiyoubi_hybrid",
+                "v_kinyoubi_hybrid",
                 "p_ni",
                 {
                   "id": "v_iru",
@@ -149,7 +149,7 @@
               "terms": [
                 "v_kyou",
                 "p_wa",
-                "v_nanyoubi",
+                "v_nanyoubi_hybrid",
                 "g_desu",
                 "p_ka"
               ]
@@ -160,7 +160,7 @@
               "terms": [
                 "v_kyou",
                 "p_wa",
-                "v_kayoubi",
+                "v_kayoubi_hybrid",
                 "g_desu",
                 "v_sensei",
                 {
@@ -215,7 +215,7 @@
                 },
                 "v_okane",
                 "v_maigetsu",
-                "v_kinyoubi",
+                "v_kinyoubi_hybrid",
                 "p_ni",
                 {
                   "id": "v_aru",
@@ -228,7 +228,7 @@
               "jp": "そうですか。金よう日は いい 日ですね。",
               "terms": [
                 "p_soudesuka",
-                "v_kinyoubi",
+                "v_kinyoubi_hybrid",
                 "p_wa",
                 "v_ii",
                 "v_hi",
@@ -449,7 +449,7 @@
           "en": "My friend is Yamakawa-san. They are a very good friend. We are often together.",
           "terms": [
             "char_yamakawa",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_san",
             "g_desu",
@@ -468,7 +468,7 @@
           "en": "Every month on Friday, there is money. I am always happy.",
           "terms": [
             "v_maigetsu",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_ni",
             "v_okane",
             "p_ga",
@@ -502,7 +502,10 @@
             "v_hito",
             "g_desu",
             "p_ka",
-            { "counter": "nin", "n": 3 }
+            {
+              "counter": "nin",
+              "n": 3
+            }
           ],
           "explanation": "The passage says 父と母とわたしは三人です — father, mother, and Rikizo, totalling three people."
         },
@@ -538,7 +541,7 @@
           ],
           "terms": [
             "v_maigetsu",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "p_ni",
             "v_okane",
             "p_ga",
@@ -738,7 +741,7 @@
           "answer": "お金",
           "terms": [
             "v_maigetsu",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_ni",
             "v_okane",
             "p_ga",
@@ -784,7 +787,7 @@
           "terms": [
             "p_wa",
             "v_yoku",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             {
               "id": "v_iru",
@@ -852,9 +855,9 @@
           ],
           "answer": "から",
           "terms": [
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             {
               "id": "v_iru",

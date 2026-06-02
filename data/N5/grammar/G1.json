@@ -72,11 +72,23 @@
             {
               "text": "わたし",
               "role": "topic",
-              "gloss": "I"
+              "gloss": "I",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -91,7 +103,12 @@
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "I am a teacher.",
@@ -112,12 +129,23 @@
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "やさしい",
               "role": "modifier",
-              "gloss": "kind"
+              "gloss": "kind",
+              "tokens": [
+                {
+                  "k": "やさしい"
+                }
+              ]
             },
             {
               "text": "人",
@@ -132,7 +160,12 @@
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "My father is a kind person.",
@@ -143,11 +176,26 @@
             {
               "text": "あの人",
               "role": "topic",
-              "gloss": "that person"
+              "gloss": "that person",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -162,7 +210,15 @@
             },
             {
               "text": "ですか",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                }
+              ]
             }
           ],
           "en": "Is that person a teacher?",
@@ -209,11 +265,23 @@
             {
               "text": "わたし",
               "role": "topic",
-              "gloss": "I"
+              "gloss": "I",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -228,7 +296,12 @@
             },
             {
               "text": "だ",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "だ"
+                }
+              ]
             }
           ],
           "en": "I'm a teacher. (casual)",
@@ -239,24 +312,60 @@
             {
               "text": "あの人",
               "role": "topic",
-              "gloss": "that person"
+              "gloss": "that person",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だち",
               "role": "predicate",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "だ",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "だ"
+                }
+              ]
             },
             {
               "text": "よ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "よ"
+                }
+              ]
             }
           ],
           "en": "That person is a friend, you know. (casual assertion)",
@@ -277,7 +386,13 @@
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -292,11 +407,22 @@
             },
             {
               "text": "では",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "では"
+                }
+              ]
             },
             {
               "text": "ない",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             }
           ],
           "en": "My father is not a teacher. (plain negative)",
@@ -370,11 +496,23 @@
               {
                 "text": "わたし",
                 "role": "topic",
-                "gloss": "I"
+                "gloss": "I",
+                "tokens": [
+                  {
+                    "k": "わたし",
+                    "g": "v_watashi"
+                  }
+                ]
               },
               {
                 "text": "は",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "先生",
@@ -389,7 +527,12 @@
               },
               {
                 "text": "です",
-                "role": "verb"
+                "role": "verb",
+                "tokens": [
+                  {
+                    "k": "です"
+                  }
+                ]
               }
             ],
             "en": "I am a teacher. (polite)"
@@ -408,11 +551,23 @@
               {
                 "text": "わたし",
                 "role": "topic",
-                "gloss": "I"
+                "gloss": "I",
+                "tokens": [
+                  {
+                    "k": "わたし",
+                    "g": "v_watashi"
+                  }
+                ]
               },
               {
                 "text": "は",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "先生",
@@ -427,7 +582,12 @@
               },
               {
                 "text": "だ",
-                "role": "verb"
+                "role": "verb",
+                "tokens": [
+                  {
+                    "k": "だ"
+                  }
+                ]
               }
             ],
             "en": "I'm a teacher. (casual)"
@@ -446,11 +606,23 @@
             {
               "text": "わたし",
               "role": "topic",
-              "gloss": "I"
+              "gloss": "I",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -465,7 +637,12 @@
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "I am a teacher.",
@@ -487,7 +664,13 @@
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -502,7 +685,12 @@
             },
             {
               "text": "でした",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "でした"
+                }
+              ]
             }
           ],
           "en": "My father was a teacher.",
@@ -514,11 +702,28 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "my friend"
+              "gloss": "my friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -533,11 +738,21 @@
             },
             {
               "text": "では",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "では"
+                }
+              ]
             },
             {
               "text": "ありません",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "ありません"
+                }
+              ]
             }
           ],
           "en": "My friend is not a teacher.",
@@ -549,11 +764,26 @@
             {
               "text": "あの人",
               "role": "topic",
-              "gloss": "that person"
+              "gloss": "that person",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
@@ -568,11 +798,21 @@
             },
             {
               "text": "だ",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "だ"
+                }
+              ]
             },
             {
               "text": "よ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "よ"
+                }
+              ]
             }
           ],
           "en": "That person is a teacher, you know.",
@@ -584,20 +824,41 @@
             {
               "text": "テレビ",
               "role": "topic",
-              "gloss": "TV"
+              "gloss": "TV",
+              "tokens": [
+                {
+                  "k": "テレビ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good"
+              "gloss": "good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "The TV is good.",
@@ -609,11 +870,21 @@
             {
               "text": "うれしい",
               "role": "modifier",
-              "gloss": "happy"
+              "gloss": "happy",
+              "tokens": [
+                {
+                  "k": "うれしい"
+                }
+              ]
             },
             {
               "text": "！",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "！"
+                }
+              ]
             }
           ],
           "en": "I'm so happy!",

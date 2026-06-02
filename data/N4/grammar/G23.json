@@ -73,17 +73,47 @@
             {
               "text": "ここに",
               "role": "modifier",
-              "gloss": "here (に)"
+              "gloss": "here (に)",
+              "tokens": [
+                {
+                  "k": "ここ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "すわっ",
               "role": "predicate",
-              "gloss": "sit (te-form of すわる)"
+              "gloss": "sit (te-form of すわる)",
+              "tokens": [
+                {
+                  "k": "すわっ"
+                }
+              ]
             },
             {
               "text": "てもいいですか。",
               "role": "connector",
-              "gloss": "may I ~ / is it okay to ~? (permission question)"
+              "gloss": "may I ~ / is it okay to ~? (permission question)",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "May I sit here?",
@@ -94,17 +124,48 @@
             {
               "text": "まどを",
               "role": "object",
-              "gloss": "window (を)"
+              "gloss": "window (を)",
+              "tokens": [
+                {
+                  "k": "まど"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "あけ",
               "role": "predicate",
-              "gloss": "open (te-form of あける)"
+              "gloss": "open (te-form of あける)",
+              "tokens": [
+                {
+                  "k": "あけ"
+                }
+              ]
             },
             {
               "text": "てもいいですよ。",
               "role": "connector",
-              "gloss": "it's okay to ~ / please feel free to ~ (permission granted)"
+              "gloss": "it's okay to ~ / please feel free to ~ (permission granted)",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You may open the window.",
@@ -115,17 +176,42 @@
             {
               "text": "帰っ",
               "role": "predicate",
-              "gloss": "go home (te-form)"
+              "gloss": "go home (te-form)",
+              "tokens": [
+                {
+                  "k": "帰",
+                  "r": "かえ"
+                },
+                {
+                  "k": "っ"
+                }
+              ]
             },
             {
               "text": "ていい",
               "role": "connector",
-              "gloss": "it's fine to ~ (casual: drop the い from いい)"
+              "gloss": "it's fine to ~ (casual: drop the い from いい)",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "よ。",
               "role": "modifier",
-              "gloss": "sentence-final emphatic particle"
+              "gloss": "sentence-final emphatic particle",
+              "tokens": [
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You can go home. (casual)",
@@ -173,22 +259,64 @@
             {
               "text": "ここで",
               "role": "modifier",
-              "gloss": "here (で)"
+              "gloss": "here (で)",
+              "tokens": [
+                {
+                  "k": "ここ"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "写真を",
               "role": "object",
-              "gloss": "photo (を)"
+              "gloss": "photo (を)",
+              "tokens": [
+                {
+                  "k": "写真",
+                  "r": "しゃしん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "とっ",
               "role": "predicate",
-              "gloss": "take (te-form of とる)"
+              "gloss": "take (te-form of とる)",
+              "tokens": [
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "っ"
+                }
+              ]
             },
             {
               "text": "てはいけません。",
               "role": "connector",
-              "gloss": "must not ~ / not allowed to ~ (polite prohibition)"
+              "gloss": "must not ~ / not allowed to ~ (polite prohibition)",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "いけません",
+                  "g": "v_ikeru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You must not take photos here.",
@@ -199,22 +327,68 @@
             {
               "text": "じゅぎょうちゅうに",
               "role": "modifier",
-              "gloss": "during class (に)"
+              "gloss": "during class (に)",
+              "tokens": [
+                {
+                  "k": "じゅぎょ"
+                },
+                {
+                  "k": "うち"
+                },
+                {
+                  "k": "ゅうに"
+                }
+              ]
             },
             {
               "text": "スマホを",
               "role": "object",
-              "gloss": "smartphone (を)"
+              "gloss": "smartphone (を)",
+              "tokens": [
+                {
+                  "k": "スマホ",
+                  "r": "すまほ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "使っ",
               "role": "predicate",
-              "gloss": "use (te-form of 使う)"
+              "gloss": "use (te-form of 使う)",
+              "tokens": [
+                {
+                  "k": "使",
+                  "r": "つか"
+                },
+                {
+                  "k": "っ"
+                }
+              ]
             },
             {
               "text": "てはいけません。",
               "role": "connector",
-              "gloss": "must not ~ (polite prohibition)"
+              "gloss": "must not ~ (polite prohibition)",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "いけません",
+                  "g": "v_ikeru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You must not use your smartphone during class.",
@@ -225,22 +399,52 @@
             {
               "text": "そこに",
               "role": "modifier",
-              "gloss": "there (に)"
+              "gloss": "there (に)",
+              "tokens": [
+                {
+                  "k": "そこ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "入っ",
               "role": "predicate",
-              "gloss": "enter (te-form of 入る)"
+              "gloss": "enter (te-form of 入る)",
+              "tokens": [
+                {
+                  "k": "入っ"
+                }
+              ]
             },
             {
               "text": "ちゃいけない",
               "role": "connector",
-              "gloss": "must not ~ (casual: てはいけない → ちゃいけない)"
+              "gloss": "must not ~ (casual: てはいけない → ちゃいけない)",
+              "tokens": [
+                {
+                  "k": "ちゃ"
+                },
+                {
+                  "k": "いけない",
+                  "g": "v_iku_plain_potential_negative"
+                }
+              ]
             },
             {
               "text": "よ。",
               "role": "modifier",
-              "gloss": "sentence-final emphatic particle"
+              "gloss": "sentence-final emphatic particle",
+              "tokens": [
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You can't go in there! (casual)",
@@ -283,17 +487,55 @@
             {
               "text": "今日は",
               "role": "topic",
-              "gloss": "today (は)"
+              "gloss": "today (は)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "来なく",
               "role": "predicate",
-              "gloss": "not come (stem of 来ない — plain negative of 来る)"
+              "gloss": "not come (stem of 来ない — plain negative of 来る)",
+              "tokens": [
+                {
+                  "k": "来"
+                },
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "く"
+                }
+              ]
             },
             {
               "text": "てもいいですよ。",
               "role": "connector",
-              "gloss": "it's fine even without ~ / don't have to ~ (permission to skip)"
+              "gloss": "it's fine even without ~ / don't have to ~ (permission to skip)",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You don't have to come today.",
@@ -304,17 +546,45 @@
             {
               "text": "ぜんぶ",
               "role": "modifier",
-              "gloss": "all / everything"
+              "gloss": "all / everything",
+              "tokens": [
+                {
+                  "k": "ぜんぶ"
+                }
+              ]
             },
             {
               "text": "食べなく",
               "role": "predicate",
-              "gloss": "not eat (stem of 食べない — plain negative of 食べる)"
+              "gloss": "not eat (stem of 食べない — plain negative of 食べる)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べなく"
+                }
+              ]
             },
             {
               "text": "てもいいです。",
               "role": "connector",
-              "gloss": "it's okay even without ~ / don't have to ~"
+              "gloss": "it's okay even without ~ / don't have to ~",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You don't have to eat everything.",
@@ -325,22 +595,62 @@
             {
               "text": "お金を",
               "role": "object",
-              "gloss": "money (を)"
+              "gloss": "money (を)",
+              "tokens": [
+                {
+                  "k": "お",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "金",
+                  "r": "かね",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "はらわなく",
               "role": "predicate",
-              "gloss": "not pay (stem of はらわない — plain negative of はらう)"
+              "gloss": "not pay (stem of はらわない — plain negative of はらう)",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "らわなく"
+                }
+              ]
             },
             {
               "text": "ていい",
               "role": "connector",
-              "gloss": "it's fine without ~ (casual shorthand of なくてもいい)"
+              "gloss": "it's fine without ~ (casual shorthand of なくてもいい)",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "よ。",
               "role": "modifier",
-              "gloss": "emphatic particle"
+              "gloss": "emphatic particle",
+              "tokens": [
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You don't have to pay. (casual)",
@@ -367,17 +677,47 @@
               {
                 "text": "ここに",
                 "role": "modifier",
-                "gloss": "here (に)"
+                "gloss": "here (に)",
+                "tokens": [
+                  {
+                    "k": "ここ"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "すわっ",
                 "role": "predicate",
-                "gloss": "sit"
+                "gloss": "sit",
+                "tokens": [
+                  {
+                    "k": "すわっ"
+                  }
+                ]
               },
               {
                 "text": "てもいいですか。",
                 "role": "connector",
-                "gloss": "May I sit here?"
+                "gloss": "May I sit here?",
+                "tokens": [
+                  {
+                    "k": "ても"
+                  },
+                  {
+                    "k": "いい"
+                  },
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "か"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "May I sit here?"
@@ -398,17 +738,46 @@
               {
                 "text": "ここに",
                 "role": "modifier",
-                "gloss": "here (に)"
+                "gloss": "here (に)",
+                "tokens": [
+                  {
+                    "k": "ここ"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "すわっ",
                 "role": "predicate",
-                "gloss": "sit"
+                "gloss": "sit",
+                "tokens": [
+                  {
+                    "k": "すわっ"
+                  }
+                ]
               },
               {
                 "text": "てはいけません。",
                 "role": "connector",
-                "gloss": "You must not sit here."
+                "gloss": "You must not sit here.",
+                "tokens": [
+                  {
+                    "k": "て"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  },
+                  {
+                    "k": "いけません",
+                    "g": "v_ikeru_polite_negative"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "You must not sit here."
@@ -460,22 +829,69 @@
             {
               "text": "図書館では、",
               "role": "topic",
-              "gloss": "in the library (では — topic + location)"
+              "gloss": "in the library (では — topic + location)",
+              "tokens": [
+                {
+                  "k": "図書館",
+                  "r": "としょかん"
+                },
+                {
+                  "k": "では"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "飲み物を",
               "role": "object",
-              "gloss": "drinks (を)"
+              "gloss": "drinks (を)",
+              "tokens": [
+                {
+                  "k": "飲み物",
+                  "r": "のみもの"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "飲ん",
               "role": "predicate",
-              "gloss": "drink (te-form of 飲む)"
+              "gloss": "drink (te-form of 飲む)",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の"
+                },
+                {
+                  "k": "ん"
+                }
+              ]
             },
             {
               "text": "てはいけません。",
               "role": "connector",
-              "gloss": "must not ~ (polite prohibition)"
+              "gloss": "must not ~ (polite prohibition)",
+              "tokens": [
+                {
+                  "k": "て"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "いけません",
+                  "g": "v_ikeru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You must not drink beverages in the library.",
@@ -487,17 +903,48 @@
             {
               "text": "もう",
               "role": "adverb",
-              "gloss": "already / now (indicating a change of state)"
+              "gloss": "already / now (indicating a change of state)",
+              "tokens": [
+                {
+                  "k": "もう"
+                }
+              ]
             },
             {
               "text": "運動し",
               "role": "predicate",
-              "gloss": "exercise (te-form of 運動する)"
+              "gloss": "exercise (te-form of 運動する)",
+              "tokens": [
+                {
+                  "k": "運動",
+                  "r": "うんどう"
+                },
+                {
+                  "k": "し"
+                }
+              ]
             },
             {
               "text": "てもいいですよ。",
               "role": "connector",
-              "gloss": "it's okay to ~ now / you may ~ (permission granted)"
+              "gloss": "it's okay to ~ now / you may ~ (permission granted)",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You may exercise now.",
@@ -509,22 +956,64 @@
             {
               "text": "しゅくだいは",
               "role": "topic",
-              "gloss": "homework (は — topic)"
+              "gloss": "homework (は — topic)",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "ゅくだい"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "ぜんぶ",
               "role": "adverb",
-              "gloss": "all / everything"
+              "gloss": "all / everything",
+              "tokens": [
+                {
+                  "k": "ぜんぶ"
+                }
+              ]
             },
             {
               "text": "しなく",
               "role": "predicate",
-              "gloss": "not do (stem of しない — plain negative of する)"
+              "gloss": "not do (stem of しない — plain negative of する)",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "く"
+                }
+              ]
             },
             {
               "text": "てもいいです。",
               "role": "connector",
-              "gloss": "it's fine without ~ / don't have to ~"
+              "gloss": "it's fine without ~ / don't have to ~",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You don't have to do all the homework.",

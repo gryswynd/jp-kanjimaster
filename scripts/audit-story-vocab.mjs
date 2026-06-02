@@ -157,8 +157,19 @@ function auditStory(data, slug) {
 }
 
 // ── Run ──────────────────────────────────────────────────────────────────────
-const manifest = await load('manifest.json');
-let stories = (manifest.data?.[LEVEL]?.stories || []);
+// --audiostories audits Audio Dojo passages (data/audiostories.index.json)
+// instead of the reading Stories; same token shape, same in-level rules.
+const AUDIOSTORIES = args.includes('--audiostories');
+let stories;
+if (AUDIOSTORIES) {
+  const idx = await load('data/audiostories.index.json');
+  stories = (idx.audiostories || [])
+    .filter(s => (s.level || 'N5') === LEVEL)
+    .map(s => ({ id: s.id, dir: s.dir, file: s.file || 'audiostory.json', titleJp: s.title }));
+} else {
+  const manifest = await load('manifest.json');
+  stories = (manifest.data?.[LEVEL]?.stories || []);
+}
 if (ONLY) stories = stories.filter(s => ONLY.has(s.id));
 
 let totalOOL = 0, totalUNG = 0, storiesWith = 0;

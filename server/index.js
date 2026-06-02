@@ -16,6 +16,7 @@ import { attestMiddleware } from './lib/attest.js';
 import { pressToAskRouter } from './routes/press-to-ask.js';
 import { quotaRouter } from './routes/quota.js';
 import { progressRouter } from './routes/progress.js';
+import { bugReportRouter } from './routes/bug-report.js';
 import { initCurriculum } from './lib/curriculum.js';
 
 const app = express();
@@ -46,6 +47,9 @@ app.use(authMiddleware);
 // Account progress sync (Firebase uid) — mounted before rate-limit/attest, which
 // gate the cost-bearing tutor endpoints; progress is authed by the verified token.
 app.use(progressRouter);
+// Bug reports — device-id only (no account / no quota / no attest required), so a
+// tester can always file one. Mounted before the cost-bearing tutor gates.
+app.use(bugReportRouter);
 app.use(rateLimitMiddleware);
 app.use(attestMiddleware);
 app.use(pressToAskRouter);

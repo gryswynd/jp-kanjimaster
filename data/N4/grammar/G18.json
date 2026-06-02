@@ -78,17 +78,49 @@
             {
               "text": "りきぞうさんが",
               "role": "subject",
-              "gloss": "Rikizo (が = agent — the one taking out)"
+              "gloss": "Rikizo (が = agent — the one taking out)",
+              "tokens": [
+                {
+                  "k": "りきぞうさん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "メモを",
               "role": "object",
-              "gloss": "notes (を = direct object — what is being taken out)"
+              "gloss": "notes (を = direct object — what is being taken out)",
+              "tokens": [
+                {
+                  "k": "メモ",
+                  "r": "めも"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "出しました。",
               "role": "predicate",
-              "gloss": "took out (出す — transitive, polite past)"
+              "gloss": "took out (出す — transitive, polite past)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "だ",
+                  "g": "v_dasu_polite_mashita"
+                },
+                {
+                  "k": "しました",
+                  "g": "v_dasu_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo took out his notes.",
@@ -99,17 +131,57 @@
             {
               "text": "映画館の人が",
               "role": "subject",
-              "gloss": "theater staff (が = agent doing the starting)"
+              "gloss": "theater staff (が = agent doing the starting)",
+              "tokens": [
+                {
+                  "k": "映画館",
+                  "r": "えいがかん"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "映画を",
               "role": "object",
-              "gloss": "movie (を = direct object — what is being started)"
+              "gloss": "movie (を = direct object — what is being started)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "始めました。",
               "role": "predicate",
-              "gloss": "started (始める — transitive, polite past)"
+              "gloss": "started (始める — transitive, polite past)",
+              "tokens": [
+                {
+                  "k": "始",
+                  "r": "はじ",
+                  "g": "v_hajimeru_polite_mashita"
+                },
+                {
+                  "k": "めました",
+                  "g": "v_hajimeru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The theater staff started the movie.",
@@ -146,12 +218,35 @@
             {
               "text": "映画が",
               "role": "subject",
-              "gloss": "movie (が = subject — begins on its own)"
+              "gloss": "movie (が = subject — begins on its own)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "始まりました。",
               "role": "predicate",
-              "gloss": "started/began (始まる — intransitive, polite past)"
+              "gloss": "started/began (始まる — intransitive, polite past)",
+              "tokens": [
+                {
+                  "k": "始",
+                  "r": "はじ",
+                  "g": "v_hajimaru_polite_mashita"
+                },
+                {
+                  "k": "まりました",
+                  "g": "v_hajimaru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The movie started.",
@@ -162,17 +257,55 @@
             {
               "text": "たくさんの人が",
               "role": "subject",
-              "gloss": "many people (が = subject entering on their own)"
+              "gloss": "many people (が = subject entering on their own)",
+              "tokens": [
+                {
+                  "k": "たくさん"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "映画館に",
               "role": "modifier",
-              "gloss": "into the movie theater (に = destination)"
+              "gloss": "into the movie theater (に = destination)",
+              "tokens": [
+                {
+                  "k": "映画館",
+                  "r": "えいがかん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "入りました。",
               "role": "predicate",
-              "gloss": "entered (入る — intransitive, polite past)"
+              "gloss": "entered (入る — intransitive, polite past)",
+              "tokens": [
+                {
+                  "k": "入",
+                  "r": "はい",
+                  "g": "v_hairu_polite_mashita"
+                },
+                {
+                  "k": "りました",
+                  "g": "v_hairu_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Many people entered the movie theater.",
@@ -261,17 +394,49 @@
             {
               "text": "りきぞうさんが",
               "role": "subject",
-              "gloss": "Rikizo (agent)"
+              "gloss": "Rikizo (agent)",
+              "tokens": [
+                {
+                  "k": "りきぞうさん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "メモを",
               "role": "object",
-              "gloss": "notes (を = direct object — the thing being taken out)"
+              "gloss": "notes (を = direct object — the thing being taken out)",
+              "tokens": [
+                {
+                  "k": "メモ",
+                  "r": "めも"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "出した。",
               "role": "predicate",
-              "gloss": "took out (出す — ～す ending, almost always transitive, plain past)"
+              "gloss": "took out (出す — ～す ending, almost always transitive, plain past)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "だ",
+                  "g": "v_dasu_plain_past"
+                },
+                {
+                  "k": "した",
+                  "g": "v_dasu_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo took out his notes.",
@@ -283,12 +448,35 @@
             {
               "text": "映画が",
               "role": "subject",
-              "gloss": "movie (が = subject that begins on its own)"
+              "gloss": "movie (が = subject that begins on its own)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "始まった。",
               "role": "predicate",
-              "gloss": "started (始まる — ～まる ending, typically intransitive, plain past)"
+              "gloss": "started (始まる — ～まる ending, typically intransitive, plain past)",
+              "tokens": [
+                {
+                  "k": "始",
+                  "r": "はじ",
+                  "g": "v_hajimaru_plain_past"
+                },
+                {
+                  "k": "まった",
+                  "g": "v_hajimaru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The movie started.",
@@ -314,12 +502,35 @@
               {
                 "text": "映画が",
                 "role": "subject",
-                "gloss": "movie (が = subject — starts on its own)"
+                "gloss": "movie (が = subject — starts on its own)",
+                "tokens": [
+                  {
+                    "k": "映画",
+                    "r": "えいが"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "始まりました。",
                 "role": "predicate",
-                "gloss": "started (始まる — intransitive, polite past)"
+                "gloss": "started (始まる — intransitive, polite past)",
+                "tokens": [
+                  {
+                    "k": "始",
+                    "r": "はじ",
+                    "g": "v_hajimaru_polite_mashita"
+                  },
+                  {
+                    "k": "まりました",
+                    "g": "v_hajimaru_polite_mashita"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "The movie started. (on its own)"
@@ -339,17 +550,57 @@
               {
                 "text": "映画館の人が",
                 "role": "subject",
-                "gloss": "theater staff (が = agent doing the starting)"
+                "gloss": "theater staff (が = agent doing the starting)",
+                "tokens": [
+                  {
+                    "k": "映画館",
+                    "r": "えいがかん"
+                  },
+                  {
+                    "k": "の"
+                  },
+                  {
+                    "k": "人",
+                    "r": "ひと"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "映画を",
                 "role": "object",
-                "gloss": "movie (を = direct object — what is being started)"
+                "gloss": "movie (を = direct object — what is being started)",
+                "tokens": [
+                  {
+                    "k": "映画",
+                    "r": "えいが"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "始めました。",
                 "role": "predicate",
-                "gloss": "started (始める — transitive, polite past)"
+                "gloss": "started (始める — transitive, polite past)",
+                "tokens": [
+                  {
+                    "k": "始",
+                    "r": "はじ",
+                    "g": "v_hajimeru_polite_mashita"
+                  },
+                  {
+                    "k": "めました",
+                    "g": "v_hajimeru_polite_mashita"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "The theater staff started the movie. (they did it)"
@@ -368,17 +619,58 @@
             {
               "text": "英語の授業が",
               "role": "subject",
-              "gloss": "English class (が = subject — begins on its own)"
+              "gloss": "English class (が = subject — begins on its own)",
+              "tokens": [
+                {
+                  "k": "英語",
+                  "r": "えいご"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "授"
+                },
+                {
+                  "k": "業",
+                  "r": "ぎょう"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "もうすぐ",
               "role": "adverb",
-              "gloss": "soon / shortly"
+              "gloss": "soon / shortly",
+              "tokens": [
+                {
+                  "k": "もうす"
+                },
+                {
+                  "k": "ぐ"
+                }
+              ]
             },
             {
               "text": "始まります。",
               "role": "predicate",
-              "gloss": "will begin (始まる — intransitive, polite present)"
+              "gloss": "will begin (始まる — intransitive, polite present)",
+              "tokens": [
+                {
+                  "k": "始",
+                  "r": "はじ",
+                  "g": "v_hajimaru_polite_masu"
+                },
+                {
+                  "k": "まります",
+                  "g": "v_hajimaru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "English class will start soon.",
@@ -390,17 +682,60 @@
             {
               "text": "先生が",
               "role": "subject",
-              "gloss": "teacher (が = agent doing the starting)"
+              "gloss": "teacher (が = agent doing the starting)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "英語の授業を",
               "role": "object",
-              "gloss": "English class (を = direct object — what the teacher starts)"
+              "gloss": "English class (を = direct object — what the teacher starts)",
+              "tokens": [
+                {
+                  "k": "英語",
+                  "r": "えいご"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "授"
+                },
+                {
+                  "k": "業",
+                  "r": "ぎょう"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "始めました。",
               "role": "predicate",
-              "gloss": "started (始める — transitive, polite past)"
+              "gloss": "started (始める — transitive, polite past)",
+              "tokens": [
+                {
+                  "k": "始",
+                  "r": "はじ",
+                  "g": "v_hajimeru_polite_mashita"
+                },
+                {
+                  "k": "めました",
+                  "g": "v_hajimeru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The teacher started English class.",
@@ -412,17 +747,55 @@
             {
               "text": "たくさんの人が",
               "role": "subject",
-              "gloss": "many people (が = subject entering)"
+              "gloss": "many people (が = subject entering)",
+              "tokens": [
+                {
+                  "k": "たくさん"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "映画館に",
               "role": "modifier",
-              "gloss": "into the theater (に = destination)"
+              "gloss": "into the theater (に = destination)",
+              "tokens": [
+                {
+                  "k": "映画館",
+                  "r": "えいがかん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "入りました。",
               "role": "predicate",
-              "gloss": "entered (入る — intransitive, polite past)"
+              "gloss": "entered (入る — intransitive, polite past)",
+              "tokens": [
+                {
+                  "k": "入",
+                  "r": "はい",
+                  "g": "v_hairu_polite_mashita"
+                },
+                {
+                  "k": "りました",
+                  "g": "v_hairu_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Many people entered the movie theater.",
@@ -434,22 +807,59 @@
             {
               "text": "りきぞうさんが",
               "role": "subject",
-              "gloss": "Rikizo (agent — doing the putting)"
+              "gloss": "Rikizo (agent — doing the putting)",
+              "tokens": [
+                {
+                  "k": "りきぞうさん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "メモを",
               "role": "object",
-              "gloss": "notes (を = direct object — what is being put in)"
+              "gloss": "notes (を = direct object — what is being put in)",
+              "tokens": [
+                {
+                  "k": "メモ",
+                  "r": "めも"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "ポケットに",
               "role": "modifier",
-              "gloss": "into the pocket (に = destination)"
+              "gloss": "into the pocket (に = destination)",
+              "tokens": [
+                {
+                  "k": "ポケットに"
+                }
+              ]
             },
             {
               "text": "入れました。",
               "role": "predicate",
-              "gloss": "put in (入れる — transitive, polite past)"
+              "gloss": "put in (入れる — transitive, polite past)",
+              "tokens": [
+                {
+                  "k": "入",
+                  "r": "はい",
+                  "g": "v_hairu_polite_potential_past"
+                },
+                {
+                  "k": "れました",
+                  "g": "v_hairu_polite_potential_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo put his notes in his pocket.",
@@ -461,17 +871,48 @@
             {
               "text": "りきぞうさんが",
               "role": "subject",
-              "gloss": "Rikizo (subject — exits on his own)"
+              "gloss": "Rikizo (subject — exits on his own)",
+              "tokens": [
+                {
+                  "k": "りきぞうさん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "映画館から",
               "role": "modifier",
-              "gloss": "from the movie theater (から = source / starting point)"
+              "gloss": "from the movie theater (から = source / starting point)",
+              "tokens": [
+                {
+                  "k": "映画館",
+                  "r": "えいがかん"
+                },
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "出ました。",
               "role": "predicate",
-              "gloss": "exited (出る — intransitive, polite past)"
+              "gloss": "exited (出る — intransitive, polite past)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "で",
+                  "g": "v_deru_polite_mashita"
+                },
+                {
+                  "k": "ました",
+                  "g": "v_deru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo left the movie theater.",
@@ -483,22 +924,62 @@
             {
               "text": "りきぞうさんが",
               "role": "subject",
-              "gloss": "Rikizo (agent — doing the taking out)"
+              "gloss": "Rikizo (agent — doing the taking out)",
+              "tokens": [
+                {
+                  "k": "りきぞうさん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ポケットから",
               "role": "modifier",
-              "gloss": "from the pocket (から = source)"
+              "gloss": "from the pocket (から = source)",
+              "tokens": [
+                {
+                  "k": "ポケット"
+                },
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "メモを",
               "role": "object",
-              "gloss": "notes (を = direct object — what is taken out)"
+              "gloss": "notes (を = direct object — what is taken out)",
+              "tokens": [
+                {
+                  "k": "メモ",
+                  "r": "めも"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "出しました。",
               "role": "predicate",
-              "gloss": "took out (出す — transitive, polite past)"
+              "gloss": "took out (出す — transitive, polite past)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "だ",
+                  "g": "v_dasu_polite_mashita"
+                },
+                {
+                  "k": "しました",
+                  "g": "v_dasu_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo took his notes out of his pocket.",

@@ -38,6 +38,7 @@ window.StoriesModule = (function () {
   let pages = [];               // paginated pages of the current story
   let currentPage = 0;          // position within pages
   let isFlipping = false;       // guards re-entrant page flips
+  let pf = null;                // StPageFlip instance for the reader
   let categoryOpt = null;       // 'curriculum' | 'custom' | null (both)
   let termMapData = {};         // id → term entry, for modal lookups
   let surfaceIdx = null;        // surface → entry, for runtime fallback
@@ -320,9 +321,28 @@ window.StoriesModule = (function () {
       }
       .jp-page--incoming { z-index: 0; }
       .jp-page--current { z-index: 1; }
-      /* WebGL page-curl overlay — above the pages, inside the clipped book frame. */
-      .jp-curl-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; pointer-events: none; z-index: 4; }
       .jp-page { transition: opacity 0.18s ease; }
+      /* StPageFlip reader: the mount fills the book frame; each leaf is a paper
+         page (real DOM, so furigana/term-taps/TTS work on the turning page). */
+      .jp-flip-book { width: 100%; height: 100%; }
+      .jp-flip-page { width: 100%; height: 100%; background: oklch(0.985 0.01 85);
+        display: flex; flex-direction: column; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+      .jp-flip-page .jp-page-inner { flex: 1 1 auto; min-height: 0; }
+      /* The closed book's hard cover (page 0). Color is on .jp-flip-cover-fill
+         (an inner element) because StPageFlip overwrites the page's own style. */
+      .jp-flip-cover { position: relative; }
+      .jp-flip-cover-fill { position: absolute; inset: 0; box-sizing: border-box;
+        display: flex; flex-direction: column; justify-content: flex-start;
+        padding: 30px 26px 26px 38px; color: rgba(255,255,255,0.97);
+        box-shadow: inset 9px 0 16px rgba(0,0,0,0.30), inset -2px 0 4px rgba(255,255,255,0.12); }
+      .jp-flip-cover-fill::before { content: ''; position: absolute; left: 9px; top: 14px; bottom: 14px;
+        width: 3px; background: rgba(255,255,255,0.22); border-radius: 2px; }
+      .jp-flip-cover-badge { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.28);
+        color: #fff; font-size: 0.62rem; font-weight: 700; padding: 3px 9px; border-radius: 8px;
+        letter-spacing: 0.05em; font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif; }
+      .jp-flip-cover-title { font-family: 'Noto Serif JP','Shippori Mincho',serif; font-size: 1.6rem;
+        font-weight: 700; line-height: 1.4; text-shadow: 0 1px 3px rgba(0,0,0,0.32); }
+      .jp-flip-cover-sub { margin-top: auto; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
       .jp-page-face, .jp-page-back {
         position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;
         -webkit-backface-visibility: hidden; backface-visibility: hidden;
@@ -636,25 +656,18 @@ window.StoriesModule = (function () {
     container.innerHTML = html;
     document.getElementById('jp-stories-exit').onclick = onExit;
     document.getElementById('jp-stories-back-to-levels').onclick = renderSelector;
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const sk = window.JPShared && window.JPShared.sceneKit;
     container.querySelectorAll('.jp-book-cover').forEach(card => {
       card.onclick = () => {
         const id = card.dataset.id;
         const idx = storyList.findIndex(s => s.id === id);
         if (idx < 0) return;
         currentIndex = idx;
-        if (reduceMotion) { loadStory(storyList[idx]); return; }
-        // Cover swings open on its spine to reveal the page, then the reader
-        // loads (which fades in). Idempotent guard + timeout fallback; only the
-        // face's transform transitionend counts (ignore box-shadow/hover).
-        let done = false;
-        const open = (e) => {
-          if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
-          done = true; loadStory(storyList[idx]);
-        };
-        card.addEventListener('transitionend', open);
-        setTimeout(open, 650);
-        card.classList.add('jp-opening');
+        if (sk) sk.tapFeedback(card);
+        // The reader opens onto the CLOSED book (matching cover); the user opens
+        // it there with a real hard-cover flip, so this is just a hand-off — no
+        // separate cover animation here (and a stray tap can ≡ List right back).
+        loadStory(storyList[idx]);
       };
     });
   }
@@ -699,10 +712,7 @@ window.StoriesModule = (function () {
       '</div>' +
       '<div class="jp-book">' +
         '<div class="jp-book-frame">' +
-          '<div class="jp-book-viewport">' +
-            '<div class="jp-page jp-page--incoming"></div>' +
-            '<div class="jp-page jp-page--current"></div>' +
-          '</div>' +
+          '<div class="jp-flip-book" id="jp-flip-book"></div>' +
         '</div>' +
         '<div class="jp-book-controls">' +
           '<button class="jp-page-btn" id="jp-page-prev">← Page</button>' +
@@ -719,37 +729,35 @@ window.StoriesModule = (function () {
     wireStoryEvents(data);
   }
 
-  // Build the inner HTML for one page (prose or quiz). Mirrors the old
-  // markup exactly so furigana/romaji/term spans render identically.
-  function renderPageHtml(page, data) {
+  // Build the inner content for one page (prose or quiz). Same markup as before
+  // so furigana/romaji/term spans render identically; consumed by the StPageFlip
+  // pages (and the legacy renderPageHtml wrapper).
+  function pageContentHtml(page, data) {
     if (!page) return '';
-    // Content lives in .jp-page-face; .jp-page-back is the blank reverse shown
-    // mid-flip. Wrapping here means both render sites (current + incoming) get
-    // the leaf structure automatically; wirePage selectors still match (they
-    // query descendants of the page node).
-    let face;
     if (page.type === 'quiz') {
-      face = '<div class="jp-page-inner">' + renderComprehensionCard(page.comprehension) + '</div>' +
+      return '<div class="jp-page-inner">' + renderComprehensionCard(page.comprehension) + '</div>' +
              '<div class="jp-page-foot"></div>';
-    } else {
-      let inner = '';
-      page.segments.forEach(seg => {
-        const para = data.paragraphs[seg.paraIdx] || {};
-        const tokens = seg.tokens != null ? seg.tokens : para.tokens;
-        const speakJp = seg.jp != null ? seg.jp : para.jp;
-        inner += '<p class="jp-story-paragraph" data-para="' + seg.paraIdx + '" ' +
-          'data-speak-jp="' + escAttr(speakJp || '') + '">' +
-          '<span class="jp-story-jp">' + renderTokens(tokens) + '</span>' +
-          '<button class="jp-speak-sentence" data-speak-idx="' + seg.paraIdx + '" aria-label="Speak this paragraph">🔊</button>' +
-        '</p>';
-      });
-      face = '<div class="jp-page-inner">' + inner + '</div>';
-      if (page.enText) {
-        face += '<div class="jp-page-en" hidden>' + escHtml(page.enText) + '</div>';
-      }
-      face += '<div class="jp-page-foot"></div>';
     }
-    return '<div class="jp-page-face">' + face + '</div><div class="jp-page-back" aria-hidden="true"></div>';
+    let inner = '';
+    page.segments.forEach(seg => {
+      const para = data.paragraphs[seg.paraIdx] || {};
+      const tokens = seg.tokens != null ? seg.tokens : para.tokens;
+      const speakJp = seg.jp != null ? seg.jp : para.jp;
+      inner += '<p class="jp-story-paragraph" data-para="' + seg.paraIdx + '" ' +
+        'data-speak-jp="' + escAttr(speakJp || '') + '">' +
+        '<span class="jp-story-jp">' + renderTokens(tokens) + '</span>' +
+        '<button class="jp-speak-sentence" data-speak-idx="' + seg.paraIdx + '" aria-label="Speak this paragraph">🔊</button>' +
+      '</p>';
+    });
+    let html = '<div class="jp-page-inner">' + inner + '</div>';
+    if (page.enText) html += '<div class="jp-page-en" hidden>' + escHtml(page.enText) + '</div>';
+    html += '<div class="jp-page-foot"></div>';
+    return html;
+  }
+  // Legacy wrapper (kept for the dormant CSS-flip path; unused by StPageFlip).
+  function renderPageHtml(page, data) {
+    return '<div class="jp-page-face">' + pageContentHtml(page, data) +
+           '</div><div class="jp-page-back" aria-hidden="true"></div>';
   }
 
   // Wire only the handlers that live INSIDE one page node (per-paragraph TTS,
@@ -792,8 +800,9 @@ window.StoriesModule = (function () {
   function wireStoryEvents(data) {
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     enRevealed = false;
+    pf = null;
 
-    // ── Once-per-story: header nav ──
+    // ── Header nav (per story) ──
     document.getElementById('jp-stories-exit').onclick = onExit;
     document.getElementById('jp-stories-list').onclick = renderSelector;
     document.getElementById('jp-stories-prev').onclick = () => {
@@ -803,24 +812,53 @@ window.StoriesModule = (function () {
       if (currentIndex < storyList.length - 1) { currentIndex++; loadStory(storyList[currentIndex]); }
     };
 
-    // ── EN toggle (applies to the visible page) ──
-    const enToggle = document.getElementById('jp-page-en-toggle');
-    if (enToggle) {
-      enToggle.onclick = () => {
-        enRevealed = !enRevealed;
-        const en = container.querySelector('.jp-page--current .jp-page-en');
-        if (en) en.hidden = !enRevealed;
-        updatePageControls();
-      };
-    }
+    // ── Build every page as a StPageFlip leaf (real DOM, so furigana / term
+    //    taps / TTS all keep working on the turning page). ──
+    const mount = document.getElementById('jp-flip-book');
+    // Page 0 = the closed book's hard cover (matches the shelf cover: same color
+    // + title). Opening it is a real hard-cover flip. The reader lands closed so
+    // a stray tap from the shelf can back out via ≡ List without "opening" it.
+    const sInfo = storyList[currentIndex] || {};
+    const coverBadge = sInfo.category === 'custom' ? 'CUSTOM' : (sInfo.level || 'STORY');
+    const cover = document.createElement('div');
+    cover.className = 'jp-flip-page jp-flip-cover';
+    cover.setAttribute('data-density', 'hard');
+    // The color goes on an INNER fill — StPageFlip overwrites the page element's
+    // own inline style on loadFromHTML, but leaves children alone.
+    cover.innerHTML =
+      '<div class="jp-flip-cover-fill" style="background:' + colorFromId(sInfo.id || data.id || '') + ';">' +
+        '<div class="jp-flip-cover-badge">' + escHtml(coverBadge) + '</div>' +
+        '<div class="jp-flip-cover-title">' + escHtml(data.title || sInfo.title || '') + '</div>' +
+        '<div class="jp-flip-cover-sub">' + escHtml(data.englishTitle || sInfo.subtitle || '') + '</div>' +
+      '</div>';
+    mount.appendChild(cover);
 
-    // ── Page navigation ──
+    pages.forEach((pg, i) => {
+      const leaf = document.createElement('div');
+      leaf.className = 'jp-flip-page';
+      leaf.setAttribute('data-density', 'soft');
+      leaf.innerHTML = pageContentHtml(pg, data);
+      const foot = leaf.querySelector('.jp-page-foot');
+      if (foot) foot.textContent = (i + 1) + ' / ' + pages.length;
+      mount.appendChild(leaf);
+      wirePage(leaf, data);
+    });
+    const pageEls = mount.querySelectorAll('.jp-flip-page');
+    mount.style.visibility = 'hidden'; // avoid a stacked-pages flash before init
+
+    const enToggle = document.getElementById('jp-page-en-toggle');
     const prevBtn = document.getElementById('jp-page-prev');
     const nextBtn = document.getElementById('jp-page-next');
+
     function updatePageControls() {
-      const lastPage = currentPage >= pages.length - 1;
-      prevBtn.disabled = currentPage <= 0;
-      if (lastPage) {
+      // currentPage 0 = closed cover; content pages are 1..pages.length.
+      const onCover = currentPage <= 0;
+      const lastPage = currentPage >= pages.length;
+      prevBtn.disabled = onCover;
+      if (onCover) {
+        nextBtn.textContent = 'Open →';
+        nextBtn.disabled = false;
+      } else if (lastPage) {
         const hasNextStory = currentIndex < storyList.length - 1;
         nextBtn.textContent = hasNextStory ? 'Next story →' : 'Page →';
         nextBtn.disabled = !hasNextStory;
@@ -828,22 +866,20 @@ window.StoriesModule = (function () {
         nextBtn.textContent = 'Page →';
         nextBtn.disabled = false;
       }
-      const foot = container.querySelector('.jp-page--current .jp-page-foot');
-      if (foot) foot.textContent = (currentPage + 1) + ' / ' + pages.length;
-      // EN toggle reflects the visible page: hidden when the page has no EN.
+      // EN toggle reflects the visible page: hidden on the cover / pages w/o EN.
       if (enToggle) {
-        const hasEn = !!container.querySelector('.jp-page--current .jp-page-en');
+        const curEl = pageEls[currentPage];
+        const hasEn = !onCover && !!(curEl && curEl.querySelector('.jp-page-en'));
         enToggle.style.visibility = hasEn ? 'visible' : 'hidden';
         enToggle.classList.toggle('jp-en-on', enRevealed);
       }
-
       // Tell Ask-Rikizo which story/page is on screen (visible JP as sample).
       try {
         const tc = window.JPShared && window.JPShared.tutorContext;
         const d = currentStory;
         if (tc && d) {
           let sample = '';
-          const segs = (pages[currentPage] && pages[currentPage].segments) || [];
+          const segs = (pages[currentPage - 1] && pages[currentPage - 1].segments) || [];
           for (let i = 0; i < segs.length && sample.length < 240; i++) {
             const p = (d.paragraphs || [])[segs[i].paraIdx];
             if (p && p.jp) sample += (sample ? ' ' : '') + p.jp;
@@ -856,27 +892,61 @@ window.StoriesModule = (function () {
       } catch (e) {}
     }
 
+    // EN reveal toggles across all pages; button reflects the visible page.
+    if (enToggle) enToggle.onclick = () => {
+      enRevealed = !enRevealed;
+      pageEls.forEach(el => { const en = el.querySelector('.jp-page-en'); if (en) en.hidden = !enRevealed; });
+      updatePageControls();
+    };
+
+    // Fallback (no StPageFlip / init failure): instant single-page show. Skips
+    // the cover (pageEls[0]) entirely — content pages are pageEls[1..N].
+    function showPage(i) {
+      currentPage = Math.max(1, Math.min(pages.length, i));
+      pageEls.forEach((el, idx) => { el.style.display = idx === currentPage ? '' : 'none'; });
+      updatePageControls();
+    }
+
     function nextAction() {
-      if (currentPage < pages.length - 1) goPage(currentPage + 1, data, reduceMotion, updatePageControls);
+      if (currentPage < pages.length - 1) { if (pf) pf.flipNext(); else showPage(currentPage + 1); }
       else if (currentIndex < storyList.length - 1) { currentIndex++; loadStory(storyList[currentIndex]); }
     }
     function prevAction() {
-      if (currentPage > 0) goPage(currentPage - 1, data, reduceMotion, updatePageControls);
+      if (currentPage > 0) { if (pf) pf.flipPrev(); else showPage(currentPage - 1); }
     }
-
     prevBtn.onclick = prevAction;
     nextBtn.onclick = nextAction;
-    // Tap-to-flip on the page surface. Bail on interactive elements (term /
-    // speak / quiz buttons) so their own handlers run instead of flipping.
-    // Left third = prev page, right two-thirds = next page.
-    const viewport = container.querySelector('.jp-book-viewport');
-    if (viewport) {
-      viewport.onclick = function (e) {
-        if (e.target.closest('.jp-term, .jp-speak-sentence, button, a')) return;
-        const rect = viewport.getBoundingClientRect();
-        if (e.clientX - rect.left < rect.width * 0.30) prevAction();
-        else nextAction();
-      };
+
+    // ── Init StPageFlip (single-page portrait flip with the real text). ──
+    const Lib = window.St || window.PageFlip;
+    const Ctor = (Lib && Lib.PageFlip) || (typeof window.PageFlip === 'function' ? window.PageFlip : null);
+    if (Ctor) {
+      requestAnimationFrame(() => {
+        try {
+          pf = new Ctor(mount, {
+            width: Math.max(280, mount.clientWidth || 340),
+            height: Math.max(400, mount.clientHeight || 560),
+            size: 'stretch', autoSize: true,
+            minWidth: 260, maxWidth: 1400, minHeight: 360, maxHeight: 2000,
+            usePortrait: true, showCover: true, drawShadow: true,
+            maxShadowOpacity: 0.5, flippingTime: reduceMotion ? 0 : 700,
+            useMouseEvents: true, mobileScrollSupport: false, disableFlipByClick: true,
+          });
+          pf.loadFromHTML(pageEls);
+          pf.on('flip', (e) => {
+            currentPage = e.data;
+            updatePageControls();
+            try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (err) {}
+          });
+          mount.style.visibility = '';
+          updatePageControls();
+        } catch (err) {
+          console.warn('[Stories] StPageFlip init failed; using static pages:', err && err.message);
+          pf = null; mount.style.visibility = ''; showPage(1);
+        }
+      });
+    } else {
+      mount.style.visibility = ''; showPage(1);
     }
 
     // ── Play-all (whole story, unchanged behaviour) ──
@@ -899,10 +969,6 @@ window.StoriesModule = (function () {
       };
     }
 
-    // ── Render the first page ──
-    const cur = container.querySelector('.jp-page--current');
-    cur.innerHTML = renderPageHtml(pages[currentPage], data);
-    wirePage(cur, data);
     updatePageControls();
   }
 
@@ -938,9 +1004,10 @@ window.StoriesModule = (function () {
     if (reduceMotion) { finish(); return; }
     isFlipping = true;
 
-    // NOTE: the experimental WebGL page-curl (app/shared/page-curl.js) is disabled
-    // — a blank sweeping sheet can't show the page text, so it never read as a real
-    // turn. Pending a DOM page-flip approach. Using the CSS leaf-flip below.
+    // NOTE: legacy CSS leaf-flip fallback. The live reader uses StPageFlip
+    // (real DOM pages, so furigana/term-taps/TTS work on the turning page); an
+    // earlier WebGL page-curl spike was dropped — a blank sweeping sheet can't
+    // show page text, so it never read as a real turn.
     const DUR = 520;
 
     if (forward) {

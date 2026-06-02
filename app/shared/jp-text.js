@@ -3,7 +3,7 @@
  * Shared Japanese-text renderer for Furigana + Romaji toggles.
  *
  * Two user-flippable display modes live on <html> as CSS classes:
- *   .k-furigana  — small kana above kanji (via <ruby><rt>)
+ *   .k-furigana  — small kana above kanji (absolutely-positioned sibling span)
  *   .k-romaji    — Latin spelling below kanji + bare kana
  *
  * Toggles persist in localStorage as flat 'k-*' flags ('0'/'1'):
@@ -172,8 +172,14 @@
     var noRomaji = opts && opts.noRomaji;
     if (needsRuby(tok)) {
       var rom = kanaToRomaji(r);
+      // Furigana is an absolutely-positioned SIBLING span (not <rt> inside
+      // <ruby>). iOS WKWebView does not reliably honor position:absolute on
+      // <rt>/establish <ruby> as the containing block, so ruby-based furigana
+      // falls back to native ruby flow and lands beside the kanji. This mirrors
+      // the .rt-romaji mechanism, which positions correctly across engines.
       return '<span class="jp-token">' +
-        '<ruby>' + esc(k) + '<rt class="rt-furigana">' + esc(r) + '</rt></ruby>' +
+        '<span class="jp-base">' + esc(k) + '</span>' +
+        '<span class="rt-furigana">' + esc(r) + '</span>' +
         (noRomaji ? '' : '<span class="rt-romaji">' + esc(rom) + '</span>') +
         '</span>';
     }

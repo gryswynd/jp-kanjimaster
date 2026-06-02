@@ -70,22 +70,65 @@
             {
               "text": "勉強した",
               "role": "predicate",
-              "gloss": "studied (plain past)"
+              "gloss": "studied (plain past)",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "した",
+                  "g": "v_suru_plain_past"
+                }
+              ]
             },
             {
               "text": "のに、",
               "role": "connector",
-              "gloss": "even though"
+              "gloss": "even though",
+              "tokens": [
+                {
+                  "k": "のに"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "試験に",
               "role": "modifier",
-              "gloss": "the exam (に)"
+              "gloss": "the exam (に)",
+              "tokens": [
+                {
+                  "k": "試験",
+                  "r": "しけん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "合格しなかった。",
               "role": "predicate",
-              "gloss": "didn't pass (plain negative past)"
+              "gloss": "didn't pass (plain negative past)",
+              "tokens": [
+                {
+                  "k": "合",
+                  "r": "あ"
+                },
+                {
+                  "k": "格"
+                },
+                {
+                  "k": "しなかった",
+                  "g": "v_suru_plain_past_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even though I studied, I didn't pass the exam.",
@@ -96,27 +139,72 @@
             {
               "text": "天気が",
               "role": "subject",
-              "gloss": "weather (が)"
+              "gloss": "weather (が)",
+              "tokens": [
+                {
+                  "k": "天気",
+                  "r": "てんき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "nice (plain form)"
+              "gloss": "nice (plain form)",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "のに、",
               "role": "connector",
-              "gloss": "even though"
+              "gloss": "even though",
+              "tokens": [
+                {
+                  "k": "のに"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "外に",
               "role": "modifier",
-              "gloss": "outside (に)"
+              "gloss": "outside (に)",
+              "tokens": [
+                {
+                  "k": "外",
+                  "r": "そと"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "出られない。",
               "role": "predicate",
-              "gloss": "can't go out (plain potential negative)"
+              "gloss": "can't go out (plain potential negative)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "で",
+                  "g": "v_deru_plain_potential_negative"
+                },
+                {
+                  "k": "られない",
+                  "g": "v_deru_plain_potential_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even though the weather is nice, I can't go outside.",
@@ -127,17 +215,43 @@
             {
               "text": "先生",
               "role": "subject",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "なのに、",
               "role": "connector",
-              "gloss": "even though (noun + なのに)"
+              "gloss": "even though (noun + なのに)",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "のに"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "まちがえた。",
               "role": "predicate",
-              "gloss": "made a mistake (plain past)"
+              "gloss": "made a mistake (plain past)",
+              "tokens": [
+                {
+                  "k": "まちがえた",
+                  "g": "v_machigaeru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even though he's a teacher, he made a mistake.",
@@ -177,27 +291,72 @@
             {
               "text": "食べ",
               "role": "predicate",
-              "gloss": "eat (masu-stem)"
+              "gloss": "eat (masu-stem)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "ても、",
               "role": "connector",
-              "gloss": "even if"
+              "gloss": "even if",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "まだ",
               "role": "adverb",
-              "gloss": "still"
+              "gloss": "still",
+              "tokens": [
+                {
+                  "k": "まだ"
+                }
+              ]
             },
             {
               "text": "お腹が",
               "role": "subject",
-              "gloss": "stomach (が)"
+              "gloss": "stomach (が)",
+              "tokens": [
+                {
+                  "k": "お腹"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "すいている。",
               "role": "predicate",
-              "gloss": "is empty / still hungry (ている state)"
+              "gloss": "is empty / still hungry (ている state)",
+              "tokens": [
+                {
+                  "k": "す"
+                },
+                {
+                  "k": "いて",
+                  "g": "v_iru_te_form"
+                },
+                {
+                  "k": "いる"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if I eat, I'm still hungry.",
@@ -208,17 +367,47 @@
             {
               "text": "難しく",
               "role": "predicate",
-              "gloss": "difficult (adverbial form)"
+              "gloss": "difficult (adverbial form)",
+              "tokens": [
+                {
+                  "k": "難",
+                  "r": "むずか",
+                  "g": "v_muzukashii_adverbial"
+                },
+                {
+                  "k": "しく",
+                  "g": "v_muzukashii_adverbial"
+                }
+              ]
             },
             {
               "text": "ても、",
               "role": "connector",
-              "gloss": "even if"
+              "gloss": "even if",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "あきらめません。",
               "role": "predicate",
-              "gloss": "won't give up (polite negative)"
+              "gloss": "won't give up (polite negative)",
+              "tokens": [
+                {
+                  "k": "あきらめ"
+                },
+                {
+                  "k": "ません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if it's difficult, I won't give up.",
@@ -229,17 +418,45 @@
             {
               "text": "雨",
               "role": "subject",
-              "gloss": "rain"
+              "gloss": "rain",
+              "tokens": [
+                {
+                  "k": "雨",
+                  "r": "あめ"
+                }
+              ]
             },
             {
               "text": "でも、",
               "role": "connector",
-              "gloss": "even if (noun + でも)"
+              "gloss": "even if (noun + でも)",
+              "tokens": [
+                {
+                  "k": "でも"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "行きます。",
               "role": "predicate",
-              "gloss": "will go (polite)"
+              "gloss": "will go (polite)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_polite_masu"
+                },
+                {
+                  "k": "きます",
+                  "g": "v_iku_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if it rains, I'll go.",
@@ -286,32 +503,93 @@
             {
               "text": "安い",
               "role": "predicate",
-              "gloss": "cheap (plain form)"
+              "gloss": "cheap (plain form)",
+              "tokens": [
+                {
+                  "k": "安",
+                  "r": "やす",
+                  "g": "v_yasui"
+                },
+                {
+                  "k": "い",
+                  "g": "v_yasui"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "おいしい",
               "role": "predicate",
-              "gloss": "delicious (plain form)"
+              "gloss": "delicious (plain form)",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "この店が",
               "role": "subject",
-              "gloss": "this shop (が)"
+              "gloss": "this shop (が)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "好きです。",
               "role": "predicate",
-              "gloss": "I like (polite)"
+              "gloss": "I like (polite)",
+              "tokens": [
+                {
+                  "k": "好",
+                  "r": "す",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "き",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It's cheap, and it's also delicious, so I like this shop.",
@@ -322,32 +600,98 @@
             {
               "text": "今日は",
               "role": "topic",
-              "gloss": "today (は)"
+              "gloss": "today (は)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "つかれた",
               "role": "predicate",
-              "gloss": "tired (plain past)"
+              "gloss": "tired (plain past)",
+              "tokens": [
+                {
+                  "k": "つかれた",
+                  "g": "v_tsukareru_plain_past"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "忙しかった",
               "role": "predicate",
-              "gloss": "was busy (plain past)"
+              "gloss": "was busy (plain past)",
+              "tokens": [
+                {
+                  "k": "忙",
+                  "r": "いそが",
+                  "g": "v_isogashii_plain_past_adj"
+                },
+                {
+                  "k": "しかった",
+                  "g": "v_isogashii_plain_past_adj"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "早く帰りたい。",
               "role": "predicate",
-              "gloss": "want to go home early (desire)"
+              "gloss": "want to go home early (desire)",
+              "tokens": [
+                {
+                  "k": "早",
+                  "r": "はや",
+                  "g": "v_hayai_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_hayai_adverbial"
+                },
+                {
+                  "k": "帰",
+                  "r": "かえ",
+                  "g": "v_kaeru_plain_desire_tai"
+                },
+                {
+                  "k": "りたい",
+                  "g": "v_kaeru_plain_desire_tai"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Today I'm tired, and I was busy, so I want to go home early.",
@@ -358,42 +702,124 @@
             {
               "text": "日本語は",
               "role": "topic",
-              "gloss": "Japanese (は)"
+              "gloss": "Japanese (は)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "難しい",
               "role": "predicate",
-              "gloss": "difficult"
+              "gloss": "difficult",
+              "tokens": [
+                {
+                  "k": "難",
+                  "r": "むずか",
+                  "g": "v_muzukashii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_muzukashii"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "時間も",
               "role": "subject",
-              "gloss": "time too (も)"
+              "gloss": "time too (も)",
+              "tokens": [
+                {
+                  "k": "時間",
+                  "r": "じかん"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "かかる",
               "role": "predicate",
-              "gloss": "takes (dictionary form)"
+              "gloss": "takes (dictionary form)",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "る"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "でも",
               "role": "connector",
-              "gloss": "but (sentence-initial)"
+              "gloss": "but (sentence-initial)",
+              "tokens": [
+                {
+                  "k": "でも"
+                }
+              ]
             },
             {
               "text": "楽しいですよ。",
               "role": "predicate",
-              "gloss": "it's fun! (polite)"
+              "gloss": "it's fun! (polite)",
+              "tokens": [
+                {
+                  "k": "楽",
+                  "r": "たの",
+                  "g": "v_tanoshii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_tanoshii"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Japanese is difficult, and it takes time — but it's fun!",
@@ -419,17 +845,44 @@
               {
                 "text": "勉強した",
                 "role": "predicate",
-                "gloss": "studied"
+                "gloss": "studied",
+                "tokens": [
+                  {
+                    "k": "勉強",
+                    "r": "べんきょう"
+                  },
+                  {
+                    "k": "した",
+                    "g": "v_suru_plain_past"
+                  }
+                ]
               },
               {
                 "text": "のに、",
                 "role": "connector",
-                "gloss": "even though"
+                "gloss": "even though",
+                "tokens": [
+                  {
+                    "k": "のに"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "わからない。",
                 "role": "predicate",
-                "gloss": "don't understand"
+                "gloss": "don't understand",
+                "tokens": [
+                  {
+                    "k": "わからない",
+                    "g": "v_wakaru_plain_negative"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Even though I studied, I don't understand. (frustrating!)"
@@ -449,17 +902,49 @@
               {
                 "text": "試験がある",
                 "role": "predicate",
-                "gloss": "there's an exam"
+                "gloss": "there's an exam",
+                "tokens": [
+                  {
+                    "k": "試験",
+                    "r": "しけん"
+                  },
+                  {
+                    "k": "が"
+                  },
+                  {
+                    "k": "ある"
+                  }
+                ]
               },
               {
                 "text": "ので、",
                 "role": "connector",
-                "gloss": "because"
+                "gloss": "because",
+                "tokens": [
+                  {
+                    "k": "ので"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "勉強します。",
                 "role": "predicate",
-                "gloss": "will study"
+                "gloss": "will study",
+                "tokens": [
+                  {
+                    "k": "勉強",
+                    "r": "べんきょう"
+                  },
+                  {
+                    "k": "します"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Because there's an exam, I'll study. (neutral explanation)"
@@ -486,17 +971,50 @@
               {
                 "text": "難しく",
                 "role": "predicate",
-                "gloss": "difficult (adverbial)"
+                "gloss": "difficult (adverbial)",
+                "tokens": [
+                  {
+                    "k": "難",
+                    "r": "むずか",
+                    "g": "v_muzukashii_adverbial"
+                  },
+                  {
+                    "k": "しく",
+                    "g": "v_muzukashii_adverbial"
+                  }
+                ]
               },
               {
                 "text": "ても、",
                 "role": "connector",
-                "gloss": "even if"
+                "gloss": "even if",
+                "tokens": [
+                  {
+                    "k": "ても"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "続けます。",
                 "role": "predicate",
-                "gloss": "will continue"
+                "gloss": "will continue",
+                "tokens": [
+                  {
+                    "k": "続",
+                    "r": "つづ",
+                    "g": "v_tsuzukeru_polite_masu"
+                  },
+                  {
+                    "k": "けます",
+                    "g": "v_tsuzukeru_polite_masu"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Even if it's difficult, I'll continue."
@@ -516,17 +1034,44 @@
               {
                 "text": "ここに",
                 "role": "modifier",
-                "gloss": "here (に)"
+                "gloss": "here (に)",
+                "tokens": [
+                  {
+                    "k": "ここ"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "座っ",
                 "role": "predicate",
-                "gloss": "sit (masu-stem)"
+                "gloss": "sit (masu-stem)",
+                "tokens": [
+                  {
+                    "k": "座っ"
+                  }
+                ]
               },
               {
                 "text": "てもいいです。",
                 "role": "predicate",
-                "gloss": "it's okay to / you may sit"
+                "gloss": "it's okay to / you may sit",
+                "tokens": [
+                  {
+                    "k": "ても"
+                  },
+                  {
+                    "k": "いい"
+                  },
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "You may sit here."
@@ -545,37 +1090,91 @@
             {
               "text": "今日は",
               "role": "topic",
-              "gloss": "today (は)"
+              "gloss": "today (は)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "天気が",
               "role": "subject",
-              "gloss": "weather (が)"
+              "gloss": "weather (が)",
+              "tokens": [
+                {
+                  "k": "天気",
+                  "r": "てんき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "nice (plain form)"
+              "gloss": "nice (plain form)",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "のに、",
               "role": "connector",
-              "gloss": "even though"
+              "gloss": "even though",
+              "tokens": [
+                {
+                  "k": "のに"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "ずっと",
               "role": "adverb",
-              "gloss": "the whole time"
+              "gloss": "the whole time",
+              "tokens": [
+                {
+                  "k": "ずっと"
+                }
+              ]
             },
             {
               "text": "家に",
               "role": "modifier",
-              "gloss": "at home (に)"
+              "gloss": "at home (に)",
+              "tokens": [
+                {
+                  "k": "家",
+                  "r": "いえ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "いる。",
               "role": "predicate",
-              "gloss": "am staying (exist, animate)"
+              "gloss": "am staying (exist, animate)",
+              "tokens": [
+                {
+                  "k": "いる"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even though the weather is nice today, I'm stuck at home.",
@@ -587,17 +1186,51 @@
             {
               "text": "難しく",
               "role": "predicate",
-              "gloss": "difficult (adverbial form)"
+              "gloss": "difficult (adverbial form)",
+              "tokens": [
+                {
+                  "k": "難",
+                  "r": "むずか",
+                  "g": "v_muzukashii_adverbial"
+                },
+                {
+                  "k": "しく",
+                  "g": "v_muzukashii_adverbial"
+                }
+              ]
             },
             {
               "text": "ても、",
               "role": "connector",
-              "gloss": "even if"
+              "gloss": "even if",
+              "tokens": [
+                {
+                  "k": "ても"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "あきらめないで。",
               "role": "predicate",
-              "gloss": "don't give up (negative te-form)"
+              "gloss": "don't give up (negative te-form)",
+              "tokens": [
+                {
+                  "k": "あきらめ"
+                },
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "で"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if it's difficult, don't give up.",
@@ -609,37 +1242,104 @@
             {
               "text": "あの店は",
               "role": "topic",
-              "gloss": "that shop (は)"
+              "gloss": "that shop (は)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "安い",
               "role": "predicate",
-              "gloss": "cheap"
+              "gloss": "cheap",
+              "tokens": [
+                {
+                  "k": "安",
+                  "r": "やす",
+                  "g": "v_yasui"
+                },
+                {
+                  "k": "い",
+                  "g": "v_yasui"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "おいしい",
               "role": "predicate",
-              "gloss": "delicious"
+              "gloss": "delicious",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                }
+              ]
             },
             {
               "text": "し、",
               "role": "connector",
-              "gloss": "and also"
+              "gloss": "and also",
+              "tokens": [
+                {
+                  "k": "し"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "サービスも",
               "role": "subject",
-              "gloss": "service too (も)"
+              "gloss": "service too (も)",
+              "tokens": [
+                {
+                  "k": "サービス"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "いいですよ。",
               "role": "predicate",
-              "gloss": "is good (polite)"
+              "gloss": "is good (polite)",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That shop is cheap, and it's delicious, and the service is great too!",

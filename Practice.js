@@ -877,7 +877,6 @@ window.PracticeModule = {
                     </button>
 
                     <button class="k-dojo-tile k-dojo-tile--moss" data-tour-dojo="vocabPractice" onclick="KanjiApp.showHub('k-view-hub-vocab')">
-                        <span data-tour-dojo="verbPractice" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;"></span>
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Vocab Practice</div>
@@ -888,7 +887,7 @@ window.PracticeModule = {
                         <div class="k-dojo-tile-foot">Open</div>
                     </button>
 
-                    <button class="k-dojo-tile k-dojo-tile--gold" onclick="KanjiApp.showHub('k-view-hub-writing')">
+                    <button class="k-dojo-tile k-dojo-tile--gold" data-tour-dojo="writingPractice" onclick="KanjiApp.showHub('k-view-hub-writing')">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Writing Practice</div>
@@ -899,7 +898,7 @@ window.PracticeModule = {
                         <div class="k-dojo-tile-foot">Open</div>
                     </button>
 
-                    <button class="k-dojo-tile k-dojo-tile--indigo" id="k-dojo-tile-audio" onclick="KanjiApp.showHub('k-view-hub-audio')">
+                    <button class="k-dojo-tile k-dojo-tile--indigo" id="k-dojo-tile-audio" data-tour-dojo="audioPractice" onclick="KanjiApp.showHub('k-view-hub-audio')">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Audio Practice</div>
@@ -910,7 +909,7 @@ window.PracticeModule = {
                         <div class="k-dojo-tile-foot" id="k-dojo-tile-audio-foot">Open</div>
                     </button>
 
-                    <button class="k-dojo-tile k-dojo-tile--pink" id="k-dojo-tile-games" data-tour-dojo="sentencePractice" onclick="KanjiApp.showHub('k-view-hub-games')">
+                    <button class="k-dojo-tile k-dojo-tile--pink" id="k-dojo-tile-games" data-tour-dojo="games" onclick="KanjiApp.showHub('k-view-hub-games')">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Games</div>
@@ -2142,6 +2141,7 @@ window.PracticeModule = {
 
         const msg = document.getElementById('k-q-msg');
         const haptics = window.JPShared && window.JPShared.haptics;
+        const sfx = window.JPShared && window.JPShared.sfx;
         const setMsg = function(text, kind) {
             if (!msg) return;
             msg.textContent = text;
@@ -2153,6 +2153,7 @@ window.PracticeModule = {
         if(sel===curAns) {
             btn.classList.add('correct'); curStreak++; updateStreakVisuals(curStreak);
             if (haptics) haptics.success();
+            if (sfx) sfx.success();
             const readEl = document.getElementById('k-q-read-reveal');
             if(readEl) {
                 if(curMode === 'quiz-meaning') {
@@ -2184,6 +2185,7 @@ window.PracticeModule = {
         } else {
             btn.classList.add('wrong'); curStreak = 0; resetStreakVisuals();
             if (haptics) haptics.warning();
+            if (sfx) sfx.error();
             setMsg('Wrong! It was: ' + curAns, 'is-wrong');
             document.querySelectorAll('.k-opt').forEach(b=>{if(b.innerText===curAns)b.classList.add('correct')});
         }

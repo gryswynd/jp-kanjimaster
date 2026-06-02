@@ -26,6 +26,8 @@ window.LessonModule = {
     let currentLevelLessons = null;
     let manifestData = null;
     let kanjiSel = 0; // selected kanji index in the kanji panel
+    let coverLoad = null; // prefetched { file, p:Promise<{data,resources}|null> } for the cover→lesson open
+    let coverTabs = '';   // cached progress-strip HTML so the swing overlay's folder matches the cover
 
     // --- Setup UI Container ---
     container.innerHTML = '';
@@ -156,6 +158,53 @@ window.LessonModule = {
           .lh-file-stamp img { width: 100%; height: 100%; object-fit: contain; }
           .lh-file--current .lh-file-binder { box-shadow: 0 6px 16px oklch(0.22 0.05 259 / 0.36), 0 0 0 2px var(--gold); }
           .lh-file--current.has-art { outline: 2px solid var(--gold); outline-offset: 1px; border-radius: 6px; }
+
+          /* ── Lesson folder cover ── tapping a file in the pile lands on its
+             closed FOLDER FRONT (the file is too small in the stack to be its
+             own cover, so we render a full folder front here). Pressing "Open"
+             swings the cover open on the left spine into the lesson — the
+             Stories closed-book → open flow, for a binder. */
+          .lh-folder {
+            position: relative; border-radius: 8px 14px 14px 8px; overflow: hidden;
+            background: linear-gradient(150deg, oklch(0.56 0.13 256), oklch(0.41 0.12 259));
+            border: 1px solid oklch(0.34 0.10 259);
+            box-shadow: 0 20px 46px oklch(0.22 0.05 259 / 0.40), inset -9px 0 16px oklch(0.30 0.10 259 / 0.45), inset 2px 0 0 oklch(0.72 0.10 256 / 0.5);
+          }
+          .lh-folder::after { /* clear-pocket page edges peeking over the top */
+            content: ''; position: absolute; top: -3px; left: 11%; right: 11%; height: 11px;
+            border-radius: 4px 4px 0 0; opacity: 0.6;
+            background: repeating-linear-gradient(90deg, oklch(0.92 0.02 205 / 0.85) 0 13px, oklch(0.82 0.03 205 / 0.55) 13px 19px);
+          }
+          .lh-folder-spine { position: absolute; top: 0; bottom: 0; left: 0; width: 7%; background: linear-gradient(90deg, oklch(0.33 0.10 259), oklch(0.30 0.10 259 / 0)); }
+          .lh-folder-label {
+            position: absolute; top: 8%; bottom: 8%; left: 11%; right: 8%;
+            background: linear-gradient(180deg, oklch(0.99 0.004 90), oklch(0.95 0.006 85));
+            border-radius: 5px; box-shadow: 0 2px 7px oklch(0.20 0.04 259 / 0.32);
+            padding: 8% 8% 7%; display: flex; flex-direction: column; gap: 9px;
+          }
+          .lh-folder-code { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--vermilion); }
+          .lh-folder-title { font-family: var(--font-jp-display); font-size: 25px; font-weight: 600; color: var(--ink); line-height: 1.2; letter-spacing: -0.01em; }
+          .lh-folder-rule { height: 1px; background: var(--hairline); margin: 2px 0; }
+          .lh-folder-hanko { margin-top: auto; align-self: flex-end; width: 46px; height: 46px; font-size: 24px; transform: rotate(-7deg); }
+          /* Progress strip: the clear pockets along the top become one tab per
+             lesson step — filled (moss) for completed steps, gold for where you
+             left off, faint for what's ahead. Sits over the decorative ::after. */
+          .lh-folder-tabs { position: absolute; top: -3px; left: 11%; right: 11%; height: 11px; z-index: 2; display: flex; gap: 2px; }
+          .lh-folder-tab { flex: 1 1 0; min-width: 0; border-radius: 3px 3px 0 0; background: oklch(0.87 0.025 205 / 0.7); box-shadow: inset 0 -1px 0 oklch(0.68 0.04 205 / 0.45); transition: background 0.3s ease; }
+          .lh-folder-tab.is-done { background: var(--moss); box-shadow: none; }
+          .lh-folder-tab.is-current { background: var(--gold); box-shadow: none; }
+
+          .lh-cover { display: flex; align-items: center; justify-content: center; min-height: 100%; padding: 26px 22px; perspective: 1600px; }
+          .lh-folder--cover { width: min(330px, 84vw); aspect-ratio: 3 / 4; animation: lhFolderIn 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+          @keyframes lhFolderIn { from { opacity: 0; transform: translateY(16px) scale(0.93); } to { opacity: 1; transform: none; } }
+
+          /* the "Open" swing — body-anchored over the cover's folder, so it
+             survives loadLesson()'s root.innerHTML swap; lesson loads beneath. */
+          .lh-fold-scrim { position: fixed; inset: 0; z-index: 69; pointer-events: none; background: oklch(0.20 0.03 60 / 0); transition: background 0.42s ease; }
+          .lh-fold-scrim.is-open { background: oklch(0.20 0.03 60 / 0.42); }
+          .lh-fold-stage { position: fixed; z-index: 70; pointer-events: none; perspective: 1600px; }
+          .lh-fold-spin { position: absolute; inset: 0; transform-origin: left center; transform: rotateY(0deg); backface-visibility: hidden; transition: transform 0.55s cubic-bezier(0.33, 0, 0.2, 1); }
+          .lh-fold-stage.is-open .lh-fold-spin { transform: rotateY(-145deg); }
 
           /* desk at the bottom of the pile */
           .lh-desk { position: relative; z-index: 0; margin-top: -12px; height: 150px; }
@@ -785,6 +834,11 @@ window.LessonModule = {
                 b.onclick = () => {
                     if (solved) return; solved = true;
                     const correct = choice === item.answer;
+                    try {
+                        const fx = window.JPShared.sfx, hp = window.JPShared.haptics;
+                        if (correct) { if (fx) fx.success(); if (hp) hp.success(); }
+                        else { if (fx) fx.error(); if (hp) hp.error(); }
+                    } catch (e) {}
                     Array.from(grid.children).forEach(cn => {
                         if (cn.textContent === item.answer) { cn.style.background = 'var(--moss)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
                         else if (cn === b && !correct) { cn.style.background = 'var(--vermilion)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
@@ -1054,6 +1108,137 @@ window.LessonModule = {
         });
     }
 
+    // "N5 · LESSON 36" from a lesson id like "N5.36" (falls back to the level).
+    function lessonCodeLabel(lesson) {
+        const parts = String(lesson.id || '').split('.');
+        const lvl = parts[0] || currentLevelId || '';
+        const num = parts[1] || '';
+        return (lvl ? lvl + ' · ' : '') + (num ? 'LESSON ' + num : 'LESSON');
+    }
+
+    // The folder front face (spine + white label + progress strip) shared by the
+    // cover screen and the swing overlay so the thing that opens matches what you
+    // tapped. tabsHtml is the resolved progress strip (empty until prefetch lands —
+    // the decorative ::after pockets show in the meantime).
+    function coverFrontInner(lesson, tabsHtml) {
+        return (tabsHtml || '') +
+            '<div class="lh-folder-spine"></div>' +
+            '<div class="lh-folder-label">' +
+              '<div class="lh-folder-code">' + esc(lessonCodeLabel(lesson)) + '</div>' +
+              '<div class="lh-folder-title">' + esc(lesson.title || 'Lesson') + '</div>' +
+              '<div class="lh-folder-rule"></div>' +
+              '<span class="lh-hanko jp-serif lh-folder-hanko">開</span>' +
+            '</div>';
+    }
+
+    // Current progress for a lesson (from the unlock API + saved resume step).
+    function lessonProgressFor(lesson) {
+        const unlockApi = window.JPShared && window.JPShared.unlock;
+        return {
+            completed: unlockApi ? !!unlockApi.isCompleted(lesson.id) : false,
+            resumeStep: _resumeMap()[lesson.id] || 0,
+        };
+    }
+
+    // Build the top progress strip: one tab per lesson step. `count` is the total
+    // step count (sections + the synthetic intro); done = steps behind you.
+    function coverTabsHtml(count, prog) {
+        if (!count || count < 2) return '';
+        const done = prog.completed ? count : Math.min(count, Math.max(0, prog.resumeStep));
+        let html = '<div class="lh-folder-tabs">';
+        for (let i = 0; i < count; i++) {
+            const cls = (i < done) ? ' is-done' : (i === done && !prog.completed ? ' is-current' : '');
+            html += '<span class="lh-folder-tab' + cls + '"></span>';
+        }
+        return html + '</div>';
+    }
+
+    // Fetch the lesson JSON + resources up front (while the user reads the cover)
+    // so opening is instant + we know the step count for the progress strip.
+    function prefetchLesson(filePath) {
+        const lessonUrl = getCdnUrl(filePath);
+        const p = Promise.all([
+            fetch(lessonUrl).then(r => r.json()),
+            loadResources(),
+        ]).then(([data, resources]) => ({ data, resources })).catch(() => null);
+        coverLoad = { file: filePath, p };
+        return p;
+    }
+
+    // Tap a lesson file → land on its closed folder front (a deliberate cover
+    // screen). Pressing "Open" runs openCoverIntoLesson().
+    function openLessonFile(fileEl, lesson) {
+        const sk = window.JPShared && window.JPShared.sceneKit;
+        if (sk) sk.tapFeedback(fileEl);
+        renderLessonCover(lesson);
+    }
+
+    function renderLessonCover(lesson) {
+        if (window.JPApp) window.JPApp.hideTabBar(); // focused: stepping into the lesson
+        const prog = lessonProgressFor(lesson);
+        coverTabs = '';
+        root.innerHTML =
+            '<div class="lh-header">' + headerHtml({ code: lessonCodeLabel(lesson), title: lesson.title || 'Lesson', backLabel: 'List' }) + '</div>' +
+            '<div class="lh-body"><div class="lh-cover">' +
+              '<div class="lh-folder lh-folder--cover">' + coverFrontInner(lesson, '') + '</div>' +
+            '</div></div>' +
+            '<div class="lh-footer">' +
+              '<button class="lh-btn-back" id="lh-cover-back">' + SVG_BACK + ' List</button>' +
+              '<button class="lh-btn-next" id="lh-cover-open">Open ' + SVG_NEXT + '</button>' +
+            '</div>';
+        const toMenu = () => renderMenu(currentLevelId, currentLevelLessons);
+        wireHeader({ back: toMenu });
+        document.getElementById('lh-cover-back').onclick = toMenu;
+        document.getElementById('lh-cover-open').onclick = () => openCoverIntoLesson(lesson);
+
+        // Prefetch the lesson, then fill the progress strip once we know the step count.
+        prefetchLesson(lesson.file).then(payload => {
+            if (!payload) return;
+            const count = (payload.data.sections || []).length + 1; // +1 for the intro step
+            coverTabs = coverTabsHtml(count, prog);
+            const folder = root.querySelector('.lh-folder--cover');
+            if (folder && coverTabs) {
+                const old = folder.querySelector('.lh-folder-tabs');
+                if (old) old.remove();
+                folder.insertAdjacentHTML('afterbegin', coverTabs);
+            }
+        });
+    }
+
+    // Swing the folder cover open into the lesson. A body-anchored stage (over
+    // the cover's folder rect) survives loadLesson()'s root.innerHTML swap; the
+    // prefetched lesson renders beneath (no blank page / no "Loading…"), the
+    // cover swings off the spine, then the stage fades to the lesson.
+    function openCoverIntoLesson(lesson) {
+        const sk = window.JPShared && window.JPShared.sceneKit;
+        const reduce = sk ? sk.prefersReducedMotion() : false;
+        const folder = root.querySelector('.lh-folder--cover');
+        const rect = folder ? folder.getBoundingClientRect() : null;
+        if (reduce || !rect || !rect.width) { loadLesson(lesson.file); return; }
+
+        const scrim = el('div', 'lh-fold-scrim');
+        const stage = el('div', 'lh-fold-stage');
+        stage.style.cssText = 'left:' + rect.left + 'px;top:' + rect.top + 'px;width:' + rect.width + 'px;height:' + rect.height + 'px;';
+        stage.innerHTML = '<div class="lh-fold-spin lh-folder">' + coverFrontInner(lesson, coverTabs) + '</div>';
+        document.body.appendChild(scrim);
+        document.body.appendChild(stage);
+
+        try {
+            if (window.JPShared.sfx) window.JPShared.sfx.open();
+            if (window.JPShared.haptics) window.JPShared.haptics.medium();
+        } catch (e) {}
+        loadLesson(lesson.file); // prefetched → renders beneath within a frame
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            scrim.classList.add('is-open');
+            stage.classList.add('is-open');
+        }));
+        setTimeout(() => {
+            scrim.style.transition = 'background 0.3s ease'; scrim.style.background = 'transparent';
+            stage.style.transition = 'opacity 0.3s ease'; stage.style.opacity = '0';
+            setTimeout(() => { stage.remove(); scrim.remove(); }, 320);
+        }, 560);
+    }
+
     function renderMenu(level, lessons) {
         if (window.JPApp) window.JPApp.showTabBar();
         currentLevelId = level;
@@ -1127,7 +1312,7 @@ window.LessonModule = {
           face.appendChild(el('div', 'lh-file-right', rightHtml));
           file.appendChild(face);
 
-          file.onclick = () => { if (sk) sk.tapFeedback(file); loadLesson(lesson.file); };
+          file.onclick = () => openLessonFile(file, lesson);
           menuEl.appendChild(file);
         });
     }
@@ -1160,14 +1345,23 @@ window.LessonModule = {
         if (window.JPShared.rikizoCompanion && window.JPShared.rikizoCompanion.resetRuntime) {
             window.JPShared.rikizoCompanion.resetRuntime();
         }
-        root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Loading…', backLabel: 'List' }) + '</div>' +
-            '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>' +
-            '<div class="lh-footer"></div>';
-        wireHeader({ back: () => renderMenu(currentLevelId, currentLevelLessons) });
+        // If the cover prefetched this lesson, await it WITHOUT swapping to a
+        // "Loading…" screen first — the cover screen (or the swinging overlay)
+        // stays put until the lesson is ready, so the open stays seamless.
+        let payload = null;
+        if (coverLoad && coverLoad.file === filePath) { payload = await coverLoad.p; coverLoad = null; }
         try {
-          const lessonUrl = getCdnUrl(filePath);
-          const [lRes, resources] = await Promise.all([fetch(lessonUrl), loadResources()]);
-          lessonData = await lRes.json();
+          if (!payload) {
+            root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Loading…', backLabel: 'List' }) + '</div>' +
+                '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>' +
+                '<div class="lh-footer"></div>';
+            wireHeader({ back: () => renderMenu(currentLevelId, currentLevelLessons) });
+            const lessonUrl = getCdnUrl(filePath);
+            const [lRes, resources] = await Promise.all([fetch(lessonUrl), loadResources()]);
+            payload = { data: await lRes.json(), resources };
+          }
+          const resources = payload.resources;
+          lessonData = payload.data;
           drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
           drillStats = [];
           lessonData.sections.forEach(sec => {

@@ -73,17 +73,36 @@
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(て-form)-"
+              "gloss": "eat(て-form)-",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "connector"
+              "gloss": "connector",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "predicate",
-              "gloss": "is (polite)"
+              "gloss": "is (polite)",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "is eating (right now)",
@@ -94,17 +113,36 @@
             {
               "text": "飲ん",
               "role": "verb",
-              "gloss": "drink(て-form)-"
+              "gloss": "drink(て-form)-",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の"
+                },
+                {
+                  "k": "ん"
+                }
+              ]
             },
             {
               "text": "で",
               "role": "predicate",
-              "gloss": "connector (voiced)"
+              "gloss": "connector (voiced)",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "predicate",
-              "gloss": "is (polite)"
+              "gloss": "is (polite)",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "is drinking (right now)",
@@ -115,27 +153,69 @@
             {
               "text": "カレーを",
               "role": "topic",
-              "gloss": "curry (object)"
+              "gloss": "curry (object)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(て)-"
+              "gloss": "eat(て)-",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "connector"
+              "gloss": "connector",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "predicate",
-              "gloss": "is"
+              "gloss": "is",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             },
             {
               "text": "か。",
               "role": "modifier",
-              "gloss": "?"
+              "gloss": "?",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Are you eating curry (right now)?",
@@ -179,17 +259,47 @@
             {
               "text": "プレゼントを",
               "role": "topic",
-              "gloss": "gift (object)"
+              "gloss": "gift (object)",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "買い",
               "role": "verb",
-              "gloss": "buy(stem)-"
+              "gloss": "buy(stem)-",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か"
+                },
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "たいです。",
               "role": "predicate",
-              "gloss": "want to"
+              "gloss": "want to",
+              "tokens": [
+                {
+                  "k": "たい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want to buy a gift.",
@@ -200,22 +310,54 @@
             {
               "text": "デパートへ",
               "role": "topic",
-              "gloss": "to the dept. store"
+              "gloss": "to the dept. store",
+              "tokens": [
+                {
+                  "k": "デパート",
+                  "r": "でぱーと"
+                },
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go(stem)-"
+              "gloss": "go(stem)-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "たく",
               "role": "modifier",
-              "gloss": "want(neg stem)-"
+              "gloss": "want(neg stem)-",
+              "tokens": [
+                {
+                  "k": "たく"
+                }
+              ]
             },
             {
               "text": "ないです。",
               "role": "predicate",
-              "gloss": "not"
+              "gloss": "not",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I don't want to go to the department store.",
@@ -226,17 +368,50 @@
             {
               "text": "何を",
               "role": "topic",
-              "gloss": "what (object)"
+              "gloss": "what (object)",
+              "tokens": [
+                {
+                  "k": "何",
+                  "r": "なん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(stem)-"
+              "gloss": "eat(stem)-",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "たいですか。",
               "role": "predicate",
-              "gloss": "want to?"
+              "gloss": "want to?",
+              "tokens": [
+                {
+                  "k": "たい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "What do you want to eat?",
@@ -279,22 +454,70 @@
             {
               "text": "弟は",
               "role": "topic",
-              "gloss": "my younger brother (topic)"
+              "gloss": "my younger brother (topic)",
+              "tokens": [
+                {
+                  "k": "弟",
+                  "r": "おとうと"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "カレーを",
               "role": "object",
-              "gloss": "curry (object)"
+              "gloss": "curry (object)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(stem)-"
+              "gloss": "eat(stem)-",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "たがっています。",
               "role": "predicate",
-              "gloss": "is showing desire to (たがる progressive)"
+              "gloss": "is showing desire to (たがる progressive)",
+              "tokens": [
+                {
+                  "k": "たが"
+                },
+                {
+                  "k": "って"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "My younger brother is showing he wants to eat curry.",
@@ -305,22 +528,66 @@
             {
               "text": "友だちは",
               "role": "topic",
-              "gloss": "my friend (topic)"
+              "gloss": "my friend (topic)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "デパートへ",
               "role": "modifier",
-              "gloss": "to the dept. store"
+              "gloss": "to the dept. store",
+              "tokens": [
+                {
+                  "k": "デパート",
+                  "r": "でぱーと"
+                },
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go(stem)-"
+              "gloss": "go(stem)-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "たがっています。",
               "role": "predicate",
-              "gloss": "is showing desire to"
+              "gloss": "is showing desire to",
+              "tokens": [
+                {
+                  "k": "たが"
+                },
+                {
+                  "k": "って"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "My friend is showing he wants to go to the department store.",
@@ -347,22 +614,67 @@
               {
                 "text": "わたしは",
                 "role": "topic",
-                "gloss": "I (topic)"
+                "gloss": "I (topic)",
+                "tokens": [
+                  {
+                    "k": "わたし",
+                    "g": "v_watashi"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "カレーを",
                 "role": "object",
-                "gloss": "curry (object)"
+                "gloss": "curry (object)",
+                "tokens": [
+                  {
+                    "k": "カレ",
+                    "r": "かれ",
+                    "g": "v_karee"
+                  },
+                  {
+                    "k": "ー",
+                    "g": "v_karee"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べ",
                 "role": "verb",
-                "gloss": "eat(stem)-"
+                "gloss": "eat(stem)-",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た"
+                  },
+                  {
+                    "k": "べ"
+                  }
+                ]
               },
               {
                 "text": "たいです。",
                 "role": "predicate",
-                "gloss": "want to"
+                "gloss": "want to",
+                "tokens": [
+                  {
+                    "k": "たい"
+                  },
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I want to eat curry."
@@ -383,22 +695,70 @@
               {
                 "text": "弟は",
                 "role": "topic",
-                "gloss": "younger brother (topic)"
+                "gloss": "younger brother (topic)",
+                "tokens": [
+                  {
+                    "k": "弟",
+                    "r": "おとうと"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "カレーを",
                 "role": "object",
-                "gloss": "curry (object)"
+                "gloss": "curry (object)",
+                "tokens": [
+                  {
+                    "k": "カレ",
+                    "r": "かれ",
+                    "g": "v_karee"
+                  },
+                  {
+                    "k": "ー",
+                    "g": "v_karee"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べ",
                 "role": "verb",
-                "gloss": "eat(stem)-"
+                "gloss": "eat(stem)-",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た"
+                  },
+                  {
+                    "k": "べ"
+                  }
+                ]
               },
               {
                 "text": "たがっています。",
                 "role": "predicate",
-                "gloss": "is showing desire to"
+                "gloss": "is showing desire to",
+                "tokens": [
+                  {
+                    "k": "たが"
+                  },
+                  {
+                    "k": "って"
+                  },
+                  {
+                    "k": "います"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "My younger brother is showing he wants to eat curry."
@@ -444,17 +804,40 @@
             {
               "text": "いっしょに",
               "role": "modifier",
-              "gloss": "together"
+              "gloss": "together",
+              "tokens": [
+                {
+                  "k": "いっしょに",
+                  "g": "v_issho"
+                }
+              ]
             },
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(stem)-"
+              "gloss": "eat(stem)-",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "ましょう。",
               "role": "predicate",
-              "gloss": "let's"
+              "gloss": "let's",
+              "tokens": [
+                {
+                  "k": "ましょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's eat together.",
@@ -465,17 +848,43 @@
             {
               "text": "デパートへ",
               "role": "topic",
-              "gloss": "to the dept. store"
+              "gloss": "to the dept. store",
+              "tokens": [
+                {
+                  "k": "デパート",
+                  "r": "でぱーと"
+                },
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go(stem)-"
+              "gloss": "go(stem)-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ましょうか。",
               "role": "predicate",
-              "gloss": "shall we?"
+              "gloss": "shall we?",
+              "tokens": [
+                {
+                  "k": "ましょう"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Shall we go to the department store?",
@@ -486,17 +895,48 @@
             {
               "text": "友だちと",
               "role": "topic",
-              "gloss": "with friend"
+              "gloss": "with friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "買い",
               "role": "verb",
-              "gloss": "buy(stem)-"
+              "gloss": "buy(stem)-",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か"
+                },
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ましょう。",
               "role": "predicate",
-              "gloss": "let's"
+              "gloss": "let's",
+              "tokens": [
+                {
+                  "k": "ましょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's buy it with a friend.",
@@ -534,12 +974,26 @@
             {
               "text": "プレゼント",
               "role": "topic",
-              "gloss": "gift"
+              "gloss": "gift",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                }
+              ]
             },
             {
               "text": "でしょう。",
               "role": "predicate",
-              "gloss": "probably is"
+              "gloss": "probably is",
+              "tokens": [
+                {
+                  "k": "でしょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It's probably a gift.",
@@ -550,12 +1004,31 @@
             {
               "text": "高い",
               "role": "modifier",
-              "gloss": "expensive (plain form)"
+              "gloss": "expensive (plain form)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_takai"
+                }
+              ]
             },
             {
               "text": "でしょう。",
               "role": "predicate",
-              "gloss": "probably"
+              "gloss": "probably",
+              "tokens": [
+                {
+                  "k": "でしょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It's probably expensive.",
@@ -566,17 +1039,46 @@
             {
               "text": "デパートへ",
               "role": "modifier",
-              "gloss": "to dept. store"
+              "gloss": "to dept. store",
+              "tokens": [
+                {
+                  "k": "デパート",
+                  "r": "でぱーと"
+                },
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行く",
               "role": "verb",
-              "gloss": "go (plain/dictionary form)"
+              "gloss": "go (plain/dictionary form)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "く",
+                  "g": "v_iku"
+                }
+              ]
             },
             {
               "text": "でしょう。",
               "role": "predicate",
-              "gloss": "probably"
+              "gloss": "probably",
+              "tokens": [
+                {
+                  "k": "でしょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "They will probably go to the department store.",
@@ -602,12 +1104,31 @@
               {
                 "text": "高い",
                 "role": "modifier",
-                "gloss": "expensive"
+                "gloss": "expensive",
+                "tokens": [
+                  {
+                    "k": "高",
+                    "r": "たか",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "い",
+                    "g": "v_takai"
+                  }
+                ]
               },
               {
                 "text": "でしょう。",
                 "role": "predicate",
-                "gloss": "probably"
+                "gloss": "probably",
+                "tokens": [
+                  {
+                    "k": "でしょう"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "It's probably expensive."
@@ -627,12 +1148,31 @@
               {
                 "text": "高い",
                 "role": "modifier",
-                "gloss": "expensive"
+                "gloss": "expensive",
+                "tokens": [
+                  {
+                    "k": "高",
+                    "r": "たか",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "い",
+                    "g": "v_takai"
+                  }
+                ]
               },
               {
                 "text": "だろう。",
                 "role": "predicate",
-                "gloss": "probably (casual)"
+                "gloss": "probably (casual)",
+                "tokens": [
+                  {
+                    "k": "だろう"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Probably expensive. (casual)"
@@ -724,32 +1264,84 @@
             {
               "text": "やまかわさんは",
               "role": "topic",
-              "gloss": "Yamakawa (topic)"
+              "gloss": "Yamakawa (topic)",
+              "tokens": [
+                {
+                  "k": "やまかわさん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "今",
               "role": "modifier",
-              "gloss": "now"
+              "gloss": "now",
+              "tokens": [
+                {
+                  "k": "今",
+                  "r": "いま"
+                }
+              ]
             },
             {
               "text": "カレーを",
               "role": "modifier",
-              "gloss": "curry (object)"
+              "gloss": "curry (object)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べ",
               "role": "verb",
-              "gloss": "eat(て)-"
+              "gloss": "eat(て)-",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "て",
               "role": "predicate",
-              "gloss": "connector"
+              "gloss": "connector",
+              "tokens": [
+                {
+                  "k": "て"
+                }
+              ]
             },
             {
               "text": "います。",
               "role": "predicate",
-              "gloss": "is"
+              "gloss": "is",
+              "tokens": [
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Yamakawa-san is eating curry right now.",
@@ -761,17 +1353,47 @@
             {
               "text": "プレゼントを",
               "role": "topic",
-              "gloss": "gift (object)"
+              "gloss": "gift (object)",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "買い",
               "role": "verb",
-              "gloss": "buy(stem)-"
+              "gloss": "buy(stem)-",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か"
+                },
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "たいです。",
               "role": "predicate",
-              "gloss": "want to"
+              "gloss": "want to",
+              "tokens": [
+                {
+                  "k": "たい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want to buy a gift.",
@@ -783,22 +1405,51 @@
             {
               "text": "いっしょに",
               "role": "modifier",
-              "gloss": "together"
+              "gloss": "together",
+              "tokens": [
+                {
+                  "k": "いっしょに",
+                  "g": "v_issho"
+                }
+              ]
             },
             {
               "text": "デパートへ",
               "role": "modifier",
-              "gloss": "to dept. store"
+              "gloss": "to dept. store",
+              "tokens": [
+                {
+                  "k": "デパート",
+                  "r": "でぱーと"
+                },
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go(stem)-"
+              "gloss": "go(stem)-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ましょう。",
               "role": "predicate",
-              "gloss": "let's"
+              "gloss": "let's",
+              "tokens": [
+                {
+                  "k": "ましょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's go to the department store together.",
@@ -810,22 +1461,63 @@
             {
               "text": "コーヒーは",
               "role": "topic",
-              "gloss": "coffee (topic)"
+              "gloss": "coffee (topic)",
+              "tokens": [
+                {
+                  "k": "コーヒ",
+                  "r": "こーひ",
+                  "g": "v_koohii"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_koohii"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "飲み",
               "role": "verb",
-              "gloss": "drink(stem)-"
+              "gloss": "drink(stem)-",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の"
+                },
+                {
+                  "k": "み"
+                }
+              ]
             },
             {
               "text": "たく",
               "role": "modifier",
-              "gloss": "want(neg)-"
+              "gloss": "want(neg)-",
+              "tokens": [
+                {
+                  "k": "たく"
+                }
+              ]
             },
             {
               "text": "ないです。",
               "role": "predicate",
-              "gloss": "not"
+              "gloss": "not",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I don't want to drink coffee.",
@@ -837,17 +1529,46 @@
             {
               "text": "プレゼントは",
               "role": "topic",
-              "gloss": "gift (topic)"
+              "gloss": "gift (topic)",
+              "tokens": [
+                {
+                  "k": "プレゼント",
+                  "r": "ぷれぜんと"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "高い",
               "role": "modifier",
-              "gloss": "expensive (plain)"
+              "gloss": "expensive (plain)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_takai"
+                }
+              ]
             },
             {
               "text": "でしょう。",
               "role": "predicate",
-              "gloss": "probably"
+              "gloss": "probably",
+              "tokens": [
+                {
+                  "k": "でしょう"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The gift is probably expensive.",

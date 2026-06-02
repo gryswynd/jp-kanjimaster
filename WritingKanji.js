@@ -402,6 +402,7 @@ window.WritingKanjiModule = (function () {
           };
           saveMastered(state.mastered);
           if (window.JPShared && window.JPShared.haptics) window.JPShared.haptics.success();
+          if (window.JPShared && window.JPShared.sfx) window.JPShared.sfx.success();
           if (window.JPShared && window.JPShared.progress && window.JPShared.progress.recordActivity) {
             try { window.JPShared.progress.recordActivity(); } catch (e) {}
           }

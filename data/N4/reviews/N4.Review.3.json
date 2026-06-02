@@ -547,10 +547,16 @@
             "v_aji",
             "p_wa",
             "v_dou",
-            {"id": "g_desu", "form": "copula_past"},
+            {
+              "id": "g_desu",
+              "form": "copula_past"
+            },
             "p_ka",
             "v_totemo",
-            {"id": "v_ii", "form": "plain_past_adj"},
+            {
+              "id": "v_ii",
+              "form": "plain_past_adj"
+            },
             "g_desu"
           ],
           "explanation": "料理の味がとても よかったです — 'The taste of the dish was very good.' よかったです is the past polite form of いい: the irregular い→よ stem change gives よかった + です. Note: いかったです is a common mistake but is incorrect."
@@ -710,7 +716,7 @@
           "explanation": "昼ご飯 (lunch) fits: eating lunch during the lunch break with a friend is natural. 晩ご飯 is dinner — an evening meal, not appropriate for a midday break. 飲み物 is a drink — you drink (飲む) it, not eat (食べる) it. 買い物 is shopping — you do (する) shopping, you don't eat it.",
           "terms": [
             "v_hiruyasumi",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "v_hirugohan",
             "v_bangohan",
             "v_nomimono",
@@ -835,7 +841,7 @@
           "answer": "行きましょう",
           "explanation": "<b>行きましょう</b> (let's go — polite volitional form of 行く) fits: the speaker is extending an invitation to go together. 行きたいです means 'I want to go' — personal desire, not an invitation to another person. 行きます is plain present/future 'will go.' 行きました is past 'went.' いっしょに食べに行きましょう = 'Let's go eat together.'",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "v_hiruyasumi",
             "v_issho",
             {

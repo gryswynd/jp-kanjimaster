@@ -65,17 +65,44 @@
             {
               "text": "いる",
               "role": "verb",
-              "gloss": "dictionary form (to be/exist)"
+              "gloss": "dictionary form (to be/exist)",
+              "tokens": [
+                {
+                  "k": "いる"
+                }
+              ]
             },
             {
               "text": "→ い",
               "role": "modifier",
-              "gloss": "drop る → stem"
+              "gloss": "drop る → stem",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "→ います",
               "role": "predicate",
-              "gloss": "add ます"
+              "gloss": "add ます",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "to be here → is here (polite present)",
@@ -86,20 +113,46 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be-"
+              "gloss": "be-",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "My friend is here.",
@@ -142,17 +195,56 @@
             {
               "text": "行く",
               "role": "verb",
-              "gloss": "dictionary form (to go)"
+              "gloss": "dictionary form (to go)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "く",
+                  "g": "v_iku"
+                }
+              ]
             },
             {
               "text": "→ 行き",
               "role": "modifier",
-              "gloss": "く→き (い-row shift)"
+              "gloss": "く→き (い-row shift)",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "→ 行きます",
               "role": "predicate",
-              "gloss": "add ます"
+              "gloss": "add ます",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_polite_masu"
+                },
+                {
+                  "k": "きます",
+                  "g": "v_iku_polite_masu"
+                }
+              ]
             }
           ],
           "en": "to go → go (polite present)",
@@ -163,25 +255,52 @@
             {
               "text": "毎日",
               "role": "modifier",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I go to the station every day.",
@@ -192,11 +311,28 @@
             {
               "text": "分かり",
               "role": "verb",
-              "gloss": "understand-"
+              "gloss": "understand-",
+              "tokens": [
+                {
+                  "k": "分",
+                  "r": "わ"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "り"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I understand. (polite present)",
@@ -325,12 +461,40 @@
             {
               "text": "来る",
               "role": "verb",
-              "gloss": "dictionary (to come)"
+              "gloss": "dictionary (to come)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "く",
+                  "g": "v_kuru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_kuru"
+                }
+              ]
             },
             {
               "text": "→ 来ます",
               "role": "predicate",
-              "gloss": "reading: きます (irregular)"
+              "gloss": "reading: きます (irregular)",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_polite_masu"
+                },
+                {
+                  "k": "ます",
+                  "g": "v_kuru_polite_masu"
+                }
+              ]
             }
           ],
           "en": "to come → comes (polite present) — reading changes to き",
@@ -341,12 +505,28 @@
             {
               "text": "する",
               "role": "verb",
-              "gloss": "dictionary (to do)"
+              "gloss": "dictionary (to do)",
+              "tokens": [
+                {
+                  "k": "する"
+                }
+              ]
             },
             {
               "text": "→ します",
               "role": "predicate",
-              "gloss": "irregular stem: し"
+              "gloss": "irregular stem: し",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "します"
+                }
+              ]
             }
           ],
           "en": "to do → does (polite present) — stem し cannot be predicted",
@@ -357,20 +537,41 @@
             {
               "text": "コンビニ",
               "role": "topic",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "あり",
               "role": "verb",
-              "gloss": "exist-"
+              "gloss": "exist-",
+              "tokens": [
+                {
+                  "k": "あり"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "There is a convenience store (over there).",
@@ -381,20 +582,46 @@
             {
               "text": "友だち",
               "role": "subject",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "My friend came.",
@@ -476,17 +703,44 @@
               {
                 "text": "いる",
                 "role": "verb",
-                "gloss": "い (い-row) + る"
+                "gloss": "い (い-row) + る",
+                "tokens": [
+                  {
+                    "k": "いる"
+                  }
+                ]
               },
               {
                 "text": "→ い",
                 "role": "modifier",
-                "gloss": "drop る"
+                "gloss": "drop る",
+                "tokens": [
+                  {
+                    "k": "→"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "い"
+                  }
+                ]
               },
               {
                 "text": "→ います",
                 "role": "predicate",
-                "gloss": "ichidan ✓"
+                "gloss": "ichidan ✓",
+                "tokens": [
+                  {
+                    "k": "→"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "います"
+                  }
+                ]
               }
             ],
             "en": "to be here → is here (ichidan)"
@@ -507,17 +761,63 @@
               {
                 "text": "分かる",
                 "role": "verb",
-                "gloss": "か (あ-row) + る"
+                "gloss": "か (あ-row) + る",
+                "tokens": [
+                  {
+                    "k": "分",
+                    "r": "わ",
+                    "g": "v_wakaru"
+                  },
+                  {
+                    "k": "かる",
+                    "g": "v_wakaru"
+                  }
+                ]
               },
               {
                 "text": "→ 分かり",
                 "role": "modifier",
-                "gloss": "る→り (godan shift)"
+                "gloss": "る→り (godan shift)",
+                "tokens": [
+                  {
+                    "k": "→"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "分",
+                    "r": "わ"
+                  },
+                  {
+                    "k": "か"
+                  },
+                  {
+                    "k": "り"
+                  }
+                ]
               },
               {
                 "text": "→ 分かります",
                 "role": "predicate",
-                "gloss": "godan ✓"
+                "gloss": "godan ✓",
+                "tokens": [
+                  {
+                    "k": "→"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "分",
+                    "r": "わ",
+                    "g": "v_wakaru_polite_masu"
+                  },
+                  {
+                    "k": "かります",
+                    "g": "v_wakaru_polite_masu"
+                  }
+                ]
               }
             ],
             "en": "to understand → understands (godan, not ichidan!)"
@@ -563,17 +863,45 @@
             {
               "text": "きる",
               "role": "verb",
-              "gloss": "to cut (godan)"
+              "gloss": "to cut (godan)",
+              "tokens": [
+                {
+                  "k": "きる"
+                }
+              ]
             },
             {
               "text": "→ きり",
               "role": "modifier",
-              "gloss": "る→り (godan shift)"
+              "gloss": "る→り (godan shift)",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "きり"
+                }
+              ]
             },
             {
               "text": "→ きります",
               "role": "predicate",
-              "gloss": "godan ✓"
+              "gloss": "godan ✓",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "きります",
+                  "g": "v_kiru_2_polite_masu"
+                }
+              ]
             }
           ],
           "en": "to cut → cuts (godan: る→り shift, NOT る drop)",
@@ -584,17 +912,45 @@
             {
               "text": "きる",
               "role": "verb",
-              "gloss": "to wear (ichidan)"
+              "gloss": "to wear (ichidan)",
+              "tokens": [
+                {
+                  "k": "きる"
+                }
+              ]
             },
             {
               "text": "→ き",
               "role": "modifier",
-              "gloss": "drop る"
+              "gloss": "drop る",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "き"
+                }
+              ]
             },
             {
               "text": "→ きます",
               "role": "predicate",
-              "gloss": "ichidan ✓"
+              "gloss": "ichidan ✓",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "きます",
+                  "g": "v_kuru_polite_masu"
+                }
+              ]
             }
           ],
           "en": "to wear → wears (ichidan: drop る)",
@@ -605,17 +961,52 @@
             {
               "text": "はいる",
               "role": "verb",
-              "gloss": "to enter (godan)"
+              "gloss": "to enter (godan)",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "いる"
+                }
+              ]
             },
             {
               "text": "→ はいり",
               "role": "modifier",
-              "gloss": "る→り (godan shift)"
+              "gloss": "る→り (godan shift)",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "はい"
+                },
+                {
+                  "k": "り"
+                }
+              ]
             },
             {
               "text": "→ はいります",
               "role": "predicate",
-              "gloss": "godan ✓"
+              "gloss": "godan ✓",
+              "tokens": [
+                {
+                  "k": "→"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "はいります",
+                  "g": "v_hairu_polite_masu"
+                }
+              ]
             }
           ],
           "en": "to enter → enters (godan despite いる ending)",
@@ -633,29 +1024,65 @@
             {
               "text": "友だち",
               "role": "subject",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ここ",
               "role": "modifier",
-              "gloss": "here"
+              "gloss": "here",
+              "tokens": [
+                {
+                  "k": "ここ"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be-"
+              "gloss": "be-",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "My friend is here.",
@@ -667,25 +1094,52 @@
             {
               "text": "今日",
               "role": "modifier",
-              "gloss": "today"
+              "gloss": "today",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I go to the station today.",
@@ -697,11 +1151,28 @@
             {
               "text": "分かり",
               "role": "verb",
-              "gloss": "understand-"
+              "gloss": "understand-",
+              "tokens": [
+                {
+                  "k": "分",
+                  "r": "わ"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "り"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I understand.",

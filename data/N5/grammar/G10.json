@@ -145,17 +145,50 @@
             {
               "text": "コーヒーを",
               "role": "modifier",
-              "gloss": "coffee (object)"
+              "gloss": "coffee (object)",
+              "tokens": [
+                {
+                  "k": "コーヒ",
+                  "r": "こーひ",
+                  "g": "v_koohii"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_koohii"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "飲ま",
               "role": "verb",
-              "gloss": "drink (あ-col shift)—"
+              "gloss": "drink (あ-col shift)—",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の"
+                },
+                {
+                  "k": "ま"
+                }
+              ]
             },
             {
               "text": "ない。",
               "role": "predicate",
-              "gloss": "don't"
+              "gloss": "don't",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I don't drink coffee.",
@@ -166,17 +199,50 @@
             {
               "text": "カレーを",
               "role": "modifier",
-              "gloss": "curry (object)"
+              "gloss": "curry (object)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "買わ",
               "role": "verb",
-              "gloss": "buy (special う)—"
+              "gloss": "buy (special う)—",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か"
+                },
+                {
+                  "k": "わ"
+                }
+              ]
             },
             {
               "text": "ない。",
               "role": "predicate",
-              "gloss": "don't"
+              "gloss": "don't",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I don't buy curry.",
@@ -187,17 +253,49 @@
             {
               "text": "コンビニに",
               "role": "modifier",
-              "gloss": "at the convenience store"
+              "gloss": "at the convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "カレーが",
               "role": "topic",
-              "gloss": "curry (subject)"
+              "gloss": "curry (subject)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ない。",
               "role": "predicate",
-              "gloss": "does not exist"
+              "gloss": "does not exist",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "There is no curry at the convenience store.",
@@ -223,17 +321,64 @@
               {
                 "text": "食べ",
                 "role": "verb",
-                "gloss": "eat—"
+                "gloss": "eat—",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た"
+                  },
+                  {
+                    "k": "べ"
+                  }
+                ]
               },
               {
                 "text": "ません",
                 "role": "predicate",
-                "gloss": "polite negative"
+                "gloss": "polite negative",
+                "tokens": [
+                  {
+                    "k": "ません"
+                  }
+                ]
               },
               {
                 "text": " → food は 食べません",
                 "role": "modifier",
-                "gloss": "formal: I don't eat..."
+                "gloss": "formal: I don't eat...",
+                "tokens": [
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "→"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "food"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu_polite_negative"
+                  },
+                  {
+                    "k": "べません",
+                    "g": "v_taberu_polite_negative"
+                  }
+                ]
               }
             ],
             "en": "食べません (polite) — I don't eat."
@@ -254,22 +399,61 @@
               {
                 "text": "食べ",
                 "role": "verb",
-                "gloss": "eat—"
+                "gloss": "eat—",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た"
+                  },
+                  {
+                    "k": "べ"
+                  }
+                ]
               },
               {
                 "text": "ない",
                 "role": "predicate",
-                "gloss": "plain negative"
+                "gloss": "plain negative",
+                "tokens": [
+                  {
+                    "k": "ない",
+                    "g": "v_aru_plain_negative"
+                  }
+                ]
               },
               {
                 "text": " / 食べ",
                 "role": "verb",
-                "gloss": "eat—"
+                "gloss": "eat—",
+                "tokens": [
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "/"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "食",
+                    "r": "た"
+                  },
+                  {
+                    "k": "べ"
+                  }
+                ]
               },
               {
                 "text": "なかった",
                 "role": "predicate",
-                "gloss": "plain past neg"
+                "gloss": "plain past neg",
+                "tokens": [
+                  {
+                    "k": "なかった",
+                    "g": "v_aru_plain_past_negative"
+                  }
+                ]
               }
             ],
             "en": "食べない (plain) / 食べなかった (plain past neg)"
@@ -311,17 +495,63 @@
             {
               "text": "カレーは",
               "role": "topic",
-              "gloss": "curry (topic)"
+              "gloss": "curry (topic)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おいしいですが、",
               "role": "modifier",
-              "gloss": "is delicious but"
+              "gloss": "is delicious but",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "高いです。",
               "role": "predicate",
-              "gloss": "is expensive"
+              "gloss": "is expensive",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_takai"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Curry is delicious, but it is expensive.",
@@ -332,17 +562,57 @@
             {
               "text": "カレーは",
               "role": "topic",
-              "gloss": "curry (topic)"
+              "gloss": "curry (topic)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おいしいけど、",
               "role": "modifier",
-              "gloss": "delicious but"
+              "gloss": "delicious but",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                },
+                {
+                  "k": "けど"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "高い。",
               "role": "predicate",
-              "gloss": "expensive"
+              "gloss": "expensive",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_takai"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Curry is delicious, but it's expensive. (casual)",
@@ -380,22 +650,66 @@
             {
               "text": "カレーが",
               "role": "topic",
-              "gloss": "curry (subject)"
+              "gloss": "curry (subject)",
+              "tokens": [
+                {
+                  "k": "カレ",
+                  "r": "かれ",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_karee"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "おいしいから、",
               "role": "modifier",
-              "gloss": "because delicious"
+              "gloss": "because delicious",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                },
+                {
+                  "k": "から"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "よく",
               "role": "modifier",
-              "gloss": "often"
+              "gloss": "often",
+              "tokens": [
+                {
+                  "k": "よく"
+                }
+              ]
             },
             {
               "text": "食べます。",
               "role": "predicate",
-              "gloss": "eat (polite)"
+              "gloss": "eat (polite)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_polite_masu"
+                },
+                {
+                  "k": "べます",
+                  "g": "v_taberu_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Because curry is delicious, I often eat it.",
@@ -406,17 +720,52 @@
             {
               "text": "コンビニが",
               "role": "topic",
-              "gloss": "convenience store (subject)"
+              "gloss": "convenience store (subject)",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ありますので、",
               "role": "modifier",
-              "gloss": "because there is one (formal)"
+              "gloss": "because there is one (formal)",
+              "tokens": [
+                {
+                  "k": "あります"
+                },
+                {
+                  "k": "ので"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "大丈夫です。",
               "role": "predicate",
-              "gloss": "it's fine"
+              "gloss": "it's fine",
+              "tokens": [
+                {
+                  "k": "大",
+                  "r": "おお"
+                },
+                {
+                  "k": "丈夫"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Since there is a convenience store, it is fine.",
@@ -442,12 +791,43 @@
               {
                 "text": "高いから、",
                 "role": "modifier",
-                "gloss": "because it's expensive"
+                "gloss": "because it's expensive",
+                "tokens": [
+                  {
+                    "k": "高",
+                    "r": "たか",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "い",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "から"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "買いません。",
                 "role": "predicate",
-                "gloss": "won't buy (polite)"
+                "gloss": "won't buy (polite)",
+                "tokens": [
+                  {
+                    "k": "買",
+                    "r": "か",
+                    "g": "v_kau_polite_negative"
+                  },
+                  {
+                    "k": "いません",
+                    "g": "v_kau_polite_negative"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Because it's expensive, I won't buy it."
@@ -467,12 +847,43 @@
               {
                 "text": "高いので、",
                 "role": "modifier",
-                "gloss": "since it is expensive (soft)"
+                "gloss": "since it is expensive (soft)",
+                "tokens": [
+                  {
+                    "k": "高",
+                    "r": "たか",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "い",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "ので"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "買いません。",
                 "role": "predicate",
-                "gloss": "won't buy (polite)"
+                "gloss": "won't buy (polite)",
+                "tokens": [
+                  {
+                    "k": "買",
+                    "r": "か",
+                    "g": "v_kau_polite_negative"
+                  },
+                  {
+                    "k": "いません",
+                    "g": "v_kau_polite_negative"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Since it's expensive, I won't buy it. (softer)"
@@ -606,12 +1017,35 @@
             {
               "text": "早く",
               "role": "modifier",
-              "gloss": "quickly"
+              "gloss": "quickly",
+              "tokens": [
+                {
+                  "k": "早",
+                  "r": "はや",
+                  "g": "v_hayai_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_hayai_adverbial"
+                }
+              ]
             },
             {
               "text": "食べろ！",
               "role": "predicate",
-              "gloss": "Eat! (blunt command)"
+              "gloss": "Eat! (blunt command)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べろ"
+                },
+                {
+                  "k": "！"
+                }
+              ]
             }
           ],
           "en": "Eat quickly! (blunt — e.g., shouted in an anime scene)",
@@ -622,7 +1056,24 @@
             {
               "text": "走るな！",
               "role": "predicate",
-              "gloss": "Don't run! (blunt prohibition)"
+              "gloss": "Don't run! (blunt prohibition)",
+              "tokens": [
+                {
+                  "k": "走",
+                  "r": "はし",
+                  "g": "v_hashiru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_hashiru"
+                },
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "！"
+                }
+              ]
             }
           ],
           "en": "Don't run! (blunt — e.g., emergency warning)",
@@ -664,17 +1115,46 @@
             {
               "text": "お金が",
               "role": "topic",
-              "gloss": "money (subject)"
+              "gloss": "money (subject)",
+              "tokens": [
+                {
+                  "k": "お",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "金",
+                  "r": "かね",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ない",
               "role": "verb",
-              "gloss": "don't have (plain neg)"
+              "gloss": "don't have (plain neg)",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             },
             {
               "text": "のです。",
               "role": "predicate",
-              "gloss": "it is that... (explanatory — full form)"
+              "gloss": "it is that... (explanatory — full form)",
+              "tokens": [
+                {
+                  "k": "のです",
+                  "g": "p_ndesu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The thing is, I don't have money. (formal/written tone)",
@@ -686,17 +1166,45 @@
             {
               "text": "お金が",
               "role": "topic",
-              "gloss": "money (subject)"
+              "gloss": "money (subject)",
+              "tokens": [
+                {
+                  "k": "お",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "金",
+                  "r": "かね",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ない",
               "role": "verb",
-              "gloss": "don't have (plain neg)"
+              "gloss": "don't have (plain neg)",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             },
             {
               "text": "んです。",
               "role": "predicate",
-              "gloss": "it is that... (explanatory — spoken contraction)"
+              "gloss": "it is that... (explanatory — spoken contraction)",
+              "tokens": [
+                {
+                  "k": "んです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The thing is, I don't have money. (natural spoken tone)",
@@ -708,22 +1216,73 @@
             {
               "text": "外食を",
               "role": "modifier",
-              "gloss": "eating out (object)"
+              "gloss": "eating out (object)",
+              "tokens": [
+                {
+                  "k": "外食",
+                  "r": "がいしょく"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "したい",
               "role": "verb",
-              "gloss": "want to do (plain desire)"
+              "gloss": "want to do (plain desire)",
+              "tokens": [
+                {
+                  "k": "したい",
+                  "g": "v_suru_plain_desire_tai"
+                }
+              ]
             },
             {
               "text": "んですが、",
               "role": "predicate",
-              "gloss": "it is that... but (trailing — invites response)"
+              "gloss": "it is that... but (trailing — invites response)",
+              "tokens": [
+                {
+                  "k": "んです"
+                },
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "いっしょに 行きませんか。",
               "role": "predicate",
-              "gloss": "shall we go together?"
+              "gloss": "shall we go together?",
+              "tokens": [
+                {
+                  "k": "いっしょに",
+                  "g": "v_issho"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_polite_negative"
+                },
+                {
+                  "k": "きません",
+                  "g": "v_iku_polite_negative"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The thing is, I want to eat out — shall we go together?",

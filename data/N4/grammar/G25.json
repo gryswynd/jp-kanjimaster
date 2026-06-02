@@ -77,22 +77,63 @@
             {
               "text": "今日は",
               "role": "topic",
-              "gloss": "today (topic marker)"
+              "gloss": "today (topic marker)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "早く",
               "role": "adverb",
-              "gloss": "early (adverbial form of 早い)"
+              "gloss": "early (adverbial form of 早い)",
+              "tokens": [
+                {
+                  "k": "早",
+                  "r": "はや",
+                  "g": "v_hayai_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_hayai_adverbial"
+                }
+              ]
             },
             {
               "text": "帰らなければ",
               "role": "predicate",
-              "gloss": "go home (なければ form of 帰る — godan: 帰ら + なければ)"
+              "gloss": "go home (なければ form of 帰る — godan: 帰ら + なければ)",
+              "tokens": [
+                {
+                  "k": "帰",
+                  "r": "かえ",
+                  "g": "v_kaeru_nakereba"
+                },
+                {
+                  "k": "らなければ",
+                  "g": "v_kaeru_nakereba"
+                }
+              ]
             },
             {
               "text": "いけない。",
               "role": "connector",
-              "gloss": "must — obligation marker (plain negative of いける)"
+              "gloss": "must — obligation marker (plain negative of いける)",
+              "tokens": [
+                {
+                  "k": "いけない",
+                  "g": "v_iku_plain_potential_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I must go home early today.",
@@ -103,17 +144,46 @@
             {
               "text": "薬を",
               "role": "object",
-              "gloss": "medicine (を)"
+              "gloss": "medicine (を)",
+              "tokens": [
+                {
+                  "k": "薬",
+                  "r": "くすり"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "飲まなければ",
               "role": "predicate",
-              "gloss": "drink (なければ form of 飲む — godan: 飲ま + なければ)"
+              "gloss": "drink (なければ form of 飲む — godan: 飲ま + なければ)",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の",
+                  "g": "v_nomu_nakereba"
+                },
+                {
+                  "k": "まなければ",
+                  "g": "v_nomu_nakereba"
+                }
+              ]
             },
             {
               "text": "なりません。",
               "role": "connector",
-              "gloss": "must — polite obligation marker (polite negative of なる)"
+              "gloss": "must — polite obligation marker (polite negative of なる)",
+              "tokens": [
+                {
+                  "k": "なりません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I must take medicine. (polite)",
@@ -124,17 +194,50 @@
             {
               "text": "野菜を",
               "role": "object",
-              "gloss": "vegetables (を)"
+              "gloss": "vegetables (を)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べないと",
               "role": "predicate",
-              "gloss": "not eat + と (plain negative + conditional と)"
+              "gloss": "not eat + と (plain negative + conditional と)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_negative"
+                },
+                {
+                  "k": "べない",
+                  "g": "v_taberu_plain_negative"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "いけない。",
               "role": "connector",
-              "gloss": "must — obligation marker"
+              "gloss": "must — obligation marker",
+              "tokens": [
+                {
+                  "k": "いけない",
+                  "g": "v_iku_plain_potential_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have to eat vegetables.",
@@ -173,22 +276,59 @@
             {
               "text": "毎日",
               "role": "adverb",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "話せば、",
               "role": "predicate",
-              "gloss": "speak (ば form of 話す — godan: 話せ + ば)"
+              "gloss": "speak (ば form of 話す — godan: 話せ + ば)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_conditional_ba"
+                },
+                {
+                  "k": "せば",
+                  "g": "v_hanasu_conditional_ba"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "上手に",
               "role": "adverb",
-              "gloss": "skilled (adverbial form of 上手)"
+              "gloss": "skilled (adverbial form of 上手)",
+              "tokens": [
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なる。",
               "role": "predicate",
-              "gloss": "become (plain form of なる)"
+              "gloss": "become (plain form of なる)",
+              "tokens": [
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If you speak every day, you'll get better.",
@@ -199,22 +339,64 @@
             {
               "text": "時間が",
               "role": "subject",
-              "gloss": "time (が)"
+              "gloss": "time (が)",
+              "tokens": [
+                {
+                  "k": "時間",
+                  "r": "じかん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あれば、",
               "role": "predicate",
-              "gloss": "exist (ば form of ある — irregular: あれば)"
+              "gloss": "exist (ば form of ある — irregular: あれば)",
+              "tokens": [
+                {
+                  "k": "あれば",
+                  "g": "v_aru_conditional_ba"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "映画を",
               "role": "object",
-              "gloss": "movie (を)"
+              "gloss": "movie (を)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "見よう。",
               "role": "predicate",
-              "gloss": "let's watch (plain volitional of 見る)"
+              "gloss": "let's watch (plain volitional of 見る)",
+              "tokens": [
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru_plain_volitional"
+                },
+                {
+                  "k": "よう",
+                  "g": "v_miru_plain_volitional"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If there's time, let's watch a movie.",
@@ -256,27 +438,80 @@
             {
               "text": "駅を",
               "role": "object",
-              "gloss": "station (を)"
+              "gloss": "station (を)",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "出ると、",
               "role": "predicate",
-              "gloss": "exit (plain form of 出る + と — automatic result)"
+              "gloss": "exit (plain form of 出る + と — automatic result)",
+              "tokens": [
+                {
+                  "k": "出",
+                  "r": "で",
+                  "g": "v_deru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_deru"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "右に",
               "role": "modifier",
-              "gloss": "on the right (に)"
+              "gloss": "on the right (に)",
+              "tokens": [
+                {
+                  "k": "右",
+                  "r": "みぎ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "コンビニが",
               "role": "subject",
-              "gloss": "convenience store (が)"
+              "gloss": "convenience store (が)",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ある。",
               "role": "predicate",
-              "gloss": "there is (plain form of ある)"
+              "gloss": "there is (plain form of ある)",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Exit the station and there's a convenience store on the right.",
@@ -287,22 +522,59 @@
             {
               "text": "春に",
               "role": "modifier",
-              "gloss": "in spring (に)"
+              "gloss": "in spring (に)",
+              "tokens": [
+                {
+                  "k": "春",
+                  "r": "はる"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なると、",
               "role": "predicate",
-              "gloss": "become (plain form of なる + と — automatic result)"
+              "gloss": "become (plain form of なる + と — automatic result)",
+              "tokens": [
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "花が",
               "role": "subject",
-              "gloss": "flowers (が)"
+              "gloss": "flowers (が)",
+              "tokens": [
+                {
+                  "k": "花",
+                  "r": "はな"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "さく。",
               "role": "predicate",
-              "gloss": "bloom (plain form of さく)"
+              "gloss": "bloom (plain form of さく)",
+              "tokens": [
+                {
+                  "k": "さく"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "When spring comes, the flowers bloom.",
@@ -341,17 +613,57 @@
             {
               "text": "仕事が",
               "role": "subject",
-              "gloss": "work (が)"
+              "gloss": "work (が)",
+              "tokens": [
+                {
+                  "k": "仕事",
+                  "r": "しごと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "終わったら、",
               "role": "predicate",
-              "gloss": "finish (たら form of 終わる — godan: 終わった + ら)"
+              "gloss": "finish (たら form of 終わる — godan: 終わった + ら)",
+              "tokens": [
+                {
+                  "k": "終",
+                  "r": "お",
+                  "g": "v_owaru_conditional_tara"
+                },
+                {
+                  "k": "わったら",
+                  "g": "v_owaru_conditional_tara"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "電話して。",
               "role": "predicate",
-              "gloss": "call (te-form of 電話する — request)"
+              "gloss": "call (te-form of 電話する — request)",
+              "tokens": [
+                {
+                  "k": "電"
+                },
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_te_form"
+                },
+                {
+                  "k": "して",
+                  "g": "v_hanasu_te_form"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "When work is done, give me a call.",
@@ -362,22 +674,68 @@
             {
               "text": "日本に",
               "role": "modifier",
-              "gloss": "to Japan (に)"
+              "gloss": "to Japan (に)",
+              "tokens": [
+                {
+                  "k": "日本",
+                  "r": "にほん"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行ったら、",
               "role": "predicate",
-              "gloss": "go (たら form of 行く — godan: 行った + ら)"
+              "gloss": "go (たら form of 行く — godan: 行った + ら)",
+              "tokens": [
+                {
+                  "k": "行",
+                  "r": "い",
+                  "g": "v_iku_conditional_tara"
+                },
+                {
+                  "k": "ったら",
+                  "g": "v_iku_conditional_tara"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "すしを",
               "role": "object",
-              "gloss": "sushi (を)"
+              "gloss": "sushi (を)",
+              "tokens": [
+                {
+                  "k": "すし"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べたい。",
               "role": "predicate",
-              "gloss": "want to eat (plain desire form of 食べる)"
+              "gloss": "want to eat (plain desire form of 食べる)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_desire_tai"
+                },
+                {
+                  "k": "べたい",
+                  "g": "v_taberu_plain_desire_tai"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If I go to Japan, I want to eat sushi.",
@@ -420,27 +778,74 @@
             {
               "text": "日本語を",
               "role": "object",
-              "gloss": "Japanese (を)"
+              "gloss": "Japanese (を)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "勉強するなら、",
               "role": "predicate",
-              "gloss": "study (plain form of 勉強する + なら — contextual)"
+              "gloss": "study (plain form of 勉強する + なら — contextual)",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "する"
+                },
+                {
+                  "k": "なら"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "この",
               "role": "modifier",
-              "gloss": "this"
+              "gloss": "this",
+              "tokens": [
+                {
+                  "k": "この"
+                }
+              ]
             },
             {
               "text": "本が",
               "role": "subject",
-              "gloss": "book (が)"
+              "gloss": "book (が)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いい。",
               "role": "predicate",
-              "gloss": "is good"
+              "gloss": "is good",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If you're studying Japanese, this book is good.",
@@ -451,27 +856,76 @@
             {
               "text": "映画を",
               "role": "object",
-              "gloss": "movie (を)"
+              "gloss": "movie (を)",
+              "tokens": [
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "見るなら、",
               "role": "predicate",
-              "gloss": "watch (plain form of 見る + なら — contextual)"
+              "gloss": "watch (plain form of 見る + なら — contextual)",
+              "tokens": [
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_miru"
+                },
+                {
+                  "k": "なら"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "この",
               "role": "modifier",
-              "gloss": "this"
+              "gloss": "this",
+              "tokens": [
+                {
+                  "k": "この"
+                }
+              ]
             },
             {
               "text": "映画館が",
               "role": "subject",
-              "gloss": "movie theater (が)"
+              "gloss": "movie theater (が)",
+              "tokens": [
+                {
+                  "k": "映画館",
+                  "r": "えいがかん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いい。",
               "role": "predicate",
-              "gloss": "is good"
+              "gloss": "is good",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If you're going to watch a movie (as you've mentioned), this theater is good.",
@@ -497,17 +951,55 @@
               {
                 "text": "毎日",
                 "role": "adverb",
-                "gloss": "every day"
+                "gloss": "every day",
+                "tokens": [
+                  {
+                    "k": "毎日",
+                    "r": "まいにち"
+                  }
+                ]
               },
               {
                 "text": "話せば、",
                 "role": "predicate",
-                "gloss": "speak (ば form)"
+                "gloss": "speak (ば form)",
+                "tokens": [
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu_conditional_ba"
+                  },
+                  {
+                    "k": "せば",
+                    "g": "v_hanasu_conditional_ba"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "上手に なる。",
                 "role": "predicate",
-                "gloss": "you'll get better"
+                "gloss": "you'll get better",
+                "tokens": [
+                  {
+                    "k": "上手",
+                    "r": "じょうず"
+                  },
+                  {
+                    "k": "に"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "なる"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "If you speak every day, you'll get better."
@@ -527,12 +1019,68 @@
               {
                 "text": "駅を 出ると、",
                 "role": "predicate",
-                "gloss": "exit the station (plain + と)"
+                "gloss": "exit the station (plain + と)",
+                "tokens": [
+                  {
+                    "k": "駅",
+                    "r": "えき"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "出",
+                    "r": "で",
+                    "g": "v_deru"
+                  },
+                  {
+                    "k": "る",
+                    "g": "v_deru"
+                  },
+                  {
+                    "k": "と"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "右に コンビニが ある。",
                 "role": "predicate",
-                "gloss": "there's a convenience store on the right"
+                "gloss": "there's a convenience store on the right",
+                "tokens": [
+                  {
+                    "k": "右",
+                    "r": "みぎ"
+                  },
+                  {
+                    "k": "に"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "コンビニ",
+                    "r": "こんびに"
+                  },
+                  {
+                    "k": "が"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "ある"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Exit the station and there's a convenience store on the right."
@@ -552,12 +1100,53 @@
               {
                 "text": "仕事が 終わったら、",
                 "role": "predicate",
-                "gloss": "when work is done (たら form)"
+                "gloss": "when work is done (たら form)",
+                "tokens": [
+                  {
+                    "k": "仕事",
+                    "r": "しごと"
+                  },
+                  {
+                    "k": "が"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "終",
+                    "r": "お",
+                    "g": "v_owaru_conditional_tara"
+                  },
+                  {
+                    "k": "わったら",
+                    "g": "v_owaru_conditional_tara"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "電話して。",
                 "role": "predicate",
-                "gloss": "give me a call (request)"
+                "gloss": "give me a call (request)",
+                "tokens": [
+                  {
+                    "k": "電"
+                  },
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu_te_form"
+                  },
+                  {
+                    "k": "して",
+                    "g": "v_hanasu_te_form"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "When work is done, give me a call."
@@ -577,12 +1166,62 @@
               {
                 "text": "日本語を 勉強するなら、",
                 "role": "predicate",
-                "gloss": "if you're studying Japanese (as you said)"
+                "gloss": "if you're studying Japanese (as you said)",
+                "tokens": [
+                  {
+                    "k": "日本語",
+                    "r": "にほんご"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "勉強",
+                    "r": "べんきょう"
+                  },
+                  {
+                    "k": "する"
+                  },
+                  {
+                    "k": "なら"
+                  },
+                  {
+                    "k": "、"
+                  }
+                ]
               },
               {
                 "text": "この 本が いい。",
                 "role": "predicate",
-                "gloss": "this book is good"
+                "gloss": "this book is good",
+                "tokens": [
+                  {
+                    "k": "この"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "本",
+                    "r": "ほん"
+                  },
+                  {
+                    "k": "が"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "いい"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "If you're studying Japanese (as you mentioned), this book is good."
@@ -631,22 +1270,64 @@
             {
               "text": "読めば",
               "role": "predicate",
-              "gloss": "read (ば form of 読む — godan: 読め + ば)"
+              "gloss": "read (ば form of 読む — godan: 読め + ば)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_conditional_ba"
+                },
+                {
+                  "k": "めば",
+                  "g": "v_yomu_conditional_ba"
+                }
+              ]
             },
             {
               "text": "読むほど、",
               "role": "predicate",
-              "gloss": "read (plain form of 読む) + ほど (to that extent)"
+              "gloss": "read (plain form of 読む) + ほど (to that extent)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu"
+                },
+                {
+                  "k": "む",
+                  "g": "v_yomu"
+                },
+                {
+                  "k": "ほど"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "おもしろく",
               "role": "adverb",
-              "gloss": "interesting (adverbial form of おもしろい)"
+              "gloss": "interesting (adverbial form of おもしろい)",
+              "tokens": [
+                {
+                  "k": "おもしろく",
+                  "g": "v_omoshiroi_adverbial"
+                }
+              ]
             },
             {
               "text": "なる。",
               "role": "predicate",
-              "gloss": "become (plain form of なる)"
+              "gloss": "become (plain form of なる)",
+              "tokens": [
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The more you read, the more interesting it becomes.",
@@ -657,22 +1338,62 @@
             {
               "text": "勉強すれば",
               "role": "predicate",
-              "gloss": "study (ば form of する — irregular: すれば) — with 勉強 noun"
+              "gloss": "study (ば form of する — irregular: すれば) — with 勉強 noun",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "すれば",
+                  "g": "v_suru_conditional_ba"
+                }
+              ]
             },
             {
               "text": "するほど、",
               "role": "predicate",
-              "gloss": "do (plain form of する) + ほど"
+              "gloss": "do (plain form of する) + ほど",
+              "tokens": [
+                {
+                  "k": "する"
+                },
+                {
+                  "k": "ほど"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "よく",
               "role": "adverb",
-              "gloss": "well / better"
+              "gloss": "well / better",
+              "tokens": [
+                {
+                  "k": "よく"
+                }
+              ]
             },
             {
               "text": "分かる。",
               "role": "predicate",
-              "gloss": "understand (plain form of 分かる)"
+              "gloss": "understand (plain form of 分かる)",
+              "tokens": [
+                {
+                  "k": "分",
+                  "r": "わ",
+                  "g": "v_wakaru"
+                },
+                {
+                  "k": "かる",
+                  "g": "v_wakaru"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The more you study, the better you understand.",
