@@ -27,6 +27,13 @@
   vertical-align: baseline;
   line-height: 1;
   /* Width is driven by the ruby/base content; rt elements overflow visually. */
+  /* No Japanese webfont is bundled, so on real iOS the JP text falls back to
+     the system font (Hiragino). Bold weights (e.g. .jp-term = 700) aren't real
+     Hiragino weights there, so iOS *synthesizes* bold — which thickens dense
+     kanji far more than simple kana, making kanji look heavier than the kana
+     around them. Disable synthesis so glyphs render at the nearest REAL weight,
+     uniformly. (inherits to .jp-base / .rt-furigana / .rt-romaji) */
+  font-synthesis: none;
 }
 
 .jp-token > .jp-base {
