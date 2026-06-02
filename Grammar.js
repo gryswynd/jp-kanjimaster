@@ -158,11 +158,53 @@ window.GrammarModule = {
         .sk-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
         .has-art > .sk-fallback { display: none; }
 
-        .gr-scenery { width: 84px; height: 84px; pointer-events: none; opacity: 0.62; z-index: 0; position: relative; }
+        .gr-scenery { width: 84px; height: 84px; pointer-events: none; opacity: 0.9; z-index: 0; position: relative; }
         .gr-scenery .sk-fallback, .gr-scenery svg { width: 100%; height: 100%; display: block; }
+        /* Once the PNG loads, hide the geometric SVG fallback. Higher specificity
+           than the .gr-scenery .sk-fallback display:block rule above, which was
+           overriding the generic has-art rule and bleeding the fallback through
+           transparent art (the maple "blob", unrecognizable bonsai, etc.). */
+        .gr-scenery.has-art > .sk-fallback { display: none; }
         /* Living pond — bigger + full opacity since koi swim in it (canvas). */
         .gr-scenery--pond { width: 124px; height: 124px; opacity: 1; }
-        .gr-pond-canvas { display: block; }
+        .gr-scenery--maple { width: 104px; height: 104px; }
+        .gr-scenery--bamboo { width: 116px; height: 124px; opacity: 1; } /* shishi-odoshi canvas */
+        .gr-pond-canvas, .gr-leaf-canvas, .gr-bfly-canvas, .gr-clacker-canvas { display: block; }
+        .gr-bfly-canvas { z-index: 2; } /* butterfly flits above the plant */
+
+        /* Wind sway — pivots at the base. Applied to the ART (not the placed
+           .gr-scenery element, which owns its centering transform, nor the
+           leaf/koi canvas, which animate themselves). */
+        .gr-scenery--sway .gr-scenery-art,
+        .gr-scenery--sway > .sk-fallback {
+          transform-origin: 50% 92%;
+          animation: grSwaySoft 5.2s ease-in-out infinite;
+          animation-delay: var(--sway-delay, 0s);
+        }
+        .gr-scenery--bamboo .gr-scenery-art,
+        .gr-scenery--bamboo > .sk-fallback { animation-name: grSway; animation-duration: 3.4s; }
+        .gr-scenery--bonsai .gr-scenery-art,
+        .gr-scenery--bonsai > .sk-fallback { animation-duration: 6s; }
+        @keyframes grSway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+        @keyframes grSwaySoft { 0%, 100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.6deg); } }
+
+        /* Torii — soft sunlight dappling drifts across the gate. */
+        .gr-scenery--torii::after {
+          content: ''; position: absolute; inset: 0; pointer-events: none;
+          background:
+            radial-gradient(55% 45% at 32% 28%, rgba(255,246,205,0.6), transparent 62%),
+            radial-gradient(45% 38% at 72% 62%, rgba(255,243,200,0.4), transparent 62%);
+          mix-blend-mode: soft-light;
+          animation: grDapple 7.5s ease-in-out infinite;
+        }
+        @keyframes grDapple {
+          0%, 100% { opacity: 0.4; transform: translate(-4%, -3%) scale(1); }
+          50% { opacity: 0.8; transform: translate(5%, 4%) scale(1.06); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .gr-scenery--sway .gr-scenery-art, .gr-scenery--sway > .sk-fallback,
+          .gr-scenery--torii::after { animation: none; }
+        }
 
         /* Base stone the lantern rests on + path stepping-stones. Painted
            watercolor PNG (stone-step.png) layers over the grey-ellipse fallback
@@ -1660,20 +1702,40 @@ window.GrammarModule = {
       //    Koi spots (sIdx 0) become LIVING ponds: a canvas with swimming koi
       //    (gardenStage) instead of the static painting — nudged inward + larger
       //    so the koi are actually visible.
+      // Each scenery TYPE gets its own idle life: koi swim (pond canvas), maple
+      // sheds leaves (canvas) + sways, bamboo/bonsai sway in the wind, torii
+      // catches drifting dappled light. Sway/dapple are CSS; canvases are gardenStage.
+      // koi pond + bamboo water-clacker (shishi-odoshi) are full canvas scenes;
+      // bonsai/torii/maple keep their watercolor PNG and gain life — sway,
+      // falling leaves, a flitting butterfly, dappled light.
+      const SCENERY_TYPE = ['pond', 'bonsai', 'torii', 'bamboo', 'maple'];
+      const SWAYS = { bonsai: 1, maple: 1 };
+      const CANVAS_SPOT = { pond: 1, bamboo: 1 }; // no PNG — drawn entirely
+      const BUTTERFLY = { bonsai: 1, maple: 1, torii: 1 };
       for (let i = 0; i < N; i += 2) {
         const g = visibleGrammars[i];
         const sIdx = sk ? sk.hashIndex(g.id, GARDEN_SCENERY.length) : (i % GARDEN_SCENERY.length);
-        const isPond = (sIdx === 0);
+        const type = SCENERY_TYPE[sIdx] || 'plant';
+        const big = (type === 'pond' || type === 'maple' || type === 'bamboo');
         const right = xPctAt(i) >= 50;
-        const side = right ? (isPond ? 24 : 15) : (isPond ? 76 : 85);
+        const side = right ? (big ? 24 : 15) : (big ? 76 : 85);
         const jitter = sk ? (sk.hashIndexSalted(g.id, 'sy', 5) - 2) * 11 : 0;
-        const scenery = el('div', 'gr-scenery' + (isPond ? ' gr-scenery--pond' : ''));
-        if (isPond && stage) {
+        let cls = 'gr-scenery gr-scenery--' + type;
+        if (SWAYS[type]) cls += ' gr-scenery--sway';
+        const scenery = el('div', cls);
+        if (SWAYS[type] && sk) scenery.style.setProperty('--sway-delay', '-' + (sk.hashIndexSalted(g.id, 'sd', 40) / 10).toFixed(1) + 's');
+
+        if (type === 'pond' && stage) {
           stage.createPond(scenery);
+        } else if (type === 'bamboo' && stage) {
+          stage.createClacker(scenery);
         } else {
           if (sk) scenery.appendChild(sk.artLayer(artUrl(GARDEN_SCENERY_ART[sIdx]), 'gr-scenery-art'));
           scenery.appendChild(el('div', 'sk-fallback', GARDEN_SCENERY[sIdx]));
+          if (type === 'maple' && stage) stage.createLeaves(scenery);
         }
+        // a butterfly visits the plants/gate (not the canvas-only water spots)
+        if (BUTTERFLY[type] && stage && !CANVAS_SPOT[type]) stage.createButterfly(scenery);
         place(scenery, side, lanternTopAt(i) + 30 + jitter);
       }
 
