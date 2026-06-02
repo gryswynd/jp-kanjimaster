@@ -97,6 +97,24 @@ window.LessonModule = {
           @media (hover:hover){ #jp-lesson-app-root .jp-term:hover { border-bottom-color: var(--vermilion); } }
           #jp-lesson-app-root .jp-highlight { background: oklch(0.78 0.10 85 / 0.35); border-radius: 4px; padding: 0 4px; font-weight: 700; }
 
+          /* Conversation — iMessage-style bubbles. One speaker is "sent" (blue,
+             white text), the rest "received" (light grey, ink text). The old
+             near-black sent bubble made the vermilion term-tags + muted furigana
+             hard to read; on the blue bubble we recolor those to light so every
+             reading aid stays legible. */
+          .lh-bubble { max-width: 82%; padding: 9px 13px; border-radius: 19px; position: relative; box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+          .lh-bubble-jp { font-size: 15px; line-height: 1.6; font-weight: 500; }
+          .lh-bubble--sent { background: #0a84ff; color: #fff; border-bottom-right-radius: 5px; }
+          .lh-bubble--recv { background: #e9e9eb; color: var(--ink); border-bottom-left-radius: 5px; }
+          .lh-bubble-en { font-size: 11.5px; margin-top: 4px; line-height: 1.45; font-style: italic; }
+          .lh-bubble--sent .lh-bubble-en { color: rgba(255,255,255,0.82); }
+          .lh-bubble--recv .lh-bubble-en { color: var(--ink-3); }
+          /* reading-aid legibility on the blue (sent) bubble */
+          #jp-lesson-app-root .lh-bubble--sent .jp-term { color: #fff; border-bottom-color: rgba(255,255,255,0.55); }
+          #jp-lesson-app-root .lh-bubble--sent .rt-furigana,
+          #jp-lesson-app-root .lh-bubble--sent .rt-romaji,
+          #jp-lesson-app-root .lh-bubble--sent .rt-romaji-group { color: rgba(255,255,255,0.85); }
+
           /* Speaker / TTS buttons */
           .lh-speak { background: var(--washi-2); border: 1px solid var(--hairline); color: var(--ink-2); width: 30px; height: 30px; border-radius: 999px; cursor: pointer; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
           .lh-playall { width: 100%; margin: 0 0 16px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--washi); color: var(--ink-2); font-size: 12px; font-weight: 600; font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
@@ -681,21 +699,13 @@ window.LessonModule = {
                 seenHeader[spk] = true;
             }
 
-            // Bubble. iMessage-ish: right side dark-ink-on-washi-text, left side
-            // washi-on-ink-text. We deliberately avoid vermilion for the bubble bg
-            // because the term-processor renders inline term-tags in vermilion —
-            // they'd disappear against a vermilion bubble.
-            const bubbleBg = isRight ? 'var(--ink)' : '#fff';
-            const bubbleColor = isRight ? 'var(--washi)' : 'var(--ink)';
-            const enColor = isRight ? 'oklch(1 0 0 / 0.78)' : 'var(--ink-3)';
-            const radius = isRight ? '18px 18px 4px 18px' : '18px 18px 18px 4px';
-            const bubble = el("div", "");
-            bubble.style.cssText = "max-width:82%;padding:9px 13px;background:" + bubbleBg + ";color:" + bubbleColor +
-                ";border:" + (isRight ? 'none' : '1px solid var(--hairline)') +
-                ";border-radius:" + radius + ";box-shadow:0 1px 2px rgba(0,0,0,0.06);position:relative;";
+            // iMessage-style bubble: the chosen "right" speaker is the blue
+            // "sent" side, everyone else is the grey "received" side. Colours +
+            // reading-aid overrides live in CSS (.lh-bubble--sent/--recv).
+            const bubble = el("div", "jp-serif lh-bubble " + (isRight ? "lh-bubble--sent" : "lh-bubble--recv"));
             bubble.innerHTML =
-                '<div class="jp-serif" style="font-size:15px;line-height:1.55;font-weight:500;">' + proc(line.jp, line.terms) + '</div>' +
-                (showEN ? '<div style="font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;">' + esc(line.en) + '</div>' : '') +
+                '<div class="lh-bubble-jp">' + proc(line.jp, line.terms) + '</div>' +
+                (showEN ? '<div class="lh-bubble-en">' + esc(line.en) + '</div>' : '') +
                 '<button class="lh-speak-line" style="background:none;border:none;color:inherit;cursor:pointer;font-size:13px;padding:2px 4px;opacity:0.75;position:absolute;' + (isRight ? 'left:-26px' : 'right:-26px') + ';bottom:4px;">🔊</button>';
             bubble.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
             row.appendChild(bubble);
