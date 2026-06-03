@@ -1222,7 +1222,9 @@
     {
       "type": "patternMatch",
       "title": "Appearance or Hearsay?",
-      "instructions": "Each sentence uses そうだ. Decide: is it appearance そうだ (based on direct observation) or hearsay そうだ (based on what you heard)? Answer TRUE for appearance, FALSE for hearsay.",
+      "instructions": "Each sentence uses そうだ. Decide: is it appearance そうだ (based on direct observation) or hearsay そうだ (based on what you heard)? Tap the matching choice.",
+      "trueLabel": "Appearance",
+      "falseLabel": "Hearsay",
       "items": [
         {
           "sentence": "おいしそうです。",

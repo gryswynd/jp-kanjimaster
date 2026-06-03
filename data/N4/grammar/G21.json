@@ -1521,7 +1521,9 @@
     {
       "type": "patternMatch",
       "title": "Still Speaking or Yielding the Floor?",
-      "instructions": "Read speaker A's utterance. Is A still holding the floor (true), or have they finished their turn and yielded it (false)?",
+      "instructions": "Read speaker A's utterance. Is A still holding the floor, or have they finished their turn and yielded it? Tap the matching choice.",
+      "trueLabel": "Still speaking",
+      "falseLabel": "Yielded floor",
       "items": [
         {
           "sentence": "A: えーと、来週の予定は… (A pauses with a rising, incomplete tone)",

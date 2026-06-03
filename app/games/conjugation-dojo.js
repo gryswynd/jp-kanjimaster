@@ -766,23 +766,54 @@
   }
 
   // ---- Helper panel ----
-  function buildHelperHTML(item) {
-    var openClass = helperVisible ? ' open' : '';
-    var h = '<div class="dojo-helper' + openClass + '" id="dojo-helper-panel">';
-    h += '<table>';
-    // Te-form chart (most commonly needed)
+  // Three audiences \u2014 verbs, i-adjectives, na-adjectives \u2014 conjugate by entirely
+  // different rules. Showing all three at once buries the relevant chart, so the
+  // panel branches on the word currently on screen (item.vc) and foregrounds the
+  // exact form being drilled (item.ruleKey, looked up in cfg.conjugationRules).
+
+  // Broad bucket for which reference chart to show. \u3044\u3044 drills with the
+  // i-adjectives (it IS one, just irregular); every verb class shares one chart.
+  function helperCategory(vc) {
+    if (vc === 'i_adj' || vc === 'irr_ii') return 'i_adj';
+    if (vc === 'na_adj') return 'na_adj';
+    return 'verb';
+  }
+
+  // Render a single class's rule (from conjugation_rules.json) as a readable line,
+  // so the "this form" highlight is accurate for every form without hand-authoring.
+  function formRuleLine(rule) {
+    if (!rule) return '';
+    if (rule.type === 'identity') return 'no change \u2014 use as-is';
+    if (rule.type === 'suffix') {
+      return rule.remove ? ('drop ' + rule.remove + ', add ' + rule.add)
+                         : ('add ' + rule.add);
+    }
+    if (rule.type === 'replace') return '\u2192 ' + rule.surface;
+    if (rule.type === 'godan_change') {
+      var rows = { u_to_i: '\u3046-row \u2192 \u3044-row', u_to_a: '\u3046-row \u2192 \u3042-row', u_to_e: '\u3046-row \u2192 \u3048-row', u_to_o: '\u3046-row \u2192 \u304A-row' };
+      var base = rows[rule.map] || rule.map;
+      return rule.add ? (base + ', add ' + rule.add) : base;
+    }
+    if (rule.type === 'godan_euphonic') {
+      var ch = { te_form: '\u3066-form', ta_form: '\u305F-form', tari_form: '\u305F\u308A-form', tara_form: '\u305F\u3089-form' };
+      return 'euphonic ' + (ch[rule.map] || rule.map) + ' change \u2014 see chart below';
+    }
+    return '';
+  }
+
+  // Verb reference chart (te-form euphonics + masu-stem + false-ichidan warnings).
+  function verbChartRows() {
+    var h = '';
     h += '<tr><td colspan="2" style="font-weight:700;color:#8e44ad;padding-bottom:4px;">\u3066-form Rules (Godan)</td></tr>';
     h += '<tr><td class="hl">\u304F \u2192 \u3044\u3066</td><td class="hl">\u3050 \u2192 \u3044\u3067</td></tr>';
     h += '<tr><td class="hl">\u3059 \u2192 \u3057\u3066</td><td></td></tr>';
     h += '<tr><td class="hl">\u3080/\u3076/\u306C \u2192 \u3093\u3067</td><td></td></tr>';
     h += '<tr><td class="hl">\u3046/\u3064/\u308B \u2192 \u3063\u3066</td><td></td></tr>';
     h += '<tr><td colspan="2" style="padding-top:6px;color:#555;">Ichidan: drop \u308B, add \u3066</td></tr>';
-    h += '<tr><td colspan="2" style="color:#555;">\u3059\u308B \u2192 \u3057\u3066 \u3000 \u6765\u308B \u2192 \u304D\u3066</td></tr>';
+    h += '<tr><td colspan="2" style="color:#555;">\u3059\u308B \u2192 \u3057\u3066\u3000\u6765\u308B \u2192 \u304D\u3066</td></tr>';
     h += '<tr><td colspan="2" style="color:#555;">\u884C\u304F \u2192 \u884C\u3063\u3066 (exception)</td></tr>';
-    // Masu-stem chart
     h += '<tr><td colspan="2" style="font-weight:700;color:#8e44ad;padding-top:10px;">\u307E\u3059-stem (Godan: \u3046\u2192\u3044 row)</td></tr>';
     h += '<tr><td colspan="2" style="color:#555;">Ichidan: drop \u308B</td></tr>';
-    // False ichidan warning section
     h += '<tr><td colspan="2" style="font-weight:700;color:#856404;padding-top:12px;border-top:1px solid #eee;margin-top:8px;">\u26A0 False Ichidan Verbs</td></tr>';
     h += '<tr><td colspan="2" style="color:#555;font-size:0.8rem;">These look ichidan (\u3044\u308B/\u3048\u308B ending) but are godan:</td></tr>';
     h += '<tr><td class="hl">\u5165\u308B (\u306F\u3044\u308B)</td><td style="color:#555">\u2192 \u5165\u3063\u3066</td></tr>';
@@ -790,6 +821,67 @@
     h += '<tr><td class="hl">\u5E30\u308B (\u304B\u3048\u308B)</td><td style="color:#555">\u2192 \u5E30\u3063\u3066</td></tr>';
     h += '<tr><td class="hl">\u8D70\u308B (\u306F\u3057\u308B)</td><td style="color:#555">\u2192 \u8D70\u3063\u3066</td></tr>';
     h += '<tr><td class="hl">\u77E5\u308B (\u3057\u308B)</td><td style="color:#555">\u2192 \u77E5\u3063\u3066</td></tr>';
+    return h;
+  }
+
+  // i-adjective reference chart. Pattern: drop \u3044, add the form's ending.
+  // Kana-only on purpose (no new kanji \u2192 font subset untouched).
+  function iAdjChartRows() {
+    var h = '';
+    h += '<tr><td colspan="2" style="font-weight:700;color:#8e44ad;padding-bottom:4px;">\u3044-Adjective Rules (drop \u3044, then\u2026)</td></tr>';
+    h += '<tr><td class="hl">past\u3000\u2192 \u304B\u3063\u305F</td><td style="color:#555">\u305F\u304B\u3044 \u2192 \u305F\u304B\u304B\u3063\u305F</td></tr>';
+    h += '<tr><td class="hl">negative\u3000\u2192 \u304F\u306A\u3044</td><td style="color:#555">\u305F\u304B\u3044 \u2192 \u305F\u304B\u304F\u306A\u3044</td></tr>';
+    h += '<tr><td class="hl">past neg\u3000\u2192 \u304F\u306A\u304B\u3063\u305F</td><td></td></tr>';
+    h += '<tr><td class="hl">\u3066-form\u3000\u2192 \u304F\u3066</td><td style="color:#555">\u305F\u304B\u3044 \u2192 \u305F\u304B\u304F\u3066</td></tr>';
+    h += '<tr><td class="hl">adverb\u3000\u2192 \u304F</td><td style="color:#555">\u306F\u3084\u3044 \u2192 \u306F\u3084\u304F</td></tr>';
+    h += '<tr><td colspan="2" style="padding-top:6px;color:#555;">Polite: add \u3067\u3059 to the plain form (\u305F\u304B\u3044\u3067\u3059).</td></tr>';
+    h += '<tr><td colspan="2" style="font-weight:700;color:#856404;padding-top:12px;border-top:1px solid #eee;">\u26A0 \u3044\u3044 is irregular \u2192 uses \u3088</td></tr>';
+    h += '<tr><td colspan="2" style="color:#555;">\u3088\u304B\u3063\u305F \u30FB \u3088\u304F\u306A\u3044 \u30FB \u3088\u304F\u3066 \u30FB \u3088\u304F</td></tr>';
+    return h;
+  }
+
+  // na-adjective reference chart. Pattern: stem + ending (no \u3044 to drop).
+  function naAdjChartRows() {
+    var h = '';
+    h += '<tr><td colspan="2" style="font-weight:700;color:#8e44ad;padding-bottom:4px;">\u306A-Adjective Rules (stem + \u2026)</td></tr>';
+    h += '<tr><td class="hl">before a noun\u3000\u2192 \u306A</td><td style="color:#555">\u304D\u308C\u3044 \u2192 \u304D\u308C\u3044\u306A</td></tr>';
+    h += '<tr><td class="hl">polite\u3000\u2192 \u3067\u3059</td><td style="color:#555">\u304D\u308C\u3044 \u2192 \u304D\u308C\u3044\u3067\u3059</td></tr>';
+    h += '<tr><td class="hl">past\u3000\u2192 \u3060\u3063\u305F / \u3067\u3057\u305F</td><td></td></tr>';
+    h += '<tr><td class="hl">negative\u3000\u2192 \u3058\u3083\u306A\u3044</td><td style="color:#555">(formal: \u3067\u306F\u306A\u3044)</td></tr>';
+    h += '<tr><td class="hl">past neg\u3000\u2192 \u3058\u3083\u306A\u304B\u3063\u305F</td><td></td></tr>';
+    h += '<tr><td class="hl">\u3066-form\u3000\u2192 \u3067</td><td style="color:#555">\u304D\u308C\u3044 \u2192 \u304D\u308C\u3044\u3067</td></tr>';
+    h += '<tr><td class="hl">adverb\u3000\u2192 \u306B</td><td style="color:#555">\u304D\u308C\u3044 \u2192 \u304D\u308C\u3044\u306B</td></tr>';
+    return h;
+  }
+
+  function buildHelperHTML(item) {
+    var openClass = helperVisible ? ' open' : '';
+    var cat = helperCategory(item.vc);
+    var formDef = (cfg.conjugationRules || {})[item.ruleKey] || null;
+    var rule = formDef && formDef.rules
+      ? (formDef.rules[item.vc] || (item.vc === 'irr_iku' ? formDef.rules['godan'] : null))
+      : null;
+
+    var h = '<div class="dojo-helper' + openClass + '" id="dojo-helper-panel">';
+
+    // Form-aware header: this is what the current question is asking for.
+    if (formDef) {
+      h += '<div style="font-weight:700;color:#8e44ad;">' + esc(formDef.label || item.formLabel) +
+           ' <span style="color:#999;font-weight:400;">(' + esc(classLabel(item.vc)) + ')</span></div>';
+      if (formDef.description) {
+        h += '<div style="color:#555;font-size:0.8rem;margin:2px 0 6px;">' + esc(formDef.description) + '</div>';
+      }
+      var line = formRuleLine(rule);
+      if (line) {
+        h += '<div style="margin-bottom:8px;"><span class="hl">This form:</span> ' + esc(line) + '</div>';
+      }
+    }
+
+    // Type-specific reference chart \u2014 only the one that matches the current word.
+    h += '<table>';
+    if (cat === 'i_adj') h += iAdjChartRows();
+    else if (cat === 'na_adj') h += naAdjChartRows();
+    else h += verbChartRows();
     h += '</table></div>';
     return h;
   }

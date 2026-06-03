@@ -1125,7 +1125,9 @@
     {
       "type": "patternMatch",
       "title": "Permission or Prohibition?",
-      "instructions": "Read each sentence carefully. Decide if the sentence expresses PERMISSION (てもいい — the action is okay) or NOT (either prohibition or no-obligation). Select true if the sentence expresses permission.",
+      "instructions": "Read each sentence carefully. Decide if it expresses permission (てもいい — the action is okay) or not (prohibition, or no obligation). Tap the matching choice.",
+      "trueLabel": "Permission",
+      "falseLabel": "Not permission",
       "items": [
         {
           "sentence": "ここで食べてもいいです。",

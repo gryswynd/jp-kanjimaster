@@ -990,6 +990,12 @@ window.GrammarModule = {
       patternBox.innerHTML = '<div style="font-size:1rem;font-weight:700;color:#333;margin-bottom:8px;">' + esc(sec.title) + '</div><div style="font-size:0.9rem;color:#555;">' + esc(sec.instructions) + '</div>';
       div.appendChild(patternBox);
 
+      // Many patternMatch sections are concept-A vs concept-B (e.g. appearance
+      // vs hearsay), not literal true/false — students find bare ✓/✗ confusing.
+      // Sections may name the two choices via trueLabel/falseLabel; else ✓/✗.
+      const trueLabel = sec.trueLabel || '✓';
+      const falseLabel = sec.falseLabel || '✗';
+
       let correct = 0, total = 0;
       const scoreRow = el('div', 'gr-score-row');
       const scoreText = el('div', 'gr-score-text', '0 / ' + (sec.items || []).length);
@@ -1008,9 +1014,11 @@ window.GrammarModule = {
         const expEl = el('div', 'gr-pm-explanation', esc(item.explanation));
         expEl.style.display = 'none';
         let answered = false;
+        const choiceBtns = [];
 
         const makeBtn = (label, isCorrectChoice) => {
           const btn = el('button', 'gr-pm-btn', label);
+          choiceBtns.push({ btn: btn, value: isCorrectChoice });
           btn.onclick = () => {
             if (answered) return;
             answered = true; total++;
@@ -1023,8 +1031,8 @@ window.GrammarModule = {
             } else {
               btn.classList.add('wrong-choice');
               card.classList.add('answered-wrong');
-              btns.querySelectorAll('.gr-pm-btn').forEach(b => {
-                if ((b.textContent === '✓') === item.answer) b.classList.add('correct-choice');
+              choiceBtns.forEach(c => {
+                if (c.value === item.answer) c.btn.classList.add('correct-choice');
               });
             }
             scoreText.textContent = total + ' / ' + (sec.items || []).length;
@@ -1033,8 +1041,8 @@ window.GrammarModule = {
           };
           return btn;
         };
-        btns.appendChild(makeBtn('✓', true));
-        btns.appendChild(makeBtn('✗', false));
+        btns.appendChild(makeBtn(trueLabel, true));
+        btns.appendChild(makeBtn(falseLabel, false));
 
         const tts = el('button', 'gr-tts-btn', '🔊');
         tts.onclick = () => speakText(item.sentence);
