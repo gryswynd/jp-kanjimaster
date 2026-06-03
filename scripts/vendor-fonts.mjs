@@ -9,14 +9,16 @@
 // so kanji no longer faux-bold on devices without Noto. Rare/compose glyphs
 // outside the subset fall back to the system font (still fine — see
 // font-synthesis:none in jp-text.css).
-import { mkdir, writeFile, rm, readFile, readdir, stat } from 'node:fs/promises';
+import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
+import { collectJpChars } from './lib/jp-chars.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const FONT_DIR = join(ROOT, 'fonts');
 const OUT_CSS = join(ROOT, 'app', 'shared', 'fonts.css');
+const COVERAGE = join(ROOT, 'fonts', 'jp-coverage.json');
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
@@ -36,33 +38,6 @@ const JP_FONTS = [
 ];
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-
-// Collect every distinct character that appears in app content, then add full
-// kana / JP punctuation / ASCII so mixed and dynamic strings still render.
-async function buildJpText() {
-  const chars = new Set();
-  async function walk(dir) {
-    let entries; try { entries = await readdir(dir); } catch { return; }
-    for (const name of entries) {
-      const p = join(dir, name);
-      const st = await stat(p);
-      if (st.isDirectory()) await walk(p);
-      else if (name.endsWith('.json')) {
-        const txt = await readFile(p, 'utf8');
-        for (const ch of txt) if (ch.codePointAt(0) >= 0x2000) chars.add(ch);
-      }
-    }
-  }
-  await walk(join(ROOT, 'data'));
-  await walk(join(ROOT, 'shared'));
-  // Always include: ASCII, full hiragana + katakana, the prolonged-sound mark,
-  // and common CJK/fullwidth punctuation — cheap insurance for dynamic text.
-  for (let c = 0x20; c <= 0x7e; c++) chars.add(String.fromCodePoint(c));
-  for (let c = 0x3040; c <= 0x30ff; c++) chars.add(String.fromCodePoint(c)); // kana
-  for (let c = 0x3000; c <= 0x303f; c++) chars.add(String.fromCodePoint(c)); // CJK punct
-  for (let c = 0xff00; c <= 0xffef; c++) chars.add(String.fromCodePoint(c)); // fullwidth
-  return Array.from(chars).join('');
-}
 
 async function fetchCss(family, text) {
   let url = `https://fonts.googleapis.com/css2?family=${family}&display=swap`;
@@ -109,10 +84,15 @@ async function main() {
   for (const family of FAMILIES) await vendorFamily(family);
 
   // Japanese: subset the variable Noto fonts to the app's characters.
-  const jpText = await buildJpText();
+  const jpChars = collectJpChars(ROOT);
+  const jpText = Array.from(jpChars).join('');
   const charFile = join(tmpdir(), 'jp-subset-chars.txt');
   await writeFile(charFile, jpText);
-  console.log(`JP subset: ${[...jpText].length} chars`);
+  // Record the covered codepoints so validate-fonts.mjs can gate the build when
+  // new content introduces a character outside this subset.
+  await writeFile(COVERAGE, JSON.stringify(
+    Array.from(jpChars, (c) => c.codePointAt(0)).sort((a, b) => a - b)));
+  console.log(`JP subset: ${jpChars.size} chars`);
   for (const jp of JP_FONTS) {
     const ttfPath = join(tmpdir(), jp.file + '.ttf');
     const res = await fetch(jp.ttf, { headers: { 'User-Agent': UA } });

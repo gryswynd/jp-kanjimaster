@@ -5,8 +5,9 @@
   "description": "Rikizo — Japanese learning app (Capacitor native shell).",
   "type": "module",
   "scripts": {
-    "build:www": "node scripts/validate-stories.mjs && node scripts/validate-audiostories.mjs && node scripts/validate-audio.mjs && node scripts/build-www.mjs",
+    "build:www": "node scripts/validate-stories.mjs && node scripts/validate-audiostories.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/build-www.mjs",
     "validate:stories": "node scripts/validate-stories.mjs",
+    "validate:fonts": "node scripts/validate-fonts.mjs",
     "init:hooks": "git config core.hooksPath .githooks && echo 'pre-commit hook activated (uses .githooks)'",
     "vendor:fonts": "node scripts/vendor-fonts.mjs",
     "sync": "npm run build:www && cap sync",
