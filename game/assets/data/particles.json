@@ -1,0 +1,400 @@
+{
+  "contentVersion": "1.0.0",
+  "particles": [
+    {
+      "id": "p_wa",
+      "particle": "は",
+      "reading": "は",
+      "role": "topic",
+      "explanation": "Topic marker. Marks what the sentence is about. Pronounced 'wa' (not 'ha') when used as a particle.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_ga",
+      "particle": "が",
+      "reading": "が",
+      "role": "subject",
+      "explanation": "Subject marker. Marks the grammatical subject of a sentence, often emphasising new information or identifying who does/is something.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_wo",
+      "particle": "を",
+      "reading": "を",
+      "role": "object",
+      "explanation": "Object marker. Marks the direct object of a verb. Pronounced 'o' (not 'wo') in modern speech.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_ni",
+      "particle": "に",
+      "reading": "に",
+      "role": "on/at/to",
+      "explanation": "Multi-role particle. Primary use taught in G3: marks specific times (ON Monday, AT 3 o'clock, ON the 1st). Extended uses taught in G4: marks destinations (going TO a place) and existence locations (something exists AT a place). Note: relative time words (今日, 毎日, 明日) do NOT take に.",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_de",
+      "particle": "で",
+      "reading": "で",
+      "role": "at/by",
+      "explanation": "Location of action or means marker. Used for the place where an action occurs (studying AT school), and the means/method used (travelling BY train).",
+      "introducedIn": "N5.5"
+    },
+    {
+      "id": "p_no",
+      "particle": "の",
+      "reading": "の",
+      "role": "of / possessive",
+      "explanation": "Possessive and modifier particle. Links two nouns: the first modifies the second (e.g. 先生の名前 = teacher's name). Can also nominalise a phrase.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_mo",
+      "particle": "も",
+      "reading": "も",
+      "role": "also / too",
+      "explanation": "Inclusive particle meaning 'also' or 'too'. Replaces は or が to show that the same statement applies to the new topic as well.",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_to",
+      "particle": "と",
+      "reading": "と",
+      "role": "and / with",
+      "explanation": "Connector particle with two main uses: (1) listing nouns exhaustively (A and B and C), (2) doing something together WITH someone.",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_to_quote",
+      "particle": "と",
+      "reading": "と",
+      "role": "quotation marker",
+      "explanation": "Marks the content of speech, thought, or perception. Everything before と is what was said or thought. Used with verbs like 言う (say), 思う (think), 聞く (hear/ask), 知る (know). Example: 「おいしい」と言いました (said 'it's delicious').",
+      "introducedIn": "N5.13"
+    },
+    {
+      "id": "p_tte_quote",
+      "particle": "って",
+      "reading": "って",
+      "role": "casual quotation marker",
+      "explanation": "Casual spoken form of the quotation marker と. Marks the content of speech or thought in informal speech. Example: 行きたいってなる (you end up wanting to go).",
+      "introducedIn": "N4.27"
+    },
+    {
+      "id": "p_to_conditional",
+      "particle": "と",
+      "reading": "と",
+      "role": "conditional / automatic result",
+      "explanation": "Expresses an automatic or natural result: 'if/when A, then B always follows.' Used after plain-form verbs or adjectives. Unlike たら/ば, the と conditional implies the result is inevitable or habitual, not hypothetical. Example: ボタンを押すと、ドアが開く (push the button and the door opens).",
+      "introducedIn": "G25"
+    },
+    {
+      "id": "p_nara",
+      "particle": "なら",
+      "reading": "なら",
+      "role": "contextual conditional",
+      "explanation": "Contextual conditional 'if / in that case'. Unlike ば, たら, and と, なら responds to something already established in context — something the other person said, an assumption, or a plan. Follows plain-form verbs, nouns, and adjectives. Example: 東京に行くなら、渋谷に寄ってみて (if you're going to Tokyo [as you say], try stopping by Shibuya). Cannot be used for new hypotheticals — the condition must be based on something already mentioned.",
+      "introducedIn": "G25"
+    },
+    {
+      "id": "p_kara",
+      "particle": "から",
+      "reading": "から",
+      "role": "from",
+      "explanation": "Starting-point marker. Used for physical origins (from Tokyo) and time starting points (from Monday). Not the same as から meaning 'because' (see p_kara_because, G10).",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_made",
+      "particle": "まで",
+      "reading": "まで",
+      "role": "until / as far as",
+      "explanation": "End-point marker. Used for time limits (until evening) and physical extents (all the way to the station).",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_goro",
+      "particle": "ごろ",
+      "reading": "ごろ",
+      "role": "around / approximately (time)",
+      "explanation": "Approximation suffix for time expressions. Indicates an approximate point in time: 三時ごろ = around 3 o'clock, 何時ごろ = around what time. Attaches directly to a time expression. Do not confuse with ぐらい/くらい, which expresses approximate duration or quantity.",
+      "introducedIn": "N5.4"
+    },
+    {
+      "id": "p_e",
+      "particle": "へ",
+      "reading": "へ",
+      "role": "toward",
+      "explanation": "Directional particle meaning 'toward' or 'to'. Emphasises direction rather than arrival. Pronounced 'e' (not 'he') as a particle.",
+      "introducedIn": "N5.5"
+    },
+    {
+      "id": "p_ka",
+      "particle": "か",
+      "reading": "か",
+      "role": "question",
+      "explanation": "Question marker. Added to the end of a sentence to turn it into a yes/no or information question. Replaces the rising intonation used in English.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_ka_or",
+      "particle": "か",
+      "reading": "か",
+      "role": "or / whether",
+      "explanation": "Disjunctive か: used inside a sentence to list alternatives ('whether A or B'). Appears in the AかBか pattern where the speaker deliberates between options, and in embedded questions. Different from sentence-final か (question marker).",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_yo",
+      "particle": "よ",
+      "reading": "よ",
+      "role": "emphasis / assertion",
+      "explanation": "Sentence-final emphasis particle. Signals that the speaker is asserting or informing the listener of something they may not know.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_ne",
+      "particle": "ね",
+      "reading": "ね",
+      "role": "right? / isn't it?",
+      "explanation": "Sentence-final agreement particle. Seeks confirmation from the listener or softens a statement, similar to 'right?' or 'isn't it?' in English.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_na",
+      "particle": "な",
+      "reading": "な",
+      "role": "mild assertion / reflection",
+      "explanation": "Sentence-final particle expressing mild assertion, personal reflection, or a soft seeking of agreement. Common in casual (especially male) speech — female speakers typically use ね in the same contexts. だな = 'it is, you know' / 'I guess it is'. Softer and more internal than よ.",
+      "introducedIn": "G9"
+    },
+    {
+      "id": "p_dewa",
+      "particle": "では",
+      "reading": "では",
+      "role": "negative copula marker (formal)",
+      "explanation": "Compound particle で+は used before ありません/ありませんでした to form the formal negative copula (ではありません = 'is not'). The casual equivalent is じゃ (じゃありません).",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_dewa_then",
+      "particle": "では",
+      "reading": "では",
+      "role": "conjunctive 'well then / in that case'",
+      "explanation": "Sentence-initial conjunction meaning 'well then' or 'in that case'. Used to transition to a new topic or action. More formal than じゃあ. Often followed by a comma: では、行きましょう (Well then, let's go).",
+      "introducedIn": "G6"
+    },
+    {
+      "id": "p_ja",
+      "particle": "じゃ",
+      "reading": "じゃ",
+      "role": "negative copula marker (casual)",
+      "explanation": "Casual contraction of では. Used before ありません/ない to form casual negative copula (じゃありません / じゃない = 'is not'). Common in conversation; avoid in formal writing.",
+      "introducedIn": "N5.1"
+    },
+    {
+      "id": "p_ya",
+      "particle": "や",
+      "reading": "や",
+      "role": "and (partial list)",
+      "explanation": "Connector particle listing nouns as an incomplete sample (A や B = 'things like A and B'). Implies there are other items not mentioned. Contrast with と which lists exhaustively.",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_made_ni",
+      "particle": "までに",
+      "reading": "までに",
+      "role": "by (deadline)",
+      "explanation": "Compound particle まで+に indicating a deadline: 'by the time of' or 'no later than'. Distinct from まで alone (which means 'until'). Example: 金曜日までに提出する = submit by Friday.",
+      "introducedIn": "N5.2"
+    },
+    {
+      "id": "p_ga_but",
+      "particle": "が",
+      "reading": "が",
+      "role": "but (clause connector)",
+      "explanation": "Clause-linking conjunction meaning 'but' or 'however'. Attaches to the end of a clause (polite or plain form) to introduce a contrasting or softening second clause. More formal than けど. Not the same as が subject marker (p_ga) — different grammar role entirely.",
+      "introducedIn": "G10"
+    },
+    {
+      "id": "p_kara_because",
+      "particle": "から",
+      "reading": "から",
+      "role": "because / since",
+      "explanation": "Causal conjunction meaning 'because' or 'since'. The reason clause comes first: 暑いから、水を飲みます (Because it's hot, I'll drink water). Uses plain form + から in casual speech; polite form + から in polite speech. Not the same as から meaning 'from' (p_kara, G3) or sequential から (p_tekara, G19) — different grammar roles.",
+      "introducedIn": "G10"
+    },
+    {
+      "id": "p_tekara",
+      "particle": "から",
+      "reading": "から",
+      "role": "sequential marker (after doing)",
+      "explanation": "Sequential marker attached after the て-form of a verb: [verb-て] + から = 'after doing [verb]'. The first action must be fully complete before the second begins. Example: 食べてから、出かけます = After eating, I'll go out. Do NOT confuse with p_kara ('from') or p_kara_because ('because').",
+      "introducedIn": "G19"
+    },
+    {
+      "id": "p_ndesu",
+      "particle": "んです",
+      "reading": "んです",
+      "matches": ["のです", "なんです", "なのです"],
+      "role": "explanatory / emphasis (you see / it's that...)",
+      "explanation": "Explanatory form contracting のです. Attaches to plain forms to provide explanation, background context, or emphasis. Polite: んです / のです. Example: 雨なんです = It's raining, you see. Formally taught in G10 alongside plain forms.",
+      "introducedIn": "G10"
+    },
+    {
+      "id": "p_nda",
+      "particle": "んだ",
+      "reading": "んだ",
+      "matches": ["なんだ"],
+      "role": "explanatory / emphasis — casual (you see / it's that...)",
+      "explanation": "Casual plain-form equivalent of んです. Used in informal speech to provide explanation or emphasis. Example: 行くんだ = I'm going (implying explanation or assertion). Often followed by よ or けど.",
+      "introducedIn": "G10"
+    },
+    {
+      "id": "p_kedo",
+      "particle": "けど",
+      "reading": "けど",
+      "role": "but (casual)",
+      "explanation": "Casual clause-linking conjunction meaning 'but'. The informal equivalent of が (p_ga_but). けれど is a slightly more formal variant. Common as a sentence-ender for polite softening: ～んですけど... (trailing off). Connects two clauses with a contrasting or qualifying relationship.",
+      "introducedIn": "G10"
+    },
+    {
+      "id": "p_demo_but",
+      "particle": "でも",
+      "reading": "でも",
+      "role": "but / however (sentence-initial)",
+      "explanation": "Sentence-starting conjunction meaning 'but' or 'however'. Begins a new sentence that contrasts with the previous one. でも、行きます = But I'll go. Distinct from the particle でも meaning 'even' (p_demo, N4.14) which follows nouns.",
+      "introducedIn": "G19"
+    },
+    {
+      "id": "p_shi",
+      "particle": "し",
+      "reading": "し",
+      "role": "and also / listing reasons",
+      "explanation": "Clause-final particle that lists multiple reasons or qualities additively. Each clause ends with し to contribute to an overall conclusion. 安いし、おいしいし、好きです = It's cheap, and it's also delicious, so I like it. Can follow plain form or polite forms. A single し is also valid: 安いし、買おう = It's cheap, so let's buy it.",
+      "introducedIn": "G20"
+    },
+    {
+      "id": "p_node",
+      "particle": "ので",
+      "reading": "ので",
+      "role": "because / since (soft)",
+      "explanation": "Causal conjunction meaning 'because' or 'since'. More formal and objective than から. Implies the cause is a natural or shared-understanding reason. Followed by plain form before ので; polite form is also accepted.",
+      "introducedIn": "N4.10"
+    },
+    {
+      "id": "p_nagara",
+      "particle": "ながら",
+      "reading": "ながら",
+      "role": "while doing (simultaneous)",
+      "explanation": "Conjunctive suffix expressing two actions happening simultaneously by the same subject ('while doing X, also do Y'). Attaches to the ます-stem of a verb. Example: 音楽を聞きながら勉強する = study while listening to music.",
+      "introducedIn": "N4.10"
+    },
+    {
+      "id": "p_yori",
+      "particle": "より",
+      "reading": "より",
+      "role": "than (comparison)",
+      "explanation": "Comparison particle marking the lesser element in a comparison (A より B のほうが = 'B is more ... than A'). Also used idiomatically in set phrases (より = 'from', formal letter opener).",
+      "introducedIn": "N4.5"
+    },
+    {
+      "id": "p_hodo",
+      "particle": "ほど",
+      "reading": "ほど",
+      "role": "to the extent of / as ... as",
+      "explanation": "Degree particle with two main uses: (1) negative comparison — A は B ほど～ない (A is not as ... as B); (2) extent/degree — ～ほど (to such a degree that). Not interchangeable with より.",
+      "introducedIn": "N4.5"
+    },
+    {
+      "id": "p_kurai",
+      "particle": "くらい",
+      "reading": "くらい",
+      "role": "approximately / about",
+      "explanation": "Approximation particle meaning 'about' or 'roughly'. Interchangeable with ぐらい (softer variant). Used after amounts, times, or quantities. Example: 三時間くらい = about three hours.",
+      "introducedIn": "N4.5"
+    },
+    {
+      "id": "p_dake",
+      "particle": "だけ",
+      "reading": "だけ",
+      "role": "only / just",
+      "explanation": "Limiting particle meaning 'only' or 'just'. Can follow nouns, verbs (dictionary form), or adjectives. Affirms a limit without negative connotation. できるだけ = as much as possible.",
+      "introducedIn": "N4.14"
+    },
+    {
+      "id": "p_shika",
+      "particle": "しか",
+      "reading": "しか",
+      "role": "nothing but / only (with negative)",
+      "explanation": "Exclusive limiting particle that ALWAYS pairs with a negative verb form. Means 'nothing but' or 'only' with a sense of insufficiency or limitation. 水しか飲まない = drink nothing but water (implies not enough variety).",
+      "introducedIn": "N4.14"
+    },
+    {
+      "id": "p_bakari",
+      "particle": "ばかり",
+      "reading": "ばかり",
+      "role": "nothing but / just did",
+      "explanation": "Particle with two main uses: (1) after a noun/verb, means 'nothing but' or 'only' (often with a critical nuance — 肉ばかり食べる = eat nothing but meat); (2) after plain past verb, means 'just did' (食べたばかり = just ate).",
+      "introducedIn": "N4.14"
+    },
+    {
+      "id": "p_demo",
+      "particle": "でも",
+      "reading": "でも",
+      "role": "even / any~ (particle)",
+      "explanation": "Inclusive particle meaning 'even' or used in open-ended compounds: 何でも (anything), いつでも (anytime), 誰でも (anyone). After a noun: 子どもでもわかる = even a child understands. Distinct from sentence-initial でも (= 'but').",
+      "introducedIn": "N4.14"
+    },
+    {
+      "id": "p_noni",
+      "particle": "のに",
+      "reading": "のに",
+      "role": "even though / despite",
+      "explanation": "Concessive conjunction expressing surprise or frustration that the expected result did not occur ('even though / despite the fact that'). 勉強したのに落ちた = Even though I studied, I failed. Carries emotional nuance; prefer のに over けれど when the speaker is disappointed.",
+      "introducedIn": "G19"
+    },
+    {
+      "id": "p_kadouka",
+      "particle": "かどうか",
+      "reading": "かどうか",
+      "role": "whether or not",
+      "explanation": "Compound particle embedding an indirect yes/no question into a sentence ('whether or not'). 行くかどうかわからない = I don't know whether I'll go or not. Follows plain form; the かどうか clause acts as a noun phrase.",
+      "introducedIn": "N4.36"
+    },
+    {
+      "id": "p_ni_tsuite",
+      "particle": "について",
+      "reading": "について",
+      "role": "about / regarding",
+      "explanation": "Compound postposition に+ついて meaning 'about', 'regarding', or 'concerning'. Follows a noun. 日本語について話す = talk about the Japanese language. More formal than the English 'about'; common in academic and written contexts.",
+      "introducedIn": "N4.36"
+    },
+    {
+      "id": "p_sou_da",
+      "particle": "そうだ",
+      "reading": "そうだ",
+      "role": "appearance",
+      "explanation": "Appearance そうだ — attaches to the ます-stem of verbs and the stem of adjectives (drop い for i-adj; bare stem for na-adj) to express that something looks like or seems a certain way, based on the speaker's own visual or sensory observation. Distinct from hearsay そうだ (p_sou_da_hearsay), which attaches to the plain form. Polite: そうです. Plain/casual: そうだ. Irregular: いい → よさそう.",
+      "introducedIn": "G22"
+    },
+    {
+      "id": "p_sou_da_hearsay",
+      "particle": "そうだ",
+      "reading": "そうだ",
+      "role": "hearsay",
+      "explanation": "Hearsay そうだ — attaches to the plain form of verbs and adjectives to report information the speaker heard from another source. Translates as 'I heard that ~' or 'apparently ~'. Distinct from appearance そうだ (p_sou_da), which attaches to the stem. Polite: そうです. Plain/casual: そうだ. Negation is inside the reported clause: おいしくないそうだ = 'I heard it's not delicious'.",
+      "matches": ["そうです"],
+      "introducedIn": "G22"
+    },
+    {
+      "id": "p_zutsu",
+      "particle": "ずつ",
+      "reading": "ずつ",
+      "role": "distributive suffix",
+      "explanation": "Distributive suffix ずつ — attaches directly to a quantity word (少し、一つ、二つ, etc.) to express 'each time', 'at a time', or 'little by little'. 少しずつ = little by little; 一つずつ = one at a time. The quantity is distributed evenly across repetitions or increments. No space before ずつ in Japanese text.",
+      "introducedIn": "N4.23"
+    }
+  ]
+}

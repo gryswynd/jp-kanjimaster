@@ -1,0 +1,185 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-05-konbini",
+  "title": "Konbini",
+  "titleJp": "コンビニ",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png",
+      "konbini-inside": "assets/backgrounds/convo-bg-konbini-inside.png",
+      "konbini-outside": "assets/backgrounds/convo-bg-konbini-outside.png"
+    }
+  },
+  "playerStart": {
+    "x": 624,
+    "y": 700
+  },
+  "objects": [
+    {
+      "name": "Bench",
+      "nameJp": "ベンチ",
+      "position": [
+        169,
+        182
+      ],
+      "size": [
+        146,
+        118
+      ],
+      "sprite": "objects/bench.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "ベンチです。",
+        "en": "A bench."
+      }
+    },
+    {
+      "name": "Caution_Tape",
+      "nameJp": "テープ",
+      "position": [
+        679,
+        186
+      ],
+      "size": [
+        160,
+        13
+      ],
+      "sprite": "objects/caution_tape.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "テープです。だめです。",
+        "en": "Caution tape. Can't go in."
+      },
+      "appearsUntilDay": 8
+    },
+    {
+      "name": "Exit_South",
+      "nameJp": "みち",
+      "position": [
+        0,
+        792
+      ],
+      "size": [
+        1248,
+        40
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "nameFromDay": 6
+    },
+    {
+      "name": "White_Van",
+      "nameJp": "くるま",
+      "nameFromDay": 6,
+      "appearsFromDay": 6,
+      "position": [
+        810,
+        474
+      ],
+      "size": [
+        195,
+        146
+      ],
+      "sprite": "objects/car_van_white_front.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "車です。だれのですか？",
+        "en": "A car. Whose is it?"
+      }
+    },
+    {
+      "name": "Door_Inside",
+      "nameJp": "ドア",
+      "nameFromDay": 9,
+      "appearsFromDay": 9,
+      "position": [
+        679,
+        170
+      ],
+      "size": [
+        160,
+        50
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [
+    {
+      "name": "shopkeeper",
+      "nameJp": "てんいん",
+      "x": 871,
+      "y": 127,
+      "spriteWidth": 156,
+      "spriteHeight": 64,
+      "interactionRadius": 200,
+      "sprite": "assets/days/day-05-konbini/characters/shopkeeper_sprite.png",
+      "convoPortrait": "assets/days/day-05-konbini/characters/shopkeeper_convo.png",
+      "convoBackground": "konbini-inside",
+      "appearsUntilDay": 8
+    },
+    {
+      "name": "yamakawa",
+      "nameJp": "やまかわ",
+      "x": 321,
+      "y": 185,
+      "spriteWidth": 156,
+      "spriteHeight": 104,
+      "sprite": "assets/days/day-05-konbini/characters/yamakawa_sprite_onigiri.png",
+      "convoPortrait": "assets/days/day-05-konbini/characters/yamakawa_convo_onigiri.png",
+      "convoBackground": "konbini-outside",
+      "appearsUntilDay": 5
+    },
+    {
+      "name": "yamakawa",
+      "nameJp": "やまかわ",
+      "x": 321,
+      "y": 185,
+      "spriteWidth": 156,
+      "spriteHeight": 104,
+      "sprite": "assets/days/day-05-konbini/characters/yamakawa_sprite_onigiri.png",
+      "convoPortrait": "assets/days/day-05-konbini/characters/yamakawa_convo_onigiri.png",
+      "convoBackground": "konbini-outside",
+      "appearsFromDay": 7,
+      "appearsUntilDay": 8
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

@@ -10,3 +10,10 @@ www/
 
 # Firebase Hosting local deploy cache
 .firebase/
+
+# Godot game — regenerable build output + editor cache (NOT source).
+# build/ holds the exported iOS Xcode project incl. 100MB+ libgodot binaries that
+# exceed GitHub's hard file-size limit; regenerate via the Godot export command.
+game/build/
+# .godot/ is the editor's import cache; regenerated on first open / --headless --import.
+game/.godot/

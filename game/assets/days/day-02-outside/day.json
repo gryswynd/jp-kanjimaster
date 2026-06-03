@@ -1,0 +1,120 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-02-outside",
+  "title": "Outside",
+  "titleJp": "そと",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1920,
+      "height": 1280
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png"
+    }
+  },
+  "playerStart": {
+    "x": 1293,
+    "y": 1039
+  },
+  "objects": [
+    {
+      "name": "Porch_Back",
+      "nameJp": "げんかん",
+      "position": [
+        1200,
+        850
+      ],
+      "size": [
+        180,
+        120
+      ],
+      "isDoor": false,
+      "interactive": true
+    },
+    {
+      "name": "Dirt",
+      "nameJp": "つち",
+      "position": [
+        1741,
+        1064
+      ],
+      "sprite": "objects/dirt.png",
+      "isDoor": false,
+      "interactive": true,
+      "message": {
+        "jp": "つちです。",
+        "en": "A lump of dirt.",
+        "terms": [
+          "g_desu"
+        ]
+      }
+    },
+    {
+      "name": "Gate",
+      "nameJp": "もん",
+      "position": [
+        1222,
+        1191
+      ],
+      "sprite": "objects/gate_closed.png",
+      "isDoor": true
+    },
+    {
+      "name": "Tree",
+      "nameJp": "き",
+      "position": [
+        1671,
+        67
+      ],
+      "sprite": "objects/tree.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": true
+    },
+    {
+      "name": "Dads_Car",
+      "nameJp": "くるま",
+      "nameFromDay": 6,
+      "appearsFromDay": 6,
+      "position": [
+        106,
+        630
+      ],
+      "size": [
+        308,
+        231
+      ],
+      "sprite": "objects/car_minivan_black.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {
+    "momExasperated": "assets/characters/sakura/sakura-convo-exasperated.png"
+  }
+}

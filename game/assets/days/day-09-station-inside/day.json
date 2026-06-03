@@ -1,0 +1,115 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-09-station-inside",
+  "title": "Station (inside)",
+  "titleJp": "駅の中",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png",
+      "konbini-inside": "assets/backgrounds/convo-bg-konbini-inside.png",
+      "konbini-outside": "assets/backgrounds/convo-bg-konbini-outside.png",
+      "station": "assets/backgrounds/convo-bg-station.png"
+    }
+  },
+  "playerStart": {
+    "x": 568,
+    "y": 532
+  },
+  "objects": [
+    {
+      "name": "Exit_South",
+      "nameJp": "そと",
+      "appearsFromDay": 9,
+      "position": [
+        412,
+        604
+      ],
+      "size": [
+        420,
+        138
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Barricade",
+      "nameJp": "バリケード",
+      "appearsFromDay": 9,
+      "position": [
+        30,
+        366
+      ],
+      "size": [
+        133,
+        266
+      ],
+      "sprite": "assets/days/day-05-station/objects/blockade.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true,
+      "appearsUntilDay": 9
+    },
+    {
+      "name": "Exit_Platform",
+      "nameJp": "ホーム",
+      "appearsFromDay": 10,
+      "position": [
+        30,
+        366
+      ],
+      "size": [
+        133,
+        266
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [
+    {
+      "name": "ekicho",
+      "nameJp": "駅長",
+      "appearsFromDay": 9,
+      "x": 509,
+      "y": 110,
+      "spriteWidth": 234,
+      "spriteHeight": 107,
+      "interactionRadius": 220,
+      "sprite": "assets/days/day-09-station-inside/characters/ekicho_sprite_cropped.png",
+      "convoPortrait": "assets/days/day-05-station/characters/ekicho_convo.png",
+      "convoBackground": "station"
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

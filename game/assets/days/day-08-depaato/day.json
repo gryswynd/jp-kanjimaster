@@ -1,0 +1,158 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-08-depaato",
+  "title": "Depaato",
+  "titleJp": "デパート",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png"
+    }
+  },
+  "playerStart": {
+    "x": 60,
+    "y": 400
+  },
+  "objects": [
+    {
+      "name": "Exit_West",
+      "nameJp": "みち",
+      "nameFromDay": 8,
+      "appearsFromDay": 8,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Blockade_East",
+      "nameJp": "こうじ",
+      "nameFromDay": 8,
+      "appearsFromDay": 8,
+      "position": [
+        1102,
+        260
+      ],
+      "size": [
+        125,
+        250
+      ],
+      "sprite": "assets/days/day-05-street/objects/blockade.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Caution_Tape",
+      "nameJp": "テープ",
+      "nameFromDay": 8,
+      "appearsFromDay": 8,
+      "position": [
+        558,
+        151
+      ],
+      "size": [
+        140,
+        13
+      ],
+      "sprite": "assets/days/day-05-konbini/objects/caution_tape.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "デパートです。大きいですね！...だめですね。",
+        "en": "A department store. It's big! ...Can't go in."
+      },
+      "appearsUntilDay": 8
+    },
+    {
+      "name": "Van_Silver",
+      "nameJp": "車",
+      "nameFromDay": 8,
+      "appearsFromDay": 8,
+      "position": [
+        914,
+        588
+      ],
+      "size": [
+        181,
+        136
+      ],
+      "sprite": "objects/car_van_silver_rear.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Van_Mint",
+      "nameJp": "車",
+      "nameFromDay": 8,
+      "appearsFromDay": 8,
+      "position": [
+        632,
+        590
+      ],
+      "size": [
+        181,
+        136
+      ],
+      "sprite": "objects/car_van_mint_rear.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Door_Inside",
+      "nameJp": "ドア",
+      "appearsFromDay": 9,
+      "position": [
+        550,
+        150
+      ],
+      "size": [
+        200,
+        60
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

@@ -1,0 +1,204 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-06-river",
+  "title": "River",
+  "titleJp": "かわ",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png",
+      "mountain-river": "assets/backgrounds/convo-bg-mountain-river.png"
+    }
+  },
+  "playerStart": {
+    "x": 660,
+    "y": 792
+  },
+  "objects": [
+    {
+      "name": "Bollard_Chain",
+      "nameJp": "くさり",
+      "nameFromDay": 99,
+      "position": [
+        866,
+        306
+      ],
+      "size": [
+        100,
+        80
+      ],
+      "sprite": "objects/bollard_chain.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Bollard_Chain_Vertical",
+      "nameJp": "くさり",
+      "nameFromDay": 99,
+      "position": [
+        1128,
+        348
+      ],
+      "size": [
+        50,
+        100
+      ],
+      "sprite": "objects/bollard_chain_vertical.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true,
+      "removedByFlag": "told_about_yuki"
+    },
+    {
+      "name": "Exit_South",
+      "nameJp": "みち",
+      "nameFromDay": 6,
+      "position": [
+        0,
+        792
+      ],
+      "size": [
+        1248,
+        40
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Sports_Car",
+      "nameJp": "くるま",
+      "nameFromDay": 6,
+      "position": [
+        720,
+        532
+      ],
+      "size": [
+        130,
+        98
+      ],
+      "sprite": "objects/car_sports_green_front.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "かっこいい車ですね！",
+        "en": "What a cool car!"
+      }
+    },
+    {
+      "name": "River",
+      "nameJp": "川",
+      "nameFromDay": 6,
+      "appearsFromDay": 6,
+      "position": [
+        600,
+        200
+      ],
+      "size": [
+        400,
+        100
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Exit_East",
+      "nameJp": "みち",
+      "appearsFromDay": 9,
+      "appearsWhenFlag": "told_about_yuki",
+      "position": [
+        1208,
+        351
+      ],
+      "size": [
+        40,
+        54
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Curry_Hut",
+      "nameJp": "カレーや",
+      "appearsFromDay": 7,
+      "position": [
+        476,
+        182
+      ],
+      "size": [
+        264,
+        264
+      ],
+      "sprite": "objects/curry_hut.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Outdoor_Table",
+      "nameJp": "テーブル",
+      "appearsFromDay": 7,
+      "position": [
+        724,
+        346
+      ],
+      "size": [
+        130,
+        98
+      ],
+      "sprite": "objects/outdoor_table.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    }
+  ],
+  "npcs": [
+    {
+      "name": "yamakawa",
+      "nameJp": "やまかわ",
+      "appearsFromDay": 6,
+      "x": 924,
+      "y": 332,
+      "spriteWidth": 156,
+      "spriteHeight": 104,
+      "sprite": "assets/days/day-05-konbini/characters/yamakawa_sprite_onigiri.png",
+      "convoPortrait": "assets/days/day-05-konbini/characters/yamakawa_convo_onigiri.png",
+      "convoBackground": "mountain-river",
+      "interactionRadius": 180,
+      "appearsUntilDay": 6
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

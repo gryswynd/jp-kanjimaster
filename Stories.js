@@ -704,6 +704,7 @@ window.StoriesModule = (function () {
       '<div class="jp-story-header">' +
         '<div class="jp-story-title">' + escHtml(data.title || '') + '</div>' +
         '<div class="jp-story-nav">' +
+          '<button class="jp-story-back-btn" id="jp-stories-settings" title="Voice Settings" onclick="window.JPShared.ttsSettings.open()">⚙</button>' +
           '<button class="jp-story-nav-btn" id="jp-stories-prev" ' + prevDisabled + '>← Prev</button>' +
           '<button class="jp-story-nav-btn" id="jp-stories-next" ' + nextDisabled + '>Next →</button>' +
           '<button class="jp-story-back-btn" id="jp-stories-list">≡ List</button>' +

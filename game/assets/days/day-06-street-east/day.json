@@ -1,0 +1,132 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-06-street-east",
+  "title": "Street East",
+  "titleJp": "みち（ひがし）",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png",
+      "mountain-river": "assets/backgrounds/convo-bg-mountain-river.png"
+    }
+  },
+  "playerStart": {
+    "x": 60,
+    "y": 410
+  },
+  "objects": [
+    {
+      "name": "Vending_Machine",
+      "nameJp": "じはんき",
+      "nameFromDay": 6,
+      "position": [
+        584,
+        30
+      ],
+      "size": [
+        80,
+        120
+      ],
+      "sprite": "objects/vending_machine.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Bus_Stop",
+      "nameJp": "バスてい",
+      "nameFromDay": 6,
+      "position": [
+        180,
+        94
+      ],
+      "size": [
+        156,
+        156
+      ],
+      "sprite": "assets/days/day-05-street-west/objects/bus_stop.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Telescope",
+      "nameJp": "ぼうえんきょう",
+      "nameFromDay": 99,
+      "position": [
+        826,
+        12
+      ],
+      "size": [
+        54,
+        88
+      ],
+      "sprite": "objects/telescope.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Exit_West",
+      "nameJp": "みち",
+      "nameFromDay": 6,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Exit_East",
+      "nameJp": "みち",
+      "nameFromDay": 6,
+      "position": [
+        1208,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

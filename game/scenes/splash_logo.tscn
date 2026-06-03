@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=3 uid="uid://splashlogo01"]
+
+[ext_resource type="Script" path="res://scripts/SplashLogo.gd" id="1_script"]
+[ext_resource type="VideoStream" path="res://assets/branding/edison_studios_logo_sound.ogv" id="2_video"]
+[ext_resource type="Texture2D" path="res://assets/branding/house_map.png" id="3_map"]
+[ext_resource type="Texture2D" path="res://assets/branding/title_kanji.png" id="4_kanji"]
+[ext_resource type="Texture2D" path="res://assets/branding/title_english.png" id="5_english"]
+[ext_resource type="FontFile" path="res://assets/fonts/Didot.ttc" id="6_didot"]
+
+[node name="SplashLogo" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Video" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand = true
+stream = ExtResource("2_video")
+
+[node name="Presents" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -40.0
+offset_right = 300.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.85, 0.69, 0.36, 1)
+theme_override_fonts/font = ExtResource("6_didot")
+theme_override_font_sizes/font_size = 64
+text = "presents"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WhiteVoid" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="MapLayer" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Map" type="Sprite2D" parent="MapLayer"]
+position = Vector2(640, 360)
+texture = ExtResource("3_map")
+
+[node name="Title" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Kanji" type="TextureRect" parent="Title"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -145.0
+offset_right = 328.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kanji")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="English" type="TextureRect" parent="Title"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = 85.0
+offset_right = 440.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_english")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 130.0
+offset_right = 130.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="NewGame" type="Button" parent="Menu/VBox"]
+custom_minimum_size = Vector2(260, 56)
+theme_override_font_sizes/font_size = 28
+text = "New Game"
+
+[node name="Continue" type="Button" parent="Menu/VBox"]
+custom_minimum_size = Vector2(260, 56)
+theme_override_font_sizes/font_size = 28
+text = "Continue"
+
+[node name="OverwriteConfirm" type="ConfirmationDialog" parent="."]
+initial_position = 2
+size = Vector2i(440, 150)
+ok_button_text = "Overwrite save"
+dialog_text = "Starting a new game will erase your current progress. Are you sure?"

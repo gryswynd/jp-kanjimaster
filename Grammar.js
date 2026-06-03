@@ -983,7 +983,7 @@ window.GrammarModule = {
       return div;
     }
 
-    function renderPatternMatch(sec) {
+    function renderPatternMatch(sec, stepIdx) {
       const div = el('div', '');
       // Title and instructions display
       const patternBox = el('div', 'gr-card');
@@ -1029,6 +1029,7 @@ window.GrammarModule = {
             }
             scoreText.textContent = total + ' / ' + (sec.items || []).length;
             barFill.style.width = (total / (sec.items || []).length * 100) + '%';
+            sectionScores[stepIdx] = { title: sec.title, type: sec.type, correct: correct, total: (sec.items || []).length };
           };
           return btn;
         };
@@ -1085,6 +1086,9 @@ window.GrammarModule = {
         toBox.innerHTML = '<div style="text-align:center;color:#aaa;"><div class="gr-st-label">' + esc(item.targetLabel) + '</div><div style="color:#ccc;font-size:0.85rem;">Choose the correct form below</div></div>';
         itemDiv.appendChild(toBox);
 
+        const hint = el('div', 'gr-hint-text', item.hint ? esc(item.hint) : '');
+        hint.style.display = 'none';
+
         const choices = el('div', 'gr-choices');
         const shuffled = [...(item.choices || [])].sort(() => Math.random() - 0.5);
         let solved = false;
@@ -1098,6 +1102,7 @@ window.GrammarModule = {
               if (!solved) { correct++; answered++; solved = true; }
               toBox.innerHTML = '<div style="text-align:center;"><div class="gr-st-label" style="color:#00B894;">' + esc(item.targetLabel) + '</div><div class="gr-st-sentence" style="color:#38513A;">' + esc(item.answer) + '</div></div>';
               const tts2 = el('button', 'gr-tts-btn', '🔊'); tts2.onclick = () => speakText(item.answer); toBox.appendChild(tts2);
+              if (item.hint) hint.style.display = 'block';
               scoreText.textContent = answered + ' / ' + items.length;
               barFill.style.width = (answered / items.length * 100) + '%';
               if (sec.manualProgression) {
@@ -1110,6 +1115,7 @@ window.GrammarModule = {
             } else {
               btn.classList.add('wrong');
               if (!solved) { answered++; solved = true; }
+              if (item.hint) hint.style.display = 'block';
               scoreText.textContent = answered + ' / ' + items.length;
               barFill.style.width = (answered / items.length * 100) + '%';
               choices.querySelectorAll('.gr-choice-chip').forEach(b => {
@@ -1127,6 +1133,7 @@ window.GrammarModule = {
           choices.appendChild(btn);
         });
         itemDiv.appendChild(choices);
+        itemDiv.appendChild(hint);
       }
       renderItem();
       return div;
@@ -1496,7 +1503,7 @@ window.GrammarModule = {
         else if (sec.type === 'grammarComparison')  content = renderGrammarComparison(sec);
         else if (sec.type === 'annotatedExample')   content = renderAnnotatedExample(sec);
         else if (sec.type === 'conjugationDrill')   content = renderConjugationDrill(sec, enableNext, stepIdx);
-        else if (sec.type === 'patternMatch')        content = renderPatternMatch(sec);
+        else if (sec.type === 'patternMatch')        content = renderPatternMatch(sec, stepIdx);
         else if (sec.type === 'sentenceTransform')  content = renderSentenceTransform(sec, enableNext, stepIdx);
         else if (sec.type === 'fillSlot')           content = renderFillSlot(sec, enableNext, stepIdx);
         else if (sec.type === 'conversation')       content = renderConversation(sec);

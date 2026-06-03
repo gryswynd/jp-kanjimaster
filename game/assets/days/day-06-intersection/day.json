@@ -1,0 +1,149 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-06-intersection",
+  "title": "Intersection",
+  "titleJp": "こうさてん",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png"
+    }
+  },
+  "playerStart": {
+    "x": 60,
+    "y": 410
+  },
+  "objects": [
+    {
+      "name": "Blockade_East",
+      "nameJp": "こうじ",
+      "nameFromDay": 6,
+      "position": [
+        1102,
+        260
+      ],
+      "size": [
+        125,
+        250
+      ],
+      "sprite": "assets/days/day-05-street/objects/blockade.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "appearsUntilDay": 7
+    },
+    {
+      "name": "Blockade_South",
+      "nameJp": "こうじ",
+      "nameFromDay": 6,
+      "position": [
+        520,
+        714
+      ],
+      "size": [
+        206,
+        103
+      ],
+      "sprite": "objects/blockade_horizontal.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "appearsUntilDay": 9
+    },
+    {
+      "name": "Exit_West",
+      "nameJp": "みち",
+      "nameFromDay": 6,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Exit_North",
+      "nameJp": "みち",
+      "nameFromDay": 6,
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        1248,
+        40
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Exit_East",
+      "nameJp": "みち",
+      "nameFromDay": 8,
+      "appearsFromDay": 8,
+      "position": [
+        1208,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Exit_South",
+      "nameJp": "みなみ",
+      "appearsFromDay": 10,
+      "position": [
+        500,
+        792
+      ],
+      "size": [
+        240,
+        40
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

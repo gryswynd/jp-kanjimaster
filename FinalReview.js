@@ -1251,10 +1251,10 @@ window.FinalReviewModule = (function () {
           <div class="fr-speed-card">
             <div class="fr-speed-timer" id="fr-timer-bar" style="width:100%"></div>
             <div class="fr-speed-kanji">${item.kanji}</div>
-            <div style="font-size:0.9rem;color:var(--fr-text-sub);margin-bottom:8px;">${item.hint || ''}</div>
             <div class="fr-speed-choices" id="fr-speed-choices">
               ${choices.map(c => `<button class="fr-speed-choice" data-val="${c}">${c}</button>`).join('')}
             </div>
+            <div class="fr-explanation" id="fr-speed-explain"></div>
           </div>
         </div>
       `;
@@ -1311,7 +1311,18 @@ window.FinalReviewModule = (function () {
       }
 
       idx++;
-      setTimeout(showCard, 800);
+      // Correct answers zip by; a wrong (or timed-out) answer surfaces the
+      // correct reading + meaning and pauses long enough to read it.
+      if (correct) {
+        setTimeout(showCard, 800);
+      } else {
+        const explain = el('fr-speed-explain');
+        if (explain) {
+          explain.innerHTML = '正解 · ' + item.answer;
+          explain.classList.add('show');
+        }
+        setTimeout(showCard, 2400);
+      }
     }
 
     showCard();

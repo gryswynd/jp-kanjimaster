@@ -7,7 +7,12 @@
     "lesson_number": 32,
     "focus": "Pulling and using things, learning skills, and life in the city — with active reinforcement of passive and causative verb forms introduced in N4.31.",
     "estimated_minutes": 35,
-    "kanji": ["引", "用", "習", "市"]
+    "kanji": [
+      "引",
+      "用",
+      "習",
+      "市"
+    ]
   },
   "newKanji": [
     {
@@ -1044,26 +1049,50 @@
         {
           "kind": "mcq",
           "q": "【引き出し】の よみかたは？",
-          "choices": ["ひきだし", "いんだし", "ひきいだし", "ひっぱりだし"],
-          "answer": "ひきだし"
+          "choices": [
+            "ひきだし",
+            "いんだし",
+            "ひきいだし",
+            "ひっぱりだし"
+          ],
+          "answer": "ひきだし",
+          "explanation": "「引き出し」 is read 「ひきだし」 — drawer."
         },
         {
           "kind": "mcq",
           "q": "【学習】の よみかたは？",
-          "choices": ["がくしゅう", "がくしょう", "まなびしゅう", "がくしゅ"],
-          "answer": "がくしゅう"
+          "choices": [
+            "がくしゅう",
+            "がくしょう",
+            "まなびしゅう",
+            "がくしゅ"
+          ],
+          "answer": "がくしゅう",
+          "explanation": "「学習」 is read 「がくしゅう」 — study / learning."
         },
         {
           "kind": "mcq",
           "q": "【都市】の よみかたは？",
-          "choices": ["とし", "としま", "みやこし", "つし"],
-          "answer": "とし"
+          "choices": [
+            "とし",
+            "としま",
+            "みやこし",
+            "つし"
+          ],
+          "answer": "とし",
+          "explanation": "「都市」 is read 「とし」 — town / city / metropolis."
         },
         {
           "kind": "mcq",
           "q": "【市長】の よみかたは？",
-          "choices": ["しちょう", "いちちょう", "みやこちょう", "しながら"],
-          "answer": "しちょう"
+          "choices": [
+            "しちょう",
+            "いちちょう",
+            "みやこちょう",
+            "しながら"
+          ],
+          "answer": "しちょう",
+          "explanation": "「市長」 is read 「しちょう」 — mayor."
         }
       ]
     },
@@ -1075,7 +1104,12 @@
         {
           "kind": "mcq",
           "q": "この ______ に 名前を 書いて ください。",
-          "choices": ["用紙", "引き出し", "急用", "朝市"],
+          "choices": [
+            "用紙",
+            "引き出し",
+            "急用",
+            "朝市"
+          ],
           "answer": "用紙",
           "terms": [
             "v_kono",
@@ -1088,12 +1122,18 @@
               "form": "te_form"
             },
             "v_kudasai"
-          ]
+          ],
+          "explanation": "Correct: この 用紙 に 名前を 書いて ください。 — 「用紙」 (ようし) means \"form / sheet of paper\"."
         },
         {
           "kind": "mcq",
           "q": "毎朝、______ に 行って 野菜を 買います。",
-          "choices": ["朝市", "都市", "市長", "用地"],
+          "choices": [
+            "朝市",
+            "都市",
+            "市長",
+            "用地"
+          ],
           "answer": "朝市",
           "terms": [
             "v_maiasa",
@@ -1109,12 +1149,18 @@
               "id": "v_kau",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎朝、朝市 に 行って 野菜を 買います。 — 「朝市」 (あさいち) means \"morning market\"."
         },
         {
           "kind": "mcq",
           "q": "父は 車の ______ を 習いました。",
-          "choices": ["教習", "引用", "急用", "使用"],
+          "choices": [
+            "教習",
+            "引用",
+            "急用",
+            "使用"
+          ],
           "answer": "教習",
           "terms": [
             "v_chichi",
@@ -1127,12 +1173,18 @@
               "id": "v_narau",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 父は 車の 教習 を 習いました。 — 「教習」 (きょうしゅう) means \"training / instruction\"."
         },
         {
           "kind": "mcq",
           "q": "引き出しを ______ ください。",
-          "choices": ["引いて", "習って", "起用して", "引用して"],
+          "choices": [
+            "引いて",
+            "習って",
+            "起用して",
+            "引用して"
+          ],
           "answer": "引いて",
           "terms": [
             "v_hikidashi",
@@ -1142,7 +1194,8 @@
               "form": "te_form"
             },
             "v_kudasai"
-          ]
+          ],
+          "explanation": "Correct: 引き出しを 引いて ください。"
         }
       ]
     },
@@ -1154,7 +1207,12 @@
         {
           "kind": "mcq",
           "q": "朝市は 毎朝 会堂の 前で ______。",
-          "choices": ["開かれます", "開きます", "開かせます", "開いています"],
+          "choices": [
+            "開かれます",
+            "開きます",
+            "開かせます",
+            "開いています"
+          ],
           "answer": "開かれます",
           "terms": [
             "v_asaichi",
@@ -1168,12 +1226,18 @@
               "id": "v_hiraku",
               "form": "polite_passive"
             }
-          ]
+          ],
+          "explanation": "Correct: 朝市は 毎朝 会堂の 前で 開かれます。"
         },
         {
           "kind": "mcq",
           "q": "先生は 学生に 習字を ______。",
-          "choices": ["習わせました", "習われました", "習いました", "習ってきました"],
+          "choices": [
+            "習わせました",
+            "習われました",
+            "習いました",
+            "習ってきました"
+          ],
           "answer": "習わせました",
           "terms": [
             "v_sensei",
@@ -1186,12 +1250,18 @@
               "id": "v_narau",
               "form": "polite_causative_past"
             }
-          ]
+          ],
+          "explanation": "Correct: 先生は 学生に 習字を 習わせました。"
         },
         {
           "kind": "mcq",
           "q": "この 都市に 住んで いる 人は 多いと ______。",
-          "choices": ["思います", "思わせます", "思われます", "思いました"],
+          "choices": [
+            "思います",
+            "思わせます",
+            "思われます",
+            "思いました"
+          ],
           "answer": "思います",
           "terms": [
             "v_kono",
@@ -1213,12 +1283,18 @@
               "id": "v_omou",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: この 都市に 住んで いる 人は 多いと 思います。"
         },
         {
           "kind": "mcq",
           "q": "手引書は どう ______。",
-          "choices": ["引いて ください", "引き出して ください", "見習って ください", "引用して ください"],
+          "choices": [
+            "引いて ください",
+            "引き出して ください",
+            "見習って ください",
+            "引用して ください"
+          ],
           "answer": "引いて ください",
           "terms": [
             "v_tebikisyo",
@@ -1229,7 +1305,8 @@
               "form": "te_form"
             },
             "v_kudasai"
-          ]
+          ],
+          "explanation": "Correct: 手引書は どう 引いて ください。"
         }
       ]
     }
