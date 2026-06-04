@@ -54,7 +54,7 @@
           "jp": "友だちは 学校で 本を 読んでいます。",
           "en": "My friend is reading a book at school.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_gakkou",
             "p_de",
@@ -911,7 +911,7 @@
             },
             "g_desu",
             "v_konshuu",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_hokutou",
             "p_ni",
@@ -1095,7 +1095,8 @@
             "east",
             "west"
           ],
-          "answer": "north"
+          "answer": "north",
+          "explanation": "「北」 (きた) means \"north\"."
         },
         {
           "kind": "mcq",
@@ -1106,7 +1107,8 @@
             "east",
             "west"
           ],
-          "answer": "south"
+          "answer": "south",
+          "explanation": "「南」 (みなみ) means \"south\"."
         },
         {
           "kind": "mcq",
@@ -1117,7 +1119,8 @@
             "north",
             "south"
           ],
-          "answer": "east"
+          "answer": "east",
+          "explanation": "「東」 (ひがし) means \"east\"."
         },
         {
           "kind": "mcq",
@@ -1128,7 +1131,8 @@
             "south",
             "north"
           ],
-          "answer": "west"
+          "answer": "west",
+          "explanation": "「西」 (にし) means \"west\"."
         },
         {
           "kind": "mcq",
@@ -1139,7 +1143,8 @@
             "southeast",
             "southwest"
           ],
-          "answer": "northeast"
+          "answer": "northeast",
+          "explanation": "「北東」 (ほくとう) means \"northeast\"."
         },
         {
           "kind": "mcq",
@@ -1150,7 +1155,8 @@
             "northwest",
             "northeast"
           ],
-          "answer": "southwest"
+          "answer": "southwest",
+          "explanation": "「南西」 (なんせい) means \"southwest\"."
         }
       ]
     },
@@ -1180,7 +1186,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 学校は 駅の 北 に あります。（The school is to the north of the station.） — 「北」 (きた) means \"north\"."
         },
         {
           "kind": "mcq",
@@ -1203,7 +1210,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 北東 には 大きい 山が あります。（There are large mountains in the northeast.） — 「北東」 (ほくとう) means \"north east\"."
         },
         {
           "kind": "mcq",
@@ -1223,7 +1231,8 @@
             "v_ii",
             "g_desu",
             "p_yo"
-          ]
+          ],
+          "explanation": "Correct: 南の 天気は いい ですよ。（The weather in the south is nice.） — 「いい」 (いい) means \"good / nice\"."
         },
         {
           "kind": "mcq",
@@ -1246,7 +1255,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 北から 東 まで 道が あります。（There is a road from north to east.） — 「東」 (ひがし) means \"east\"."
         }
       ]
     },
@@ -1273,7 +1283,8 @@
               "form": "te_form"
             },
             "v_kudasai"
-          ]
+          ],
+          "explanation": "Correct: 北に 行ってください。（Please go north.）"
         },
         {
           "kind": "mcq",
@@ -1292,7 +1303,8 @@
             "p_no",
             "v_ookii",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 東の 山は 大きいです。（The mountains in the east are large.）"
         },
         {
           "kind": "mcq",
@@ -1314,7 +1326,8 @@
               "form": "plain_desire_tai"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: わたしは 南西に 行きたいです。（I want to go to the southwest.）"
         },
         {
           "kind": "mcq",
@@ -1327,7 +1340,7 @@
           ],
           "answer": "行きましょう",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_issho",
             "v_hokutou",
@@ -1336,7 +1349,8 @@
               "id": "v_iku",
               "form": "polite_volitional_mashou"
             }
-          ]
+          ],
+          "explanation": "Correct: 友だちと いっしょに 北東に 行きましょう。（Let's go to the northeast together with friends.）"
         }
       ]
     }

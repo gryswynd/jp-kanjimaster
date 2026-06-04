@@ -419,7 +419,7 @@
           "jp": "友だちと 海に 行きましたが、駅で 別れました。",
           "en": "I went to the sea with a friend, but we separated at the station.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_umi",
             "p_ni",
@@ -811,7 +811,7 @@
             "v_watashi",
             "p_wa",
             "v_sengetsu",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             {
               "id": "v_au",
@@ -823,7 +823,7 @@
           "jp": "友だちは 遠い 所に 住んで いますから、あまり 会えません。",
           "en": "Because my friend lives far away, we cannot meet often.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_tooi",
             "v_tokoro",
@@ -894,7 +894,7 @@
           "terms": [
             "v_watashi",
             "p_to",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_sengetsu",
             {
@@ -917,7 +917,7 @@
           "a": "遠い 所に 住んで います。",
           "a_en": "They live in a faraway place.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_doko",
             "p_ni",
@@ -1014,7 +1014,8 @@
             "すまい",
             "じゅうたく"
           ],
-          "answer": "じゅうしょ"
+          "answer": "じゅうしょ",
+          "explanation": "「住所」 is read 「じゅうしょ」 — address."
         },
         {
           "kind": "mcq",
@@ -1025,7 +1026,8 @@
             "ちかば",
             "えんきん"
           ],
-          "answer": "きんじょ"
+          "answer": "きんじょ",
+          "explanation": "「近所」 is read 「きんじょ」 — neighborhood."
         },
         {
           "kind": "mcq",
@@ -1036,7 +1038,8 @@
             "こうねん",
             "かねん"
           ],
-          "answer": "きょねん"
+          "answer": "きょねん",
+          "explanation": "「去年」 is read 「きょねん」 — last year."
         },
         {
           "kind": "mcq",
@@ -1047,7 +1050,8 @@
             "がんき",
             "げんいき"
           ],
-          "answer": "げんき"
+          "answer": "げんき",
+          "explanation": "「元気」 is read 「げんき」 — healthy / energetic."
         }
       ]
     },
@@ -1077,7 +1081,8 @@
               "id": "v_iku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 父は とても 元気 です。毎日 山に 行きます。 — 「元気」 (げんき) means \"healthy / energetic\"."
         },
         {
           "kind": "mcq",
@@ -1091,7 +1096,8 @@
           "answer": "去年",
           "terms": [
             "v_kyonen"
-          ]
+          ],
+          "explanation": "Correct: 去年 は 2024年 でした。 — 「去年」 (きょねん) means \"last year\"."
         },
         {
           "kind": "mcq",
@@ -1114,7 +1120,8 @@
               "form": "plain_desire_tai"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: きれいな 町 に 住みたい です。 — 「町」 (まち) means \"town\"."
         },
         {
           "kind": "mcq",
@@ -1128,12 +1135,13 @@
           "answer": "別れました",
           "terms": [
             "v_eki",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             {
               "id": "v_wakareru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 駅で 友だちと 別れました。"
         }
       ]
     },
@@ -1165,7 +1173,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 私は 今、大きい まち に 住んで います。"
         },
         {
           "kind": "mcq",
@@ -1178,13 +1187,14 @@
           ],
           "answer": "で",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "v_eki",
             {
               "id": "v_wakareru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 友だちと 駅 で 別れました。"
         },
         {
           "kind": "mcq",
@@ -1202,7 +1212,8 @@
               "id": "v_aruku",
               "form": null
             }
-          ]
+          ],
+          "explanation": "Correct: いっしょに 歩き ましょう。 — 「ましょう」 (ましょう) means \"polite volitional (\"let's\")\"."
         },
         {
           "kind": "mcq",
@@ -1221,7 +1232,8 @@
             "p_kara_because",
             "v_suki",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: この まちは しずかですから、好き です。 — 「好き」 (すき) means \"like\"."
         }
       ]
     }

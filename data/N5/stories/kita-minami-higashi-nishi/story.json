@@ -1410,6 +1410,59 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "高い山はどこにありますか。",
+        "q_en": "Where is the tall mountain?",
+        "answer": "北にあります",
+        "accept": [
+          "北"
+        ],
+        "explanation": "「北に高い山があるよ。」",
+        "terms": [
+          "v_kita"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "道の右に何がありましたか。",
+        "q_en": "What was to the right of the road?",
+        "answer": "小さい川がありました",
+        "accept": [
+          "川"
+        ],
+        "explanation": "道の右に小さい川がありました。",
+        "terms": [
+          "v_migi"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "山は北東ですか、北西ですか。",
+        "q_en": "Is the mountain to the northeast or northwest?",
+        "answer": "北東です",
+        "accept": [
+          "北東"
+        ],
+        "explanation": "「山は北東だよ。東に行こう。」",
+        "terms": [
+          "v_hokutou"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "レンは道が上手ですか、下手ですか。",
+        "q_en": "Is Ren good or bad with directions?",
+        "answer": "上手です",
+        "accept": [
+          "上手"
+        ],
+        "explanation": "レンは道がよく分かります。上手です。",
+        "terms": [
+          "v_jouzu"
+        ]
+      }
+    ]
   }
 }

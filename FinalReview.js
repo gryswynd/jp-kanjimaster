@@ -258,8 +258,9 @@ window.FinalReviewModule = (function () {
         align-items: flex-start;
       }
       .fr-conv-spk {
-        min-width: 28px;
-        height: 28px;
+        min-width: 32px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         background: var(--fr-primary);
         color: white;
@@ -269,6 +270,17 @@ window.FinalReviewModule = (function () {
         font-weight: 700;
         font-size: 0.8rem;
         flex-shrink: 0;
+      }
+      img.fr-conv-spk {
+        object-fit: cover;
+        object-position: center top;
+        background: #eee;
+      }
+      .fr-conv-name {
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--fr-text-sub);
+        margin-bottom: 2px;
       }
       .fr-conv-text {
         font-size: 1.05rem;
@@ -907,6 +919,7 @@ window.FinalReviewModule = (function () {
   //  PUBLIC START
   // ══════════════════════════════════════════════════════════════
   function start(c, cfg, exit, filePath, reviewId) {
+    if (window.JPApp) window.JPApp.hideTabBar();
     container = c;
     config = cfg;
     onExit = exit;
@@ -1238,10 +1251,10 @@ window.FinalReviewModule = (function () {
           <div class="fr-speed-card">
             <div class="fr-speed-timer" id="fr-timer-bar" style="width:100%"></div>
             <div class="fr-speed-kanji">${item.kanji}</div>
-            <div style="font-size:0.9rem;color:var(--fr-text-sub);margin-bottom:8px;">${item.hint || ''}</div>
             <div class="fr-speed-choices" id="fr-speed-choices">
               ${choices.map(c => `<button class="fr-speed-choice" data-val="${c}">${c}</button>`).join('')}
             </div>
+            <div class="fr-explanation" id="fr-speed-explain"></div>
           </div>
         </div>
       `;
@@ -1298,7 +1311,18 @@ window.FinalReviewModule = (function () {
       }
 
       idx++;
-      setTimeout(showCard, 800);
+      // Correct answers zip by; a wrong (or timed-out) answer surfaces the
+      // correct reading + meaning and pauses long enough to read it.
+      if (correct) {
+        setTimeout(showCard, 800);
+      } else {
+        const explain = el('fr-speed-explain');
+        if (explain) {
+          explain.innerHTML = '正解 · ' + item.answer;
+          explain.classList.add('show');
+        }
+        setTimeout(showCard, 2400);
+      }
     }
 
     showCard();
@@ -1323,12 +1347,20 @@ window.FinalReviewModule = (function () {
           <div style="font-weight:700;color:var(--fr-text-sub);margin-bottom:8px;">${item.title} • ${idx + 1}/${items.length}</div>
           <div class="fr-conv-scene">
             <div class="fr-conv-context">${item.context}</div>
-            ${item.lines.map(l => `
+            ${item.lines.map(l => {
+              const who = window.JPShared.characters.resolve(l.spk, item.speakers, termMap, getUrl);
+              const avatar = who.portraitUrl
+                ? `<img class="fr-conv-spk" src="${who.portraitUrl}" alt="${who.name}" onerror="this.style.visibility='hidden'">`
+                : `<div class="fr-conv-spk">${who.initial}</div>`;
+              return `
               <div class="fr-conv-line">
-                <div class="fr-conv-spk">${l.spk}</div>
-                <div class="fr-conv-text">${processText(l.jp, l.terms)}</div>
-              </div>
-            `).join('')}
+                ${avatar}
+                <div style="flex:1;min-width:0;">
+                  <div class="fr-conv-name">${who.name}</div>
+                  <div class="fr-conv-text">${processText(l.jp, l.terms)}</div>
+                </div>
+              </div>`;
+            }).join('')}
           </div>
           <div style="font-weight:700;margin-bottom:8px;">${item.question}</div>
           <div class="fr-choices" id="fr-conv-choices">

@@ -4,14 +4,16 @@
  *
  * The trick to "kanji stay at natural width, decorations float outside":
  *
- *   <span class="jp-token">                      ← width = ruby width = kanji
- *     <ruby>私<rt class="rt-furigana">わたし</rt></ruby>
+ *   <span class="jp-token">                      ← width = base width = kanji
+ *     <span class="jp-base">私</span>
+ *     <span class="rt-furigana">わたし</span>   ← absolute, doesn't affect width
  *     <span class="rt-romaji">watashi</span>    ← absolute, doesn't affect width
  *   </span>
  *
- * Each .jp-token is inline-block at kanji-width. The rt-furigana inside the
- * <ruby> and the rt-romaji sibling are BOTH position:absolute — they overhang
- * horizontally past the kanji edges, so adjacent tokens still pack tight.
+ * Each .jp-token is inline-block at kanji-width. .rt-furigana and .rt-romaji
+ * are BOTH absolutely-positioned sibling spans (NOT <rt> inside <ruby> — iOS
+ * WKWebView doesn't reliably absolute-position <rt>) that overhang vertically
+ * above/below the base, so adjacent tokens still pack tight horizontally.
  *
  * Vertical reservation is added only in the active mode via margin-top /
  * margin-bottom on the token, so off-state matches plain text with zero
@@ -25,23 +27,26 @@
   vertical-align: baseline;
   line-height: 1;
   /* Width is driven by the ruby/base content; rt elements overflow visually. */
+  /* No Japanese webfont is bundled, so on real iOS the JP text falls back to
+     the system font (Hiragino). Bold weights (e.g. .jp-term = 700) aren't real
+     Hiragino weights there, so iOS *synthesizes* bold — which thickens dense
+     kanji far more than simple kana, making kanji look heavier than the kana
+     around them. Disable synthesis so glyphs render at the nearest REAL weight,
+     uniformly. (inherits to .jp-base / .rt-furigana / .rt-romaji) */
+  font-synthesis: none;
 }
 
-/* Native ruby override — make it position:relative so rt can absolute. */
-.jp-token > ruby {
-  display: inline-block;
-  position: relative;
-  line-height: 1;
-  vertical-align: baseline;
-}
 .jp-token > .jp-base {
-  /* Bare-kana base — render inline like normal text. */
+  /* Token surface (kanji or kana) — render inline like normal text. */
   display: inline;
   line-height: 1;
 }
 
-/* Default: hide both decorations. */
-.jp-token > ruby > rt,
+/* Default: hide both decorations. Furigana is an absolutely-positioned
+   sibling span (.rt-furigana), NOT an <rt> inside <ruby> — iOS WKWebView
+   doesn't reliably absolute-position <rt>, which pushed furigana beside the
+   kanji. .rt-furigana uses the same mechanism as .rt-romaji. */
+.jp-token > .rt-furigana,
 .jp-token > .rt-romaji {
   display: none;
 }
@@ -51,7 +56,7 @@ html.k-furigana .jp-token {
   /* Reserve vertical space above the token for the floating rt. */
   margin-top: 0.65em;
 }
-html.k-furigana .jp-token > ruby > rt.rt-furigana {
+html.k-furigana .jp-token > .rt-furigana {
   display: block;
   position: absolute;
   bottom: 100%;
@@ -147,11 +152,11 @@ html.k-romaji .jp-token > .rt-romaji {
    (margin-top + margin-bottom on the same token). */
 
 /* ───────────────────────── Opt-outs ───────────────────────────────────── */
-.no-ruby .jp-token > ruby > rt,
+.no-ruby .jp-token > .rt-furigana,
 .no-ruby .jp-token > .rt-romaji,
-.kbg-ball .jp-token > ruby > rt,
+.kbg-ball .jp-token > .rt-furigana,
 .kbg-ball .jp-token > .rt-romaji,
-.practice-quiz-hero .jp-token > ruby > rt,
+.practice-quiz-hero .jp-token > .rt-furigana,
 .practice-quiz-hero .jp-token > .rt-romaji {
   display: none !important;
 }

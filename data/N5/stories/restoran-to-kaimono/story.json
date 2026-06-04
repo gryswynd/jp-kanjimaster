@@ -716,6 +716,48 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "りきぞうは何を食べましたか。",
+        "q_en": "What did Rikizo eat?",
+        "answer": "カレーを食べました",
+        "accept": [
+          "カレー",
+          "パン"
+        ],
+        "explanation": "わたしはカレーを食べました。",
+        "terms": [
+          "v_karee"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "やまかわさんは何を食べましたか。",
+        "q_en": "What did Yamakawa eat?",
+        "answer": "パンとサラダを食べました",
+        "accept": [
+          "パン",
+          "サラダ"
+        ],
+        "explanation": "やまかわさんはパンとサラダを食べました。",
+        "terms": [
+          "v_pan"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "二人はどこでプレゼントを買いましたか。",
+        "q_en": "Where did they buy the present?",
+        "answer": "デパートで買いました",
+        "accept": [
+          "デパート"
+        ],
+        "explanation": "デパートへ行って、プレゼントを買いました。",
+        "terms": [
+          "v_depaato"
+        ]
+      }
+    ]
   }
 }

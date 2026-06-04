@@ -68,17 +68,47 @@
             {
               "text": "本を",
               "role": "object",
-              "gloss": "book (を)"
+              "gloss": "book (を)",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "持って",
               "role": "predicate",
-              "gloss": "carry (te-form of 持つ)"
+              "gloss": "carry (te-form of 持つ)",
+              "tokens": [
+                {
+                  "k": "持",
+                  "r": "も",
+                  "g": "v_motsu_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_motsu_te_form"
+                }
+              ]
             },
             {
               "text": "きた。",
               "role": "connector",
-              "gloss": "came — brought it here toward the speaker"
+              "gloss": "came — brought it here toward the speaker",
+              "tokens": [
+                {
+                  "k": "きた",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I brought the book (here).",
@@ -89,17 +119,43 @@
             {
               "text": "寒く",
               "role": "modifier",
-              "gloss": "cold (adverbial form of 寒い)"
+              "gloss": "cold (adverbial form of 寒い)",
+              "tokens": [
+                {
+                  "k": "寒",
+                  "r": "さむ",
+                  "g": "v_samui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_samui_adverbial"
+                }
+              ]
             },
             {
               "text": "なって",
               "role": "predicate",
-              "gloss": "become (te-form of なる)"
+              "gloss": "become (te-form of なる)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                }
+              ]
             },
             {
               "text": "きた。",
               "role": "connector",
-              "gloss": "came — the change has arrived at now"
+              "gloss": "came — the change has arrived at now",
+              "tokens": [
+                {
+                  "k": "きた",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It has gotten cold. (A change has arrived at the present.)",
@@ -110,17 +166,43 @@
             {
               "text": "雨が",
               "role": "subject",
-              "gloss": "rain (が)"
+              "gloss": "rain (が)",
+              "tokens": [
+                {
+                  "k": "雨",
+                  "r": "あめ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ふって",
               "role": "predicate",
-              "gloss": "fall (te-form of ふる)"
+              "gloss": "fall (te-form of ふる)",
+              "tokens": [
+                {
+                  "k": "ふ"
+                },
+                {
+                  "k": "って"
+                }
+              ]
             },
             {
               "text": "きた。",
               "role": "connector",
-              "gloss": "came — onset of the rain"
+              "gloss": "came — onset of the rain",
+              "tokens": [
+                {
+                  "k": "きた",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It started raining. (The rain has arrived.)",
@@ -131,22 +213,56 @@
             {
               "text": "ずっと",
               "role": "adverb",
-              "gloss": "all along / the whole time (up to now)"
+              "gloss": "all along / the whole time (up to now)",
+              "tokens": [
+                {
+                  "k": "ずっと"
+                }
+              ]
             },
             {
               "text": "にほんごを",
               "role": "object",
-              "gloss": "Japanese (を)"
+              "gloss": "Japanese (を)",
+              "tokens": [
+                {
+                  "k": "にほんご",
+                  "g": "v_nihongo"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "べんきょうして",
               "role": "predicate",
-              "gloss": "study (te-form of べんきょうする)"
+              "gloss": "study (te-form of べんきょうする)",
+              "tokens": [
+                {
+                  "k": "べんきょう",
+                  "g": "v_benkyou"
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                }
+              ]
             },
             {
               "text": "きた。",
               "role": "connector",
-              "gloss": "came — continuing this action all the way to now"
+              "gloss": "came — continuing this action all the way to now",
+              "tokens": [
+                {
+                  "k": "きた",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have been studying Japanese all along (up to now).",
@@ -184,17 +300,47 @@
             {
               "text": "食べ物を",
               "role": "object",
-              "gloss": "food (を)"
+              "gloss": "food (を)",
+              "tokens": [
+                {
+                  "k": "食べ物",
+                  "r": "たべもの"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "持って",
               "role": "predicate",
-              "gloss": "carry (te-form of 持つ)"
+              "gloss": "carry (te-form of 持つ)",
+              "tokens": [
+                {
+                  "k": "持",
+                  "r": "も",
+                  "g": "v_motsu_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_motsu_te_form"
+                }
+              ]
             },
             {
               "text": "いく。",
               "role": "connector",
-              "gloss": "go — taking it away from here"
+              "gloss": "go — taking it away from here",
+              "tokens": [
+                {
+                  "k": "いく",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll take the food (away with me).",
@@ -205,22 +351,53 @@
             {
               "text": "もっと",
               "role": "adverb",
-              "gloss": "even more / further"
+              "gloss": "even more / further",
+              "tokens": [
+                {
+                  "k": "もっと"
+                }
+              ]
             },
             {
               "text": "寒く",
               "role": "modifier",
-              "gloss": "cold (adverbial form of 寒い)"
+              "gloss": "cold (adverbial form of 寒い)",
+              "tokens": [
+                {
+                  "k": "寒",
+                  "r": "さむ",
+                  "g": "v_samui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_samui_adverbial"
+                }
+              ]
             },
             {
               "text": "なって",
               "role": "predicate",
-              "gloss": "become (te-form of なる)"
+              "gloss": "become (te-form of なる)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                }
+              ]
             },
             {
               "text": "いく。",
               "role": "connector",
-              "gloss": "go — the change continues away into the future"
+              "gloss": "go — the change continues away into the future",
+              "tokens": [
+                {
+                  "k": "いく",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It will keep getting colder.",
@@ -231,17 +408,40 @@
             {
               "text": "すこしずつ",
               "role": "adverb",
-              "gloss": "little by little"
+              "gloss": "little by little",
+              "tokens": [
+                {
+                  "k": "すこし"
+                },
+                {
+                  "k": "ずつ"
+                }
+              ]
             },
             {
               "text": "おぼえて",
               "role": "predicate",
-              "gloss": "memorize (te-form of おぼえる)"
+              "gloss": "memorize (te-form of おぼえる)",
+              "tokens": [
+                {
+                  "k": "おぼえて",
+                  "g": "v_oboeru_te_form"
+                }
+              ]
             },
             {
               "text": "いく。",
               "role": "connector",
-              "gloss": "go — continuing the action into the future"
+              "gloss": "go — continuing the action into the future",
+              "tokens": [
+                {
+                  "k": "いく",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll keep learning little by little.",
@@ -267,22 +467,66 @@
               {
                 "text": "友だちが",
                 "role": "subject",
-                "gloss": "friend (が)"
+                "gloss": "friend (が)",
+                "tokens": [
+                  {
+                    "k": "友",
+                    "r": "とも",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "だち",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "ケーキを",
                 "role": "object",
-                "gloss": "cake (を)"
+                "gloss": "cake (を)",
+                "tokens": [
+                  {
+                    "k": "ケーキ",
+                    "r": "けーき"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "持って",
                 "role": "predicate",
-                "gloss": "carry (te-form of 持つ)"
+                "gloss": "carry (te-form of 持つ)",
+                "tokens": [
+                  {
+                    "k": "持",
+                    "r": "も",
+                    "g": "v_motsu_te_form"
+                  },
+                  {
+                    "k": "って",
+                    "g": "v_motsu_te_form"
+                  }
+                ]
               },
               {
                 "text": "きた。",
                 "role": "connector",
-                "gloss": "came here — brought it toward speaker"
+                "gloss": "came here — brought it toward speaker",
+                "tokens": [
+                  {
+                    "k": "きた",
+                    "g": "v_kuru_plain_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "My friend brought a cake here."
@@ -302,22 +546,66 @@
               {
                 "text": "友だちに",
                 "role": "modifier",
-                "gloss": "to/for friend (に)"
+                "gloss": "to/for friend (に)",
+                "tokens": [
+                  {
+                    "k": "友",
+                    "r": "とも",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "だち",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "ケーキを",
                 "role": "object",
-                "gloss": "cake (を)"
+                "gloss": "cake (を)",
+                "tokens": [
+                  {
+                    "k": "ケーキ",
+                    "r": "けーき"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "持って",
                 "role": "predicate",
-                "gloss": "carry (te-form of 持つ)"
+                "gloss": "carry (te-form of 持つ)",
+                "tokens": [
+                  {
+                    "k": "持",
+                    "r": "も",
+                    "g": "v_motsu_te_form"
+                  },
+                  {
+                    "k": "って",
+                    "g": "v_motsu_te_form"
+                  }
+                ]
               },
               {
                 "text": "いく。",
                 "role": "connector",
-                "gloss": "go away — taking it away from here"
+                "gloss": "go away — taking it away from here",
+                "tokens": [
+                  {
+                    "k": "いく",
+                    "g": "v_iku"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I'll take a cake to my friend."
@@ -356,17 +644,36 @@
             {
               "text": "まどが",
               "role": "subject",
-              "gloss": "window (が — affected object)"
+              "gloss": "window (が — affected object)",
+              "tokens": [
+                {
+                  "k": "まどが"
+                }
+              ]
             },
             {
               "text": "あけて",
               "role": "predicate",
-              "gloss": "open (te-form of あける — transitive)"
+              "gloss": "open (te-form of あける — transitive)",
+              "tokens": [
+                {
+                  "k": "あけて",
+                  "g": "v_akeru_te_form"
+                }
+              ]
             },
             {
               "text": "ある。",
               "role": "connector",
-              "gloss": "is in a prepared state — someone opened it intentionally"
+              "gloss": "is in a prepared state — someone opened it intentionally",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The window has been opened (intentionally, and is still open).",
@@ -377,22 +684,54 @@
             {
               "text": "テーブルに",
               "role": "modifier",
-              "gloss": "on the table (に)"
+              "gloss": "on the table (に)",
+              "tokens": [
+                {
+                  "k": "テーブル",
+                  "r": "てーぶる"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "りょうりが",
               "role": "subject",
-              "gloss": "food (が — affected object)"
+              "gloss": "food (が — affected object)",
+              "tokens": [
+                {
+                  "k": "りょうり",
+                  "g": "v_ryouri"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "おいて",
               "role": "predicate",
-              "gloss": "place (te-form of おく — transitive)"
+              "gloss": "place (te-form of おく — transitive)",
+              "tokens": [
+                {
+                  "k": "おいて",
+                  "g": "v_oku_te_form"
+                }
+              ]
             },
             {
               "text": "ある。",
               "role": "connector",
-              "gloss": "is in a placed state — someone set it there"
+              "gloss": "is in a placed state — someone set it there",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Food has been placed on the table (and is still there).",
@@ -418,17 +757,36 @@
               {
                 "text": "まどが",
                 "role": "subject",
-                "gloss": "window (が — subject of intransitive verb)"
+                "gloss": "window (が — subject of intransitive verb)",
+                "tokens": [
+                  {
+                    "k": "まどが"
+                  }
+                ]
               },
               {
                 "text": "あいて",
                 "role": "predicate",
-                "gloss": "open (te-form of あく — intransitive)"
+                "gloss": "open (te-form of あく — intransitive)",
+                "tokens": [
+                  {
+                    "k": "あいて",
+                    "g": "v_aku_2_te_form"
+                  }
+                ]
               },
               {
                 "text": "いる。",
                 "role": "connector",
-                "gloss": "is in an open state (neutral, no agent)"
+                "gloss": "is in an open state (neutral, no agent)",
+                "tokens": [
+                  {
+                    "k": "いる"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "The window is open. (No agent implied.)"
@@ -448,17 +806,36 @@
               {
                 "text": "まどが",
                 "role": "subject",
-                "gloss": "window (が — affected object, shifted from を)"
+                "gloss": "window (が — affected object, shifted from を)",
+                "tokens": [
+                  {
+                    "k": "まどが"
+                  }
+                ]
               },
               {
                 "text": "あけて",
                 "role": "predicate",
-                "gloss": "open (te-form of あける — transitive)"
+                "gloss": "open (te-form of あける — transitive)",
+                "tokens": [
+                  {
+                    "k": "あけて",
+                    "g": "v_akeru_te_form"
+                  }
+                ]
               },
               {
                 "text": "ある。",
                 "role": "connector",
-                "gloss": "is in an opened state — someone did it on purpose"
+                "gloss": "is in an opened state — someone did it on purpose",
+                "tokens": [
+                  {
+                    "k": "ある"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "The window has been opened (by someone, on purpose)."
@@ -477,22 +854,56 @@
             {
               "text": "ずっと",
               "role": "adverb",
-              "gloss": "all along / the whole time"
+              "gloss": "all along / the whole time",
+              "tokens": [
+                {
+                  "k": "ずっと"
+                }
+              ]
             },
             {
               "text": "にほんごを",
               "role": "object",
-              "gloss": "Japanese (を)"
+              "gloss": "Japanese (を)",
+              "tokens": [
+                {
+                  "k": "にほんご",
+                  "g": "v_nihongo"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "べんきょうして",
               "role": "predicate",
-              "gloss": "study (te-form of べんきょうする)"
+              "gloss": "study (te-form of べんきょうする)",
+              "tokens": [
+                {
+                  "k": "べんきょう",
+                  "g": "v_benkyou"
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                }
+              ]
             },
             {
               "text": "きた。",
               "role": "connector",
-              "gloss": "came — this effort has continued all the way to now"
+              "gloss": "came — this effort has continued all the way to now",
+              "tokens": [
+                {
+                  "k": "きた",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have been studying Japanese all along (up to now).",
@@ -504,22 +915,50 @@
             {
               "text": "こどもが",
               "role": "subject",
-              "gloss": "child (が)"
+              "gloss": "child (が)",
+              "tokens": [
+                {
+                  "k": "こどもが"
+                }
+              ]
             },
             {
               "text": "そとから",
               "role": "modifier",
-              "gloss": "from outside (から)"
+              "gloss": "from outside (から)",
+              "tokens": [
+                {
+                  "k": "そと"
+                },
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "はいって",
               "role": "predicate",
-              "gloss": "enter (te-form of はいる)"
+              "gloss": "enter (te-form of はいる)",
+              "tokens": [
+                {
+                  "k": "はいって",
+                  "g": "v_hairu_te_form"
+                }
+              ]
             },
             {
               "text": "きた。",
               "role": "connector",
-              "gloss": "came — moved toward the speaker's location"
+              "gloss": "came — moved toward the speaker's location",
+              "tokens": [
+                {
+                  "k": "きた",
+                  "g": "v_kuru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The child came in from outside.",
@@ -531,22 +970,57 @@
             {
               "text": "だんだん",
               "role": "adverb",
-              "gloss": "gradually / little by little"
+              "gloss": "gradually / little by little",
+              "tokens": [
+                {
+                  "k": "だ"
+                },
+                {
+                  "k": "んだ"
+                },
+                {
+                  "k": "ん"
+                }
+              ]
             },
             {
               "text": "あたたかく",
               "role": "modifier",
-              "gloss": "warm (adverbial form of あたたかい)"
+              "gloss": "warm (adverbial form of あたたかい)",
+              "tokens": [
+                {
+                  "k": "あた"
+                },
+                {
+                  "k": "たかく",
+                  "g": "v_takai_adverbial"
+                }
+              ]
             },
             {
               "text": "なって",
               "role": "predicate",
-              "gloss": "become (te-form of なる)"
+              "gloss": "become (te-form of なる)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                }
+              ]
             },
             {
               "text": "いく。",
               "role": "connector",
-              "gloss": "go — the change continues away into the future"
+              "gloss": "go — the change continues away into the future",
+              "tokens": [
+                {
+                  "k": "いく",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It's gradually getting warmer.",
@@ -558,17 +1032,44 @@
             {
               "text": "かさを",
               "role": "object",
-              "gloss": "umbrella (を)"
+              "gloss": "umbrella (を)",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "さ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "もって",
               "role": "predicate",
-              "gloss": "carry (te-form of 持つ)"
+              "gloss": "carry (te-form of 持つ)",
+              "tokens": [
+                {
+                  "k": "もって",
+                  "g": "v_motsu_te_form"
+                }
+              ]
             },
             {
               "text": "いく。",
               "role": "connector",
-              "gloss": "go — taking it away from here"
+              "gloss": "go — taking it away from here",
+              "tokens": [
+                {
+                  "k": "いく",
+                  "g": "v_iku"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'll take an umbrella (with me).",
@@ -580,22 +1081,49 @@
             {
               "text": "ドアに",
               "role": "modifier",
-              "gloss": "on the door (に)"
+              "gloss": "on the door (に)",
+              "tokens": [
+                {
+                  "k": "ドアに"
+                }
+              ]
             },
             {
               "text": "かぎが",
               "role": "subject",
-              "gloss": "lock/key (が — affected object)"
+              "gloss": "lock/key (が — affected object)",
+              "tokens": [
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "ぎが"
+                }
+              ]
             },
             {
               "text": "かけて",
               "role": "predicate",
-              "gloss": "hang/lock (te-form of かける — transitive)"
+              "gloss": "hang/lock (te-form of かける — transitive)",
+              "tokens": [
+                {
+                  "k": "かけて",
+                  "g": "v_kakeru_2_te_form"
+                }
+              ]
             },
             {
               "text": "ある。",
               "role": "connector",
-              "gloss": "is in a locked state — someone did it intentionally"
+              "gloss": "is in a locked state — someone did it intentionally",
+              "tokens": [
+                {
+                  "k": "ある"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The door has been locked (and is still locked).",

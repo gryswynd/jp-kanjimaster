@@ -51,7 +51,10 @@
               "spk": "B",
               "jp": "七時に 帰ります。帰り道に 切手を 買います。",
               "terms": [
-                {"counter": "ji", "n": 7},
+                {
+                  "counter": "ji",
+                  "n": 7
+                },
                 "p_ni",
                 {
                   "id": "v_kaeru",
@@ -71,7 +74,7 @@
               "spk": "A",
               "jp": "友だちに 本を 送りますか。",
               "terms": [
-                "v_tomodachi",
+                "v_tomodachi_hybrid",
                 "p_ni",
                 "v_hon",
                 "p_wo",
@@ -87,7 +90,7 @@
               "jp": "はい。友だちに 本を 送りたいです。大切な 友だちです。",
               "terms": [
                 "p_hai",
-                "v_tomodachi",
+                "v_tomodachi_hybrid",
                 "p_ni",
                 "v_hon",
                 "p_wo",
@@ -100,7 +103,7 @@
                   "id": "v_taisetsu",
                   "form": "attributive_na"
                 },
-                "v_tomodachi",
+                "v_tomodachi_hybrid",
                 "g_desu"
               ]
             }
@@ -415,7 +418,10 @@
             "char_rikizo",
             "p_wa",
             "v_mainichi",
-            {"counter": "ji", "n": 6},
+            {
+              "counter": "ji",
+              "n": 6
+            },
             "p_ni",
             {
               "id": "v_okiru",
@@ -455,7 +461,10 @@
               "id": "v_noru",
               "form": "te_form"
             },
-            {"counter": "fun", "n": 30},
+            {
+              "counter": "fun",
+              "n": 30
+            },
             "p_de",
             "v_eki",
             "p_ni",
@@ -520,7 +529,7 @@
               "id": "v_kau",
               "form": "te_form"
             },
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_hon",
             "p_wo",
@@ -553,7 +562,10 @@
               "form": "polite_masu"
             },
             "p_ka",
-            {"counter": "ji", "n": 6}
+            {
+              "counter": "ji",
+              "n": 6
+            }
           ],
           "explanation": "りきぞうは毎日六時に起きます — Rikizo wakes up at 6 o'clock every day."
         },
@@ -845,7 +857,7 @@
           "answer": "に",
           "explanation": "Use に to mark the recipient of a sending or giving action. 友だちに本を送る = 'send a book to a friend'. を already marks 本 (the thing sent); the person receiving it takes に, not を.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "v_hon",
             {
               "id": "v_okuru",

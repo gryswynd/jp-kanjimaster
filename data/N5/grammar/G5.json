@@ -74,20 +74,41 @@
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I go to the station.",
@@ -98,20 +119,40 @@
             {
               "text": "ここ",
               "role": "topic",
-              "gloss": "here"
+              "gloss": "here",
+              "tokens": [
+                {
+                  "k": "ここ"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be"
+              "gloss": "be",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I am here (at this spot).",
@@ -122,16 +163,32 @@
             {
               "text": "来週",
               "role": "modifier",
-              "gloss": "next week"
+              "gloss": "next week",
+              "tokens": [
+                {
+                  "k": "来週",
+                  "r": "らいしゅう"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I will come next week. (no に — floating time word)",
@@ -174,20 +231,41 @@
             {
               "text": "バス",
               "role": "topic",
-              "gloss": "bus"
+              "gloss": "bus",
+              "tokens": [
+                {
+                  "k": "バス",
+                  "r": "ばす"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I come by bus.",
@@ -198,20 +276,46 @@
             {
               "text": "タクシー",
               "role": "topic",
-              "gloss": "taxi"
+              "gloss": "taxi",
+              "tokens": [
+                {
+                  "k": "タクシ",
+                  "r": "たくし",
+                  "g": "v_takushii"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_takushii"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I went by taxi.",
@@ -222,29 +326,61 @@
             {
               "text": "バス",
               "role": "topic",
-              "gloss": "bus"
+              "gloss": "bus",
+              "tokens": [
+                {
+                  "k": "バス",
+                  "r": "ばす"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I came to the station by bus.",
@@ -287,20 +423,42 @@
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I am heading to (toward) the station.",
@@ -311,20 +469,41 @@
             {
               "text": "うち",
               "role": "topic",
-              "gloss": "home"
+              "gloss": "home",
+              "tokens": [
+                {
+                  "k": "うち"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I am coming toward home.",
@@ -351,29 +530,66 @@
               {
                 "text": "友だち",
                 "role": "subject",
-                "gloss": "friend"
+                "gloss": "friend",
+                "tokens": [
+                  {
+                    "k": "友",
+                    "r": "とも",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "だち",
+                    "g": "v_tomodachi_hybrid"
+                  }
+                ]
               },
               {
                 "text": "が",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "家",
                 "role": "topic",
-                "gloss": "home"
+                "gloss": "home",
+                "tokens": [
+                  {
+                    "k": "家",
+                    "r": "いえ"
+                  }
+                ]
               },
               {
                 "text": "に",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "い",
                 "role": "verb",
-                "gloss": "be"
+                "gloss": "be",
+                "tokens": [
+                  {
+                    "k": "い"
+                  }
+                ]
               },
               {
                 "text": "ます",
-                "role": "predicate"
+                "role": "predicate",
+                "tokens": [
+                  {
+                    "k": "ます"
+                  }
+                ]
               }
             ],
             "en": "My friend is at home. (existence location)"
@@ -394,20 +610,41 @@
               {
                 "text": "家",
                 "role": "topic",
-                "gloss": "home"
+                "gloss": "home",
+                "tokens": [
+                  {
+                    "k": "家",
+                    "r": "いえ"
+                  }
+                ]
               },
               {
                 "text": "で",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "で"
+                  }
+                ]
               },
               {
                 "text": "生まれ",
                 "role": "verb",
-                "gloss": "was born"
+                "gloss": "was born",
+                "tokens": [
+                  {
+                    "k": "生まれ"
+                  }
+                ]
               },
               {
                 "text": "ました",
-                "role": "predicate"
+                "role": "predicate",
+                "tokens": [
+                  {
+                    "k": "ました"
+                  }
+                ]
               }
             ],
             "en": "I was born at home. (action location — the event happened there)"
@@ -434,20 +671,41 @@
               {
                 "text": "駅",
                 "role": "topic",
-                "gloss": "station"
+                "gloss": "station",
+                "tokens": [
+                  {
+                    "k": "駅",
+                    "r": "えき"
+                  }
+                ]
               },
               {
                 "text": "に",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "行き",
                 "role": "verb",
-                "gloss": "go-"
+                "gloss": "go-",
+                "tokens": [
+                  {
+                    "k": "行き"
+                  }
+                ]
               },
               {
                 "text": "ます",
-                "role": "predicate"
+                "role": "predicate",
+                "tokens": [
+                  {
+                    "k": "ます"
+                  }
+                ]
               }
             ],
             "en": "I go to the station. (arriving there)"
@@ -467,20 +725,42 @@
               {
                 "text": "駅",
                 "role": "topic",
-                "gloss": "station"
+                "gloss": "station",
+                "tokens": [
+                  {
+                    "k": "駅",
+                    "r": "えき"
+                  }
+                ]
               },
               {
                 "text": "へ",
-                "role": "particle"
+                "role": "particle",
+                "tokens": [
+                  {
+                    "k": "へ",
+                    "r": "え"
+                  }
+                ]
               },
               {
                 "text": "行き",
                 "role": "verb",
-                "gloss": "go-"
+                "gloss": "go-",
+                "tokens": [
+                  {
+                    "k": "行き"
+                  }
+                ]
               },
               {
                 "text": "ます",
-                "role": "predicate"
+                "role": "predicate",
+                "tokens": [
+                  {
+                    "k": "ます"
+                  }
+                ]
               }
             ],
             "en": "I head toward the station. (moving in that direction)"
@@ -520,27 +800,57 @@
             {
               "text": "部屋",
               "role": "topic",
-              "gloss": "room"
+              "gloss": "room",
+              "tokens": [
+                {
+                  "k": "部屋",
+                  "r": "へや"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "modifier",
-              "gloss": "in (existence location)"
+              "gloss": "in (existence location)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "猫",
               "role": "subject",
-              "gloss": "cat"
+              "gloss": "cat",
+              "tokens": [
+                {
+                  "k": "猫",
+                  "r": "ねこ"
+                }
+              ]
             },
             {
               "text": "が",
               "role": "modifier",
-              "gloss": "(subject)"
+              "gloss": "(subject)",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "います。",
               "role": "predicate",
-              "gloss": "exists (animate)"
+              "gloss": "exists (animate)",
+              "tokens": [
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "There is a cat in the room.",
@@ -551,27 +861,57 @@
             {
               "text": "部屋",
               "role": "topic",
-              "gloss": "room"
+              "gloss": "room",
+              "tokens": [
+                {
+                  "k": "部屋",
+                  "r": "へや"
+                }
+              ]
             },
             {
               "text": "に",
               "role": "modifier",
-              "gloss": "in (existence location)"
+              "gloss": "in (existence location)",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "本",
               "role": "subject",
-              "gloss": "book"
+              "gloss": "book",
+              "tokens": [
+                {
+                  "k": "本",
+                  "r": "ほん"
+                }
+              ]
             },
             {
               "text": "が",
               "role": "modifier",
-              "gloss": "(subject)"
+              "gloss": "(subject)",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あります。",
               "role": "predicate",
-              "gloss": "exists (inanimate)"
+              "gloss": "exists (inanimate)",
+              "tokens": [
+                {
+                  "k": "あります"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "There is a book in the room.",
@@ -582,17 +922,37 @@
             {
               "text": "先生",
               "role": "subject",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "が",
               "role": "modifier",
-              "gloss": "(subject)"
+              "gloss": "(subject)",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いません。",
               "role": "predicate",
-              "gloss": "is not here (animate negative)"
+              "gloss": "is not here (animate negative)",
+              "tokens": [
+                {
+                  "k": "いません",
+                  "g": "v_iru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The teacher is not here.",
@@ -619,22 +979,54 @@
               {
                 "text": "友だち",
                 "role": "subject",
-                "gloss": "friend"
+                "gloss": "friend",
+                "tokens": [
+                  {
+                    "k": "友",
+                    "r": "とも",
+                    "g": "v_tomodachi_hybrid"
+                  },
+                  {
+                    "k": "だち",
+                    "g": "v_tomodachi_hybrid"
+                  }
+                ]
               },
               {
                 "text": "が",
                 "role": "modifier",
-                "gloss": "(subject)"
+                "gloss": "(subject)",
+                "tokens": [
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "うちに",
                 "role": "topic",
-                "gloss": "at home"
+                "gloss": "at home",
+                "tokens": [
+                  {
+                    "k": "うち"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "います。",
                 "role": "predicate",
-                "gloss": "is (animate)"
+                "gloss": "is (animate)",
+                "tokens": [
+                  {
+                    "k": "います"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "My friend is at home."
@@ -655,22 +1047,50 @@
               {
                 "text": "本",
                 "role": "subject",
-                "gloss": "book"
+                "gloss": "book",
+                "tokens": [
+                  {
+                    "k": "本",
+                    "r": "ほん"
+                  }
+                ]
               },
               {
                 "text": "が",
                 "role": "modifier",
-                "gloss": "(subject)"
+                "gloss": "(subject)",
+                "tokens": [
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "部屋に",
                 "role": "topic",
-                "gloss": "in the room"
+                "gloss": "in the room",
+                "tokens": [
+                  {
+                    "k": "部屋",
+                    "r": "へや"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "あります。",
                 "role": "predicate",
-                "gloss": "exists (inanimate)"
+                "gloss": "exists (inanimate)",
+                "tokens": [
+                  {
+                    "k": "あります"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "There is a book in the room."
@@ -689,25 +1109,52 @@
             {
               "text": "毎日",
               "role": "modifier",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I go to the station every day.",
@@ -719,34 +1166,76 @@
             {
               "text": "今",
               "role": "modifier",
-              "gloss": "now"
+              "gloss": "now",
+              "tokens": [
+                {
+                  "k": "今",
+                  "r": "いま"
+                }
+              ]
             },
             {
               "text": "うち",
               "role": "topic",
-              "gloss": "home"
+              "gloss": "home",
+              "tokens": [
+                {
+                  "k": "うち"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "友だち",
               "role": "subject",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be"
+              "gloss": "be",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "My friend is at home right now.",
@@ -758,29 +1247,61 @@
             {
               "text": "バス",
               "role": "topic",
-              "gloss": "bus"
+              "gloss": "bus",
+              "tokens": [
+                {
+                  "k": "バス",
+                  "r": "ばす"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I go to the station by bus.",
@@ -792,25 +1313,53 @@
             {
               "text": "先週",
               "role": "modifier",
-              "gloss": "last week"
+              "gloss": "last week",
+              "tokens": [
+                {
+                  "k": "先週",
+                  "r": "せんしゅう"
+                }
+              ]
             },
             {
               "text": "コンビニ",
               "role": "topic",
-              "gloss": "convenience store"
+              "gloss": "convenience store",
+              "tokens": [
+                {
+                  "k": "コンビニ",
+                  "r": "こんびに"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "Last week I headed to the convenience store.",
@@ -1062,7 +1611,8 @@
             "駅で 行きます。",
             "駅が 行きます。",
             "駅から 行きます。"
-          ]
+          ],
+          "hint": "Both mark a destination; へ stresses the direction \"toward\": 駅に → 駅へ."
         },
         {
           "given": "バスで 来ました。",
@@ -1074,7 +1624,8 @@
             "タクシーへ 来ました。",
             "タクシーで 来ました。",
             "タクシーから 来ました。"
-          ]
+          ],
+          "hint": "で marks the means of transport — swap the noun, keep で: バスで → タクシーで."
         },
         {
           "given": "うちに います。",
@@ -1086,7 +1637,8 @@
             "コンビニへ います。",
             "コンビニに います。",
             "コンビニが います。"
-          ]
+          ],
+          "hint": "に marks the location of existence with います — swap the place: うちに → コンビニに."
         },
         {
           "given": "スーパーへ 行きます。",
@@ -1098,7 +1650,8 @@
             "スーパーに 行きます。",
             "スーパーから 行きます。",
             "スーパーを 行きます。"
-          ]
+          ],
+          "hint": "に marks the arrival point / destination: スーパーへ → スーパーに."
         },
         {
           "given": "友だちが 駅に います。",
@@ -1110,7 +1663,8 @@
             "友だちが うちで います。",
             "友だちが うちへ います。",
             "友だちが うちから います。"
-          ]
+          ],
+          "hint": "Keep に for the existence location, change only the place: 駅に → うちに."
         },
         {
           "given": "来週 来ます。",
@@ -1122,7 +1676,8 @@
             "来週 駅が 来ます。",
             "来週 駅に 来ます。",
             "来週 駅から 来ます。"
-          ]
+          ],
+          "hint": "Add the destination with に before the verb: 来週 来ます → 来週 駅に 来ます."
         }
       ]
     },

@@ -1,0 +1,142 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-05-street",
+  "title": "Street",
+  "titleJp": "みち",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png"
+    }
+  },
+  "playerStart": {
+    "x": 624,
+    "y": 208
+  },
+  "objects": [
+    {
+      "name": "Gate",
+      "nameJp": "もん",
+      "position": [
+        703,
+        61
+      ],
+      "size": [
+        100,
+        50
+      ],
+      "sprite": "objects/gate_closed.png",
+      "isDoor": true
+    },
+    {
+      "name": "Driveway_Gate",
+      "nameJp": "もん",
+      "position": [
+        86,
+        29
+      ],
+      "size": [
+        159,
+        83
+      ],
+      "sprite": "objects/driveway_gate_closed.png",
+      "isDoor": true
+    },
+    {
+      "name": "Bus_Stop",
+      "nameJp": "バス停",
+      "position": [
+        1035,
+        108
+      ],
+      "size": [
+        157,
+        157
+      ],
+      "sprite": "objects/bus_stop.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Blockade",
+      "nameJp": "工事",
+      "position": [
+        1136,
+        277
+      ],
+      "size": [
+        125,
+        250
+      ],
+      "sprite": "objects/blockade.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true,
+      "appearsUntilDay": 5
+    },
+    {
+      "name": "Exit_West",
+      "nameJp": "みち",
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "nameFromDay": 6
+    },
+    {
+      "name": "Exit_East",
+      "nameJp": "みち",
+      "nameFromDay": 6,
+      "appearsFromDay": 6,
+      "position": [
+        1208,
+        0
+      ],
+      "size": [
+        40,
+        832
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

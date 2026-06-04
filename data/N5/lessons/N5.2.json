@@ -127,7 +127,7 @@
           "jp": "友だちは やさしいですか。",
           "en": "Is your friend kind?",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_yasashii",
             "g_desu",
@@ -347,7 +347,7 @@
           "terms": [
             "v_kyou",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "g_desu",
             "p_ka"
           ]
@@ -359,7 +359,7 @@
           "terms": [
             "v_kyou",
             "p_wa",
-            "v_mokuyoubi",
+            "v_mokuyoubi_hybrid",
             "g_desu"
           ]
         },
@@ -385,10 +385,10 @@
           "en": "She is always here on Monday, Wednesday, and Friday.",
           "terms": [
             "v_itsumo",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_to",
-            "v_suiyoubi",
-            "v_kinyoubi",
+            "v_suiyoubi_hybrid",
+            "v_kinyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -439,7 +439,7 @@
             "v_san",
             "v_otousan",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -455,9 +455,9 @@
           "terms": [
             "v_chichi",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             {
               "id": "v_iru",
@@ -470,9 +470,9 @@
           "jp": "土よう日と 日よう日は いませんか。",
           "en": "Is he not here on Saturday and Sunday?",
           "terms": [
-            "v_doyoubi",
+            "v_doyoubi_hybrid",
             "p_to",
-            "v_nichiyoubi",
+            "v_nichiyoubi_hybrid",
             "p_wa",
             {
               "id": "v_iru",
@@ -489,9 +489,9 @@
             "p_soudesu",
             "v_okaasan",
             "p_mo",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             {
               "id": "v_iru",
@@ -560,7 +560,7 @@
               "id": "v_aru",
               "form": "polite_negative"
             },
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_ni",
             {
               "id": "v_aru",
@@ -585,7 +585,7 @@
           "terms": [
             "p_hai",
             "v_maigetsu",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_ni",
             {
               "id": "v_aru",
@@ -600,7 +600,7 @@
           "terms": [
             "v_kongetsu",
             "p_mo",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made_ni",
             {
               "id": "v_aru",
@@ -615,7 +615,7 @@
           "en": "Yes, by Friday.",
           "terms": [
             "p_hai",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made_ni",
             {
               "id": "v_aru",
@@ -628,7 +628,7 @@
           "jp": "金よう日は いい 日ですね。",
           "en": "Friday is a great day, isn't it.",
           "terms": [
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_wa",
             "v_ii",
             "v_hi",
@@ -648,13 +648,13 @@
           "jp": "月よう日の「月」は つきです。水よう日の「水」は みずです。",
           "en": "The 月 in Monday means moon. The 水 in Wednesday means water.",
           "terms": [
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_no",
             "v_tsuki",
             "p_wa",
             "v_tsuki",
             "g_desu",
-            "v_suiyoubi",
+            "v_suiyoubi_hybrid",
             "v_mizu",
             "v_mizu"
           ]
@@ -664,7 +664,7 @@
           "jp": "木よう日の「木」は きですね。",
           "en": "The 木 in Thursday means tree, right?",
           "terms": [
-            "v_mokuyoubi",
+            "v_mokuyoubi_hybrid",
             "p_no",
             "v_ki",
             "p_wa",
@@ -679,13 +679,13 @@
           "en": "That's right. The 火 in Tuesday means fire. The 土 in Saturday means soil.",
           "terms": [
             "p_soudesu",
-            "v_kayoubi",
+            "v_kayoubi_hybrid",
             "p_no",
             "v_hi_2",
             "p_wa",
             "v_hi_2",
             "g_desu",
-            "v_doyoubi",
+            "v_doyoubi_hybrid",
             "v_tsuchi",
             "v_tsuchi"
           ]
@@ -695,13 +695,13 @@
           "jp": "金よう日の「金」は かねです。日よう日の「日」は ひです。",
           "en": "The 金 in Friday means gold. The 日 in Sunday means sun.",
           "terms": [
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_no",
             "v_kane",
             "p_wa",
             "v_kane",
             "g_desu",
-            "v_nichiyoubi",
+            "v_nichiyoubi_hybrid",
             "v_hi",
             "v_hi"
           ]
@@ -730,7 +730,7 @@
           "terms": [
             "v_kyou",
             "p_wa",
-            "v_mokuyoubi",
+            "v_mokuyoubi_hybrid",
             "g_desu"
           ]
         },
@@ -741,10 +741,10 @@
             "char_yamamoto",
             "v_sensei",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_to",
-            "v_suiyoubi",
-            "v_kinyoubi",
+            "v_suiyoubi_hybrid",
+            "v_kinyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -756,11 +756,11 @@
           "jp": "火よう日と 木よう日と 土よう日と 日よう日は いません。",
           "en": "She is not here on Tuesday, Thursday, Saturday, or Sunday.",
           "terms": [
-            "v_kayoubi",
+            "v_kayoubi_hybrid",
             "p_to",
-            "v_mokuyoubi",
-            "v_doyoubi",
-            "v_nichiyoubi",
+            "v_mokuyoubi_hybrid",
+            "v_doyoubi_hybrid",
+            "v_nichiyoubi_hybrid",
             "p_wa",
             {
               "id": "v_iru",
@@ -787,9 +787,9 @@
           "en": "Every month, the teacher is here from Monday to Friday.",
           "terms": [
             "v_maigetsu",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             "v_sensei",
             "p_ga",
@@ -823,7 +823,7 @@
             "char_yamamoto",
             "v_sensei",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -851,7 +851,7 @@
           "terms": [
             "v_kyou",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "g_desu",
             "p_ka"
           ],
@@ -1107,7 +1107,8 @@
             "か",
             "みず"
           ],
-          "answer": "ひ"
+          "answer": "ひ",
+          "explanation": "「日」 is read 「ひ」 — day / sun."
         },
         {
           "kind": "mcq",
@@ -1118,7 +1119,8 @@
             "き",
             "かね"
           ],
-          "answer": "つき"
+          "answer": "つき",
+          "explanation": "「月」 is read 「つき」 — month / moon."
         },
         {
           "kind": "mcq",
@@ -1129,7 +1131,8 @@
             "かね",
             "みず"
           ],
-          "answer": "つち"
+          "answer": "つち",
+          "explanation": "「土」 is read 「つち」 — earth / soil."
         },
         {
           "kind": "mcq",
@@ -1140,7 +1143,8 @@
             "まいばん",
             "まいげつ"
           ],
-          "answer": "まいにち"
+          "answer": "まいにち",
+          "explanation": "「毎日」 is read 「まいにち」 — every day."
         },
         {
           "kind": "mcq",
@@ -1151,7 +1155,8 @@
             "こんばん",
             "けさ"
           ],
-          "answer": "こんげつ"
+          "answer": "こんげつ",
+          "explanation": "「今月」 is read 「こんげつ」 — this month."
         },
         {
           "kind": "mcq",
@@ -1162,7 +1167,8 @@
             "おき",
             "おみず"
           ],
-          "answer": "おかね"
+          "answer": "おかね",
+          "explanation": "「お金」 is read 「おかね」 — money."
         }
       ]
     },
@@ -1186,7 +1192,8 @@
             "p_wa",
             "v_mokuyoubi",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: きょうは 木よう日 です。 — 「木よう日」 (もくようび) means \"Thursday (kana-hybrid spelling)\"."
         },
         {
           "kind": "mcq",
@@ -1208,7 +1215,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎月 金よう日 に お金が あります。 — 「金よう日」 (きんようび) means \"Friday (kana-hybrid spelling)\"."
         },
         {
           "kind": "mcq",
@@ -1223,9 +1231,10 @@
           "terms": [
             "v_kyou",
             "p_wa",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 今日 は 金よう日です。 — 「今日」 (きょう) means \"today\"."
         },
         {
           "kind": "mcq",
@@ -1240,7 +1249,7 @@
           "terms": [
             "v_sensei",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
             "v_kinyoubi",
             "p_made",
@@ -1248,7 +1257,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 先生は 月よう日から 金よう日 まで います。 — 「金よう日」 (きんようび) means \"Friday (kana-hybrid spelling)\"."
         },
         {
           "kind": "mcq",
@@ -1261,6 +1271,7 @@
           ],
           "answer": "木",
           "terms": [
+            "v_geemu",
             "p_ni",
             "v_mizu",
             "p_to",
@@ -1270,7 +1281,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: ゲームに 水と 木 が あります。 — 「木」 (き) means \"tree / wood\"."
         },
         {
           "kind": "mcq",
@@ -1284,15 +1296,16 @@
           "answer": "毎月",
           "terms": [
             "v_maigetsu",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             {
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎月 月よう日から 金よう日まで います。 — 「毎月」 (まいげつ) means \"every month\"."
         }
       ]
     },
@@ -1314,15 +1327,16 @@
           "terms": [
             "v_sensei",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             {
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 先生 は 月よう日から 金よう日まで います。"
         },
         {
           "kind": "mcq",
@@ -1335,9 +1349,9 @@
           ],
           "answer": "から",
           "terms": [
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_kara",
-            "v_kinyoubi",
+            "v_kinyoubi_hybrid",
             "p_made",
             "v_sensei",
             "p_ga",
@@ -1345,7 +1359,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 月よう日 から 金よう日まで 先生が います。"
         },
         {
           "kind": "mcq",
@@ -1358,13 +1373,14 @@
           ],
           "answer": "が",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ga",
             {
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 友だち が います。"
         },
         {
           "kind": "mcq",
@@ -1385,7 +1401,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 今月 も お金が あります。"
         },
         {
           "kind": "mcq",
@@ -1407,7 +1424,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 父 と 母は 毎日 います。"
         },
         {
           "kind": "mcq",
@@ -1427,7 +1445,8 @@
               "form": "polite_masu"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: お金 が ありますか。"
         }
       ]
     }

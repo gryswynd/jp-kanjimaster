@@ -3369,6 +3369,67 @@
   "grammarUsed": [],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "さくらはりきぞうに何を買ってきてくださいと言いましたか。",
+        "q_en": "What did Sakura ask Rikizo to buy?",
+        "answer": "大きい魚",
+        "accept": [
+          "魚"
+        ],
+        "explanation": "「大きい魚を買ってきてください。」",
+        "terms": [
+          "v_sakana"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは何で魚の店に行きましたか。",
+        "q_en": "How did Rikizo go to the fish shop?",
+        "answer": "電車で行きました",
+        "accept": [
+          "電車"
+        ],
+        "explanation": "りきぞうは電車で行きました。",
+        "terms": [
+          "v_densha"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "魚はいくらですか。",
+        "q_en": "How much is the fish?",
+        "answer": "三千五百円です",
+        "accept": [
+          "三千五百円",
+          "三千五百"
+        ],
+        "explanation": "「三千五百円です。」"
+      },
+      {
+        "type": "written",
+        "q": "電車の中で、りきぞうはだれに会いましたか。",
+        "q_en": "Whom did Rikizo meet on the train?",
+        "answer": "やまかわです",
+        "accept": [
+          "やまかわ"
+        ],
+        "explanation": "「あっ！りきぞう！」やまかわでした！"
+      },
+      {
+        "type": "written",
+        "q": "店の人は魚を何に入れましたか。",
+        "q_en": "What did the shopkeeper put the fish in?",
+        "answer": "新聞に入れました",
+        "accept": [
+          "新聞"
+        ],
+        "explanation": "店の人は魚を新聞に入れました。",
+        "terms": [
+          "v_shinbun"
+        ]
+      }
+    ]
   }
 }

@@ -171,6 +171,16 @@ rt {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
+/* Persistent nav: the bar lives in #rk-tabbar-root (a sibling of the app
+   container) so a module's container.innerHTML can't wipe it. It auto-hides on
+   focused task screens via body.jp-tabbar-hidden; on nav-visible screens the
+   scroll area reserves the bar's strip so content isn't covered. */
+body.jp-tabbar-hidden #rk-tabbar-root { display: none; }
+body:not(.jp-tabbar-hidden) #app-main-container { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+/* Inner-scroller menus (root pinned to 100dvh, content scrolls inside) reserve
+   the strip on that scroller instead. */
+body:not(.jp-tabbar-hidden) .lh-body,
+body:not(.jp-tabbar-hidden) .gr-body { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
 .rk-tab {
   background: transparent;
   border: none;
@@ -226,9 +236,36 @@ rt {
 
 .rk-loading {
   display: flex; align-items: center; justify-content: center;
-  min-height: 60vh; flex-direction: column; gap: 10px;
+  min-height: 60vh; flex-direction: column; gap: 14px;
   color: var(--ink-3); font-family: var(--font-mono); font-size: 12px;
   letter-spacing: 0.1em; text-transform: uppercase;
+}
+/* Breathing 力 mark so a load reads as "working", not "frozen". The text node
+   stays inline (callers pass "力 · loading X"); we animate the whole block subtly
+   and add a dot row beneath via ::after. */
+.rk-loading {
+  animation: rkLoadFade 0.4s ease-out both;
+}
+.rk-loading::before {
+  content: '力';
+  font-family: var(--font-jp-display, serif);
+  font-size: 40px; line-height: 1; color: var(--vermilion);
+  animation: rkLoadPulse 1.3s ease-in-out infinite;
+  text-transform: none;
+}
+.rk-loading::after {
+  content: '· · ·';
+  letter-spacing: 0.3em;
+  animation: rkLoadDots 1.3s steps(4, end) infinite;
+}
+@keyframes rkLoadPulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.94); }
+  50%      { opacity: 1;    transform: scale(1.04); }
+}
+@keyframes rkLoadDots { 0% { opacity: 0.2; } 50% { opacity: 0.9; } 100% { opacity: 0.2; } }
+@keyframes rkLoadFade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .rk-loading::before, .rk-loading::after, .rk-loading { animation: none; }
 }
 </style>
 </head>
@@ -238,6 +275,20 @@ rt {
      script to gate content for brand-new students: window.RIKIZO_CONFIG = { mode:'gated' } -->
 <script>
 window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
+
+// Firebase config for accounts + progress sync (app/shared/auth.js, sync.js).
+// LEFT EMPTY ON PURPOSE → auth + sync stay INERT and the app is purely local,
+// exactly as before. Paste the values from your Firebase project's Web App
+// (Project settings → Your apps) to switch cloud sync on. These are public/safe
+// to embed. The sync server URL reuses the tutor base URL (config.tutorBaseUrl).
+window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
+  apiKey: 'AIzaSyCM5cl50FisyrusONgAhkz_zYCB4DsM7RY',
+  authDomain: 'project-9c65f87c-e8c8-409b-843.firebaseapp.com',
+  projectId: 'project-9c65f87c-e8c8-409b-843',
+  appId: '1:979574126888:web:d0ccc19e53465c9914b81d',
+  messagingSenderId: '979574126888',
+  storageBucket: 'project-9c65f87c-e8c8-409b-843.firebasestorage.app'
+};
 </script>
 
 <!-- ============================================================
@@ -279,7 +330,7 @@ window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
   } else if (scope === 'tutorial') {
     remove(['k-rikizo-lesson-tutorial-seen', 'k-rikizo-lesson-tutorial-done',
             'k-rikizo-grammar-tutorial-seen', 'k-rikizo-dojo-tutorial-seen',
-            'k-rikizo-compose-tutorial-seen']);
+            'k-rikizo-compose-tutorial-seen', 'k-rikizo-settings-tutorial-seen']);
   } else if (scope === 'progress') {
     remove(['k-lesson-completed', 'k-lesson-scores', 'k-lesson-resume']);
   } else if (scope === 'grammar') {
@@ -355,6 +406,9 @@ window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
         localStorage.setItem('k-lesson-completed', JSON.stringify(doneMap2));
         localStorage.setItem('k-lesson-scores',    JSON.stringify(scoreMap2));
         localStorage.setItem('k-rikizo-onboarded', '1');
+        // Open the N4 gateway too — otherwise N4 content is completed but the
+        // N4 roadmap / lessons / reviews stay locked (they gate on this flag).
+        localStorage.setItem('k-n4-unlocked', 'true');
       } catch (e) {}
     }
   }
@@ -364,6 +418,9 @@ window.RIKIZO_CONFIG = window.RIKIZO_CONFIG || { mode: 'gated' };
 </script>
 
 <div id="app-main-container"></div>
+<!-- Persistent bottom nav — sibling of the app container so module renders can't
+     wipe it. Populated by JPApp.renderTabBar(); hidden on tasks via body class. -->
+<div id="rk-tabbar-root"></div>
 
 <script>
 window.JPApp = {
@@ -375,7 +432,27 @@ window.JPApp = {
     repo: "jp-kanjimaster",
     branch: "main",
     assetMode: "local",
-    codeBase: ""
+    codeBase: "",
+    // ── Version (OTA spine) ───────────────────────────────────────────────
+    // buildNumber is the single source of truth for "what build is this".
+    //   • Bump it by 1 every time you ship a web-code/data fix testers should
+    //     receive via Settings → Check for updates.
+    //   • scripts/build-www.mjs READS these fields and writes www/version.json,
+    //     so the bundled build and the hosted version.json can never drift.
+    //   • The OTA updater compares this bundled buildNumber to the hosted one.
+    // appVersion is the human-facing label (keep ~in sync with Xcode MARKETING_VERSION).
+    appVersion: "0.1.0",
+    buildNumber: 1,
+    // Where the OTA updater looks for newer builds. Empty = OTA disabled (app just
+    // runs its bundled copy, fully offline). Set to the Firebase Hosting URL once
+    // hosting is live, e.g. "https://rikizo-app.web.app".
+    updateBaseUrl: "",
+    // Progress-sync server (Cloud Run). Used by app/shared/sync.js only — the AI
+    // tutor stays off until tutorBaseUrl is set separately.
+    apiBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app",
+    // AI tutor (Rikizo Press-to-Ask) — same Cloud Run service as apiBaseUrl.
+    // Overridable at runtime via ?tutor= or localStorage k-tutor-base-url.
+    tutorBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app"
   },
 
   _manifest: null,
@@ -395,10 +472,12 @@ window.JPApp = {
       case 'lesson':   return true;
       case 'grammar':  return done('N5.1');
       case 'practice': return done('N5.1');
+      case 'glossary': return done('N5.1');
       case 'compose':  return pass('N5.1');
       case 'game':     return pass('N5.1');
       case 'story':    return done('G4');
       case 'review':   return done('G4');
+      case 'audiodojo': return pass('N5.3');
       case 'map':      return true;
       case 'custom':   return true;
       // Writing modules live under the Dojo's Writing hub; entry is already
@@ -485,12 +564,21 @@ window.JPApp = {
   init: async function() {
     this.container = document.getElementById('app-main-container');
     if (!this.container) return console.error('Container #app-main-container not found');
-    this.container.innerHTML = '<div class="rk-loading">力 · loading</div>';
+    this.container.innerHTML = '<div class="rk-loading">loading</div>';
+    // Diagnostics first — installs global JS-error capture so any error during the
+    // rest of boot is caught and available to the bug-report tool.
+    await this.loadModule('app/shared/diagnostics.js');
     await this.loadModule('app/shared/asset-loader.js');
     await this.loadModule('app/shared/user-profile.js');
     await this.loadModule('app/shared/streak.js');
     await this.loadModule('app/shared/haptics.js');
+    await this.loadModule('app/shared/sfx.js');
+    await this.loadModule('app/shared/scene-kit.js');
+    await this.loadModule('app/shared/garden-stage.js'); // living koi ponds (Grammar Garden)
+    await this.loadModule('vendor/page-flip.browser.js'); // StPageFlip (Stories reader)
     await this.loadModule('app/shared/practice-helpers.js');
+    // Context-aware homograph-particle sense resolver (used by the story renderer).
+    await this.loadModule('app/shared/particle-sense.js');
     // Load Reading Aids renderer EARLY so the html.k-furigana / .k-romaji
     // classes are set before first paint (no flash of bare-then-furigana).
     await this.loadModule('app/shared/jp-text.js');
@@ -507,6 +595,27 @@ window.JPApp = {
     if (window.JPShared && window.JPShared.rikizoCompanion) {
       window.JPShared.rikizoCompanion.init(this.config);
     }
+    // Ambient "Ask Rikizo" tutor overlay — always-on when the beta is enabled,
+    // so its transport + quota + context deps load eagerly at boot.
+    await this.loadModule('app/shared/device-id.js');
+    // Accounts + cloud progress sync. Inert unless RIKIZO_FIREBASE is configured
+    // AND a server URL is set, so this is a no-op in the current local-only build.
+    await this.loadModule('app/shared/auth.js');
+    await this.loadModule('app/shared/sync.js');
+    await this.loadModule('app/shared/tutor-quota.js');
+    await this.loadModule('app/shared/tutor-client.js');
+    await this.loadModule('app/shared/tutor-context.js');
+    await this.loadModule('app/shared/tutor-curriculum.js');
+    await this.loadModule('app/shared/audio-capture.js');
+    await this.loadModule('app/shared/tutor-overlay.js');
+    await this.loadModule('app/shared/bug-report.js');
+    if (window.JPShared && window.JPShared.tutorCurriculum) {
+      // Preload manifest + glossary for curriculum awareness (non-blocking).
+      window.JPShared.tutorCurriculum.init(this.config);
+    }
+    if (window.JPShared && window.JPShared.tutorOverlay) {
+      window.JPShared.tutorOverlay.init(this.config);
+    }
     try {
       this._manifest = await window.getManifest(this.config);
     } catch (e) {
@@ -516,10 +625,24 @@ window.JPApp = {
     this.renderMenu();
     this._nativeBoot();
 
+    var self = this;
+
+    // Accounts + progress sync (all no-ops unless Firebase + server are set).
+    if (window.JPShared && window.JPShared.auth) {
+      window.JPShared.sync && window.JPShared.sync.start();
+      window.JPShared.auth.ensureSignedIn().then(function () {
+        if (window.JPShared.sync) window.JPShared.sync.pull();
+        if (self._view === 'home') self.renderMenu(); // reflect signed-in state
+      });
+    }
+    // When a cloud pull merges in newer progress, refresh Home so it shows.
+    window.addEventListener('jp-progress-synced', function () {
+      if (self._view === 'home') self.renderMenu();
+    });
+
     // When the user updates their profile in Settings (first name, etc.),
     // refresh the home masthead so the new greeting appears immediately. If
     // they're inside a lesson/module, the next return to Home will pick it up.
-    var self = this;
     document.addEventListener('jp-user-profile-changed', function () {
       if (self._view === 'home') self.renderMenu();
     });
@@ -588,8 +711,10 @@ window.JPApp = {
 
   // Real N5 progress + the next item to do, from manifest + localStorage.
   // `today` is the user's CURRENT BLOCKER — the next thing in the chain. It
-  // walks both lessons and grammars (grammars first when both are available),
-  // so after finishing N5.1 the card surfaces G1, after G1 it surfaces G2, etc.
+  // walks grammars, then reviews, then lessons (in that priority), so the
+  // natural chain surfaces in order: N5.1 → G1 → G2 → G3 → N5.2 → G4 →
+  // N5.Review.1 → N5.3 → …  Reviews are included so a freshly-unlocked review
+  // lands in the "up next" spot instead of leaving the card blank.
   // When everything available is done but the next lesson is gated by an
   // `extraRequirePass` that's still failing (e.g. N5.1 not passed), the
   // returned `today` is a "retake" entry for that lesson.
@@ -613,9 +738,22 @@ window.JPApp = {
       if (/^G\d+$/.test(l.unlocksAfter)) return done(l.unlocksAfter);
       return passed(l.unlocksAfter);
     }
+    // Mirror unlock.js isGrammarUnlocked: grammar-on-grammar uses completion,
+    // grammar gated on a lesson requires a *pass* (a failed lesson must not
+    // unlock the grammar that builds on it).
     function grammarUnlocked(g) {
       if (free) return true;
-      return !g.unlocksAfter || done(g.unlocksAfter);
+      if (!g.unlocksAfter) return true;
+      if (/^G\d+$/.test(g.unlocksAfter)) return done(g.unlocksAfter);
+      return passed(g.unlocksAfter);
+    }
+    // Reviews are graded; they unlock when their prereq is satisfied (grammar
+    // prereq → completion, lesson prereq → pass).
+    function reviewUnlocked(r) {
+      if (free) return true;
+      if (!r.unlocksAfter) return true;
+      if (/^G\d+$/.test(r.unlocksAfter)) return done(r.unlocksAfter);
+      return passed(r.unlocksAfter);
     }
 
     var lessonsTotal = lessons.length, lessonsDone = 0, kanjiTotal = 0, kanjiDone = 0;
@@ -625,10 +763,18 @@ window.JPApp = {
       if (done(l.id)) { lessonsDone++; kanjiDone += n; }
     });
 
+    // The N4 gateway flag (set by the Final Review unlock button, the founding
+    // code, or the all-content QA reset). Free mode counts as unlocked.
+    var n4Unlocked = false;
+    try { n4Unlocked = localStorage.getItem('k-n4-unlocked') === 'true'; } catch (e) {}
+    var n4On = free || n4Unlocked;
+
     // Walk grammars + lessons in order; first unlocked-not-done wins. Grammars
-    // first so the natural chain (N5.1 → G1 → G2 → G3 → N5.2) appears.
+    // first so the natural chain (N5.1 → G1 → G2 → G3 → N5.2) appears. Grammar
+    // completion expands to include N4's grammar once N4 is unlocked.
     var today = null;
-    var grammars = m.data.N5.grammar || [];
+    var grammars = (m.data.N5.grammar || []).slice();
+    if (n4On && m.data.N4 && m.data.N4.grammar) grammars = grammars.concat(m.data.N4.grammar);
     var grammarTotal = grammars.length, grammarDone = 0, grammarNext = null;
     grammars.forEach(function(g) {
       if (passed(g.id)) grammarDone++;
@@ -641,17 +787,38 @@ window.JPApp = {
         break;
       }
     }
+    // Reviews sit in the chain between a grammar/lesson and the lesson they
+    // gate (e.g. G4 → N5.Review.1 → N5.3). Surface an unlocked-but-not-passed
+    // review here so it lands in the "up next" spot instead of leaving the
+    // card blank. Uses !passed (not !done) so a failed review keeps surfacing
+    // for a retake until the student clears the 60% gate.
     if (!today) {
-      for (var j = 0; j < lessons.length; j++) {
-        var l = lessons[j];
-        if (lessonUnlocked(l) && !done(l.id)) {
-          today = { kind: 'lesson', entry: l };
+      var reviews = m.data.N5.reviews || [];
+      for (var r = 0; r < reviews.length; r++) {
+        var rv = reviews[r];
+        if (reviewUnlocked(rv) && !passed(rv.id)) {
+          today = { kind: 'review', entry: rv };
           break;
         }
       }
     }
-    // Nothing available? Surface a "retake" if a later lesson is blocked by
-    // extraRequirePass on a still-unpassed lesson (the N5.2-needs-N5.1 case).
+    // First unlocked lesson that still needs work. A never-started lesson is a
+    // fresh "lesson"; an unlocked lesson that was completed but FAILED (<60%)
+    // re-surfaces as a "retake" — the chain is pass-gated, so a failed lesson
+    // silently blocks everything after it (e.g. fail N5.2 → G4/Review.1/N5.3
+    // all stay locked). Passing lessons are skipped.
+    if (!today) {
+      for (var j = 0; j < lessons.length; j++) {
+        var l = lessons[j];
+        if (!lessonUnlocked(l)) continue;
+        if (!done(l.id))   { today = { kind: 'lesson', entry: l }; break; }
+        if (!passed(l.id)) { today = { kind: 'retake', entry: l }; break; }
+      }
+    }
+    // Backstop: a later lesson blocked by extraRequirePass on a still-unpassed
+    // lesson (the N5.2-needs-N5.1 case). The loop above normally catches this
+    // first; kept as a defensive fallback that also carries the blocked-lesson
+    // context for a more specific retake message.
     if (!today) {
       for (var k = 0; k < lessons.length; k++) {
         var lk = lessons[k];
@@ -662,11 +829,26 @@ window.JPApp = {
       }
     }
 
+    // N4 level stats — shown on home only once the learner has moved to N4
+    // (the N4 gateway is unlocked, or any N4 lesson is already done).
+    var n4Lessons = (m.data.N4 && m.data.N4.lessons) || [];
+    var n4LessonsTotal = n4Lessons.length, n4LessonsDone = 0, n4KanjiTotal = 0, n4KanjiDone = 0;
+    n4Lessons.forEach(function(l) {
+      var n = (l.kanji || []).length;
+      n4KanjiTotal += n;
+      if (done(l.id)) { n4LessonsDone++; n4KanjiDone += n; }
+    });
+
     return {
       lessonsTotal: lessonsTotal, lessonsDone: lessonsDone,
       kanjiTotal: kanjiTotal, kanjiDone: kanjiDone,
       grammarTotal: grammarTotal, grammarDone: grammarDone, grammarNext: grammarNext,
-      today: today
+      today: today,
+      n4: {
+        show: n4Unlocked || n4LessonsDone > 0,
+        lessonsTotal: n4LessonsTotal, lessonsDone: n4LessonsDone,
+        kanjiTotal: n4KanjiTotal, kanjiDone: n4KanjiDone
+      }
     };
   },
 
@@ -712,7 +894,8 @@ window.JPApp = {
     tabPath:  '<path d="M4 5h12a4 4 0 010 8H8a4 4 0 000 8h12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="4" cy="5" r="1.5" fill="currentColor"/><circle cx="20" cy="21" r="1.5" fill="currentColor"/>',
     tabDojo:  '<path d="M3 10l9-6 9 6v10H3V10z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M8 20v-5h8v5" stroke="currentColor" stroke-width="1.8" fill="none"/>',
     tabAtlas: '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" stroke="currentColor" stroke-width="1.8"/>',
-    tabMe:    '<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
+    tabMe:    '<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>',
+    tabDict:  '<path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15.5H5.5C4.7 19.5 4 18.8 4 18V5.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13v15.5h5.5c.8 0 1.5-.7 1.5-1.5V5.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M6.5 8h2.5M6.5 11h2.5M15 8h2.5M15 11h2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>'
   },
 
   // --- TopBar ---
@@ -753,6 +936,9 @@ window.JPApp = {
     var first = up ? up.getFirst() : '';
     var safeFirst = first ? this._esc(first) : '';
     var nameLine = safeFirst ? (safeFirst + '-san.') : 'Rikizo-san.';
+    // Account sign-in has moved into Settings → Profile → Account. The home
+    // masthead no longer carries a sign-in chip (single entry point).
+    var acctChip = '';
     return '<div style="padding:18px 22px 8px;">' +
       '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">' +
         '<div style="flex:1;min-width:0;">' +
@@ -762,7 +948,10 @@ window.JPApp = {
           '</div>' +
           '<div style="font-size:13px;color:var(--ink-3);line-height:1.45;font-style:italic;">' + sub + '</div>' +
         '</div>' +
-        '<span class="hanko jp-serif" style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);">力</span>' +
+        '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">' +
+          acctChip +
+          '<span class="hanko jp-serif" style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);">力</span>' +
+        '</div>' +
       '</div>' +
     '</div>';
   },
@@ -840,7 +1029,7 @@ window.JPApp = {
       '</div>';
     }
 
-    var kind  = prog.today.kind;       // 'lesson' | 'grammar' | 'retake'
+    var kind  = prog.today.kind;       // 'lesson' | 'grammar' | 'review' | 'retake'
     var entry = prog.today.entry;
     var blocking = prog.today.blocking; // present when kind === 'retake'
 
@@ -871,6 +1060,28 @@ window.JPApp = {
             '<button onclick="JPApp.launch(\'grammar\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:16px;padding:11px 18px;border-radius:999px;border:none;background:var(--moss);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin grammar ' + I.arrow + '</button>' +
           '</div>' +
           '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--moss);color:var(--washi);border-radius:var(--r-md);font-size:48px;line-height:1;">' + icon + '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    // ---------- REVIEW card ----------
+    if (kind === 'review') {
+      var rvMatch = (entry.id || '').match(/\.Review\.(\d+)/);
+      var rvLabel = rvMatch ? ('ふくしゅう ' + rvMatch[1]) : 'ふくしゅう';
+      var minsR = entry.estimatedMinutes || 10;
+      return '<div data-tour="lesson" style="margin:0 16px;border-radius:var(--r-xl);background:var(--washi);border:1px solid var(--hairline);overflow:hidden;position:relative;box-shadow:0 10px 30px oklch(0.42 0.08 250 / 0.16);">' +
+        '<div style="padding:12px 20px;border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:var(--washi);">' +
+          '<div class="mono" style="font-size:10.5px;color:oklch(1 0 0 / 0.55);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">● Up next · Review ' + self._esc(entry.id) + '</div>' +
+          '<div class="mono" style="font-size:11px;color:oklch(1 0 0 / 0.6);">~' + minsR + ' min</div>' +
+        '</div>' +
+        '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · ' + rvLabel + '</div>' +
+            '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
+            '<div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.45;">Pass with 60% or higher to continue your path.</div>' +
+            '<button onclick="JPApp.launch(\'review\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:14px;padding:11px 18px;border-radius:999px;border:none;background:var(--indigo);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin review ' + I.arrow + '</button>' +
+          '</div>' +
+          '<div style="width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--indigo);color:var(--washi);border-radius:var(--r-md);font-family:var(--font-jp-display);font-size:54px;font-weight:500;line-height:1;">習</div>' +
         '</div>' +
       '</div>';
     }
@@ -960,6 +1171,13 @@ window.JPApp = {
       { key: 'review',   label: 'Review',    jp: 'ふくしゅう', kanji: '習', accent: 'ink' },
       { key: 'game',     label: 'Adventure', jp: 'ぼうけん',   kanji: '険', accent: 'vermilion' }
     ];
+    // Custom module is an opt-in demo tile — surfaced only after the user enables
+    // it in Settings → Upgrades → Custom Content (k-custom-enabled).
+    var customOn = false;
+    try { customOn = localStorage.getItem('k-custom-enabled') === '1'; } catch (e) {}
+    if (customOn) {
+      mods.push({ key: 'custom', label: 'Custom', jp: 'カスタム', kanji: '創', accent: 'gold' });
+    }
     var cells = mods.map(function(m) {
       var color = self._accent(m.accent);
       var visible = self._isModuleVisible(m.key);
@@ -984,36 +1202,51 @@ window.JPApp = {
       '</div>';
     }).join('');
 
-    return '<div style="margin:0 16px;">' +
+    return '<div data-tour="modules" style="margin:0 16px;">' +
       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">' + cells + '</div>' +
     '</div>';
   },
 
   // --- Level progress strip ---
+  // One bar row (icon · label · value/total + fill).
+  _progressRow: function(icon, label, value, total, color) {
+    var p = total ? Math.max(0, Math.min(1, value / total)) : 0;
+    return '<div>' +
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">' +
+        '<div style="display:flex;align-items:baseline;gap:5px;"><span class="jp-serif" style="font-size:12px;color:var(--ink-3);">' + icon + '</span>' +
+        '<span style="font-size:11px;color:var(--ink-2);">' + label + '</span></div>' +
+        '<div style="font-size:12px;font-weight:600;">' + value + '<span style="color:var(--ink-3);font-weight:400;">/' + total + '</span></div>' +
+      '</div>' +
+      '<div style="position:relative;height:4px;border-radius:999px;background:var(--hairline-2);overflow:hidden;"><div style="position:absolute;left:0;top:0;bottom:0;width:' + (p * 100) + '%;background:' + color + ';border-radius:999px;"></div></div>' +
+    '</div>';
+  },
+  // A whole level card (header + the two bars).
+  _levelCard: function(level, subtitle, pct, rowsHtml, topGap) {
+    return '<div style="margin:' + (topGap ? '10px' : '0') + ' 16px 0;padding:14px 18px;border:1px solid var(--hairline);border-radius:var(--r-lg);">' +
+      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">' +
+        '<div style="display:flex;align-items:baseline;gap:8px;"><div style="font-size:18px;font-weight:700;letter-spacing:-0.02em;">' + level + '</div><div style="font-size:12px;color:var(--ink-3);">' + subtitle + '</div></div>' +
+        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">' + pct + '% complete</div>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">' + rowsHtml + '</div>' +
+    '</div>';
+  },
+  // N5 strip (always shown). Sits below the N4 strip once N4 appears.
   _levelStrip: function(prog) {
     if (!prog) return '';
     var pct = prog.lessonsTotal ? Math.round((prog.lessonsDone / prog.lessonsTotal) * 100) : 0;
-    function row(icon, label, value, total, color) {
-      var p = total ? Math.max(0, Math.min(1, value / total)) : 0;
-      return '<div>' +
-        '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">' +
-          '<div style="display:flex;align-items:baseline;gap:5px;"><span class="jp-serif" style="font-size:12px;color:var(--ink-3);">' + icon + '</span>' +
-          '<span style="font-size:11px;color:var(--ink-2);">' + label + '</span></div>' +
-          '<div style="font-size:12px;font-weight:600;">' + value + '<span style="color:var(--ink-3);font-weight:400;">/' + total + '</span></div>' +
-        '</div>' +
-        '<div style="position:relative;height:4px;border-radius:999px;background:var(--hairline-2);overflow:hidden;"><div style="position:absolute;left:0;top:0;bottom:0;width:' + (p * 100) + '%;background:' + color + ';border-radius:999px;"></div></div>' +
-      '</div>';
-    }
-    return '<div style="margin:0 16px;padding:14px 18px;border:1px solid var(--hairline);border-radius:var(--r-lg);">' +
-      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">' +
-        '<div style="display:flex;align-items:baseline;gap:8px;"><div style="font-size:18px;font-weight:700;letter-spacing:-0.02em;">N5</div><div style="font-size:12px;color:var(--ink-3);">Foundations</div></div>' +
-        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">' + pct + '% complete</div>' +
-      '</div>' +
-      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">' +
-        row('本', 'Lessons', prog.lessonsDone, prog.lessonsTotal, 'var(--ink)') +
-        row('字', 'Kanji', prog.kanjiDone, prog.kanjiTotal, 'var(--vermilion)') +
-      '</div>' +
-    '</div>';
+    var rows = this._progressRow('本', 'Lessons', prog.lessonsDone, prog.lessonsTotal, 'var(--ink)') +
+               this._progressRow('字', 'Kanji', prog.kanjiDone, prog.kanjiTotal, 'var(--vermilion)');
+    // Add a top gap only when the N4 card renders above this one.
+    return this._levelCard('N5', 'Foundations', pct, rows, !!(prog.n4 && prog.n4.show));
+  },
+  // N4 strip — only once the learner has moved to N4. Renders ABOVE N5.
+  _levelStripN4: function(prog) {
+    if (!prog || !prog.n4 || !prog.n4.show) return '';
+    var n = prog.n4;
+    var pct = n.lessonsTotal ? Math.round((n.lessonsDone / n.lessonsTotal) * 100) : 0;
+    var rows = this._progressRow('本', 'Lessons', n.lessonsDone, n.lessonsTotal, 'var(--ink)') +
+               this._progressRow('字', 'Kanji', n.kanjiDone, n.kanjiTotal, 'var(--vermilion)');
+    return this._levelCard('N4', 'Daily Life', pct, rows, false);
   },
 
   // --- Grammar progress card ---
@@ -1027,7 +1260,7 @@ window.JPApp = {
     if (nx) {
       subtitle = 'Currently on ' + this._esc(nx.id) + ' · ' + this._esc(nx.title || '');
     } else if (done >= total) {
-      subtitle = 'All N5 grammar complete';
+      subtitle = 'All grammar complete';
     } else {
       subtitle = 'Complete Lesson N5.1 to begin';
     }
@@ -1066,7 +1299,7 @@ window.JPApp = {
     var items = cast.map(function(c) {
       var src = self._assetUrl('assets/characters/' + c.id + '/' + c.id + '_head.png');
       var ring = c.id === 'rikizo';
-      return '<div style="flex-shrink:0;width:58px;text-align:center;">' +
+      return '<div role="button" tabindex="0" onclick="JPApp._showCastBio(\'' + c.id + '\')" style="flex-shrink:0;width:58px;text-align:center;cursor:pointer;">' +
         '<div style="width:48px;height:48px;margin:0 auto;border-radius:999px;background:var(--washi-2);border:' + (ring ? '2px solid var(--vermilion)' : '1px solid var(--hairline)') + ';padding:2px;">' +
           '<div style="width:100%;height:100%;border-radius:999px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--washi);">' +
             '<img class="pixel" src="' + src + '" style="width:110%;height:110%;object-fit:cover;object-position:center top;" onerror="this.style.display=\'none\'">' +
@@ -1075,9 +1308,50 @@ window.JPApp = {
         '<div class="jp-serif" style="font-size:10px;margin-top:5px;color:var(--ink-2);">' + c.jp + '</div>' +
       '</div>';
     }).join('');
-    return '<div style="padding:0 16px;">' +
+    return '<div data-tour="cast" style="padding:0 16px;">' +
       '<div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:2px;" class="noscroll">' + items + '</div>' +
     '</div>';
+  },
+
+  // Bio popup for a tapped cast member. Bios are sourced from
+  // shared/characters.json (the source of truth) — lazy-fetched + cached on
+  // JPShared, mirroring the rikizo-messages pattern. Relationship / annoyance
+  // levels are stubbed here until the Adventure game's save state is synced.
+  _showCastBio: function(castId) {
+    var self = this;
+    var store = window.JPShared || (window.JPShared = {});
+    if (!store._characters) {
+      var url = this._assetUrl('shared/characters.json') + '?t=' + Date.now();
+      fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+        store._characters = (data && data.characters) || [];
+        self._showCastBio(castId);
+      }).catch(function() {});
+      return;
+    }
+    var c = null;
+    for (var i = 0; i < store._characters.length; i++) {
+      if (store._characters[i].id === 'char_' + castId) { c = store._characters[i]; break; }
+    }
+    if (!c) return;
+    var portrait = c.portrait || ('assets/characters/' + castId + '/' + castId + '_head.png');
+    var src = this._assetUrl(portrait);
+    var overlay = document.createElement('div');
+    overlay.className = 'jp-return-overlay';
+    overlay.innerHTML =
+      '<div class="jp-return-card" style="max-width:320px;">' +
+        '<div style="width:88px;height:88px;margin:0 auto 12px;border-radius:999px;background:var(--washi-2);border:2px solid var(--vermilion);padding:3px;">' +
+          '<div style="width:100%;height:100%;border-radius:999px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--washi);">' +
+            '<img class="pixel" src="' + src + '" style="width:112%;height:112%;object-fit:cover;object-position:center top;" onerror="this.style.display=\'none\'">' +
+          '</div>' +
+        '</div>' +
+        '<div class="jp-serif" style="font-size:1.15rem;color:var(--ink);font-weight:600;">' + this._esc(c.surface) + '</div>' +
+        '<div style="font-size:0.8rem;color:var(--ink-3);margin-bottom:10px;">' + this._esc(c.meaning) + '</div>' +
+        '<div style="font-size:0.92rem;color:var(--ink-2);line-height:1.55;margin-bottom:16px;">' + this._esc(c.description) + '</div>' +
+        '<div style="font-size:0.72rem;color:var(--ink-3);background:var(--washi-2);border:1px dashed var(--hairline);border-radius:10px;padding:8px 10px;margin-bottom:16px;">🔒 Relationship &amp; mood levels unlock when the Adventure game is linked</div>' +
+        '<button onclick="this.closest(\'.jp-return-overlay\').remove()" style="background:var(--vermilion);color:var(--washi);border:none;padding:9px 26px;border-radius:999px;font-size:0.95rem;font-weight:600;cursor:pointer;">Close</button>' +
+      '</div>';
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+    document.body.appendChild(overlay);
   },
 
   // --- Daily challenge ---
@@ -1085,7 +1359,7 @@ window.JPApp = {
     var k = this._kanjiOfDay();
     if (!k) return '';
     var I = this._ICONS;
-    return '<div onclick="JPApp.launch(\'practice\')" class="rk-press" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;">' +
+    return '<div data-tour="daily" onclick="JPApp.launch(\'practice\')" class="rk-press" style="margin:0 16px;padding:16px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:14px;">' +
       '<div style="width:58px;height:58px;flex-shrink:0;background:var(--washi);border:1px solid var(--hairline);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-jp-display);font-size:42px;font-weight:500;color:var(--ink);">' + k + '</div>' +
       '<div style="flex:1;min-width:0;">' +
         '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">今日の漢字 · Kanji of the day</div>' +
@@ -1108,13 +1382,15 @@ window.JPApp = {
     var I = this._ICONS;
     var self = this;
     var tabs = [
-      { key: 'home',   label: 'Home',     glyph: I.tabHome,  action: "JPApp.renderMenu()" },
-      { key: 'path',   label: 'Lessons',  glyph: I.tabPath,  action: "JPApp.launch('lesson')",   mod: 'lesson' },
-      { key: 'dojo',   label: 'Dojo',     glyph: I.tabDojo,  action: "JPApp.launch('practice')", mod: 'practice' },
-      { key: 'atlas',  label: 'Map',      glyph: I.tabAtlas, action: "JPApp.launch('map')" },
-      { key: 'me',     label: 'Settings', glyph: I.tabMe,    action: "JPApp.openTtsSettings()" }
+      { key: 'home',   label: 'Home',       glyph: I.tabHome,  action: "JPApp.renderMenu()" },
+      { key: 'dojo',   label: 'Dojo',       glyph: I.tabDojo,  action: "JPApp.launch('practice')", mod: 'practice' },
+      { key: 'dict',   label: 'Dictionary', glyph: I.tabDict,  action: "JPApp.launch('glossary')", mod: 'glossary' },
+      { key: 'atlas',  label: 'Map',        glyph: I.tabAtlas, action: "JPApp.launch('map')" },
+      { key: 'me',     label: 'Settings',   glyph: I.tabMe,    action: "JPApp.openTtsSettings()" }
     ];
-    var active = 'home';
+    // Active tab follows the current view; non-tab modules (grammar/stories/
+    // reviews/compose) leave nothing highlighted.
+    var active = ({ home: 'home', practice: 'dojo', glossary: 'dict', map: 'atlas' })[this._view] || '';
     var btns = tabs.map(function(t) {
       var on = t.key === active;
       var locked = t.mod ? !self._isModuleVisible(t.mod) : false;
@@ -1129,15 +1405,32 @@ window.JPApp = {
         (on ? '<div class="rk-tab-ind"></div>' : '') +
       '</button>';
     }).join('');
-    return '<nav class="rk-tabbar">' + btns + '</nav>';
+    return '<nav class="rk-tabbar" data-tour="nav">' + btns + '</nav>';
+  },
+
+  // Render the persistent nav into its sibling node (refreshes active tab + lock
+  // dimming). Safe to call repeatedly.
+  renderTabBar: function() {
+    var root = document.getElementById('rk-tabbar-root');
+    if (root) root.innerHTML = this._tabBar();
+  },
+  // Show on navigation/menu screens; hide during a focused task. Modules call
+  // these as they render their menu vs task views.
+  showTabBar: function() {
+    document.body.classList.remove('jp-tabbar-hidden');
+    this.renderTabBar();
+  },
+  hideTabBar: function() {
+    document.body.classList.add('jp-tabbar-hidden');
   },
 
   // --- RENDER MENU ---
   renderMenu: function() {
     this._view = 'home';
+    this.showTabBar();
     var prog = this._computeProgress();
     var html =
-      '<div class="rk-home" style="padding-bottom:calc(var(--tabbar-h) + 28px + env(safe-area-inset-bottom));">' +
+      '<div class="rk-home" style="padding-bottom:28px;">' +
         this._topBar() +
         this._masthead(prog) +
         this._buildStreakBar() +
@@ -1147,15 +1440,17 @@ window.JPApp = {
         this._sectionHeader('けいこ · Practice', '7 paths') +
         this._moduleGrid() +
         this._sectionHeader('しんちょく · Progress') +
-        this._levelStrip(prog) +
-        this._grammarCard(prog) +
+        '<div data-tour="progress">' +
+          this._levelStripN4(prog) +
+          this._levelStrip(prog) +
+          this._grammarCard(prog) +
+        '</div>' +
         this._sectionHeader('とうじょう人物 · Cast') +
         this._castRow() +
         this._sectionHeader('まいにち · Daily') +
         this._challengeCard() +
         this._colophon() +
-      '</div>' +
-      this._tabBar();
+      '</div>';
     this.container.innerHTML = html;
     this._rikizoGreet();
   },
@@ -1345,6 +1640,10 @@ window.JPApp = {
       if (window.JPShared.tts) window.JPShared.tts.setConfig(this.config);
       await this.loadModule('app/shared/stamp-settings.js');
       if (window.JPShared.stampSettings) window.JPShared.stampSettings.setConfig(this.config);
+      // Unlock-code system needs the unlock engine + manifest. Load before the
+      // settings panel so the "Unlock code" field can apply codes immediately.
+      if (!window.JPShared.unlock) await this.loadModule('app/shared/unlock.js');
+      if (!window.JPShared.unlockCodes) await this.loadModule('app/shared/unlock-codes.js');
       await this.loadModule('app/shared/tts-settings.js');
       if (!window.JPShared.ttsSettings) { this.container.innerHTML = savedHtml; return; }
       if (window.JPShared.stampSettings) window.JPShared.stampSettings.setConfig(this.config);
@@ -1394,6 +1693,7 @@ window.JPApp = {
       if (!done('N5.2')) return 'Reach Lesson 2 first.';
       return 'Score 60% on Lesson 2 to unlock.';
     }
+    if (mode === 'audiodojo') return 'Score 60% on Lesson 3 to unlock Audio Dojo.';
     return 'Locked.';
   },
 
@@ -1417,6 +1717,11 @@ window.JPApp = {
   // Optional extra args (e.g. a lesson id) are forwarded to the module's start().
   launch: async function(mode /*, ...args */) {
     var extraArgs = Array.prototype.slice.call(arguments, 1);
+    // Tutorial guard — while a tour/onboarding is running, ignore stray taps on
+    // highlighted modules (the tour is tap-to-advance only). Prevents accidentally
+    // launching e.g. Compose mid-tour, which used to break the walkthrough.
+    var rc = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rc && rc.isBusy && rc.isBusy()) return;
     // Gating guard — refuse locked modules with a brief toast. The home grid
     // already hides locked cells; this catches taps from the bottom tab bar.
     if (mode !== 'home' && !this._isModuleVisible(mode)) {
@@ -1424,10 +1729,16 @@ window.JPApp = {
       return;
     }
     this._view = mode;
-    if (mode === 'game') { this._showAdventureTeaser(); return; }
-    this.container.innerHTML = '<div class="rk-loading">力 · loading ' + this._esc(mode) + '</div>';
+    if (mode === 'game') { this.hideTabBar(); this._showAdventureTeaser(); return; }
+    this.container.innerHTML = '<div class="rk-loading">loading ' + this._esc(mode) + '</div>';
     // Leaving Home — re-apply presence (contextual/home modes hide; always stays).
     if (window.JPShared && window.JPShared.rikizoCompanion) window.JPShared.rikizoCompanion.applyPresence();
+    // Tutor: record what the student is looking at (extraArgs[0] is the lesson/
+    // grammar/story id for content modules) and keep the ask-button visible.
+    if (window.JPShared && window.JPShared.tutorContext) {
+      window.JPShared.tutorContext.set({ view: mode, lessonId: extraArgs[0] || null });
+    }
+    if (window.JPShared && window.JPShared.tutorOverlay) window.JPShared.tutorOverlay.applyVisibility();
 
     if (!window.JPShared || !window.JPShared.textProcessor) {
       var sharedModules = [
@@ -1438,9 +1749,11 @@ window.JPApp = {
         'app/shared/tts-settings.js',
         'app/shared/progress.js',
         'app/shared/unlock.js',
+        'app/shared/unlock-codes.js',
         'app/shared/vocab-display.js',
         'app/shared/text-processor.js',
         'app/shared/term-modal.js',
+        'app/shared/characters.js',
         'app/shared/haptics.js'
       ];
       for (var i = 0; i < sharedModules.length; i++) {
@@ -1468,7 +1781,9 @@ window.JPApp = {
                         deps: ['app/shared/stroke-canvas.js', 'app/shared/ink-morph.js'] },
       'writing-kana': { global: 'WritingKanaModule',         file: 'WritingKana.js',
                         deps: ['app/shared/stroke-canvas.js'] },
-      map:            { global: 'MapModule',                 file: 'Map.js' }
+      map:            { global: 'MapModule',                 file: 'Map.js' },
+      glossary:       { global: 'GlossaryModule',            file: 'Glossary.js',
+                        deps: ['app/shared/kana-collate.js'] }
     };
     var entry = map[mode];
     if (entry && entry.deps) {
@@ -1477,6 +1792,7 @@ window.JPApp = {
         // Use the JPShared key as the load-once sentinel.
         var key = dep.indexOf('stroke-canvas') >= 0 ? 'strokeCanvas'
                 : dep.indexOf('ink-morph') >= 0    ? 'inkMorph'
+                : dep.indexOf('kana-collate') >= 0 ? 'kanaCollate'
                 : null;
         if (key && window.JPShared && window.JPShared[key]) continue;
         var okDep = await this.loadModule(dep);

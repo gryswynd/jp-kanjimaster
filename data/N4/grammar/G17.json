@@ -73,17 +73,42 @@
             {
               "text": "水",
               "role": "modifier",
-              "gloss": "water"
+              "gloss": "water",
+              "tokens": [
+                {
+                  "k": "水",
+                  "r": "みず"
+                }
+              ]
             },
             {
               "text": "だけ",
               "role": "modifier",
-              "gloss": "only / just (limiting particle)"
+              "gloss": "only / just (limiting particle)",
+              "tokens": [
+                {
+                  "k": "だけ"
+                }
+              ]
             },
             {
               "text": "飲みます。",
               "role": "predicate",
-              "gloss": "drink (polite present)"
+              "gloss": "drink (polite present)",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の",
+                  "g": "v_nomu_polite_masu"
+                },
+                {
+                  "k": "みます",
+                  "g": "v_nomu_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I only drink water.",
@@ -94,12 +119,34 @@
             {
               "text": "できるだけ",
               "role": "modifier",
-              "gloss": "as much as possible (fixed: できる + だけ = 'only what is possible')"
+              "gloss": "as much as possible (fixed: できる + だけ = 'only what is possible')",
+              "tokens": [
+                {
+                  "k": "できる"
+                },
+                {
+                  "k": "だけ"
+                }
+              ]
             },
             {
               "text": "食べます。",
               "role": "predicate",
-              "gloss": "eat (polite present)"
+              "gloss": "eat (polite present)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_polite_masu"
+                },
+                {
+                  "k": "べます",
+                  "g": "v_taberu_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I eat as much as possible.",
@@ -141,17 +188,42 @@
             {
               "text": "牛肉",
               "role": "modifier",
-              "gloss": "beef"
+              "gloss": "beef",
+              "tokens": [
+                {
+                  "k": "牛肉",
+                  "r": "ぎゅうにく"
+                }
+              ]
             },
             {
               "text": "しか",
               "role": "modifier",
-              "gloss": "nothing but / only (requires negative verb)"
+              "gloss": "nothing but / only (requires negative verb)",
+              "tokens": [
+                {
+                  "k": "しか"
+                }
+              ]
             },
             {
               "text": "食べません。",
               "role": "predicate",
-              "gloss": "don't eat (polite negative)"
+              "gloss": "don't eat (polite negative)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_polite_negative"
+                },
+                {
+                  "k": "べません",
+                  "g": "v_taberu_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I eat nothing but beef.",
@@ -162,17 +234,47 @@
             {
               "text": "コーヒー",
               "role": "modifier",
-              "gloss": "coffee"
+              "gloss": "coffee",
+              "tokens": [
+                {
+                  "k": "コーヒ",
+                  "r": "こーひ",
+                  "g": "v_koohii"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_koohii"
+                }
+              ]
             },
             {
               "text": "しか",
               "role": "modifier",
-              "gloss": "nothing but (restriction)"
+              "gloss": "nothing but (restriction)",
+              "tokens": [
+                {
+                  "k": "しか"
+                }
+              ]
             },
             {
               "text": "飲みませんでした。",
               "role": "predicate",
-              "gloss": "did not drink (polite past negative)"
+              "gloss": "did not drink (polite past negative)",
+              "tokens": [
+                {
+                  "k": "飲",
+                  "r": "の",
+                  "g": "v_nomu_polite_past_negative"
+                },
+                {
+                  "k": "みませんでした",
+                  "g": "v_nomu_polite_past_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I didn't drink anything except coffee.",
@@ -197,17 +299,42 @@
               {
                 "text": "野菜",
                 "role": "modifier",
-                "gloss": "vegetables"
+                "gloss": "vegetables",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  }
+                ]
               },
               {
                 "text": "だけ",
                 "role": "modifier",
-                "gloss": "only / just"
+                "gloss": "only / just",
+                "tokens": [
+                  {
+                    "k": "だけ"
+                  }
+                ]
               },
               {
                 "text": "食べます。",
                 "role": "predicate",
-                "gloss": "eat (polite — AFFIRMATIVE)"
+                "gloss": "eat (polite — AFFIRMATIVE)",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu_polite_masu"
+                  },
+                  {
+                    "k": "べます",
+                    "g": "v_taberu_polite_masu"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I only eat vegetables. (neutral choice)"
@@ -226,17 +353,42 @@
               {
                 "text": "野菜",
                 "role": "modifier",
-                "gloss": "vegetables"
+                "gloss": "vegetables",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  }
+                ]
               },
               {
                 "text": "しか",
                 "role": "modifier",
-                "gloss": "nothing but (restriction)"
+                "gloss": "nothing but (restriction)",
+                "tokens": [
+                  {
+                    "k": "しか"
+                  }
+                ]
               },
               {
                 "text": "食べません。",
                 "role": "predicate",
-                "gloss": "don't eat (polite — NEGATIVE)"
+                "gloss": "don't eat (polite — NEGATIVE)",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu_polite_negative"
+                  },
+                  {
+                    "k": "べません",
+                    "g": "v_taberu_polite_negative"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I don't eat anything except vegetables. (restricted)"
@@ -283,17 +435,47 @@
             {
               "text": "弟は",
               "role": "topic",
-              "gloss": "my younger brother (は = topic marker)"
+              "gloss": "my younger brother (は = topic marker)",
+              "tokens": [
+                {
+                  "k": "弟",
+                  "r": "おとうと"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "ゲームばかり",
               "role": "modifier",
-              "gloss": "nothing but games (ゲーム + ばかり — excessive habit)"
+              "gloss": "nothing but games (ゲーム + ばかり — excessive habit)",
+              "tokens": [
+                {
+                  "k": "ゲーム"
+                },
+                {
+                  "k": "ばかり"
+                }
+              ]
             },
             {
               "text": "しています。",
               "role": "predicate",
-              "gloss": "is doing (progressive)"
+              "gloss": "is doing (progressive)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "My younger brother does nothing but play games.",
@@ -304,17 +486,41 @@
             {
               "text": "食べた",
               "role": "connector",
-              "gloss": "ate (plain past — used before ばかり in the 'just did' pattern)"
+              "gloss": "ate (plain past — used before ばかり in the 'just did' pattern)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_plain_past"
+                },
+                {
+                  "k": "べた",
+                  "g": "v_taberu_plain_past"
+                }
+              ]
             },
             {
               "text": "ばかり",
               "role": "modifier",
-              "gloss": "just (marks recent completion of the action)"
+              "gloss": "just (marks recent completion of the action)",
+              "tokens": [
+                {
+                  "k": "ばかり"
+                }
+              ]
             },
             {
               "text": "です。",
               "role": "predicate",
-              "gloss": "is (polite copula)"
+              "gloss": "is (polite copula)",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I just ate.",
@@ -355,17 +561,47 @@
             {
               "text": "子ども",
               "role": "modifier",
-              "gloss": "child / kid"
+              "gloss": "child / kid",
+              "tokens": [
+                {
+                  "k": "子",
+                  "r": "こ",
+                  "g": "v_kodomo"
+                },
+                {
+                  "k": "ども",
+                  "g": "v_kodomo"
+                }
+              ]
             },
             {
               "text": "でも",
               "role": "modifier",
-              "gloss": "even (inclusive particle — 'even X')"
+              "gloss": "even (inclusive particle — 'even X')",
+              "tokens": [
+                {
+                  "k": "でも"
+                }
+              ]
             },
             {
               "text": "分かります。",
               "role": "predicate",
-              "gloss": "understand (polite)"
+              "gloss": "understand (polite)",
+              "tokens": [
+                {
+                  "k": "分",
+                  "r": "わ",
+                  "g": "v_wakaru_polite_masu"
+                },
+                {
+                  "k": "かります",
+                  "g": "v_wakaru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even a child understands.",
@@ -376,12 +612,35 @@
             {
               "text": "何でも",
               "role": "modifier",
-              "gloss": "anything / whatever (何 = what/any + でも = any~ marker)"
+              "gloss": "anything / whatever (何 = what/any + でも = any~ marker)",
+              "tokens": [
+                {
+                  "k": "何",
+                  "r": "なん"
+                },
+                {
+                  "k": "でも"
+                }
+              ]
             },
             {
               "text": "食べます。",
               "role": "predicate",
-              "gloss": "eat (polite)"
+              "gloss": "eat (polite)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_polite_masu"
+                },
+                {
+                  "k": "べます",
+                  "g": "v_taberu_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I eat anything.",
@@ -399,17 +658,50 @@
             {
               "text": "今日は",
               "role": "time",
-              "gloss": "today (は = topic)"
+              "gloss": "today (は = topic)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "野菜だけ",
               "role": "modifier",
-              "gloss": "only vegetables (野菜 + だけ)"
+              "gloss": "only vegetables (野菜 + だけ)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "だけ"
+                }
+              ]
             },
             {
               "text": "食べました。",
               "role": "predicate",
-              "gloss": "ate (polite past)"
+              "gloss": "ate (polite past)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu_polite_mashita"
+                },
+                {
+                  "k": "べました",
+                  "g": "v_taberu_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Today I only ate vegetables.",
@@ -421,17 +713,49 @@
             {
               "text": "旅行で",
               "role": "modifier",
-              "gloss": "during the trip (旅行 = trip, で = at/during)"
+              "gloss": "during the trip (旅行 = trip, で = at/during)",
+              "tokens": [
+                {
+                  "k": "旅行",
+                  "r": "りょこう"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "日本語しか",
               "role": "modifier",
-              "gloss": "nothing but Japanese (日本語 + しか)"
+              "gloss": "nothing but Japanese (日本語 + しか)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "しか"
+                }
+              ]
             },
             {
               "text": "話しませんでした。",
               "role": "predicate",
-              "gloss": "did not speak (polite past negative)"
+              "gloss": "did not speak (polite past negative)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_polite_past_negative"
+                },
+                {
+                  "k": "しませんでした",
+                  "g": "v_hanasu_polite_past_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "During the trip I only spoke Japanese.",
@@ -443,17 +767,47 @@
             {
               "text": "弟は",
               "role": "topic",
-              "gloss": "my younger brother (は = topic)"
+              "gloss": "my younger brother (は = topic)",
+              "tokens": [
+                {
+                  "k": "弟",
+                  "r": "おとうと"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "ゲームばかり",
               "role": "modifier",
-              "gloss": "nothing but games (ゲーム + ばかり)"
+              "gloss": "nothing but games (ゲーム + ばかり)",
+              "tokens": [
+                {
+                  "k": "ゲーム"
+                },
+                {
+                  "k": "ばかり"
+                }
+              ]
             },
             {
               "text": "しています。",
               "role": "predicate",
-              "gloss": "is doing (progressive)"
+              "gloss": "is doing (progressive)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "My younger brother does nothing but play games.",
@@ -465,17 +819,44 @@
             {
               "text": "いつでも",
               "role": "adverb",
-              "gloss": "anytime (いつ = when + でも = any~ marker)"
+              "gloss": "anytime (いつ = when + でも = any~ marker)",
+              "tokens": [
+                {
+                  "k": "いつ"
+                },
+                {
+                  "k": "でも"
+                }
+              ]
             },
             {
               "text": "来て",
               "role": "connector",
-              "gloss": "come (te-form — connects to ください)"
+              "gloss": "come (te-form — connects to ください)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_te_form"
+                },
+                {
+                  "k": "て",
+                  "g": "v_kuru_te_form"
+                }
+              ]
             },
             {
               "text": "ください。",
               "role": "predicate",
-              "gloss": "please (polite request)"
+              "gloss": "please (polite request)",
+              "tokens": [
+                {
+                  "k": "ください"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Please come anytime.",

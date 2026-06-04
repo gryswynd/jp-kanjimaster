@@ -475,6 +475,25 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "父のなまえは何ですか。",
+        "q_en": "What is the father's name?",
+        "answer": "たろうです",
+        "accept": ["たろう"],
+        "explanation": "父のなまえはたろうです。",
+        "terms": ["v_chichi"]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうはケンと何をしますか。",
+        "q_en": "What does Rikizo do with Ken?",
+        "answer": "ゲームをします",
+        "accept": ["ゲーム"],
+        "explanation": "ケンといっしょにゲームをします。",
+        "terms": ["v_geemu"]
+      }
+    ]
   }
 }

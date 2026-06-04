@@ -865,7 +865,7 @@
             "v_mainichi",
             "v_denwa",
             "p_de",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             {
               "id": "v_hanasu",
@@ -1070,7 +1070,7 @@
           "jp": "友だちに 電話で 話して、日本語を 言います。",
           "en": "He calls friends, talks to them, and speaks Japanese.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_denwa",
             "p_de",
@@ -1205,7 +1205,8 @@
             "to write",
             "to listen"
           ],
-          "answer": "to speak"
+          "answer": "to speak",
+          "explanation": "「話す」 (はなす) means \"to speak\"."
         },
         {
           "kind": "mcq",
@@ -1216,7 +1217,8 @@
             "to speak",
             "to say"
           ],
-          "answer": "to read"
+          "answer": "to read",
+          "explanation": "「読む」 (よむ) means \"to read\"."
         },
         {
           "kind": "mcq",
@@ -1227,7 +1229,8 @@
             "to say",
             "to call"
           ],
-          "answer": "to write"
+          "answer": "to write",
+          "explanation": "「書く」 (かく) means \"to write\"."
         },
         {
           "kind": "mcq",
@@ -1238,7 +1241,8 @@
             "karate",
             "slowly"
           ],
-          "answer": "telephone"
+          "answer": "telephone",
+          "explanation": "「電話」 (でんわ) means \"telephone\"."
         },
         {
           "kind": "mcq",
@@ -1249,7 +1253,8 @@
             "often",
             "a little"
           ],
-          "answer": "slowly"
+          "answer": "slowly",
+          "explanation": "「ゆっくり」 (ゆっくり) means \"slowly\"."
         },
         {
           "kind": "mcq",
@@ -1260,7 +1265,8 @@
             "telephone",
             "book"
           ],
-          "answer": "karate"
+          "answer": "karate",
+          "explanation": "「空手」 (からて) means \"karate\"."
         }
       ]
     },
@@ -1288,7 +1294,8 @@
               "id": "v_iu",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 先生に 日本語で 言います。（I say it to the teacher in Japanese.）"
         },
         {
           "kind": "mcq",
@@ -1310,7 +1317,8 @@
               "id": "v_yomu",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎日 日本語の 本を 読みます。（I read a Japanese book every day.）"
         },
         {
           "kind": "mcq",
@@ -1323,7 +1331,7 @@
           ],
           "answer": "話します",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_denwa",
             "p_de",
@@ -1331,7 +1339,8 @@
               "id": "v_hanasu",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 友だちに 電話で 話します。（I speak with friends on the phone.）"
         },
         {
           "kind": "mcq",
@@ -1350,7 +1359,8 @@
               "id": "v_kaku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: ノートに 書きます。（I write in my notebook.）"
         }
       ]
     },
@@ -1382,7 +1392,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 日本語の 本を 読んでいます。（I am reading a Japanese book.） — 「います」 (います) means \"to exist / to be (animate, polite form of いる)\"."
         },
         {
           "kind": "mcq",
@@ -1402,7 +1413,8 @@
               "id": "v_hanasu",
               "form": "te_form"
             }
-          ]
+          ],
+          "explanation": "Correct: 日本語を ゆっくり 話してください。（Please speak Japanese slowly.）"
         },
         {
           "kind": "mcq",
@@ -1423,7 +1435,8 @@
               "form": "appearance_sou_stem"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: この 本は おもしろそうです。（This book looks interesting.） — 「そうです」 (そうです) means \"that's right / that's correct\"."
         },
         {
           "kind": "mcq",
@@ -1445,7 +1458,8 @@
               "form": "plain_desire_tai"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 日本語の 本を 読みたいです。（I want to read a Japanese book.） — 「たい」 (たい) means \"desiderative (\"want to\")\"."
         }
       ]
     }

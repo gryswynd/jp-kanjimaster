@@ -60,7 +60,7 @@
               "id": "v_owaru",
               "form": "conditional_tara"
             },
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_denwa",
             {
@@ -617,7 +617,7 @@
           "terms": [
             "v_aki",
             "p_ni",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_mori",
             "p_no",
@@ -1024,7 +1024,8 @@
             "こだい",
             "ちだい"
           ],
-          "answer": "じだい"
+          "answer": "じだい",
+          "explanation": "「時代」 is read 「じだい」 — era / period / times."
         },
         {
           "kind": "mcq",
@@ -1035,7 +1036,8 @@
             "はやしりん",
             "しんばやし"
           ],
-          "answer": "しんりん"
+          "answer": "しんりん",
+          "explanation": "「森林」 is read 「しんりん」 — forest / woods."
         },
         {
           "kind": "mcq",
@@ -1046,7 +1048,8 @@
             "しょくとう",
             "たべどう"
           ],
-          "answer": "しょくどう"
+          "answer": "しょくどう",
+          "explanation": "「食堂」 is read 「しょくどう」 — cafeteria / dining hall."
         },
         {
           "kind": "mcq",
@@ -1057,7 +1060,8 @@
             "あけみせ",
             "かいみせ"
           ],
-          "answer": "かいてん"
+          "answer": "かいてん",
+          "explanation": "「開店」 is read 「かいてん」 — opening of a shop."
         }
       ]
     },
@@ -1085,7 +1089,8 @@
               "id": "v_hiraku",
               "form": "polite_passive_past"
             }
-          ]
+          ],
+          "explanation": "Correct: 会合は 会堂で 開かれました。"
         },
         {
           "kind": "mcq",
@@ -1106,7 +1111,8 @@
             "v_totemo",
             "v_ookii",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: この おてらの 本堂 は とても 大きいです。 — 「本堂」 (ほんどう) means \"main hall (of a temple)\"."
         },
         {
           "kind": "mcq",
@@ -1128,7 +1134,8 @@
               "n": 1000
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: レストランの 代金 は 千円です。 — 「代金」 (だいきん) means \"price / payment / cost\"."
         },
         {
           "kind": "mcq",
@@ -1149,7 +1156,8 @@
               "id": "v_taberu",
               "form": "polite_causative_past"
             }
-          ]
+          ],
+          "explanation": "Correct: 子どもに 野菜を 食べさせました。"
         }
       ]
     },
@@ -1184,7 +1192,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: この 歌は 世界中の 人に 聞かれています。"
         },
         {
           "kind": "mcq",
@@ -1207,7 +1216,8 @@
               "id": "v_kaku",
               "form": "polite_causative_past"
             }
-          ]
+          ],
+          "explanation": "Correct: 先生は 学生に 作文を 書かせました。"
         },
         {
           "kind": "mcq",
@@ -1239,7 +1249,8 @@
               "id": "v_omou",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 森の 中に 入ったことが ある と 思いました。 — 「ある」 (ある) means \"to be / to exist (inanimate); to have\"."
         },
         {
           "kind": "mcq",
@@ -1265,7 +1276,8 @@
               "id": "v_naru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 新しい 時代に 代わる ように なりました。 — 「代わる」 (かわる) means \"to substitute / to replace / to change\"."
         }
       ]
     }

@@ -386,6 +386,47 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "父は何で来てくださいと言いましたか。",
+        "q_en": "How did Dad say to come?",
+        "answer": "車で来てください",
+        "accept": [
+          "車"
+        ],
+        "explanation": "父はメールをしました。「車で来てください。」",
+        "terms": [
+          "v_kuruma"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "駅に何がありますか。",
+        "q_en": "What is at the station?",
+        "answer": "コンビニがあります",
+        "accept": [
+          "コンビニ"
+        ],
+        "explanation": "駅にコンビニがあります。",
+        "terms": [
+          "v_konbini"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "母はどこへ行きましたか。",
+        "q_en": "Where did Mum go?",
+        "answer": "駅とコンビニへ行きました",
+        "accept": [
+          "駅",
+          "コンビニ"
+        ],
+        "explanation": "母は車で駅へ行って、コンビニへも行きました。",
+        "terms": [
+          "v_eki"
+        ]
+      }
+    ]
   }
 }

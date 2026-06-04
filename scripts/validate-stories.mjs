@@ -156,9 +156,23 @@ for (const story of stories) {
     } else {
       c.questions.forEach((q, i) => {
         if (typeof q.q !== 'string' || !q.q) fail(slug, `comprehension.questions[${i}].q missing`);
-        if (!Array.isArray(q.options) || q.options.length < 2) fail(slug, `comprehension.questions[${i}].options must have 2+ entries`);
-        if (typeof q.correct !== 'number' || q.correct < 0 || q.correct >= (q.options || []).length) {
-          fail(slug, `comprehension.questions[${i}].correct must be a valid index into options`);
+        const isWritten = typeof q.answer === 'string' && q.answer.length > 0;
+        const isMcq = Array.isArray(q.options);
+        if (isWritten) {
+          // Free-text question: lenient-graded against `answer` (+ optional `accept`).
+          if (q.accept != null && (!Array.isArray(q.accept) || q.accept.some(x => typeof x !== 'string'))) {
+            fail(slug, `comprehension.questions[${i}].accept must be an array of strings`);
+          }
+          if (q.terms != null && (!Array.isArray(q.terms) || q.terms.some(x => typeof x !== 'string'))) {
+            fail(slug, `comprehension.questions[${i}].terms must be an array of strings`);
+          }
+        } else if (isMcq) {
+          if (q.options.length < 2) fail(slug, `comprehension.questions[${i}].options must have 2+ entries`);
+          if (typeof q.correct !== 'number' || q.correct < 0 || q.correct >= (q.options || []).length) {
+            fail(slug, `comprehension.questions[${i}].correct must be a valid index into options`);
+          }
+        } else {
+          fail(slug, `comprehension.questions[${i}] must have either options[]+correct (mcq) or answer (written)`);
         }
       });
     }

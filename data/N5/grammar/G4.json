@@ -77,20 +77,42 @@
             {
               "text": "わたし",
               "role": "topic",
-              "gloss": "I"
+              "gloss": "I",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                }
+              ]
             },
             {
               "text": "も",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "がくせい",
               "role": "predicate",
-              "gloss": "student"
+              "gloss": "student",
+              "tokens": [
+                {
+                  "k": "がくせい",
+                  "g": "v_gakusei"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "I am also a student.",
@@ -101,20 +123,46 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "も",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "やさしい",
               "role": "predicate",
-              "gloss": "kind"
+              "gloss": "kind",
+              "tokens": [
+                {
+                  "k": "やさしい"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "My friend is also kind."
@@ -124,20 +172,42 @@
             {
               "text": "土よう日",
               "role": "topic",
-              "gloss": "Saturday"
+              "gloss": "Saturday",
+              "tokens": [
+                {
+                  "k": "土よう日",
+                  "r": "どようび",
+                  "g": "v_doyoubi"
+                }
+              ]
             },
             {
               "text": "も",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good"
+              "gloss": "good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "Saturday is also fine.",
@@ -178,29 +248,63 @@
             {
               "text": "母",
               "role": "topic",
-              "gloss": "mother"
+              "gloss": "mother",
+              "tokens": [
+                {
+                  "k": "母",
+                  "r": "はは"
+                }
+              ]
             },
             {
               "text": "と",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "父",
               "role": "topic",
-              "gloss": "father"
+              "gloss": "father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "My mother and father are teachers.",
@@ -211,25 +315,56 @@
             {
               "text": "月よう日",
               "role": "topic",
-              "gloss": "Monday"
+              "gloss": "Monday",
+              "tokens": [
+                {
+                  "k": "月よう日",
+                  "r": "げつようび",
+                  "g": "v_getsuyoubi"
+                }
+              ]
             },
             {
               "text": "と",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "水よう日",
               "role": "topic",
-              "gloss": "Wednesday"
+              "gloss": "Wednesday",
+              "tokens": [
+                {
+                  "k": "水よう日",
+                  "r": "すいようび",
+                  "g": "v_suiyoubi"
+                }
+              ]
             },
             {
               "text": "と",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "金よう日",
               "role": "topic",
-              "gloss": "Friday"
+              "gloss": "Friday",
+              "tokens": [
+                {
+                  "k": "金よう日",
+                  "r": "きんようび",
+                  "g": "v_kinyoubi"
+                }
+              ]
             }
           ],
           "en": "Monday, Wednesday, and Friday.",
@@ -240,16 +375,38 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "と",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "いっしょに",
               "role": "modifier",
-              "gloss": "together"
+              "gloss": "together",
+              "tokens": [
+                {
+                  "k": "いっしょに",
+                  "g": "v_issho"
+                }
+              ]
             }
           ],
           "en": "Together with a friend.",
@@ -290,16 +447,38 @@
             {
               "text": "先生",
               "role": "topic",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "や",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "や"
+                }
+              ]
             },
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             }
           ],
           "en": "Teachers, friends, (and others).",
@@ -310,16 +489,35 @@
             {
               "text": "月よう日",
               "role": "topic",
-              "gloss": "Monday"
+              "gloss": "Monday",
+              "tokens": [
+                {
+                  "k": "月よう日",
+                  "r": "げつようび",
+                  "g": "v_getsuyoubi"
+                }
+              ]
             },
             {
               "text": "や",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "や"
+                }
+              ]
             },
             {
               "text": "木よう日",
               "role": "topic",
-              "gloss": "Thursday"
+              "gloss": "Thursday",
+              "tokens": [
+                {
+                  "k": "木よう日",
+                  "r": "もくようび",
+                  "g": "v_mokuyoubi"
+                }
+              ]
             }
           ],
           "en": "Days like Monday, Thursday, (and others).",
@@ -343,15 +541,32 @@
             "parts": [
               {
                 "text": "母",
-                "role": "topic"
+                "role": "topic",
+                "tokens": [
+                  {
+                    "k": "母",
+                    "r": "はは"
+                  }
+                ]
               },
               {
                 "text": "と",
-                "role": "connector"
+                "role": "connector",
+                "tokens": [
+                  {
+                    "k": "と"
+                  }
+                ]
               },
               {
                 "text": "父",
-                "role": "topic"
+                "role": "topic",
+                "tokens": [
+                  {
+                    "k": "父",
+                    "r": "ちち"
+                  }
+                ]
               }
             ],
             "en": "Mother and father. (just those two)"
@@ -369,15 +584,32 @@
             "parts": [
               {
                 "text": "母",
-                "role": "topic"
+                "role": "topic",
+                "tokens": [
+                  {
+                    "k": "母",
+                    "r": "はは"
+                  }
+                ]
               },
               {
                 "text": "や",
-                "role": "connector"
+                "role": "connector",
+                "tokens": [
+                  {
+                    "k": "や"
+                  }
+                ]
               },
               {
                 "text": "父",
-                "role": "topic"
+                "role": "topic",
+                "tokens": [
+                  {
+                    "k": "父",
+                    "r": "ちち"
+                  }
+                ]
               }
             ],
             "en": "People like my mother, father, (and others)."
@@ -425,20 +657,44 @@
             {
               "text": "月よう日",
               "role": "time",
-              "gloss": "Monday"
+              "gloss": "Monday",
+              "tokens": [
+                {
+                  "k": "月よう日",
+                  "r": "げつようび",
+                  "g": "v_getsuyoubi"
+                }
+              ]
             },
             {
               "text": "から",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "金よう日",
               "role": "time",
-              "gloss": "Friday"
+              "gloss": "Friday",
+              "tokens": [
+                {
+                  "k": "金よう日",
+                  "r": "きんようび",
+                  "g": "v_kinyoubi"
+                }
+              ]
             },
             {
               "text": "まで",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "まで"
+                }
+              ]
             }
           ],
           "en": "From Monday to Friday.",
@@ -449,16 +705,33 @@
             {
               "text": "今日",
               "role": "time",
-              "gloss": "today"
+              "gloss": "today",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                }
+              ]
             },
             {
               "text": "から",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "毎日",
               "role": "time",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             }
           ],
           "en": "From today, every day.",
@@ -469,11 +742,22 @@
             {
               "text": "今月",
               "role": "time",
-              "gloss": "this month"
+              "gloss": "this month",
+              "tokens": [
+                {
+                  "k": "今月",
+                  "r": "こんげつ"
+                }
+              ]
             },
             {
               "text": "まで",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "まで"
+                }
+              ]
             }
           ],
           "en": "Until this month.",
@@ -515,16 +799,33 @@
             {
               "text": "月よう日",
               "role": "time",
-              "gloss": "Monday"
+              "gloss": "Monday",
+              "tokens": [
+                {
+                  "k": "月よう日",
+                  "r": "げつようび",
+                  "g": "v_getsuyoubi"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "verb",
-              "gloss": "is here"
+              "gloss": "is here",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "She is here on Monday.",
@@ -535,12 +836,23 @@
             {
               "text": "毎日",
               "role": "time",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "verb",
-              "gloss": "is here"
+              "gloss": "is here",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "She is here every day. (no に)",
@@ -551,25 +863,58 @@
             {
               "text": "金よう日",
               "role": "time",
-              "gloss": "Friday"
+              "gloss": "Friday",
+              "tokens": [
+                {
+                  "k": "金よう日",
+                  "r": "きんようび",
+                  "g": "v_kinyoubi"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "お金",
               "role": "subject",
-              "gloss": "money"
+              "gloss": "money",
+              "tokens": [
+                {
+                  "k": "お",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "金",
+                  "r": "かね",
+                  "g": "v_okane"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あります",
               "role": "verb",
-              "gloss": "there is"
+              "gloss": "there is",
+              "tokens": [
+                {
+                  "k": "あります"
+                }
+              ]
             }
           ],
           "en": "On Friday, there is money.",
@@ -587,20 +932,42 @@
             {
               "text": "父",
               "role": "topic",
-              "gloss": "father"
+              "gloss": "father",
+              "tokens": [
+                {
+                  "k": "父",
+                  "r": "ちち"
+                }
+              ]
             },
             {
               "text": "も",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "My father is also a teacher.",
@@ -612,29 +979,64 @@
             {
               "text": "月よう日",
               "role": "topic",
-              "gloss": "Monday"
+              "gloss": "Monday",
+              "tokens": [
+                {
+                  "k": "月よう日",
+                  "r": "げつようび",
+                  "g": "v_getsuyoubi"
+                }
+              ]
             },
             {
               "text": "と",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "金よう日",
               "role": "topic",
-              "gloss": "Friday"
+              "gloss": "Friday",
+              "tokens": [
+                {
+                  "k": "金よう日",
+                  "r": "きんようび",
+                  "g": "v_kinyoubi"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good"
+              "gloss": "good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "Monday and Friday are good.",
@@ -646,25 +1048,52 @@
             {
               "text": "先生",
               "role": "topic",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "や",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "や"
+                }
+              ]
             },
             {
               "text": "がくせい",
               "role": "topic",
-              "gloss": "student"
+              "gloss": "student",
+              "tokens": [
+                {
+                  "k": "がくせい",
+                  "g": "v_gakusei"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "verb",
-              "gloss": "exist"
+              "gloss": "exist",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "There are teachers, students, (and others).",
@@ -676,15 +1105,32 @@
             {
               "text": "月よう日",
               "role": "time",
-              "gloss": "Monday"
+              "gloss": "Monday",
+              "tokens": [
+                {
+                  "k": "月よう日",
+                  "r": "げつようび",
+                  "g": "v_getsuyoubi"
+                }
+              ]
             },
             {
               "text": "から",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "から"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "It's from Monday.",
@@ -696,15 +1142,32 @@
             {
               "text": "金よう日",
               "role": "time",
-              "gloss": "Friday"
+              "gloss": "Friday",
+              "tokens": [
+                {
+                  "k": "金よう日",
+                  "r": "きんようび",
+                  "g": "v_kinyoubi"
+                }
+              ]
             },
             {
               "text": "まで",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "まで"
+                }
+              ]
             },
             {
               "text": "です",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                }
+              ]
             }
           ],
           "en": "It's until Friday.",
@@ -716,16 +1179,33 @@
             {
               "text": "土よう日",
               "role": "time",
-              "gloss": "Saturday"
+              "gloss": "Saturday",
+              "tokens": [
+                {
+                  "k": "土よう日",
+                  "r": "どようび",
+                  "g": "v_doyoubi"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "います",
               "role": "verb",
-              "gloss": "is here"
+              "gloss": "is here",
+              "tokens": [
+                {
+                  "k": "います"
+                }
+              ]
             }
           ],
           "en": "She is here on Saturday.",

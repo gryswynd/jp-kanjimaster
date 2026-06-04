@@ -65,25 +65,52 @@
             {
               "text": "毎日",
               "role": "modifier",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I go to the station every day.",
@@ -94,20 +121,41 @@
             {
               "text": "バス",
               "role": "topic",
-              "gloss": "bus"
+              "gloss": "bus",
+              "tokens": [
+                {
+                  "k": "バス",
+                  "r": "ばす"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "I come by bus.",
@@ -118,20 +166,46 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be"
+              "gloss": "be",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "My friend is here.",
@@ -168,25 +242,53 @@
             {
               "text": "きのう",
               "role": "modifier",
-              "gloss": "yesterday"
+              "gloss": "yesterday",
+              "tokens": [
+                {
+                  "k": "きのう",
+                  "g": "v_kinou"
+                }
+              ]
             },
             {
               "text": "店",
               "role": "topic",
-              "gloss": "store"
+              "gloss": "store",
+              "tokens": [
+                {
+                  "k": "店",
+                  "r": "みせ"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I went to the store yesterday.",
@@ -197,25 +299,52 @@
             {
               "text": "先週",
               "role": "modifier",
-              "gloss": "last week"
+              "gloss": "last week",
+              "tokens": [
+                {
+                  "k": "先週",
+                  "r": "せんしゅう"
+                }
+              ]
             },
             {
               "text": "バス",
               "role": "topic",
-              "gloss": "bus"
+              "gloss": "bus",
+              "tokens": [
+                {
+                  "k": "バス",
+                  "r": "ばす"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "Last week I came by bus.",
@@ -252,25 +381,52 @@
             {
               "text": "今日",
               "role": "modifier",
-              "gloss": "today"
+              "gloss": "today",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ません",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ません"
+                }
+              ]
             }
           ],
           "en": "I am not going to the station today.",
@@ -281,20 +437,46 @@
             {
               "text": "タクシー",
               "role": "topic",
-              "gloss": "taxi"
+              "gloss": "taxi",
+              "tokens": [
+                {
+                  "k": "タクシ",
+                  "r": "たくし",
+                  "g": "v_takushii"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_takushii"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ません",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ません"
+                }
+              ]
             }
           ],
           "en": "I don't come by taxi.",
@@ -331,25 +513,58 @@
             {
               "text": "先週",
               "role": "modifier",
-              "gloss": "last week"
+              "gloss": "last week",
+              "tokens": [
+                {
+                  "k": "先週",
+                  "r": "せんしゅう"
+                }
+              ]
             },
             {
               "text": "スーパー",
               "role": "topic",
-              "gloss": "supermarket"
+              "gloss": "supermarket",
+              "tokens": [
+                {
+                  "k": "スーパ",
+                  "r": "すーぱ",
+                  "g": "v_suupaa"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_suupaa"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ませんでした",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ませんでした"
+                }
+              ]
             }
           ],
           "en": "Last week I didn't go to the supermarket.",
@@ -360,20 +575,46 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be"
+              "gloss": "be",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ませんでした",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ませんでした"
+                }
+              ]
             }
           ],
           "en": "My friend was not here.",
@@ -455,20 +696,46 @@
               {
                 "text": "行く",
                 "role": "verb",
-                "gloss": "dictionary form"
+                "gloss": "dictionary form",
+                "tokens": [
+                  {
+                    "k": "行",
+                    "r": "い",
+                    "g": "v_iku"
+                  },
+                  {
+                    "k": "く",
+                    "g": "v_iku"
+                  }
+                ]
               },
               {
                 "text": "→",
-                "role": "modifier"
+                "role": "modifier",
+                "tokens": [
+                  {
+                    "k": "→"
+                  }
+                ]
               },
               {
                 "text": "行き",
                 "role": "verb",
-                "gloss": "stem (く→き)"
+                "gloss": "stem (く→き)",
+                "tokens": [
+                  {
+                    "k": "行き"
+                  }
+                ]
               },
               {
                 "text": "ます",
-                "role": "predicate"
+                "role": "predicate",
+                "tokens": [
+                  {
+                    "k": "ます"
+                  }
+                ]
               }
             ],
             "en": "go → goes / will go (polite)"
@@ -489,20 +756,40 @@
               {
                 "text": "いる",
                 "role": "verb",
-                "gloss": "dictionary form"
+                "gloss": "dictionary form",
+                "tokens": [
+                  {
+                    "k": "いる"
+                  }
+                ]
               },
               {
                 "text": "→",
-                "role": "modifier"
+                "role": "modifier",
+                "tokens": [
+                  {
+                    "k": "→"
+                  }
+                ]
               },
               {
                 "text": "い",
                 "role": "verb",
-                "gloss": "stem (drop る)"
+                "gloss": "stem (drop る)",
+                "tokens": [
+                  {
+                    "k": "い"
+                  }
+                ]
               },
               {
                 "text": "ます",
-                "role": "predicate"
+                "role": "predicate",
+                "tokens": [
+                  {
+                    "k": "ます"
+                  }
+                ]
               }
             ],
             "en": "be / exist → is here (polite)"
@@ -521,29 +808,60 @@
             {
               "text": "今日",
               "role": "modifier",
-              "gloss": "today"
+              "gloss": "today",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                }
+              ]
             },
             {
               "text": "どこ",
               "role": "topic",
-              "gloss": "where"
+              "gloss": "where",
+              "tokens": [
+                {
+                  "k": "どこ"
+                }
+              ]
             },
             {
               "text": "に",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             },
             {
               "text": "か",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "か"
+                }
+              ]
             }
           ],
           "en": "Where are you going today?",
@@ -555,25 +873,53 @@
             {
               "text": "きのう",
               "role": "modifier",
-              "gloss": "yesterday"
+              "gloss": "yesterday",
+              "tokens": [
+                {
+                  "k": "きのう",
+                  "g": "v_kinou"
+                }
+              ]
             },
             {
               "text": "駅",
               "role": "topic",
-              "gloss": "station"
+              "gloss": "station",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "行き",
               "role": "verb",
-              "gloss": "go-"
+              "gloss": "go-",
+              "tokens": [
+                {
+                  "k": "行き"
+                }
+              ]
             },
             {
               "text": "ました",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ました"
+                }
+              ]
             }
           ],
           "en": "I went to the station yesterday.",
@@ -585,20 +931,46 @@
             {
               "text": "タクシー",
               "role": "topic",
-              "gloss": "taxi"
+              "gloss": "taxi",
+              "tokens": [
+                {
+                  "k": "タクシ",
+                  "r": "たくし",
+                  "g": "v_takushii"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_takushii"
+                }
+              ]
             },
             {
               "text": "で",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ません",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ません"
+                }
+              ]
             }
           ],
           "en": "I don't come by taxi.",
@@ -610,25 +982,58 @@
             {
               "text": "先週",
               "role": "modifier",
-              "gloss": "last week"
+              "gloss": "last week",
+              "tokens": [
+                {
+                  "k": "先週",
+                  "r": "せんしゅう"
+                }
+              ]
             },
             {
               "text": "スーパー",
               "role": "topic",
-              "gloss": "supermarket"
+              "gloss": "supermarket",
+              "tokens": [
+                {
+                  "k": "スーパ",
+                  "r": "すーぱ",
+                  "g": "v_suupaa"
+                },
+                {
+                  "k": "ー",
+                  "g": "v_suupaa"
+                }
+              ]
             },
             {
               "text": "へ",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "へ",
+                  "r": "え"
+                }
+              ]
             },
             {
               "text": "来",
               "role": "verb",
-              "gloss": "come"
+              "gloss": "come",
+              "tokens": [
+                {
+                  "k": "来"
+                }
+              ]
             },
             {
               "text": "ませんでした",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ませんでした"
+                }
+              ]
             }
           ],
           "en": "Last week I didn't come to the supermarket.",
@@ -640,20 +1045,46 @@
             {
               "text": "友だち",
               "role": "topic",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "particle"
+              "role": "particle",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "い",
               "role": "verb",
-              "gloss": "be"
+              "gloss": "be",
+              "tokens": [
+                {
+                  "k": "い"
+                }
+              ]
             },
             {
               "text": "ます",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ます"
+                }
+              ]
             }
           ],
           "en": "My friend is here.",
@@ -894,7 +1325,8 @@
             "毎日 駅に 行きません。",
             "毎日 駅に 行きませんでした。",
             "毎日 駅に 行くです。"
-          ]
+          ],
+          "hint": "Polite past: ～ます → ～ました. 行きます → 行きました."
         },
         {
           "given": "バスで 来ます。",
@@ -906,7 +1338,8 @@
             "バスで 来ません。",
             "バスで 来ませんでした。",
             "バスで 来ないです。"
-          ]
+          ],
+          "hint": "Polite negative: ～ます → ～ません. 来ます → 来ません."
         },
         {
           "given": "先週 店に 行きました。",
@@ -918,7 +1351,8 @@
             "先週 店に 行きません。",
             "先週 店に 行きませんでした。",
             "先週 店に 行きました。"
-          ]
+          ],
+          "hint": "Polite past negative: ～ました → ～ませんでした."
         },
         {
           "given": "友だちが いません。",
@@ -930,7 +1364,8 @@
             "友だちが いました。",
             "友だちが いませんでした。",
             "友だちが いる。"
-          ]
+          ],
+          "hint": "Drop the negative: ～ません → ～ます. いません → います."
         },
         {
           "given": "スーパーへ 行きません。",
@@ -942,7 +1377,8 @@
             "スーパーへ 行きます。",
             "スーパーへ 行きませんでした。",
             "スーパーへ 行きません。"
-          ]
+          ],
+          "hint": "Past of ～ません is ～ませんでした: 行きません → 行きませんでした."
         },
         {
           "given": "毎日 来ます。",
@@ -954,7 +1390,8 @@
             "毎日 来ませんでした。",
             "毎日 来ません。",
             "毎日 来ないでした。"
-          ]
+          ],
+          "hint": "Both negative AND past: ～ます → ～ませんでした. 来ます → 来ませんでした."
         }
       ]
     },

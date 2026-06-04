@@ -42,6 +42,11 @@
   var SCRAMBLE_UNLOCK_AFTER = 'N5.2';
   var LINKUP_UNLOCK_AFTER   = 'N5.8';
 
+  // Audio Dojo entry appears once this N5 lesson is passed (≥60%) — aligned with
+  // the first audiostory's unlocksAfter. Individual passages gate per their own
+  // unlocksAfter (see isAudioStoryUnlocked).
+  var AUDIO_DOJO_UNLOCK_AFTER = 'N5.3';
+
   var MODULE_META = {
     grammar:  { icon: '🌿', label: 'Grammar Garden' },
     practice: { icon: '🥋', label: 'Dojo' },
@@ -178,6 +183,7 @@
     // Exposed for menu labels ("finish Lesson N5.x to unlock …").
     SCRAMBLE_UNLOCK_AFTER: SCRAMBLE_UNLOCK_AFTER,
     LINKUP_UNLOCK_AFTER:   LINKUP_UNLOCK_AFTER,
+    AUDIO_DOJO_UNLOCK_AFTER: AUDIO_DOJO_UNLOCK_AFTER,
 
     // ── N4 gateway ─────────────────────────────────────────────────────────
 
@@ -223,6 +229,26 @@
 
     isPassed: function (id) {
       return (_getScores()[id] || 0) >= PASS_THRESHOLD;
+    },
+
+    // Record a story as completed (+ best score when graded). Writes to the same
+    // k-lesson-* store the Map/path reads, so a completed story stamps itself on
+    // the path automatically. Side-effect-free vs computeUnlocks (no manifest /
+    // no unlock-diff) — stories gate other content by reading, not by unlocking.
+    recordStoryResult: function (id, pct) {
+      if (!id) return;
+      _markCompleted(id);
+      if (typeof pct === 'number') _saveLessonScore(id, pct);
+    },
+
+    // Seed an item as complete at a given score WITHOUT lowering existing state —
+    // used by the unlock-code system (app/shared/unlock-codes.js). _markCompleted
+    // only sets true; _saveLessonScore only raises. So seeding is safe to run
+    // before OR after a progress import: the result is always the union (max).
+    _seedComplete: function (id, pct) {
+      if (!id) return;
+      _markCompleted(id);
+      _saveLessonScore(id, typeof pct === 'number' ? pct : PASS_THRESHOLD);
     },
 
     // ── Practice activity gates ────────────────────────────────────────────
@@ -281,7 +307,7 @@
 
     /**
      * Returns true if the given module tab should be visible in the menu.
-     * module: 'lesson' | 'grammar' | 'practice' | 'compose' | 'story' | 'review' | 'game'
+     * module: 'lesson' | 'grammar' | 'practice' | 'compose' | 'story' | 'review' | 'game' | 'glossary'
      */
     isModuleVisible: function (module) {
       if (this.isFree()) return true;
@@ -289,6 +315,7 @@
         case 'lesson':   return true;                       // always visible
         case 'grammar':  return _prereqMet('N5.1', true);  // any completion
         case 'practice': return _prereqMet('N5.1', true);  // any completion
+        case 'glossary': return _prereqMet('N5.1', true);  // any completion — your learned-words dictionary
         case 'compose':  return _prereqMet('N5.1', false); // ≥60%
         case 'game':     return _prereqMet('N5.1', false); // ≥60%
         // Stories & Review unlock at G4 — that's when the first entry in each
@@ -296,6 +323,7 @@
         // an empty room otherwise.
         case 'story':    return _prereqMet('G4', true);    // any completion
         case 'review':   return _prereqMet('G4', true);    // any completion
+        case 'audiodojo': return _prereqMet(AUDIO_DOJO_UNLOCK_AFTER, false); // ≥60% on N5.3
         // Writing modules are reached through the Dojo's Writing hub. The Dojo
         // tile is already gated as 'practice'; once inside, writing is free.
         case 'writing-kanji': return true;
@@ -326,11 +354,18 @@
     },
 
     /**
-     * Grammar entries unlock when their prereq has been *completed* (any score).
+     * Grammar entries unlock based on the *type* of their prerequisite:
+     *   • prereq is another grammar point (G2←G1) → *completion* (grammar
+     *     has no pass/fail score, so finishing it is sufficient);
+     *   • prereq is a LESSON (e.g. G4←N5.2) → the lesson must be *passed*
+     *     (≥60%). Completing a lesson with a failing score must NOT unlock the
+     *     grammar that builds on it.
+     * `_prereqMet(id, false)` does exactly this: its isGrammarId branch keeps
+     * grammar prereqs on completion semantics, everything else needs a pass.
      */
     isGrammarUnlocked: function (entry) {
       if (this.isFree()) return true;
-      return _prereqMet(entry.unlocksAfter, true);
+      return _prereqMet(entry.unlocksAfter, false);
     },
 
     /**
@@ -349,6 +384,18 @@
     isStoryUnlocked: function (entry) {
       if (this.isFree()) return true;
       return _prereqMet(entry.unlocksAfter, false);
+    },
+
+    /**
+     * Audio Dojo passage entries unlock when their prereq lesson is *passed*
+     * (≥60%), mirroring stories. N4 passages also require the N4 unlock.
+     */
+    isAudioStoryUnlocked: function (entry) {
+      if (this.isFree()) return true;
+      if (entry && (entry.level === 'N4' || /^N4\./.test(entry.id || ''))) {
+        if (!this.isN4Unlocked()) return false;
+      }
+      return _prereqMet(entry && entry.unlocksAfter, false);
     },
 
     /**

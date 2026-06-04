@@ -165,6 +165,48 @@ node scripts/migrate-stories-to-json.mjs --force   # if you need to re-tokenize 
 
 ---
 
+## After ANY content change — regenerate audio + fonts (REQUIRED)
+
+Whenever you **add new** Japanese content **or edit existing** content — stories,
+lessons, grammar, glossaries, `shared/particles.json`, `shared/characters.json`,
+or anything whose Japanese text the app **displays or speaks** — you MUST
+regenerate two derived artifacts. Both are **build gates** (`npm run build:www`
+runs them and FAILS if you forgot):
+
+### 1. Audio (TTS voice clips)
+
+```bash
+npm run gen:audio          # build-audio-manifest + generate-audio (Chirp 3 HD)
+# npm run gen:audio -- --force   # regenerate ALL clips (rarely needed)
+```
+
+- Incremental: clips are content-addressed (`sha1` of the normalized key), so
+  **new text → new clip**, **edited text → a new clip** (the old one is orphaned
+  but harmless — committed clips keep the app offline).
+- Needs `GOOGLE_TTS_API_KEY` + `ffmpeg`/`ffprobe` on the build machine.
+- **Gate:** `validate-audio.mjs` re-derives the key set and fails the build if any
+  content line lacks a clip.
+
+### 2. Fonts (Japanese glyph coverage)
+
+```bash
+npm run vendor:fonts       # re-subsets Noto Sans/Serif JP to the current content
+```
+
+- The bundled Noto fonts are **subset to exactly the characters in the content**
+  (see `scripts/lib/jp-chars.mjs`). New/edited content can introduce a kanji that
+  isn't in the subset — re-run this so it's included (otherwise that glyph falls
+  back to the system font and faux-bolds on device).
+- Needs `python3` + `pip install fonttools brotli`. Writes `fonts/jp-coverage.json`.
+- **Gate:** `validate-fonts.mjs` fails the build if any content character is
+  outside the bundled subset.
+
+> Rule of thumb: **content edited → `npm run gen:audio` + `npm run vendor:fonts`,
+> then `npm run build:www`.** If the build fails on `validate-audio` or
+> `validate-fonts`, you skipped one of these.
+
+---
+
 ## Things to never do
 
 - ❌ Don't re-introduce kuromoji.js or any runtime morphological tokenizer.
@@ -181,6 +223,9 @@ node scripts/migrate-stories-to-json.mjs --force   # if you need to re-tokenize 
   you're explicitly fixing the validator itself.
 - ❌ Don't add a new `marked.js` (or any Markdown parser) dependency to ship
   with the app. The MD story path is being removed; do not bring it back.
+- ❌ Don't ship new/edited content without re-running `npm run gen:audio` AND
+  `npm run vendor:fonts`. `build:www` gates both (validate-audio / validate-fonts)
+  — a missing clip or uncovered glyph fails the build.
 
 ---
 
@@ -193,7 +238,11 @@ npm run validate:stories
 # Re-migrate one story (after glossary changes)
 node scripts/migrate-stories-to-json.mjs --only=<slug> --force
 
-# Build + sync to iOS
+# After ANY content add/edit — regenerate the derived artifacts
+npm run gen:audio        # TTS voice clips (new/changed lines)
+npm run vendor:fonts     # re-subset Noto JP to the content's characters
+
+# Build + sync to iOS (gates: stories, audio, fonts)
 npm run sync:ios
 
 # Activate pre-commit hook (one-time per clone)

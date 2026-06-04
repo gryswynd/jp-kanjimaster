@@ -64,7 +64,7 @@
           "terms": [
             "v_kyou",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "g_desu",
             "p_ka"
           ]
@@ -89,7 +89,7 @@
           "jp": "友だちは 何人 いますか。",
           "en": "How many friends do you have?",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_nannin",
             {
@@ -448,9 +448,9 @@
             "v_iie",
             "v_senshuu",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_to",
-            "v_suiyoubi",
+            "v_suiyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -479,9 +479,9 @@
           "terms": [
             "v_sengetsu",
             "p_wa",
-            "v_kayoubi",
+            "v_kayoubi_hybrid",
             "p_to",
-            "v_mokuyoubi",
+            "v_mokuyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -746,9 +746,9 @@
           "terms": [
             "v_konshuu",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_to",
-            "v_suiyoubi",
+            "v_suiyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -762,7 +762,7 @@
           "terms": [
             "v_senshuu",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -810,9 +810,9 @@
             "char_yamamoto",
             "v_sensei",
             "p_wa",
-            "v_kayoubi",
+            "v_kayoubi_hybrid",
             "p_ya",
-            "v_mokuyoubi",
+            "v_mokuyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -896,7 +896,7 @@
           "terms": [
             "v_konshuu",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -923,7 +923,7 @@
           "terms": [
             "v_senshuu",
             "p_wa",
-            "v_nanyoubi",
+            "v_nanyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
@@ -1037,7 +1037,7 @@
           "jp": "友だちは 今週 います。",
           "en": "Friends are here this week.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_konshuu",
             {
@@ -1168,7 +1168,7 @@
           "a": "はい、います。",
           "a_en": "Yes, they are here.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_konshuu",
             {
@@ -1201,7 +1201,8 @@
             "ねん",
             "しゅう"
           ],
-          "answer": "じ"
+          "answer": "じ",
+          "explanation": "「時」 is read 「じ」 — time / hour."
         },
         {
           "kind": "mcq",
@@ -1212,7 +1213,8 @@
             "ねん",
             "はん"
           ],
-          "answer": "ふん"
+          "answer": "ふん",
+          "explanation": "「分」 is read 「ふん」 — minute / part."
         },
         {
           "kind": "mcq",
@@ -1223,7 +1225,8 @@
             "はん",
             "じ"
           ],
-          "answer": "ねん"
+          "answer": "ねん",
+          "explanation": "「年」 is read 「ねん」 — year."
         },
         {
           "kind": "mcq",
@@ -1234,7 +1237,8 @@
             "じ",
             "ふん"
           ],
-          "answer": "しゅう"
+          "answer": "しゅう",
+          "explanation": "「週」 is read 「しゅう」 — week."
         },
         {
           "kind": "mcq",
@@ -1245,7 +1249,8 @@
             "ふん",
             "ねん"
           ],
-          "answer": "はん"
+          "answer": "はん",
+          "explanation": "「半」 is read 「はん」 — half."
         },
         {
           "kind": "mcq",
@@ -1256,7 +1261,8 @@
             "まいしゅう",
             "せんしゅう"
           ],
-          "answer": "こんしゅう"
+          "answer": "こんしゅう",
+          "explanation": "「今週」 is read 「こんしゅう」 — this week."
         }
       ]
     },
@@ -1278,15 +1284,16 @@
           "terms": [
             "v_konshuu",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_to",
-            "v_suiyoubi",
+            "v_suiyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 今週 は 月よう日と 水よう日に います。 — 「今週」 (こんしゅう) means \"this week\"."
         },
         {
           "kind": "mcq",
@@ -1301,13 +1308,14 @@
           "terms": [
             "v_senshuu",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 先週は 月よう日に いました。"
         },
         {
           "kind": "mcq",
@@ -1328,7 +1336,8 @@
               "n": 3
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: たんじょうびは 毎年 三月です。 — 「毎年」 (まいねん) means \"every year\"."
         },
         {
           "kind": "mcq",
@@ -1347,7 +1356,8 @@
               "id": "v_wakaru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: にほんごは 時々 分かります。 — 「時々」 (ときどき) means \"sometimes\"."
         },
         {
           "kind": "mcq",
@@ -1367,7 +1377,8 @@
               "id": "v_aru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: きのう ケーキが ありました。"
         },
         {
           "kind": "mcq",
@@ -1387,7 +1398,8 @@
             "p_no",
             "g_desu",
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: どの スマホは 先生のですか。 — 「どの」 (どの) means \"which\"."
         },
         {
           "kind": "mcq",
@@ -1406,7 +1418,8 @@
               "form": "polite_masu"
             },
             "p_yo"
-          ]
+          ],
+          "explanation": "Correct: すぐ 分かりますよ。 — 「すぐ」 (すぐ) means \"immediately / right away / soon\"."
         },
         {
           "kind": "mcq",
@@ -1426,7 +1439,8 @@
             "p_no",
             "g_desu",
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: この スマホは だれの ですか。"
         }
       ]
     },
@@ -1448,13 +1462,14 @@
           "terms": [
             "v_konshuu",
             "p_wa",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 今週 は 月よう日に います。"
         },
         {
           "kind": "mcq",
@@ -1476,7 +1491,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 三時 に います。"
         },
         {
           "kind": "mcq",
@@ -1490,13 +1506,14 @@
           "answer": "が",
           "terms": [
             "v_maishuu",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ga",
             {
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎週 友だち が います。"
         },
         {
           "kind": "mcq",
@@ -1517,7 +1534,8 @@
               "form": "polite_mashita"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: きのう ケーキ が ありましたか。"
         },
         {
           "kind": "mcq",
@@ -1536,7 +1554,8 @@
             "v_sensei",
             "p_no",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: この スマホ は 先生のです。"
         },
         {
           "kind": "mcq",
@@ -1561,7 +1580,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎年 三月 に たんじょうびが あります。"
         },
         {
           "kind": "mcq",
@@ -1580,7 +1600,8 @@
             "v_ii",
             "g_desu",
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: どの ケーキ が いいですか。"
         },
         {
           "kind": "mcq",
@@ -1594,14 +1615,15 @@
           "answer": "に",
           "terms": [
             "v_senshuu",
-            "v_getsuyoubi",
+            "v_getsuyoubi_hybrid",
             "p_ni",
             {
               "id": "v_iru",
               "form": "polite_mashita"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: 先週 月よう日 に いましたか。"
         }
       ]
     }

@@ -87,7 +87,7 @@
           "jp": "友だちに 料理を あげましたか。",
           "en": "Did you give food to a friend?",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_ryouri",
             "p_wo",
@@ -489,7 +489,7 @@
               "form": "polite_masu"
             },
             "p_yo",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ga",
             {
               "id": "v_kureru",
@@ -1210,7 +1210,8 @@
             "やさい",
             "うなぎ"
           ],
-          "answer": "とりにく"
+          "answer": "とりにく",
+          "explanation": "「鳥肉」 is read 「とりにく」 — chicken meat."
         },
         {
           "kind": "mcq",
@@ -1221,7 +1222,8 @@
             "ばんごはん",
             "ちゅうごはん"
           ],
-          "answer": "ひるごはん"
+          "answer": "ひるごはん",
+          "explanation": "「昼ご飯」 is read 「ひるごはん」 — lunch."
         },
         {
           "kind": "mcq",
@@ -1232,7 +1234,8 @@
             "ひろい",
             "ちかい"
           ],
-          "answer": "くらい"
+          "answer": "くらい",
+          "explanation": "「暗い」 is read 「くらい」 — dark."
         },
         {
           "kind": "mcq",
@@ -1243,7 +1246,8 @@
             "どうじ",
             "おじな"
           ],
-          "answer": "おなじ"
+          "answer": "おなじ",
+          "explanation": "「同じ」 is read 「おなじ」 — the same."
         }
       ]
     },
@@ -1262,7 +1266,8 @@
             "food"
           ],
           "answer": "chicken meat",
-          "terms": []
+          "terms": [],
+          "explanation": "「鳥肉」 (とりにく) means \"chicken meat\"."
         },
         {
           "kind": "mcq",
@@ -1274,7 +1279,8 @@
             "lunch break"
           ],
           "answer": "lunch",
-          "terms": []
+          "terms": [],
+          "explanation": "「昼ご飯」 (ひるごはん) means \"lunch\"."
         },
         {
           "kind": "mcq",
@@ -1286,7 +1292,8 @@
             "same"
           ],
           "answer": "taste / flavor",
-          "terms": []
+          "terms": [],
+          "explanation": "「味」 (あじ) means \"taste / flavor\"."
         },
         {
           "kind": "mcq",
@@ -1298,7 +1305,8 @@
             "same"
           ],
           "answer": "dark",
-          "terms": []
+          "terms": [],
+          "explanation": "「暗い」 (くらい) means \"dark\"."
         }
       ]
     },
@@ -1329,7 +1337,8 @@
               "form": "polite_adj"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: この 鳥肉料理は 牛肉よりおいしいです。"
         },
         {
           "kind": "mcq",
@@ -1354,7 +1363,8 @@
               "id": "v_ageru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: やまかわさんは りきぞうさんに 昼ご飯をあげました。"
         },
         {
           "kind": "mcq",
@@ -1381,7 +1391,8 @@
               "id": "v_naru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 晩ご飯の 前に 外が 暗くなりました。 — 「なりました」 (なりました) means \"became (polite past)\"."
         },
         {
           "kind": "mcq",
@@ -1394,7 +1405,7 @@
           ],
           "answer": "もらいました",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_kara",
             "v_toriniku",
             "p_no",
@@ -1412,7 +1423,8 @@
               "form": "plain_past_adj"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 友だちから 鳥肉の 料理をもらいました。味が とても よかったです。"
         }
       ]
     }

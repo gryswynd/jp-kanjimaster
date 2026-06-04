@@ -94,20 +94,44 @@
             {
               "text": "これ",
               "role": "subject",
-              "gloss": "this"
+              "gloss": "this",
+              "tokens": [
+                {
+                  "k": "これ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "テレビ",
               "role": "predicate",
-              "gloss": "TV"
+              "gloss": "TV",
+              "tokens": [
+                {
+                  "k": "テレビ"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This is a TV.",
@@ -118,20 +142,44 @@
             {
               "text": "それ",
               "role": "subject",
-              "gloss": "that"
+              "gloss": "that",
+              "tokens": [
+                {
+                  "k": "それ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "パソコン",
               "role": "predicate",
-              "gloss": "computer"
+              "gloss": "computer",
+              "tokens": [
+                {
+                  "k": "パソコン"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That is a computer.",
@@ -142,20 +190,44 @@
             {
               "text": "あれ",
               "role": "subject",
-              "gloss": "that over there"
+              "gloss": "that over there",
+              "tokens": [
+                {
+                  "k": "あれ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "トイレ",
               "role": "predicate",
-              "gloss": "toilet"
+              "gloss": "toilet",
+              "tokens": [
+                {
+                  "k": "トイレ"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That over there is the toilet.",
@@ -208,25 +280,56 @@
             {
               "text": "この",
               "role": "modifier",
-              "gloss": "this"
+              "gloss": "this",
+              "tokens": [
+                {
+                  "k": "この"
+                }
+              ]
             },
             {
               "text": "人",
               "role": "object",
-              "gloss": "person"
+              "gloss": "person",
+              "tokens": [
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This person is a teacher.",
@@ -237,25 +340,55 @@
             {
               "text": "あの",
               "role": "modifier",
-              "gloss": "that (over there)"
+              "gloss": "that (over there)",
+              "tokens": [
+                {
+                  "k": "あの"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "object",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "やさしい",
               "role": "predicate",
-              "gloss": "kind"
+              "gloss": "kind",
+              "tokens": [
+                {
+                  "k": "やさしい"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That teacher (over there) is kind.",
@@ -266,25 +399,56 @@
             {
               "text": "どの",
               "role": "modifier",
-              "gloss": "which"
+              "gloss": "which",
+              "tokens": [
+                {
+                  "k": "どの"
+                }
+              ]
             },
             {
               "text": "パソコン",
               "role": "object",
-              "gloss": "computer"
+              "gloss": "computer",
+              "tokens": [
+                {
+                  "k": "パソコン"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good"
+              "gloss": "good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Which computer is good?",
@@ -331,20 +495,44 @@
             {
               "text": "ここ",
               "role": "topic",
-              "gloss": "here"
+              "gloss": "here",
+              "tokens": [
+                {
+                  "k": "ここ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "トイレ",
               "role": "predicate",
-              "gloss": "toilet"
+              "gloss": "toilet",
+              "tokens": [
+                {
+                  "k": "トイレ"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This place is the toilet. / The toilet is here.",
@@ -355,20 +543,44 @@
             {
               "text": "トイレ",
               "role": "topic",
-              "gloss": "toilet"
+              "gloss": "toilet",
+              "tokens": [
+                {
+                  "k": "トイレ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "あそこ",
               "role": "predicate",
-              "gloss": "over there"
+              "gloss": "over there",
+              "tokens": [
+                {
+                  "k": "あそこ"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The toilet is over there.",
@@ -379,20 +591,47 @@
             {
               "text": "テレビ",
               "role": "topic",
-              "gloss": "TV"
+              "gloss": "TV",
+              "tokens": [
+                {
+                  "k": "テレビ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "どこ",
               "role": "predicate",
-              "gloss": "where"
+              "gloss": "where",
+              "tokens": [
+                {
+                  "k": "どこ"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Where is the TV?",
@@ -439,25 +678,55 @@
             {
               "text": "こちら",
               "role": "topic",
-              "gloss": "this person (polite)"
+              "gloss": "this person (polite)",
+              "tokens": [
+                {
+                  "k": "こちら"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "やまもと",
               "role": "predicate",
-              "gloss": "Yamamoto"
+              "gloss": "Yamamoto",
+              "tokens": [
+                {
+                  "k": "やまもと"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This is Teacher Yamamoto. (polite introduction)",
@@ -468,20 +737,44 @@
             {
               "text": "トイレ",
               "role": "topic",
-              "gloss": "toilet"
+              "gloss": "toilet",
+              "tokens": [
+                {
+                  "k": "トイレ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "あちら",
               "role": "predicate",
-              "gloss": "that way (polite)"
+              "gloss": "that way (polite)",
+              "tokens": [
+                {
+                  "k": "あちら"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The toilet is that way.",
@@ -492,20 +785,46 @@
             {
               "text": "どちら",
               "role": "subject",
-              "gloss": "which (polite)"
+              "gloss": "which (polite)",
+              "tokens": [
+                {
+                  "k": "どちら"
+                }
+              ]
             },
             {
               "text": "が",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "good"
+              "gloss": "good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Which one would you prefer?",
@@ -543,16 +862,38 @@
             {
               "text": "どんな",
               "role": "modifier",
-              "gloss": "what kind of"
+              "gloss": "what kind of",
+              "tokens": [
+                {
+                  "k": "どんな"
+                }
+              ]
             },
             {
               "text": "人",
               "role": "object",
-              "gloss": "person"
+              "gloss": "person",
+              "tokens": [
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "What kind of person is (he/she)?",
@@ -563,25 +904,55 @@
             {
               "text": "こんな",
               "role": "modifier",
-              "gloss": "this kind of"
+              "gloss": "this kind of",
+              "tokens": [
+                {
+                  "k": "こんな"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "object",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "predicate",
-              "gloss": "great / good"
+              "gloss": "great / good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "A teacher like this is great.",
@@ -592,29 +963,65 @@
             {
               "text": "そんな",
               "role": "modifier",
-              "gloss": "that kind of"
+              "gloss": "that kind of",
+              "tokens": [
+                {
+                  "k": "そんな"
+                }
+              ]
             },
             {
               "text": "人",
               "role": "object",
-              "gloss": "person"
+              "gloss": "person",
+              "tokens": [
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "では",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "では"
+                }
+              ]
             },
             {
               "text": "ありません。",
-              "role": "predicate"
+              "role": "predicate",
+              "tokens": [
+                {
+                  "k": "ありません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That kind of person is not a teacher.",
@@ -652,11 +1059,27 @@
             {
               "text": "こう",
               "role": "adverb",
-              "gloss": "like this / this way"
+              "gloss": "like this / this way",
+              "tokens": [
+                {
+                  "k": "こう"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Like this? / Is it this way?",
@@ -667,11 +1090,24 @@
             {
               "text": "そう",
               "role": "adverb",
-              "gloss": "that's right / like that"
+              "gloss": "that's right / like that",
+              "tokens": [
+                {
+                  "k": "そう"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That's right. / Yes, exactly.",
@@ -682,20 +1118,47 @@
             {
               "text": "テレビ",
               "role": "topic",
-              "gloss": "TV"
+              "gloss": "TV",
+              "tokens": [
+                {
+                  "k": "テレビ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "どう",
               "role": "adverb",
-              "gloss": "how / what do you think"
+              "gloss": "how / what do you think",
+              "tokens": [
+                {
+                  "k": "どう"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "How is the TV? / What do you think of the TV?",
@@ -799,20 +1262,44 @@
               {
                 "text": "これ",
                 "role": "subject",
-                "gloss": "this"
+                "gloss": "this",
+                "tokens": [
+                  {
+                    "k": "これ"
+                  }
+                ]
               },
               {
                 "text": "は",
-                "role": "connector"
+                "role": "connector",
+                "tokens": [
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "テレビ",
                 "role": "predicate",
-                "gloss": "TV"
+                "gloss": "TV",
+                "tokens": [
+                  {
+                    "k": "テレビ"
+                  }
+                ]
               },
               {
                 "text": "です。",
-                "role": "verb"
+                "role": "verb",
+                "tokens": [
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "This is a TV."
@@ -831,25 +1318,56 @@
               {
                 "text": "この",
                 "role": "modifier",
-                "gloss": "this"
+                "gloss": "this",
+                "tokens": [
+                  {
+                    "k": "この"
+                  }
+                ]
               },
               {
                 "text": "人",
                 "role": "object",
-                "gloss": "person"
+                "gloss": "person",
+                "tokens": [
+                  {
+                    "k": "人",
+                    "r": "ひと"
+                  }
+                ]
               },
               {
                 "text": "は",
-                "role": "connector"
+                "role": "connector",
+                "tokens": [
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "先生",
                 "role": "predicate",
-                "gloss": "teacher"
+                "gloss": "teacher",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  }
+                ]
               },
               {
                 "text": "です。",
-                "role": "verb"
+                "role": "verb",
+                "tokens": [
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "This person is a teacher."
@@ -868,25 +1386,54 @@
             {
               "text": "これ",
               "role": "subject",
-              "gloss": "this"
+              "gloss": "this",
+              "tokens": [
+                {
+                  "k": "これ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "いい",
               "role": "modifier",
-              "gloss": "good"
+              "gloss": "good",
+              "tokens": [
+                {
+                  "k": "いい"
+                }
+              ]
             },
             {
               "text": "パソコン",
               "role": "predicate",
-              "gloss": "computer"
+              "gloss": "computer",
+              "tokens": [
+                {
+                  "k": "パソコン"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This is a good computer.",
@@ -898,20 +1445,48 @@
             {
               "text": "それ",
               "role": "subject",
-              "gloss": "that"
+              "gloss": "that",
+              "tokens": [
+                {
+                  "k": "それ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "なに",
               "role": "predicate",
-              "gloss": "what"
+              "gloss": "what",
+              "tokens": [
+                {
+                  "k": "なに",
+                  "g": "v_nani"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "What is that? (thing near you)",
@@ -923,25 +1498,56 @@
             {
               "text": "あの",
               "role": "modifier",
-              "gloss": "that (over there)"
+              "gloss": "that (over there)",
+              "tokens": [
+                {
+                  "k": "あの"
+                }
+              ]
             },
             {
               "text": "人",
               "role": "object",
-              "gloss": "person"
+              "gloss": "person",
+              "tokens": [
+                {
+                  "k": "人",
+                  "r": "ひと"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "predicate",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That person over there is a teacher.",
@@ -953,20 +1559,47 @@
             {
               "text": "トイレ",
               "role": "topic",
-              "gloss": "toilet"
+              "gloss": "toilet",
+              "tokens": [
+                {
+                  "k": "トイレ"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "どこ",
               "role": "predicate",
-              "gloss": "where"
+              "gloss": "where",
+              "tokens": [
+                {
+                  "k": "どこ"
+                }
+              ]
             },
             {
               "text": "ですか。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Where is the toilet?",
@@ -978,34 +1611,79 @@
             {
               "text": "こちら",
               "role": "topic",
-              "gloss": "this person (polite)"
+              "gloss": "this person (polite)",
+              "tokens": [
+                {
+                  "k": "こちら"
+                }
+              ]
             },
             {
               "text": "は",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だち",
               "role": "predicate",
-              "gloss": "friend"
+              "gloss": "friend",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                }
+              ]
             },
             {
               "text": "の",
-              "role": "connector"
+              "role": "connector",
+              "tokens": [
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ゆき",
               "role": "predicate",
-              "gloss": "Yuki"
+              "gloss": "Yuki",
+              "tokens": [
+                {
+                  "k": "ゆき"
+                }
+              ]
             },
             {
               "text": "さん",
               "role": "predicate",
-              "gloss": "Mr./Ms."
+              "gloss": "Mr./Ms.",
+              "tokens": [
+                {
+                  "k": "さん"
+                }
+              ]
             },
             {
               "text": "です。",
-              "role": "verb"
+              "role": "verb",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This is my friend Yuki.",

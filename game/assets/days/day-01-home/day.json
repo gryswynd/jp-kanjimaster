@@ -1,0 +1,722 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-01-home",
+  "title": "House Adventure",
+  "titleJp": "いえ",
+  "level": "N5",
+  "unlockedBy": [
+    "N5.1"
+  ],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1536,
+      "height": 1024
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png"
+    }
+  },
+  "playerStart": {
+    "x": 404,
+    "y": 339
+  },
+  "objects": [
+    {
+      "name": "Bed",
+      "nameJp": "ベッド",
+      "position": [
+        180,
+        157
+      ],
+      "sprite": "objects/bed.png",
+      "isDoor": false,
+      "message": {
+        "jp": "いいベッドです。",
+        "en": "A comfortable bed.",
+        "terms": [
+          "v_ii",
+          "v_beddo",
+          "g_desu"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "Desk",
+      "nameJp": "つくえ",
+      "position": [
+        316,
+        165
+      ],
+      "sprite": "objects/desk.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": false
+    },
+    {
+      "name": "Chair_Desk",
+      "nameJp": "いす",
+      "position": [
+        391,
+        200
+      ],
+      "sprite": "objects/chair_back.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": false
+    },
+    {
+      "name": "Laptop",
+      "nameJp": "パソコン",
+      "position": [
+        391,
+        170
+      ],
+      "sprite": "objects/laptop.png",
+      "isDoor": false,
+      "message": {
+        "jp": "わたしのパソコンです。",
+        "en": "My laptop.",
+        "terms": [
+          "v_watashi",
+          "p_no",
+          "v_pasokon",
+          "g_desu"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "TV_Stand",
+      "nameJp": "テレビだい",
+      "position": [
+        427,
+        500
+      ],
+      "sprite": "objects/tv_stand.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false
+    },
+    {
+      "name": "Podium",
+      "nameJp": "だい",
+      "position": [
+        192,
+        628
+      ],
+      "sprite": "objects/podium.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false,
+      "appearsFromDay": 2
+    },
+    {
+      "name": "Gold",
+      "nameJp": "きん",
+      "position": [
+        201,
+        642
+      ],
+      "sprite": "objects/gold.png",
+      "isDoor": false,
+      "interactive": true,
+      "message": {
+        "jp": "おとうさんの きんです。",
+        "en": "Dad's gold.",
+        "terms": [
+          "v_otousan",
+          "p_no",
+          "g_desu"
+        ]
+      },
+      "appearsFromDay": 2
+    },
+    {
+      "name": "TV",
+      "nameJp": "テレビ",
+      "position": [
+        432,
+        474
+      ],
+      "sprite": "objects/tv.png",
+      "isDoor": false,
+      "message": {
+        "jp": "テレビです。",
+        "en": "The TV.",
+        "terms": [
+          "v_terebi",
+          "g_desu"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "Zabuton_1",
+      "nameJp": "ざぶとん",
+      "position": [
+        322,
+        664
+      ],
+      "sprite": "objects/zabuton.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false
+    },
+    {
+      "name": "Zabuton_2",
+      "nameJp": "ざぶとん",
+      "position": [
+        586,
+        664
+      ],
+      "sprite": "objects/zabuton.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false
+    },
+    {
+      "name": "Kotatsu",
+      "nameJp": "こたつ",
+      "position": [
+        358,
+        618
+      ],
+      "sprite": "objects/kotatsu.png",
+      "isDoor": false,
+      "message": {
+        "jp": "こたつです。とてもいいです！",
+        "en": "The kotatsu.",
+        "terms": [
+          "g_desu",
+          "v_totemo",
+          "v_ii"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "Toilet",
+      "nameJp": "トイレ",
+      "position": [
+        708,
+        154
+      ],
+      "isDoor": false,
+      "message": {
+        "jp": "トイレです。",
+        "en": "The toilet.",
+        "terms": [
+          "v_toire",
+          "g_desu"
+        ]
+      },
+      "size": [
+        46,
+        85
+      ],
+      "collision": true
+    },
+    {
+      "name": "Kitchen_Counter",
+      "nameJp": "キッチン",
+      "position": [
+        1053,
+        157
+      ],
+      "size": [
+        236,
+        51
+      ],
+      "isDoor": false,
+      "message": {
+        "jp": "お母さんのキッチンです。",
+        "en": "Mom's kitchen.",
+        "terms": [
+          "v_okaasan",
+          "p_no",
+          "g_desu"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "Fridge",
+      "nameJp": "れいぞうこ",
+      "position": [
+        848,
+        101
+      ],
+      "sprite": "objects/fridge.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false
+    },
+    {
+      "name": "Calendar",
+      "nameJp": "カレンダー",
+      "position": [
+        813,
+        477
+      ],
+      "sprite": "objects/calendar.png",
+      "isDoor": false,
+      "interactive": true,
+      "appearsFromDay": 2,
+      "collision": true
+    },
+    {
+      "name": "Clock",
+      "nameJp": "とけい",
+      "position": [
+        876,
+        481
+      ],
+      "sprite": "objects/clock.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": true,
+      "appearsFromDay": 3
+    },
+    {
+      "name": "Cake",
+      "nameJp": "ケーキ",
+      "position": [
+        1060,
+        163
+      ],
+      "sprite": "objects/cake.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": true,
+      "appearsFromDay": 4,
+      "detectionPadding": 80,
+      "priority": 1,
+      "appearsUntilDay": 6
+    },
+    {
+      "name": "Chair_N",
+      "nameJp": "いす",
+      "position": [
+        1208,
+        245
+      ],
+      "sprite": "objects/chair.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": false
+    },
+    {
+      "name": "Chair_E",
+      "nameJp": "いす",
+      "position": [
+        1289,
+        296
+      ],
+      "sprite": "objects/chair_left.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": false
+    },
+    {
+      "name": "Chair_W",
+      "nameJp": "いす",
+      "position": [
+        1134,
+        302
+      ],
+      "sprite": "objects/chair_right.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": false
+    },
+    {
+      "name": "Dining_Table",
+      "nameJp": "テーブル",
+      "position": [
+        1151,
+        289
+      ],
+      "sprite": "objects/dining_table.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false
+    },
+    {
+      "name": "Water",
+      "nameJp": "みず",
+      "position": [
+        1162,
+        307
+      ],
+      "sprite": "objects/water.png",
+      "isDoor": false,
+      "interactive": true,
+      "message": {
+        "jp": "みずです。",
+        "en": "Water.",
+        "terms": [
+          "v_mizu",
+          "g_desu"
+        ]
+      },
+      "appearsFromDay": 2
+    },
+    {
+      "name": "Chair_S",
+      "nameJp": "いす",
+      "position": [
+        1213,
+        367
+      ],
+      "sprite": "objects/chair_back_dining.png",
+      "isDoor": false,
+      "collision": false,
+      "interactive": false
+    },
+    {
+      "name": "Stairs",
+      "nameJp": "かいだん",
+      "position": [
+        571,
+        341
+      ],
+      "size": [
+        118,
+        102
+      ],
+      "isDoor": false,
+      "message": {
+        "jp": "かいだんです。まだいけません。",
+        "en": "Stairs. Can't go up yet.",
+        "terms": [
+          "g_desu"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "Caution_Tape",
+      "nameJp": "テープ",
+      "position": [
+        557,
+        496
+      ],
+      "sprite": "objects/caution_tape.png",
+      "isDoor": false,
+      "message": {
+        "jp": "テープです。",
+        "en": "Caution tape.",
+        "terms": [
+          "g_desu"
+        ]
+      },
+      "collision": true
+    },
+    {
+      "name": "Bedroom_Door",
+      "nameJp": "ドア",
+      "position": [
+        314,
+        433
+      ],
+      "sprite": "objects/interior_door_closed.png",
+      "isDoor": true
+    },
+    {
+      "name": "Kitchen_Door",
+      "nameJp": "ドア",
+      "position": [
+        944,
+        433
+      ],
+      "sprite": "objects/interior_door_closed.png",
+      "isDoor": true
+    },
+    {
+      "name": "Bath_Door",
+      "nameJp": "おふろのドア",
+      "position": [
+        714,
+        433
+      ],
+      "sprite": "objects/interior_door_closed.png",
+      "isDoor": true
+    },
+    {
+      "name": "Shoe_Rack",
+      "nameJp": "げたばこ",
+      "position": [
+        1082,
+        479
+      ],
+      "sprite": "objects/shoe_rack.png",
+      "isDoor": false,
+      "collision": true,
+      "interactive": false
+    },
+    {
+      "name": "Front_Door",
+      "nameJp": "げんかん",
+      "position": [
+        906,
+        655
+      ],
+      "sprite": "objects/front_door_closed.png",
+      "spriteOpen": "objects/front_door_open.png",
+      "isDoor": true
+    },
+    {
+      "name": "Salad",
+      "nameJp": "サラダ",
+      "nameFromDay": 7,
+      "appearsFromDay": 7,
+      "position": [
+        1222,
+        300
+      ],
+      "size": [
+        44,
+        44
+      ],
+      "sprite": "objects/salad.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "message": {
+        "jp": "サラダです。",
+        "en": "A salad."
+      }
+    },
+    {
+      "name": "Bread",
+      "nameJp": "パン",
+      "nameFromDay": 7,
+      "appearsFromDay": 7,
+      "position": [
+        1183,
+        302
+      ],
+      "size": [
+        45,
+        45
+      ],
+      "sprite": "objects/bread_butter.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "message": {
+        "jp": "パンです。バターもあります。",
+        "en": "Bread. With butter, too."
+      }
+    },
+    {
+      "name": "Coffee",
+      "nameJp": "コーヒー",
+      "nameFromDay": 7,
+      "appearsFromDay": 7,
+      "position": [
+        1153,
+        269
+      ],
+      "size": [
+        43,
+        43
+      ],
+      "sprite": "objects/coffee.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "message": {
+        "jp": "コーヒーです。",
+        "en": "Coffee."
+      }
+    },
+    {
+      "name": "Lamp",
+      "nameJp": "でんき",
+      "appearsFromDay": 10,
+      "position": [
+        330,
+        122
+      ],
+      "size": [
+        44,
+        44
+      ],
+      "sprite": "objects/lamp.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [
+    {
+      "name": "mom",
+      "nameJp": "お母さん",
+      "x": 993,
+      "y": 294,
+      "sprite": "assets/characters/sakura/sakura_sprite.png",
+      "convoPortrait": "assets/characters/sakura/sakura_convo.png",
+      "convoBackground": "kitchen",
+      "conversation": [
+        {
+          "speaker": "mom",
+          "jp": "おはよう、りきぞ！",
+          "en": "Good morning, Rikizo!",
+          "terms": [
+            "char_rikizo"
+          ]
+        },
+        {
+          "speaker": "りきぞ",
+          "jp": "おはよう、お母さん。",
+          "en": "Good morning, Mom.",
+          "terms": [
+            "v_okaasan"
+          ]
+        },
+        {
+          "speaker": "mom",
+          "jp": "あなたはとてもいい先生ですよ。",
+          "en": "You are a very good teacher, you know.",
+          "terms": [
+            "v_anata",
+            "p_wa",
+            "v_totemo",
+            "v_ii",
+            "v_sensei",
+            "g_desu",
+            "p_yo"
+          ]
+        },
+        {
+          "speaker": "りきぞ",
+          "jp": "そうですか？うれしいです！",
+          "en": "Really? That makes me happy!",
+          "terms": [
+            "p_soudesuka",
+            {
+              "id": "v_ureshii",
+              "form": "polite_adj"
+            }
+          ]
+        },
+        {
+          "speaker": "mom",
+          "jp": "お母さんがいちばんうれしいですよ。",
+          "en": "Mom is the happiest of all.",
+          "terms": [
+            "v_okaasan",
+            "p_ga",
+            "v_ichiban",
+            {
+              "id": "v_ureshii",
+              "form": "polite_adj"
+            },
+            "p_yo"
+          ]
+        }
+      ],
+      "collision": true
+    },
+    {
+      "name": "dad",
+      "nameJp": "お父さん",
+      "x": 716,
+      "y": 692,
+      "sprite": "assets/characters/taro/taro_sprite.png",
+      "convoPortrait": "assets/characters/taro/taro_convo.png",
+      "convoBackground": "living",
+      "conversation": [
+        {
+          "speaker": "dad",
+          "jp": "よ、りきぞ！先生ですか？",
+          "en": "Hey, Rikizo! Are you a teacher?",
+          "terms": [
+            "char_rikizo",
+            "v_sensei",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "speaker": "りきぞ",
+          "jp": "はい！わたしは先生です。",
+          "en": "Yes! I am a teacher.",
+          "terms": [
+            "p_hai",
+            "v_watashi",
+            "p_wa",
+            "v_sensei",
+            "g_desu"
+          ]
+        },
+        {
+          "speaker": "dad",
+          "jp": "やさしい先生ですか？",
+          "en": "Are you a kind teacher?",
+          "terms": [
+            "v_yasashii",
+            "v_sensei",
+            "g_desu",
+            "p_ka"
+          ]
+        },
+        {
+          "speaker": "りきぞ",
+          "jp": "はい、とてもやさしい先生です！",
+          "en": "Yes, a very kind teacher!",
+          "terms": [
+            "p_hai",
+            "v_totemo",
+            "v_yasashii",
+            "v_sensei",
+            "g_desu"
+          ]
+        },
+        {
+          "speaker": "dad",
+          "jp": "そうか。りきぞはいちばんいい先生です。",
+          "en": "Is that so. Rikizo is the best teacher.",
+          "terms": [
+            "p_ka",
+            "char_rikizo",
+            "p_wa",
+            "v_ichiban",
+            "v_ii",
+            "v_sensei",
+            "g_desu"
+          ]
+        }
+      ],
+      "collision": true
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {
+    "meShocked": "assets/characters/rikizo/rikizo-convo-shocked.png",
+    "dadAngry": "assets/characters/taro/taro-convo-angry.png",
+    "momExasperated": "assets/characters/sakura/sakura-convo-exasperated.png",
+    "momScolding": "assets/characters/sakura/sakura-convo-scolding.png"
+  }
+}

@@ -75,17 +75,57 @@
             {
               "text": "早く",
               "role": "adverb",
-              "gloss": "early (adverbial form of 早い)"
+              "gloss": "early (adverbial form of 早い)",
+              "tokens": [
+                {
+                  "k": "早",
+                  "r": "はや",
+                  "g": "v_hayai_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_hayai_adverbial"
+                }
+              ]
             },
             {
               "text": "寝るように",
               "role": "connector",
-              "gloss": "sleep (dict form of 寝る) + ように"
+              "gloss": "sleep (dict form of 寝る) + ように",
+              "tokens": [
+                {
+                  "k": "寝",
+                  "r": "ね",
+                  "g": "v_neru"
+                },
+                {
+                  "k": "る",
+                  "g": "v_neru"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "して います。",
               "role": "predicate",
-              "gloss": "doing (te-form of する + います — ongoing effort)"
+              "gloss": "doing (te-form of する + います — ongoing effort)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'm making it a habit to go to bed early.",
@@ -96,17 +136,41 @@
             {
               "text": "遅れない",
               "role": "predicate",
-              "gloss": "not be late (ない form of 遅れる)"
+              "gloss": "not be late (ない form of 遅れる)",
+              "tokens": [
+                {
+                  "k": "遅",
+                  "r": "おく",
+                  "g": "v_okureru_plain_negative"
+                },
+                {
+                  "k": "れない",
+                  "g": "v_okureru_plain_negative"
+                }
+              ]
             },
             {
               "text": "ように",
               "role": "connector",
-              "gloss": "so as to / in such a way"
+              "gloss": "so as to / in such a way",
+              "tokens": [
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "する。",
               "role": "predicate",
-              "gloss": "do / make an effort (dict form of する)"
+              "gloss": "do / make an effort (dict form of する)",
+              "tokens": [
+                {
+                  "k": "する"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I try not to be late.",
@@ -149,17 +213,49 @@
             {
               "text": "日本語が",
               "role": "subject",
-              "gloss": "Japanese (が — subject of ability)"
+              "gloss": "Japanese (が — subject of ability)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "話せるように",
               "role": "connector",
-              "gloss": "be able to speak (potential of 話す) + ように"
+              "gloss": "be able to speak (potential of 話す) + ように",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_potential"
+                },
+                {
+                  "k": "せる",
+                  "g": "v_hanasu_potential"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "なった。",
               "role": "predicate",
-              "gloss": "became (plain past of なる)"
+              "gloss": "became (plain past of なる)",
+              "tokens": [
+                {
+                  "k": "なった",
+                  "g": "v_naru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have become able to speak Japanese.",
@@ -170,17 +266,44 @@
             {
               "text": "毎日",
               "role": "adverb",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "運動するように",
               "role": "connector",
-              "gloss": "exercise (dict form of 運動する) + ように"
+              "gloss": "exercise (dict form of 運動する) + ように",
+              "tokens": [
+                {
+                  "k": "運動",
+                  "r": "うんどう"
+                },
+                {
+                  "k": "する"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "なった。",
               "role": "predicate",
-              "gloss": "became (plain past of なる)"
+              "gloss": "became (plain past of なる)",
+              "tokens": [
+                {
+                  "k": "なった",
+                  "g": "v_naru_plain_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I came to exercise every day (it became a natural habit).",
@@ -207,17 +330,56 @@
               {
                 "text": "野菜を",
                 "role": "object",
-                "gloss": "vegetables (を)"
+                "gloss": "vegetables (を)",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べるように",
                 "role": "connector",
-                "gloss": "eat (dict form) + ように"
+                "gloss": "eat (dict form) + ように",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu"
+                  },
+                  {
+                    "k": "べる",
+                    "g": "v_taberu"
+                  },
+                  {
+                    "k": "ように"
+                  }
+                ]
               },
               {
                 "text": "して いる。",
                 "role": "predicate",
-                "gloss": "doing (て-form + いる — ongoing effort)"
+                "gloss": "doing (て-form + いる — ongoing effort)",
+                "tokens": [
+                  {
+                    "k": "して",
+                    "g": "v_suru_te_form"
+                  },
+                  {
+                    "k": " "
+                  },
+                  {
+                    "k": "いる"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I'm making an effort to eat vegetables."
@@ -238,17 +400,50 @@
               {
                 "text": "野菜を",
                 "role": "object",
-                "gloss": "vegetables (を)"
+                "gloss": "vegetables (を)",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "食べるように",
                 "role": "connector",
-                "gloss": "eat (dict form) + ように"
+                "gloss": "eat (dict form) + ように",
+                "tokens": [
+                  {
+                    "k": "食",
+                    "r": "た",
+                    "g": "v_taberu"
+                  },
+                  {
+                    "k": "べる",
+                    "g": "v_taberu"
+                  },
+                  {
+                    "k": "ように"
+                  }
+                ]
               },
               {
                 "text": "なった。",
                 "role": "predicate",
-                "gloss": "became (plain past of なる — gradual change)"
+                "gloss": "became (plain past of なる — gradual change)",
+                "tokens": [
+                  {
+                    "k": "なった",
+                    "g": "v_naru_plain_past"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I came to eat vegetables (a change happened over time)."
@@ -293,12 +488,40 @@
             {
               "text": "忘れないように",
               "role": "connector",
-              "gloss": "not forget (ない form) + ように — so that I don't forget"
+              "gloss": "not forget (ない form) + ように — so that I don't forget",
+              "tokens": [
+                {
+                  "k": "忘",
+                  "r": "わす",
+                  "g": "v_wasureru_plain_negative"
+                },
+                {
+                  "k": "れない",
+                  "g": "v_wasureru_plain_negative"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "書きます。",
               "role": "predicate",
-              "gloss": "write (polite form of 書く)"
+              "gloss": "write (polite form of 書く)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か",
+                  "g": "v_kaku_polite_masu"
+                },
+                {
+                  "k": "きます",
+                  "g": "v_kaku_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I write it down so that I don't forget.",
@@ -309,22 +532,76 @@
             {
               "text": "聞こえるように",
               "role": "connector",
-              "gloss": "be audible / can be heard (potential of 聞こえる) + ように"
+              "gloss": "be audible / can be heard (potential of 聞こえる) + ように",
+              "tokens": [
+                {
+                  "k": "聞",
+                  "r": "き",
+                  "g": "v_kikoeru"
+                },
+                {
+                  "k": "こえる",
+                  "g": "v_kikoeru"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "大きい",
               "role": "modifier",
-              "gloss": "loud / large (attributive い-adjective)"
+              "gloss": "loud / large (attributive い-adjective)",
+              "tokens": [
+                {
+                  "k": "大",
+                  "r": "おお",
+                  "g": "v_ookii"
+                },
+                {
+                  "k": "きい",
+                  "g": "v_ookii"
+                }
+              ]
             },
             {
               "text": "声で",
               "role": "adverb",
-              "gloss": "with a voice (声 = voice, で = with/by)"
+              "gloss": "with a voice (声 = voice, で = with/by)",
+              "tokens": [
+                {
+                  "k": "声",
+                  "r": "こえ"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "話して ください。",
               "role": "predicate",
-              "gloss": "please speak (te-form of 話す + ください — polite request)"
+              "gloss": "please speak (te-form of 話す + ください — polite request)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_te_form"
+                },
+                {
+                  "k": "して",
+                  "g": "v_hanasu_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "ください"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Please speak in a loud voice so that it can be heard.",
@@ -342,22 +619,67 @@
             {
               "text": "毎日",
               "role": "adverb",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "野菜を",
               "role": "object",
-              "gloss": "vegetables (を)"
+              "gloss": "vegetables (を)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "食べるように",
               "role": "connector",
-              "gloss": "eat (dict form) + ように"
+              "gloss": "eat (dict form) + ように",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た",
+                  "g": "v_taberu"
+                },
+                {
+                  "k": "べる",
+                  "g": "v_taberu"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "して います。",
               "role": "predicate",
-              "gloss": "doing (て-form of する + います — ongoing conscious effort)"
+              "gloss": "doing (て-form of する + います — ongoing conscious effort)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I'm making it a habit to eat vegetables every day.",
@@ -369,17 +691,55 @@
             {
               "text": "日本語で",
               "role": "adverb",
-              "gloss": "in Japanese (で — means/medium)"
+              "gloss": "in Japanese (で — means/medium)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "話せるように",
               "role": "connector",
-              "gloss": "be able to speak (potential) + ように"
+              "gloss": "be able to speak (potential) + ように",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_potential"
+                },
+                {
+                  "k": "せる",
+                  "g": "v_hanasu_potential"
+                },
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "なって きました。",
               "role": "predicate",
-              "gloss": "has come to be (なる te-form + きました — change coming toward the speaker)"
+              "gloss": "has come to be (なる te-form + きました — change coming toward the speaker)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "きました"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I have gradually become able to speak in Japanese.",
@@ -391,22 +751,67 @@
             {
               "text": "上手に",
               "role": "adverb",
-              "gloss": "skillfully (adverbial form of 上手 — skilled → 上手に)"
+              "gloss": "skillfully (adverbial form of 上手 — skilled → 上手に)",
+              "tokens": [
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なるように、",
               "role": "connector",
-              "gloss": "become skilled + ように — so that I get better"
+              "gloss": "become skilled + ように — so that I get better",
+              "tokens": [
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "ように"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "毎日",
               "role": "adverb",
-              "gloss": "every day"
+              "gloss": "every day",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
             },
             {
               "text": "勉強して います。",
               "role": "predicate",
-              "gloss": "studying (te-form of 勉強する + います — ongoing action)"
+              "gloss": "studying (te-form of 勉強する + います — ongoing action)",
+              "tokens": [
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I study every day so that I will get better.",

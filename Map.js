@@ -68,7 +68,7 @@ window.MapModule = (function () {
     _onExit = onExit;
 
     _injectStyles();
-    _container.innerHTML = '<div class="jp-map-loading">力 · loading map</div>';
+    _container.innerHTML = '<div class="rk-loading">loading map</div>';
 
     var manifest = null;
     try {
@@ -227,6 +227,7 @@ window.MapModule = (function () {
 
   // ── Render ──────────────────────────────────────────────────────────────
   function _renderScene(state, level) {
+    if (window.JPApp) window.JPApp.showTabBar();
     var stampUrl = '';
     if (window.JPShared && window.JPShared.stampSettings) {
       try { stampUrl = window.JPShared.stampSettings.getStampUrl(); } catch (e) {}

@@ -1025,7 +1025,7 @@
           "terms": [
             "v_watashi",
             "p_no",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_akitaken",
             "p_kara",
@@ -1045,7 +1045,7 @@
           "jp": "友だちは 県外の 学校に 通うように なりました。",
           "en": "My friend came to commute to a school outside the prefecture.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_kengai",
             "p_no",
@@ -1067,7 +1067,7 @@
           "jp": "友だちは 毎日 朝を 早く して、始発の 電車で 学校に 行きます。",
           "en": "My friend makes their mornings early every day and goes to school on the first train.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_mainichi",
             "v_asa",
@@ -1096,7 +1096,7 @@
           "jp": "友だちは 電車の 中で 勉強したり、外を 見たり しています。",
           "en": "My friend does things like study and look outside on the train.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_densha",
             "p_no",
@@ -1163,7 +1163,7 @@
           "a": "秋田県から 通学して います。",
           "a_en": "They commute from Akita Prefecture.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_doko",
             "p_kara",
@@ -1198,7 +1198,7 @@
           "a": "始発の 電車で 行きます。",
           "a_en": "They go on the first train.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_nan",
             "p_no",
@@ -1229,7 +1229,7 @@
           "a": "勉強したり、外を 見たり します。",
           "a_en": "They do things like study and look outside.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_densha",
             "p_de",
@@ -1275,7 +1275,8 @@
             "ちべつ",
             "くわかる"
           ],
-          "answer": "くべつ"
+          "answer": "くべつ",
+          "explanation": "「区別」 is read 「くべつ」 — distinction / differentiation."
         },
         {
           "kind": "mcq",
@@ -1286,7 +1287,8 @@
             "ほっけん",
             "はつけん"
           ],
-          "answer": "はっけん"
+          "answer": "はっけん",
+          "explanation": "「発見」 is read 「はっけん」 — discovery."
         },
         {
           "kind": "mcq",
@@ -1297,7 +1299,8 @@
             "きんがい",
             "けんそと"
           ],
-          "answer": "けんがい"
+          "answer": "けんがい",
+          "explanation": "「県外」 is read 「けんがい」 — outside the prefecture."
         },
         {
           "kind": "mcq",
@@ -1308,7 +1311,8 @@
             "かようがく",
             "つうこう"
           ],
-          "answer": "つうがく"
+          "answer": "つうがく",
+          "explanation": "「通学」 is read 「つうがく」 — commuting to school."
         }
       ]
     },
@@ -1335,7 +1339,8 @@
               "id": "v_kayou",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 学校に 毎日 通います。"
         },
         {
           "kind": "mcq",
@@ -1358,7 +1363,8 @@
             },
             "v_hatsu",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: この 電車は 午前 六時 発 です。 — 「発」 (はつ) means \"departure / emit / start\"."
         },
         {
           "kind": "mcq",
@@ -1381,7 +1387,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 青森 県 は 東京の 北に あります。 — 「県」 (けん) means \"prefecture\"."
         },
         {
           "kind": "mcq",
@@ -1403,7 +1410,8 @@
               "id": "v_tooru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 電車は 長い 大通りを 通ります。"
         },
         {
           "kind": "mcq",
@@ -1425,7 +1433,8 @@
               "form": "plain_desire_tai"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 新しい 場所を 発見 したいです。 — 「発見」 (はっけん) means \"discovery\"."
         }
       ]
     },
@@ -1452,7 +1461,8 @@
               "id": "v_kayou",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 学校 に 毎日 通います。"
         },
         {
           "kind": "mcq",
@@ -1473,7 +1483,8 @@
               "id": "v_kuru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 県外 から 始発で 来ます。"
         },
         {
           "kind": "mcq",
@@ -1493,7 +1504,8 @@
               "id": "v_tooru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 広い 大通り を 通ります。"
         },
         {
           "kind": "mcq",
@@ -1518,7 +1530,8 @@
               "id": "v_iu",
               "form": "polite_causative_past"
             }
-          ]
+          ],
+          "explanation": "Correct: 先生は 学生に 発音を 声で 言わせました。"
         },
         {
           "kind": "mcq",
@@ -1543,7 +1556,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 青森県に 行った こと が あります。 — 「こと」 (こと) means \"thing / matter / experience (abstract)\"."
         }
       ]
     }

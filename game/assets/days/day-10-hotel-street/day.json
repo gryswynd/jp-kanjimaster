@@ -1,0 +1,143 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-10-hotel-street",
+  "title": "Hotel Street",
+  "titleJp": "ホテルの みち",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "void": "assets/backgrounds/convo-bg-void.png"
+    }
+  },
+  "playerStart": {
+    "x": 108,
+    "y": 464
+  },
+  "objects": [
+    {
+      "name": "Exit_West",
+      "nameJp": "みち",
+      "appearsFromDay": 10,
+      "position": [
+        2,
+        438
+      ],
+      "size": [
+        64,
+        216
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Hotel_Entrance",
+      "nameJp": "ホテル",
+      "appearsFromDay": 10,
+      "position": [
+        566,
+        312
+      ],
+      "size": [
+        120,
+        46
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Barricade_East",
+      "nameJp": "こうじ",
+      "appearsFromDay": 10,
+      "position": [
+        1156,
+        414
+      ],
+      "size": [
+        108,
+        214
+      ],
+      "sprite": "assets/days/day-05-street/objects/blockade.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Bus_Stop",
+      "nameJp": "バスてい",
+      "appearsFromDay": 10,
+      "position": [
+        906,
+        289
+      ],
+      "size": [
+        120,
+        120
+      ],
+      "sprite": "assets/days/day-05-street/objects/bus_stop.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": true
+    },
+    {
+      "name": "Black_Van",
+      "nameJp": "くるま",
+      "appearsFromDay": 10,
+      "position": [
+        210,
+        52
+      ],
+      "size": [
+        123,
+        74
+      ],
+      "sprite": "assets/days/day-10-hotel-street/objects/van_black_side.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Car_Sedan",
+      "nameJp": "くるま",
+      "appearsFromDay": 10,
+      "position": [
+        26,
+        260
+      ],
+      "size": [
+        134,
+        50
+      ],
+      "sprite": "assets/days/day-10-hotel-street/objects/car_sedan_side.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

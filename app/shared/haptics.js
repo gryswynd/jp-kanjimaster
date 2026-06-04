@@ -5,7 +5,13 @@
 (function () {
   window.JPShared = window.JPShared || {};
 
+  // Enable gate (Settings → Sound & Haptics). Default on; native-only anyway.
+  var HAP_KEY = 'k-haptics-on';
+  function enabled() { try { return localStorage.getItem(HAP_KEY) !== '0'; } catch (e) { return true; } }
+  function setEnabled(b) { try { localStorage.setItem(HAP_KEY, b ? '1' : '0'); } catch (e) {} }
+
   function plugin() {
+    if (!enabled()) return null;
     var C = window.Capacitor;
     if (!C || !C.isNativePlatform || !C.isNativePlatform()) return null;
     return (C.Plugins && C.Plugins.Haptics) || null;
@@ -26,6 +32,8 @@
   }
 
   var H = {
+    isEnabled: enabled,
+    setEnabled: setEnabled,
     light:   function () { impact('LIGHT'); },
     medium:  function () { impact('MEDIUM'); },
     heavy:   function () { impact('HEAVY'); },

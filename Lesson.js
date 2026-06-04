@@ -26,6 +26,8 @@ window.LessonModule = {
     let currentLevelLessons = null;
     let manifestData = null;
     let kanjiSel = 0; // selected kanji index in the kanji panel
+    let coverLoad = null; // prefetched { file, p:Promise<{data,resources}|null> } for the cover→lesson open
+    let coverTabs = '';   // cached progress-strip HTML so the swing overlay's folder matches the cover
 
     // --- Setup UI Container ---
     container.innerHTML = '';
@@ -95,6 +97,24 @@ window.LessonModule = {
           @media (hover:hover){ #jp-lesson-app-root .jp-term:hover { border-bottom-color: var(--vermilion); } }
           #jp-lesson-app-root .jp-highlight { background: oklch(0.78 0.10 85 / 0.35); border-radius: 4px; padding: 0 4px; font-weight: 700; }
 
+          /* Conversation — iMessage-style bubbles. One speaker is "sent" (blue,
+             white text), the rest "received" (light grey, ink text). The old
+             near-black sent bubble made the vermilion term-tags + muted furigana
+             hard to read; on the blue bubble we recolor those to light so every
+             reading aid stays legible. */
+          .lh-bubble { max-width: 82%; padding: 9px 13px; border-radius: 19px; position: relative; box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+          .lh-bubble-jp { font-size: 15px; line-height: 1.6; font-weight: 500; }
+          .lh-bubble--sent { background: #0a84ff; color: #fff; border-bottom-right-radius: 5px; }
+          .lh-bubble--recv { background: #e9e9eb; color: var(--ink); border-bottom-left-radius: 5px; }
+          .lh-bubble-en { font-size: 11.5px; margin-top: 4px; line-height: 1.45; font-style: italic; }
+          .lh-bubble--sent .lh-bubble-en { color: rgba(255,255,255,0.82); }
+          .lh-bubble--recv .lh-bubble-en { color: var(--ink-3); }
+          /* reading-aid legibility on the blue (sent) bubble */
+          #jp-lesson-app-root .lh-bubble--sent .jp-term { color: #fff; border-bottom-color: rgba(255,255,255,0.55); }
+          #jp-lesson-app-root .lh-bubble--sent .rt-furigana,
+          #jp-lesson-app-root .lh-bubble--sent .rt-romaji,
+          #jp-lesson-app-root .lh-bubble--sent .rt-romaji-group { color: rgba(255,255,255,0.85); }
+
           /* Speaker / TTS buttons */
           .lh-speak { background: var(--washi-2); border: 1px solid var(--hairline); color: var(--ink-2); width: 30px; height: 30px; border-radius: 999px; cursor: pointer; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
           .lh-playall { width: 100%; margin: 0 0 16px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--washi); color: var(--ink-2); font-size: 12px; font-weight: 600; font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
@@ -112,6 +132,120 @@ window.LessonModule = {
           .lh-level-count { font-family: var(--font-mono); font-size: 11px; color: oklch(1 0 0 / 0.6); letter-spacing: 0.1em; text-transform: uppercase; }
           .lh-stamp { width: 34px; height: 34px; }
           .lh-stamp img { width: 100%; height: 100%; object-fit: contain; }
+
+          /* ── Teacher's-desk lesson pile (menu). Desk sits at the BOTTOM; the
+             file pile grows upward on it (newest on top), so the desk sinks as
+             the list grows. PNG art (assets/scenes/*) layers over a CSS fallback
+             via sceneKit.artLayer + .sk-art/.sk-fallback. Global tokens; wood is
+             bespoke (no brown token). ── */
+          .sk-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+          .has-art > .sk-fallback { display: none; }
+
+          .lh-deskscene { position: relative; display: flex; flex-direction: column; min-height: 100%; padding-bottom: calc(18px + env(safe-area-inset-bottom)); }
+          .lh-pile { position: relative; z-index: 1; padding: 12px 20px 0; display: flex; flex-direction: column; gap: 7px; }
+
+          /* file = a Japanese blue "clear book" binder (クリアブック): glossy blue
+             body, white spine-label panel on the left, clear-pocket page edges
+             peeking at the top. Art (file-lesson.png) layers over this fallback. */
+          .lh-file { position: relative; min-height: 72px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+          .lh-file-art { object-fit: fill; z-index: 1; }
+          .lh-file-binder {
+            position: absolute; inset: 0; z-index: 0; border-radius: 4px 6px 6px 4px;
+            background: linear-gradient(155deg, oklch(0.54 0.13 256), oklch(0.40 0.12 259));
+            border: 1px solid oklch(0.34 0.10 259);
+            box-shadow: 0 6px 14px oklch(0.22 0.05 259 / 0.32), inset -4px 0 7px oklch(0.30 0.10 259 / 0.45);
+          }
+          .lh-file-binder::before { /* white spine/label panel */
+            content: ''; position: absolute; top: 7px; bottom: 7px; left: 9px; width: 58%;
+            background: linear-gradient(180deg, oklch(0.99 0.004 90), oklch(0.95 0.006 85));
+            border-radius: 3px; box-shadow: 0 1px 3px oklch(0.20 0.04 259 / 0.3);
+          }
+          .lh-file-binder::after { /* clear-pocket page edges at the top */
+            content: ''; position: absolute; top: -3px; left: 16px; right: 16px; height: 6px;
+            border-radius: 3px 3px 0 0; opacity: 0.55;
+            background: repeating-linear-gradient(90deg, oklch(0.92 0.02 205 / 0.8) 0 9px, oklch(0.82 0.03 205 / 0.5) 9px 13px);
+          }
+          .lh-file-face { position: relative; z-index: 2; display: flex; align-items: center; gap: 10px; width: 100%; min-height: 72px; padding: 12px 14px; box-sizing: border-box; }
+          .lh-file-label-text { flex: 1 1 auto; min-width: 0; max-width: 58%; padding-left: 4px; }
+          .lh-file-id { font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--vermilion); }
+          .lh-file-title { font-family: var(--font-jp-display); font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.25; margin-top: 1px; }
+          .lh-file-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+          .lh-file-score { font-family: var(--font-mono); font-size: 11px; font-weight: 700; }
+          .lh-file-go { font-size: 12px; color: oklch(0.90 0.04 255); }
+          .lh-file-stamp { width: 36px; height: 36px; flex-shrink: 0; background: oklch(0.97 0.02 80 / 0.92); border-radius: 50%; padding: 3px; }
+          .lh-file-stamp img { width: 100%; height: 100%; object-fit: contain; }
+          .lh-file--current .lh-file-binder { box-shadow: 0 6px 16px oklch(0.22 0.05 259 / 0.36), 0 0 0 2px var(--gold); }
+          .lh-file--current.has-art { outline: 2px solid var(--gold); outline-offset: 1px; border-radius: 6px; }
+
+          /* ── Lesson folder cover ── tapping a file in the pile lands on its
+             closed FOLDER FRONT (the file is too small in the stack to be its
+             own cover, so we render a full folder front here). Pressing "Open"
+             swings the cover open on the left spine into the lesson — the
+             Stories closed-book → open flow, for a binder. */
+          .lh-folder {
+            position: relative; border-radius: 8px 14px 14px 8px; overflow: hidden;
+            background: linear-gradient(150deg, oklch(0.56 0.13 256), oklch(0.41 0.12 259));
+            border: 1px solid oklch(0.34 0.10 259);
+            box-shadow: 0 20px 46px oklch(0.22 0.05 259 / 0.40), inset -9px 0 16px oklch(0.30 0.10 259 / 0.45), inset 2px 0 0 oklch(0.72 0.10 256 / 0.5);
+          }
+          .lh-folder::after { /* clear-pocket page edges peeking over the top */
+            content: ''; position: absolute; top: -3px; left: 11%; right: 11%; height: 11px;
+            border-radius: 4px 4px 0 0; opacity: 0.6;
+            background: repeating-linear-gradient(90deg, oklch(0.92 0.02 205 / 0.85) 0 13px, oklch(0.82 0.03 205 / 0.55) 13px 19px);
+          }
+          .lh-folder-spine { position: absolute; top: 0; bottom: 0; left: 0; width: 7%; background: linear-gradient(90deg, oklch(0.33 0.10 259), oklch(0.30 0.10 259 / 0)); }
+          .lh-folder-label {
+            position: absolute; top: 8%; bottom: 8%; left: 11%; right: 8%;
+            background: linear-gradient(180deg, oklch(0.99 0.004 90), oklch(0.95 0.006 85));
+            border-radius: 5px; box-shadow: 0 2px 7px oklch(0.20 0.04 259 / 0.32);
+            padding: 8% 8% 7%; display: flex; flex-direction: column; gap: 9px;
+          }
+          .lh-folder-code { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--vermilion); }
+          .lh-folder-title { font-family: var(--font-jp-display); font-size: 25px; font-weight: 600; color: var(--ink); line-height: 1.2; letter-spacing: -0.01em; }
+          .lh-folder-rule { height: 1px; background: var(--hairline); margin: 2px 0; }
+          .lh-folder-hanko { margin-top: auto; align-self: flex-end; width: 46px; height: 46px; font-size: 24px; transform: rotate(-7deg); }
+          /* Progress strip: the clear pockets along the top become one tab per
+             lesson step — filled (moss) for completed steps, gold for where you
+             left off, faint for what's ahead. Sits over the decorative ::after. */
+          .lh-folder-tabs { position: absolute; top: -3px; left: 11%; right: 11%; height: 11px; z-index: 2; display: flex; gap: 2px; }
+          .lh-folder-tab { flex: 1 1 0; min-width: 0; border-radius: 3px 3px 0 0; background: oklch(0.87 0.025 205 / 0.7); box-shadow: inset 0 -1px 0 oklch(0.68 0.04 205 / 0.45); transition: background 0.3s ease; }
+          .lh-folder-tab.is-done { background: var(--moss); box-shadow: none; }
+          .lh-folder-tab.is-current { background: var(--gold); box-shadow: none; }
+
+          .lh-cover { display: flex; align-items: center; justify-content: center; min-height: 100%; padding: 26px 22px; perspective: 1600px; }
+          .lh-folder--cover { width: min(330px, 84vw); aspect-ratio: 3 / 4; animation: lhFolderIn 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+          @keyframes lhFolderIn { from { opacity: 0; transform: translateY(16px) scale(0.93); } to { opacity: 1; transform: none; } }
+
+          /* the "Open" swing — body-anchored over the cover's folder, so it
+             survives loadLesson()'s root.innerHTML swap; lesson loads beneath. */
+          .lh-fold-scrim { position: fixed; inset: 0; z-index: 69; pointer-events: none; background: oklch(0.20 0.03 60 / 0); transition: background 0.42s ease; }
+          .lh-fold-scrim.is-open { background: oklch(0.20 0.03 60 / 0.42); }
+          .lh-fold-stage { position: fixed; z-index: 70; pointer-events: none; perspective: 1600px; }
+          .lh-fold-spin { position: absolute; inset: 0; transform-origin: left center; transform: rotateY(0deg); backface-visibility: hidden; transition: transform 0.55s cubic-bezier(0.33, 0, 0.2, 1); }
+          .lh-fold-stage.is-open .lh-fold-spin { transform: rotateY(-145deg); }
+
+          /* desk at the bottom of the pile */
+          .lh-desk { position: relative; z-index: 0; margin-top: -12px; height: 150px; }
+          .lh-desk-art { object-fit: contain; object-position: center bottom; }
+          .lh-desk-fallback { position: absolute; inset: 0; }
+          .lh-desk-surface {
+            position: absolute; top: 0; left: 0; right: 0; height: 60px; border-radius: 4px;
+            background:
+              repeating-linear-gradient(90deg, oklch(0.46 0.045 48) 0 3px, oklch(0.44 0.045 46) 3px 7px, oklch(0.47 0.043 50) 7px 11px),
+              linear-gradient(180deg, oklch(0.52 0.045 50), oklch(0.43 0.045 45));
+            border-top: 3px solid oklch(0.30 0.05 42);
+            box-shadow: 0 7px 13px oklch(0.25 0.04 40 / 0.35);
+          }
+          .lh-desk-leg { position: absolute; top: 56px; width: 16px; height: 80px; background: linear-gradient(90deg, oklch(0.43 0.045 45), oklch(0.36 0.04 44)); border-radius: 0 0 3px 3px; }
+          .lh-desk-leg--l { left: 30px; }
+          .lh-desk-leg--r { right: 30px; }
+          .lh-desk-plate {
+            position: absolute; left: 50%; top: 18px; transform: translateX(-50%);
+            font-family: var(--font-jp-display); font-size: 13px; letter-spacing: 0.16em; white-space: nowrap;
+            color: oklch(0.94 0.05 85); background: oklch(0.62 0.08 70);
+            padding: 5px 16px; border-radius: 4px; border: 1px solid oklch(0.50 0.07 65);
+            box-shadow: 0 2px 5px oklch(0.20 0.04 40 / 0.5), inset 0 1px 0 oklch(0.85 0.08 85 / 0.4);
+          }
 
           /* Hanko */
           .lh-hanko { font-family: var(--font-jp-display); font-weight: 700; color: #fff; background: var(--vermilion); display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; line-height: 1; box-shadow: 0 2px 0 oklch(0.45 0.18 30 / 0.4); position: relative; }
@@ -514,29 +648,6 @@ window.LessonModule = {
         return div;
     }
 
-    // Resolve a character id (e.g. "rikizo") to its head-portrait URL.
-    function _headUrl(charId) {
-        if (!charId) return '';
-        return 'assets/characters/' + charId + '/' + charId + '_head.png';
-    }
-    // Pretty display name from a character id ("rikizo" → "Rikizo", "yamamoto" → "Yamamoto-sensei").
-    function _charDisplay(charId) {
-        if (!charId) return '';
-        var senseis = { yamamoto: true, suzuki: true };
-        var name = charId.charAt(0).toUpperCase() + charId.slice(1);
-        return senseis[charId] ? name + '-sensei' : name;
-    }
-
-    // Decide which speaker sits on the right side of the chat (the "you"
-    // perspective). Rikizo always wins when he's a speaker; otherwise the
-    // first speaker key (typically 'A') takes the right side.
-    function _rightSpeaker(speakers, lines) {
-        if (speakers) {
-            for (var k in speakers) if (speakers[k] === 'rikizo') return k;
-        }
-        return (lines && lines[0] && lines[0].spk) || 'A';
-    }
-
     function renderConversation(sec) {
         const div = el("div", "");
         div.style.cssText = "padding:24px 0 32px;";
@@ -555,7 +666,7 @@ window.LessonModule = {
 
         const allLines = [];
         const speakers = sec.speakers || {};
-        const rightSpk = _rightSpeaker(speakers, sec.lines);
+        const rightSpk = window.JPShared.characters.rightSpeaker(sec.lines, speakers, termMapData);
         // Show each speaker's name+avatar header only on the first time they speak
         // (chat apps don't repeat the header on consecutive messages from the same person).
         const seenHeader = {};
@@ -564,7 +675,7 @@ window.LessonModule = {
         (sec.lines || []).forEach((line, idx) => {
             allLines.push({ jp: line.jp, terms: line.terms });
             const spk = String(line.spk || '');
-            const charId = speakers[spk] || '';
+            const who = window.JPShared.characters.resolve(spk, speakers, termMapData, getCdnUrl);
             const isRight = spk === rightSpk;
             const prevSpk = idx > 0 ? String(sec.lines[idx - 1].spk || '') : null;
             const sameAsPrev = prevSpk === spk;
@@ -577,10 +688,10 @@ window.LessonModule = {
             if (showHeader) {
                 const headerHtml =
                     '<div style="display:flex;align-items:center;gap:8px;flex-direction:' + (isRight ? 'row-reverse' : 'row') + ';padding:0 4px;margin-bottom:2px;">' +
-                      (charId
-                        ? '<img src="' + _headUrl(charId) + '" alt="' + esc(_charDisplay(charId)) + '" style="width:30px;height:30px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--washi-2);border:1px solid var(--hairline);" onerror="this.style.visibility=\'hidden\'">'
-                        : '<div style="width:30px;height:30px;border-radius:999px;background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3);font-weight:600;">' + esc(spk.slice(0,1)) + '</div>') +
-                      '<div style="font-size:11px;font-weight:600;color:var(--ink-2);letter-spacing:0.01em;">' + esc(charId ? _charDisplay(charId) : spk) + '</div>' +
+                      (who.portraitUrl
+                        ? '<img src="' + who.portraitUrl + '" alt="' + esc(who.name) + '" style="width:30px;height:30px;border-radius:999px;object-fit:cover;object-position:center top;background:var(--washi-2);border:1px solid var(--hairline);" onerror="this.style.visibility=\'hidden\'">'
+                        : '<div style="width:30px;height:30px;border-radius:999px;background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-3);font-weight:600;">' + esc(who.initial) + '</div>') +
+                      '<div style="font-size:11px;font-weight:600;color:var(--ink-2);letter-spacing:0.01em;">' + esc(who.name) + '</div>' +
                     '</div>';
                 const headerEl = el('div', '');
                 headerEl.innerHTML = headerHtml;
@@ -588,21 +699,13 @@ window.LessonModule = {
                 seenHeader[spk] = true;
             }
 
-            // Bubble. iMessage-ish: right side dark-ink-on-washi-text, left side
-            // washi-on-ink-text. We deliberately avoid vermilion for the bubble bg
-            // because the term-processor renders inline term-tags in vermilion —
-            // they'd disappear against a vermilion bubble.
-            const bubbleBg = isRight ? 'var(--ink)' : '#fff';
-            const bubbleColor = isRight ? 'var(--washi)' : 'var(--ink)';
-            const enColor = isRight ? 'oklch(1 0 0 / 0.78)' : 'var(--ink-3)';
-            const radius = isRight ? '18px 18px 4px 18px' : '18px 18px 18px 4px';
-            const bubble = el("div", "");
-            bubble.style.cssText = "max-width:82%;padding:9px 13px;background:" + bubbleBg + ";color:" + bubbleColor +
-                ";border:" + (isRight ? 'none' : '1px solid var(--hairline)') +
-                ";border-radius:" + radius + ";box-shadow:0 1px 2px rgba(0,0,0,0.06);position:relative;";
+            // iMessage-style bubble: the chosen "right" speaker is the blue
+            // "sent" side, everyone else is the grey "received" side. Colours +
+            // reading-aid overrides live in CSS (.lh-bubble--sent/--recv).
+            const bubble = el("div", "jp-serif lh-bubble " + (isRight ? "lh-bubble--sent" : "lh-bubble--recv"));
             bubble.innerHTML =
-                '<div class="jp-serif" style="font-size:15px;line-height:1.55;font-weight:500;">' + proc(line.jp, line.terms) + '</div>' +
-                (showEN ? '<div style="font-size:11.5px;margin-top:4px;line-height:1.45;color:' + enColor + ';font-style:italic;">' + esc(line.en) + '</div>' : '') +
+                '<div class="lh-bubble-jp">' + proc(line.jp, line.terms) + '</div>' +
+                (showEN ? '<div class="lh-bubble-en">' + esc(line.en) + '</div>' : '') +
                 '<button class="lh-speak-line" style="background:none;border:none;color:inherit;cursor:pointer;font-size:13px;padding:2px 4px;opacity:0.75;position:absolute;' + (isRight ? 'left:-26px' : 'right:-26px') + ';bottom:4px;">🔊</button>';
             bubble.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
             row.appendChild(bubble);
@@ -714,19 +817,15 @@ window.LessonModule = {
             const itemKey = 'drill__' + itemIdx + '__' + item.q;
             let solved = drillAnswered.has(itemKey);
 
-            // Build prompt with a blank slot from the bracketed answer
+            // The bracketed word is the reading target. A yomikata drill must
+            // SHOW the kanji (you can't pick the reading of a hidden word), so
+            // render it bare + highlighted — but drop terms when a bracket is
+            // present so furigana/romaji never leak the reading being tested
+            // (mirrors Review.js's recognition-target handling).
             const hasBracket = /\[(.*?)\]/.test(item.q);
-            let promptHtml;
-            if (hasBracket) {
-                const m = item.q.match(/\[(.*?)\]/);
-                const before = item.q.slice(0, m.index);
-                const after = item.q.slice(m.index + m[0].length);
-                promptHtml = esc(before) +
-                    '<span class="lh-slot" style="display:inline-block;min-width:64px;padding:4px 14px;margin:0 6px;border-radius:8px;vertical-align:middle;background:var(--washi-3);border:2px dashed var(--ink-3);color:transparent;font-weight:600;">_</span>' +
-                    esc(after);
-            } else {
-                promptHtml = proc(item.q, item.terms);
-            }
+            const promptTerms = hasBracket ? [] : item.terms;
+            const promptHtml = proc(item.q, promptTerms)
+                .replace(/\[(.*?)\]/g, '<span class="jp-highlight no-ruby">$1</span>');
 
             const card = el("div", "lh-card");
             card.style.cssText = "padding:24px 22px;position:relative;";
@@ -745,9 +844,11 @@ window.LessonModule = {
                 b.onclick = () => {
                     if (solved) return; solved = true;
                     const correct = choice === item.answer;
-                    // fill slot
-                    const slot = card.querySelector('.lh-slot');
-                    if (slot) { slot.style.color = 'var(--ink)'; slot.style.border = 'none'; slot.style.background = correct ? 'oklch(0.88 0.08 140)' : 'oklch(0.88 0.08 30)'; slot.textContent = choice; }
+                    try {
+                        const fx = window.JPShared.sfx, hp = window.JPShared.haptics;
+                        if (correct) { if (fx) fx.success(); if (hp) hp.success(); }
+                        else { if (fx) fx.error(); if (hp) hp.error(); }
+                    } catch (e) {}
                     Array.from(grid.children).forEach(cn => {
                         if (cn.textContent === item.answer) { cn.style.background = 'var(--moss)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
                         else if (cn === b && !correct) { cn.style.background = 'var(--vermilion)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
@@ -1000,6 +1101,7 @@ window.LessonModule = {
     }
 
     function renderLevelPicker() {
+        if (window.JPApp) window.JPApp.showTabBar();
         root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Library' }) + '</div>' +
             '<div class="lh-body"><div class="lh-list" id="jp-level-container"></div></div>';
         wireHeader({});
@@ -1016,36 +1118,212 @@ window.LessonModule = {
         });
     }
 
+    // "N5 · LESSON 36" from a lesson id like "N5.36" (falls back to the level).
+    function lessonCodeLabel(lesson) {
+        const parts = String(lesson.id || '').split('.');
+        const lvl = parts[0] || currentLevelId || '';
+        const num = parts[1] || '';
+        return (lvl ? lvl + ' · ' : '') + (num ? 'LESSON ' + num : 'LESSON');
+    }
+
+    // The folder front face (spine + white label + progress strip) shared by the
+    // cover screen and the swing overlay so the thing that opens matches what you
+    // tapped. tabsHtml is the resolved progress strip (empty until prefetch lands —
+    // the decorative ::after pockets show in the meantime).
+    function coverFrontInner(lesson, tabsHtml) {
+        return (tabsHtml || '') +
+            '<div class="lh-folder-spine"></div>' +
+            '<div class="lh-folder-label">' +
+              '<div class="lh-folder-code">' + esc(lessonCodeLabel(lesson)) + '</div>' +
+              '<div class="lh-folder-title">' + esc(lesson.title || 'Lesson') + '</div>' +
+              '<div class="lh-folder-rule"></div>' +
+              '<span class="lh-hanko jp-serif lh-folder-hanko">開</span>' +
+            '</div>';
+    }
+
+    // Current progress for a lesson (from the unlock API + saved resume step).
+    function lessonProgressFor(lesson) {
+        const unlockApi = window.JPShared && window.JPShared.unlock;
+        return {
+            completed: unlockApi ? !!unlockApi.isCompleted(lesson.id) : false,
+            resumeStep: _resumeMap()[lesson.id] || 0,
+        };
+    }
+
+    // Build the top progress strip: one tab per lesson step. `count` is the total
+    // step count (sections + the synthetic intro); done = steps behind you.
+    function coverTabsHtml(count, prog) {
+        if (!count || count < 2) return '';
+        const done = prog.completed ? count : Math.min(count, Math.max(0, prog.resumeStep));
+        let html = '<div class="lh-folder-tabs">';
+        for (let i = 0; i < count; i++) {
+            const cls = (i < done) ? ' is-done' : (i === done && !prog.completed ? ' is-current' : '');
+            html += '<span class="lh-folder-tab' + cls + '"></span>';
+        }
+        return html + '</div>';
+    }
+
+    // Fetch the lesson JSON + resources up front (while the user reads the cover)
+    // so opening is instant + we know the step count for the progress strip.
+    function prefetchLesson(filePath) {
+        const lessonUrl = getCdnUrl(filePath);
+        const p = Promise.all([
+            fetch(lessonUrl).then(r => r.json()),
+            loadResources(),
+        ]).then(([data, resources]) => ({ data, resources })).catch(() => null);
+        coverLoad = { file: filePath, p };
+        return p;
+    }
+
+    // Tap a lesson file → land on its closed folder front (a deliberate cover
+    // screen). Pressing "Open" runs openCoverIntoLesson().
+    function openLessonFile(fileEl, lesson) {
+        const sk = window.JPShared && window.JPShared.sceneKit;
+        if (sk) sk.tapFeedback(fileEl);
+        renderLessonCover(lesson);
+    }
+
+    function renderLessonCover(lesson) {
+        if (window.JPApp) window.JPApp.hideTabBar(); // focused: stepping into the lesson
+        const prog = lessonProgressFor(lesson);
+        coverTabs = '';
+        root.innerHTML =
+            '<div class="lh-header">' + headerHtml({ code: lessonCodeLabel(lesson), title: lesson.title || 'Lesson', backLabel: 'List' }) + '</div>' +
+            '<div class="lh-body"><div class="lh-cover">' +
+              '<div class="lh-folder lh-folder--cover">' + coverFrontInner(lesson, '') + '</div>' +
+            '</div></div>' +
+            '<div class="lh-footer">' +
+              '<button class="lh-btn-back" id="lh-cover-back">' + SVG_BACK + ' List</button>' +
+              '<button class="lh-btn-next" id="lh-cover-open">Open ' + SVG_NEXT + '</button>' +
+            '</div>';
+        const toMenu = () => renderMenu(currentLevelId, currentLevelLessons);
+        wireHeader({ back: toMenu });
+        document.getElementById('lh-cover-back').onclick = toMenu;
+        document.getElementById('lh-cover-open').onclick = () => openCoverIntoLesson(lesson);
+
+        // Prefetch the lesson, then fill the progress strip once we know the step count.
+        prefetchLesson(lesson.file).then(payload => {
+            if (!payload) return;
+            const count = (payload.data.sections || []).length + 1; // +1 for the intro step
+            coverTabs = coverTabsHtml(count, prog);
+            const folder = root.querySelector('.lh-folder--cover');
+            if (folder && coverTabs) {
+                const old = folder.querySelector('.lh-folder-tabs');
+                if (old) old.remove();
+                folder.insertAdjacentHTML('afterbegin', coverTabs);
+            }
+        });
+    }
+
+    // Swing the folder cover open into the lesson. A body-anchored stage (over
+    // the cover's folder rect) survives loadLesson()'s root.innerHTML swap; the
+    // prefetched lesson renders beneath (no blank page / no "Loading…"), the
+    // cover swings off the spine, then the stage fades to the lesson.
+    function openCoverIntoLesson(lesson) {
+        const sk = window.JPShared && window.JPShared.sceneKit;
+        const reduce = sk ? sk.prefersReducedMotion() : false;
+        const folder = root.querySelector('.lh-folder--cover');
+        const rect = folder ? folder.getBoundingClientRect() : null;
+        if (reduce || !rect || !rect.width) { loadLesson(lesson.file); return; }
+
+        const scrim = el('div', 'lh-fold-scrim');
+        const stage = el('div', 'lh-fold-stage');
+        stage.style.cssText = 'left:' + rect.left + 'px;top:' + rect.top + 'px;width:' + rect.width + 'px;height:' + rect.height + 'px;';
+        stage.innerHTML = '<div class="lh-fold-spin lh-folder">' + coverFrontInner(lesson, coverTabs) + '</div>';
+        document.body.appendChild(scrim);
+        document.body.appendChild(stage);
+
+        try {
+            if (window.JPShared.sfx) window.JPShared.sfx.open();
+            if (window.JPShared.haptics) window.JPShared.haptics.medium();
+        } catch (e) {}
+        loadLesson(lesson.file); // prefetched → renders beneath within a frame
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            scrim.classList.add('is-open');
+            stage.classList.add('is-open');
+        }));
+        setTimeout(() => {
+            scrim.style.transition = 'background 0.3s ease'; scrim.style.background = 'transparent';
+            stage.style.transition = 'opacity 0.3s ease'; stage.style.opacity = '0';
+            setTimeout(() => { stage.remove(); scrim.remove(); }, 320);
+        }, 560);
+    }
+
     function renderMenu(level, lessons) {
+        if (window.JPApp) window.JPApp.showTabBar();
         currentLevelId = level;
         currentLevelLessons = lessons;
         const levelNum = level.replace('N', '');
         root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'JLPT N' + levelNum, backLabel: 'Levels' }) + '</div>' +
-            '<div class="lh-body"><div class="lh-list" id="jp-menu-container"></div></div>';
+            '<div class="lh-body"><div class="lh-deskscene">' +
+              '<div class="lh-pile" id="jp-menu-container"></div>' +
+              '<div class="lh-desk" id="jp-lh-desk"></div>' +
+            '</div></div>';
         wireHeader({ back: () => renderLevelPicker() });
         const menuEl = document.getElementById('jp-menu-container');
+        const sk = window.JPShared && window.JPShared.sceneKit;
+        const artUrl = name => window.getAssetUrl ? window.getAssetUrl(REPO_CONFIG, 'assets/scenes/' + name) : '';
         const unlockApi = window.JPShared && window.JPShared.unlock;
         const visibleLessons = lessons.filter(l => !unlockApi || unlockApi.isFree() || unlockApi.isLessonUnlocked(l));
         const stampApi = window.JPShared && window.JPShared.stampSettings;
         const stampUrl = stampApi && stampApi.getStampUrl ? stampApi.getStampUrl() : '';
         const pooUrl = stampApi && stampApi.getPooUrl ? stampApi.getPooUrl() : '';
 
+        // Build the desk that sits at the bottom of the pile (art over CSS fallback).
+        const deskEl = document.getElementById('jp-lh-desk');
+        if (sk) deskEl.appendChild(sk.artLayer(artUrl('desk-teacher.png'), 'lh-desk-art'));
+        const deskFallback = el('div', 'sk-fallback lh-desk-fallback');
+        const surface = el('div', 'lh-desk-surface');
+        surface.appendChild(el('div', 'lh-desk-plate', 'N' + esc(levelNum) + ' · レッスン'));
+        deskFallback.appendChild(surface);
+        deskFallback.appendChild(el('div', 'lh-desk-leg lh-desk-leg--l'));
+        deskFallback.appendChild(el('div', 'lh-desk-leg lh-desk-leg--r'));
+        deskEl.appendChild(deskFallback);
+
+        if (visibleLessons.length === 0) {
+          menuEl.innerHTML = '<div style="text-align:center;color:var(--ink-3);padding:44px 20px;font-family:var(--font-jp-display);">No lessons on the desk yet.</div>';
+          return;
+        }
+
+        // visibleLessons is sorted newest-first → top of the pile is the most
+        // recent lesson; the first not-yet-completed one is "current".
+        let currentMarked = false;
         visibleLessons.forEach(lesson => {
-          const btn = el("div", "lh-item");
-          let right = '<span class="jp-mono" style="font-size:11px;color:var(--ink-3);">→</span>';
-          const score = unlockApi ? unlockApi.getLessonScore(lesson.id) : 0;
           const completed = unlockApi && unlockApi.isCompleted(lesson.id);
+          const score = unlockApi ? unlockApi.getLessonScore(lesson.id) : 0;
+
+          // Deterministic hand-stacked look (stable per lesson id, no reshuffle).
+          const tilt  = sk ? (sk.hashIndexSalted(lesson.id, 'tilt', 5) - 2) * 0.6 : 0; // ±1.2°
+          const nudge = sk ? (sk.hashIndexSalted(lesson.id, 'x', 5) - 2) * 3 : 0;       // ±6px
+
+          const file = el('div', 'lh-file');
+          file.style.transform = 'rotate(' + tilt + 'deg) translateX(' + nudge + 'px)';
+          if (!completed && !currentMarked) { file.classList.add('lh-file--current'); currentMarked = true; }
+
+          // art layer (PNG) over the CSS clear-book-binder fallback
+          if (sk) file.appendChild(sk.artLayer(artUrl('file-lesson.png'), 'lh-file-art'));
+          file.appendChild(el('div', 'sk-fallback lh-file-binder'));
+
+          let rightHtml = '';
           if (completed && score > 0 && (stampUrl || pooUrl)) {
             const passing = score >= 60;
-            const tilt = Math.floor(Math.random() * 41) - 20;
-            right = '<span class="jp-mono" style="font-size:11px;font-weight:700;color:' + (passing ? 'var(--moss)' : 'var(--ink-3)') + ';">' + score + '%</span>' +
-                    '<span class="lh-stamp"><img src="' + (passing ? stampUrl : (pooUrl || stampUrl)) + '" style="transform:rotate(' + tilt + 'deg);" alt=""></span>';
+            const stTilt = sk ? (sk.hashIndexSalted(lesson.id, 'st', 31) - 15) : 0;
+            rightHtml = '<span class="lh-file-score" style="color:' + (passing ? 'oklch(0.82 0.13 140)' : 'oklch(0.85 0.02 250)') + ';">' + score + '%</span>' +
+              '<span class="lh-file-stamp"><img src="' + (passing ? stampUrl : (pooUrl || stampUrl)) + '" style="transform:rotate(' + stTilt + 'deg);" alt=""></span>';
+          } else if (!completed) {
+            rightHtml = '<span class="lh-file-go">▶</span>';
           }
-          btn.innerHTML = '<div class="lh-item-id">' + esc(lesson.id) + '</div>' +
-            '<div class="lh-item-name">' + esc(lesson.title || 'Start') + '</div>' +
-            '<div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">' + right + '</div>';
-          btn.onclick = () => loadLesson(lesson.file);
-          menuEl.appendChild(btn);
+
+          const face = el('div', 'lh-file-face');
+          const labelZone = el('div', 'lh-file-label-text');
+          labelZone.appendChild(el('div', 'lh-file-id', esc(lesson.id)));
+          labelZone.appendChild(el('div', 'lh-file-title', esc(lesson.title || 'Lesson')));
+          face.appendChild(labelZone);
+          face.appendChild(el('div', 'lh-file-right', rightHtml));
+          file.appendChild(face);
+
+          file.onclick = () => openLessonFile(file, lesson);
+          menuEl.appendChild(file);
         });
     }
 
@@ -1077,14 +1355,23 @@ window.LessonModule = {
         if (window.JPShared.rikizoCompanion && window.JPShared.rikizoCompanion.resetRuntime) {
             window.JPShared.rikizoCompanion.resetRuntime();
         }
-        root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Loading…', backLabel: 'List' }) + '</div>' +
-            '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>' +
-            '<div class="lh-footer"></div>';
-        wireHeader({ back: () => renderMenu(currentLevelId, currentLevelLessons) });
+        // If the cover prefetched this lesson, await it WITHOUT swapping to a
+        // "Loading…" screen first — the cover screen (or the swinging overlay)
+        // stays put until the lesson is ready, so the open stays seamless.
+        let payload = null;
+        if (coverLoad && coverLoad.file === filePath) { payload = await coverLoad.p; coverLoad = null; }
         try {
-          const lessonUrl = getCdnUrl(filePath);
-          const [lRes, resources] = await Promise.all([fetch(lessonUrl), loadResources()]);
-          lessonData = await lRes.json();
+          if (!payload) {
+            root.innerHTML = '<div class="lh-header">' + headerHtml({ title: 'Loading…', backLabel: 'List' }) + '</div>' +
+                '<div class="lh-body"><div class="lh-list" style="color:var(--ink-3);text-align:center;padding-top:40px;">Loading…</div></div>' +
+                '<div class="lh-footer"></div>';
+            wireHeader({ back: () => renderMenu(currentLevelId, currentLevelLessons) });
+            const lessonUrl = getCdnUrl(filePath);
+            const [lRes, resources] = await Promise.all([fetch(lessonUrl), loadResources()]);
+            payload = { data: await lRes.json(), resources };
+          }
+          const resources = payload.resources;
+          lessonData = payload.data;
           drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
           drillStats = [];
           lessonData.sections.forEach(sec => {
@@ -1148,10 +1435,25 @@ window.LessonModule = {
     }
 
     function renderCurrentStep() {
+        if (window.JPApp) window.JPApp.hideTabBar();
         const isSummary = currentStep >= lessonData.sections.length;
         const idx = Math.min(currentStep, totalSteps - 1);
         const sec = isSummary ? null : lessonData.sections[currentStep];
         const title = isSummary ? 'Summary' : (sec.type === 'intro' ? lessonData.title : (sec.title || SECTION_LABELS[sec.type] || ''));
+
+        // Tell Ask-Rikizo exactly what's on screen so questions can be answered
+        // in context (which lesson, which section, the visible text).
+        try {
+            const tc = window.JPShared && window.JPShared.tutorContext;
+            if (tc) tc.patch({
+                view: 'lesson',
+                lessonId: lessonData.id,
+                title: title,
+                page: currentStep,
+                sectionType: sec ? sec.type : 'summary',
+                sample: sec ? tc.sampleFromSection(sec) : ''
+            });
+        } catch (e) {}
         const lessonNum = (lessonData.id || '').split('.')[1] || '';
 
         root.innerHTML = '<div class="lh-header">' + headerHtml({

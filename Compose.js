@@ -421,6 +421,7 @@ window.ComposeModule = {
 
     // --- MENU VIEW ---
     ComposeApp.showMenu = function() {
+        if (window.JPApp) window.JPApp.showTabBar();
         currentCompose = null;
         currentKnownKanji = null;
         activePromptIndex = 0;
@@ -491,6 +492,7 @@ window.ComposeModule = {
 
     // --- LEVEL VIEW ---
     ComposeApp._showLevel = function(level) {
+        if (window.JPApp) window.JPApp.showTabBar();
         const byLevel = ComposeApp._byLevel || {};
         const files = byLevel[level] || [];
         const menuEl = document.getElementById('c-view-menu');
@@ -589,6 +591,7 @@ window.ComposeModule = {
     };
 
     ComposeApp.renderComposeView = function(draftText) {
+        if (window.JPApp) window.JPApp.hideTabBar();
         const compose = currentCompose;
         if (!compose) return;
 

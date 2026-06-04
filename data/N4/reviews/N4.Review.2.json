@@ -486,7 +486,7 @@
           "en": "Tonight I will eat dinner with a friend.",
           "terms": [
             "v_konban",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_bangohan",
             "p_wo",
@@ -543,7 +543,10 @@
               "form": "polite_masu"
             },
             "p_ka",
-            {"counter": "ji", "n": 6}
+            {
+              "counter": "ji",
+              "n": 6
+            }
           ],
           "explanation": "私は毎朝六時に起きます — I wake up at 6 every morning. The answer 六時 (6 o'clock) is stated directly in the first sentence."
         },
@@ -562,7 +565,10 @@
             "v_sora",
             "p_wa",
             "v_dou",
-            {"id": "g_desu", "form": "copula_past"},
+            {
+              "id": "g_desu",
+              "form": "copula_past"
+            },
             "p_ka",
             "v_totemo",
             {
@@ -786,7 +792,7 @@
           "answer": "色々",
           "explanation": "色々な (various) fits: the friend likes various colors — red, blue, and black are all listed. 色々 is a na-adjective and requires な before a noun. 明るい, 白い, and 新しい are い-adjectives and cannot take な; they also don't convey the meaning of 'various.'",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             {
               "id": "v_iroiro",
               "form": "attributive_na"
@@ -861,7 +867,7 @@
           "answer": "が",
           "explanation": "Use が to mark 友だち as the subject (the giver) of くれる. 友だちが私にくれた = 'my friend gave it to me.' を marks the direct object (黒いシャツ). に marks the recipient (私). が here shows who performed the giving action.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "v_watashi",
             "v_kuroi",
             "v_shatsu",
@@ -934,7 +940,7 @@
           "answer": "な",
           "explanation": "色々 is a na-adjective. Na-adjectives use な when they precede a noun (attributive position): 色々な + 色 = 'various colors.' い-adjectives use い before nouns (not な). が marks a subject. で marks means or location — neither is an adjective connector.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             {
               "id": "v_iroiro",
               "form": "attributive_na"

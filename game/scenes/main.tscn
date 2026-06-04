@@ -1,0 +1,223 @@
+[gd_scene load_steps=22 format=3 uid="uid://main001"]
+
+[ext_resource type="Script" path="res://scripts/DayLoader.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/CollisionMap.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/DialogueOverlay.gd" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/touch_controls.tscn" id="5"]
+[ext_resource type="Script" path="res://scripts/CalendarOverlay.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/ChoiceOverlay.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/InventoryOverlay.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/QuestLogOverlay.gd" id="9"]
+[ext_resource type="Script" path="res://scripts/HudOverlay.gd" id="10"]
+[ext_resource type="Script" path="res://scripts/PhoneOverlay.gd" id="11"]
+[ext_resource type="Script" path="res://scripts/WalletOverlay.gd" id="12"]
+[ext_resource type="Script" path="res://scripts/MessagesOverlay.gd" id="13"]
+[ext_resource type="Script" path="res://scripts/ConversationOverlay.gd" id="14"]
+[ext_resource type="Script" path="res://scripts/ShopMenuOverlay.gd" id="15"]
+[ext_resource type="Script" path="res://scripts/CgOverlay.gd" id="16"]
+[ext_resource type="Script" path="res://scripts/TapToPayOverlay.gd" id="17"]
+[ext_resource type="Script" path="res://scripts/PhoneCaseSwapOverlay.gd" id="18"]
+
+[sub_resource type="RectangleShape2D" id="player_col"]
+size = Vector2(24, 30)
+
+[sub_resource type="CircleShape2D" id="interact_area"]
+radius = 60.0
+
+[sub_resource type="StyleBoxFlat" id="speech_bubble"]
+bg_color = Color(0.98, 0.96, 0.91, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.35, 0.27, 0.18, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+
+[node name="MapChunks" type="Node2D" parent="."]
+
+[node name="Map" type="Sprite2D" parent="."]
+
+[node name="CollisionMap" type="Node2D" parent="."]
+script = ExtResource("3")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("2")
+collision_layer = 1
+collision_mask = 129
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -5)
+shape = SubResource("player_col")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="InteractionArea" type="Area2D" parent="Player"]
+collision_layer = 1
+collision_mask = 6
+
+[node name="InteractionShape" type="CollisionShape2D" parent="Player/InteractionArea"]
+shape = SubResource("interact_area")
+
+[node name="DialogueOverlay" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("4")
+
+[node name="Overlay" type="ColorRect" parent="DialogueOverlay"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0.7)
+
+[node name="Background" type="TextureRect" parent="DialogueOverlay/Overlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch_mode = 6
+expand_mode = 1
+mouse_filter = 2
+
+[node name="SpeechBubble" type="PanelContainer" parent="DialogueOverlay/Overlay"]
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.55
+anchor_right = 0.6
+anchor_bottom = 0.95
+theme_override_styles/panel = SubResource("speech_bubble")
+
+[node name="SpeechMargin" type="MarginContainer" parent="DialogueOverlay/Overlay/SpeechBubble"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="SpeechVBox" type="VBoxContainer" parent="DialogueOverlay/Overlay/SpeechBubble/SpeechMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="SpeechText" type="RichTextLabel" parent="DialogueOverlay/Overlay/SpeechBubble/SpeechMargin/SpeechVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+theme_override_colors/default_color = Color(0.12, 0.08, 0.05, 1)
+theme_override_font_sizes/normal_font_size = 22
+
+[node name="EnText" type="Label" parent="DialogueOverlay/Overlay/SpeechBubble/SpeechMargin/SpeechVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.34, 0.28, 1)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="DialogueOverlay/Overlay/SpeechBubble/SpeechMargin/SpeechVBox"]
+layout_mode = 2
+horizontal_alignment = 2
+text = "Tap to continue ▶"
+theme_override_colors/font_color = Color(0.55, 0.48, 0.4, 1)
+theme_override_font_sizes/font_size = 14
+
+[node name="Portrait" type="TextureRect" parent="DialogueOverlay/Overlay"]
+anchors_preset = -1
+anchor_left = 0.62
+anchor_top = 0.08
+anchor_right = 0.98
+anchor_bottom = 0.95
+stretch_mode = 5
+expand_mode = 1
+
+[node name="MessageLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="MessagePopup" type="PanelContainer" parent="MessageLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -140.0
+offset_right = 240.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MessageMargin" type="MarginContainer" parent="MessageLayer/MessagePopup"]
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="MessageLabel" type="Label" parent="MessageLayer/MessagePopup/MessageMargin"]
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="CalendarOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("6")
+
+[node name="ChoiceOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("7")
+
+[node name="InventoryOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("8")
+
+[node name="QuestLogOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("9")
+
+[node name="PhoneOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("11")
+
+[node name="WalletOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("12")
+
+[node name="MessagesOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("13")
+
+[node name="ConversationOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("14")
+
+[node name="ShopMenuOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("15")
+
+[node name="PhoneCaseSwapOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("18")
+
+[node name="CgOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("16")
+
+[node name="TapToPayOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("17")
+
+[node name="HudOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("10")
+
+[node name="TouchControls" parent="." instance=ExtResource("5")]

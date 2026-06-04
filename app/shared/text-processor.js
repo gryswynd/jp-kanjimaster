@@ -274,6 +274,50 @@
         return 0;
       });
 
+      // Render the inner content of a term span via the shared reading-aids
+      // renderer (jpText) so furigana/romaji follow the global toggle. Falls
+      // back to the bare (escaped) surface if jpText isn't loaded.
+      //   - base surface with valid glossary tokens → per-kanji ruby
+      //   - conjugated/counter terms (have original_id / no tokens) → whole-unit
+      //     ruby from {surface, reading} (the tokenizer-gap tradeoff)
+      //   - reading- or alt-form match → render the matched kana as-is (romaji,
+      //     no furigana — kana never carries furigana)
+      function jpInner(t, matchedForm) {
+        var jt = window.JPShared && window.JPShared.jpText;
+        if (!jt) {
+          return String(matchedForm).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        if (matchedForm === t.surface && t.tokens && t.tokens.length && !t.original_id) {
+          return jt.render({ tokens: t.tokens });
+        }
+        if (matchedForm === t.surface && t.reading) {
+          return jt.render({ surface: t.surface, reading: t.reading });
+        }
+        // Matched via a kana-hybrid alias / variant spelling (matchedForm !=
+        // surface) that still bears kanji — e.g. terms reference v_getsuyoubi
+        // (月曜日) but the prose spells it 月よう日. Use the entry reading so
+        // furigana shows and romaji never leaks kanji. (Whole-unit ruby; a
+        // per-char split would require referencing the *_hybrid glossary id.)
+        if (t.reading && t.reading !== matchedForm && /[一-鿿㐀-䶿]/.test(matchedForm)) {
+          return jt.render({ surface: matchedForm, reading: t.reading });
+        }
+        return jt.render(matchedForm);
+      }
+
+      // Term spans are injected as sentinel placeholders (\u0000<i>\u0001), NOT
+      // as their final HTML, then expanded in one pass at the end. Reason: the
+      // rendered inner HTML now contains reading kana (furigana) and ASCII
+      // romaji; injecting it mid-loop would let a later single-char particle
+      // match INSIDE an earlier injection (e.g. は inside 母's はは
+      // furigana). Sentinels carry no Japanese, so later matchers can't see
+      // into prior injections. This also stops a short term from matching
+      // inside an already-wrapped longer term (a latent bug in the old code).
+      var pieces = [];
+      function placeholder(htmlStr) {
+        pieces.push(htmlStr);
+        return '\u0000' + (pieces.length - 1) + '\u0001';
+      }
+
       terms.forEach(function (t) {
         var matchedForm = null;
         if (html.indexOf(t.surface) !== -1) {
@@ -287,7 +331,8 @@
         }
         if (matchedForm) {
           var cls = (t.type === 'character') ? 'jp-term jp-term-name' : 'jp-term';
-          var span = '<span class="' + cls + '" onclick="window.JP_OPEN_TERM(\'' + t.id + '\', true)">' + matchedForm + '</span>';
+          var span = '<span class="' + cls + '" onclick="window.JP_OPEN_TERM(\'' + t.id + '\', true)">' + jpInner(t, matchedForm) + '</span>';
+          var mark = placeholder(span);
           if (matchedForm.length === 1) {
             // Single-character terms (particles, etc.): avoid matching characters
             // that are word-internal, e.g. か inside やまかわ vs か at the end of ですか.
@@ -295,12 +340,15 @@
             // katakana character (U+3040–U+30FF), which would indicate the character
             // is part of a longer kana word rather than a standalone particle.
             var esc = matchedForm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            html = html.replace(new RegExp(esc + '(?![\\u3040-\\u30FF])', 'g'), span);
+            html = html.replace(new RegExp(esc + '(?![\\u3040-\\u30FF])', 'g'), function () { return mark; });
           } else {
-            html = html.split(matchedForm).join(span);
+            html = html.split(matchedForm).join(mark);
           }
         }
       });
+
+      // Expand sentinels → injected term-span HTML.
+      html = html.replace(/\u0000(\d+)\u0001/g, function (_m, i) { return pieces[+i]; });
 
       return html;
     },

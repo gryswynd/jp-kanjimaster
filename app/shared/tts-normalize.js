@@ -200,18 +200,27 @@
       text = text.replace(readingFixes[i][0], readingFixes[i][1]);
     }
 
-    // Particle は → わ. Chirp reads particle は as "wa" natively in kanji-rich
-    // context but flubs it in kana-ish context (名まえは→"namae ha", 犬は→"inu ha"),
-    // so we convert at particle boundaries. Two cases, both avoiding word-internal
-    // は (はは, ごはん, おはよう — は followed by another KANA, never a particle):
-    //   (a) は right after a KANJI → almost always noun+particle (主人は, 犬は, 母は),
-    //       convert regardless of what follows (kana-initial next word included).
-    //   (b) は after kana, FOLLOWED BY space/punctuation/kanji → particle at a
-    //       bunsetsu boundary (名まえは , これは。). Excludes は-before-kana (はは,
-    //       ごはん) and end-of-string (so isolated reading はは survives).
-    // Greetings (こんにちは。→こんにちわ) convert correctly under (b).
-    text = text.replace(/([一-鿿])は/g, '$1わ');                       // (a)
-    text = text.replace(/([゠-ヿ぀-ゟー])は(?=[\s、。！？一-鿿])/g, '$1わ'); // (b)
+    // Particle は → わ. A particle は is always preceded by a word, so we convert
+    // は after ANY kana/kanji — including the kana→kana case the old narrow rule
+    // missed (りきぞうはある日 → りきぞうわある日; 犬は → 犬わ; 名まえは → 名まえわ).
+    // String-initial は is never a particle, so it's left alone. The handful of
+    // words with a genuinely non-particle internal は are restored right after.
+    // (Greetings こんにちは/こんばんは → こんにちわ/こんばんわ are correctly converted —
+    //  that IS their real pronunciation.)
+    text = text.replace(/([一-鿿゠-ヿ぀-ゟー])は/g, '$1わ');
+    // Restore non-particle words this would over-convert. Only fragments that can
+    // NEVER be a particle boundary are listed (so we don't re-break real particles).
+    // NOTE: ambiguous kana words like はなし (話 vs は+なし "wa nashi") and はる
+    // (春 vs わる) are intentionally NOT restored — the safe fix is to author them
+    // in kanji (the kanji form never triggers は→わ).
+    text = text.replace(/はわ/g, 'はは');       // 母 (はは)
+    text = text.replace(/ごわん/g, 'ごはん');    // ご飯 / 朝ご飯 / 昼ご飯 / 晩ご飯
+    text = text.replace(/おわよう/g, 'おはよう');  // おはよう(ございます)
+    text = text.replace(/おわなみ/g, 'おはなみ');  // お花見
+    text = text.replace(/わなび/g, 'はなび');     // 花火
+    text = text.replace(/わやい/g, 'はやい');     // 早い
+    text = text.replace(/わやくち/g, 'はやくち');  // 早口
+    text = text.replace(/わやし/g, 'はやし');     // 林 / はやし
 
     return text;
   }

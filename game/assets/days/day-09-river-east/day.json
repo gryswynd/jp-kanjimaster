@@ -1,0 +1,100 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-09-river-east",
+  "title": "River (east)",
+  "titleJp": "川の東",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png",
+      "konbini-inside": "assets/backgrounds/convo-bg-konbini-inside.png",
+      "konbini-outside": "assets/backgrounds/convo-bg-konbini-outside.png",
+      "mountain-river": "assets/backgrounds/convo-bg-mountain-river.png",
+      "station": "assets/backgrounds/convo-bg-station.png"
+    }
+  },
+  "playerStart": {
+    "x": 82,
+    "y": 294
+  },
+  "objects": [
+    {
+      "name": "Exit_West",
+      "nameJp": "みち",
+      "appearsFromDay": 9,
+      "position": [
+        0,
+        331
+      ],
+      "size": [
+        52,
+        70
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Bollard_Chain_Vertical",
+      "nameJp": "くさり",
+      "appearsFromDay": 9,
+      "position": [
+        1168,
+        320
+      ],
+      "size": [
+        50,
+        100
+      ],
+      "sprite": "assets/days/day-06-river/objects/bollard_chain_vertical.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    }
+  ],
+  "npcs": [
+    {
+      "name": "yuki",
+      "nameJp": "ゆき",
+      "appearsFromDay": 9,
+      "x": 1052,
+      "y": 298,
+      "spriteWidth": 156,
+      "spriteHeight": 104,
+      "interactionRadius": 200,
+      "sprite": "assets/days/day-09-river-east/characters/yuki_sprite.png",
+      "convoPortrait": "assets/days/day-09-river-east/characters/yuki_convo.png",
+      "convoBackground": "mountain-river",
+      "appearsUntilDay": 9
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

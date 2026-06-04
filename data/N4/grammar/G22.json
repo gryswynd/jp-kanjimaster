@@ -65,27 +65,72 @@
             {
               "text": "空が",
               "role": "subject",
-              "gloss": "sky (が)"
+              "gloss": "sky (が)",
+              "tokens": [
+                {
+                  "k": "空",
+                  "r": "そら"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "暗くて、",
               "role": "predicate",
-              "gloss": "dark (て-form connector — it got dark and...)"
+              "gloss": "dark (て-form connector — it got dark and...)",
+              "tokens": [
+                {
+                  "k": "暗",
+                  "r": "くら",
+                  "g": "v_kurai_te_form"
+                },
+                {
+                  "k": "くて",
+                  "g": "v_kurai_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "雨が",
               "role": "subject",
-              "gloss": "rain (が)"
+              "gloss": "rain (が)",
+              "tokens": [
+                {
+                  "k": "雨",
+                  "r": "あめ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ふり",
               "role": "predicate",
-              "gloss": "ます-stem of ふる (to fall/rain)"
+              "gloss": "ます-stem of ふる (to fall/rain)",
+              "tokens": [
+                {
+                  "k": "ふり"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "looks like ~ (appearance そうです)"
+              "gloss": "looks like ~ (appearance そうです)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The sky is dark, and it looks like it will rain.",
@@ -96,17 +141,43 @@
             {
               "text": "このケーキは",
               "role": "topic",
-              "gloss": "this cake (は)"
+              "gloss": "this cake (は)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "ケーキ",
+                  "r": "けーき"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おいし",
               "role": "predicate",
-              "gloss": "stem of おいしい (drop い)"
+              "gloss": "stem of おいしい (drop い)",
+              "tokens": [
+                {
+                  "k": "おいし"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "looks ~ (appearance そうです)"
+              "gloss": "looks ~ (appearance そうです)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This cake looks delicious.",
@@ -117,17 +188,40 @@
             {
               "text": "やまかわさんは",
               "role": "topic",
-              "gloss": "Yamakawa-san (は)"
+              "gloss": "Yamakawa-san (は)",
+              "tokens": [
+                {
+                  "k": "やまかわさん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "元気",
               "role": "predicate",
-              "gloss": "な-adjective bare stem (元気)"
+              "gloss": "な-adjective bare stem (元気)",
+              "tokens": [
+                {
+                  "k": "元気",
+                  "r": "げんき"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "looks ~ (appearance そうです)"
+              "gloss": "looks ~ (appearance そうです)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Yamakawa-san looks well/healthy.",
@@ -231,22 +325,54 @@
             {
               "text": "明日は",
               "role": "topic",
-              "gloss": "tomorrow (は)"
+              "gloss": "tomorrow (は)",
+              "tokens": [
+                {
+                  "k": "明日",
+                  "r": "あした"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "雨が",
               "role": "subject",
-              "gloss": "rain (が)"
+              "gloss": "rain (が)",
+              "tokens": [
+                {
+                  "k": "雨",
+                  "r": "あめ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ふる",
               "role": "predicate",
-              "gloss": "to fall/rain — plain/dictionary form"
+              "gloss": "to fall/rain — plain/dictionary form",
+              "tokens": [
+                {
+                  "k": "ふる"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "I heard that ~ (hearsay そうです)"
+              "gloss": "I heard that ~ (hearsay そうです)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I heard it will rain tomorrow.",
@@ -257,17 +383,43 @@
             {
               "text": "あの店は",
               "role": "topic",
-              "gloss": "that shop (は)"
+              "gloss": "that shop (は)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おいしい",
               "role": "predicate",
-              "gloss": "delicious — full plain form, keep the い"
+              "gloss": "delicious — full plain form, keep the い",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "I heard that ~ (hearsay そうです)"
+              "gloss": "I heard that ~ (hearsay そうです)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I heard that shop is delicious.",
@@ -278,17 +430,43 @@
             {
               "text": "けんさんは",
               "role": "topic",
-              "gloss": "Ken-san (は)"
+              "gloss": "Ken-san (は)",
+              "tokens": [
+                {
+                  "k": "けんさん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "元気だ",
               "role": "predicate",
-              "gloss": "元気 + plain copula だ"
+              "gloss": "元気 + plain copula だ",
+              "tokens": [
+                {
+                  "k": "元気",
+                  "r": "げんき"
+                },
+                {
+                  "k": "だ"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "I heard that ~ (hearsay そうです)"
+              "gloss": "I heard that ~ (hearsay そうです)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I heard Ken-san is doing well.",
@@ -314,17 +492,39 @@
               {
                 "text": "雨が",
                 "role": "subject",
-                "gloss": "rain (が)"
+                "gloss": "rain (が)",
+                "tokens": [
+                  {
+                    "k": "雨",
+                    "r": "あめ"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "ふり",
                 "role": "predicate",
-                "gloss": "ます-stem of ふる"
+                "gloss": "ます-stem of ふる",
+                "tokens": [
+                  {
+                    "k": "ふり"
+                  }
+                ]
               },
               {
                 "text": "そうです。",
                 "role": "predicate",
-                "gloss": "looks like (speaker can see dark clouds)"
+                "gloss": "looks like (speaker can see dark clouds)",
+                "tokens": [
+                  {
+                    "k": "そうです"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "It looks like it will rain. (I can see the dark clouds.)"
@@ -344,22 +544,54 @@
               {
                 "text": "明日は",
                 "role": "topic",
-                "gloss": "tomorrow (は)"
+                "gloss": "tomorrow (は)",
+                "tokens": [
+                  {
+                    "k": "明日",
+                    "r": "あした"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "雨が",
                 "role": "subject",
-                "gloss": "rain (が)"
+                "gloss": "rain (が)",
+                "tokens": [
+                  {
+                    "k": "雨",
+                    "r": "あめ"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "ふる",
                 "role": "predicate",
-                "gloss": "dictionary form of ふる"
+                "gloss": "dictionary form of ふる",
+                "tokens": [
+                  {
+                    "k": "ふる"
+                  }
+                ]
               },
               {
                 "text": "そうです。",
                 "role": "predicate",
-                "gloss": "I heard that (from the forecast)"
+                "gloss": "I heard that (from the forecast)",
+                "tokens": [
+                  {
+                    "k": "そうです"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I heard it will rain tomorrow. (I saw the forecast.)"
@@ -399,22 +631,57 @@
             {
               "text": "この映画は",
               "role": "topic",
-              "gloss": "this movie (は)"
+              "gloss": "this movie (は)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "映画",
+                  "r": "えいが"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おもしろく",
               "role": "predicate",
-              "gloss": "adverbial form of おもしろい"
+              "gloss": "adverbial form of おもしろい",
+              "tokens": [
+                {
+                  "k": "おもしろく",
+                  "g": "v_omoshiroi_adverbial"
+                }
+              ]
             },
             {
               "text": "なさ",
               "role": "predicate",
-              "gloss": "なさ (negative appearance stem)"
+              "gloss": "なさ (negative appearance stem)",
+              "tokens": [
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "さ"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "appearance negative そうです — 'doesn't look ~'"
+              "gloss": "appearance negative そうです — 'doesn't look ~'",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This movie doesn't look interesting. (speaker watching the trailer)",
@@ -425,22 +692,55 @@
             {
               "text": "あのレストランは",
               "role": "topic",
-              "gloss": "that restaurant (は)"
+              "gloss": "that restaurant (は)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "レストラン",
+                  "r": "れすとらん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おいしく",
               "role": "predicate",
-              "gloss": "adverbial form"
+              "gloss": "adverbial form",
+              "tokens": [
+                {
+                  "k": "おいしく",
+                  "g": "v_oishii_adverbial"
+                }
+              ]
             },
             {
               "text": "ない",
               "role": "predicate",
-              "gloss": "plain negative — negation INSIDE the clause"
+              "gloss": "plain negative — negation INSIDE the clause",
+              "tokens": [
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "hearsay そうです — 'I heard that ~'"
+              "gloss": "hearsay そうです — 'I heard that ~'",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I heard that restaurant is not delicious. (a friend told me)",
@@ -458,32 +758,83 @@
             {
               "text": "空が",
               "role": "subject",
-              "gloss": "sky (が)"
+              "gloss": "sky (が)",
+              "tokens": [
+                {
+                  "k": "空",
+                  "r": "そら"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "暗く",
               "role": "predicate",
-              "gloss": "dark — adverbial form of 暗い"
+              "gloss": "dark — adverbial form of 暗い",
+              "tokens": [
+                {
+                  "k": "暗",
+                  "r": "くら",
+                  "g": "v_kurai_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_kurai_adverbial"
+                }
+              ]
             },
             {
               "text": "なって、",
               "role": "connector",
-              "gloss": "became... and (て-form of なる)"
+              "gloss": "became... and (て-form of なる)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "雨が",
               "role": "subject",
-              "gloss": "rain (が)"
+              "gloss": "rain (が)",
+              "tokens": [
+                {
+                  "k": "雨",
+                  "r": "あめ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ふり",
               "role": "predicate",
-              "gloss": "ます-stem of ふる"
+              "gloss": "ます-stem of ふる",
+              "tokens": [
+                {
+                  "k": "ふり"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "looks like ~ (appearance)"
+              "gloss": "looks like ~ (appearance)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The sky has gotten dark, and it looks like it will rain.",
@@ -495,22 +846,53 @@
             {
               "text": "明日も",
               "role": "topic",
-              "gloss": "tomorrow too (も)"
+              "gloss": "tomorrow too (も)",
+              "tokens": [
+                {
+                  "k": "明日",
+                  "r": "あした"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "雨が",
               "role": "subject",
-              "gloss": "rain (が)"
+              "gloss": "rain (が)",
+              "tokens": [
+                {
+                  "k": "雨",
+                  "r": "あめ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "ふる",
               "role": "predicate",
-              "gloss": "dictionary form of ふる"
+              "gloss": "dictionary form of ふる",
+              "tokens": [
+                {
+                  "k": "ふる"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "I heard that ~ (hearsay)"
+              "gloss": "I heard that ~ (hearsay)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Apparently it will rain tomorrow too.",
@@ -522,17 +904,45 @@
             {
               "text": "このラーメンは",
               "role": "topic",
-              "gloss": "this ramen (は)"
+              "gloss": "this ramen (は)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "ラーメン"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "おいし",
               "role": "predicate",
-              "gloss": "stem of おいしい (drop い)"
+              "gloss": "stem of おいしい (drop い)",
+              "tokens": [
+                {
+                  "k": "おいし"
+                }
+              ]
             },
             {
               "text": "そうですね。",
               "role": "predicate",
-              "gloss": "looks ~ doesn't it (appearance + ね)"
+              "gloss": "looks ~ doesn't it (appearance + ね)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "ね"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This ramen looks delicious, doesn't it.",
@@ -544,27 +954,81 @@
             {
               "text": "すずきさんは",
               "role": "topic",
-              "gloss": "Suzuki-san (は)"
+              "gloss": "Suzuki-san (は)",
+              "tokens": [
+                {
+                  "k": "すずき"
+                },
+                {
+                  "k": "さん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "新しい",
               "role": "modifier",
-              "gloss": "new (attributive — modifies 仕事)"
+              "gloss": "new (attributive — modifies 仕事)",
+              "tokens": [
+                {
+                  "k": "新",
+                  "r": "あたら",
+                  "g": "v_atarashii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_atarashii"
+                }
+              ]
             },
             {
               "text": "仕事が",
               "role": "subject",
-              "gloss": "job (が)"
+              "gloss": "job (が)",
+              "tokens": [
+                {
+                  "k": "仕事",
+                  "r": "しごと"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "好きだ",
               "role": "predicate",
-              "gloss": "plain copula form of 好き (な-adj + だ)"
+              "gloss": "plain copula form of 好き (な-adj + だ)",
+              "tokens": [
+                {
+                  "k": "好",
+                  "r": "す",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "き",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "だ"
+                }
+              ]
             },
             {
               "text": "そうです。",
               "role": "predicate",
-              "gloss": "I heard that ~ (hearsay)"
+              "gloss": "I heard that ~ (hearsay)",
+              "tokens": [
+                {
+                  "k": "そうです"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I heard that Suzuki-san likes her new job.",
@@ -758,7 +1222,9 @@
     {
       "type": "patternMatch",
       "title": "Appearance or Hearsay?",
-      "instructions": "Each sentence uses そうだ. Decide: is it appearance そうだ (based on direct observation) or hearsay そうだ (based on what you heard)? Answer TRUE for appearance, FALSE for hearsay.",
+      "instructions": "Each sentence uses そうだ. Decide: is it appearance そうだ (based on direct observation) or hearsay そうだ (based on what you heard)? Tap the matching choice.",
+      "trueLabel": "Appearance",
+      "falseLabel": "Hearsay",
       "items": [
         {
           "sentence": "おいしそうです。",

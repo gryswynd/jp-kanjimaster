@@ -93,22 +93,72 @@
             {
               "text": "秋に なると、",
               "role": "time",
-              "gloss": "when autumn comes (と conditional — when/if)"
+              "gloss": "when autumn comes (と conditional — when/if)",
+              "tokens": [
+                {
+                  "k": "秋",
+                  "r": "あき"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "空気が",
               "role": "subject",
-              "gloss": "the air (が — subject marker)"
+              "gloss": "the air (が — subject marker)",
+              "tokens": [
+                {
+                  "k": "空気",
+                  "r": "くうき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "寒く",
               "role": "modifier",
-              "gloss": "cold-ADV (寒い → 寒く — i-adj adverbial stem)"
+              "gloss": "cold-ADV (寒い → 寒く — i-adj adverbial stem)",
+              "tokens": [
+                {
+                  "k": "寒",
+                  "r": "さむ",
+                  "g": "v_samui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_samui_adverbial"
+                }
+              ]
             },
             {
               "text": "なります。",
               "role": "predicate",
-              "gloss": "becomes (なる — polite present)"
+              "gloss": "becomes (なる — polite present)",
+              "tokens": [
+                {
+                  "k": "なります",
+                  "g": "v_naru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "When autumn comes, the air becomes cold.",
@@ -119,17 +169,58 @@
             {
               "text": "毎日 勉強すれば、",
               "role": "connector",
-              "gloss": "if you study every day (ば conditional)"
+              "gloss": "if you study every day (ば conditional)",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "すれば",
+                  "g": "v_suru_conditional_ba"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "上手に",
               "role": "modifier",
-              "gloss": "skilled-ADV (上手 na-adj stem + に)"
+              "gloss": "skilled-ADV (上手 na-adj stem + に)",
+              "tokens": [
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なれますよ。",
               "role": "predicate",
-              "gloss": "you can become (なれる — potential of なる, polite)"
+              "gloss": "you can become (なれる — potential of なる, polite)",
+              "tokens": [
+                {
+                  "k": "なれます",
+                  "g": "v_naru_polite_potential"
+                },
+                {
+                  "k": "よ"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If you study every day, you can become skilled at it.",
@@ -140,22 +231,71 @@
             {
               "text": "今年は、",
               "role": "time",
-              "gloss": "this year (time context)"
+              "gloss": "this year (time context)",
+              "tokens": [
+                {
+                  "k": "今年",
+                  "r": "ことし"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "この 町が",
               "role": "subject",
-              "gloss": "this town (が — subject)"
+              "gloss": "this town (が — subject)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "町",
+                  "r": "まち"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "有名に",
               "role": "modifier",
-              "gloss": "famous-ADV (有名 na-adj stem + に)"
+              "gloss": "famous-ADV (有名 na-adj stem + に)",
+              "tokens": [
+                {
+                  "k": "有名",
+                  "r": "ゆうめい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なってきました。",
               "role": "predicate",
-              "gloss": "has been becoming (なって + きました — change toward now, polite past)"
+              "gloss": "has been becoming (なって + きました — change toward now, polite past)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                },
+                {
+                  "k": "きました"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This town has been getting famous recently.",
@@ -166,22 +306,75 @@
             {
               "text": "夏に なると、",
               "role": "time",
-              "gloss": "when summer comes (と conditional)"
+              "gloss": "when summer comes (と conditional)",
+              "tokens": [
+                {
+                  "k": "夏",
+                  "r": "なつ"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "もっと",
               "role": "adverb",
-              "gloss": "even more (adverb)"
+              "gloss": "even more (adverb)",
+              "tokens": [
+                {
+                  "k": "もっと"
+                }
+              ]
             },
             {
               "text": "暑く",
               "role": "modifier",
-              "gloss": "hot-ADV (暑い → 暑く)"
+              "gloss": "hot-ADV (暑い → 暑く)",
+              "tokens": [
+                {
+                  "k": "暑",
+                  "r": "あつ",
+                  "g": "v_atsui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_atsui_adverbial"
+                }
+              ]
             },
             {
               "text": "なって いきます。",
               "role": "predicate",
-              "gloss": "will keep getting (なって + いきます — ongoing future change, polite)"
+              "gloss": "will keep getting (なって + いきます — ongoing future change, polite)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "いきます",
+                  "g": "v_ikiru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "When summer comes, it will keep getting hotter.",
@@ -235,17 +428,67 @@
             {
               "text": "もう少し",
               "role": "adverb",
-              "gloss": "a little more (もう少し — adverb)"
+              "gloss": "a little more (もう少し — adverb)",
+              "tokens": [
+                {
+                  "k": "もう"
+                },
+                {
+                  "k": "少",
+                  "r": "すこ",
+                  "g": "v_sukoshi"
+                },
+                {
+                  "k": "し",
+                  "g": "v_sukoshi"
+                }
+              ]
             },
             {
               "text": "安く",
               "role": "modifier",
-              "gloss": "cheap-ADV (安い → 安く — i-adj adverbial)"
+              "gloss": "cheap-ADV (安い → 安く — i-adj adverbial)",
+              "tokens": [
+                {
+                  "k": "安",
+                  "r": "やす",
+                  "g": "v_yasui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_yasui_adverbial"
+                }
+              ]
             },
             {
               "text": "して もらえませんか。",
               "role": "predicate",
-              "gloss": "could you make it? (してもらえませんか — potential + もらう, polite request)"
+              "gloss": "could you make it? (してもらえませんか — potential + もらう, polite request)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "も"
+                },
+                {
+                  "k": "ら"
+                },
+                {
+                  "k": "えません",
+                  "g": "v_eru_polite_negative"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Could you make it a little cheaper?",
@@ -256,17 +499,50 @@
             {
               "text": "部屋を",
               "role": "object",
-              "gloss": "the room (を — object)"
+              "gloss": "the room (を — object)",
+              "tokens": [
+                {
+                  "k": "部屋",
+                  "r": "へや"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "明るく",
               "role": "modifier",
-              "gloss": "bright-ADV (明るい → 明るく)"
+              "gloss": "bright-ADV (明るい → 明るく)",
+              "tokens": [
+                {
+                  "k": "明",
+                  "r": "あか",
+                  "g": "v_akarui_adverbial"
+                },
+                {
+                  "k": "るく",
+                  "g": "v_akarui_adverbial"
+                }
+              ]
             },
             {
               "text": "したいです。",
               "role": "predicate",
-              "gloss": "I want to make it (したい + です — desire, polite)"
+              "gloss": "I want to make it (したい + です — desire, polite)",
+              "tokens": [
+                {
+                  "k": "したい",
+                  "g": "v_suru_plain_desire_tai"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want to brighten up the room.",
@@ -277,17 +553,51 @@
             {
               "text": "体を",
               "role": "object",
-              "gloss": "your body/health (を — object)"
+              "gloss": "your body/health (を — object)",
+              "tokens": [
+                {
+                  "k": "体",
+                  "r": "からだ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "大切に",
               "role": "modifier",
-              "gloss": "carefully-ADV (大切 na-adj stem + に)"
+              "gloss": "carefully-ADV (大切 na-adj stem + に)",
+              "tokens": [
+                {
+                  "k": "大切",
+                  "r": "たいせつ"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "して ください。",
               "role": "predicate",
-              "gloss": "please take care (してください — te-form request)"
+              "gloss": "please take care (してください — te-form request)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "ください"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Please take care of your health.",
@@ -298,17 +608,58 @@
             {
               "text": "この 教室を",
               "role": "object",
-              "gloss": "this classroom (を — object)"
+              "gloss": "this classroom (を — object)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "教室",
+                  "r": "きょうしつ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "元気に",
               "role": "modifier",
-              "gloss": "lively-ADV (元気 na-adj stem + に)"
+              "gloss": "lively-ADV (元気 na-adj stem + に)",
+              "tokens": [
+                {
+                  "k": "元気",
+                  "r": "げんき"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "して いきましょう。",
               "role": "predicate",
-              "gloss": "let's make it lively (していきましょう — ていく volitional, polite)"
+              "gloss": "let's make it lively (していきましょう — ていく volitional, polite)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "いきましょう",
+                  "g": "v_ikiru_polite_volitional_mashou"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Let's make this classroom a lively place going forward.",
@@ -334,12 +685,31 @@
               {
                 "text": "寒く",
                 "role": "modifier",
-                "gloss": "cold-ADV (寒い → 寒く)"
+                "gloss": "cold-ADV (寒い → 寒く)",
+                "tokens": [
+                  {
+                    "k": "寒",
+                    "r": "さむ",
+                    "g": "v_samui_adverbial"
+                  },
+                  {
+                    "k": "く",
+                    "g": "v_samui_adverbial"
+                  }
+                ]
               },
               {
                 "text": "なりました。",
                 "role": "predicate",
-                "gloss": "became (なる — polite past)"
+                "gloss": "became (なる — polite past)",
+                "tokens": [
+                  {
+                    "k": "なりました"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "It became cold. (The cold just happened — nobody caused it.)"
@@ -359,17 +729,47 @@
               {
                 "text": "部屋を",
                 "role": "object",
-                "gloss": "the room (を — object)"
+                "gloss": "the room (を — object)",
+                "tokens": [
+                  {
+                    "k": "部屋",
+                    "r": "へや"
+                  },
+                  {
+                    "k": "を",
+                    "r": "お"
+                  }
+                ]
               },
               {
                 "text": "明るく",
                 "role": "modifier",
-                "gloss": "bright-ADV (明るい → 明るく)"
+                "gloss": "bright-ADV (明るい → 明るく)",
+                "tokens": [
+                  {
+                    "k": "明",
+                    "r": "あか",
+                    "g": "v_akarui_adverbial"
+                  },
+                  {
+                    "k": "るく",
+                    "g": "v_akarui_adverbial"
+                  }
+                ]
               },
               {
                 "text": "しました。",
                 "role": "predicate",
-                "gloss": "made it (する — polite past)"
+                "gloss": "made it (する — polite past)",
+                "tokens": [
+                  {
+                    "k": "しました",
+                    "g": "v_suru_polite_mashita"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I made the room brighter. (I deliberately did this.)"
@@ -429,17 +829,54 @@
             {
               "text": "値段が",
               "role": "subject",
-              "gloss": "the price (が — subject)"
+              "gloss": "the price (が — subject)",
+              "tokens": [
+                {
+                  "k": "値段",
+                  "r": "ねだん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "高くても、",
               "role": "connector",
-              "gloss": "even if it's expensive (高い → 高くても — i-adj concessive)"
+              "gloss": "even if it's expensive (高い → 高くても — i-adj concessive)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai_kutemo_form"
+                },
+                {
+                  "k": "くても",
+                  "g": "v_takai_kutemo_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "買います。",
               "role": "predicate",
-              "gloss": "I'll buy it (買う — polite present/future)"
+              "gloss": "I'll buy it (買う — polite present/future)",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か",
+                  "g": "v_kau_polite_masu"
+                },
+                {
+                  "k": "います",
+                  "g": "v_kau_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if it's expensive, I'll buy it.",
@@ -450,12 +887,32 @@
             {
               "text": "むずかしくても、",
               "role": "connector",
-              "gloss": "even if it's difficult (むずかしい → むずかしくても)"
+              "gloss": "even if it's difficult (むずかしい → むずかしくても)",
+              "tokens": [
+                {
+                  "k": "むずかしくても",
+                  "g": "v_muzukashii_kutemo_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "あきらめません。",
               "role": "predicate",
-              "gloss": "I won't give up (あきらめる → あきらめません — polite negative)"
+              "gloss": "I won't give up (あきらめる → あきらめません — polite negative)",
+              "tokens": [
+                {
+                  "k": "あきらめ"
+                },
+                {
+                  "k": "ません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if it's difficult, I won't give up.",
@@ -466,17 +923,53 @@
             {
               "text": "有名でも、",
               "role": "connector",
-              "gloss": "even if they're famous (有名 na-adj stem + でも)"
+              "gloss": "even if they're famous (有名 na-adj stem + でも)",
+              "tokens": [
+                {
+                  "k": "有名",
+                  "r": "ゆうめい"
+                },
+                {
+                  "k": "でも"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "わたしは",
               "role": "topic",
-              "gloss": "as for me (は — topic)"
+              "gloss": "as for me (は — topic)",
+              "tokens": [
+                {
+                  "k": "わたし",
+                  "g": "v_watashi"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "知りません。",
               "role": "predicate",
-              "gloss": "I don't know (知る → 知りません — polite negative)"
+              "gloss": "I don't know (知る → 知りません — polite negative)",
+              "tokens": [
+                {
+                  "k": "知",
+                  "r": "し",
+                  "g": "v_shiru_polite_negative"
+                },
+                {
+                  "k": "りません",
+                  "g": "v_shiru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if they're famous, I don't know them.",
@@ -487,17 +980,64 @@
             {
               "text": "元気でも、",
               "role": "connector",
-              "gloss": "even if you feel well (元気 na-adj + でも)"
+              "gloss": "even if you feel well (元気 na-adj + でも)",
+              "tokens": [
+                {
+                  "k": "元気",
+                  "r": "げんき"
+                },
+                {
+                  "k": "でも"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "体を",
               "role": "object",
-              "gloss": "body (を — object)"
+              "gloss": "body (を — object)",
+              "tokens": [
+                {
+                  "k": "体",
+                  "r": "からだ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "大切に して ください。",
               "role": "predicate",
-              "gloss": "please take care (大切にしてください — fixed expression, polite request)"
+              "gloss": "please take care (大切にしてください — fixed expression, polite request)",
+              "tokens": [
+                {
+                  "k": "大切",
+                  "r": "たいせつ"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "ください"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if you feel well, please take care of your body.",
@@ -552,17 +1092,54 @@
             {
               "text": "値段が",
               "role": "subject",
-              "gloss": "the price (が — subject)"
+              "gloss": "the price (が — subject)",
+              "tokens": [
+                {
+                  "k": "値段",
+                  "r": "ねだん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "安くなければ",
               "role": "connector",
-              "gloss": "if it's not cheap (安い → 安くなければ — i-adj conditional negative)"
+              "gloss": "if it's not cheap (安い → 安くなければ — i-adj conditional negative)",
+              "tokens": [
+                {
+                  "k": "安",
+                  "r": "やす",
+                  "g": "v_yasui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_yasui_adverbial"
+                },
+                {
+                  "k": "なければ"
+                }
+              ]
             },
             {
               "text": "買いません。",
               "role": "predicate",
-              "gloss": "I won't buy it (買う → 買いません — polite negative)"
+              "gloss": "I won't buy it (買う → 買いません — polite negative)",
+              "tokens": [
+                {
+                  "k": "買",
+                  "r": "か",
+                  "g": "v_kau_polite_negative"
+                },
+                {
+                  "k": "いません",
+                  "g": "v_kau_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If it's not cheap, I won't buy it.",
@@ -573,17 +1150,52 @@
             {
               "text": "このドアは",
               "role": "topic",
-              "gloss": "this door (は — topic)"
+              "gloss": "this door (は — topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "ドア"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "大きくなければ",
               "role": "connector",
-              "gloss": "if it's not big (大きい → 大きくなければ)"
+              "gloss": "if it's not big (大きい → 大きくなければ)",
+              "tokens": [
+                {
+                  "k": "大",
+                  "r": "おお",
+                  "g": "v_ookii_adverbial"
+                },
+                {
+                  "k": "きく",
+                  "g": "v_ookii_adverbial"
+                },
+                {
+                  "k": "なければ"
+                }
+              ]
             },
             {
               "text": "いけません。",
               "role": "predicate",
-              "gloss": "it must (いけない — obligation, polite)"
+              "gloss": "it must (いけない — obligation, polite)",
+              "tokens": [
+                {
+                  "k": "いけません",
+                  "g": "v_ikeru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This door has to be big (it must be big).",
@@ -594,17 +1206,56 @@
             {
               "text": "有名でなければ、",
               "role": "connector",
-              "gloss": "if not famous (有名 na-adj + でなければ — negative conditional)"
+              "gloss": "if not famous (有名 na-adj + でなければ — negative conditional)",
+              "tokens": [
+                {
+                  "k": "有名",
+                  "r": "ゆうめい"
+                },
+                {
+                  "k": "でなければ",
+                  "g": "v_deru_nakereba"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "このイベントには",
               "role": "topic",
-              "gloss": "at this event (に+は — location + topic)"
+              "gloss": "at this event (に+は — location + topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "イベントに"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "入れません。",
               "role": "predicate",
-              "gloss": "cannot enter (入る → potential negative, polite)"
+              "gloss": "cannot enter (入る → potential negative, polite)",
+              "tokens": [
+                {
+                  "k": "入",
+                  "r": "い",
+                  "g": "v_ireru_polite_negative"
+                },
+                {
+                  "k": "れません",
+                  "g": "v_ireru_polite_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If you're not famous, you can't get into this event.",
@@ -615,22 +1266,61 @@
             {
               "text": "体が",
               "role": "subject",
-              "gloss": "the body (が — subject)"
+              "gloss": "the body (が — subject)",
+              "tokens": [
+                {
+                  "k": "体",
+                  "r": "からだ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "元気でなければ、",
               "role": "connector",
-              "gloss": "if not healthy (元気 na-adj + でなければ)"
+              "gloss": "if not healthy (元気 na-adj + でなければ)",
+              "tokens": [
+                {
+                  "k": "元気",
+                  "r": "げんき"
+                },
+                {
+                  "k": "でなければ",
+                  "g": "v_deru_nakereba"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "何も",
               "role": "adverb",
-              "gloss": "nothing / anything (何も — total negative)"
+              "gloss": "nothing / anything (何も — total negative)",
+              "tokens": [
+                {
+                  "k": "何",
+                  "r": "なん"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "できません。",
               "role": "predicate",
-              "gloss": "cannot do (できる → polite negative)"
+              "gloss": "cannot do (できる → polite negative)",
+              "tokens": [
+                {
+                  "k": "できません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "If you're not healthy, you can't do anything.",
@@ -767,22 +1457,81 @@
             {
               "text": "秋に なると、",
               "role": "time",
-              "gloss": "when autumn comes (と conditional)"
+              "gloss": "when autumn comes (と conditional)",
+              "tokens": [
+                {
+                  "k": "秋",
+                  "r": "あき"
+                },
+                {
+                  "k": "に"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "なる"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "だんだん",
               "role": "adverb",
-              "gloss": "gradually (adverb)"
+              "gloss": "gradually (adverb)",
+              "tokens": [
+                {
+                  "k": "だ"
+                },
+                {
+                  "k": "んだ"
+                },
+                {
+                  "k": "ん"
+                }
+              ]
             },
             {
               "text": "寒く",
               "role": "modifier",
-              "gloss": "cold-ADV (寒い → 寒く — i-adj adverbial)"
+              "gloss": "cold-ADV (寒い → 寒く — i-adj adverbial)",
+              "tokens": [
+                {
+                  "k": "寒",
+                  "r": "さむ",
+                  "g": "v_samui_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_samui_adverbial"
+                }
+              ]
             },
             {
               "text": "なって きます。",
               "role": "predicate",
-              "gloss": "is getting (なる + てくる — gradual change toward now, polite)"
+              "gloss": "is getting (なる + てくる — gradual change toward now, polite)",
+              "tokens": [
+                {
+                  "k": "なって",
+                  "g": "v_naru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "きます",
+                  "g": "v_kuru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "When autumn comes, it gradually gets cold.",
@@ -794,22 +1543,79 @@
             {
               "text": "この 部屋を",
               "role": "object",
-              "gloss": "this room (を — object)"
+              "gloss": "this room (を — object)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "部屋",
+                  "r": "へや"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "もっと",
               "role": "adverb",
-              "gloss": "even more (もっと)"
+              "gloss": "even more (もっと)",
+              "tokens": [
+                {
+                  "k": "もっと"
+                }
+              ]
             },
             {
               "text": "明るく",
               "role": "modifier",
-              "gloss": "bright-ADV (明るい → 明るく)"
+              "gloss": "bright-ADV (明るい → 明るく)",
+              "tokens": [
+                {
+                  "k": "明",
+                  "r": "あか",
+                  "g": "v_akarui_adverbial"
+                },
+                {
+                  "k": "るく",
+                  "g": "v_akarui_adverbial"
+                }
+              ]
             },
             {
               "text": "して もらえませんか。",
               "role": "predicate",
-              "gloss": "could you make it? (してもらえませんか — potential of もらう, polite request)"
+              "gloss": "could you make it? (してもらえませんか — potential of もらう, polite request)",
+              "tokens": [
+                {
+                  "k": "して",
+                  "g": "v_suru_te_form"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "も"
+                },
+                {
+                  "k": "ら"
+                },
+                {
+                  "k": "えません",
+                  "g": "v_eru_polite_negative"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Could you make this room a little brighter?",
@@ -821,22 +1627,53 @@
             {
               "text": "試験が",
               "role": "subject",
-              "gloss": "the exam (が — subject)"
+              "gloss": "the exam (が — subject)",
+              "tokens": [
+                {
+                  "k": "試験",
+                  "r": "しけん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "むずかしくても、",
               "role": "connector",
-              "gloss": "even if it's difficult (むずかしい → むずかしくても)"
+              "gloss": "even if it's difficult (むずかしい → むずかしくても)",
+              "tokens": [
+                {
+                  "k": "むずかしくても",
+                  "g": "v_muzukashii_kutemo_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "あきらめずに",
               "role": "adverb",
-              "gloss": "without giving up (あきらめる → negative te-form あきらめず + に)"
+              "gloss": "without giving up (あきらめる → negative te-form あきらめず + に)",
+              "tokens": [
+                {
+                  "k": "あきらめずに"
+                }
+              ]
             },
             {
               "text": "頑張ります。",
               "role": "predicate",
-              "gloss": "I'll do my best (頑張る → 頑張ります — polite)"
+              "gloss": "I'll do my best (頑張る → 頑張ります — polite)",
+              "tokens": [
+                {
+                  "k": "頑張ります"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Even if the exam is difficult, I'll do my best without giving up.",
@@ -848,22 +1685,68 @@
             {
               "text": "この 仕事は、",
               "role": "topic",
-              "gloss": "this job (は — topic)"
+              "gloss": "this job (は — topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "仕事",
+                  "r": "しごと"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "体が",
               "role": "subject",
-              "gloss": "body/health (が — subject)"
+              "gloss": "body/health (が — subject)",
+              "tokens": [
+                {
+                  "k": "体",
+                  "r": "からだ"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "元気でなければ",
               "role": "connector",
-              "gloss": "if not healthy (元気 na-adj + でなければ — negative conditional)"
+              "gloss": "if not healthy (元気 na-adj + でなければ — negative conditional)",
+              "tokens": [
+                {
+                  "k": "元気",
+                  "r": "げんき"
+                },
+                {
+                  "k": "でなければ",
+                  "g": "v_deru_nakereba"
+                }
+              ]
             },
             {
               "text": "できません。",
               "role": "predicate",
-              "gloss": "cannot do it (できる → polite negative)"
+              "gloss": "cannot do it (できる → polite negative)",
+              "tokens": [
+                {
+                  "k": "できません"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "For this job, you cannot do it if you're not healthy.",
@@ -875,22 +1758,74 @@
             {
               "text": "この 試験は",
               "role": "topic",
-              "gloss": "this exam (は — topic)"
+              "gloss": "this exam (は — topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "試験",
+                  "r": "しけん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "むずかしすぎて、",
               "role": "connector",
-              "gloss": "too difficult (むずかしい → むずかしすぎる → te-form)"
+              "gloss": "too difficult (むずかしい → むずかしすぎる → te-form)",
+              "tokens": [
+                {
+                  "k": "むずかし"
+                },
+                {
+                  "k": "すぎて",
+                  "g": "v_sugiru_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "何も",
               "role": "adverb",
-              "gloss": "nothing (何も — total negation)"
+              "gloss": "nothing (何も — total negation)",
+              "tokens": [
+                {
+                  "k": "何",
+                  "r": "なん"
+                },
+                {
+                  "k": "も"
+                }
+              ]
             },
             {
               "text": "書けませんでした。",
               "role": "predicate",
-              "gloss": "I couldn't write anything (書く → potential negative, polite past)"
+              "gloss": "I couldn't write anything (書く → potential negative, polite past)",
+              "tokens": [
+                {
+                  "k": "書",
+                  "r": "か"
+                },
+                {
+                  "k": "け"
+                },
+                {
+                  "k": "ませんでした"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The exam was too difficult, and I couldn't write anything.",
@@ -902,22 +1837,80 @@
             {
               "text": "毎日 勉強したら、",
               "role": "connector",
-              "gloss": "after studying every day (たら conditional — when/after)"
+              "gloss": "after studying every day (たら conditional — when/after)",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "勉強",
+                  "r": "べんきょう"
+                },
+                {
+                  "k": "したら",
+                  "g": "v_suru_conditional_tara"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "もっと 上手に",
               "role": "modifier",
-              "gloss": "more skillfully (上手 na-adj + に)"
+              "gloss": "more skillfully (上手 na-adj + に)",
+              "tokens": [
+                {
+                  "k": "もっと"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "上手",
+                  "r": "じょうず"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なれると",
               "role": "connector",
-              "gloss": "if you can become (なれる + と conditional — natural result)"
+              "gloss": "if you can become (なれる + と conditional — natural result)",
+              "tokens": [
+                {
+                  "k": "なれる",
+                  "g": "v_naru_potential"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思います。",
               "role": "predicate",
-              "gloss": "I think (と思う — G27 reinforcement, polite)"
+              "gloss": "I think (と思う — G27 reinforcement, polite)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "います",
+                  "g": "v_omou_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I think if you practise every day, you'll be able to become more skilled.",

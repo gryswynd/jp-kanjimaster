@@ -1,0 +1,146 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-09-konbini-inside",
+  "title": "Konbini (inside)",
+  "titleJp": "コンビニの中",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "kitchen": "assets/backgrounds/convo-bg-kitchen.png",
+      "living": "assets/backgrounds/convo-bg-living.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "bedroom": "assets/backgrounds/convo-bg-bedroom.png",
+      "entryway": "assets/backgrounds/convo-bg-entryway.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "street-void": "assets/backgrounds/convo-bg-street-void.png",
+      "konbini-inside": "assets/backgrounds/convo-bg-konbini-inside.png",
+      "konbini-outside": "assets/backgrounds/convo-bg-konbini-outside.png"
+    }
+  },
+  "playerStart": {
+    "x": 620,
+    "y": 730
+  },
+  "objects": [
+    {
+      "name": "Exit_South",
+      "nameJp": "みち",
+      "nameFromDay": 9,
+      "appearsFromDay": 9,
+      "position": [
+        540,
+        790
+      ],
+      "size": [
+        160,
+        40
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Appliance_Counter",
+      "nameJp": "カウンター",
+      "appearsFromDay": 9,
+      "position": [
+        969,
+        143
+      ],
+      "size": [
+        173,
+        98
+      ],
+      "sprite": "objects/appliance_counter.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Microwave",
+      "nameJp": "でんしレンジ",
+      "appearsFromDay": 9,
+      "position": [
+        1054,
+        103
+      ],
+      "size": [
+        73,
+        67
+      ],
+      "sprite": "objects/microwave.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Hot_Water_Kettle",
+      "nameJp": "ポット",
+      "appearsFromDay": 9,
+      "position": [
+        995,
+        91
+      ],
+      "size": [
+        56,
+        73
+      ],
+      "sprite": "objects/hot_water_kettle.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    }
+  ],
+  "npcs": [
+    {
+      "name": "shopkeeper",
+      "nameJp": "てんいん",
+      "appearsFromDay": 9,
+      "x": 1028,
+      "y": 466,
+      "spriteWidth": 156,
+      "spriteHeight": 73,
+      "interactionRadius": 200,
+      "sprite": "assets/days/day-09-konbini-inside/characters/shopkeeper_sprite_cropped.png",
+      "convoPortrait": "assets/days/day-05-konbini/characters/shopkeeper_convo.png",
+      "convoBackground": "konbini-inside"
+    },
+    {
+      "name": "yamakawa",
+      "nameJp": "やまかわ",
+      "appearsFromDay": 9,
+      "x": 114,
+      "y": 230,
+      "spriteWidth": 156,
+      "spriteHeight": 104,
+      "interactionRadius": 200,
+      "sprite": "assets/days/day-05-konbini/characters/yamakawa_sprite.png",
+      "convoPortrait": "assets/days/day-05-konbini/characters/yamakawa_convo.png",
+      "convoBackground": "konbini-inside",
+      "appearsUntilDay": 9
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

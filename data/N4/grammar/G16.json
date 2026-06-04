@@ -93,17 +93,46 @@
             {
               "text": "やまかわさんの",
               "role": "topic",
-              "gloss": "Yamakawa's / like Yamakawa (の = connective to よう)"
+              "gloss": "Yamakawa's / like Yamakawa (の = connective to よう)",
+              "tokens": [
+                {
+                  "k": "やまかわさん"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ように",
               "role": "modifier",
-              "gloss": "like / in the manner of (よう = manner-noun + に = adverbial particle)"
+              "gloss": "like / in the manner of (よう = manner-noun + に = adverbial particle)",
+              "tokens": [
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "料理したいです。",
               "role": "predicate",
-              "gloss": "want to cook (料理する → plain_desire_tai + です)"
+              "gloss": "want to cook (料理する → plain_desire_tai + です)",
+              "tokens": [
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "したい",
+                  "g": "v_suru_plain_desire_tai"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want to cook like Yamakawa.",
@@ -115,22 +144,61 @@
             {
               "text": "先生",
               "role": "topic",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "みたいに",
               "role": "modifier",
-              "gloss": "like / in the manner of (casual: みたい attaches directly to noun + に)"
+              "gloss": "like / in the manner of (casual: みたい attaches directly to noun + に)",
+              "tokens": [
+                {
+                  "k": "みたい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "話せたら",
               "role": "connector",
-              "gloss": "if I could speak (話す → potential → conditional; aspirational)"
+              "gloss": "if I could speak (話す → potential → conditional; aspirational)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_plain_potential_past"
+                },
+                {
+                  "k": "せた",
+                  "g": "v_hanasu_plain_potential_past"
+                },
+                {
+                  "k": "ら"
+                }
+              ]
             },
             {
               "text": "いいな。",
               "role": "predicate",
-              "gloss": "that would be nice (casual wish ending)"
+              "gloss": "that would be nice (casual wish ending)",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "な"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I wish I could speak like a teacher.",
@@ -142,22 +210,60 @@
             {
               "text": "この料理は",
               "role": "topic",
-              "gloss": "this dish (は = topic marker)"
+              "gloss": "this dish (は = topic marker)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "レストランの",
               "role": "modifier",
-              "gloss": "restaurant's (の = connective to よう)"
+              "gloss": "restaurant's (の = connective to よう)",
+              "tokens": [
+                {
+                  "k": "レストラン",
+                  "r": "れすとらん"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ように",
               "role": "modifier",
-              "gloss": "like / in the manner of (よう = manner-noun + に)"
+              "gloss": "like / in the manner of (よう = manner-noun + に)",
+              "tokens": [
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "おいしいです。",
               "role": "predicate",
-              "gloss": "is delicious (おいしい + polite copula)"
+              "gloss": "is delicious (おいしい + polite copula)",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This dish is delicious like a restaurant's.",
@@ -219,22 +325,63 @@
             {
               "text": "やまかわさんの",
               "role": "topic",
-              "gloss": "Yamakawa's / like Yamakawa (の = connective to よう)"
+              "gloss": "Yamakawa's / like Yamakawa (の = connective to よう)",
+              "tokens": [
+                {
+                  "k": "やまかわさん"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ような",
               "role": "modifier",
-              "gloss": "like / similar to (よう = manner-noun + な = attributive form — precedes a noun)"
+              "gloss": "like / similar to (よう = manner-noun + な = attributive form — precedes a noun)",
+              "tokens": [
+                {
+                  "k": "よう"
+                },
+                {
+                  "k": "な"
+                }
+              ]
             },
             {
               "text": "料理人に",
               "role": "object",
-              "gloss": "a chef like ~ (料理人 = chef; に marks direction/goal)"
+              "gloss": "a chef like ~ (料理人 = chef; に marks direction/goal)",
+              "tokens": [
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "なりたいです。",
               "role": "predicate",
-              "gloss": "want to become (なる → plain_desire_tai + です)"
+              "gloss": "want to become (なる → plain_desire_tai + です)",
+              "tokens": [
+                {
+                  "k": "なりたい",
+                  "g": "v_naru_plain_desire_tai"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I want to become a chef like Yamakawa.",
@@ -246,22 +393,57 @@
             {
               "text": "魚",
               "role": "topic",
-              "gloss": "fish"
+              "gloss": "fish",
+              "tokens": [
+                {
+                  "k": "魚",
+                  "r": "さかな"
+                }
+              ]
             },
             {
               "text": "みたいな",
               "role": "modifier",
-              "gloss": "like / similar to (casual: みたい + な = attributive — precedes a noun)"
+              "gloss": "like / similar to (casual: みたい + な = attributive — precedes a noun)",
+              "tokens": [
+                {
+                  "k": "みたいな",
+                  "g": "v_mitai_attributive_na"
+                }
+              ]
             },
             {
               "text": "目が",
               "role": "subject",
-              "gloss": "eyes (が = subject marker)"
+              "gloss": "eyes (が = subject marker)",
+              "tokens": [
+                {
+                  "k": "目",
+                  "r": "め"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "きれいですね。",
               "role": "predicate",
-              "gloss": "are beautiful, aren't they (きれい + です + ね)"
+              "gloss": "are beautiful, aren't they (きれい + です + ね)",
+              "tokens": [
+                {
+                  "k": "きれい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "ね"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "You have beautiful fish-like eyes.",
@@ -273,22 +455,59 @@
             {
               "text": "これは",
               "role": "topic",
-              "gloss": "this (topic: は)"
+              "gloss": "this (topic: は)",
+              "tokens": [
+                {
+                  "k": "これ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "プロの",
               "role": "modifier",
-              "gloss": "professional's (の = connective)"
+              "gloss": "professional's (の = connective)",
+              "tokens": [
+                {
+                  "k": "プロの"
+                }
+              ]
             },
             {
               "text": "ような",
               "role": "modifier",
-              "gloss": "like / similar to (よう + な = attributive)"
+              "gloss": "like / similar to (よう + な = attributive)",
+              "tokens": [
+                {
+                  "k": "よう"
+                },
+                {
+                  "k": "な"
+                }
+              ]
             },
             {
               "text": "味ですね。",
               "role": "predicate",
-              "gloss": "is (a) flavor/taste, isn't it (味 = taste; です + ね)"
+              "gloss": "is (a) flavor/taste, isn't it (味 = taste; です + ね)",
+              "tokens": [
+                {
+                  "k": "味",
+                  "r": "あじ"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "ね"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This has a professional-level flavor, doesn't it.",
@@ -314,17 +533,48 @@
               {
                 "text": "先生の",
                 "role": "topic",
-                "gloss": "teacher's (の = connects noun to よう)"
+                "gloss": "teacher's (の = connects noun to よう)",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  },
+                  {
+                    "k": "の"
+                  }
+                ]
               },
               {
                 "text": "ように",
                 "role": "modifier",
-                "gloss": "like / in the manner of (formal: よう + に)"
+                "gloss": "like / in the manner of (formal: よう + に)",
+                "tokens": [
+                  {
+                    "k": "ように"
+                  }
+                ]
               },
               {
                 "text": "話したいです。",
                 "role": "predicate",
-                "gloss": "want to speak (話す → plain_desire_tai + です)"
+                "gloss": "want to speak (話す → plain_desire_tai + です)",
+                "tokens": [
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu_plain_desire_tai"
+                  },
+                  {
+                    "k": "したい",
+                    "g": "v_hanasu_plain_desire_tai"
+                  },
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I want to speak like a teacher. (formal)"
@@ -344,17 +594,45 @@
               {
                 "text": "先生",
                 "role": "topic",
-                "gloss": "teacher (no の — みたい attaches directly)"
+                "gloss": "teacher (no の — みたい attaches directly)",
+                "tokens": [
+                  {
+                    "k": "先生",
+                    "r": "せんせい"
+                  }
+                ]
               },
               {
                 "text": "みたいに",
                 "role": "modifier",
-                "gloss": "like / in the manner of (casual: みたい + に)"
+                "gloss": "like / in the manner of (casual: みたい + に)",
+                "tokens": [
+                  {
+                    "k": "みたい"
+                  },
+                  {
+                    "k": "に"
+                  }
+                ]
               },
               {
                 "text": "話したい。",
                 "role": "predicate",
-                "gloss": "want to speak (plain desire — casual register)"
+                "gloss": "want to speak (plain desire — casual register)",
+                "tokens": [
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu_plain_desire_tai"
+                  },
+                  {
+                    "k": "したい",
+                    "g": "v_hanasu_plain_desire_tai"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "I want to speak like a teacher. (casual)"
@@ -381,17 +659,39 @@
               {
                 "text": "プロの",
                 "role": "topic",
-                "gloss": "professional's"
+                "gloss": "professional's",
+                "tokens": [
+                  {
+                    "k": "プロの"
+                  }
+                ]
               },
               {
                 "text": "ように",
                 "role": "adverb",
-                "gloss": "like / in the manner of (に = adverbial ending → modifies verb)"
+                "gloss": "like / in the manner of (に = adverbial ending → modifies verb)",
+                "tokens": [
+                  {
+                    "k": "ように"
+                  }
+                ]
               },
               {
                 "text": "料理します。",
                 "role": "predicate",
-                "gloss": "cook (verb — modified by ように)"
+                "gloss": "cook (verb — modified by ように)",
+                "tokens": [
+                  {
+                    "k": "料理",
+                    "r": "りょうり"
+                  },
+                  {
+                    "k": "します"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Cook like a professional. (ように modifies the verb 料理する)"
@@ -411,17 +711,39 @@
               {
                 "text": "プロの",
                 "role": "topic",
-                "gloss": "professional's"
+                "gloss": "professional's",
+                "tokens": [
+                  {
+                    "k": "プロの"
+                  }
+                ]
               },
               {
                 "text": "ような",
                 "role": "modifier",
-                "gloss": "like / similar to (な = attributive ending → modifies noun)"
+                "gloss": "like / similar to (な = attributive ending → modifies noun)",
+                "tokens": [
+                  {
+                    "k": "よう"
+                  },
+                  {
+                    "k": "な"
+                  }
+                ]
               },
               {
                 "text": "料理。",
                 "role": "subject",
-                "gloss": "cooking / dish (noun — modified by のような)"
+                "gloss": "cooking / dish (noun — modified by のような)",
+                "tokens": [
+                  {
+                    "k": "料理",
+                    "r": "りょうり"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Professional-quality cooking. (のような modifies the noun 料理)"
@@ -440,22 +762,53 @@
             {
               "text": "やまかわさんは",
               "role": "topic",
-              "gloss": "Yamakawa (は = topic marker)"
+              "gloss": "Yamakawa (は = topic marker)",
+              "tokens": [
+                {
+                  "k": "やまかわさん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "プロの",
               "role": "modifier",
-              "gloss": "professional's (の = connective to よう)"
+              "gloss": "professional's (の = connective to よう)",
+              "tokens": [
+                {
+                  "k": "プロの"
+                }
+              ]
             },
             {
               "text": "ように",
               "role": "adverb",
-              "gloss": "like / in the manner of (よう + に = adverbial — modifies 料理する)"
+              "gloss": "like / in the manner of (よう + に = adverbial — modifies 料理する)",
+              "tokens": [
+                {
+                  "k": "ように"
+                }
+              ]
             },
             {
               "text": "料理します。",
               "role": "predicate",
-              "gloss": "cooks (料理する, polite present)"
+              "gloss": "cooks (料理する, polite present)",
+              "tokens": [
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Yamakawa cooks like a professional.",
@@ -467,22 +820,61 @@
             {
               "text": "ミキさんは",
               "role": "topic",
-              "gloss": "Miki (は = topic marker)"
+              "gloss": "Miki (は = topic marker)",
+              "tokens": [
+                {
+                  "k": "ミキ"
+                },
+                {
+                  "k": "さん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "花",
               "role": "modifier",
-              "gloss": "flower"
+              "gloss": "flower",
+              "tokens": [
+                {
+                  "k": "花",
+                  "r": "はな"
+                }
+              ]
             },
             {
               "text": "みたいな",
               "role": "modifier",
-              "gloss": "like / flower-like (casual: みたい + な = attributive — modifies 目)"
+              "gloss": "like / flower-like (casual: みたい + な = attributive — modifies 目)",
+              "tokens": [
+                {
+                  "k": "みたいな",
+                  "g": "v_mitai_attributive_na"
+                }
+              ]
             },
             {
               "text": "目ですね。",
               "role": "predicate",
-              "gloss": "has eyes, doesn't she (目 = eyes; です + ね)"
+              "gloss": "has eyes, doesn't she (目 = eyes; です + ね)",
+              "tokens": [
+                {
+                  "k": "目",
+                  "r": "め"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "ね"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Miki has flower-like eyes, doesn't she.",
@@ -494,22 +886,67 @@
             {
               "text": "この料理は",
               "role": "topic",
-              "gloss": "this dish (は = topic)"
+              "gloss": "this dish (は = topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "レストランの",
               "role": "modifier",
-              "gloss": "restaurant's (の = connective)"
+              "gloss": "restaurant's (の = connective)",
+              "tokens": [
+                {
+                  "k": "レストラン",
+                  "r": "れすとらん"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ような",
               "role": "modifier",
-              "gloss": "like / similar to (よう + な = attributive — modifies 味)"
+              "gloss": "like / similar to (よう + な = attributive — modifies 味)",
+              "tokens": [
+                {
+                  "k": "よう"
+                },
+                {
+                  "k": "な"
+                }
+              ]
             },
             {
               "text": "味がします。",
               "role": "predicate",
-              "gloss": "has a taste / flavor (味がする = have a taste)"
+              "gloss": "has a taste / flavor (味がする = have a taste)",
+              "tokens": [
+                {
+                  "k": "味",
+                  "r": "あじ"
+                },
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "します"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This dish has the flavor of a restaurant.",
@@ -521,22 +958,66 @@
             {
               "text": "あの人は",
               "role": "topic",
-              "gloss": "that person (は = topic)"
+              "gloss": "that person (は = topic)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生",
               "role": "modifier",
-              "gloss": "teacher"
+              "gloss": "teacher",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                }
+              ]
             },
             {
               "text": "みたいに",
               "role": "adverb",
-              "gloss": "like / in the manner of (casual: みたい + に = adverbial — modifies 歩く)"
+              "gloss": "like / in the manner of (casual: みたい + に = adverbial — modifies 歩く)",
+              "tokens": [
+                {
+                  "k": "みたい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "歩いています。",
               "role": "predicate",
-              "gloss": "is walking (歩く te-form + います = progressive)"
+              "gloss": "is walking (歩く te-form + います = progressive)",
+              "tokens": [
+                {
+                  "k": "歩",
+                  "r": "ある",
+                  "g": "v_aruku_te_form"
+                },
+                {
+                  "k": "いて",
+                  "g": "v_aruku_te_form"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That person is walking like a teacher.",

@@ -877,7 +877,6 @@ window.PracticeModule = {
                     </button>
 
                     <button class="k-dojo-tile k-dojo-tile--moss" data-tour-dojo="vocabPractice" onclick="KanjiApp.showHub('k-view-hub-vocab')">
-                        <span data-tour-dojo="verbPractice" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;"></span>
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Vocab Practice</div>
@@ -888,7 +887,7 @@ window.PracticeModule = {
                         <div class="k-dojo-tile-foot">Open</div>
                     </button>
 
-                    <button class="k-dojo-tile k-dojo-tile--gold" onclick="KanjiApp.showHub('k-view-hub-writing')">
+                    <button class="k-dojo-tile k-dojo-tile--gold" data-tour-dojo="writingPractice" onclick="KanjiApp.showHub('k-view-hub-writing')">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Writing Practice</div>
@@ -899,7 +898,7 @@ window.PracticeModule = {
                         <div class="k-dojo-tile-foot">Open</div>
                     </button>
 
-                    <div class="k-dojo-tile k-dojo-tile--locked">
+                    <button class="k-dojo-tile k-dojo-tile--indigo" id="k-dojo-tile-audio" data-tour-dojo="audioPractice" onclick="KanjiApp.showHub('k-view-hub-audio')">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Audio Practice</div>
@@ -907,10 +906,10 @@ window.PracticeModule = {
                             </div>
                             <div class="k-dojo-tile-kanji">聴</div>
                         </div>
-                        <div class="k-dojo-tile-foot">🔒 Coming soon</div>
-                    </div>
+                        <div class="k-dojo-tile-foot" id="k-dojo-tile-audio-foot">Open</div>
+                    </button>
 
-                    <button class="k-dojo-tile k-dojo-tile--pink" id="k-dojo-tile-games" data-tour-dojo="sentencePractice" onclick="KanjiApp.showHub('k-view-hub-games')">
+                    <button class="k-dojo-tile k-dojo-tile--pink" id="k-dojo-tile-games" data-tour-dojo="games" onclick="KanjiApp.showHub('k-view-hub-games')">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Games</div>
@@ -1000,7 +999,7 @@ window.PracticeModule = {
                 <div class="k-hub-sub">Listen to a passage, then answer — scrub the waveform to find the details.</div>
 
                 <div class="k-lbl">LISTENING</div>
-                <button class="k-btn k-btn--indigo" onclick="window.JPApp.launch('audiodojo')">🎧 Audio Dojo</button>
+                <button class="k-btn k-btn--indigo" data-gate="audiodojo" onclick="window.JPApp.launch('audiodojo')">🎧 Audio Dojo</button>
             </div>
 
             <div id="k-view-hub-games" class="k-hidden" style="width:100%">
@@ -1422,6 +1421,13 @@ window.PracticeModule = {
                 '🔗 Link Up');
         });
 
+        const audioOk = !!unlock.isModuleVisible('audiodojo');
+        document.querySelectorAll('button[data-gate="audiodojo"]').forEach(btn => {
+            setBtnState(btn, audioOk,
+                '🔒 Audio Dojo — finish ' + lessonLabel(unlock.AUDIO_DOJO_UNLOCK_AFTER),
+                '🎧 Audio Dojo');
+        });
+
         // Force-collapse submenus when their parent is locked. Once unlocked,
         // user controls open/close via the toggle.
         const scrambleSub = document.getElementById('k-scr-submenu');
@@ -1436,6 +1442,15 @@ window.PracticeModule = {
                 '⚡ Conjugation Station');
         });
 
+        // Audio Practice dojo-home tile — locked until Audio Dojo unlocks (N5.3).
+        const audioTile = document.getElementById('k-dojo-tile-audio');
+        const audioFoot = document.getElementById('k-dojo-tile-audio-foot');
+        if (audioTile) {
+            audioTile.classList.toggle('k-dojo-tile--locked', !audioOk);
+            audioTile.style.cursor = audioOk ? '' : 'default';
+            if (audioFoot) audioFoot.textContent = audioOk ? 'Open' : '🔒 Finish ' + lessonLabel(unlock.AUDIO_DOJO_UNLOCK_AFTER);
+        }
+
         // Games dojo-home tile — locked until either Scramble or Link Up unlocks.
         const gamesTile = document.getElementById('k-dojo-tile-games');
         const gamesFoot = document.getElementById('k-dojo-tile-games-foot');
@@ -1448,6 +1463,7 @@ window.PracticeModule = {
     }
 
     KanjiApp.showMenu = function() {
+        if (window.JPApp) window.JPApp.showTabBar();
         kUpdateStats();
         ALL_VIEWS.forEach(i => {
             const el = document.getElementById(i);
@@ -1513,6 +1529,7 @@ window.PracticeModule = {
     };
 
     KanjiApp.start = function(type, mode, subMode='normal') {
+        if (window.JPApp) window.JPApp.hideTabBar();
         // Activity gates — final defense even if the menu wasn't refreshed.
         const u = window.JPShared && window.JPShared.unlock;
         const toast = function (msg) {
@@ -2124,6 +2141,7 @@ window.PracticeModule = {
 
         const msg = document.getElementById('k-q-msg');
         const haptics = window.JPShared && window.JPShared.haptics;
+        const sfx = window.JPShared && window.JPShared.sfx;
         const setMsg = function(text, kind) {
             if (!msg) return;
             msg.textContent = text;
@@ -2135,9 +2153,17 @@ window.PracticeModule = {
         if(sel===curAns) {
             btn.classList.add('correct'); curStreak++; updateStreakVisuals(curStreak);
             if (haptics) haptics.success();
+            if (sfx) sfx.success();
             const readEl = document.getElementById('k-q-read-reveal');
             if(readEl) {
-                if(curMode === 'quiz-meaning') { readEl.innerText = [curQItem.on, curQItem.kun].filter(x => x).join(' / '); readEl.classList.remove('k-hidden'); }
+                if(curMode === 'quiz-meaning') {
+                    // Reveal the reading (kana) through jpText so romaji mode
+                    // reaches it. Prompt (k-q-main) stays bare via innerText.
+                    var revealRead = [curQItem.on, curQItem.kun].filter(x => x).join(' / ');
+                    var jt = window.JPShared && window.JPShared.jpText;
+                    readEl.innerHTML = jt ? jt.render(revealRead) : escHTML(revealRead);
+                    readEl.classList.remove('k-hidden');
+                }
                 else if (curMode === 'quiz-reading') { readEl.innerText = curQItem.meaning; readEl.classList.remove('k-hidden'); }
             }
 
@@ -2159,6 +2185,7 @@ window.PracticeModule = {
         } else {
             btn.classList.add('wrong'); curStreak = 0; resetStreakVisuals();
             if (haptics) haptics.warning();
+            if (sfx) sfx.error();
             setMsg('Wrong! It was: ' + curAns, 'is-wrong');
             document.querySelectorAll('.k-opt').forEach(b=>{if(b.innerText===curAns)b.classList.add('correct')});
         }

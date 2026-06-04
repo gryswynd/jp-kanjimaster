@@ -170,12 +170,44 @@
             {
               "text": "今日の 天気は",
               "role": "topic",
-              "gloss": "today's weather (topic)"
+              "gloss": "today's weather (topic)",
+              "tokens": [
+                {
+                  "k": "今日",
+                  "r": "きょう"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "天気",
+                  "r": "てんき"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "よかったです。",
               "role": "predicate",
-              "gloss": "was good (よ-stem + かったです)"
+              "gloss": "was good (よ-stem + かったです)",
+              "tokens": [
+                {
+                  "k": "よかった",
+                  "g": "v_ii_plain_past_adj"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Today's weather was good.",
@@ -186,17 +218,44 @@
             {
               "text": "電気が",
               "role": "topic",
-              "gloss": "electricity (subject)"
+              "gloss": "electricity (subject)",
+              "tokens": [
+                {
+                  "k": "電気",
+                  "r": "でんき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "あって",
               "role": "modifier",
-              "gloss": "there is and… (te-form of ある)"
+              "gloss": "there is and… (te-form of ある)",
+              "tokens": [
+                {
+                  "k": "あって",
+                  "g": "v_aru_te_form"
+                }
+              ]
             },
             {
               "text": "よかったです。",
               "role": "predicate",
-              "gloss": "was good — it's great that…"
+              "gloss": "was good — it's great that…",
+              "tokens": [
+                {
+                  "k": "よかった",
+                  "g": "v_ii_plain_past_adj"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "It's great that there's electricity.",
@@ -207,17 +266,52 @@
             {
               "text": "あの 電車は",
               "role": "topic",
-              "gloss": "that train (topic)"
+              "gloss": "that train (topic)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "電車",
+                  "r": "でんしゃ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "よく",
               "role": "modifier",
-              "gloss": "well / often (adverb form of いい)"
+              "gloss": "well / often (adverb form of いい)",
+              "tokens": [
+                {
+                  "k": "よく"
+                }
+              ]
             },
             {
               "text": "来ます。",
               "role": "predicate",
-              "gloss": "comes (polite)"
+              "gloss": "comes (polite)",
+              "tokens": [
+                {
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru_polite_masu"
+                },
+                {
+                  "k": "ます",
+                  "g": "v_kuru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "That train comes often.",
@@ -253,17 +347,64 @@
             {
               "text": "この 電車は",
               "role": "topic",
-              "gloss": "this train (topic)"
+              "gloss": "this train (topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "電車",
+                  "r": "でんしゃ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "高くて、",
               "role": "modifier",
-              "gloss": "expensive and… (て-form connector)"
+              "gloss": "expensive and… (て-form connector)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai_te_form"
+                },
+                {
+                  "k": "くて",
+                  "g": "v_takai_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "長いです。",
               "role": "predicate",
-              "gloss": "long (polite)"
+              "gloss": "long (polite)",
+              "tokens": [
+                {
+                  "k": "長",
+                  "r": "なが",
+                  "g": "v_nagai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_nagai"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This train is expensive and long.",
@@ -274,22 +415,60 @@
             {
               "text": "天気が",
               "role": "topic",
-              "gloss": "weather (subject)"
+              "gloss": "weather (subject)",
+              "tokens": [
+                {
+                  "k": "天気",
+                  "r": "てんき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "よくて、",
               "role": "modifier",
-              "gloss": "good and… (て-form of いい)"
+              "gloss": "good and… (て-form of いい)",
+              "tokens": [
+                {
+                  "k": "よくて",
+                  "g": "v_ii_te_form"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "気分が",
               "role": "topic",
-              "gloss": "mood (subject)"
+              "gloss": "mood (subject)",
+              "tokens": [
+                {
+                  "k": "気分",
+                  "r": "きぶん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "いいです。",
               "role": "predicate",
-              "gloss": "good (polite present)"
+              "gloss": "good (polite present)",
+              "tokens": [
+                {
+                  "k": "いい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The weather is nice and my mood is good.",
@@ -307,12 +486,42 @@
             {
               "text": "電車は",
               "role": "topic",
-              "gloss": "train (topic: は)"
+              "gloss": "train (topic: は)",
+              "tokens": [
+                {
+                  "k": "電車",
+                  "r": "でんしゃ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "長かったですが、",
               "role": "predicate",
-              "gloss": "was long — but (長い → 長かったです, polite past; が = contrast connector)"
+              "gloss": "was long — but (長い → 長かったです, polite past; が = contrast connector)",
+              "tokens": [
+                {
+                  "k": "長",
+                  "r": "なが",
+                  "g": "v_nagai_plain_past_adj"
+                },
+                {
+                  "k": "かった",
+                  "g": "v_nagai_plain_past_adj"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "が"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             }
           ],
           "en": "The train was long, but…",
@@ -324,17 +533,41 @@
             {
               "text": "山の",
               "role": "modifier",
-              "gloss": "mountain's (possessive: の)"
+              "gloss": "mountain's (possessive: の)",
+              "tokens": [
+                {
+                  "k": "山",
+                  "r": "やま"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "天気が",
               "role": "subject",
-              "gloss": "weather (subject: が)"
+              "gloss": "weather (subject: が)",
+              "tokens": [
+                {
+                  "k": "天気",
+                  "r": "てんき"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "よくて",
               "role": "connector",
-              "gloss": "good and… (いい → te-form: よ + くて — irregular stem よ-)"
+              "gloss": "good and… (いい → te-form: よ + くて — irregular stem よ-)",
+              "tokens": [
+                {
+                  "k": "よくて",
+                  "g": "v_ii_te_form"
+                }
+              ]
             }
           ],
           "en": "…the mountain weather was nice and…",
@@ -346,12 +579,33 @@
             {
               "text": "気分が",
               "role": "subject",
-              "gloss": "mood / feeling (subject: が)"
+              "gloss": "mood / feeling (subject: が)",
+              "tokens": [
+                {
+                  "k": "気分",
+                  "r": "きぶん"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "よかったです。",
               "role": "predicate",
-              "gloss": "was good (いい → past polite: よ + かったです)"
+              "gloss": "was good (いい → past polite: よ + かったです)",
+              "tokens": [
+                {
+                  "k": "よかった",
+                  "g": "v_ii_plain_past_adj"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "…my mood was good.",
@@ -588,7 +842,8 @@
             "いかったです",
             "いいでした",
             "よいでした"
-          ]
+          ],
+          "hint": "いい is irregular — it conjugates from よい: いい → よかった(です)."
         },
         {
           "given": "高いです",
@@ -600,7 +855,8 @@
             "高いないです",
             "高くありません",
             "高くなかったです"
-          ]
+          ],
+          "hint": "i-adj negative: drop い, add くない: 高い → 高くない(です)."
         },
         {
           "given": "大きいです",
@@ -612,7 +868,8 @@
             "大きいなかったです",
             "大きくありませんでした",
             "大きかったないです"
-          ]
+          ],
+          "hint": "i-adj past negative: 大きい → 大きくなかった(です)."
         },
         {
           "given": "天気が いいです。気分が いいです。",
@@ -624,7 +881,8 @@
             "天気が いいて、気分が いいです。",
             "天気が よかって、気分が いいです。",
             "天気が いいけど、気分が いいです。"
-          ]
+          ],
+          "hint": "The i-adj て-form connects clauses; いい is irregular → よくて: 天気が よくて、…."
         },
         {
           "given": "いいです",
@@ -637,7 +895,8 @@
             "いく",
             "いいく",
             "よくて"
-          ]
+          ],
+          "hint": "Adverb form of いい is irregular: いい → よく (never いく)."
         }
       ]
     },

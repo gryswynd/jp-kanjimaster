@@ -1,0 +1,92 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-10-street-south",
+  "title": "South Street",
+  "titleJp": "みなみの みち",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "void": "assets/backgrounds/convo-bg-void.png"
+    }
+  },
+  "playerStart": {
+    "x": 598,
+    "y": 62
+  },
+  "objects": [
+    {
+      "name": "Exit_North",
+      "nameJp": "こうさてん",
+      "appearsFromDay": 10,
+      "position": [
+        460,
+        0
+      ],
+      "size": [
+        360,
+        40
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Exit_East",
+      "nameJp": "ひがし",
+      "appearsFromDay": 10,
+      "position": [
+        1190,
+        380
+      ],
+      "size": [
+        57,
+        300
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Blockade_West",
+      "nameJp": "こうじ",
+      "appearsFromDay": 10,
+      "position": [
+        -8,
+        414
+      ],
+      "size": [
+        110,
+        218
+      ],
+      "sprite": "assets/days/day-05-street/objects/blockade.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": true
+    }
+  ],
+  "npcs": [],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {}
+}

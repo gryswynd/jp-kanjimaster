@@ -884,13 +884,13 @@
             "p_wa",
             "v_shinbun",
             "p_wo",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             {
               "id": "v_miseru",
               "form": "polite_masu"
             },
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_wa",
             "v_sukoshi",
             {
@@ -1199,7 +1199,8 @@
             "to show",
             "to stand"
           ],
-          "answer": "to see"
+          "answer": "to see",
+          "explanation": "「見る」 (みる) means \"to see\"."
         },
         {
           "kind": "mcq",
@@ -1210,7 +1211,8 @@
             "to stand",
             "to be visible"
           ],
-          "answer": "to hear"
+          "answer": "to hear",
+          "explanation": "「聞く」 (きく) means \"to hear\"."
         },
         {
           "kind": "mcq",
@@ -1221,7 +1223,8 @@
             "company",
             "ear"
           ],
-          "answer": "newspaper"
+          "answer": "newspaper",
+          "explanation": "「新聞」 (しんぶん) means \"newspaper\"."
         },
         {
           "kind": "mcq",
@@ -1232,7 +1235,8 @@
             "sad",
             "visible"
           ],
-          "answer": "painful / ouch"
+          "answer": "painful / ouch",
+          "explanation": "「いたい」 (いたい) means \"painful / ouch\"."
         },
         {
           "kind": "mcq",
@@ -1243,7 +1247,8 @@
             "to show",
             "to stand"
           ],
-          "answer": "to be visible"
+          "answer": "to be visible",
+          "explanation": "「見える」 (みえる) means \"to be visible\"."
         },
         {
           "kind": "mcq",
@@ -1254,7 +1259,8 @@
             "to see",
             "to be visible"
           ],
-          "answer": "to stand"
+          "answer": "to stand",
+          "explanation": "「立つ」 (たつ) means \"to stand\"."
         }
       ]
     },
@@ -1281,7 +1287,8 @@
               "form": "te_form"
             },
             "v_kudasai"
-          ]
+          ],
+          "explanation": "Correct: 目で 見て ください。（Please look with your eyes.）"
         },
         {
           "kind": "mcq",
@@ -1302,7 +1309,8 @@
               "id": "v_kiku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 耳で 日本語を 聞きます。（I listen to Japanese with my ears.）"
         },
         {
           "kind": "mcq",
@@ -1325,7 +1333,8 @@
               "id": "v_mieru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 山が よく 見えます 。（The mountain is clearly visible.）"
         },
         {
           "kind": "mcq",
@@ -1347,7 +1356,8 @@
               "id": "v_tatsu",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 足が いたいですが、立ちます。（My legs hurt, but I will stand.）"
         }
       ]
     },
@@ -1380,7 +1390,8 @@
               "form": "plain_past_adj"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: きのう こわい 本を 読みました。本は こわかったです 。（I read a scary book yesterday. The book was ___）"
         },
         {
           "kind": "mcq",
@@ -1400,7 +1411,8 @@
               "form": "appearance_sou_stem"
             },
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 川が きれいそうです 。（The river looks beautiful.）"
         },
         {
           "kind": "mcq",
@@ -1413,7 +1425,7 @@
           ],
           "answer": "見せました",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ni",
             "v_shinbun",
             "p_wo",
@@ -1421,7 +1433,8 @@
               "id": "v_miseru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 友だちに 新聞を 見せました 。（I showed the newspaper to my friend.）"
         },
         {
           "kind": "mcq",
@@ -1453,7 +1466,8 @@
               "id": "v_iru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 毎日 日本語を 聞いて、上手に なっています 。（I listen to Japanese every day and am getting better.）"
         }
       ]
     }

@@ -31,8 +31,18 @@ window.AudioDojoModule = (function () {
   let audio = null;         // HTMLAudioElement for the passage
   let raf = 0;
   let completedOnce = false;
+  let segmentEnd = null;    // when set, playback auto-pauses here (per-paragraph replay)
 
   function getCdnUrl(p) { return window.getAssetUrl ? window.getAssetUrl(config, p) : p; }
+
+  // Render a paragraph's tokens with furigana/romaji via the shared renderer
+  // (honors the reading-aid toggles). Falls back to plain jp text.
+  function renderTokens(tokens, jp) {
+    const rk = window.JPShared && window.JPShared.jpText;
+    if (!rk || !Array.isArray(tokens) || !tokens.length) return esc(jp || '');
+    try { return tokens.map((t) => rk.renderToken(t)).join(''); }
+    catch (e) { return esc(jp || ''); }
+  }
 
   function esc(s) {
     return String(s == null ? '' : s)
@@ -129,8 +139,12 @@ window.AudioDojoModule = (function () {
       }
       .ad-tick {
         position:absolute; top:-3px; width:2px; height:16px;
-        background: oklch(0.22 0.012 60 / 0.4); transform:translateX(-1px); pointer-events:none;
+        background: oklch(0.22 0.012 60 / 0.4); transform:translateX(-1px);
+        cursor:pointer; z-index:2;
       }
+      /* enlarge the tap target without changing the visual tick */
+      .ad-tick::after { content:''; position:absolute; inset:-10px -7px; }
+      @media (hover:hover){ .ad-tick:hover { background: var(--vermilion,#c2410c); } }
       .ad-time {
         display:flex; justify-content:space-between; margin-top:6px;
         font-size:0.72rem; color: var(--ink-3,oklch(0.55 0.012 60));
@@ -171,7 +185,33 @@ window.AudioDojoModule = (function () {
         width:100%; padding:13px; border:none; border-radius:12px; cursor:pointer;
         background: var(--ink,#1a1816); color: var(--washi,#f5f1e8); font-weight:600; font-size:0.95rem; margin-top:6px;
       }
+
+      /* transcript (revealed after completion) */
+      .ad-transcript-toggle {
+        display:none; width:100%; margin-top:14px; padding:11px; cursor:pointer;
+        background: var(--washi-2,#efebe2); border:1px solid var(--hairline,oklch(0.22 0.012 60 / 0.12));
+        border-radius:12px; font-family:inherit; font-size:0.88rem; font-weight:600; color: var(--ink-2,oklch(0.32 0.012 60));
+      }
+      .ad-transcript { margin-top:12px; }
+      .ad-para {
+        display:flex; gap:10px; align-items:flex-start;
+        background:#fff; border:1px solid var(--hairline-2,oklch(0.22 0.012 60 / 0.06));
+        border-radius:12px; padding:12px 14px; margin-bottom:8px;
+      }
+      .ad-para-play {
+        flex-shrink:0; width:34px; height:34px; border-radius:50%; border:none; cursor:pointer;
+        background: oklch(0.60 0.18 30 / 0.10); color: var(--vermilion,#c2410c); font-size:0.85rem;
+      }
+      @media (hover:hover){ .ad-para-play:hover { background: oklch(0.60 0.18 30 / 0.20); } }
+      .ad-para-play.playing { background: var(--vermilion,#c2410c); color:#fff; }
+      .ad-para-jp { flex:1; min-width:0; font-size:1.1rem; line-height:2.0; font-family: var(--font-jp, inherit); }
+      .ad-para-en { font-size:0.82rem; color: var(--ink-3,oklch(0.55 0.012 60)); margin-top:4px; line-height:1.4; }
+
       .ad-empty, .ad-loading, .ad-error { text-align:center; padding:50px 20px; color: var(--ink-3,oklch(0.55 0.012 60)); }
+      /* selector locked rows */
+      .ad-card.locked { opacity:0.6; cursor:default; }
+      .ad-card.locked .ad-card-glyph { background: var(--hairline,oklch(0.22 0.012 60 / 0.10)); color: var(--ink-3,oklch(0.55 0.012 60)); }
+      .ad-card-lock { font-size:0.78rem; color: var(--vermilion-ink,#9a330a); margin-top:3px; font-weight:600; }
     `;
     document.head.appendChild(style);
   }
@@ -195,26 +235,36 @@ window.AudioDojoModule = (function () {
   }
 
   function renderSelector() {
+    if (window.JPApp) window.JPApp.showTabBar();
     stopAudio();
     let html = '<div class="ad-container">' +
       '<header class="ad-header"><div class="ad-title">🎧 Audio Practice</div>' +
       '<div class="ad-nav"><button id="ad-exit">Exit</button></div></header>' +
       '<div class="ad-body">' +
       '<div class="ad-sub">Listen and answer. Scrub the waveform to find the details.</div>';
+    const unlock = window.JPShared && window.JPShared.unlock;
     if (!list.length) {
       html += '<div class="ad-empty">No listening passages yet.</div>';
     } else {
       list.forEach((s, i) => {
-        html += '<div class="ad-card" data-idx="' + i + '">' +
-          '<div class="ad-card-glyph">聴</div>' +
-          '<div><div class="ad-card-jp">' + esc(s.title) + '</div>' +
-          '<div class="ad-card-en">' + esc(s.englishTitle) + '</div></div></div>';
+        const locked = unlock ? !unlock.isAudioStoryUnlocked(s) : false;
+        if (locked) {
+          html += '<div class="ad-card locked">' +
+            '<div class="ad-card-glyph">🔒</div>' +
+            '<div><div class="ad-card-jp">' + esc(s.title) + '</div>' +
+            '<div class="ad-card-lock">Finish Lesson ' + esc(s.unlocksAfter || '') + ' to unlock</div></div></div>';
+        } else {
+          html += '<div class="ad-card" data-idx="' + i + '">' +
+            '<div class="ad-card-glyph">聴</div>' +
+            '<div><div class="ad-card-jp">' + esc(s.title) + '</div>' +
+            '<div class="ad-card-en">' + esc(s.englishTitle) + '</div></div></div>';
+        }
       });
     }
     html += '</div></div>';
     container.innerHTML = html;
     document.getElementById('ad-exit').onclick = onExit;
-    container.querySelectorAll('.ad-card').forEach((c) => {
+    container.querySelectorAll('.ad-card[data-idx]').forEach((c) => {
       c.onclick = function () { currentIndex = parseInt(this.dataset.idx, 10); loadPassage(list[currentIndex]); };
     });
   }
@@ -237,6 +287,7 @@ window.AudioDojoModule = (function () {
   }
 
   function renderPlayer(data) {
+    if (window.JPApp) window.JPApp.hideTabBar();
     const questions = (data.comprehension && data.comprehension.questions) || [];
     let qHtml = '';
     questions.forEach((q, qi) => {
@@ -249,6 +300,18 @@ window.AudioDojoModule = (function () {
       qHtml += '</div>';
       if (q.explanation) qHtml += '<div class="ad-q-explain" hidden data-explain-for="' + qi + '">' + esc(q.explanation) + '</div>';
       qHtml += '</div>';
+    });
+
+    // Transcript (revealed after completion): each paragraph with furigana + en
+    // and a per-paragraph replay button.
+    const paras = data.paragraphs || [];
+    let tHtml = '';
+    paras.forEach((p, i) => {
+      tHtml += '<div class="ad-para" data-pi="' + i + '">' +
+        '<button class="ad-para-play" data-pi="' + i + '" aria-label="Replay paragraph ' + (i + 1) + '">▶</button>' +
+        '<div><div class="ad-para-jp">' + renderTokens(p.tokens, p.jp) + '</div>' +
+        (p.en ? '<div class="ad-para-en">' + esc(p.en) + '</div>' : '') +
+        '</div></div>';
     });
 
     const prevDisabled = currentIndex <= 0 ? 'disabled' : '';
@@ -274,6 +337,8 @@ window.AudioDojoModule = (function () {
         '<div class="ad-q-section" id="ad-q-section" hidden><h3>Questions</h3>' + qHtml +
           '<button class="ad-cta" id="ad-cta" hidden></button>' +
         '</div>' +
+        '<button class="ad-transcript-toggle" id="ad-transcript-toggle">📄 Show transcript</button>' +
+        '<div class="ad-transcript" id="ad-transcript" hidden>' + tHtml + '</div>' +
       '</div></div>';
 
     wirePlayer(data);
@@ -306,6 +371,12 @@ window.AudioDojoModule = (function () {
   }
 
   function loop() {
+    // Per-paragraph replay: auto-pause at the segment boundary.
+    if (audio && segmentEnd != null && isFinite(segmentEnd) && audio.currentTime >= segmentEnd - 0.03) {
+      audio.pause();
+      segmentEnd = null;
+      clearParaPlaying();
+    }
     drawWave();
     updateProgressUi();
     if (audio && !audio.paused && !audio.ended) raf = requestAnimationFrame(loop);
@@ -330,8 +401,41 @@ window.AudioDojoModule = (function () {
       const tick = document.createElement('div');
       tick.className = 'ad-tick';
       tick.style.left = (bp / dur * 100) + '%';
+      tick.title = 'Jump to this paragraph';
+      // Snap-to-breakpoint: tapping a tick jumps to that paragraph's start.
+      // stopPropagation so the bar's free-scrub handler doesn't also fire.
+      tick.addEventListener('pointerdown', (e) => { e.stopPropagation(); seekTo(bp); });
       bar.appendChild(tick);
     });
+  }
+
+  // Seek to an absolute time (cancels any active segment-replay).
+  function seekTo(t) {
+    if (!audio) return;
+    const dur = audio.duration || (currentData && currentData.audio && currentData.audio.dur) || 0;
+    segmentEnd = null;
+    audio.currentTime = Math.max(0, Math.min(t, dur || 0));
+    if (audio.paused) audio.play().catch(() => {});
+    updateProgressUi();
+    drawWave();
+  }
+
+  // Per-paragraph replay: play just segment i (breakpoints[i] → breakpoints[i+1]).
+  function playSegment(i) {
+    if (!audio || !currentData) return;
+    const bps = (currentData.audio && currentData.audio.breakpoints) || [];
+    const dur = audio.duration || (currentData.audio && currentData.audio.dur) || 0;
+    const start = bps[i] || 0;
+    segmentEnd = (i + 1 < bps.length) ? bps[i + 1] : (dur || Infinity);
+    audio.currentTime = start;
+    document.querySelectorAll('.ad-para-play').forEach((b) => {
+      b.classList.toggle('playing', parseInt(b.dataset.pi, 10) === i);
+    });
+    audio.play().catch(() => {});
+  }
+
+  function clearParaPlaying() {
+    document.querySelectorAll('.ad-para-play.playing').forEach((b) => b.classList.remove('playing'));
   }
 
   // ── Wiring ───────────────────────────────────────────────────────────────
@@ -357,6 +461,8 @@ window.AudioDojoModule = (function () {
 
     function revealQuestions() {
       if (qSection) qSection.hidden = false;
+      var tt = document.getElementById('ad-transcript-toggle');
+      if (tt) tt.style.display = 'block';   // transcript becomes available on completion
       completedOnce = true;
     }
 
@@ -371,7 +477,7 @@ window.AudioDojoModule = (function () {
       placeTicksOnce(data);
       cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
     };
-    audio.onpause = function () { setPlaying(false); drawWave(); };
+    audio.onpause = function () { setPlaying(false); drawWave(); clearParaPlaying(); };
     audio.onended = function () { setPlaying(false); updateProgressUi(); drawWave(); revealQuestions(); if (hint) hint.textContent = 'Scrub the waveform to re-listen, then answer below.'; };
     audio.onerror = function () {
       // Audio not generated yet (or failed to load): keep the flow testable by
@@ -389,14 +495,29 @@ window.AudioDojoModule = (function () {
 
     function toggle() {
       if (!audio) return;
-      if (audio.paused) audio.play().catch(() => { if (audio.onerror) audio.onerror(); });
+      if (audio.paused) { segmentEnd = null; clearParaPlaying(); audio.play().catch(() => { if (audio.onerror) audio.onerror(); }); }
       else audio.pause();
     }
     if (playBtn) playBtn.onclick = (e) => { e.stopPropagation(); toggle(); };
     if (box) box.onclick = toggle;
 
+    // Transcript toggle (shown on completion) + per-paragraph replay.
+    var transcriptToggle = document.getElementById('ad-transcript-toggle');
+    var transcript = document.getElementById('ad-transcript');
+    if (transcriptToggle && transcript) {
+      transcriptToggle.onclick = function () {
+        var show = transcript.hidden;
+        transcript.hidden = !show;
+        transcriptToggle.textContent = show ? '📄 Hide transcript' : '📄 Show transcript';
+      };
+    }
+    container.querySelectorAll('.ad-para-play').forEach(function (b) {
+      b.onclick = function () { playSegment(parseInt(b.dataset.pi, 10)); };
+    });
+
     function seekFromEvent(e) {
       if (!audio) return;
+      segmentEnd = null; clearParaPlaying();   // free scrub cancels segment-replay
       const rect = bar.getBoundingClientRect();
       const clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
       const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
@@ -459,6 +580,7 @@ window.AudioDojoModule = (function () {
   }
 
   function stopAudio() {
+    segmentEnd = null;
     if (raf) { cancelAnimationFrame(raf); raf = 0; }
     if (audio) {
       try { audio.pause(); } catch (e) {}

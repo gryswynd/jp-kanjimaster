@@ -741,7 +741,7 @@
           "terms": [
             "v_yama",
             "p_ni",
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ga",
             {
               "id": "v_iru",
@@ -753,7 +753,7 @@
           "jp": "友だちと 車で 来ます。",
           "en": "He will come by car with a friend.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_kuruma",
             "p_de",
@@ -1047,7 +1047,8 @@
             "みち",
             "くるま"
           ],
-          "answer": "やま"
+          "answer": "やま",
+          "explanation": "「山」 is read 「やま」 — mountain."
         },
         {
           "kind": "mcq",
@@ -1058,7 +1059,8 @@
             "どう",
             "みち"
           ],
-          "answer": "かわ"
+          "answer": "かわ",
+          "explanation": "「川」 is read 「かわ」 — river."
         },
         {
           "kind": "mcq",
@@ -1069,7 +1071,8 @@
             "かわ",
             "やま"
           ],
-          "answer": "みち"
+          "answer": "みち",
+          "explanation": "「道」 is read 「みち」 — street."
         },
         {
           "kind": "mcq",
@@ -1080,7 +1083,8 @@
             "かわ",
             "やま"
           ],
-          "answer": "くるま"
+          "answer": "くるま",
+          "explanation": "「車」 is read 「くるま」 — car."
         },
         {
           "kind": "mcq",
@@ -1091,7 +1095,8 @@
             "やまかわ",
             "かさん"
           ],
-          "answer": "かざん"
+          "answer": "かざん",
+          "explanation": "「火山」 is read 「かざん」 — volcano."
         }
       ]
     },
@@ -1119,7 +1124,8 @@
               "form": "polite_masu"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: 今日 山 へ 行きますか。"
         },
         {
           "kind": "mcq",
@@ -1140,7 +1146,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 山に 川が あります。 — 「あります」 (あります) means \"to exist / to have (inanimate, polite form of ある)\"."
         },
         {
           "kind": "mcq",
@@ -1161,7 +1168,8 @@
               "id": "v_iku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 車 で 山へ 行きます。 — 「車」 (くるま) means \"car\"."
         },
         {
           "kind": "mcq",
@@ -1182,7 +1190,8 @@
               "id": "v_kuru",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: りきぞうさんに メールが 来ました。"
         },
         {
           "kind": "mcq",
@@ -1202,7 +1211,8 @@
             "v_totemo",
             "v_ii",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 山の 道は とても いいです。"
         },
         {
           "kind": "mcq",
@@ -1222,7 +1232,8 @@
               "id": "v_iku",
               "form": "polite_mashita"
             }
-          ]
+          ],
+          "explanation": "Correct: 先週 火山へ 行きました。 — 「行きました」 (いきました) means \"went (past polite of 行く)\"."
         },
         {
           "kind": "mcq",
@@ -1245,7 +1256,8 @@
               "id": "v_iku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 山から 川 まで 車で 行きます。"
         },
         {
           "kind": "mcq",
@@ -1267,7 +1279,8 @@
               "form": "polite_masu"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: 来週も 山 へ 来ますか。"
         }
       ]
     },
@@ -1296,7 +1309,8 @@
               "form": "polite_masu"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: 車 で 山へ 行きますか。"
         },
         {
           "kind": "mcq",
@@ -1317,7 +1331,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 山 に 川が あります。"
         },
         {
           "kind": "mcq",
@@ -1340,7 +1355,8 @@
               "id": "v_iku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 駅 から 山まで 車で 行きます。"
         },
         {
           "kind": "mcq",
@@ -1361,7 +1377,8 @@
               "id": "v_iku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 山や 川 に 行きます。"
         },
         {
           "kind": "mcq",
@@ -1382,7 +1399,8 @@
               "id": "v_iku",
               "form": "polite_past_negative"
             }
-          ]
+          ],
+          "explanation": "Correct: 先週は 火山 へ 行きませんでした。"
         },
         {
           "kind": "mcq",
@@ -1403,7 +1421,8 @@
               "form": "polite_mashita"
             },
             "p_ka"
-          ]
+          ],
+          "explanation": "Correct: 今日 バス で 来ましたか。"
         },
         {
           "kind": "mcq",
@@ -1416,7 +1435,7 @@
           ],
           "answer": "と",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_to",
             "v_yama",
             "p_e",
@@ -1424,7 +1443,8 @@
               "id": "v_iku",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 友だち と 山へ 行きます。"
         },
         {
           "kind": "mcq",
@@ -1445,7 +1465,8 @@
             "v_ii",
             "g_desu",
             "p_yo"
-          ]
+          ],
+          "explanation": "Correct: 山の 道 は とても いいですよ。"
         }
       ]
     }

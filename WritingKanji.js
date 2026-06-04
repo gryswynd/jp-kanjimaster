@@ -68,6 +68,8 @@ window.WritingKanjiModule = (function () {
       +   'border-radius:14px;background:#fff;margin-bottom:8px;cursor:pointer;transition:border-color 0.18s,transform 0.1s}'
       + '@media (hover:hover){.wk-lesson-row:hover{border-color:var(--gold)}}'
       + '.wk-lesson-row:active{transform:scale(0.99)}'
+      + '.wk-lesson-row--locked{opacity:0.5;cursor:default;background:var(--washi-2)}'
+      + '@media (hover:hover){.wk-lesson-row--locked:hover{border-color:var(--hairline)}}'
       + '.wk-lesson-id{font-family:var(--font-mono);font-size:10.5px;color:var(--vermilion);letter-spacing:0.12em;'
       +   'font-weight:600;min-width:44px;flex-shrink:0}'
       + '.wk-lesson-name{flex:1;font-size:14.5px;font-weight:600;color:var(--ink)}'
@@ -179,6 +181,7 @@ window.WritingKanjiModule = (function () {
 
     // ---------- Level picker ----------
     function renderLevels() {
+      if (window.JPApp) window.JPApp.showTabBar();
       destroyActiveCanvas();
       state.view = 'level';
       root.innerHTML = '';
@@ -208,6 +211,7 @@ window.WritingKanjiModule = (function () {
 
     // ---------- Lesson list ----------
     async function renderLessons() {
+      if (window.JPApp) window.JPApp.showTabBar();
       destroyActiveCanvas();
       state.view = 'lessons';
       root.innerHTML = '';
@@ -233,15 +237,18 @@ window.WritingKanjiModule = (function () {
         state.lessons = lessons;
         body.innerHTML = '<div class="wk-section-label">' + lessons.length + ' lessons</div>';
         var listWrap = document.createElement('div');
+        // A lesson's kanji writing practice unlocks along with the lesson itself.
+        var unlockApi = window.JPShared && window.JPShared.unlock;
         lessons.forEach(function (lesson) {
+          var unlocked = !unlockApi || unlockApi.isFree() || unlockApi.isLessonUnlocked(lesson);
           var row = document.createElement('div');
-          row.className = 'wk-lesson-row';
+          row.className = 'wk-lesson-row' + (unlocked ? '' : ' wk-lesson-row--locked');
           var n = (lesson.meta && lesson.meta.kanji && lesson.meta.kanji.length) || '–';
           row.innerHTML =
             '<div class="wk-lesson-id">' + lesson.id + '</div>' +
             '<div class="wk-lesson-name">' + (lesson.title || '') + '</div>' +
-            '<div class="wk-lesson-count">' + n + ' kanji</div>';
-          row.onclick = function () { openLesson(lesson); };
+            '<div class="wk-lesson-count">' + (unlocked ? (n + ' kanji') : '🔒 Locked') + '</div>';
+          if (unlocked) row.onclick = function () { openLesson(lesson); };
           listWrap.appendChild(row);
         });
         body.appendChild(listWrap);
@@ -325,6 +332,7 @@ window.WritingKanjiModule = (function () {
 
     // ---------- Drill (single kanji) ----------
     function openDrill(idx) {
+      if (window.JPApp) window.JPApp.hideTabBar();
       destroyActiveCanvas();
       state.view = 'drill';
       state.drillIdx = idx;
@@ -399,6 +407,7 @@ window.WritingKanjiModule = (function () {
           };
           saveMastered(state.mastered);
           if (window.JPShared && window.JPShared.haptics) window.JPShared.haptics.success();
+          if (window.JPShared && window.JPShared.sfx) window.JPShared.sfx.success();
           if (window.JPShared && window.JPShared.progress && window.JPShared.progress.recordActivity) {
             try { window.JPShared.progress.recordActivity(); } catch (e) {}
           }

@@ -701,7 +701,7 @@
           "jp": "友だちが、来週も 天気が いいそうです。また 山へ 行けます。",
           "en": "My friend says next week's weather will be good too. I can go to the mountain again.",
           "terms": [
-            "v_tomodachi",
+            "v_tomodachi_hybrid",
             "p_ga",
             "v_raishuu",
             "p_mo",
@@ -1013,7 +1013,8 @@
             "じゃくふう",
             "きょうかぜ"
           ],
-          "answer": "きょうふう"
+          "answer": "きょうふう",
+          "explanation": "「強風」 is read 「きょうふう」 — strong wind / gale."
         },
         {
           "kind": "mcq",
@@ -1024,7 +1025,8 @@
             "つきこう",
             "げつひかり"
           ],
-          "answer": "げっこう"
+          "answer": "げっこう",
+          "explanation": "「月光」 is read 「げっこう」 — moonlight."
         },
         {
           "kind": "mcq",
@@ -1035,7 +1037,8 @@
             "でんき",
             "てんりょく"
           ],
-          "answer": "でんりょく"
+          "answer": "でんりょく",
+          "explanation": "「電力」 is read 「でんりょく」 — electric power."
         },
         {
           "kind": "mcq",
@@ -1046,7 +1049,8 @@
             "べんこう",
             "どりょく"
           ],
-          "answer": "べんきょう"
+          "answer": "べんきょう",
+          "explanation": "「勉強」 is read 「べんきょう」 — study."
         },
         {
           "kind": "mcq",
@@ -1057,7 +1061,8 @@
             "にちこう",
             "にっひかり"
           ],
-          "answer": "にっこう"
+          "answer": "にっこう",
+          "explanation": "「日光」 is read 「にっこう」 — sunlight / Nikko (place name)."
         },
         {
           "kind": "mcq",
@@ -1068,7 +1073,8 @@
             "よわぎ",
             "じゃっき"
           ],
-          "answer": "よわき"
+          "answer": "よわき",
+          "explanation": "「弱気」 is read 「よわき」 — timid / faint-hearted."
         }
       ]
     },
@@ -1089,7 +1095,8 @@
           "answer": "influential person",
           "terms": [
             "v_yuuryokusha"
-          ]
+          ],
+          "explanation": "「有力者」 (ゆうりょくしゃ) means \"influential person\"."
         },
         {
           "kind": "mcq",
@@ -1103,7 +1110,8 @@
           "answer": "timid / faint-hearted",
           "terms": [
             "v_yowaki"
-          ]
+          ],
+          "explanation": "「弱気」 (よわき) means \"timid / faint-hearted\"."
         },
         {
           "kind": "mcq",
@@ -1117,7 +1125,8 @@
           "answer": "sunlight",
           "terms": [
             "v_nikkou"
-          ]
+          ],
+          "explanation": "「日光」 (にっこう) means \"sunlight\"."
         },
         {
           "kind": "mcq",
@@ -1131,7 +1140,8 @@
           "answer": "lightning / electric light",
           "terms": [
             "v_denkou"
-          ]
+          ],
+          "explanation": "「電光」 (でんこう) means \"lightning / electric light\"."
         }
       ]
     },
@@ -1157,7 +1167,8 @@
               "id": "v_tsuyoi",
               "form": "polite_adj"
             }
-          ]
+          ],
+          "explanation": "Correct: あの 人は 力が 強い です。 — 「強い」 (つよい) means \"strong\"."
         },
         {
           "kind": "mcq",
@@ -1177,7 +1188,8 @@
               "id": "v_suru",
               "form": "polite_masu"
             }
-          ]
+          ],
+          "explanation": "Correct: 明日、日本語を 勉強します。"
         },
         {
           "kind": "mcq",
@@ -1207,7 +1219,8 @@
               "id": "v_iru",
               "form": "polite_negative"
             }
-          ]
+          ],
+          "explanation": "Correct: 風が 強いですから、電車が 来ていません。"
         },
         {
           "kind": "mcq",
@@ -1225,7 +1238,8 @@
             "v_benkyou",
             "v_suki",
             "g_desu"
-          ]
+          ],
+          "explanation": "Correct: 月光 で 勉強するのが 好きです。 — 「月光」 (げっこう) means \"moonlight\"."
         }
       ]
     }

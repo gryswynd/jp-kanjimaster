@@ -1999,6 +1999,81 @@
   "grammarUsed": [],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "りきぞうは いちばん 好きな 色は 何ですか。",
+        "q_en": "What is Rikizo's favorite color?",
+        "answer": "青がいちばん好きです。",
+        "accept": [
+          "青"
+        ],
+        "explanation": "「私は青がいちばん好きだよ。」と書いてあります。",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "今朝の 朝ごはんは だれが 作ってくれましたか。",
+        "q_en": "Who made this morning's breakfast?",
+        "answer": "母が作ってくれました。",
+        "accept": [
+          "母"
+        ],
+        "explanation": "「今朝の朝ごはんは母が作ってくれました。」と書いてあります。",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "今朝の カレーは 何色でしたか。",
+        "q_en": "What color was this morning's curry?",
+        "answer": "茶色でした。",
+        "accept": [
+          "茶色"
+        ],
+        "explanation": "「茶色いカレーでした。」と書いてあります。",
+        "terms": [
+          "v_chairo"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "けんは 何色が 大好きですか。",
+        "q_en": "What color does Ken love?",
+        "answer": "赤い色が大好きです。",
+        "accept": [
+          "赤"
+        ],
+        "explanation": "「私は赤い色が大好きだよ。」とけんが言いました。",
+        "terms": [
+          "v_akai"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "学校へ 行く 道で 空は 何色に なっていましたか。",
+        "q_en": "What color had the sky turned on the way to school?",
+        "answer": "黒くなっていました。",
+        "accept": [
+          "黒"
+        ],
+        "explanation": "「空が黒くなっていました。」と書いてあります。",
+        "terms": [
+          "v_kuroi"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "母の いちばん 好きな 花は どんな 花ですか。",
+        "q_en": "What kind of flower does mother like best?",
+        "answer": "赤い花がいちばん好きです。",
+        "accept": [
+          "赤"
+        ],
+        "explanation": "「赤い花がいちばん好き。」と母が言いました。",
+        "terms": [
+          "v_akai"
+        ]
+      }
+    ]
   }
 }

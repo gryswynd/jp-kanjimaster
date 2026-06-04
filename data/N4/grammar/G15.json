@@ -70,17 +70,46 @@
             {
               "text": "野菜の",
               "role": "topic",
-              "gloss": "vegetables (の = possessive/classifier)"
+              "gloss": "vegetables (の = possessive/classifier)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ほうが",
               "role": "subject",
-              "gloss": "the side of / more (comparison marker)"
+              "gloss": "the side of / more (comparison marker)",
+              "tokens": [
+                {
+                  "k": "ほう",
+                  "g": "v_hou"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "おいしいです。",
               "role": "predicate",
-              "gloss": "is delicious (polite)"
+              "gloss": "is delicious (polite)",
+              "tokens": [
+                {
+                  "k": "おいしい"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Vegetables are more delicious.",
@@ -91,22 +120,65 @@
             {
               "text": "肉より",
               "role": "object",
-              "gloss": "than meat (より = than — the lesser)"
+              "gloss": "than meat (より = than — the lesser)",
+              "tokens": [
+                {
+                  "k": "肉"
+                },
+                {
+                  "k": "より"
+                }
+              ]
             },
             {
               "text": "野菜の",
               "role": "topic",
-              "gloss": "vegetables (の)"
+              "gloss": "vegetables (の)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ほうが",
               "role": "subject",
-              "gloss": "the side of (comparison marker)"
+              "gloss": "the side of (comparison marker)",
+              "tokens": [
+                {
+                  "k": "ほう",
+                  "g": "v_hou"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "好きです。",
               "role": "predicate",
-              "gloss": "I like (polite な-adj predicate)"
+              "gloss": "I like (polite な-adj predicate)",
+              "tokens": [
+                {
+                  "k": "好",
+                  "r": "す",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "き",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I like vegetables more than meat.",
@@ -146,17 +218,59 @@
             {
               "text": "駅より",
               "role": "object",
-              "gloss": "than the station (より marks the lesser element)"
+              "gloss": "than the station (より marks the lesser element)",
+              "tokens": [
+                {
+                  "k": "駅",
+                  "r": "えき"
+                },
+                {
+                  "k": "より"
+                }
+              ]
             },
             {
               "text": "店のほうが",
               "role": "topic",
-              "gloss": "the store side (ほうが marks the greater)"
+              "gloss": "the store side (ほうが marks the greater)",
+              "tokens": [
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "ほう",
+                  "g": "v_hou"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "近いです。",
               "role": "predicate",
-              "gloss": "is closer (polite)"
+              "gloss": "is closer (polite)",
+              "tokens": [
+                {
+                  "k": "近",
+                  "r": "ちか",
+                  "g": "v_chikai"
+                },
+                {
+                  "k": "い",
+                  "g": "v_chikai"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The store is closer than the station.",
@@ -192,17 +306,54 @@
             {
               "text": "この本は",
               "role": "topic",
-              "gloss": "this book (topic: は)"
+              "gloss": "this book (topic: は)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "あの本ほど",
               "role": "object",
-              "gloss": "as much as that book (ほど = to that degree)"
+              "gloss": "as much as that book (ほど = to that degree)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "ほど"
+                }
+              ]
             },
             {
               "text": "おもしろくないです。",
               "role": "predicate",
-              "gloss": "is not interesting (negative polite: おもしろい → おもしろくない)"
+              "gloss": "is not interesting (negative polite: おもしろい → おもしろくない)",
+              "tokens": [
+                {
+                  "k": "おもしろくない",
+                  "g": "v_omoshiroi_plain_negative"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This book is not as interesting as that book.",
@@ -237,17 +388,51 @@
             {
               "text": "三時間",
               "role": "object",
-              "gloss": "three hours"
+              "gloss": "three hours",
+              "tokens": [
+                {
+                  "k": "三",
+                  "r": "さん",
+                  "g": "v_sanji"
+                },
+                {
+                  "k": "時",
+                  "r": "じ",
+                  "g": "v_sanji"
+                },
+                {
+                  "k": "間"
+                }
+              ]
             },
             {
               "text": "くらい",
               "role": "modifier",
-              "gloss": "about / approximately"
+              "gloss": "about / approximately",
+              "tokens": [
+                {
+                  "k": "くらい"
+                }
+              ]
             },
             {
               "text": "働きました。",
               "role": "predicate",
-              "gloss": "worked (働く, polite past)"
+              "gloss": "worked (働く, polite past)",
+              "tokens": [
+                {
+                  "k": "働",
+                  "r": "はたら",
+                  "g": "v_hataraku_polite_mashita"
+                },
+                {
+                  "k": "きました",
+                  "g": "v_hataraku_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I worked for about three hours.",
@@ -283,12 +468,30 @@
             {
               "text": "食べ",
               "role": "connector",
-              "gloss": "eat — ます-stem of 食べる (ichidan verb)"
+              "gloss": "eat — ます-stem of 食べる (ichidan verb)",
+              "tokens": [
+                {
+                  "k": "食",
+                  "r": "た"
+                },
+                {
+                  "k": "べ"
+                }
+              ]
             },
             {
               "text": "すぎました。",
               "role": "predicate",
-              "gloss": "too much (すぎる → すぎました, polite past)"
+              "gloss": "too much (すぎる → すぎました, polite past)",
+              "tokens": [
+                {
+                  "k": "すぎました",
+                  "g": "v_sugiru_polite_mashita"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I ate too much.",
@@ -299,17 +502,45 @@
             {
               "text": "この料理は",
               "role": "topic",
-              "gloss": "this dish (topic: は)"
+              "gloss": "this dish (topic: は)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "料理",
+                  "r": "りょうり"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "高",
               "role": "connector",
-              "gloss": "expensive — い-adjective stem (高い → drop い → 高)"
+              "gloss": "expensive — い-adjective stem (高い → drop い → 高)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか"
+                }
+              ]
             },
             {
               "text": "すぎます。",
               "role": "predicate",
-              "gloss": "too (much) — すぎる, polite"
+              "gloss": "too (much) — すぎる, polite",
+              "tokens": [
+                {
+                  "k": "すぎます",
+                  "g": "v_sugiru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This dish is too expensive.",
@@ -344,22 +575,63 @@
             {
               "text": "山の",
               "role": "topic",
-              "gloss": "the mountain's (の = possessive)"
+              "gloss": "the mountain's (の = possessive)",
+              "tokens": [
+                {
+                  "k": "山",
+                  "r": "やま"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "高さは",
               "role": "subject",
-              "gloss": "height (高い → drop い + さ = 高さ; は = topic marker)"
+              "gloss": "height (高い → drop い + さ = 高さ; は = topic marker)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか"
+                },
+                {
+                  "k": "さ"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "どのくらい",
               "role": "object",
-              "gloss": "about how much / to what extent"
+              "gloss": "about how much / to what extent",
+              "tokens": [
+                {
+                  "k": "どの"
+                },
+                {
+                  "k": "くらい"
+                }
+              ]
             },
             {
               "text": "ですか。",
               "role": "predicate",
-              "gloss": "is it? (polite question)"
+              "gloss": "is it? (polite question)",
+              "tokens": [
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "About how tall is the mountain?",
@@ -385,22 +657,65 @@
               {
                 "text": "野菜より",
                 "role": "object",
-                "gloss": "than vegetables (より = than — lesser element)"
+                "gloss": "than vegetables (より = than — lesser element)",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  },
+                  {
+                    "k": "より"
+                  }
+                ]
               },
               {
                 "text": "肉の",
                 "role": "topic",
-                "gloss": "meat (の = classifier)"
+                "gloss": "meat (の = classifier)",
+                "tokens": [
+                  {
+                    "k": "肉"
+                  },
+                  {
+                    "k": "の"
+                  }
+                ]
               },
               {
                 "text": "ほうが",
                 "role": "subject",
-                "gloss": "the side of (ほうが marks the greater element)"
+                "gloss": "the side of (ほうが marks the greater element)",
+                "tokens": [
+                  {
+                    "k": "ほう",
+                    "g": "v_hou"
+                  },
+                  {
+                    "k": "が"
+                  }
+                ]
               },
               {
                 "text": "高いです。",
                 "role": "predicate",
-                "gloss": "is expensive (高い, polite — POSITIVE adjective)"
+                "gloss": "is expensive (高い, polite — POSITIVE adjective)",
+                "tokens": [
+                  {
+                    "k": "高",
+                    "r": "たか",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "い",
+                    "g": "v_takai"
+                  },
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Meat is more expensive than vegetables."
@@ -420,17 +735,52 @@
               {
                 "text": "野菜は",
                 "role": "topic",
-                "gloss": "vegetables (topic: は — the one falling short)"
+                "gloss": "vegetables (topic: は — the one falling short)",
+                "tokens": [
+                  {
+                    "k": "野菜",
+                    "r": "やさい"
+                  },
+                  {
+                    "k": "は",
+                    "r": "わ"
+                  }
+                ]
               },
               {
                 "text": "肉ほど",
                 "role": "object",
-                "gloss": "as much as meat (ほど = to that degree — sets the benchmark)"
+                "gloss": "as much as meat (ほど = to that degree — sets the benchmark)",
+                "tokens": [
+                  {
+                    "k": "肉"
+                  },
+                  {
+                    "k": "ほど"
+                  }
+                ]
               },
               {
                 "text": "高くないです。",
                 "role": "predicate",
-                "gloss": "is not expensive (高い → 高くない — NEGATIVE adjective required)"
+                "gloss": "is not expensive (高い → 高くない — NEGATIVE adjective required)",
+                "tokens": [
+                  {
+                    "k": "高",
+                    "r": "たか",
+                    "g": "v_takai_plain_negative"
+                  },
+                  {
+                    "k": "くない",
+                    "g": "v_takai_plain_negative"
+                  },
+                  {
+                    "k": "です"
+                  },
+                  {
+                    "k": "。"
+                  }
+                ]
               }
             ],
             "en": "Vegetables are not as expensive as meat."
@@ -449,22 +799,66 @@
             {
               "text": "野菜より",
               "role": "object",
-              "gloss": "than vegetables (より = than — marks the lesser element)"
+              "gloss": "than vegetables (より = than — marks the lesser element)",
+              "tokens": [
+                {
+                  "k": "野菜",
+                  "r": "やさい"
+                },
+                {
+                  "k": "より"
+                }
+              ]
             },
             {
               "text": "魚の",
               "role": "topic",
-              "gloss": "fish (の = classifier)"
+              "gloss": "fish (の = classifier)",
+              "tokens": [
+                {
+                  "k": "魚",
+                  "r": "さかな"
+                },
+                {
+                  "k": "の"
+                }
+              ]
             },
             {
               "text": "ほうが",
               "role": "subject",
-              "gloss": "the side of (ほうが marks the preferred/greater element)"
+              "gloss": "the side of (ほうが marks the preferred/greater element)",
+              "tokens": [
+                {
+                  "k": "ほう",
+                  "g": "v_hou"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "好きです。",
               "role": "predicate",
-              "gloss": "I like / prefer (好き, polite — POSITIVE predicate)"
+              "gloss": "I like / prefer (好き, polite — POSITIVE predicate)",
+              "tokens": [
+                {
+                  "k": "好",
+                  "r": "す",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "き",
+                  "g": "v_suki"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "I prefer fish over vegetables.",
@@ -476,17 +870,45 @@
             {
               "text": "この魚は",
               "role": "topic",
-              "gloss": "this fish (topic: は)"
+              "gloss": "this fish (topic: は)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "魚",
+                  "r": "さかな"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "高",
               "role": "connector",
-              "gloss": "expensive — い-adjective stem (高い → drop い before すぎる)"
+              "gloss": "expensive — い-adjective stem (高い → drop い before すぎる)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか"
+                }
+              ]
             },
             {
               "text": "すぎます。",
               "role": "predicate",
-              "gloss": "too (much) — すぎる, polite present"
+              "gloss": "too (much) — すぎる, polite present",
+              "tokens": [
+                {
+                  "k": "すぎます",
+                  "g": "v_sugiru_polite_masu"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This fish is too expensive.",
@@ -498,17 +920,66 @@
             {
               "text": "あの店の魚は",
               "role": "topic",
-              "gloss": "the fish at that store (の = possessive; は = topic)"
+              "gloss": "the fish at that store (の = possessive; は = topic)",
+              "tokens": [
+                {
+                  "k": "あの"
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": "魚",
+                  "r": "さかな"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "この店ほど",
               "role": "object",
-              "gloss": "as much as this store (ほど = to that degree — sets the benchmark)"
+              "gloss": "as much as this store (ほど = to that degree — sets the benchmark)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": "店",
+                  "r": "みせ"
+                },
+                {
+                  "k": "ほど"
+                }
+              ]
             },
             {
               "text": "高くないです。",
               "role": "predicate",
-              "gloss": "is not expensive (高い → 高くない — NEGATIVE adjective required with ほど)"
+              "gloss": "is not expensive (高い → 高くない — NEGATIVE adjective required with ほど)",
+              "tokens": [
+                {
+                  "k": "高",
+                  "r": "たか",
+                  "g": "v_takai_plain_negative"
+                },
+                {
+                  "k": "くない",
+                  "g": "v_takai_plain_negative"
+                },
+                {
+                  "k": "です"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The fish at that store is not as expensive as this store.",

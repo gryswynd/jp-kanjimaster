@@ -183,22 +183,64 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic / receiver)"
+              "gloss": "Rikizo (は — topic / receiver)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "modifier",
-              "gloss": "by the teacher (に — agent marker)"
+              "gloss": "by the teacher (に — agent marker)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "名前を",
               "role": "object",
-              "gloss": "name (を — object; the thing asked about)"
+              "gloss": "name (を — object; the thing asked about)",
+              "tokens": [
+                {
+                  "k": "名前",
+                  "r": "なまえ"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "聞かれました。",
               "role": "predicate",
-              "gloss": "was asked (聞く → 聞かれる — U-verb passive, polite past)"
+              "gloss": "was asked (聞く → 聞かれる — U-verb passive, polite past)",
+              "tokens": [
+                {
+                  "k": "聞",
+                  "r": "き",
+                  "g": "v_kiku_polite_passive_past"
+                },
+                {
+                  "k": "かれました",
+                  "g": "v_kiku_polite_passive_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo was asked his name by the teacher.",
@@ -209,17 +251,74 @@
             {
               "text": "この 本は",
               "role": "topic",
-              "gloss": "this book (は — topic / receiver)"
+              "gloss": "this book (は — topic / receiver)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "多くの 人に",
               "role": "modifier",
-              "gloss": "by many people (に — agent)"
+              "gloss": "by many people (に — agent)",
+              "tokens": [
+                {
+                  "k": "多",
+                  "r": "おお",
+                  "g": "v_ooi_adverbial"
+                },
+                {
+                  "k": "く",
+                  "g": "v_ooi_adverbial"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "人",
+                  "r": "ひと"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "読まれています。",
               "role": "predicate",
-              "gloss": "is being read (読む → 読まれる — U-verb passive, progressive)"
+              "gloss": "is being read (読む → 読まれる — U-verb passive, progressive)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ",
+                  "g": "v_yomu_passive_te"
+                },
+                {
+                  "k": "まれて",
+                  "g": "v_yomu_passive_te"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This book is being read by many people.",
@@ -262,22 +361,84 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic / sufferer)"
+              "gloss": "Rikizo (は — topic / sufferer)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だちに",
               "role": "modifier",
-              "gloss": "by his friend (に — agent of the action)"
+              "gloss": "by his friend (に — agent of the action)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "問題の 答えを",
               "role": "object",
-              "gloss": "the answer to the problem (の — possessive, を — object)"
+              "gloss": "the answer to the problem (の — possessive, を — object)",
+              "tokens": [
+                {
+                  "k": "問題",
+                  "r": "もんだい"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "答",
+                  "r": "こた",
+                  "g": "v_kotae"
+                },
+                {
+                  "k": "え",
+                  "g": "v_kotae"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "教えられた。",
               "role": "predicate",
-              "gloss": "was told / was taught (教える → 教えられる — RU-verb passive, plain past)"
+              "gloss": "was told / was taught (教える → 教えられる — RU-verb passive, plain past)",
+              "tokens": [
+                {
+                  "k": "教",
+                  "r": "おし",
+                  "g": "v_oshieru_plain_potential_past"
+                },
+                {
+                  "k": "えられた",
+                  "g": "v_oshieru_plain_potential_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "His friend told Rikizo the answer to the problem. (Rikizo suffered from being told — he didn't want to know.)",
@@ -288,27 +449,88 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic / sufferer)"
+              "gloss": "Rikizo (は — topic / sufferer)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "modifier",
-              "gloss": "by the teacher (に — agent)"
+              "gloss": "by the teacher (に — agent)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "日本語で",
               "role": "adverb",
-              "gloss": "in Japanese (で — means / method)"
+              "gloss": "in Japanese (で — means / method)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "話されて、",
               "role": "predicate",
-              "gloss": "was spoken to (話す → 話される, te-form — adversative)"
+              "gloss": "was spoken to (話す → 話される, te-form — adversative)",
+              "tokens": [
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_passive_te"
+                },
+                {
+                  "k": "されて",
+                  "g": "v_hanasu_passive_te"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "あまり 分かりませんでした。",
               "role": "predicate",
-              "gloss": "didn't understand much (あまり + negative — polite past)"
+              "gloss": "didn't understand much (あまり + negative — polite past)",
+              "tokens": [
+                {
+                  "k": "あまり"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "分",
+                  "r": "わ",
+                  "g": "v_wakaru_polite_past_negative"
+                },
+                {
+                  "k": "かりませんでした",
+                  "g": "v_wakaru_polite_past_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "The teacher spoke to Rikizo in Japanese, and he didn't understand much. (He suffered from being spoken to in Japanese.)",
@@ -356,17 +578,54 @@
             {
               "text": "この 本は",
               "role": "topic",
-              "gloss": "this book (は — topic)"
+              "gloss": "this book (は — topic)",
+              "tokens": [
+                {
+                  "k": "この"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "本",
+                  "r": "ほん"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "一日で",
               "role": "adverb",
-              "gloss": "in one day (で — time frame)"
+              "gloss": "in one day (で — time frame)",
+              "tokens": [
+                {
+                  "k": "一日",
+                  "r": "いちにち"
+                },
+                {
+                  "k": "で"
+                }
+              ]
             },
             {
               "text": "読まれます。",
               "role": "predicate",
-              "gloss": "is read (読む → 読まれる — U-verb, unambiguously passive)"
+              "gloss": "is read (読む → 読まれる — U-verb, unambiguously passive)",
+              "tokens": [
+                {
+                  "k": "読",
+                  "r": "よ"
+                },
+                {
+                  "k": "まれます"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "This book is read in one day. (passive — U-verb 読む, so no ambiguity with potential)",
@@ -377,17 +636,49 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic)"
+              "gloss": "Rikizo (は — topic)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "modifier",
-              "gloss": "by the teacher (に — agent marker → passive signal)"
+              "gloss": "by the teacher (に — agent marker → passive signal)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "見られた。",
               "role": "predicate",
-              "gloss": "was seen / watched (見る → 見られた — passive, plain past)"
+              "gloss": "was seen / watched (見る → 見られた — passive, plain past)",
+              "tokens": [
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru_plain_potential_past"
+                },
+                {
+                  "k": "られた",
+                  "g": "v_miru_plain_potential_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo was watched by the teacher. (passive reading — agent に present, human subject being acted on)",
@@ -405,17 +696,61 @@
             {
               "text": "新しい 学校が",
               "role": "subject",
-              "gloss": "new school (が — subject / receiver)"
+              "gloss": "new school (が — subject / receiver)",
+              "tokens": [
+                {
+                  "k": "新",
+                  "r": "あたら",
+                  "g": "v_atarashii"
+                },
+                {
+                  "k": "しい",
+                  "g": "v_atarashii"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "学校",
+                  "r": "がっこう"
+                },
+                {
+                  "k": "が"
+                }
+              ]
             },
             {
               "text": "町に",
               "role": "modifier",
-              "gloss": "in the town (に — location)"
+              "gloss": "in the town (に — location)",
+              "tokens": [
+                {
+                  "k": "町",
+                  "r": "まち"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "作られました。",
               "role": "predicate",
-              "gloss": "was built (作る → 作られる — U-verb passive, polite past)"
+              "gloss": "was built (作る → 作られる — U-verb passive, polite past)",
+              "tokens": [
+                {
+                  "k": "作",
+                  "r": "つく",
+                  "g": "v_tsukuru_polite_passive_past"
+                },
+                {
+                  "k": "られました",
+                  "g": "v_tsukuru_polite_passive_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "A new school was built in the town.",
@@ -427,22 +762,74 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic / receiver)"
+              "gloss": "Rikizo (は — topic / receiver)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "先生に",
               "role": "modifier",
-              "gloss": "by the teacher (に — agent)"
+              "gloss": "by the teacher (に — agent)",
+              "tokens": [
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "日本語の 問題を",
               "role": "object",
-              "gloss": "a Japanese-language problem (の — modifier, を — object)"
+              "gloss": "a Japanese-language problem (の — modifier, を — object)",
+              "tokens": [
+                {
+                  "k": "日本語",
+                  "r": "にほんご"
+                },
+                {
+                  "k": "の"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "問題",
+                  "r": "もんだい"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "聞かれました。",
               "role": "predicate",
-              "gloss": "was asked (聞く → 聞かれる — U-verb passive, polite past)"
+              "gloss": "was asked (聞く → 聞かれる — U-verb passive, polite past)",
+              "tokens": [
+                {
+                  "k": "聞",
+                  "r": "き",
+                  "g": "v_kiku_polite_passive_past"
+                },
+                {
+                  "k": "かれました",
+                  "g": "v_kiku_polite_passive_past"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo was asked a Japanese-language problem by the teacher.",
@@ -454,27 +841,88 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic / sufferer)"
+              "gloss": "Rikizo (は — topic / sufferer)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "友だちに",
               "role": "modifier",
-              "gloss": "by his friend (に — agent)"
+              "gloss": "by his friend (に — agent)",
+              "tokens": [
+                {
+                  "k": "友",
+                  "r": "とも",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "だち",
+                  "g": "v_tomodachi_hybrid"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "答えを",
               "role": "object",
-              "gloss": "the answer (を — object of what was told)"
+              "gloss": "the answer (を — object of what was told)",
+              "tokens": [
+                {
+                  "k": "答",
+                  "r": "こた",
+                  "g": "v_kotae"
+                },
+                {
+                  "k": "え",
+                  "g": "v_kotae"
+                },
+                {
+                  "k": "を",
+                  "r": "お"
+                }
+              ]
             },
             {
               "text": "教えられて、",
               "role": "predicate",
-              "gloss": "was told [it] (教える → 教えられる, te-form — adversative; he suffered)"
+              "gloss": "was told [it] (教える → 教えられる, te-form — adversative; he suffered)",
+              "tokens": [
+                {
+                  "k": "教",
+                  "r": "おし",
+                  "g": "v_oshieru_potential_te"
+                },
+                {
+                  "k": "えられて",
+                  "g": "v_oshieru_potential_te"
+                },
+                {
+                  "k": "、"
+                }
+              ]
             },
             {
               "text": "よくなかった。",
               "role": "predicate",
-              "gloss": "it wasn't good (よい → よくない — plain negative, plain past adj)"
+              "gloss": "it wasn't good (よい → よくない — plain negative, plain past adj)",
+              "tokens": [
+                {
+                  "k": "よくなかった",
+                  "g": "v_ii_plain_past_negative"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "His friend told Rikizo the answer, and it wasn't good. (He suffered from being told the answer.)",
@@ -486,22 +934,78 @@
             {
               "text": "りきぞうは",
               "role": "topic",
-              "gloss": "Rikizo (は — topic)"
+              "gloss": "Rikizo (は — topic)",
+              "tokens": [
+                {
+                  "k": "りきぞう"
+                },
+                {
+                  "k": "は",
+                  "r": "わ"
+                }
+              ]
             },
             {
               "text": "毎日 先生に",
               "role": "modifier",
-              "gloss": "every day by the teacher (に — agent → passive signal)"
+              "gloss": "every day by the teacher (に — agent → passive signal)",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                },
+                {
+                  "k": " "
+                },
+                {
+                  "k": "先生",
+                  "r": "せんせい"
+                },
+                {
+                  "k": "に"
+                }
+              ]
             },
             {
               "text": "見られると",
               "role": "connector",
-              "gloss": "is watched (見る → 見られる, plain passive) + と (quotation)"
+              "gloss": "is watched (見る → 見られる, plain passive) + と (quotation)",
+              "tokens": [
+                {
+                  "k": "見",
+                  "r": "み",
+                  "g": "v_miru_potential"
+                },
+                {
+                  "k": "られる",
+                  "g": "v_miru_potential"
+                },
+                {
+                  "k": "と"
+                }
+              ]
             },
             {
               "text": "思っています。",
               "role": "predicate",
-              "gloss": "thinks / feels (と思っている — sustained belief, polite)"
+              "gloss": "thinks / feels (と思っている — sustained belief, polite)",
+              "tokens": [
+                {
+                  "k": "思",
+                  "r": "おも",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "って",
+                  "g": "v_omou_te_form"
+                },
+                {
+                  "k": "います"
+                },
+                {
+                  "k": "。"
+                }
+              ]
             }
           ],
           "en": "Rikizo feels he is being watched by the teacher every day.",
