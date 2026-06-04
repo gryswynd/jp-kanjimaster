@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var continue_label: Label = $Overlay/SpeechBubble/SpeechMargin/SpeechVBox/ContinueLabel
 @onready var portrait: TextureRect = $Overlay/Portrait
 @onready var bg_texture_rect: TextureRect = $Overlay/Background
+@onready var speech_bubble: PanelContainer = $Overlay/SpeechBubble
 
 var conversation: Array = []
 var conversation_index: int = 0
@@ -30,6 +31,30 @@ func _ready() -> void:
 		bg_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		overlay.add_child(bg_texture_rect)
 		overlay.move_child(bg_texture_rect, 0)
+
+	# Keep the speech bubble + portrait clear of device notches / home indicator
+	# (iPhone Dynamic Island in landscape sits on the left edge and was covering
+	# the start of the Japanese line). No-op on Switch/Deck/desktop (insets = 0).
+	_apply_safe_area()
+	var sa := get_node_or_null("/root/SafeArea")
+	if sa and sa.has_signal("changed"):
+		sa.changed.connect(_apply_safe_area)
+
+
+# Nudge the bubble in from the left/bottom safe-area insets and the portrait in
+# from the right inset. These are layout offsets ADDED on top of the scene's
+# anchor-based positions, so on inset-free platforms nothing moves.
+func _apply_safe_area() -> void:
+	var sa := get_node_or_null("/root/SafeArea")
+	if sa == null:
+		return
+	var i: Dictionary = sa.insets()
+	if speech_bubble:
+		speech_bubble.offset_left = i.get("left", 0.0)
+		speech_bubble.offset_bottom = -i.get("bottom", 0.0)
+	if portrait:
+		portrait.offset_right = -i.get("right", 0.0)
+		portrait.offset_top = i.get("top", 0.0)
 
 
 func set_portrait_map(map: Dictionary) -> void:

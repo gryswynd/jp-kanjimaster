@@ -20,13 +20,13 @@
 import { Router } from 'express';
 import {
   getEntitlement, getPricingFlags, getQuotaState,
-  reservePressAsk, refundPressAsk, settleCost,
+  reservePressAsk, refundPressAsk, settleCost, recordCostRollup,
   getGlobalSpendCents, getProfile, httpError,
 } from '../lib/store.js';
 import { transcribe } from '../lib/stt.js';
 import { answerPressToAsk } from '../lib/anthropic.js';
 import { summarizeProfile, recordLookups } from '../lib/profile.js';
-import { computeCostCents, logCost } from '../lib/cost-meter.js';
+import { computeCost, logCost } from '../lib/cost-meter.js';
 
 export const pressToAskRouter = Router();
 
@@ -79,9 +79,10 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
         // Nothing transcribed — refund and ask again (no Claude spend).
         await refundPressAsk(deviceId);
         reserved = false;
-        const cents = computeCostCents(usage);
+        const { totalCents: cents, breakdown } = computeCost(usage);
         await settleCost(deviceId, cents);
-        logCost('press-to-ask/low-confidence', deviceId, usage, cents);
+        await recordCostRollup(deviceId, breakdown, cents);
+        logCost('press-to-ask/low-confidence', deviceId, usage, cents, breakdown);
         return res.json({
           transcript,
           answer: '聞き取れなかったよ。もう一度言ってね。 (I didn\'t catch that — say it again?)',
@@ -101,9 +102,10 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
     usage.inputTokens = llm.inputTokens;
     usage.outputTokens = llm.outputTokens;
 
-    const cents = computeCostCents(usage);
+    const { totalCents: cents, breakdown } = computeCost(usage);
     await settleCost(deviceId, cents);
-    logCost('press-to-ask', deviceId, usage, cents);
+    await recordCostRollup(deviceId, breakdown, cents);
+    logCost('press-to-ask', deviceId, usage, cents, breakdown);
 
     // Update the learner profile with what Rikizo looked up (fire-and-forget — a
     // cheap store write, no model call; never block the response on it).

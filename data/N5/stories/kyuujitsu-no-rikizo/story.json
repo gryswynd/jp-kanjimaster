@@ -1009,6 +1009,46 @@
   "grammarUsed": [],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "今日の天気はどうですか。",
+        "q_en": "How is the weather today?",
+        "answer": "いいです",
+        "accept": [
+          "いい"
+        ],
+        "explanation": "天気は いいですよ。",
+        "terms": [
+          "v_tenki"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは何で行きたいですか。",
+        "q_en": "How does Rikizo want to go?",
+        "answer": "電車で行きたいです",
+        "accept": [
+          "電車"
+        ],
+        "explanation": "電車で行きたいです。",
+        "terms": [
+          "v_densha"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "駅の前に何がありますか。",
+        "q_en": "What is in front of the station?",
+        "answer": "ホテルがあります",
+        "accept": [
+          "ホテル"
+        ],
+        "explanation": "駅の前にホテルがあります。人気のホテルです。",
+        "terms": [
+          "v_hoteru"
+        ]
+      }
+    ]
   }
 }

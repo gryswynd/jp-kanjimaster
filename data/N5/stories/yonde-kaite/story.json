@@ -1187,6 +1187,59 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "先生はどう読んでくださいと言いましたか。",
+        "q_en": "How did the teacher say to read?",
+        "answer": "ゆっくり読んでください",
+        "accept": [
+          "ゆっくり"
+        ],
+        "explanation": "先生が言いました。「ゆっくり読んでください。」",
+        "terms": [
+          "v_yukkuri"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "レンは何の本を読みましたか。",
+        "q_en": "What book did Ren read?",
+        "answer": "空手の本",
+        "accept": [
+          "空手"
+        ],
+        "explanation": "レンは空手の本を読みました。",
+        "terms": [
+          "v_karate"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "ミキはどんな本を読んでいますか。",
+        "q_en": "What kind of book is Miki reading?",
+        "answer": "白い本",
+        "accept": [
+          "白い"
+        ],
+        "explanation": "ミキは白い本を読んでいます。",
+        "terms": [
+          "v_shiroi"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "学校の後で、だれから電話がありましたか。",
+        "q_en": "Who called after school?",
+        "answer": "ミキから電話がありました",
+        "accept": [
+          "ミキ"
+        ],
+        "explanation": "ミキから電話がありました。",
+        "terms": [
+          "v_denwa"
+        ]
+      }
+    ]
   }
 }

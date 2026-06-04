@@ -636,6 +636,7 @@
             : 'Set a first name to be greeted by it on the home screen instead of <strong>Rikizo-san</strong>.') +
         '</div>' +
       '</div>' +
+      buildUnlockCodeCard() +
       buildImportCard()
     );
   }
@@ -651,7 +652,8 @@
       '<div class="jp-set-card">' +
         '<div class="jp-set-help" style="margin-top:0;">' +
           'Moving from the old web app? Paste the progress code you exported there. ' +
-          'This <strong>replaces</strong> your progress in this app.' +
+          'This <strong>merges</strong> with your progress here — it never lowers ' +
+          'a score or removes an unlock.' +
         '</div>' +
         '<div class="jp-set-field" style="margin-top:10px;">' +
           '<textarea class="jp-set-input" id="jp-set-import-code" rows="3" ' +
@@ -659,8 +661,31 @@
             'style="resize:vertical;font-family:var(--font-mono,ui-monospace,Menlo,monospace);font-size:0.8rem;"></textarea>' +
         '</div>' +
         '<button class="jp-set-account-btn" id="jp-set-import-btn" type="button" ' +
-            'style="justify-content:center;font-weight:700;">Import &amp; replace progress</button>' +
+            'style="justify-content:center;font-weight:700;">Import progress</button>' +
         '<div class="jp-set-help" id="jp-set-import-status" style="min-height:1.2em;"></div>' +
+      '</div>'
+    );
+  }
+
+  // Unlock-code entry. A teacher/beta code (e.g. a founding-student code) seeds
+  // the right unlock state. Codes merge with progress (never lower it) and are
+  // re-applied after an import, so order never matters. See unlock-codes.js.
+  function buildUnlockCodeCard() {
+    return (
+      '<div class="jp-set-section-label">Unlock code</div>' +
+      '<div class="jp-set-card">' +
+        '<div class="jp-set-help" style="margin-top:0;">' +
+          'Have a code? Enter it to unlock content for your level.' +
+        '</div>' +
+        '<div class="jp-set-field" style="margin-top:10px;">' +
+          '<input class="jp-set-input" id="jp-set-unlock-code" type="text" ' +
+            'autocapitalize="off" autocomplete="off" spellcheck="false" ' +
+            'placeholder="Enter code" ' +
+            'style="font-family:var(--font-mono,ui-monospace,Menlo,monospace);">' +
+        '</div>' +
+        '<button class="jp-set-account-btn" id="jp-set-unlock-btn" type="button" ' +
+            'style="justify-content:center;font-weight:700;">Apply code</button>' +
+        '<div class="jp-set-help" id="jp-set-unlock-status" style="min-height:1.2em;"></div>' +
       '</div>'
     );
   }
@@ -1366,6 +1391,47 @@
 
     wireAccount();
     wireImport();
+    wireUnlockCode();
+  }
+
+  // Wire the unlock-code field → window.JPShared.unlockCodes.apply().
+  function wireUnlockCode() {
+    var btn = document.getElementById('jp-set-unlock-btn');
+    var input = document.getElementById('jp-set-unlock-code');
+    var status = document.getElementById('jp-set-unlock-status');
+    if (!btn || !input) return;
+
+    function say(msg, ok) {
+      if (!status) return;
+      status.textContent = msg;
+      status.style.color = ok === false ? 'var(--vermilion, #c2410c)'
+        : ok === true ? 'var(--moss, #5f8a4e)' : '';
+      status.style.fontStyle = 'normal';
+    }
+
+    function applyNow() {
+      var codes = window.JPShared && window.JPShared.unlockCodes;
+      if (!codes) { say('Unlock system not ready — reopen Settings.', false); return; }
+      var raw = (input.value || '').trim();
+      if (!raw) { say('Enter a code first.', false); return; }
+      var res = codes.apply(raw);
+      if (!res.ok) {
+        say(res.reason === 'unknown' ? 'That code isn’t recognized.'
+          : res.reason === 'no_manifest' ? 'Couldn’t load the curriculum — try again.'
+          : 'Enter a valid code.', false);
+        return;
+      }
+      var c = res.counts || {};
+      var n = (c.lessons || 0) + (c.grammar || 0) + (c.reviews || 0) + (c.stories || 0);
+      say('✓ ' + (res.def && res.def.blurb ? res.def.blurb : 'Code applied') +
+          ' (' + n + ' items unlocked).', true);
+      input.value = '';
+    }
+
+    btn.addEventListener('click', applyNow);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); applyNow(); }
+    });
   }
 
   // ---- TEMP: import wiring (REMOVE-AFTER-MIGRATION) ----
@@ -1427,23 +1493,18 @@
         return;
       }
 
-      // OVERWRITE: clear the app's current synced keys, then write the imported
-      // ones. (Per the migration decision — replace, don't merge.)
+      // MERGE-MAX (not overwrite): combine imported progress with what's already
+      // here, keeping the HIGHER value per key. This makes import coexist safely
+      // with unlock codes in ANY order — neither can wipe the other. Mirrors the
+      // cloud-sync merge semantics (max score / OR completion / union arrays).
       try {
-        // Remove existing synced keys so a partial import can't leave stale data.
-        var toClear = [];
-        for (var i = 0; i < localStorage.length; i++) {
-          var ek = localStorage.key(i);
-          if (importKeyAllowed(ek)) toClear.push(ek);
-        }
-        toClear.forEach(function (ek) { try { localStorage.removeItem(ek); } catch (e) {} });
-
-        // Write imported values. Stringify objects/arrays; pass through primitives.
         keys.forEach(function (k) {
-          var v = data[k];
-          var out = (typeof v === 'string') ? v : JSON.stringify(v);
-          try { localStorage.setItem(k, out); } catch (e) {}
+          mergeImportedKey(k, data[k]);
         });
+        // Re-apply any unlock codes so an import can never drop their floor.
+        if (window.JPShared.unlockCodes && window.JPShared.unlockCodes.reapplyAll) {
+          window.JPShared.unlockCodes.reapplyAll();
+        }
       } catch (e) {
         say('Import failed: ' + (e && e.message ? e.message : 'unknown error') + '.', false);
         return;
@@ -1452,7 +1513,7 @@
       // Count what landed, for a confident confirmation.
       var lessons = countObj(data['k-lesson-completed']) || countObj(data['k-lesson-scores']);
       var flags = countObj(data['k-flags']) || countObj(data['k-active-flags']);
-      say('✓ Imported — ' + lessons + ' lessons, ' + flags + ' flags. ' +
+      say('✓ Imported — ' + lessons + ' lessons, ' + flags + ' flags merged. ' +
           (isSignedInForSync() ? 'Backing up to your account…' : 'Sign in to back it up.'), true);
 
       // Push to the cloud if signed in; refresh Home so unlocks/greeting reflect it.
@@ -1463,6 +1524,66 @@
         }
       } catch (e) {}
     });
+  }
+
+  // Merge one imported key into localStorage, keeping the higher/combined value.
+  // Object maps of numbers → per-key max (scores). Object maps of bools → OR
+  // (completion/active-flags). Arrays → union. 'true'/'false' flags → OR-true.
+  // Plain numbers → max. Anything else (e.g. compose-draft strings) → keep the
+  // imported value only if there's nothing local (don't clobber a newer draft).
+  function mergeImportedKey(k, incoming) {
+    function lsGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+    function lsSet(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
+    var rawLocal = lsGet(k);
+
+    // Boolean-ish flag (e.g. k-n4-unlocked).
+    if (incoming === true || incoming === false || incoming === 'true' || incoming === 'false') {
+      var on = (incoming === true || incoming === 'true') || rawLocal === 'true';
+      lsSet(k, on ? 'true' : 'false');
+      return;
+    }
+
+    // Object map: decide number-max vs bool-OR by sampling values.
+    if (incoming && typeof incoming === 'object' && !Array.isArray(incoming)) {
+      var localObj = {};
+      try { localObj = JSON.parse(rawLocal || '{}') || {}; } catch (e) { localObj = {}; }
+      var merged = {};
+      var key2;
+      for (key2 in localObj) if (Object.prototype.hasOwnProperty.call(localObj, key2)) merged[key2] = localObj[key2];
+      for (key2 in incoming) {
+        if (!Object.prototype.hasOwnProperty.call(incoming, key2)) continue;
+        var iv = incoming[key2], lv = merged[key2];
+        if (typeof iv === 'number' || typeof lv === 'number') {
+          merged[key2] = Math.max(+iv || 0, +lv || 0);            // scores
+        } else if (typeof iv === 'boolean' || typeof lv === 'boolean') {
+          merged[key2] = !!iv || !!lv;                            // completion flags
+        } else {
+          merged[key2] = (lv !== undefined ? lv : iv);            // keep existing
+        }
+      }
+      lsSet(k, JSON.stringify(merged));
+      return;
+    }
+
+    // Array (e.g. streak history) → union.
+    if (Array.isArray(incoming)) {
+      var localArr = [];
+      try { localArr = JSON.parse(rawLocal || '[]') || []; } catch (e) { localArr = []; }
+      var set = {};
+      localArr.concat(incoming).forEach(function (x) { set[x] = 1; });
+      lsSet(k, JSON.stringify(Object.keys(set)));
+      return;
+    }
+
+    // Plain number (e.g. streak-current/best) → max.
+    if (typeof incoming === 'number') {
+      var ln = parseFloat(rawLocal); if (!isFinite(ln)) ln = 0;
+      lsSet(k, String(Math.max(incoming, ln)));
+      return;
+    }
+
+    // String / other: only write if there's no local value (don't clobber).
+    if (rawLocal == null) lsSet(k, typeof incoming === 'string' ? incoming : JSON.stringify(incoming));
   }
 
   function countObj(o) {

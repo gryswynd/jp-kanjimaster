@@ -625,10 +625,16 @@ window.JPApp = {
       if (done(l.id)) { lessonsDone++; kanjiDone += n; }
     });
 
+    var n4Unlocked = false;
+    try { n4Unlocked = localStorage.getItem('k-n4-unlocked') === 'true'; } catch (e) {}
+    var n4On = free || n4Unlocked;
+
     // Walk grammars + lessons in order; first unlocked-not-done wins. Grammars
-    // first so the natural chain (N5.1 → G1 → G2 → G3 → N5.2) appears.
+    // first so the natural chain (N5.1 → G1 → G2 → G3 → N5.2) appears. Grammar
+    // completion expands to include N4's grammar once N4 is unlocked.
     var today = null;
-    var grammars = m.data.N5.grammar || [];
+    var grammars = (m.data.N5.grammar || []).slice();
+    if (n4On && m.data.N4 && m.data.N4.grammar) grammars = grammars.concat(m.data.N4.grammar);
     var grammarTotal = grammars.length, grammarDone = 0, grammarNext = null;
     grammars.forEach(function(g) {
       if (passed(g.id)) grammarDone++;
@@ -662,11 +668,24 @@ window.JPApp = {
       }
     }
 
+    var n4Lessons = (m.data.N4 && m.data.N4.lessons) || [];
+    var n4LessonsTotal = n4Lessons.length, n4LessonsDone = 0, n4KanjiTotal = 0, n4KanjiDone = 0;
+    n4Lessons.forEach(function(l) {
+      var n = (l.kanji || []).length;
+      n4KanjiTotal += n;
+      if (done(l.id)) { n4LessonsDone++; n4KanjiDone += n; }
+    });
+
     return {
       lessonsTotal: lessonsTotal, lessonsDone: lessonsDone,
       kanjiTotal: kanjiTotal, kanjiDone: kanjiDone,
       grammarTotal: grammarTotal, grammarDone: grammarDone, grammarNext: grammarNext,
-      today: today
+      today: today,
+      n4: {
+        show: n4Unlocked || n4LessonsDone > 0,
+        lessonsTotal: n4LessonsTotal, lessonsDone: n4LessonsDone,
+        kanjiTotal: n4KanjiTotal, kanjiDone: n4KanjiDone
+      }
     };
   },
 
@@ -712,7 +731,8 @@ window.JPApp = {
     tabPath:  '<path d="M4 5h12a4 4 0 010 8H8a4 4 0 000 8h12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="4" cy="5" r="1.5" fill="currentColor"/><circle cx="20" cy="21" r="1.5" fill="currentColor"/>',
     tabDojo:  '<path d="M3 10l9-6 9 6v10H3V10z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M8 20v-5h8v5" stroke="currentColor" stroke-width="1.8" fill="none"/>',
     tabAtlas: '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" stroke="currentColor" stroke-width="1.8"/>',
-    tabMe:    '<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
+    tabMe:    '<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>',
+    tabDict:  '<path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15.5H5.5C4.7 19.5 4 18.8 4 18V5.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13v15.5h5.5c.8 0 1.5-.7 1.5-1.5V5.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M6.5 8h2.5M6.5 11h2.5M15 8h2.5M15 11h2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>'
   },
 
   // --- TopBar ---
@@ -990,30 +1010,40 @@ window.JPApp = {
   },
 
   // --- Level progress strip ---
+  _progressRow: function(icon, label, value, total, color) {
+    var p = total ? Math.max(0, Math.min(1, value / total)) : 0;
+    return '<div>' +
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">' +
+        '<div style="display:flex;align-items:baseline;gap:5px;"><span class="jp-serif" style="font-size:12px;color:var(--ink-3);">' + icon + '</span>' +
+        '<span style="font-size:11px;color:var(--ink-2);">' + label + '</span></div>' +
+        '<div style="font-size:12px;font-weight:600;">' + value + '<span style="color:var(--ink-3);font-weight:400;">/' + total + '</span></div>' +
+      '</div>' +
+      '<div style="position:relative;height:4px;border-radius:999px;background:var(--hairline-2);overflow:hidden;"><div style="position:absolute;left:0;top:0;bottom:0;width:' + (p * 100) + '%;background:' + color + ';border-radius:999px;"></div></div>' +
+    '</div>';
+  },
+  _levelCard: function(level, subtitle, pct, rowsHtml, topGap) {
+    return '<div style="margin:' + (topGap ? '10px' : '0') + ' 16px 0;padding:14px 18px;border:1px solid var(--hairline);border-radius:var(--r-lg);">' +
+      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">' +
+        '<div style="display:flex;align-items:baseline;gap:8px;"><div style="font-size:18px;font-weight:700;letter-spacing:-0.02em;">' + level + '</div><div style="font-size:12px;color:var(--ink-3);">' + subtitle + '</div></div>' +
+        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">' + pct + '% complete</div>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">' + rowsHtml + '</div>' +
+    '</div>';
+  },
   _levelStrip: function(prog) {
     if (!prog) return '';
     var pct = prog.lessonsTotal ? Math.round((prog.lessonsDone / prog.lessonsTotal) * 100) : 0;
-    function row(icon, label, value, total, color) {
-      var p = total ? Math.max(0, Math.min(1, value / total)) : 0;
-      return '<div>' +
-        '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">' +
-          '<div style="display:flex;align-items:baseline;gap:5px;"><span class="jp-serif" style="font-size:12px;color:var(--ink-3);">' + icon + '</span>' +
-          '<span style="font-size:11px;color:var(--ink-2);">' + label + '</span></div>' +
-          '<div style="font-size:12px;font-weight:600;">' + value + '<span style="color:var(--ink-3);font-weight:400;">/' + total + '</span></div>' +
-        '</div>' +
-        '<div style="position:relative;height:4px;border-radius:999px;background:var(--hairline-2);overflow:hidden;"><div style="position:absolute;left:0;top:0;bottom:0;width:' + (p * 100) + '%;background:' + color + ';border-radius:999px;"></div></div>' +
-      '</div>';
-    }
-    return '<div style="margin:0 16px;padding:14px 18px;border:1px solid var(--hairline);border-radius:var(--r-lg);">' +
-      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">' +
-        '<div style="display:flex;align-items:baseline;gap:8px;"><div style="font-size:18px;font-weight:700;letter-spacing:-0.02em;">N5</div><div style="font-size:12px;color:var(--ink-3);">Foundations</div></div>' +
-        '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.1em;text-transform:uppercase;">' + pct + '% complete</div>' +
-      '</div>' +
-      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">' +
-        row('本', 'Lessons', prog.lessonsDone, prog.lessonsTotal, 'var(--ink)') +
-        row('字', 'Kanji', prog.kanjiDone, prog.kanjiTotal, 'var(--vermilion)') +
-      '</div>' +
-    '</div>';
+    var rows = this._progressRow('本', 'Lessons', prog.lessonsDone, prog.lessonsTotal, 'var(--ink)') +
+               this._progressRow('字', 'Kanji', prog.kanjiDone, prog.kanjiTotal, 'var(--vermilion)');
+    return this._levelCard('N5', 'Foundations', pct, rows, !!(prog.n4 && prog.n4.show));
+  },
+  _levelStripN4: function(prog) {
+    if (!prog || !prog.n4 || !prog.n4.show) return '';
+    var n = prog.n4;
+    var pct = n.lessonsTotal ? Math.round((n.lessonsDone / n.lessonsTotal) * 100) : 0;
+    var rows = this._progressRow('本', 'Lessons', n.lessonsDone, n.lessonsTotal, 'var(--ink)') +
+               this._progressRow('字', 'Kanji', n.kanjiDone, n.kanjiTotal, 'var(--vermilion)');
+    return this._levelCard('N4', 'Daily Life', pct, rows, false);
   },
 
   // --- Grammar progress card ---
@@ -1027,7 +1057,7 @@ window.JPApp = {
     if (nx) {
       subtitle = 'Currently on ' + this._esc(nx.id) + ' · ' + this._esc(nx.title || '');
     } else if (done >= total) {
-      subtitle = 'All N5 grammar complete';
+      subtitle = 'All grammar complete';
     } else {
       subtitle = 'Complete Lesson N5.1 to begin';
     }
@@ -1108,13 +1138,13 @@ window.JPApp = {
     var I = this._ICONS;
     var self = this;
     var tabs = [
-      { key: 'home',   label: 'Home',     glyph: I.tabHome,  action: "JPApp.renderMenu()" },
-      { key: 'path',   label: 'Lessons',  glyph: I.tabPath,  action: "JPApp.launch('lesson')",   mod: 'lesson' },
-      { key: 'dojo',   label: 'Dojo',     glyph: I.tabDojo,  action: "JPApp.launch('practice')", mod: 'practice' },
-      { key: 'atlas',  label: 'Map',      glyph: I.tabAtlas, action: "JPApp.launch('map')" },
-      { key: 'me',     label: 'Settings', glyph: I.tabMe,    action: "JPApp.openTtsSettings()" }
+      { key: 'home',   label: 'Home',       glyph: I.tabHome,  action: "JPApp.renderMenu()" },
+      { key: 'dojo',   label: 'Dojo',       glyph: I.tabDojo,  action: "JPApp.launch('practice')", mod: 'practice' },
+      { key: 'dict',   label: 'Dictionary', glyph: I.tabDict,  action: "JPApp.launch('glossary')", mod: 'glossary' },
+      { key: 'atlas',  label: 'Map',        glyph: I.tabAtlas, action: "JPApp.launch('map')" },
+      { key: 'me',     label: 'Settings',   glyph: I.tabMe,    action: "JPApp.openTtsSettings()" }
     ];
-    var active = 'home';
+    var active = ({ home: 'home', practice: 'dojo', glossary: 'dict', map: 'atlas' })[this._view] || 'home';
     var btns = tabs.map(function(t) {
       var on = t.key === active;
       var locked = t.mod ? !self._isModuleVisible(t.mod) : false;
@@ -1147,6 +1177,7 @@ window.JPApp = {
         this._sectionHeader('けいこ · Practice', '7 paths') +
         this._moduleGrid() +
         this._sectionHeader('しんちょく · Progress') +
+        this._levelStripN4(prog) +
         this._levelStrip(prog) +
         this._grammarCard(prog) +
         this._sectionHeader('とうじょう人物 · Cast') +
@@ -1468,7 +1499,9 @@ window.JPApp = {
                         deps: ['app/shared/stroke-canvas.js', 'app/shared/ink-morph.js'] },
       'writing-kana': { global: 'WritingKanaModule',         file: 'WritingKana.js',
                         deps: ['app/shared/stroke-canvas.js'] },
-      map:            { global: 'MapModule',                 file: 'Map.js' }
+      map:            { global: 'MapModule',                 file: 'Map.js' },
+      glossary:       { global: 'GlossaryModule',            file: 'Glossary.js',
+                        deps: ['app/shared/kana-collate.js'] }
     };
     var entry = map[mode];
     if (entry && entry.deps) {
@@ -1477,6 +1510,7 @@ window.JPApp = {
         // Use the JPShared key as the load-once sentinel.
         var key = dep.indexOf('stroke-canvas') >= 0 ? 'strokeCanvas'
                 : dep.indexOf('ink-morph') >= 0    ? 'inkMorph'
+                : dep.indexOf('kana-collate') >= 0 ? 'kanaCollate'
                 : null;
         if (key && window.JPShared && window.JPShared[key]) continue;
         var okDep = await this.loadModule(dep);

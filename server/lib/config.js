@@ -67,4 +67,15 @@ export const COSTS = {
   sttPerSecond: 0.016 / 60,        // Google streaming STT ~ $0.016/min
   claudeInputPerToken: 0.80 / 1e6, // Haiku input  ~$0.80/M  (adjust to live pricing)
   claudeOutputPerToken: 4.0 / 1e6, // Haiku output ~$4.0/M
+  firestoreReadPer: 0.06 / 1e5,    // Firestore doc read  ~$0.06 / 100k (us-west1)
+  firestoreWritePer: 0.18 / 1e5,   // Firestore doc write ~$0.18 / 100k
 };
+
+/**
+ * Fixed Firestore op count per Press-to-Ask. We don't live-meter Firestore reads/
+ * writes (not worth it at beta scale) — we ESTIMATE from the known op count in the
+ * request path: reserve (txn read+write), quota/flags/profile reads, settle +
+ * rollup writes. The dashboard labels firestoreCents as an estimate. Tune if the
+ * request path's op count changes.
+ */
+export const FIRESTORE_OPS_PER_PRESSASK = { reads: 4, writes: 5 };

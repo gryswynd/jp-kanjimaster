@@ -16,6 +16,7 @@
 import { Firestore, FieldValue } from '@google-cloud/firestore';
 import { env, DEFAULT_TIERS, DEFAULT_FLAGS } from './config.js';
 import { mergeProgress } from './merge-progress.js';
+import { zeroRollup, normalizeRollup } from './rollup-shape.js';
 
 let db = null;
 /** Lazy singleton so the module imports cleanly even with no credentials. */
@@ -121,6 +122,79 @@ export async function refundPressAsk(deviceId) {
 export async function getGlobalSpendCents() {
   const snap = await client().doc(`global-cost/${todayStr()}`).get();
   return snap.exists ? (snap.get('costCents') || 0) : 0;
+}
+
+// ── Per-service cost rollup (dashboard / cost monitor) ──────────────────────
+// cost-rollup/{YYYY-MM-DD}: one doc/day with per-service cents, per-device
+// breakdown, a 24-hour map, and per-question stats. Cumulative fields use atomic
+// increments (like settleCost); this is SEPARATE from settleCost so the cost-cap
+// circuit breaker never depends on it. maxRequestCents is tracked via an
+// in-process high-water mark (single Cloud Run instance) and written only when it
+// rises — exact at this scale, best-effort after a restart.
+
+const maxMark = new Map(); // day -> highest single-request cents seen this process
+
+function svcIncrements(b) {
+  return {
+    claudeInput: FieldValue.increment(b.claudeInputCents || 0),
+    claudeOutput: FieldValue.increment(b.claudeOutputCents || 0),
+    stt: FieldValue.increment(b.sttCents || 0),
+    firestore: FieldValue.increment(b.firestoreCents || 0),
+  };
+}
+
+async function highWaterMax(ref, day, totalCents) {
+  let cur = maxMark.get(day);
+  if (cur === undefined) {
+    // Seed once per day per instance so a restart can't overwrite a higher stored max downward.
+    const snap = await ref.get().catch(() => null);
+    cur = snap && snap.exists ? (snap.get('maxRequestCents') || 0) : 0;
+    maxMark.set(day, cur);
+  }
+  if (totalCents > cur) {
+    maxMark.set(day, totalCents);
+    return totalCents;
+  }
+  return null;
+}
+
+export async function recordCostRollup(deviceId, breakdown, totalCents) {
+  if (!totalCents) return;
+  const day = todayStr();
+  const H = new Date().getUTCHours();
+  const ref = client().doc(`cost-rollup/${day}`);
+  const inc = (n) => FieldValue.increment(n || 0);
+  const data = {
+    day,
+    updatedAt: FieldValue.serverTimestamp(),
+    requests: inc(1),
+    total: inc(totalCents),
+    costSumCents: inc(totalCents),
+    svc: svcIncrements(breakdown),
+    byDevice: { [deviceId]: { requests: inc(1), total: inc(totalCents), svc: svcIncrements(breakdown) } },
+    hourly: { [String(H)]: { total: inc(totalCents), requests: inc(1) } },
+  };
+  const newMax = await highWaterMax(ref, day, totalCents);
+  if (newMax !== null) data.maxRequestCents = newMax;
+  await ref.set(data, { merge: true });
+}
+
+/** Read the last `days` rollup docs (oldest→newest), zero-filling missing days. */
+export async function getCostRollups(days = 14) {
+  const n = Math.max(1, Math.min(90, days | 0 || 14));
+  const now = new Date();
+  const dayList = [];
+  const refs = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const day = todayStr(new Date(now.getTime() - i * 86400000));
+    dayList.push(day);
+    refs.push(client().doc(`cost-rollup/${day}`));
+  }
+  const snaps = await client().getAll(...refs);
+  return dayList.map((day, idx) => {
+    const snap = snaps[idx];
+    return snap && snap.exists ? normalizeRollup(day, snap.data()) : zeroRollup(day);
+  });
 }
 
 // Cross-session learner profile (summarized; see lib/profile.js). Path:

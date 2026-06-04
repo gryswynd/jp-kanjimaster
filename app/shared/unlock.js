@@ -231,6 +231,26 @@
       return (_getScores()[id] || 0) >= PASS_THRESHOLD;
     },
 
+    // Record a story as completed (+ best score when graded). Writes to the same
+    // k-lesson-* store the Map/path reads, so a completed story stamps itself on
+    // the path automatically. Side-effect-free vs computeUnlocks (no manifest /
+    // no unlock-diff) — stories gate other content by reading, not by unlocking.
+    recordStoryResult: function (id, pct) {
+      if (!id) return;
+      _markCompleted(id);
+      if (typeof pct === 'number') _saveLessonScore(id, pct);
+    },
+
+    // Seed an item as complete at a given score WITHOUT lowering existing state —
+    // used by the unlock-code system (app/shared/unlock-codes.js). _markCompleted
+    // only sets true; _saveLessonScore only raises. So seeding is safe to run
+    // before OR after a progress import: the result is always the union (max).
+    _seedComplete: function (id, pct) {
+      if (!id) return;
+      _markCompleted(id);
+      _saveLessonScore(id, typeof pct === 'number' ? pct : PASS_THRESHOLD);
+    },
+
     // ── Practice activity gates ────────────────────────────────────────────
     // Both gates use any-completion semantics on a specific lesson id; tune
     // SCRAMBLE_UNLOCK_AFTER / LINKUP_UNLOCK_AFTER at the top of this file.
@@ -287,7 +307,7 @@
 
     /**
      * Returns true if the given module tab should be visible in the menu.
-     * module: 'lesson' | 'grammar' | 'practice' | 'compose' | 'story' | 'review' | 'game'
+     * module: 'lesson' | 'grammar' | 'practice' | 'compose' | 'story' | 'review' | 'game' | 'glossary'
      */
     isModuleVisible: function (module) {
       if (this.isFree()) return true;
@@ -295,6 +315,7 @@
         case 'lesson':   return true;                       // always visible
         case 'grammar':  return _prereqMet('N5.1', true);  // any completion
         case 'practice': return _prereqMet('N5.1', true);  // any completion
+        case 'glossary': return _prereqMet('N5.1', true);  // any completion — your learned-words dictionary
         case 'compose':  return _prereqMet('N5.1', false); // ≥60%
         case 'game':     return _prereqMet('N5.1', false); // ≥60%
         // Stories & Review unlock at G4 — that's when the first entry in each

@@ -371,6 +371,33 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "今日はだれのたんじょうびですか。",
+        "q_en": "Whose birthday is it today?",
+        "answer": "ケンです",
+        "accept": [
+          "ケン"
+        ],
+        "explanation": "今日はケンのたんじょうびです。",
+        "terms": [
+          "v_tanjoubi"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうはいくらお金がありますか。",
+        "q_en": "How much money does Rikizo have?",
+        "answer": "千円あります",
+        "accept": [
+          "千円"
+        ],
+        "explanation": "わたしはお金があります。千円あります。",
+        "terms": [
+          "v_okane"
+        ]
+      }
+    ]
   }
 }

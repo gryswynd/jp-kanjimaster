@@ -199,17 +199,20 @@ function listAudiostories() {
 
 // Build one audiostory's passage.m4a + breakpoints + peaks, write into its
 // audio block. Each paragraph is read WHOLE by Chirp (natural prosody); we only
-// join at paragraph boundaries.
+// join at paragraph boundaries. Returns the count of characters actually
+// synthesized here (only non-cached paragraphs cost money) for the cost ledger.
 async function buildPassage(story) {
   const data = JSON.parse(readFileSync(story.file, 'utf8'));
   const paras = (data.paragraphs || []).map((p) => (p.jp || '').trim()).filter(Boolean);
-  if (!paras.length) return;
+  if (!paras.length) return 0;
 
   const segPaths = [];
   const breakpoints = [];
   let cum = 0;
+  let synthChars = 0;
   for (let i = 0; i < paras.length; i++) {
-    const { hash } = await ensureClip(paras[i]);   // reuse the per-paragraph clip
+    const { hash, cached } = await ensureClip(paras[i]);   // reuse the per-paragraph clip
+    if (!cached) synthChars += paras[i].length;
     const seg = join(CLIPS_DIR, `${hash}.m4a`);
     segPaths.push(seg);
     breakpoints.push(Math.round(cum * 1000) / 1000);
@@ -227,6 +230,29 @@ async function buildPassage(story) {
   data.audio = { file: 'passage.m4a', dur, breakpoints, peaks };
   writeFileSync(story.file, JSON.stringify(data, null, 2));
   console.log(`  passage: ${story.lvl}/${story.slug} — ${paras.length} paras, ${dur}s`);
+  return synthChars;
+}
+
+// Append one run to the TTS cost ledger (data/audio/cost-ledger.json). Only chars
+// ACTUALLY synthesized cost money (cached clips are free), so a no-op rebuild adds
+// nothing. This is a build-time/developer cost — kept separate from runtime tutor
+// cost on the admin dashboard. ~$30 per 1M chars for Chirp 3 HD.
+const TTS_PRICE_PER_MILLION = 30;
+function appendTtsLedger({ chars, voice, newClips, cachedClips }) {
+  if (!chars) return; // nothing synthesized → no cost to record
+  const ledgerPath = join(AUDIO_DIR, 'cost-ledger.json');
+  let ledger = { schemaVersion: '1.0.0', pricePerMillionChars: TTS_PRICE_PER_MILLION, runs: [] };
+  if (existsSync(ledgerPath)) {
+    try { ledger = JSON.parse(readFileSync(ledgerPath, 'utf8')); } catch { /* start fresh */ }
+  }
+  if (!Array.isArray(ledger.runs)) ledger.runs = [];
+  const estUSD = Math.round((chars / 1e6) * TTS_PRICE_PER_MILLION * 100) / 100;
+  ledger.runs.push({
+    date: new Date().toISOString().slice(0, 10),
+    chars, estUSD, voice, newClips, cachedClips,
+  });
+  writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2));
+  console.log(`Ledger: +${chars} chars (~$${estUSD.toFixed(2)}) → data/audio/cost-ledger.json`);
 }
 
 async function main() {
@@ -244,14 +270,14 @@ async function main() {
   const { items } = JSON.parse(readFileSync(worklistPath, 'utf8'));
   console.log(`Synthesizing ${items.length} clips with ${VOICE_NAME} (concurrency ${CONCURRENCY})...`);
 
-  let made = 0, cached = 0;
+  let made = 0, cached = 0, synthChars = 0;
   const failures = [];
   const clips = {};
   await pool(items, async (it) => {
     try {
       const { hash, dur, cached: wasCached } = await ensureClip(it.key);
       clips[it.key] = { file: `${hash}.m4a`, dur };
-      if (wasCached) cached++; else { made++; if (made % 200 === 0) console.log(`  ${made} synthesized...`); }
+      if (wasCached) cached++; else { made++; synthChars += it.key.length; if (made % 200 === 0) console.log(`  ${made} synthesized...`); }
     } catch (e) {
       // Non-fatal: log and keep going so one bad input never aborts the batch.
       failures.push({ key: it.key, error: String(e && e.message || e).slice(0, 160) });
@@ -263,7 +289,7 @@ async function main() {
   if (stories.length) {
     console.log(`Building ${stories.length} audiostory passages...`);
     for (const s of stories) {
-      try { await buildPassage(s); }
+      try { synthChars += (await buildPassage(s)) || 0; }
       catch (e) { failures.push({ key: `passage:${s.lvl}/${s.slug}`, error: String(e && e.message || e).slice(0, 160) }); }
     }
   }
@@ -278,6 +304,7 @@ async function main() {
   };
   writeFileSync(join(AUDIO_DIR, 'manifest.audio.json'), JSON.stringify(manifest));
   rmSync(TMP_DIR, { recursive: true, force: true });
+  appendTtsLedger({ chars: synthChars, voice: VOICE, newClips: made, cachedClips: cached });
   console.log(`Done. ${made} new, ${cached} cached. manifest.audio.json written (${Object.keys(clips).length} clips).`);
   if (failures.length) {
     console.warn(`\n⚠ ${failures.length} clip(s) failed (re-run to retry — successful clips are cached):`);

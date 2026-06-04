@@ -28,6 +28,10 @@ var _animating := false
 func _ready() -> void:
 	layer = 15  # above InventoryOverlay (14)
 	_build_ui()
+	# This node is persistent in main.tscn, and CanvasLayer defaults to
+	# visible — so without this it renders the picker on every scene load.
+	# Only open_swap() (from the inventory's ケースをかえる button) shows it.
+	visible = false
 
 
 func _build_ui() -> void:

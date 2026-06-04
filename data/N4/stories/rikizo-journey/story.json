@@ -3311,6 +3311,105 @@
   "grammarUsed": [],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "りきぞうは毎日どこで働いていますか。",
+        "q_en": "Where does Rikizo work every day?",
+        "answer": "工場で働いています。",
+        "accept": [
+          "工場"
+        ],
+        "explanation": "りきぞうは毎日、工場で働いています。",
+        "terms": [
+          "v_koujou"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは駅から何に乗りましたか。",
+        "q_en": "What did Rikizo board?",
+        "answer": "電車に乗りました。",
+        "accept": [
+          "電車"
+        ],
+        "explanation": "駅へ走りました。電車に乗りました。",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "店でりきぞうは何を食べましたか。",
+        "q_en": "What did Rikizo eat at the shop?",
+        "answer": "カレーを食べました。",
+        "accept": [
+          "カレー"
+        ],
+        "explanation": "店に入って、カレーを食べました。",
+        "terms": [
+          "v_karee"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうのカレーを食べてしまったのは何ですか。",
+        "q_en": "What ate Rikizo's curry?",
+        "answer": "犬が食べてしまいました。",
+        "accept": [
+          "犬"
+        ],
+        "explanation": "犬がカレーを食べてしまいました。りきぞうのカレーはもうありません。",
+        "terms": [
+          "v_inu"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "天気が悪くなって、りきぞうと犬はどこに入りましたか。",
+        "q_en": "Where did they go when the weather worsened?",
+        "answer": "旅館に入りました。",
+        "accept": [
+          "旅館"
+        ],
+        "explanation": "りきぞうと犬は走って、近くの旅館に入りました。",
+        "terms": [
+          "v_ryokan"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "犬の名前は何ですか。",
+        "q_en": "What is the dog's name?",
+        "answer": "ポチです。",
+        "accept": [
+          "ポチ"
+        ],
+        "explanation": "「この犬は...ポチ！ポチですか！」",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "りきぞうがいちばん見たかったものは何ですか。",
+        "q_en": "What did Rikizo most want to see?",
+        "answer": "海が見たかったです。",
+        "accept": [
+          "海"
+        ],
+        "explanation": "「海が見たい！」青くて広い海を見て、りきぞうは大きい声を出しました。",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "旅のあと、りきぞうはどうなりましたか。",
+        "q_en": "How did Rikizo change after the trip?",
+        "answer": "旅が好きになりました。",
+        "accept": [
+          "旅が好き"
+        ],
+        "explanation": "りきぞうは旅が好きになって、また旅をするようになりました。",
+        "terms": [
+          "v_tabi"
+        ]
+      }
+    ]
   }
 }

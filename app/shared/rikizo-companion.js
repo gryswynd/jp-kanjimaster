@@ -378,9 +378,23 @@
     bubble.style.display = 'block';
     positionBubble();
 
+    // Tap ANYWHERE to continue. The lock overlay spans the whole screen (below
+    // the sprite/bubble in z-order) and forwards taps to advance(). If an
+    // enclosing flow (onboarding / celebration / tour) already locked the
+    // screen, let it own the unlock; otherwise this line owns the lock and
+    // releases it when dismissed.
+    var ownsLock = false;
+    if (lockOverlay && lockOverlay.style.display !== 'block') { lockScreen(); ownsLock = true; }
+
     return new Promise(function (resolve) {
       var done = false;
-      var finish = function () { if (done) return; done = true; state.speakResolver = null; resolve(); };
+      var finish = function () {
+        if (done) return;
+        done = true;
+        state.speakResolver = null;
+        if (ownsLock) unlockScreen();
+        resolve();
+      };
       state.speakResolver = finish;
       // Opt-in auto-advance only when explicitly requested.
       if (opts.autoMs > 0) setTimeout(finish, opts.autoMs);

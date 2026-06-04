@@ -1449,6 +1449,73 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "りきぞうはどこでアルバイトをしていますか。",
+        "q_en": "Where does Rikizo work part-time?",
+        "answer": "会社でしています",
+        "accept": [
+          "会社"
+        ],
+        "explanation": "りきぞうは会社でアルバイトをしています。",
+        "terms": [
+          "v_kaisha"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうはだれに会いたいですか。",
+        "q_en": "Who does Rikizo want to meet?",
+        "answer": "社長に会いたいです",
+        "accept": [
+          "社長"
+        ],
+        "explanation": "りきぞうは社長に会いたいです。",
+        "terms": [
+          "v_shachou"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "社長はりきぞうに何を見せましたか。",
+        "q_en": "What did the president show Rikizo?",
+        "answer": "古い新聞",
+        "accept": [
+          "新聞"
+        ],
+        "explanation": "社長は古い新聞を出して、りきぞうに見せました。",
+        "terms": [
+          "v_shinbun"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうはどうして足が痛いですか。",
+        "q_en": "Why do Rikizo's feet hurt?",
+        "answer": "長い時間立っていたから",
+        "accept": [
+          "立って"
+        ],
+        "explanation": "長い時間、入り口の前に立っていたからです。",
+        "terms": [
+          "v_ashi"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは何でよく聞いて、何でよく見ましたか。",
+        "q_en": "With what did Rikizo listen and look?",
+        "answer": "耳で聞いて、目で見ました",
+        "accept": [
+          "耳",
+          "目"
+        ],
+        "explanation": "今日は耳でよく聞いて、目でよく見たよ。",
+        "terms": [
+          "v_mimi"
+        ]
+      }
+    ]
   }
 }

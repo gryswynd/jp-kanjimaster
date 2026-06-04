@@ -1029,6 +1029,56 @@
   ],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "今日の天気はどうですか。",
+        "q_en": "How is the weather today?",
+        "answer": "雨です",
+        "accept": [
+          "雨"
+        ],
+        "explanation": "今日は雨です。天気はよくないです。",
+        "terms": [
+          "v_ame"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "学校の中に何がいますか。",
+        "q_en": "What is inside the school?",
+        "answer": "金魚がいます",
+        "accept": [
+          "金魚"
+        ],
+        "explanation": "学校の中に小さい金魚がいます。",
+        "terms": [
+          "v_kingyo"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "新しい学生の名前は何ですか。",
+        "q_en": "What is the new student's name?",
+        "answer": "リーさんです",
+        "accept": [
+          "リー"
+        ],
+        "explanation": "名前はリーさんです。"
+      },
+      {
+        "type": "written",
+        "q": "リーさんはどこから来ましたか。",
+        "q_en": "Where did Lee come from?",
+        "answer": "中国から来ました",
+        "accept": [
+          "中国"
+        ],
+        "explanation": "中国から日本に来ました。",
+        "terms": [
+          "v_chuugoku"
+        ]
+      }
+    ]
   }
 }

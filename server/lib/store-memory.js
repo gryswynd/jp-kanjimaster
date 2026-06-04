@@ -13,6 +13,7 @@
 import { env, DEFAULT_TIERS, DEFAULT_FLAGS } from './config.js';
 import { httpError } from './errors.js';
 import { mergeProgress } from './merge-progress.js';
+import { zeroRollup, normalizeRollup } from './rollup-shape.js';
 
 // deviceId -> { entitlement, attestKeyId }
 const devices = new Map();
@@ -93,6 +94,53 @@ export async function refundPressAsk(deviceId) {
 
 export async function getGlobalSpendCents() {
   return globalCost.get(todayStr()) || 0;
+}
+
+// ── Per-service cost rollup (mirrors firestore.js; raw map shape) ────────────
+// day -> raw rollup { requests, total, costSumCents, maxRequestCents, svc{},
+//                     byDevice{}, hourly{hour->{}} }
+const costRollup = new Map();
+
+function bumpSvc(target, b) {
+  target.claudeInput = (target.claudeInput || 0) + (b.claudeInputCents || 0);
+  target.claudeOutput = (target.claudeOutput || 0) + (b.claudeOutputCents || 0);
+  target.stt = (target.stt || 0) + (b.sttCents || 0);
+  target.firestore = (target.firestore || 0) + (b.firestoreCents || 0);
+}
+
+export async function recordCostRollup(deviceId, breakdown, totalCents) {
+  if (!totalCents) return;
+  const day = todayStr();
+  const H = String(new Date().getUTCHours());
+  let r = costRollup.get(day);
+  if (!r) {
+    r = { requests: 0, total: 0, costSumCents: 0, maxRequestCents: 0, svc: {}, byDevice: {}, hourly: {} };
+    costRollup.set(day, r);
+  }
+  r.requests += 1;
+  r.total += totalCents;
+  r.costSumCents += totalCents;
+  r.maxRequestCents = Math.max(r.maxRequestCents, totalCents);
+  bumpSvc(r.svc, breakdown);
+  const dev = r.byDevice[deviceId] || (r.byDevice[deviceId] = { requests: 0, total: 0, svc: {} });
+  dev.requests += 1;
+  dev.total += totalCents;
+  bumpSvc(dev.svc, breakdown);
+  const slot = r.hourly[H] || (r.hourly[H] = { total: 0, requests: 0 });
+  slot.total += totalCents;
+  slot.requests += 1;
+}
+
+export async function getCostRollups(days = 14) {
+  const n = Math.max(1, Math.min(90, days | 0 || 14));
+  const now = new Date();
+  const out = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const day = todayStr(new Date(now.getTime() - i * 86400000));
+    const raw = costRollup.get(day);
+    out.push(raw ? normalizeRollup(day, raw) : zeroRollup(day));
+  }
+  return out;
 }
 
 export async function getProfile(deviceId) {

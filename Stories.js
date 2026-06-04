@@ -36,6 +36,7 @@ window.StoriesModule = (function () {
   let currentStory = null;      // currently loaded story.json
   let currentIndex = 0;         // position in storyList
   let pages = [];               // paginated pages of the current story
+  let storyDoneMarked = false;  // guard so completion is persisted once per load
   let currentPage = 0;          // position within pages
   let isFlipping = false;       // guards re-entrant page flips
   let pf = null;                // StPageFlip instance for the reader
@@ -159,12 +160,66 @@ window.StoriesModule = (function () {
         margin-top: 8px; font-size: 0.85rem; font-style: italic;
         color: oklch(0.32 0.012 60); padding-left: 4px;
       }
+      .jp-story-q-en {
+        font-size: 0.8rem; color: oklch(0.5 0.012 60); font-style: italic;
+        margin: -4px 0 10px;
+      }
+      .jp-story-q-input {
+        display: block; width: 100%; box-sizing: border-box;
+        background: oklch(0.97 0.008 80); border: 1px solid oklch(0.22 0.012 60 / 0.14);
+        padding: 10px 12px; border-radius: 10px; font: inherit; color: inherit;
+        min-height: 46px; resize: vertical; line-height: 1.6;
+      }
+      .jp-story-q-input:focus { outline: none; border-color: #6E5A18; }
+      .jp-story-q-input.correct { border-color: #5E8C5F; background: oklch(0.58 0.09 140 / 0.10); }
+      .jp-story-q-input.wrong   { border-color: #C2410C; background: oklch(0.60 0.18 30 / 0.08); }
+      .jp-story-q-input:disabled { cursor: default; opacity: 1; }
+      .jp-story-q-check {
+        margin-top: 8px; padding: 8px 18px;
+        background: oklch(0.22 0.012 60); color: white;
+        border: none; border-radius: 999px; font: inherit; font-weight: 700;
+        cursor: pointer;
+      }
+      .jp-story-q-check:disabled { opacity: 0.4; cursor: default; }
+      .jp-story-q-model {
+        margin-top: 10px; font-size: 0.9rem; padding-left: 4px;
+      }
+      .jp-story-q-model .jp-story-q-model-label {
+        font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+        text-transform: uppercase; color: #6E5A18; margin-right: 6px;
+      }
       .jp-story-end-cta {
         margin-top: 18px; padding: 12px 20px;
         background: oklch(0.22 0.012 60); color: white;
         border: none; border-radius: 999px; font: inherit; font-weight: 700;
         cursor: pointer; width: 100%;
       }
+
+      /* Comprehension quiz overlay — a normal scrollable panel over the reader
+         (the quiz is NOT a flip page; see openQuiz()). */
+      .jp-quiz-overlay {
+        position: absolute; inset: 0; z-index: 40;
+        display: flex; flex-direction: column;
+        background: oklch(0.97 0.008 80);
+        animation: jpReaderIn 0.25s ease;
+      }
+      .jp-quiz-overlay-bar {
+        flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+        padding: max(14px, env(safe-area-inset-top)) 16px 12px;
+        background: oklch(0.22 0.012 60); color: white;
+        position: sticky; top: 0; z-index: 1;
+      }
+      .jp-quiz-overlay-title {
+        font-weight: 700; font-size: 1rem; color: white;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .jp-quiz-overlay-scroll {
+        flex: 1 1 auto; min-height: 0; overflow-y: auto;
+        -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+        padding: 18px 18px max(28px, env(safe-area-inset-bottom));
+      }
+      /* Inside the overlay the end-card is the content, not a floating card. */
+      .jp-quiz-overlay-scroll .jp-story-end-card { margin-top: 0; }
 
       .jp-story-loading { text-align: center; padding: 60px 20px; color: oklch(0.55 0.012 60); }
       .jp-story-loading-spinner {
@@ -287,6 +342,17 @@ window.StoriesModule = (function () {
         background: rgba(0,0,0,0.28); color: white; font-size: 0.6rem; font-weight: 700;
         padding: 2px 7px; border-radius: 8px; letter-spacing: 0.05em;
       }
+      /* Completion stamp on a shelf cover (bottom-right, like the Map node stamp). */
+      .jp-book-cover-stamp {
+        position: absolute; right: 8px; bottom: 8px; width: 30px; height: 30px;
+        border-radius: 50%; border: 2px solid rgba(255,255,255,0.9); object-fit: cover;
+        background: var(--washi, #f3ece0); box-shadow: 0 1px 4px rgba(0,0,0,0.28);
+        transform: rotate(-8deg); z-index: 2;
+      }
+      .jp-book-cover-stamp.jp-stamp-fallback {
+        display: flex; align-items: center; justify-content: center;
+        background: var(--moss, #5E8C5F); color: #fff; font-weight: 800; font-size: 15px;
+      }
 
       /* ── Paged book reader ────────────────────────────────────────────── */
       .jp-story-container.jp-reading {
@@ -343,6 +409,22 @@ window.StoriesModule = (function () {
       .jp-flip-cover-title { font-family: 'Noto Serif JP','Shippori Mincho',serif; font-size: 1.6rem;
         font-weight: 700; line-height: 1.4; text-shadow: 0 1px 3px rgba(0,0,0,0.32); }
       .jp-flip-cover-sub { margin-top: auto; font-size: 0.85rem; color: rgba(255,255,255,0.85); }
+      .jp-flip-cover-score {
+        margin-top: 12px; align-self: flex-start; font-size: 0.8rem; font-weight: 700;
+        letter-spacing: 0.04em; color: #fff; background: rgba(0,0,0,0.26);
+        padding: 4px 12px; border-radius: 999px;
+        font-family: 'Schibsted Grotesk','Work Sans',system-ui,sans-serif;
+      }
+      .jp-flip-cover-stamp {
+        position: absolute; right: 18px; bottom: 18px; width: 56px; height: 56px;
+        border-radius: 50%; border: 3px solid rgba(255,255,255,0.92); object-fit: cover;
+        background: var(--washi, #f3ece0); box-shadow: 0 2px 8px rgba(0,0,0,0.30);
+        transform: rotate(-8deg);
+      }
+      .jp-flip-cover-stamp.jp-stamp-fallback {
+        display: flex; align-items: center; justify-content: center;
+        background: var(--moss, #5E8C5F); color: #fff; font-weight: 800; font-size: 26px;
+      }
       .jp-page-face, .jp-page-back {
         position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;
         -webkit-backface-visibility: hidden; backface-visibility: hidden;
@@ -641,8 +723,11 @@ window.StoriesModule = (function () {
       '<div class="jp-shelf-wrap">' +
       '<button class="jp-story-level-back-btn" id="jp-stories-back-to-levels">← Library</button>' +
       '<div class="jp-covers-grid">';
+    const unlockApi = window.JPShared && window.JPShared.unlock;
     for (const s of stories) {
       const badge = s.category === 'custom' ? 'CUSTOM' : (s.level || 'STORY');
+      const done = !!(unlockApi && unlockApi.isCompleted && unlockApi.isCompleted(s.id));
+      const stamp = done ? stampHtml('jp-book-cover-stamp') : '';
       html += `<div class="jp-book-cover" data-id="${escAttr(s.id)}">
         <div class="jp-book-cover-page"></div>
         <div class="jp-book-cover-face" style="background:${colorFromId(s.id)};">
@@ -650,6 +735,7 @@ window.StoriesModule = (function () {
           <div class="jp-book-cover-title">${escHtml(s.title || s.subtitle || s.id)}</div>
           <div class="jp-book-cover-en">${escHtml(s.subtitle || '')}</div>
         </div>
+        ${stamp}
       </div>`;
     }
     html += '</div></div></div>';
@@ -684,6 +770,7 @@ window.StoriesModule = (function () {
         throw new Error('Unsupported story schema: ' + data.schemaVersion);
       }
       currentStory = data;
+      storyDoneMarked = false;
       renderStory(data);
     } catch (err) {
       console.error('[Stories] story load error:', err);
@@ -826,11 +913,24 @@ window.StoriesModule = (function () {
     cover.setAttribute('data-density', 'hard');
     // The color goes on an INNER fill — StPageFlip overwrites the page element's
     // own inline style on loadFromHTML, but leaves children alone.
+    // Completion state for the cover: a stamp once finished, plus the best
+    // comprehension score when the story is graded.
+    const coverId = sInfo.id || data.id || '';
+    const u = window.JPShared && window.JPShared.unlock;
+    const coverDone = !!(u && u.isCompleted && u.isCompleted(coverId));
+    const coverHasQuiz = !!(data.comprehension && Array.isArray(data.comprehension.questions) &&
+      data.comprehension.questions.length > 0);
+    const coverBest = (u && u.getLessonScore) ? u.getLessonScore(coverId) : 0;
+    const coverScore = (coverDone && coverHasQuiz)
+      ? '<div class="jp-flip-cover-score">Best ' + coverBest + '%</div>' : '';
+    const coverStamp = coverDone ? stampHtml('jp-flip-cover-stamp') : '';
     cover.innerHTML =
       '<div class="jp-flip-cover-fill" style="background:' + colorFromId(sInfo.id || data.id || '') + ';">' +
         '<div class="jp-flip-cover-badge">' + escHtml(coverBadge) + '</div>' +
         '<div class="jp-flip-cover-title">' + escHtml(data.title || sInfo.title || '') + '</div>' +
         '<div class="jp-flip-cover-sub">' + escHtml(data.englishTitle || sInfo.subtitle || '') + '</div>' +
+        coverScore +
+        coverStamp +
       '</div>';
     mount.appendChild(cover);
 
@@ -860,12 +960,21 @@ window.StoriesModule = (function () {
         nextBtn.textContent = 'Open →';
         nextBtn.disabled = false;
       } else if (lastPage) {
-        // Offer the next story only if it exists AND is unlocked.
-        const next = storyList[currentIndex + 1];
-        const nextUnlocked = !!next && nextStoryUnlocked();
-        if (!next) { nextBtn.textContent = 'Page →'; nextBtn.disabled = true; }
-        else if (nextUnlocked) { nextBtn.textContent = 'Next story →'; nextBtn.disabled = false; }
-        else { nextBtn.textContent = '🔒 Locked'; nextBtn.disabled = true; }
+        if (hasComprehensionQs()) {
+          // Reading is done; offer the comprehension quiz (opens as a scrollable
+          // overlay). Completion + best score are recorded when it's answered.
+          nextBtn.textContent = '✍ Questions →';
+          nextBtn.disabled = false;
+        } else {
+          // No quiz → reaching the end finishes the story.
+          markStoryDone();
+          // Offer the next story only if it exists AND is unlocked.
+          const next = storyList[currentIndex + 1];
+          const nextUnlocked = !!next && nextStoryUnlocked();
+          if (!next) { nextBtn.textContent = 'Page →'; nextBtn.disabled = true; }
+          else if (nextUnlocked) { nextBtn.textContent = 'Next story →'; nextBtn.disabled = false; }
+          else { nextBtn.textContent = '🔒 Locked'; nextBtn.disabled = true; }
+        }
       } else {
         nextBtn.textContent = 'Page →';
         nextBtn.disabled = false;
@@ -918,9 +1027,35 @@ window.StoriesModule = (function () {
       const unlockApi = window.JPShared && window.JPShared.unlock;
       return !unlockApi || unlockApi.isFree() || unlockApi.isStoryUnlocked(next);
     }
+    function hasComprehensionQs() {
+      const c = currentStory && currentStory.comprehension;
+      return !!(c && Array.isArray(c.questions) && c.questions.length > 0);
+    }
     function nextAction() {
       if (currentPage < pages.length) { if (pf) pf.flipNext(); else showPage(currentPage + 1); }
+      else if (hasComprehensionQs()) { openQuiz(); }
       else if (nextStoryUnlocked()) { currentIndex++; loadStory(storyList[currentIndex]); }
+    }
+
+    // Comprehension quiz as a normal scrollable overlay (NOT a flip page) so the
+    // textarea inputs focus and the list scrolls natively — neither works inside
+    // StPageFlip's animated portrait page DOM.
+    function openQuiz() {
+      const prev = document.getElementById('jp-quiz-overlay');
+      if (prev) prev.remove();
+      const ov = document.createElement('div');
+      ov.id = 'jp-quiz-overlay';
+      ov.className = 'jp-quiz-overlay';
+      ov.innerHTML =
+        '<div class="jp-quiz-overlay-bar">' +
+          '<button class="jp-story-back-btn" id="jp-quiz-back">← Story</button>' +
+          '<div class="jp-quiz-overlay-title">' + escHtml(currentStory.title || '') + '</div>' +
+        '</div>' +
+        '<div class="jp-quiz-overlay-scroll">' + renderComprehensionCard(currentStory.comprehension) + '</div>';
+      container.appendChild(ov);
+      const back = document.getElementById('jp-quiz-back');
+      if (back) back.onclick = () => ov.remove();
+      wireComprehensionCard();
     }
     function prevAction() {
       if (currentPage <= 0) return;
@@ -1118,9 +1253,10 @@ window.StoriesModule = (function () {
         .map(s => (s.jp != null ? s.jp : (paragraphs[s.paraIdx] && paragraphs[s.paraIdx].jp)))
         .filter(Boolean);
     }
-    if (comprehension && Array.isArray(comprehension.questions) && comprehension.questions.length > 0) {
-      prose.push({ type: 'quiz', comprehension });
-    }
+    // NOTE: the comprehension quiz is NOT a flip page. A tall, interactive,
+    // scrollable form can't live inside StPageFlip's portrait page DOM (the page
+    // item is an animated `--soft` element that collapses / can't scroll). It is
+    // shown as a normal scrollable overlay from the last page — see openQuiz().
     return prose;
   }
 
@@ -1247,7 +1383,19 @@ window.StoriesModule = (function () {
         continue;
       }
       const single = rk ? rk.renderToken(t) : escHtml(t.k || '');
-      const entry = surfaceIdx && surfaceIdx.get(t.k);
+      // Homograph particles (でも = "but" vs "even", …) are untagged in token
+      // data and otherwise resolve to a single context-blind sense. Pick the
+      // right sense from sentence position / preceding surface before falling
+      // back to the default surface lookup.
+      let entry = null;
+      const ps = window.JPShared && window.JPShared.particleSense;
+      if (ps) {
+        const prevK = i > 0 ? (tokens[i - 1].k || '') : '';
+        const nextK = i + 1 < tokens.length ? (tokens[i + 1].k || '') : '';
+        const senseId = ps.resolveParticleSense(t.k, { prevK: prevK, nextK: nextK, atSentenceStart: i === 0 });
+        if (senseId && termMapData && termMapData[senseId]) entry = termMapData[senseId];
+      }
+      if (!entry) entry = surfaceIdx && surfaceIdx.get(t.k);
       if (entry && entry.id) {
         const cls = entry.type === 'character' ? 'jp-term jp-term-name' : 'jp-term';
         html += '<span class="' + cls + '" data-term-id="' + escAttr(entry.id) + '">' + single + '</span>';
@@ -1260,15 +1408,148 @@ window.StoriesModule = (function () {
   }
 
   // ── Comprehension card ──────────────────────────────────────────────────
+  // The user's chosen completion stamp image (shared with the Map path), or ''.
+  function globalStampUrl() {
+    try { return (window.JPShared.stampSettings.getStampUrl() || ''); } catch (e) { return ''; }
+  }
+
+  // A completion stamp element (the chosen stamp image, or a ✓ fallback seal).
+  function stampHtml(cls) {
+    const url = globalStampUrl();
+    return url
+      ? '<img class="' + cls + '" src="' + escAttr(url) + '" alt="completed" loading="lazy"/>'
+      : '<div class="' + cls + ' jp-stamp-fallback">✓</div>';
+  }
+
+  // Persist that the current story was finished (+ best score when graded), into
+  // the shared progress store the path/Map reads. `pct` omitted = completion only
+  // (e.g. a story with no comprehension questions, read to the last page).
+  function markStoryDone(pct) {
+    const id = (currentStory && currentStory.id) || (storyList[currentIndex] || {}).id;
+    if (!id) return;
+    if (storyDoneMarked && typeof pct !== 'number') return; // completion already recorded
+    storyDoneMarked = true;
+    try {
+      const u = window.JPShared && window.JPShared.unlock;
+      if (u && u.recordStoryResult) u.recordStoryResult(id, pct);
+    } catch (e) {}
+  }
+
+  // A comprehension question is "written" (free-text) when it carries an answer
+  // string and no MCQ options; otherwise it's the classic multiple-choice item.
+  function isWrittenQ(q) { return q && typeof q.answer === 'string' && q.answer !== '' && !Array.isArray(q.options); }
+
+  // Normalize a Japanese answer for lenient comparison: NFKC fold (full→half
+  // width), strip all whitespace, and trim trailing sentence punctuation.
+  // Kana/kanji are kept exactly as authored — the renderer never guesses readings.
+  function normAns(s) {
+    return String(s == null ? '' : s)
+      .normalize('NFKC')
+      .replace(/\s+/g, '')
+      .replace(/[。.．、,!！?？]+$/u, '')
+      .trim();
+  }
+  const hasKanji = (s) => /[一-鿿㐀-䶿]/.test(s);
+  const kataToHira = (s) => String(s).replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+
+  // Surface→reading pairs for the CURRENT story, harvested from its own tokens
+  // (which carry authored readings, e.g. 青→あお, 月光→げっこう). Grouped tokens
+  // (shared `g`) combine into one word. Cached on the story; longest surface first.
+  function storyReadingPairs() {
+    const story = currentStory;
+    if (!story) return [];
+    if (story.__readingPairs) return story.__readingPairs;
+    const pairs = new Map();
+    for (const p of (story.paragraphs || [])) {
+      const toks = p.tokens || [];
+      let i = 0;
+      while (i < toks.length) {
+        const g = toks[i].g;
+        if (g) {
+          let j = i, surf = '', read = '';
+          while (j < toks.length && toks[j].g === g) {
+            surf += (toks[j].k || '');
+            read += (toks[j].r != null ? toks[j].r : (toks[j].k || ''));
+            // Also index each kanji token on its own (青→あお) so a single-kanji
+            // accept core resolves even when it only appears inside a word group.
+            const tk = toks[j];
+            if (tk.k && tk.r && hasKanji(tk.k) && !pairs.has(tk.k)) pairs.set(tk.k, tk.r);
+            j++;
+          }
+          if (surf && hasKanji(surf) && !pairs.has(surf)) pairs.set(surf, read);
+          i = j;
+        } else {
+          const t = toks[i];
+          if (t.k && t.r && hasKanji(t.k) && !pairs.has(t.k)) pairs.set(t.k, t.r);
+          i++;
+        }
+      }
+    }
+    story.__readingPairs = [...pairs.entries()].sort((a, b) => b[0].length - a[0].length);
+    return story.__readingPairs;
+  }
+
+  // Convert kanji-bearing text to its kana reading using the story pairs
+  // (greedy longest-match), folding katakana → hiragana. Unmatched chars pass through.
+  function readingOf(text) {
+    const pairs = storyReadingPairs();
+    let out = '', i = 0;
+    while (i < text.length) {
+      let hit = null;
+      for (const [s, r] of pairs) { if (s && text.startsWith(s, i)) { hit = [s, r]; break; } }
+      if (hit) { out += hit[1]; i += hit[0].length; } else { out += text[i]; i++; }
+    }
+    return kataToHira(out);
+  }
+
+  // Hybrid lenient match (see plan): accept a minimalistic answer that is a
+  // subset of the model answer (or vice-versa), or that contains an authored
+  // `accept` core/variant. A substring-direction hit must be a kanji or 2+
+  // chars so a lone particle (な) doesn't pass. A KANA answer also matches when
+  // it equals/contains the reading of the kanji model/accept (あおい ⇄ 青).
+  function matchWritten(student, q) {
+    const ns = normAns(student);
+    if (!ns) return false;
+    const na = normAns(q.answer);
+    if (na && ns === na) return true;
+    const substantial = ns.length >= 2 || hasKanji(ns);
+    if (substantial && na && (na.includes(ns) || ns.includes(na))) return true;
+    for (const a of (q.accept || [])) {
+      const nk = normAns(a);
+      if (nk && ns.includes(nk)) return true;
+    }
+    // Reading-based (kana answer vs kanji target): fold both to hiragana readings.
+    const sk = kataToHira(ns);
+    if (sk.length >= 2) {
+      const targets = [na].concat(q.accept || []).filter(Boolean);
+      for (const t of targets) {
+        const rk = readingOf(normAns(t));
+        if (rk && rk.length >= 2 && (rk === sk || rk.includes(sk) || sk.includes(rk))) return true;
+      }
+    }
+    return false;
+  }
+
   function renderComprehensionCard(comprehension) {
     let html = '<div class="jp-story-end-card" id="jp-stories-end-card">' +
       '<h3>' + escHtml(comprehension.intro || 'Did you follow the story?') + '</h3>';
     comprehension.questions.forEach((q, qi) => {
       html += '<div class="jp-story-q" data-qi="' + qi + '">' +
         '<div class="jp-story-q-text">' + escHtml(q.q) + '</div>';
-      (q.options || []).forEach((opt, oi) => {
-        html += '<button class="jp-story-q-opt" data-qi="' + qi + '" data-oi="' + oi + '">' + escHtml(opt) + '</button>';
-      });
+      if (q.q_en) html += '<div class="jp-story-q-en">' + escHtml(q.q_en) + '</div>';
+      if (isWrittenQ(q)) {
+        html += '<textarea class="jp-story-q-input" data-qi="' + qi + '" rows="1" ' +
+                'autocapitalize="off" autocomplete="off" spellcheck="false" ' +
+                'placeholder="ここに 答えを 書いて ください"></textarea>' +
+          '<button class="jp-story-q-check" data-qi="' + qi + '">Check</button>' +
+          '<div class="jp-story-q-model" hidden data-model-for="' + qi + '">' +
+            '<span class="jp-story-q-model-label">答え · Answer</span>' + escHtml(q.answer) +
+          '</div>';
+      } else {
+        (q.options || []).forEach((opt, oi) => {
+          html += '<button class="jp-story-q-opt" data-qi="' + qi + '" data-oi="' + oi + '">' + escHtml(opt) + '</button>';
+        });
+      }
       if (q.explanation) {
         html += '<div class="jp-story-q-explain" hidden data-explain-for="' + qi + '">' + escHtml(q.explanation) + '</div>';
       }
@@ -1287,6 +1568,30 @@ window.StoriesModule = (function () {
     const totalQs = data.comprehension.questions.length;
     let answered = 0, correct = 0;
 
+    // Sound + haptic on any graded answer (same pattern as the lesson drills).
+    function fxAnswer(ok) {
+      try {
+        const fx = window.JPShared.sfx, hp = window.JPShared.haptics;
+        if (ok) { if (fx) fx.success(); if (hp) hp.success(); }
+        else { if (fx) fx.error(); if (hp) hp.error(); }
+      } catch (e) {}
+    }
+
+    // Shared bookkeeping for both MCQ and written items: record the result,
+    // reveal the explanation, flag missed terms, and fire the CTA when done.
+    function recordAnswer(wrapper, q, isRight) {
+      wrapper.dataset.answered = '1';
+      answered++;
+      if (isRight) correct++;
+      fxAnswer(isRight);
+      const ex = wrapper.querySelector('.jp-story-q-explain');
+      if (ex) ex.hidden = false;
+      if (!isRight && Array.isArray(q.terms)) {
+        try { q.terms.forEach(id => window.JPShared.progress.flagTerm(id)); } catch (e) {}
+      }
+      if (answered === totalQs) showCta(correct, totalQs);
+    }
+
     card.querySelectorAll('.jp-story-q-opt').forEach(btn => {
       btn.onclick = function () {
         const qi = parseInt(this.dataset.qi, 10);
@@ -1294,25 +1599,62 @@ window.StoriesModule = (function () {
         const q = data.comprehension.questions[qi];
         const wrapper = card.querySelector('.jp-story-q[data-qi="' + qi + '"]');
         if (!wrapper || wrapper.dataset.answered) return;
-        wrapper.dataset.answered = '1';
-        answered++;
         const isRight = oi === q.correct;
-        if (isRight) correct++;
         wrapper.querySelectorAll('.jp-story-q-opt').forEach((b, idx) => {
           b.disabled = true;
           if (idx === q.correct) b.classList.add('correct');
           else if (idx === oi) b.classList.add('wrong');
         });
-        const ex = wrapper.querySelector('.jp-story-q-explain');
-        if (ex) ex.hidden = false;
-        if (answered === totalQs) showCta(correct, totalQs);
+        recordAnswer(wrapper, q, isRight);
       };
     });
+
+    // Written (free-text) questions: grade the typed answer leniently, lock the
+    // input, reveal the model answer, then record like an MCQ.
+    card.querySelectorAll('.jp-story-q-check').forEach(btn => {
+      btn.onclick = function () {
+        const qi = parseInt(this.dataset.qi, 10);
+        const q = data.comprehension.questions[qi];
+        const wrapper = card.querySelector('.jp-story-q[data-qi="' + qi + '"]');
+        if (!wrapper || wrapper.dataset.answered) return;
+        const input = wrapper.querySelector('.jp-story-q-input');
+        const isRight = matchWritten(input ? input.value : '', q);
+        if (input) { input.disabled = true; input.classList.add(isRight ? 'correct' : 'wrong'); }
+        this.disabled = true;
+        const model = wrapper.querySelector('.jp-story-q-model');
+        if (model) model.hidden = false;
+        recordAnswer(wrapper, q, isRight);
+      };
+    });
+
+    // StPageFlip only whitelists <a>/<button> (checkTarget); a <textarea> is
+    // otherwise treated as a flip-drag start and its touchstart/mousedown is
+    // preventDefault'd — which blocks the field from focusing. The flip's
+    // listeners live on distElement in the bubble phase, so stopping the
+    // pointer-start events at the input lets it focus and open the keyboard.
+    card.querySelectorAll('.jp-story-q-input').forEach(input => {
+      ['mousedown', 'touchstart', 'pointerdown'].forEach(ev =>
+        input.addEventListener(ev, e => e.stopPropagation(), { passive: true }));
+    });
+
+    // The comprehension card can be taller than the page (up to ~10 questions).
+    // StPageFlip runs with mobileScrollSupport:false and preventDefaults touch
+    // gestures, so a scroll-drag on the quiz page is eaten as a page-flip and the
+    // learner can't reach the lower questions. Keep the gesture from reaching the
+    // flip surface so the page-inner's native overflow scroll works. (Drag-flip
+    // on the quiz page is unneeded — Prev / List / the end CTA handle navigation.)
+    const scroller = card.closest('.jp-page-inner');
+    if (scroller) {
+      scroller.style.touchAction = 'pan-y';
+      ['touchstart', 'touchmove', 'pointerdown', 'mousedown'].forEach(ev =>
+        scroller.addEventListener(ev, e => e.stopPropagation(), { passive: true }));
+    }
 
     function showCta(score, total) {
       const cta = document.getElementById('jp-stories-end-cta');
       if (!cta) return;
       const pct = total ? Math.round(score / total * 100) : 0;
+      markStoryDone(pct); // persist completion + best score (shows on cover + path)
       cta.hidden = false;
       if (pct >= 60) {
         const hasNext = currentIndex < storyList.length - 1;

@@ -1565,6 +1565,79 @@
   "grammarUsed": [],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "りきぞうは どこへ 行きましたか。",
+        "q_en": "Where did Rikizo go?",
+        "answer": "山へ行きました。",
+        "accept": [
+          "山"
+        ],
+        "explanation": "「山へ行きます！」と書いてあります。",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは だれに シャツを 借りましたか。",
+        "q_en": "From whom did Rikizo borrow the shirt?",
+        "answer": "けんに借りました。",
+        "accept": [
+          "けん"
+        ],
+        "explanation": "「きのう、けんに借りたシャツです。」と書いてあります。",
+        "terms": [
+          "v_shatsu"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは 電車の 中で 何を 食べましたか。",
+        "q_en": "What did Rikizo eat on the train?",
+        "answer": "カレーを食べました。",
+        "accept": [
+          "カレー"
+        ],
+        "explanation": "「電車の中で、りきぞうはカレーを食べました。」と書いてあります。",
+        "terms": []
+      },
+      {
+        "type": "written",
+        "q": "山の 駅から 二人は どうやって 行きましたか。",
+        "q_en": "How did the two go from the mountain station?",
+        "answer": "歩きました。",
+        "accept": [
+          "歩"
+        ],
+        "explanation": "「ここから歩きます！」と言って、山の道を歩きました。",
+        "terms": [
+          "v_aruku"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは 山の 上の 店で 何を 使って うちに 送りましたか。",
+        "q_en": "What did Rikizo use to send it home from the mountain shop?",
+        "answer": "切手を使って送りました。",
+        "accept": [
+          "切手"
+        ],
+        "explanation": "「切手を使って、うちに送りました。」と書いてあります。",
+        "terms": [
+          "v_kitte"
+        ]
+      },
+      {
+        "type": "written",
+        "q": "山の 上の 空は どうでしたか。",
+        "q_en": "How was the sky at the top of the mountain?",
+        "answer": "とてもきれいでした。",
+        "accept": [
+          "きれい"
+        ],
+        "explanation": "「空がとてもきれいでした。」と書いてあります。",
+        "terms": []
+      }
+    ]
   }
 }

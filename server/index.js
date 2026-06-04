@@ -17,6 +17,7 @@ import { pressToAskRouter } from './routes/press-to-ask.js';
 import { quotaRouter } from './routes/quota.js';
 import { progressRouter } from './routes/progress.js';
 import { bugReportRouter } from './routes/bug-report.js';
+import { adminCostsRouter } from './routes/admin-costs.js';
 import { initCurriculum } from './lib/curriculum.js';
 
 const app = express();
@@ -40,6 +41,11 @@ app.use(express.json({ limit: '6mb' })); // base64 audio for a ≤15s clip fits 
 
 // Health check (no identity required) — Cloud Run uses this.
 app.get('/healthz', (req, res) => res.json({ ok: true }));
+
+// Admin cost dashboard — opened from a BROWSER, so it must NOT require the
+// X-Device-Id header (identityMiddleware) or the iOS App Attest / rate-limit
+// gates. It runs its own soft auth + ADMIN_UIDS/ADMIN_TOKEN gate internally.
+app.use(adminCostsRouter);
 
 // Authenticated API surface.
 app.use(identityMiddleware);

@@ -7,6 +7,8 @@
 #
 # What it checks:
 #   - Any staged story.json or manifest.json triggers scripts/validate-stories.mjs
+#   - Any staged manifest.json also triggers scripts/validate-manifest.mjs
+#     (unlocksAfter chain integrity: dangling refs, cycles, dup ids)
 #   - Blocks the commit on validation failure
 #
 # Bypass: --no-verify (NOT recommended; CI also runs the validator).
@@ -16,10 +18,16 @@ set -e
 staged="$(git diff --cached --name-only --diff-filter=ACM)"
 
 needs_check=0
+manifest_changed=0
 while IFS= read -r f; do
   case "$f" in
     data/*/stories/*/story.json|manifest.json)
       needs_check=1
+      ;;
+  esac
+  case "$f" in
+    manifest.json)
+      manifest_changed=1
       ;;
   esac
 done <<< "$staged"
@@ -30,6 +38,16 @@ if [ "$needs_check" -eq 1 ]; then
     echo
     echo "✘ validate-stories failed. Fix the errors above before committing."
     echo "  (Run \`npm run validate:stories\` locally to iterate.)"
+    exit 1
+  fi
+fi
+
+if [ "$manifest_changed" -eq 1 ]; then
+  echo "→ pre-commit: validating manifest unlock chain…"
+  if ! node scripts/validate-manifest.mjs; then
+    echo
+    echo "✘ validate-manifest failed. Fix the errors above before committing."
+    echo "  (Run \`npm run validate:manifest\` locally to iterate.)"
     exit 1
   fi
 fi
