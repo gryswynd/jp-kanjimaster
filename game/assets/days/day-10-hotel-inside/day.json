@@ -1,0 +1,106 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "day-10-hotel-inside",
+  "title": "Hotel Lobby",
+  "titleJp": "ホテルの ロビー",
+  "level": "N5",
+  "unlockedBy": [],
+  "assets": {
+    "mode": "painted",
+    "map": {
+      "chunks": [
+        {
+          "file": "chunks/0_0.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "collision": [
+        {
+          "file": "chunks/0_0_collision.png",
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1248,
+      "height": 832
+    },
+    "convoBackgrounds": {
+      "outside": "assets/backgrounds/convo-bg-outside.png",
+      "street": "assets/backgrounds/convo-bg-street.png",
+      "void": "assets/backgrounds/convo-bg-void.png",
+      "hotel-lobby": "assets/backgrounds/convo-bg-hotel-lobby.png"
+    }
+  },
+  "playerStart": {
+    "x": 614,
+    "y": 582
+  },
+  "objects": [
+    {
+      "name": "Desk_Monitor",
+      "nameJp": "パソコン",
+      "appearsFromDay": 10,
+      "position": [
+        782,
+        102
+      ],
+      "size": [
+        84,
+        66
+      ],
+      "isDoor": false,
+      "interactive": false,
+      "collision": false,
+      "sprite": "objects/desk_monitor_back.png"
+    },
+    {
+      "name": "Exit_South",
+      "nameJp": "そと",
+      "appearsFromDay": 10,
+      "position": [
+        462,
+        672
+      ],
+      "size": [
+        324,
+        65
+      ],
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    }
+  ],
+  "npcs": [
+    {
+      "name": "hotel_clerk",
+      "nameJp": "てんいん",
+      "appearsFromDay": 10,
+      "x": 845,
+      "y": 205,
+      "spriteWidth": 63,
+      "spriteHeight": 117,
+      "interactionRadius": 260,
+      "sprite": "assets/days/day-10-hotel-inside/characters/hotel_clerk_sprite.png",
+      "convoPortrait": "assets/days/day-10-hotel-inside/characters/hotel_clerk_convo.png",
+      "convoBackground": "hotel-lobby"
+    },
+    {
+      "name": "hotel_guest",
+      "nameJp": "おきゃくさん",
+      "appearsFromDay": 10,
+      "x": 402,
+      "y": 487,
+      "spriteWidth": 67,
+      "spriteHeight": 123,
+      "interactionRadius": 220,
+      "sprite": "assets/days/day-10-hotel-inside/characters/hotel_guest_sprite.png",
+      "convoPortrait": "assets/days/day-10-hotel-inside/characters/hotel_guest_convo.png",
+      "convoBackground": "hotel-lobby"
+    }
+  ],
+  "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",
+  "altPortraits": {
+    "meShocked": "assets/characters/rikizo/rikizo-convo-shocked.png"
+  }
+}

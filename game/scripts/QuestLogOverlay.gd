@@ -121,6 +121,13 @@ func _refresh() -> void:
 			for q in open_q:
 				lines.append("◻  %s" % GameManager.quest_render_jp(q))
 				lines.append("    [color=#7a6855]%s[/color]" % GameManager.quest_render_en(q))
+				# Yamakawa's open-ended Appetite quest: list foods already fed
+				# to him, struck through (he's tried these; the quest stays open).
+				if q.get("id") == "yamakawa_appetite" and not GameManager.yamakawa_tried_foods.is_empty():
+					for f in GameManager.yamakawa_tried_foods:
+						lines.append("      [color=#7a6855][s]%s[/s]  %s[/color]" % [
+							str(f.get("jp", "")), str(f.get("en", ""))
+						])
 			lines.append("")
 		if not done_q.is_empty():
 			lines.append("[b]Done[/b]")

@@ -12,7 +12,7 @@ const DAY_EN    := ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
 const CHARACTERS := [
 	{"jp": "お母さん", "en": "Mom"},
 	{"jp": "お父さん", "en": "Dad"},
-	{"jp": "りきぞ",   "en": "Rikizo"},
+	{"jp": "りきぞう",   "en": "Rikizo"},
 ]
 
 # Per-day schedule overrides — day_number → { character_jp → activity_jp }.
@@ -20,9 +20,9 @@ const CHARACTERS := [
 # Rikizo's OUT-OF-HOME days: they show ??? on the calendar until the player
 # actually reaches that day, then they reveal the real location.
 const SCHEDULE_OVERRIDES := {
-	5: {"りきぞ": "コンビニ"},
-	6: {"りきぞ": "川"},
-	8: {"りきぞ": "コンビニ"},
+	5: {"りきぞう": "コンビニ"},
+	6: {"りきぞう": "川"},
+	8: {"りきぞう": "コンビニ"},
 }
 
 var _backdrop: ColorRect

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://main001"]
+[gd_scene load_steps=24 format=3 uid="uid://main001"]
 
 [ext_resource type="Script" path="res://scripts/DayLoader.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://scripts/CgOverlay.gd" id="16"]
 [ext_resource type="Script" path="res://scripts/TapToPayOverlay.gd" id="17"]
 [ext_resource type="Script" path="res://scripts/PhoneCaseSwapOverlay.gd" id="18"]
+[ext_resource type="Script" path="res://scripts/IntroOverlay.gd" id="19"]
+[ext_resource type="Script" path="res://scripts/WeatherOverlay.gd" id="20"]
 
 [sub_resource type="RectangleShape2D" id="player_col"]
 size = Vector2(24, 30)
@@ -210,6 +212,12 @@ script = ExtResource("15")
 
 [node name="PhoneCaseSwapOverlay" type="CanvasLayer" parent="."]
 script = ExtResource("18")
+
+[node name="IntroOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("19")
+
+[node name="WeatherOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("20")
 
 [node name="CgOverlay" type="CanvasLayer" parent="."]
 script = ExtResource("16")

@@ -197,7 +197,10 @@ func _refresh() -> void:
 	# Active apps. Items/quests stay tappable but disabled when empty so
 	# they look "installed but quiet" rather than missing. Wallet is
 	# always tappable — even at ¥0 the bank app still opens.
-	var items_press = _open_items if not GameManager.inventory.is_empty() else Callable()
+	# Items is ALWAYS tappable once the phone is owned: the inventory screen
+	# hosts the phone tile + ケースをかえる (case swap), so it must stay
+	# reachable even with zero consumables (otherwise the case swap is locked).
+	var items_press = _open_items if (GameManager.has_phone or not GameManager.inventory.is_empty()) else Callable()
 	var quests_press = _open_quests if not GameManager.quests.is_empty() else Callable()
 
 	# Row 1 — the apps that actually do things.

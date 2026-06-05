@@ -17,6 +17,25 @@ var void_asked: Dictionary = {}  # npc_name → true
 var _interaction_lockout_until: int = 0  # ms; blocks new interactions briefly after a convo ends
 var current_day: int = 1  # advanced by interacting with the laptop ("do a lesson")
 
+# --- Weather (Day 11+) ---
+# Per in-game day → weather kind. Unlisted days are "clear". To make it rain one
+# day and clear the next, just edit this map (e.g. {11: "rain", 12: "clear"}).
+# Deterministic per day, so no save/load needed.
+var day_weather := { 11: "rain" }
+# Interiors never get weather. Authoritative set (note day-08-depaato is the
+# OUTDOOR exterior, so it's intentionally NOT here). Add new interiors here.
+const INDOOR_SCENES := {
+	"day-01-home": 1, "day-05-station": 1, "day-07-food": 1,
+	"day-09-depaato-inside": 1, "day-09-konbini-inside": 1,
+	"day-09-station-inside": 1, "day-10-hotel-inside": 1,
+}
+
+func weather_for_day(day: int) -> String:
+	return day_weather.get(day, "clear")
+
+func is_outdoor(scene_id: String) -> bool:
+	return not INDOOR_SCENES.has(scene_id)
+
 # Resume: the scene the player was last in + their position there, so quitting
 # mid-day and reloading drops them back where they left off (instead of the
 # bedroom). Empty current_scene_id = fresh game → start at day-01-home.
@@ -147,6 +166,12 @@ var yamakawa_ate_konbini: bool = false
 # Day 10: Yamakawa's casual register-shift scene seen; broken-word beat asked.
 var yamakawa_casual_day10: bool = false
 var yamakawa_broken_word: bool = false
+# Foods Rikizo has fed Yamakawa (open-ended Appetite quest). Each entry is a
+# {jp, en} dict; shown struck-through under the quest in the log. The quest
+# never completes — Yamakawa always wants the next new thing.
+var yamakawa_tried_foods: Array = []
+# Day 10 hotel: player noticed the guest has no luggage (one-time paranoia).
+var hotel_guest_noticed: bool = false
 # Day 9: Yamakawa tells Rikizo that Yuki is behind the depaato. Flips true
 # at the end of that conversation (fires once, takes priority over
 # yamakawa's other day-9 beats). When true, the east river barrier
@@ -462,8 +487,10 @@ func reset_for_dev() -> void:
 	met_yamakawa_river = false
 	met_ekicho = false
 	yamakawa_ate_konbini = false
+	yamakawa_tried_foods.clear()
 	yamakawa_casual_day10 = false
 	yamakawa_broken_word = false
+	hotel_guest_noticed = false
 	told_about_yuki = false
 	met_yuki = false
 	tv_on = false
@@ -738,6 +765,17 @@ func has_quest(quest_id: String) -> bool:
 	return false
 
 
+func mark_yamakawa_food(jp: String, en: String) -> void:
+	## Record a food Rikizo has fed Yamakawa (open-ended Appetite quest).
+	## Idempotent by jp text. Refreshes the quest log + persists.
+	for f in yamakawa_tried_foods:
+		if f.get("jp", "") == jp:
+			return
+	yamakawa_tried_foods.append({"jp": jp, "en": en})
+	quest_changed.emit()
+	_save()
+
+
 func quest_render_jp(q: Dictionary) -> String:
 	## Render a quest's JP text, substituting verb (or a blank slot if missing).
 	var template: String = str(q.get("jp", ""))
@@ -842,6 +880,12 @@ func advance_day() -> void:
 		# Phone-buzz so the new message is noticed.
 		_seed_day8_yamakawa_shop_message()
 		phone_force_open.emit()
+	if current_day == 9:
+		# Day 9: a gacha machine appears at the konbini. Yamakawa texts Rikizo
+		# about it on opening — gives the player a Yamakawa beat on Day 9
+		# (previously only 5/6/8/10 had one).
+		_seed_day9_yamakawa_message()
+		phone_force_open.emit()
 	if current_day == 10:
 		# Day 10: Yuki's fragmented train/station text (points to the platform)
 		# + Yamakawa's casual "I'm back outside the konbini" text.
@@ -860,7 +904,7 @@ func _seed_day5_yamakawa_message() -> void:
 		"yamakawa", "やまかわ", "Yamakawa",
 		"res://assets/days/day-05-konbini/characters/yamakawa_head.png",
 		"yamakawa",
-		"りきぞ！コンビニに来て！",
+		"りきぞう！コンビニに来て！",
 		"Rikizo! Come to the convenience store!"
 	)
 
@@ -872,14 +916,14 @@ func _seed_day6_yamakawa_river_message() -> void:
 	for t in messages:
 		if t.get("contact_id", "") == "yamakawa":
 			for line in t.get("lines", []):
-				if line.get("jp", "") == "りきぞ、川に来て！":
+				if line.get("jp", "") == "りきぞう、川に来て！":
 					return
 			break
 	add_message(
 		"yamakawa", "やまかわ", "Yamakawa",
 		"res://assets/days/day-05-konbini/characters/yamakawa_head.png",
 		"yamakawa",
-		"りきぞ、川に来て！",
+		"りきぞう、川に来て！",
 		"Rikizo, come to the river!"
 	)
 
@@ -892,15 +936,34 @@ func _seed_day8_yamakawa_shop_message() -> void:
 	for t in messages:
 		if t.get("contact_id", "") == "yamakawa":
 			for line in t.get("lines", []):
-				if line.get("jp", "") == "りきぞ！コンビニでおにぎりが買えますよ！":
+				if line.get("jp", "") == "りきぞう！コンビニでおにぎりが買えますよ！":
 					return
 			break
 	add_message(
 		"yamakawa", "やまかわ", "Yamakawa",
 		"res://assets/days/day-05-konbini/characters/yamakawa_head.png",
 		"yamakawa",
-		"りきぞ！コンビニでおにぎりが買えますよ！",
+		"りきぞう！コンビニでおにぎりが買えますよ！",
 		"Rikizo! You can buy onigiri at the convenience store!"
+	)
+
+
+func _seed_day9_yamakawa_message() -> void:
+	# Day 9: a gacha machine has appeared at the konbini. Yamakawa is excited
+	# and texts Rikizo to come see it. Replay-safe: skip if the line is
+	# already on the thread.
+	for t in messages:
+		if t.get("contact_id", "") == "yamakawa":
+			for line in t.get("lines", []):
+				if line.get("jp", "") == "りきぞう！コンビニにガチャが来た！":
+					return
+			break
+	add_message(
+		"yamakawa", "やまかわ", "Yamakawa",
+		"res://assets/days/day-05-konbini/characters/yamakawa_head.png",
+		"yamakawa",
+		"りきぞう！コンビニにガチャが来た！",
+		"Rikizo! A gacha machine came to the convenience store!"
 	)
 
 
@@ -910,14 +973,14 @@ func _seed_day10_yuki_message() -> void:
 	for t in messages:
 		if t.get("contact_id", "") == "yuki":
 			for line in t.get("lines", []):
-				if line.get("jp", "") == "りきぞ...電車...駅...":
+				if line.get("jp", "") == "りきぞう...電車...駅...":
 					return
 			break
 	add_message(
 		"yuki", "ゆき", "Yuki",
 		"res://assets/days/day-09-river-east/characters/yuki_head.png",
 		"yuki",
-		"りきぞ...電車...駅...",
+		"りきぞう...電車...駅...",
 		"Rikizo... train... station..."
 	)
 
@@ -928,14 +991,14 @@ func _seed_day10_yamakawa_konbini_message() -> void:
 	for t in messages:
 		if t.get("contact_id", "") == "yamakawa":
 			for line in t.get("lines", []):
-				if line.get("jp", "") == "りきぞ！コンビニの外にいるよ。来て！":
+				if line.get("jp", "") == "りきぞう！コンビニの外にいるよ。来て！":
 					return
 			break
 	add_message(
 		"yamakawa", "やまかわ", "Yamakawa",
 		"res://assets/days/day-05-konbini/characters/yamakawa_head.png",
 		"yamakawa",
-		"りきぞ！コンビニの外にいるよ。来て！",
+		"りきぞう！コンビニの外にいるよ。来て！",
 		"Rikizo! I'm outside the convenience store. Come over!"
 	)
 
@@ -1000,8 +1063,10 @@ func _save() -> void:
 		"met_yamakawa_river": met_yamakawa_river,
 		"met_ekicho": met_ekicho,
 		"yamakawa_ate_konbini": yamakawa_ate_konbini,
+		"yamakawa_tried_foods": yamakawa_tried_foods,
 		"yamakawa_casual_day10": yamakawa_casual_day10,
 		"yamakawa_broken_word": yamakawa_broken_word,
+		"hotel_guest_noticed": hotel_guest_noticed,
 		"told_about_yuki": told_about_yuki,
 		"met_yuki": met_yuki,
 		"tv_on": tv_on,
@@ -1108,10 +1173,14 @@ func _load_save() -> void:
 			met_ekicho = bool(data["met_ekicho"])
 		if data.has("yamakawa_ate_konbini"):
 			yamakawa_ate_konbini = bool(data["yamakawa_ate_konbini"])
+		if data.has("yamakawa_tried_foods"):
+			yamakawa_tried_foods = data["yamakawa_tried_foods"]
 		if data.has("yamakawa_casual_day10"):
 			yamakawa_casual_day10 = bool(data["yamakawa_casual_day10"])
 		if data.has("yamakawa_broken_word"):
 			yamakawa_broken_word = bool(data["yamakawa_broken_word"])
+		if data.has("hotel_guest_noticed"):
+			hotel_guest_noticed = bool(data["hotel_guest_noticed"])
 		if data.has("told_about_yuki"):
 			told_about_yuki = bool(data["told_about_yuki"])
 		if data.has("met_yuki"):

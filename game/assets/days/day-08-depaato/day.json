@@ -114,8 +114,12 @@
       ],
       "sprite": "objects/car_van_silver_rear.png",
       "isDoor": false,
-      "interactive": false,
-      "collision": true
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "車です。ぎんいろですね。",
+        "en": "A car. It's silver."
+      }
     },
     {
       "name": "Van_Mint",
@@ -132,8 +136,12 @@
       ],
       "sprite": "objects/car_van_mint_rear.png",
       "isDoor": false,
-      "interactive": false,
-      "collision": true
+      "interactive": true,
+      "collision": true,
+      "message": {
+        "jp": "車です。みどりの車ですね。",
+        "en": "A car. A green one."
+      }
     },
     {
       "name": "Door_Inside",
