@@ -2,9 +2,13 @@
  * server/routes/press-to-ask.js
  * POST /v1/press-to-ask
  *
- * Body (JSON): { text?, audio?: { base64, format, sampleRateHertz }, hint? }
+ * Body (JSON): { text?, audio?: { base64, format, sampleRateHertz }, ctx?, hint? }
  *   - text  : a typed question (Compose / Dojo path — no STT cost)
  *   - audio : a recorded question (≤ maxAudioSeconds) → STT first
+ *   - ctx   : tiny on-screen identifiers { view, lessonId, page, item } — the
+ *             server resolves the actual visible Japanese from the content file
+ *             (see lib/content.js). Replaces the old fat client-built hint.
+ *   - hint  : remaining client-only context (student-progress block).
  * Exactly one of text|audio is required.
  *
  * Response: { transcript, answer, quota:{ used, limit, remaining } }
@@ -26,16 +30,26 @@ import {
 import { transcribe } from '../lib/stt.js';
 import { answerPressToAsk } from '../lib/anthropic.js';
 import { summarizeProfile, recordLookups } from '../lib/profile.js';
+import { resolveContext, resolveSampleText } from '../lib/content.js';
 import { computeCost, logCost } from '../lib/cost-meter.js';
+import { env } from '../lib/config.js';
 
 export const pressToAskRouter = Router();
 
 pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
   const deviceId = req.deviceId;
+  // Email from the verified Firebase token (authMiddleware). Present only for a
+  // real (non-anonymous) account; null for anonymous / unauthenticated.
+  const email = req.userEmail || null;
   let reserved = false;
   try {
-    const { text, audio, hint } = req.body || {};
+    const { text, audio, ctx, hint } = req.body || {};
     if (!text && !audio) throw httpError(400, 'missing_input');
+
+    // The tutor is a logged-in feature: require a verified email account so usage
+    // ties to a person (and the cost dashboard can attribute it). Bypassable for
+    // local dev where there's no verifiable token (TUTOR_LOGIN_BYPASS=true).
+    if (!env.tutorLoginBypass && !email) throw httpError(401, 'login_required');
 
     const flags = await getPricingFlags();
     if (flags.killSwitch) throw httpError(503, 'kill_switch');
@@ -56,9 +70,14 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
     const usage = { sttSeconds: 0, inputTokens: 0, outputTokens: 0 };
     let transcript = text || '';
 
+    // Resolve the on-screen Japanese once (cheap, cached). Used both to bias STT
+    // toward what's on the page and as the answer-context hint below.
+    let onScreenJa = '';
+    try { onScreenJa = await resolveSampleText(ctx); } catch { /* best-effort */ }
+
     if (audio) {
       const r = await transcribe({
-        base64: audio.base64, format: audio.format,
+        base64: audio.base64, format: audio.format, onScreenJa,
       });
       // Bill the client-reported clip length (single-chunk STT doesn't return
       // duration); the audio cap above bounds it to <= maxAudioSeconds.
@@ -81,7 +100,7 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
         reserved = false;
         const { totalCents: cents, breakdown } = computeCost(usage);
         await settleCost(deviceId, cents);
-        await recordCostRollup(deviceId, breakdown, cents);
+        await recordCostRollup(deviceId, breakdown, cents, email);
         logCost('press-to-ask/low-confidence', deviceId, usage, cents, breakdown);
         return res.json({
           transcript,
@@ -91,12 +110,17 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
       }
     }
 
+    // Resolve what's on the student's screen from the tiny ctx identifiers (the
+    // server reads the content file itself — see lib/content.js).
+    let onScreen = '';
+    try { onScreen = await resolveContext(ctx); } catch { /* best-effort */ }
+
     // Cross-session memory: prepend a compact "things you've asked before" block
-    // to the (volatile) per-request context. Server is source of truth here; the
-    // client hint already carries on-screen + progress.
+    // to the (volatile) per-request context. Server is source of truth for memory
+    // and on-screen content; `hint` now carries only the client's progress block.
     let memHint = '';
     try { memHint = summarizeProfile(await getProfile(deviceId)); } catch { /* best-effort */ }
-    const fullHint = [memHint, hint].filter(Boolean).join('\n\n');
+    const fullHint = [memHint, onScreen, hint].filter(Boolean).join('\n\n');
 
     const { answer, usage: llm, lookups } = await answerPressToAsk(transcript, fullHint, flags.pressAsk);
     usage.inputTokens = llm.inputTokens;
@@ -104,7 +128,7 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
 
     const { totalCents: cents, breakdown } = computeCost(usage);
     await settleCost(deviceId, cents);
-    await recordCostRollup(deviceId, breakdown, cents);
+    await recordCostRollup(deviceId, breakdown, cents, email);
     logCost('press-to-ask', deviceId, usage, cents, breakdown);
 
     // Update the learner profile with what Rikizo looked up (fire-and-forget — a

@@ -45,6 +45,31 @@ window.StoriesModule = (function () {
   let surfaceIdx = null;        // surface → entry, for runtime fallback
   let CONJUGATION_RULES = null; // loaded with glossaries; used by JP_OPEN_TERM
 
+  // ── Comprehension-quiz answer persistence ─────────────────────────────────
+  // Locked-in answers survive going back into the story (and an app close) so a
+  // half-finished quiz resumes instead of being wiped. Device-local scratch —
+  // NOT synced/imported (story completion persists separately via
+  // unlock.recordStoryResult). One key per story; cleared on a fresh re-read of
+  // a FINISHED quiz (see loadStory).
+  function quizKey(id) { return 'k-story-quiz-' + id; }
+  function loadQuizAnswers(id) {
+    if (!id) return {};
+    try { return JSON.parse(localStorage.getItem(quizKey(id)) || '{}') || {}; }
+    catch (e) { return {}; }
+  }
+  function saveQuizAnswer(id, qi, ans) {
+    if (!id) return;
+    try {
+      const all = loadQuizAnswers(id);
+      all[qi] = ans;
+      localStorage.setItem(quizKey(id), JSON.stringify(all));
+    } catch (e) {}
+  }
+  function clearQuizAnswers(id) {
+    if (!id) return;
+    try { localStorage.removeItem(quizKey(id)); } catch (e) {}
+  }
+
   // ── Boot ─────────────────────────────────────────────────────────────────
   function getCdnUrl(filepath) { return window.getAssetUrl(config, filepath); }
 
@@ -771,6 +796,13 @@ window.StoriesModule = (function () {
       }
       currentStory = data;
       storyDoneMarked = false;
+      // A FINISHED quiz starts over on a fresh load (re-read); an unfinished one
+      // is left intact so it resumes (restored in wireComprehensionCard).
+      const qList = data.comprehension && data.comprehension.questions;
+      if (Array.isArray(qList) && qList.length) {
+        const saved = loadQuizAnswers(data.id);
+        if (Object.keys(saved).length >= qList.length) clearQuizAnswers(data.id);
+      }
       renderStory(data);
     } catch (err) {
       console.error('[Stories] story load error:', err);
@@ -986,20 +1018,18 @@ window.StoriesModule = (function () {
         enToggle.style.visibility = hasEn ? 'visible' : 'hidden';
         enToggle.classList.toggle('jp-en-on', enRevealed);
       }
-      // Tell Ask-Rikizo which story/page is on screen (visible JP as sample).
+      // Tell Ask-Rikizo which story/page is on screen; the server resolves the
+      // paragraph Japanese from the file. `page` is the paragraph index of the
+      // first segment on this page so the server samples the right spot.
       try {
         const tc = window.JPShared && window.JPShared.tutorContext;
         const d = currentStory;
         if (tc && d) {
-          let sample = '';
           const segs = (pages[currentPage - 1] && pages[currentPage - 1].segments) || [];
-          for (let i = 0; i < segs.length && sample.length < 240; i++) {
-            const p = (d.paragraphs || [])[segs[i].paraIdx];
-            if (p && p.jp) sample += (sample ? ' ' : '') + p.jp;
-          }
+          const paraIdx = segs.length ? segs[0].paraIdx : (currentPage - 1);
           tc.patch({
             view: 'story', lessonId: d.id, title: d.title || d.englishTitle || '',
-            page: currentPage, sectionType: 'story', sample: sample.slice(0, 240)
+            page: paraIdx, sectionType: 'story'
           });
         }
       } catch (e) {}
@@ -1578,18 +1608,40 @@ window.StoriesModule = (function () {
     }
 
     // Shared bookkeeping for both MCQ and written items: record the result,
-    // reveal the explanation, flag missed terms, and fire the CTA when done.
+    // flag missed terms, and fire the CTA when done. (Visuals — disabling,
+    // colouring, revealing the explanation/model — live in the apply* helpers so
+    // the same code drives a live answer AND a restore-from-storage.)
     function recordAnswer(wrapper, q, isRight) {
       wrapper.dataset.answered = '1';
       answered++;
       if (isRight) correct++;
       fxAnswer(isRight);
-      const ex = wrapper.querySelector('.jp-story-q-explain');
-      if (ex) ex.hidden = false;
       if (!isRight && Array.isArray(q.terms)) {
         try { q.terms.forEach(id => window.JPShared.progress.flagTerm(id)); } catch (e) {}
       }
       if (answered === totalQs) showCta(correct, totalQs);
+    }
+
+    // Apply the resolved (answered) visual state to a question card. Shared by
+    // the live answer handlers and the restore pass — purely DOM, no bookkeeping.
+    function applyMcqResolved(wrapper, q, oi) {
+      wrapper.querySelectorAll('.jp-story-q-opt').forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === q.correct) b.classList.add('correct');
+        else if (idx === oi) b.classList.add('wrong');
+      });
+      const ex = wrapper.querySelector('.jp-story-q-explain');
+      if (ex) ex.hidden = false;
+    }
+    function applyWrittenResolved(wrapper, q, text, isRight) {
+      const input = wrapper.querySelector('.jp-story-q-input');
+      if (input) { input.value = text || ''; input.disabled = true; input.classList.add(isRight ? 'correct' : 'wrong'); }
+      const check = wrapper.querySelector('.jp-story-q-check');
+      if (check) check.disabled = true;
+      const model = wrapper.querySelector('.jp-story-q-model');
+      if (model) model.hidden = false;
+      const ex = wrapper.querySelector('.jp-story-q-explain');
+      if (ex) ex.hidden = false;
     }
 
     card.querySelectorAll('.jp-story-q-opt').forEach(btn => {
@@ -1600,11 +1652,8 @@ window.StoriesModule = (function () {
         const wrapper = card.querySelector('.jp-story-q[data-qi="' + qi + '"]');
         if (!wrapper || wrapper.dataset.answered) return;
         const isRight = oi === q.correct;
-        wrapper.querySelectorAll('.jp-story-q-opt').forEach((b, idx) => {
-          b.disabled = true;
-          if (idx === q.correct) b.classList.add('correct');
-          else if (idx === oi) b.classList.add('wrong');
-        });
+        applyMcqResolved(wrapper, q, oi);
+        saveQuizAnswer(data.id, qi, { isRight: isRight, oi: oi });
         recordAnswer(wrapper, q, isRight);
       };
     });
@@ -1618,11 +1667,10 @@ window.StoriesModule = (function () {
         const wrapper = card.querySelector('.jp-story-q[data-qi="' + qi + '"]');
         if (!wrapper || wrapper.dataset.answered) return;
         const input = wrapper.querySelector('.jp-story-q-input');
-        const isRight = matchWritten(input ? input.value : '', q);
-        if (input) { input.disabled = true; input.classList.add(isRight ? 'correct' : 'wrong'); }
-        this.disabled = true;
-        const model = wrapper.querySelector('.jp-story-q-model');
-        if (model) model.hidden = false;
+        const text = input ? input.value : '';
+        const isRight = matchWritten(text, q);
+        applyWrittenResolved(wrapper, q, text, isRight);
+        saveQuizAnswer(data.id, qi, { isRight: isRight, text: text });
         recordAnswer(wrapper, q, isRight);
       };
     });
@@ -1670,6 +1718,24 @@ window.StoriesModule = (function () {
         cta.onclick = () => { loadStory(storyList[currentIndex]); };
       }
     }
+
+    // Restore previously locked-in answers so the quiz resumes after going back
+    // into the story (or an app close). Visual + tally only — no sound replay or
+    // re-flagging of missed terms; a complete set re-shows the CTA.
+    const saved = loadQuizAnswers(data.id);
+    Object.keys(saved).forEach(qiStr => {
+      const qi = parseInt(qiStr, 10);
+      const q = data.comprehension.questions[qi];
+      const wrapper = card.querySelector('.jp-story-q[data-qi="' + qi + '"]');
+      if (!q || !wrapper || wrapper.dataset.answered) return;
+      const a = saved[qiStr] || {};
+      if (isWrittenQ(q)) applyWrittenResolved(wrapper, q, a.text || '', !!a.isRight);
+      else applyMcqResolved(wrapper, q, typeof a.oi === 'number' ? a.oi : -1);
+      wrapper.dataset.answered = '1';
+      answered++;
+      if (a.isRight) correct++;
+    });
+    if (totalQs && answered === totalQs) showCta(correct, totalQs);
   }
 
   // ── Split a synthetic conjugated id (e.g. "v_ureshii_plain_past_adj") into

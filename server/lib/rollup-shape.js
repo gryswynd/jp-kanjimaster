@@ -44,7 +44,7 @@ export function normalizeRollup(day, raw = {}) {
   });
   const byDevice = {};
   for (const [id, d] of Object.entries(raw.byDevice || {})) {
-    byDevice[id] = { requests: d.requests || 0, total: d.total || 0, svc: normSvc(d.svc) };
+    byDevice[id] = { requests: d.requests || 0, total: d.total || 0, email: d.email || '', svc: normSvc(d.svc) };
   }
   return {
     day,

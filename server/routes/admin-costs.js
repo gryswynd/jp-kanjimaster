@@ -106,9 +106,10 @@ adminCostsRouter.get('/v1/admin/costs', async (req, res, next) => {
       maxRequest = Math.max(maxRequest, d.maxRequestCents);
       if (d.total > worst.total) worst = { day: d.day, total: d.total };
       for (const [id, dev] of Object.entries(d.byDevice)) {
-        const a = devAgg[id] || (devAgg[id] = { deviceId: id, requests: 0, total: 0, svc: { claudeInput: 0, claudeOutput: 0, stt: 0, firestore: 0 } });
+        const a = devAgg[id] || (devAgg[id] = { deviceId: id, email: '', requests: 0, total: 0, svc: { claudeInput: 0, claudeOutput: 0, stt: 0, firestore: 0 } });
         a.requests += dev.requests;
         a.total += dev.total;
+        if (dev.email) a.email = dev.email; // latest non-empty wins across the window
         for (const s of SERVICES) a.svc[s] += dev.svc[s] || 0;
       }
     }
@@ -229,7 +230,7 @@ const DASHBOARD_HTML = `<!doctype html>
   </div>
   <div class="card">
     <h2>By tester (device)</h2>
-    <table><thead><tr><th>device</th><th class="n">asks</th><th class="n">cost ¢</th><th class="n">avg ¢</th></tr></thead>
+    <table><thead><tr><th>tester</th><th class="n">asks</th><th class="n">cost ¢</th><th class="n">avg ¢</th></tr></thead>
     <tbody id="devBody"></tbody></table>
   </div>
 </div>
@@ -243,6 +244,7 @@ var SPIKE_FACTOR = 2.5, SPIKE_FLOOR_CENTS = 5;
 function tok() { var m = location.search.match(/[?&]token=([^&]+)/); return m ? m[1] : ''; }
 function c(n) { return '$' + (n/100).toFixed(2); }
 function el(id) { return document.getElementById(id); }
+function escH(s) { return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 function median(a) { if (!a.length) return 0; var s = a.slice().sort(function(x,y){return x-y;}); var m = s.length>>1; return s.length%2 ? s[m] : (s[m-1]+s[m])/2; }
 
@@ -322,7 +324,8 @@ fetch('/v1/admin/costs?days=14' + (tok()?('&token='+encodeURIComponent(tok())):'
     el('hourChart').innerHTML = hourBars(d.today);
 
     el('devBody').innerHTML = d.byDevice.length ? d.byDevice.map(function(x){
-      return '<tr><td title="'+x.deviceId+'">'+x.deviceId.slice(0,10)+'…</td><td class="n">'+x.requests+'</td><td class="n">'+x.total.toFixed(2)+'</td><td class="n">'+x.avgPerRequest.toFixed(2)+'</td></tr>';
+      var who = x.email ? escH(x.email) : (escH(x.deviceId.slice(0,10))+'… <span class="sub">(not signed in)</span>');
+      return '<tr><td title="'+escH(x.deviceId)+'">'+who+'</td><td class="n">'+x.requests+'</td><td class="n">'+x.total.toFixed(2)+'</td><td class="n">'+x.avgPerRequest.toFixed(2)+'</td></tr>';
     }).join('') : '<tr><td colspan="4" class="sub">no activity yet</td></tr>';
 
     if (d.ttsLedger) {

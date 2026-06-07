@@ -158,12 +158,16 @@ async function highWaterMax(ref, day, totalCents) {
   return null;
 }
 
-export async function recordCostRollup(deviceId, breakdown, totalCents) {
+export async function recordCostRollup(deviceId, breakdown, totalCents, email) {
   if (!totalCents) return;
   const day = todayStr();
   const H = new Date().getUTCHours();
   const ref = client().doc(`cost-rollup/${day}`);
   const inc = (n) => FieldValue.increment(n || 0);
+  // Per-device entry; stamp the signed-in email (merge keeps the latest) so the
+  // dashboard can show who, not just an anonymous device id.
+  const devEntry = { requests: inc(1), total: inc(totalCents), svc: svcIncrements(breakdown) };
+  if (email) devEntry.email = email;
   const data = {
     day,
     updatedAt: FieldValue.serverTimestamp(),
@@ -171,7 +175,7 @@ export async function recordCostRollup(deviceId, breakdown, totalCents) {
     total: inc(totalCents),
     costSumCents: inc(totalCents),
     svc: svcIncrements(breakdown),
-    byDevice: { [deviceId]: { requests: inc(1), total: inc(totalCents), svc: svcIncrements(breakdown) } },
+    byDevice: { [deviceId]: devEntry },
     hourly: { [String(H)]: { total: inc(totalCents), requests: inc(1) } },
   };
   const newMax = await highWaterMax(ref, day, totalCents);

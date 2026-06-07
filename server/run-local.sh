@@ -38,5 +38,7 @@ if [[ "${1:-}" == "--lan" ]]; then
   echo "LAN mode — open the app on a wifi device with:  ?tutor=http://${IP:-<your-mac-ip>}:${PORT}"
 fi
 
-echo "Starting tutor server on :${PORT} (memory store, attest bypass)…"
-TUTOR_STORE=memory ATTEST_BYPASS=true PORT="${PORT}" exec node index.js
+echo "Starting tutor server on :${PORT} (memory store, attest + login bypass)…"
+# TUTOR_LOGIN_BYPASS=true: skip the require-a-signed-in-account gate locally, since
+# there's no verifiable Firebase token in dev. Production leaves it false (login required).
+TUTOR_STORE=memory ATTEST_BYPASS=true TUTOR_LOGIN_BYPASS=true PORT="${PORT}" exec node index.js

@@ -33,6 +33,7 @@
     custom: 'a custom story',
     compose: 'composition practice',
     audiodojo: 'listening practice',
+    glossary: 'the glossary',
     game: 'the adventure',
     map: 'the map'
   };
@@ -93,12 +94,28 @@
     return ctx.lessonId ? (label + ' · ' + ctx.lessonId) : label;
   }
 
+  /**
+   * The tiny identifier set sent to the tutor backend. The SERVER resolves the
+   * actual on-screen Japanese from these (lib/content.js) — the client no longer
+   * ships the visible text itself. `item` carries the single surface for screens
+   * with no fixed page (Dojo's random card, an open Glossary term).
+   */
+  function forRequest() {
+    return {
+      view: ctx.view || 'home',
+      lessonId: ctx.lessonId != null ? ctx.lessonId : null,
+      page: (typeof ctx.page === 'number') ? ctx.page : null,
+      item: ctx.item || null
+    };
+  }
+
   window.JPShared.tutorContext = {
     set: set,
     patch: patch,
     get: get,
     describe: describe,
     shortLabel: shortLabel,
+    forRequest: forRequest,
     sampleFromSection: sampleFromSection
   };
 })();

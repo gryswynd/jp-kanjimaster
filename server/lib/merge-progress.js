@@ -7,6 +7,7 @@
  *
  * Merge rules (chosen so progress is MONOTONIC — you can never lose ground):
  *   scores / reviewScores / bestScores / flags → max per key
+ *   gameResults                               → completion monotonic (complete wins), ts tiebreak
  *   lessonCompleted / activeFlags             → OR  per key (true wins)
  *   n4Unlocked                                → OR
  *   streak.best / freezes                     → max
@@ -16,10 +17,10 @@
  *
  * Shape (both stored + incoming):
  *   { learning:{ lessonScores, lessonCompleted, reviewScores, flags, activeFlags,
- *                bestScores, composeDrafts, n4Unlocked },
+ *                bestScores, composeDrafts, gameResults, n4Unlocked },
  *     streak:{ current, best, lastActive, history[], freezes },
  *     profile:{ first, last, email },
- *     updatedAt: <ms epoch>, schemaVersion: 1 }
+ *     updatedAt: <ms epoch>, schemaVersion: 2 }
  */
 
 const num = (v) => (typeof v === 'number' && isFinite(v) ? v : 0);
@@ -43,6 +44,25 @@ function unionSorted(a, b) {
   return Array.from(set).sort();
 }
 
+// Web mini-game results, keyed by full localStorage key (k-scr-/k-conn-/k-conn4-/
+// k-mara-…) → { status, ts, tilt }. Completion is monotonic (status:'complete'
+// wins); ties broken by most-recent ts. Mirror of app/shared/sync.js.
+function mergeGameResults(a, b) {
+  const out = { ...(a || {}) };
+  const src = b || {};
+  for (const k of Object.keys(src)) {
+    const av = out[k], bv = src[k];
+    if (!av) { out[k] = bv; continue; }
+    if (!bv) continue;
+    const aDone = av && av.status === 'complete';
+    const bDone = bv && bv.status === 'complete';
+    if (aDone && !bDone) out[k] = av;
+    else if (bDone && !aDone) out[k] = bv;
+    else out[k] = (num(bv && bv.ts) >= num(av && av.ts)) ? bv : av;
+  }
+  return out;
+}
+
 function mergeLearning(a, b) {
   a = a || {}; b = b || {};
   return {
@@ -54,6 +74,7 @@ function mergeLearning(a, b) {
     bestScores:      maxMap(a.bestScores, b.bestScores),
     // drafts are last-write at the section level (handled by caller via updatedAt)
     composeDrafts:   { ...(a.composeDrafts || {}), ...(b.composeDrafts || {}) },
+    gameResults:     mergeGameResults(a.gameResults, b.gameResults),
     n4Unlocked:      !!a.n4Unlocked || !!b.n4Unlocked,
   };
 }
@@ -85,7 +106,7 @@ export function mergeProgress(stored, incoming, now) {
       streak:   mergeStreak(null, incoming.streak),
       profile:  incoming.profile || {},
       updatedAt: now,
-      schemaVersion: 1,
+      schemaVersion: 2,
     };
   }
   const incomingNewer = num(incoming.updatedAt) >= num(stored.updatedAt);
@@ -97,7 +118,7 @@ export function mergeProgress(stored, incoming, now) {
     streak:   mergeStreak(stored.streak, incoming.streak),
     profile,
     updatedAt: Math.max(num(stored.updatedAt), num(incoming.updatedAt), num(now)),
-    schemaVersion: 1,
+    schemaVersion: 2,
   };
   // composeDrafts: union keys, but on a key conflict the newer side wins
   const base = incomingNewer ? (stored.learning && stored.learning.composeDrafts)

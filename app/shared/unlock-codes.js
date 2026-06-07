@@ -39,6 +39,18 @@
       unlockThrough: 'N4.19',
       reviewsBackfill: true,   // auto-pass past reviews; later reviews stay gated
       blurb: 'Unlocked through N4.19 — you’re set up at your current level.'
+    },
+    rikizo420: {
+      label: 'Re-gate at N4.20',
+      // One-time cleanup for founding students who had the old all-N4-unlocked
+      // build: floor their progress through N4.20, then LOCK everything that comes
+      // after it (clears any stray beyond-N4.20 progress so the new progressive
+      // gating re-locks N4.21+). Their next step becomes the review after N4.20.
+      unlockThrough: 'N4.20',
+      reviewsBackfill: true,
+      lockBeyond: 'N4.20',
+      oneTime: true,           // NEVER re-applied on sync/import — it's destructive
+      blurb: 'Re-locked to your current spot (through N4.20). Continue from the next review.'
     }
   };
 
@@ -112,6 +124,22 @@
       }
     }
     return _entryCache[id] || null;
+  }
+
+  // True if `id` transitively requires `target` (target is in id's unlocksAfter
+  // ancestry) — i.e. id is "after" target in the unlock chain.
+  function _requires(m, id, target) {
+    var seen = {}, cur = id;
+    while (cur) {
+      var e = _findEntry(m, cur);
+      var ua = e && e.unlocksAfter;
+      if (!ua) return false;
+      if (ua === target) return true;
+      if (seen[ua]) return false;
+      seen[ua] = true;
+      cur = ua;
+    }
+    return false;
   }
 
   // ── Core: compute + apply the seed set for a code ────────────────────────────
@@ -204,6 +232,31 @@
       unlock.unlockN4();
       counts.n4 = true;
     }
+
+    // lockBeyond: strip any saved progress for content that comes AFTER the
+    // boundary (transitively requires it), so the new progressive gating
+    // re-locks it. Runs after seeding, so it also removes the just-seeded item
+    // that gates directly off the boundary (e.g. the review after N4.20).
+    if (def.lockBeyond) {
+      var allIds = {};
+      LEVEL_ORDER.forEach(function (lvl) {
+        var d2 = m.data[lvl]; if (!d2) return;
+        ['lessons', 'grammar', 'reviews', 'stories'].forEach(function (kind) {
+          (d2[kind] || []).forEach(function (it) { if (it && it.id) allIds[it.id] = true; });
+        });
+      });
+      var cleared = 0;
+      ['k-lesson-completed', 'k-lesson-scores'].forEach(function (key) {
+        var obj; try { obj = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) { obj = {}; }
+        var changed = false;
+        Object.keys(obj).forEach(function (id) {
+          if (allIds[id] && _requires(m, id, def.lockBeyond)) { delete obj[id]; changed = true; cleared++; }
+        });
+        if (changed) localStorage.setItem(key, JSON.stringify(obj));
+      });
+      counts.lockedBeyond = def.lockBeyond;
+      counts.cleared = cleared;
+    }
     return counts;
   }
 
@@ -219,7 +272,9 @@
     var counts = _applyCode(def);
     if (!counts) return { ok: false, reason: 'no_manifest' };
 
-    _remember(code);
+    // One-time/destructive codes are NOT remembered — reapplyAll() after an
+    // import must never re-run a clear and wipe legitimately-earned progress.
+    if (!def.oneTime) _remember(code);
     // Refresh home so the new unlocks show immediately.
     try {
       if (window.JPApp && window.JPApp._view === 'home' && window.JPApp.renderMenu) {

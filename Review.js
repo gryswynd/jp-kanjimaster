@@ -976,20 +976,20 @@
       const q = this.state.questions[this.state.idx];
       const stage = this.el('jp-stage');
 
-      // Tell Ask-Rikizo which review question is on screen. Sample the question's
-      // own Japanese only — never the answer (don't let Rikizo leak it).
+      // Tell Ask-Rikizo which review question is on screen. Send the question's
+      // own Japanese only, as `item` — lessonId is null on purpose so the server
+      // never reads the review file (it holds the answers; don't let Rikizo leak).
       try {
         const tc = window.JPShared && window.JPShared.tutorContext;
         if (tc) {
-          let sample = q ? (q.jp || q.prompt || q.stem || q.question || '') : '';
-          if (!sample && q && q.lines && q.lines[0]) sample = q.lines[0].jp || '';
+          let item = q ? (q.jp || q.prompt || q.stem || q.question || '') : '';
+          if (!item && q && q.lines && q.lines[0]) item = q.lines[0].jp || '';
           tc.patch({
             view: 'review',
-            lessonId: this.config && this.config._reviewId,
-            title: (q && q.section) || 'Review',
+            lessonId: null,
             page: this.state.idx,
             sectionType: 'review',
-            sample: String(sample).slice(0, 200)
+            item: String(item).slice(0, 160)
           });
         }
       } catch (e) {}

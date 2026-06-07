@@ -602,6 +602,18 @@ window.ComposeModule = {
         const regularCount = (compose.prompts || []).length;
         const totalPrompts = allP.length;
 
+        // Tell Ask-Rikizo which compose set + prompt is on screen; the server
+        // resolves the visible Japanese from the file (no client-side extraction).
+        try {
+            const tc = window.JPShared && window.JPShared.tutorContext;
+            if (tc) tc.patch({
+                view: 'compose',
+                lessonId: compose.lesson || compose.id || null,
+                page: activePromptIndex,
+                sectionType: activePromptIndex >= regularCount ? 'challenge' : 'prompt'
+            });
+        } catch (e) {}
+
         // Build active prompt banner and targets
         let promptBannerHtml = '';
         let targetHtml = '';

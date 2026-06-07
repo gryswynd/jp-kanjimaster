@@ -288,6 +288,19 @@ window.AudioDojoModule = (function () {
 
   function renderPlayer(data) {
     if (window.JPApp) window.JPApp.hideTabBar();
+
+    // Tell Ask-Rikizo which listening passage is on screen; the server resolves
+    // the transcript Japanese from the file itself.
+    try {
+      var tc = window.JPShared && window.JPShared.tutorContext;
+      if (tc) tc.patch({
+        view: 'audiodojo',
+        lessonId: (currentInfo && currentInfo.id) || (data && data.id) || null,
+        page: currentIndex,
+        sectionType: 'audiostory'
+      });
+    } catch (e) {}
+
     const questions = (data.comprehension && data.comprehension.questions) || [];
     let qHtml = '';
     questions.forEach((q, qi) => {

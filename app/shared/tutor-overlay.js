@@ -42,6 +42,24 @@
   function assetUrl(path) {
     return window.getAssetUrl ? window.getAssetUrl(cfg || {}, path) : path;
   }
+
+  // The tutor is a logged-in feature. "Logged in" = a real (email) account, not
+  // the app's silent anonymous identity. When accounts aren't configured at all
+  // (local dev without Firebase) we don't gate, so testing still works.
+  function authConfigured() {
+    var a = S().auth;
+    return !!(a && a.isEnabled && a.isEnabled());
+  }
+  function isLoggedIn() {
+    var a = S().auth;
+    if (!authConfigured()) return false;
+    var u = a.currentUser && a.currentUser();
+    return !!(u && !u.isAnonymous);
+  }
+  function promptSignIn() {
+    toast('Sign in to ask Rikizo.');
+    try { if (S().auth && S().auth.openAccountUI) S().auth.openAccountUI(); } catch (e) {}
+  }
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -215,6 +233,9 @@
 
   // ---------------------------------------------------------------- ask sheet
   function openAsk() {
+    // Gate: a real account is required to ask Rikizo. Send unsigned users to
+    // sign-in instead of opening the sheet (the server enforces this too).
+    if (authConfigured() && !isLoggedIn()) { promptSignIn(); return; }
     clearBubble();
     injectStyles();
     var tc = S().tutorContext;
@@ -324,23 +345,13 @@
 
     var busy = false;
 
-    // Hint = where they are + what's on screen (tutorContext) PLUS what they've
-    // been taught so far (tutorCurriculum) PLUS where any term in the question/
-    // on-screen text was taught (glossary + grammar index). Feeds the curriculum
-    // rules. `scanText` is the typed question for the where-lookup; for a voice
-    // question we only have the on-screen sample until the server transcribes.
-    function buildHint(scanText) {
-      var parts = [];
-      if (S().tutorContext) parts.push(S().tutorContext.describe());
-      if (S().tutorCurriculum) {
-        parts.push(S().tutorCurriculum.describe());
-        var scan = scanText || '';
-        var ctx = S().tutorContext && S().tutorContext.get();
-        if (ctx && ctx.sample) scan += ' ' + ctx.sample;
-        var where = S().tutorCurriculum.describeLookup(scan);
-        if (where) parts.push(where);
-      }
-      return parts.filter(Boolean).join('\n\n');
+    // The on-screen content is now resolved SERVER-side from the tiny `ctx`
+    // identifiers (tutorContext.forRequest()), so the client only ships the
+    // student-progress block here — the one piece of context that lives on the
+    // device (completed lessons, kanji taught) and the server can't derive.
+    function progressHint() {
+      if (!S().tutorCurriculum) return '';
+      try { return S().tutorCurriculum.describe() || ''; } catch (e) { return ''; }
     }
 
     // Shared send for both text and audio payloads.
@@ -369,6 +380,9 @@
           toast('Rikizo needs a rest — come back tomorrow.');
         } else if (err && err.status === 413) {
           toast('That was a bit long — keep questions under 15 seconds.');
+        } else if (err && err.status === 401) {
+          // Token missing/expired/anonymous — route to sign-in.
+          promptSignIn();
         } else {
           toast('Couldn\'t reach Rikizo. Check your connection.');
         }
@@ -381,7 +395,8 @@
       if (!text) return;
       var qq = quotaState();
       if (qq.remaining <= 0) { toast('Rikizo needs a rest — come back tomorrow.'); return; }
-      send({ text: text, hint: buildHint(text) });
+      var tc = S().tutorContext;
+      send({ text: text, ctx: tc ? tc.forRequest() : null, hint: progressHint() });
     }
 
     // Voice question: send the recorded clip; the server transcribes + answers.
@@ -389,7 +404,8 @@
       if (busy) return;
       var qq = quotaState();
       if (qq.remaining <= 0) { toast('Rikizo needs a rest — come back tomorrow.'); return; }
-      send({ audio: clip, hint: buildHint('') });
+      var tc = S().tutorContext;
+      send({ audio: clip, ctx: tc ? tc.forRequest() : null, hint: progressHint() });
     }
 
     setTimeout(function () { input.focus(); }, 60);

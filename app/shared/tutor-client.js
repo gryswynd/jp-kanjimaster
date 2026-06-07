@@ -37,14 +37,31 @@
     return (window.JPShared.deviceId && window.JPShared.deviceId.get()) || 'unknown';
   }
 
+  // Build request headers: always the device id, plus the Firebase ID token when
+  // signed in (mirrors sync.js). The token is how the server attributes tutor
+  // usage to a person — and the tutor is a logged-in feature, so the server
+  // rejects requests without a verified email (login_required).
+  function authHeaders(extra) {
+    var h = extra || {};
+    h['X-Device-Id'] = deviceId();
+    var a = window.JPShared && window.JPShared.auth;
+    if (!a || typeof a.getIdToken !== 'function') return Promise.resolve(h);
+    return a.getIdToken().then(function (t) {
+      if (t) h['Authorization'] = 'Bearer ' + t;
+      return h;
+    }, function () { return h; });
+  }
+
   function postJSON(path, body) {
     var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
     var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, cfg.timeoutMs) : null;
-    return fetch(cfg.baseUrl + path, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'X-Device-Id': deviceId() },
-      body: JSON.stringify(body || {}),
-      signal: ctrl ? ctrl.signal : undefined
+    return authHeaders({ 'Content-Type': 'application/json' }).then(function (headers) {
+      return fetch(cfg.baseUrl + path, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(body || {}),
+        signal: ctrl ? ctrl.signal : undefined
+      });
     }).then(function (res) {
       if (timer) clearTimeout(timer);
       return res.json().catch(function () { return {}; }).then(function (data) {
@@ -101,8 +118,9 @@
         : { used: 0, limit: 5, remaining: 5 };
       return Promise.resolve(q);
     }
-    return fetch(cfg.baseUrl + '/v1/quota', { headers: { 'X-Device-Id': deviceId() } })
-      .then(function (r) { return r.json(); });
+    return authHeaders({}).then(function (headers) {
+      return fetch(cfg.baseUrl + '/v1/quota', { headers: headers });
+    }).then(function (r) { return r.json(); });
   }
 
   window.JPShared.tutorClient = {

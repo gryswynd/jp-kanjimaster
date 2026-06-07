@@ -181,6 +181,21 @@ body:not(.jp-tabbar-hidden) #app-main-container { padding-bottom: calc(var(--tab
    the strip on that scroller instead. */
 body:not(.jp-tabbar-hidden) .lh-body,
 body:not(.jp-tabbar-hidden) .gr-body { padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); }
+
+/* ── Accessibility text size (font-scale.js) ──────────────────────────────────
+   Reading-content wrappers opt in to the user's text-size preference by zooming
+   to --font-scale (set on <html> at boot). `zoom` scales px AND rem text + line
+   spacing uniformly, so the px-heavy Lesson/Glossary surfaces scale too — which a
+   root font-size lever could not reach. Phase 1 surfaces only: Lesson body,
+   Grammar body, Glossary, and the word-definition popup. Games, the writing
+   canvas, nav chrome, and the StPageFlip story reader deliberately do NOT carry
+   this rule (Phase 2 handles the story reader). */
+.lh-body,
+.gr-body,
+.jp-gl-root,
+.jp-modal {
+  zoom: var(--font-scale, 1);
+}
 .rk-tab {
   background: transparent;
   border: none;
@@ -582,6 +597,13 @@ window.JPApp = {
     // Load Reading Aids renderer EARLY so the html.k-furigana / .k-romaji
     // classes are set before first paint (no flash of bare-then-furigana).
     await this.loadModule('app/shared/jp-text.js');
+    // Text-size accessibility control. Load + apply EARLY (like Reading Aids) so
+    // the --font-scale variable is on <html> before first paint of any reading
+    // surface (no flash of default-size-then-scaled text).
+    await this.loadModule('app/shared/font-scale.js');
+    if (window.JPShared && window.JPShared.fontScale) {
+      window.JPShared.fontScale.apply();
+    }
     if (window.JPShared && window.JPShared.jpText) {
       window.JPShared.jpText.applyReadingAids();
       // QA demo: ?demo=ruby renders a persistent reading-aids preview card on
@@ -793,7 +815,10 @@ window.JPApp = {
     // card blank. Uses !passed (not !done) so a failed review keeps surfacing
     // for a retake until the student clears the 60% gate.
     if (!today) {
-      var reviews = m.data.N5.reviews || [];
+      // Include N4 reviews once N4 is unlocked, so "up next" surfaces the next
+      // N4 review checkpoint (e.g. N4.Review.10 after N4.20) instead of going blank.
+      var reviews = (m.data.N5.reviews || []).slice();
+      if (n4On && m.data.N4 && m.data.N4.reviews) reviews = reviews.concat(m.data.N4.reviews);
       for (var r = 0; r < reviews.length; r++) {
         var rv = reviews[r];
         if (reviewUnlocked(rv) && !passed(rv.id)) {
@@ -807,9 +832,13 @@ window.JPApp = {
     // re-surfaces as a "retake" — the chain is pass-gated, so a failed lesson
     // silently blocks everything after it (e.g. fail N5.2 → G4/Review.1/N5.3
     // all stay locked). Passing lessons are skipped.
+    // Once N4 is unlocked, its lessons join the chain so "up next" can advance
+    // past the end of N5 (e.g. a founding student passed through N4.19 → N4.20).
+    var lessonChain = (n4On && m.data.N4 && m.data.N4.lessons)
+      ? lessons.concat(m.data.N4.lessons) : lessons;
     if (!today) {
-      for (var j = 0; j < lessons.length; j++) {
-        var l = lessons[j];
+      for (var j = 0; j < lessonChain.length; j++) {
+        var l = lessonChain[j];
         if (!lessonUnlocked(l)) continue;
         if (!done(l.id))   { today = { kind: 'lesson', entry: l }; break; }
         if (!passed(l.id)) { today = { kind: 'retake', entry: l }; break; }
@@ -898,9 +927,24 @@ window.JPApp = {
     tabDict:  '<path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15.5H5.5C4.7 19.5 4 18.8 4 18V5.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M20 5.5C20 4.7 19.3 4 18.5 4H13v15.5h5.5c.8 0 1.5-.7 1.5-1.5V5.5z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/><path d="M6.5 8h2.5M6.5 11h2.5M15 8h2.5M15 11h2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>'
   },
 
+  // JLPT level of a content id (N4 when the id is N4.x or grammar G13+; else N5).
+  _levelOf: function(id) {
+    id = id || '';
+    return /^N4\./.test(id) || /^G(1[3-9]|[2-9]\d)/.test(id) ? 'N4' : 'N5';
+  },
+  // The learner's active level for the home header — N4 once they've moved to it
+  // (same signal the level strips use), otherwise N5.
+  _activeLevel: function(prog) {
+    var onN4 = !!(prog && prog.n4 && prog.n4.show);
+    return onN4
+      ? { level: 'N4', theme: 'Daily Life', done: prog.n4.lessonsDone, total: prog.n4.lessonsTotal }
+      : { level: 'N5', theme: 'Foundations', done: prog ? prog.lessonsDone : 0, total: prog ? prog.lessonsTotal : 0 };
+  },
+
   // --- TopBar ---
-  _topBar: function() {
+  _topBar: function(prog) {
     var I = this._ICONS;
+    var lvl = this._activeLevel(prog).level;
     var today = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
     function ib(glyph, onclick, dot, tour) {
       return '<button' + (tour ? ' data-tour="' + tour + '"' : '') + ' onclick="' + onclick + '" style="width:28px;height:28px;border-radius:8px;border:1px solid var(--hairline);background:transparent;color:var(--ink-2);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative;padding:0;">' +
@@ -910,7 +954,7 @@ window.JPApp = {
     }
     var bellDot = localStorage.getItem('k-notif-enabled') === '1';
     return '<div style="display:flex;align-items:center;justify-content:space-between;padding:max(28px,env(safe-area-inset-top)) 22px 0;">' +
-      '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">' + this._esc(today) + ' · N5</div>' +
+      '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;font-weight:500;">' + this._esc(today) + ' · ' + lvl + '</div>' +
       '<div style="display:flex;gap:10px;align-items:center;">' +
         ib('bell', "JPApp.openNotificationSettings()", bellDot, 'notify') +
         ib('gear', "JPApp.openTtsSettings()", false, 'settings') +
@@ -925,11 +969,12 @@ window.JPApp = {
       ? '<ruby>お<rt>o</rt></ruby><ruby>帰<rt>kae</rt></ruby><ruby>り<rt>ri</rt></ruby>なさい'
       : 'こんにちは';
     var sub;
+    var al = this._activeLevel(prog);
     if (prog) {
-      var pct = prog.lessonsTotal ? Math.round((prog.lessonsDone / prog.lessonsTotal) * 100) : 0;
-      sub = 'N5 · Foundations · <span style="color:var(--ink-2);">' + pct + '% complete</span>';
+      var pct = al.total ? Math.round((al.done / al.total) * 100) : 0;
+      sub = al.level + ' · ' + al.theme + ' · <span style="color:var(--ink-2);">' + pct + '% complete</span>';
     } else {
-      sub = 'N5 · Foundations';
+      sub = al.level + ' · ' + al.theme;
     }
     // First name from Settings → Profile replaces "Rikizo-san" once set.
     var up = window.JPShared && window.JPShared.userProfile;
@@ -1051,7 +1096,7 @@ window.JPApp = {
         '</div>' +
         '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
           '<div style="flex:1;min-width:0;">' +
-            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · ぶんぽう ' + self._esc(gn) + '</div>' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">' + self._levelOf(entry.id) + ' · ぶんぽう ' + self._esc(gn) + '</div>' +
             '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
             '<div style="display:flex;gap:14px;margin-top:12px;">' +
               stat(prog.lessonsDone + '/' + prog.lessonsTotal, 'lessons') + sep +
@@ -1076,7 +1121,7 @@ window.JPApp = {
         '</div>' +
         '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
           '<div style="flex:1;min-width:0;">' +
-            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · ' + rvLabel + '</div>' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">' + self._levelOf(entry.id) + ' · ' + rvLabel + '</div>' +
             '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
             '<div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.45;">Pass with 60% or higher to continue your path.</div>' +
             '<button onclick="JPApp.launch(\'review\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:14px;padding:11px 18px;border-radius:999px;border:none;background:var(--indigo);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Begin review ' + I.arrow + '</button>' +
@@ -1097,7 +1142,7 @@ window.JPApp = {
         '</div>' +
         '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
           '<div style="flex:1;min-width:0;">' +
-            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · 第' + rn + '課 · Retake</div>' +
+            '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">' + self._levelOf(entry.id) + ' · 第' + rn + '課 · Retake</div>' +
             '<h2 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-0.02em;line-height:1.2;color:var(--ink);">' + self._esc(entry.title) + '</h2>' +
             '<div style="font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.45;">Pass with 60% or higher to unlock <strong>' + self._esc(blockTitle) + '</strong>.</div>' +
             '<button onclick="JPApp.launch(\'lesson\',\'' + self._esc(entry.id) + '\')" class="rk-press" style="margin-top:14px;padding:11px 18px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:14px;font-weight:600;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:10px;">Retake lesson ' + I.arrow + '</button>' +
@@ -1124,7 +1169,7 @@ window.JPApp = {
       '</div>' +
       '<div style="padding:18px 20px 20px;display:flex;gap:16px;">' +
         '<div style="flex:1;min-width:0;">' +
-          '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">N5 · 第' + n + '課</div>' +
+          '<div class="jp-serif" style="font-size:13px;color:var(--ink-3);margin-bottom:4px;">' + self._levelOf(l.id) + ' · 第' + n + '課</div>' +
           '<h2 style="margin:0;font-size:24px;font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:var(--ink);">' + self._esc(l.title) + '</h2>' +
           '<div style="display:flex;gap:14px;margin-top:12px;">' +
             stat(kanji.length, 'new kanji') + sep +
@@ -1431,7 +1476,7 @@ window.JPApp = {
     var prog = this._computeProgress();
     var html =
       '<div class="rk-home" style="padding-bottom:28px;">' +
-        this._topBar() +
+        this._topBar(prog) +
         this._masthead(prog) +
         this._buildStreakBar() +
         this._resumeCard() +
