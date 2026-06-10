@@ -257,7 +257,8 @@
           "g_desu"
         ]
       },
-      "collision": true
+      "collision": true,
+      "interactive": false
     },
     {
       "name": "Fridge",
@@ -309,8 +310,8 @@
       "collision": false,
       "interactive": true,
       "appearsFromDay": 4,
-      "detectionPadding": 80,
-      "priority": 1,
+      "detectionPadding": 40,
+      "priority": 0,
       "appearsUntilDay": 6
     },
     {
@@ -556,14 +557,32 @@
       "nameJp": "でんき",
       "appearsFromDay": 10,
       "position": [
-        330,
-        122
+        326,
+        160
       ],
       "size": [
         44,
         44
       ],
       "sprite": "objects/lamp.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Umbrella_Rack",
+      "nameJp": "かさたて",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        1178,
+        542
+      ],
+      "size": [
+        45,
+        68
+      ],
+      "sprite": "objects/umbrella_stand.png",
       "isDoor": false,
       "interactive": true,
       "collision": false

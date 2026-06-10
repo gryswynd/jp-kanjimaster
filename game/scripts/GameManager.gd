@@ -11,6 +11,15 @@ signal day_loaded(day_data: Dictionary)
 # --- Game State ---
 var in_conversation := false
 var inspected: Dictionary = {}  # name → true
+# Contact-card memos that have been EARNED by a specific interaction (note id →
+# true). Notes only show once their event has fired; the set accumulates over
+# the game (a building journal). Persisted in save/load.
+var unlocked_notes: Dictionary = {}
+# Note ids the player has already VIEWED on a contact card. A contact with a
+# visible note not in here is "unread" — its row flashes and the phone tile dots/
+# pulses. Marked seen per-contact when you open that person's card. Derived so it
+# covers every memo, whether unlocked by an event or by a story flag.
+var seen_notes: Dictionary = {}
 var doors: Dictionary = {}  # door_name → { "open": bool, "disabled": bool }
 var void_seen := false
 var void_asked: Dictionary = {}  # npc_name → true
@@ -93,6 +102,11 @@ var npc_day_talked: Dictionary = {}  # key "<npc>_day<N>" → true after first c
 # Day 2 narrative flags
 var tree_count: int = 0          # cumulative examines on Days 2-4 (counts toward unlock)
 var tree_san_unlocked: bool = false  # set true on the 3rd examine within Day 2-4 window
+# Mr. Goldfish — 2nd unlockable, like Tree-san but RAINY-DAY-ONLY (the Goldfish
+# object only spawns when it's raining, so his case is rare). 3 interactions
+# (any day) befriend him; したしさ Lv.1 then grants his phone case.
+var goldfish_count: int = 0
+var goldfish_unlocked: bool = false
 # Day 7 cake-interrogation state: asked = Rikizo raised the topic (Mom may
 # have deflected to Tree-san); done = Mom has confessed she ate it.
 var mom_cake_asked: bool = false
@@ -110,6 +124,7 @@ var gave_dad_present: bool = false
 # the regular items as a special money card. Used for purchases when
 # stores unlock in later days.
 var yen: int = 0
+var _coin_sfx: AudioStreamPlayer = null  # coin chime on income (add_yen)
 
 # Day 4: Dad returns the (repaired) smartphone. While unset, HUD shows the
 # separate Inventory + Quest buttons; once set, those fold into a single
@@ -138,17 +153,22 @@ const PHONE_CASE_REGISTRY := {
 		"small_path": "res://assets/phone_cases/red_promo/sumaho_small.png",
 		"large_path": "res://assets/phone_cases/red_promo/sumaho_large.png",
 	},
+	"goldfish": {
+		"name_en": "Mr. Goldfish",
+		"name_jp": "金魚さん",
+		"small_path": "res://assets/phone_cases/goldfish/sumaho_small.png",
+		"large_path": "res://assets/phone_cases/goldfish/sumaho_large.png",
+	},
 }
 # Default: player carries the tree-san case (matches existing pre-refactor
 # behavior where the green-tree phone was Rikizo's only sprite).
-var owned_phone_cases: Array = ["blank", "tree_san"]
-var equipped_phone_case: String = "tree_san"
-# Tree-san window: closes at end of Day 3 (= start of Day 4). When it
-# closes, if the player hasn't befriended tree-san (tree_san_unlocked is
-# still false), the tree-san phone case is removed forever and the equip
-# falls back to blank. Tracked as a separate flag so the forfeit only
-# fires once per playthrough.
-var tree_san_window_expired: bool = false
+var owned_phone_cases: Array = ["blank"]
+var equipped_phone_case: String = "blank"
+# Tree-san phone case is NOT owned by default and never auto-equipped. It's
+# granted (owned, not equipped) by the relationship-6 milestone scene
+# (DayLoader._handle_tree). This flag makes that grant fire once.
+var tree_case_granted: bool = false
+var goldfish_case_granted: bool = false
 
 # Day 5: Yamakawa first-meeting flag. Flips true after the konbini convo
 # where Rikizo first encounters him + catches the onigiri fragment.
@@ -224,6 +244,27 @@ var quests_unread: bool = false
 # the same physical bottle twice.
 var picked_up: Dictionary = {}  # name → true
 
+# ─── Flowers ─────────────────────────────────────────────────────────
+# Pickable garden flowers (N5_GAME_ROADMAP.md Day 11+). Five types; a day.json
+# object named "Flower_<Type>" (e.g. Flower_Ayame) is a pickable bloom. Picking
+# one is PERMANENT (it goes into inventory via picked_up, never respawns). Plants
+# that are left grow ONE more bloom in addition on each clear day that follows a
+# rainy day (grow_flowers()), capped at FLOWER_GROWTH_CAP extras per plant.
+const FLOWER_TYPES := {
+	"sakura": {"jp": "さくら",   "en": "Cherry blossom"},
+	"kiku":   {"jp": "きく",     "en": "Chrysanthemum"},
+	"ajisai": {"jp": "あじさい", "en": "Hydrangea"},
+	"ayame":  {"jp": "あやめ",   "en": "Iris"},
+	"yuri":   {"jp": "ゆり",     "en": "Lily"},
+}
+const FLOWER_GROWTH_CAP := 3
+const FLOWER_SPRITE_DIR := "res://assets/days/day-02-outside/objects/"
+# Base flower plants seen in the world (object_name → true), registered by
+# DayLoader at build. grow_flowers() walks these to add blooms.
+var flower_plants: Dictionary = {}
+# Extra grown blooms per base plant (object_name → int).
+var flower_extra: Dictionary = {}
+
 signal inventory_changed
 signal quest_changed
 # Fires when owned_phone_cases or equipped_phone_case changes (case bought,
@@ -246,6 +287,7 @@ var trackers := {
 # mid-day reloads don't allow farming +1s.
 var annoyance_today: Dictionary = {}     # "<reason>_<npc>" → true
 var relationship_today: Dictionary = {}  # "<npc>" → true
+var paranoia_today: bool = false         # any void event already raised paranoia today?
 
 # --- Data ---
 var day_data: Dictionary = {}
@@ -464,6 +506,8 @@ func reset_for_dev() -> void:
 	npc_day_talked.clear()
 	tree_count = 0
 	tree_san_unlocked = false
+	goldfish_count = 0
+	goldfish_unlocked = false
 	mom_cake_asked = false
 	mom_cake_done = false
 	dirt_count = 0
@@ -474,15 +518,21 @@ func reset_for_dev() -> void:
 	trackers = {"paranoia": 0, "relationships": {}, "annoyance": {}}
 	annoyance_today.clear()
 	relationship_today.clear()
+	paranoia_today = false
 	inventory.clear()
 	quests.clear()
 	quests_unread = false
 	picked_up.clear()
+	unlocked_notes.clear()
+	seen_notes.clear()
+	flower_plants.clear()
+	flower_extra.clear()
 	yen = 0
 	has_phone = false
-	owned_phone_cases = ["blank", "tree_san"]
-	equipped_phone_case = "tree_san"
-	tree_san_window_expired = false
+	owned_phone_cases = ["blank"]
+	equipped_phone_case = "blank"
+	tree_case_granted = false
+	goldfish_case_granted = false
 	met_yamakawa = false
 	met_yamakawa_river = false
 	met_ekicho = false
@@ -517,6 +567,23 @@ func add_yen(amount: int, label: String = "") -> void:
 		_log_wallet(amount, label)
 	_save()
 	inventory_changed.emit()
+	# Coin chime on income — EXCEPT the Day-5+ teaching wage, whose coin is
+	# played by the phone payday sequence (PhoneOverlay.play_payday) so it syncs
+	# with the ¥-tile flash. Day-4 wage + dad's gift + other income coin here.
+	if amount > 0 and not (label == "先生のお金" and current_day >= 5):
+		_play_coins()
+
+
+func _play_coins() -> void:
+	# Coin chime on any income — the daily teaching wage, dad's gift, and any
+	# future way the player gets paid (every caller of add_yen with amount > 0).
+	if _coin_sfx == null:
+		_coin_sfx = AudioStreamPlayer.new()
+		add_child(_coin_sfx)
+	var p := "res://assets/audio/sfx_coins.wav"
+	if ResourceLoader.exists(p):
+		_coin_sfx.stream = load(p)
+		_coin_sfx.play()
 
 
 func spend_yen(amount: int, label: String = "") -> bool:
@@ -637,6 +704,44 @@ func remove_item(item_id: String, count: int = 1) -> void:
 			_save()
 			inventory_changed.emit()
 			return
+
+
+# ─── Flower helpers ──────────────────────────────────────────────────
+
+func flower_type_from_name(object_name: String) -> String:
+	## "Flower_Ayame" / "Flower_Ayame__g1" → "ayame". "" if not a flower or
+	## the suffix isn't a known type.
+	if not object_name.begins_with("Flower_"):
+		return ""
+	var t := object_name.trim_prefix("Flower_").to_lower().split("_")[0]
+	return t if FLOWER_TYPES.has(t) else ""
+
+
+func register_flower(object_name: String) -> void:
+	## DayLoader calls this for each base flower it spawns so grow_flowers()
+	## knows the plant exists. Synthetic grown blooms ("__g") don't register.
+	if object_name.begins_with("Flower_") and object_name.find("__g") == -1:
+		flower_plants[object_name] = true
+
+
+func grow_flowers() -> void:
+	## Each base plant that hasn't been picked grows one more bloom (capped).
+	## Called on a clear day that follows a rainy day (see advance_day).
+	for name in flower_plants.keys():
+		if picked_up.get(name, false):
+			continue  # uprooted — a dead plant produces nothing
+		var n := int(flower_extra.get(name, 0))
+		if n < FLOWER_GROWTH_CAP:
+			flower_extra[name] = n + 1
+
+
+func first_flower_in_inventory() -> String:
+	## Returns the type id ("sakura"…) of the first held flower, or "".
+	for owned in inventory:
+		var id := str(owned.get("id", ""))
+		if id.begins_with("flower_") and FLOWER_TYPES.has(id.trim_prefix("flower_")):
+			return id.trim_prefix("flower_")
+	return ""
 
 
 # ─── Phone case helpers ──────────────────────────────────────────────
@@ -808,7 +913,7 @@ const DAILY_TEACHING_WAGE: int = 1000
 ## will refuse to advance past this so testing doesn't accidentally land
 ## on an unimplemented day. BUMP THIS each time a new day's chunks +
 ## dialog + transitions are wired up.
-const MAX_BUILT_DAY: int = 10
+const MAX_BUILT_DAY: int = 11  # Day 11 = weather test (rain + umbrella)
 
 func advance_day() -> void:
 	if current_day >= MAX_BUILT_DAY:
@@ -825,6 +930,7 @@ func advance_day() -> void:
 	# Reset per-day stat caps so the new day starts fresh.
 	annoyance_today.clear()
 	relationship_today.clear()
+	paranoia_today = false
 	# Per-day narrative flags reset too — NPC dialogs, dirt comment counter.
 	# tree_count and tree_san_unlocked are CROSS-DAY (they accumulate during
 	# the Day 2-4 unlock window and lock in once unlocked).
@@ -844,23 +950,12 @@ func advance_day() -> void:
 	# so the wallet/phone refresh, and the deposit popup gets shown by the
 	# laptop's on_end so it lands inside the "Day X has begun" message.
 	if current_day >= 4:
-		add_yen(DAILY_TEACHING_WAGE, "せんせいのお金")
+		add_yen(DAILY_TEACHING_WAGE, "先生のお金")
 	else:
 		_save()
 	# Day 5: Yamakawa's first message lands on the phone. The phone-force-
 	# open signal makes DayLoader pop the phone overlay + run the vibrate
 	# animation so the player notices the new message.
-	if current_day == 4 and not tree_san_window_expired:
-		# End of Day 3 — tree-san befriending window closes. If the player
-		# never reached the 3rd-examine threshold during the Day 2-4 window
-		# (tree_san_unlocked stays false), the tree-san phone case is gone
-		# forever. remove_phone_case auto-falls-back equipped → "blank" if
-		# the player was carrying tree-san. Silent: HudOverlay + Inventory
-		# refresh automatically via phone_case_changed.
-		if not tree_san_unlocked and owned_phone_cases.has("tree_san"):
-			remove_phone_case("tree_san")
-		tree_san_window_expired = true
-		_save()
 	if current_day == 5:
 		_seed_day5_yamakawa_message()
 		phone_force_open.emit()
@@ -892,6 +987,20 @@ func advance_day() -> void:
 		_seed_day10_yuki_message()
 		_seed_day10_yamakawa_konbini_message()
 		phone_force_open.emit()
+	if current_day == 11:
+		# Day 11: Yuki's vague river/fish text opens the day (魚 is new today).
+		# Yamakawa's デパート invite also lands now — Day 9 was already his gacha
+		# text, so holding the depaato nudge to a day with no other Yamakawa
+		# message keeps it from overtaking the gacha. He's been at the depaato
+		# (escalators) since Day 9, so the invite is still timely.
+		_seed_day11_yuki_message()
+		_seed_yamakawa_depaato_message()
+		phone_force_open.emit()
+	# Flowers grow on a clear day that follows rain. Only Day 11 is rainy so
+	# far (and it's currently the last built day), so this first fires once a
+	# clear Day 12+ exists — left-alone plants then gain a bloom each such day.
+	if weather_for_day(current_day) == "clear" and weather_for_day(current_day - 1) == "rain":
+		grow_flowers()
 	day_advanced.emit(current_day)
 
 
@@ -967,6 +1076,26 @@ func _seed_day9_yamakawa_message() -> void:
 	)
 
 
+func _seed_yamakawa_depaato_message() -> void:
+	# Yamakawa is inside the デパート, in front of the (blocked) escalators, hunting
+	# for a new restaurant — he texts Rikizo to come (seeded Day 11; see advance_day
+	# for why it's not Day 9). The escalator/上 gate doesn't lift until Day 16, so
+	# the payoff (neither can say "up") waits at the NPC. Replay-safe.
+	for t in messages:
+		if t.get("contact_id", "") == "yamakawa":
+			for line in t.get("lines", []):
+				if line.get("jp", "") == "りきぞう！デパートに 来て！":
+					return
+			break
+	add_message(
+		"yamakawa", "やまかわ", "Yamakawa",
+		"res://assets/days/day-05-konbini/characters/yamakawa_head.png",
+		"yamakawa",
+		"りきぞう！デパートに 来て！",
+		"Rikizo! Come to the department store!"
+	)
+
+
 func _seed_day10_yuki_message() -> void:
 	# Day 10: Yuki — the void-noticer — texts a fragmented, uneasy message
 	# that points Rikizo toward the train at the station. Replay-safe.
@@ -982,6 +1111,24 @@ func _seed_day10_yuki_message() -> void:
 		"yuki",
 		"りきぞう...電車...駅...",
 		"Rikizo... train... station..."
+	)
+
+
+func _seed_day11_yuki_message() -> void:
+	# Day 11: Yuki texts another fragmented line — this one points Rikizo toward
+	# the river and the fish (魚, new today). Replay-safe.
+	for t in messages:
+		if t.get("contact_id", "") == "yuki":
+			for line in t.get("lines", []):
+				if line.get("jp", "") == "りきぞう...川...魚...":
+					return
+			break
+	add_message(
+		"yuki", "ゆき", "Yuki",
+		"res://assets/days/day-09-river-east/characters/yuki_head.png",
+		"yuki",
+		"りきぞう...川...魚...",
+		"Rikizo... river... fish..."
 	)
 
 
@@ -1023,9 +1170,257 @@ func bump_relationship(npc: String) -> void:
 
 
 func paranoia(amount: int = 1) -> void:
-	## +1 per void event Rikizo SEES (front door void scene, gate void scene).
-	## Not for just hearing about the void in dialogue.
+	## Void events raise paranoia, but only ONCE per day — the first void sighting
+	## of the day bumps it; later void events that day don't stack (mirrors the
+	## relationship/annoyance daily caps). Route ALL void events through here.
+	if paranoia_today:
+		return
+	paranoia_today = true
 	increment_tracker("paranoia", "", amount)
+
+
+# ─── Stat level curve (したしさ / いらだち / おそれ) ──────────────────────
+# Early levels are cheap, later ones cost more — stats climb fast in chapter 1
+# and slow over chapters 2–3. ONE continuous, monotonic curve (not a per-chapter
+# divisor, which would make levels drop at a chapter boundary). Used both for the
+# Contacts meters AND as reward/unlock thresholds (e.g. Tree-san's phone case at
+# Lv.1). Freely tunable here.
+#   {thru_level, step}: every level up to `thru_level` costs `step` points.
+const LEVEL_BRACKETS := [
+	{"thru_level": 4, "step": 5},     # Lv 1–4   cost 5  each (chapter-1 pace)
+	{"thru_level": 10, "step": 10},   # Lv 5–10  cost 10 each (chapter-2 pace)
+	{"thru_level": 9999, "step": 20}, # Lv 11+   cost 20 each (chapter-3+ pace)
+]
+
+
+func _level_step(next_level: int) -> int:
+	## Point cost to go from (next_level - 1) up to next_level.
+	for b in LEVEL_BRACKETS:
+		if next_level <= int(b["thru_level"]):
+			return int(b["step"])
+	return 20
+
+
+func stat_level_info(value: int) -> Dictionary:
+	## Walk the curve: current level, progress into it, and the current level's
+	## cost span (for a progress bar). Monotonic, no regression.
+	var level := 0
+	var floor_val := 0
+	while true:
+		var step := _level_step(level + 1)
+		if value - floor_val < step:
+			return {"level": level, "into": value - floor_val, "span": step}
+		floor_val += step
+		level += 1
+	return {"level": 0, "into": 0, "span": 5}
+
+
+func stat_level(value: int) -> int:
+	## Just the level for a raw stat value — use for reward/unlock thresholds.
+	return int(stat_level_info(value)["level"])
+
+
+func relationship_level(npc: String) -> int:
+	## Convenience: したしさ level for an NPC (e.g. "Tree"). Drives tier rewards.
+	return stat_level(get_tracker("relationships", npc))
+
+
+# ─── Phone Contacts (れんらくさき) ──────────────────────────────────────
+# Address-book entries that unlock as Rikizo MEETS people (shop/service staff
+# excluded). Each entry: identity + photo + static bio + evolving `notes`
+# (Rikizo's own observations, each gated by flag / min_day / min_rel /
+# min_paranoia). Status meters read live trackers — no new save state.
+#   met_rule: "self" (always) | "tree" (tree_san_unlocked) | "inspected" (talked to)
+#   rel_key:  trackers key for したしさ/いらだち ("" = none; Tree uses "Tree")
+const CONTACTS := [
+	{
+		"id": "rikizo", "nameJp": "りきぞう", "nameEn": "Rikizo (You)",
+		"photo": "res://assets/days/day-01-home/characters/rikizo_convo.png",
+		"bio_jp": "ぼく。先生です。", "bio_en": "Me. A teacher.",
+		"is_self": true, "is_adult": false, "rel_key": "", "met_rule": "self",
+		"notes": [
+			{"jp": "へんな ことが あります。", "en": "Strange things keep happening.", "min_paranoia": 1},
+			{"jp": "白いものを 見ました…。", "en": "I saw something white…", "min_paranoia": 2},
+			{"jp": "だれも 見ません。ぼくだけ。", "en": "No one else sees it. Only me.", "min_paranoia": 3},
+		],
+	},
+	{
+		"id": "mom", "nameJp": "お母さん", "nameEn": "Mom",
+		"photo": "res://assets/days/day-01-home/characters/sakura_convo.png",
+		"bio_jp": "りきぞうの お母さん。ケーキが すきです。", "bio_en": "Rikizo's mom. Likes cake.",
+		"is_self": false, "is_adult": true, "rel_key": "mom", "met_rule": "inspected",
+		"notes": [
+			{"jp": "毎日 朝ごはんを つくります。", "en": "Makes breakfast every day.", "event": "mom_breakfast"},
+			{"jp": "ケーキは ぜんぶ お母さんのです。", "en": "The cake is all Mom's.", "flag": "mom_cake_done"},
+		],
+	},
+	{
+		"id": "dad", "nameJp": "お父さん", "nameEn": "Dad",
+		"photo": "res://assets/days/day-01-home/characters/taro_convo.png",
+		"bio_jp": "りきぞうの お父さん。車と お金が すきです。", "bio_en": "Rikizo's dad. Likes his car and money.",
+		"is_self": false, "is_adult": true, "rel_key": "dad", "met_rule": "inspected",
+		"notes": [
+			{"jp": "お金を さわると、おこります。", "en": "Touch his money and he gets angry.", "event": "dad_gold"},
+			{"jp": "プレゼントを あげました。", "en": "I gave him a present.", "flag": "gave_dad_present"},
+		],
+	},
+	{
+		"id": "yamakawa", "nameJp": "やまかわ", "nameEn": "Yamakawa",
+		"photo": "res://assets/days/day-05-konbini/characters/yamakawa_convo.png",
+		"bio_jp": "ともだち。コンビニが すきです。", "bio_en": "A friend. Loves the convenience store.",
+		"is_self": false, "is_adult": false, "rel_key": "yamakawa", "met_rule": "inspected",
+		"notes": [
+			{"jp": "コンビニで あいました。", "en": "Met him at the convenience store.", "flag": "met_yamakawa"},
+			{"jp": "やっと おにぎりを 食べました。", "en": "He finally ate the onigiri.", "flag": "yamakawa_ate_konbini"},
+		],
+	},
+	{
+		"id": "yuki", "nameJp": "ゆき", "nameEn": "Yuki",
+		"photo": "res://assets/days/day-09-river-east/characters/yuki_convo.png",
+		"bio_jp": "しずかな 人。空が すきです。", "bio_en": "A quiet person. Likes the sky.",
+		"is_self": false, "is_adult": false, "rel_key": "yuki", "met_rule": "inspected",
+		"notes": [
+			{"jp": "川で あいました。", "en": "Met her by the river.", "flag": "met_yuki"},
+			{"jp": "「魚は きのう いなかった」と いいました。", "en": "She said the fish weren't there yesterday.", "event": "yuki_fish"},
+		],
+	},
+	{
+		"id": "ekicho", "nameJp": "駅長", "nameEn": "Stationmaster",
+		"photo": "res://assets/days/day-05-station/characters/ekicho_convo.png",
+		"bio_jp": "駅の 駅長です。", "bio_en": "The station master.",
+		"is_self": false, "is_adult": true, "rel_key": "ekicho", "met_rule": "inspected",
+		"notes": [
+			{"jp": "古い駅に います。", "en": "He's at the old station.", "flag": "met_ekicho"},
+			{"jp": "電車を まっています。でも、電車は 行きません。", "en": "Waiting for the train. But it doesn't go.", "event": "ekicho_train"},
+		],
+	},
+	{
+		"id": "hotel_guest", "nameJp": "ホテルのきゃく", "nameEn": "Hotel Guest",
+		"photo": "res://assets/days/day-10-hotel-inside/characters/hotel_guest_convo.png",
+		"bio_jp": "ホテルの きゃく。休みです。", "bio_en": "A hotel guest. On holiday.",
+		"is_self": false, "is_adult": true, "rel_key": "hotel_guest", "met_rule": "inspected",
+		"notes": [
+			{"jp": "ホテルに います。休みです。", "en": "At the hotel. On holiday.", "event": "hotel_guest_met"},
+			{"jp": "…かばんが ない。", "en": "…He has no bags.", "flag": "hotel_guest_noticed"},
+		],
+	},
+	{
+		"id": "tree", "nameJp": "木さん", "nameEn": "Tree-san",
+		"photo": "res://assets/days/day-02-outside/characters/tree_convo.png",
+		"bio_jp": "木です。でも、ともだち。", "bio_en": "A tree. But a friend.",
+		"is_self": false, "is_adult": false, "rel_key": "Tree", "met_rule": "tree",
+		"notes": [
+			{"jp": "へんじを しません。でも、きいて います。", "en": "He never replies. But he's listening.", "flag": "tree_san_unlocked"},
+			{"jp": "ケースを くれました。どこから…？", "en": "He gave me a phone case. From where…?", "flag": "tree_case_granted"},
+		],
+	},
+	{
+		"id": "goldfish", "nameJp": "金魚さん", "nameEn": "Mr. Goldfish",
+		"photo": "res://assets/days/day-10-street-south/characters/goldfish_convo.png",
+		"bio_jp": "金魚さん。雨の日の ともだち。", "bio_en": "Mr. Goldfish. A rainy-day friend.",
+		"is_self": false, "is_adult": false, "rel_key": "Goldfish", "met_rule": "goldfish",
+		"notes": [
+			{"jp": "雨の日に あいました。", "en": "Met him on a rainy day.", "flag": "goldfish_unlocked"},
+			{"jp": "ケースを くれました。…ぶくぶく。", "en": "He gave me a phone case. …Blub blub.", "flag": "goldfish_case_granted"},
+		],
+	},
+]
+
+
+func contact_is_met(def: Dictionary) -> bool:
+	match str(def.get("met_rule", "inspected")):
+		"self":
+			return true
+		"tree":
+			return tree_san_unlocked
+		"goldfish":
+			return goldfish_unlocked
+		_:
+			return inspected.has(str(def.get("id", "")))
+
+
+func met_contacts() -> Array:
+	## CONTACTS entries currently unlocked (self always; others once met).
+	var out: Array = []
+	for def in CONTACTS:
+		if contact_is_met(def):
+			out.append(def)
+	return out
+
+
+func unlock_note(id: String) -> void:
+	## Earn a contact memo by ID — called the moment its interaction happens.
+	## Idempotent + persisted, so the note then shows on the card forever.
+	if id == "" or unlocked_notes.has(id):
+		return
+	unlocked_notes[id] = true
+	_save()
+
+
+func _note_id(note: Dictionary) -> String:
+	## Stable id for a note, derived from its gate (no per-note id field needed).
+	if note.has("event"):
+		return "event:" + str(note["event"])
+	if note.has("flag"):
+		return "flag:" + str(note["flag"])
+	if note.has("min_paranoia"):
+		return "paranoia:%d" % int(note["min_paranoia"])
+	return ""
+
+
+func contact_unread_count(def: Dictionary) -> int:
+	## How many currently-visible notes on this contact haven't been viewed yet.
+	var n := 0
+	for note in contact_notes(def):
+		if not seen_notes.has(_note_id(note)):
+			n += 1
+	return n
+
+
+func contact_has_unread(def: Dictionary) -> bool:
+	return contact_unread_count(def) > 0
+
+
+func any_contact_unread() -> bool:
+	## True if any met contact has an unseen memo (drives the phone tile dot/pulse).
+	for def in met_contacts():
+		if contact_has_unread(def):
+			return true
+	return false
+
+
+func mark_contact_seen(def: Dictionary) -> void:
+	## Mark all of a contact's visible notes as viewed — called when the player
+	## opens that person's card. Clears their row flash / contributes to the dot.
+	var changed := false
+	for note in contact_notes(def):
+		var nid := _note_id(note)
+		if nid != "" and not seen_notes.has(nid):
+			seen_notes[nid] = true
+			changed = true
+	if changed:
+		_save()
+
+
+func contact_notes(def: Dictionary) -> Array:
+	## Notes whose unlock has fired. Each note is gated by exactly one of:
+	##   "event": shown once unlock_note(id) was called (a specific interaction)
+	##   "flag":  shown once that GameManager bool is true (an event flag)
+	##   "min_paranoia": shown once paranoia >= N (the self entry's rising dread)
+	## A note with none of these never shows — every memo must be earned.
+	var out: Array = []
+	for note in def.get("notes", []):
+		if note.has("event"):
+			if unlocked_notes.has(str(note["event"])):
+				out.append(note)
+		elif note.has("flag"):
+			var v = get(str(note["flag"]))
+			if bool(v) if v != null else false:
+				out.append(note)
+		elif note.has("min_paranoia"):
+			if get_tracker("paranoia") >= int(note["min_paranoia"]):
+				out.append(note)
+	return out
 
 
 func _save() -> void:
@@ -1041,12 +1436,19 @@ func _save() -> void:
 		"quests": quests,
 		"quests_unread": quests_unread,
 		"picked_up": picked_up,
+		"unlocked_notes": unlocked_notes,
+		"seen_notes": seen_notes,
+		"flower_plants": flower_plants,
+		"flower_extra": flower_extra,
 		"inspected": inspected,
 		"annoyance_today": annoyance_today,
 		"relationship_today": relationship_today,
+		"paranoia_today": paranoia_today,
 		"npc_day_talked": npc_day_talked,
 		"tree_count": tree_count,
 		"tree_san_unlocked": tree_san_unlocked,
+		"goldfish_count": goldfish_count,
+		"goldfish_unlocked": goldfish_unlocked,
 		"mom_cake_asked": mom_cake_asked,
 		"mom_cake_done": mom_cake_done,
 		"dirt_count": dirt_count,
@@ -1058,7 +1460,8 @@ func _save() -> void:
 		"has_phone": has_phone,
 		"owned_phone_cases": owned_phone_cases,
 		"equipped_phone_case": equipped_phone_case,
-		"tree_san_window_expired": tree_san_window_expired,
+		"tree_case_granted": tree_case_granted,
+		"goldfish_case_granted": goldfish_case_granted,
 		"met_yamakawa": met_yamakawa,
 		"met_yamakawa_river": met_yamakawa_river,
 		"met_ekicho": met_ekicho,
@@ -1114,16 +1517,32 @@ func _load_save() -> void:
 			quests_unread = bool(data["quests_unread"])
 		if data.has("picked_up"):
 			picked_up = data["picked_up"]
+		if data.has("unlocked_notes"):
+			unlocked_notes = data["unlocked_notes"]
+		if data.has("seen_notes"):
+			seen_notes = data["seen_notes"]
+		if data.has("flower_plants"):
+			flower_plants = data["flower_plants"]
+		if data.has("flower_extra"):
+			flower_extra = data["flower_extra"]
 		if data.has("inspected"):
 			inspected = data["inspected"]
 		if data.has("annoyance_today"):
 			annoyance_today = data["annoyance_today"]
 		if data.has("relationship_today"):
 			relationship_today = data["relationship_today"]
+		if data.has("paranoia_today"):
+			paranoia_today = bool(data["paranoia_today"])
 		if data.has("npc_day_talked"):
 			npc_day_talked = data["npc_day_talked"]
 		if data.has("tree_count"):
 			tree_count = int(data["tree_count"])
+		if data.has("goldfish_count"):
+			goldfish_count = int(data["goldfish_count"])
+		if data.has("goldfish_unlocked"):
+			goldfish_unlocked = bool(data["goldfish_unlocked"])
+		if data.has("goldfish_case_granted"):
+			goldfish_case_granted = bool(data["goldfish_case_granted"])
 		if data.has("mom_cake_asked"):
 			mom_cake_asked = bool(data["mom_cake_asked"])
 		if data.has("mom_cake_done"):
@@ -1163,8 +1582,8 @@ func _load_save() -> void:
 			# the registry), fall back to blank to avoid load-time crashes.
 			if not PHONE_CASE_REGISTRY.has(equipped_phone_case):
 				equipped_phone_case = "blank"
-		if data.has("tree_san_window_expired"):
-			tree_san_window_expired = bool(data["tree_san_window_expired"])
+		if data.has("tree_case_granted"):
+			tree_case_granted = bool(data["tree_case_granted"])
 		if data.has("met_yamakawa"):
 			met_yamakawa = bool(data["met_yamakawa"])
 		if data.has("met_yamakawa_river"):

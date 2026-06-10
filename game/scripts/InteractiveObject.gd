@@ -6,6 +6,8 @@ extends Area2D
 ##   Legacy: invisible hitbox over painted-in furniture (x/y/width/height)
 ##   Sprite: visible sprite PNG with collision (sprite + position + size)
 
+signal proximity_entered(obj)  # emitted when the player walks into range
+
 @export var object_name: String = ""
 @export var object_name_jp: String = ""
 # Earliest day on which the JP name reveals (default 0 = always available).
@@ -21,6 +23,9 @@ extends Area2D
 # (Named with the `select_` prefix because plain `priority` collides with
 # the built-in Area2D property.)
 @export var select_priority: int = 0
+# Auto-fire the interaction when the player walks near (like an NPC proximity
+# beat) instead of requiring an interact press. Set via day.json `autoTrigger`.
+@export var auto_trigger: bool = false
 
 @onready var label: Label = $InteractLabel
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -59,6 +64,7 @@ func setup(data: Dictionary) -> void:
 	interactive = data.get("interactive", true)
 	detection_padding = float(data.get("detectionPadding", DETECTION_PADDING))
 	select_priority = int(data.get("priority", 0))
+	auto_trigger = bool(data.get("autoTrigger", false))
 
 	# Support both legacy (x/y) and new (position array) formats
 	var x: float = 0
@@ -249,6 +255,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_nearby = true
 		_update_label()
+		proximity_entered.emit(self)
 
 
 func _on_body_exited(body: Node2D) -> void:

@@ -35,12 +35,15 @@ var _amount: Label
 var _on_end: Callable = Callable()
 var _playing := false
 var _seq: Tween
+var _sfx: AudioStreamPlayer
 
 
 func _ready() -> void:
 	layer = 13  # same band as CgOverlay; above gameplay + most overlays
 	visible = false
 	_build_ui()
+	_sfx = AudioStreamPlayer.new()
+	add_child(_sfx)
 
 
 func _build_ui() -> void:
@@ -231,6 +234,9 @@ func _flash_pop() -> void:
 	## Quick white flash punctuating the moment of contact. Runs on its
 	## own tween so it can fade out independently of the main sequence.
 	Input.vibrate_handheld(60)  # short "ピッ" contact tick (no-op on desktop)
+	if _sfx and ResourceLoader.exists("res://assets/audio/sfx_taptopay.wav"):
+		_sfx.stream = load("res://assets/audio/sfx_taptopay.wav")
+		_sfx.play()
 	_flash.color = Color(1, 1, 1, 0.85)
 	var t := create_tween()
 	t.tween_property(_flash, "color:a", 0.0, 0.28)\

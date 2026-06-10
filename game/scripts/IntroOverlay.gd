@@ -43,6 +43,7 @@ var _en: Label
 var _hint: Label
 var _drone: AudioStreamPlayer
 var _chime: AudioStreamPlayer
+var _hope: AudioStreamPlayer  # warm bed that crossfades in at the pivot
 
 var _on_end: Callable = Callable()
 var _running := false
@@ -113,12 +114,7 @@ func _build_ui() -> void:
 	_drone = AudioStreamPlayer.new()
 	if ResourceLoader.exists("res://assets/audio/intro_drone.wav"):
 		_drone.stream = load("res://assets/audio/intro_drone.wav")
-		# Loop so a slow reader never outlasts the drone during the dire beats.
-		if _drone.stream is AudioStreamWAV:
-			var w: AudioStreamWAV = _drone.stream
-			w.loop_mode = AudioStreamWAV.LOOP_FORWARD
-			w.loop_begin = 0
-			w.loop_end = w.data.size() / 2  # 16-bit mono → samples = bytes / 2
+		_set_full_loop(_drone.stream)  # loop so a slow reader never outlasts it
 	_drone.volume_db = -6.0
 	add_child(_drone)
 
@@ -127,6 +123,16 @@ func _build_ui() -> void:
 		_chime.stream = load("res://assets/audio/intro_chime.wav")
 	_chime.volume_db = -3.0
 	add_child(_chime)
+
+	# Warm hopeful bed — comes in under the chime at the pivot so the plucky
+	# beats (Rikizo's first lesson → "Welcome to Day 1") aren't played in silence.
+	# Loops so a slow reader never outlasts it.
+	_hope = AudioStreamPlayer.new()
+	if ResourceLoader.exists("res://assets/audio/intro_hope.wav"):
+		_hope.stream = load("res://assets/audio/intro_hope.wav")
+		_set_full_loop(_hope.stream)
+	_hope.volume_db = -40.0
+	add_child(_hope)
 
 
 func play(on_end: Callable = Callable()) -> void:
@@ -154,9 +160,11 @@ func _run() -> void:
 			_fade_drone()
 			if _chime.stream:
 				_chime.play()
+			_start_hope()
 		await _fade(_box, 1.0, 0.6)
 		await _wait_for_tap()
 		await _fade(_box, 0.0, 0.4)
+	_stop_hope()                # fade the bed out under the final dissolve
 	await _fade(_bg, 0.0, 0.9)  # dissolve the void into Day 1
 	if _drone.playing:
 		_drone.stop()
@@ -198,6 +206,37 @@ func _fade_drone() -> void:
 	var tw := create_tween()
 	tw.tween_property(_drone, "volume_db", -40.0, 1.2)
 	tw.tween_callback(_drone.stop)
+
+
+func _set_full_loop(stream) -> void:
+	# Forward-loop the WHOLE clip. Correct ONLY if the .wav is imported as PCM
+	# (compress/mode=0) — for QOA/ADPCM, data.size() is compressed bytes, not
+	# samples, which sets the loop point mid-clip and pops badly.
+	if not (stream is AudioStreamWAV):
+		return
+	var w: AudioStreamWAV = stream
+	var bytes_per_sample := 1 if w.format == AudioStreamWAV.FORMAT_8_BITS else 2
+	var channels := 2 if w.stereo else 1
+	w.loop_begin = 0
+	w.loop_end = w.data.size() / (bytes_per_sample * channels)
+	w.loop_mode = AudioStreamWAV.LOOP_FORWARD
+
+
+func _start_hope() -> void:
+	# Crossfade the warm bed in as the drone fades out (under the chime).
+	if not _hope.stream:
+		return
+	_hope.volume_db = -40.0
+	_hope.play()
+	create_tween().tween_property(_hope, "volume_db", -11.0, 2.0)
+
+
+func _stop_hope() -> void:
+	if not _hope.playing:
+		return
+	var tw := create_tween()
+	tw.tween_property(_hope, "volume_db", -40.0, 0.9)
+	tw.tween_callback(_hope.stop)
 
 
 func _input(event: InputEvent) -> void:

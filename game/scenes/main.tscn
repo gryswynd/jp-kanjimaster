@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://main001"]
+[gd_scene load_steps=25 format=3 uid="uid://main001"]
 
 [ext_resource type="Script" path="res://scripts/DayLoader.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="2"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/PhoneCaseSwapOverlay.gd" id="18"]
 [ext_resource type="Script" path="res://scripts/IntroOverlay.gd" id="19"]
 [ext_resource type="Script" path="res://scripts/WeatherOverlay.gd" id="20"]
+[ext_resource type="Script" path="res://scripts/ContactsOverlay.gd" id="21"]
 
 [sub_resource type="RectangleShape2D" id="player_col"]
 size = Vector2(24, 30)
@@ -203,6 +204,9 @@ script = ExtResource("12")
 
 [node name="MessagesOverlay" type="CanvasLayer" parent="."]
 script = ExtResource("13")
+
+[node name="ContactsOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("21")
 
 [node name="ConversationOverlay" type="CanvasLayer" parent="."]
 script = ExtResource("14")

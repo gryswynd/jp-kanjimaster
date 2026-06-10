@@ -15,6 +15,7 @@ var conversation_index: int = 0
 var portrait_map: Dictionary = {}
 var portrait_overrides: Dictionary = {}  # speaker → Texture2D
 var on_end_callback: Callable
+var _rain: RainLayer  # rain over the background during outdoor conversations
 
 
 func _ready() -> void:
@@ -31,6 +32,13 @@ func _ready() -> void:
 		bg_texture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		overlay.add_child(bg_texture_rect)
 		overlay.move_child(bg_texture_rect, 0)
+
+	# Rain sits just above the background (falls over the scene art) but below the
+	# speech bubble + portrait (so text stays clean). Toggled per conversation in
+	# _update_rain — only when it's actually raining outdoors.
+	_rain = RainLayer.new()
+	overlay.add_child(_rain)
+	overlay.move_child(_rain, bg_texture_rect.get_index() + 1)
 
 	# Keep the speech bubble + portrait clear of device notches / home indicator
 	# (iPhone Dynamic Island in landscape sits on the left edge and was covering
@@ -55,6 +63,20 @@ func _apply_safe_area() -> void:
 	if portrait:
 		portrait.offset_right = -i.get("right", 0.0)
 		portrait.offset_top = i.get("top", 0.0)
+
+
+func _update_rain() -> void:
+	## Mirror the world's rain gate (DayLoader._apply_weather): rain shows in a
+	## conversation only when it's a rainy day AND the current scene is outdoors,
+	## and a background image is actually covering the world.
+	var raining := GameManager.weather_for_day(GameManager.current_day) == "rain"
+	var outdoor := GameManager.is_outdoor(GameManager.current_scene_id)
+	var has_bg: bool = bg_texture_rect != null and bg_texture_rect.visible
+	if _rain:
+		if raining and outdoor and has_bg:
+			_rain.start()
+		else:
+			_rain.stop()
 
 
 func set_portrait_map(map: Dictionary) -> void:
@@ -86,12 +108,15 @@ func _on_conversation_started(convo_data: Array, options: Dictionary) -> void:
 	else:
 		bg_texture_rect.visible = false
 
+	_update_rain()
 	overlay.visible = true
 	_display_line()
 
 
 func _on_conversation_ended() -> void:
 	overlay.visible = false
+	if _rain:
+		_rain.stop()
 	conversation = []
 	conversation_index = 0
 	portrait_overrides = {}

@@ -34,10 +34,10 @@
       "entryway": "assets/backgrounds/convo-bg-entryway.png"
     }
   },
-  "playerStart": {
-    "x": 1293,
-    "y": 1039
-  },
+  "playerStart": [
+    1293,
+    1039
+  ],
   "objects": [
     {
       "name": "Porch_Back",
@@ -69,7 +69,8 @@
         "terms": [
           "g_desu"
         ]
-      }
+      },
+      "appearsUntilDay": 10
     },
     {
       "name": "Gate",
@@ -110,6 +111,52 @@
       "isDoor": false,
       "interactive": true,
       "collision": true
+    },
+    {
+      "name": "Garden",
+      "nameJp": "にわ",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        126,
+        110
+      ],
+      "sprite": "objects/garden_dirt.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": false
+    },
+    {
+      "name": "Flower_Sakura",
+      "nameJp": "さくら",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        175,
+        130
+      ],
+      "sprite": "objects/flower_sakura.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Flower_Kiku",
+      "nameJp": "きく",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        301,
+        116
+      ],
+      "sprite": "objects/flower_kiku.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "size": [
+        44,
+        66
+      ]
     }
   ],
   "npcs": [],

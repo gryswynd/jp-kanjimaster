@@ -30,6 +30,7 @@ extends CanvasLayer
 var _phase := "logo"
 var _elapsed := 0.0
 var _done := false
+var _whoosh: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -43,6 +44,9 @@ func _ready() -> void:
 
 	_video.finished.connect(_on_logo_done)
 	_video.play()
+
+	_whoosh = AudioStreamPlayer.new()
+	add_child(_whoosh)
 
 	_new_game_btn.pressed.connect(_on_new_game)
 	_continue_btn.pressed.connect(_on_continue)
@@ -105,6 +109,9 @@ func _begin_map_spin() -> void:
 	_phase = "map"
 	_map.scale = Vector2.ZERO
 	_map.rotation = 0.0
+	if _whoosh and ResourceLoader.exists("res://assets/audio/sfx_whoosh.wav"):
+		_whoosh.stream = load("res://assets/audio/sfx_whoosh.wav")
+		_whoosh.play()
 	var t := create_tween().set_parallel(true)
 	# Zoom in from nothing to full, easing out (fast then settling).
 	t.tween_property(_map, "scale", _map_target_scale(), 2.4) \

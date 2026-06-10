@@ -9,6 +9,7 @@ extends CanvasLayer
 @export var on_open_quests: Callable
 @export var on_open_wallet: Callable
 @export var on_open_messages: Callable
+@export var on_open_contacts: Callable
 
 var _backdrop: ColorRect
 var _panel: PanelContainer
@@ -16,6 +17,11 @@ var _time_label: Label
 var _app_grid: GridContainer
 var _panel_home_pos: Vector2  # remembered for vibrate-then-restore
 var _vibrate_tween: Tween
+var _wallet_box: Control      # ¥ tile, flashed on payday
+var _items_box: Control       # 持 もちもの tile, flashed when an item is received
+var _messages_box: Control    # ✉ tile, highlighted when new messages arrive
+var _contacts_box: Control     # 連 tile, pulsed when a new contact memo is earned
+var _sfx: AudioStreamPlayer   # coin + ringtone for the payday sequence
 
 
 func _ready() -> void:
@@ -23,6 +29,8 @@ func _ready() -> void:
 	visible = false
 	_build_ui()
 	_panel_home_pos = _panel.position
+	_sfx = AudioStreamPlayer.new()
+	add_child(_sfx)
 	GameManager.inventory_changed.connect(_refresh)
 	GameManager.quest_changed.connect(_refresh)
 	GameManager.messages_changed.connect(_refresh)
@@ -182,10 +190,53 @@ func _on_backdrop_input(event: InputEvent) -> void:
 func open_phone() -> void:
 	_refresh()
 	visible = true
+	# Subtle pulse on the Contacts tile when a new memo is waiting, so the player
+	# notices their journal grew (the red dot stays until they've viewed it).
+	if _contacts_box and GameManager.any_contact_unread():
+		_flash_box(_contacts_box)
 
 
 func close_phone() -> void:
 	visible = false
+
+
+func play_payday(has_new_msg: bool) -> void:
+	## Day-5+ payday on the phone: the ¥ wallet tile flashes with the coin
+	## chime; then, if there are unread messages today, the ringtone plays and
+	## the ✉ tile pulses. Replaces the old on-screen "¥X deposited" popup.
+	if not visible:
+		open_phone()
+	_phone_sfx("res://assets/audio/sfx_coins.wav")
+	_flash_box(_wallet_box)
+	if has_new_msg:
+		await get_tree().create_timer(0.9).timeout
+		_phone_sfx("res://assets/audio/sfx_message.wav")
+		_flash_box(_messages_box)
+
+
+func notify_item_get() -> void:
+	## Pop the phone and pulse the もちもの (Items) tile so the player notices a
+	## newly-received item (e.g. Mom's umbrella on Day 11). The item itself is
+	## already in the inventory by the time this is called.
+	if not visible:
+		open_phone()
+	_phone_sfx("res://assets/audio/sfx_message.wav")
+	_flash_box(_items_box)
+
+
+func _flash_box(box: Control) -> void:
+	if box == null:
+		return
+	box.modulate = Color(1, 1, 1, 1)
+	var tw := create_tween().set_loops(3)
+	tw.tween_property(box, "modulate", Color(1.8, 1.8, 1.8, 1), 0.16)
+	tw.tween_property(box, "modulate", Color(1, 1, 1, 1), 0.22)
+
+
+func _phone_sfx(path: String) -> void:
+	if _sfx and ResourceLoader.exists(path):
+		_sfx.stream = load(path)
+		_sfx.play()
 
 
 func _refresh() -> void:
@@ -204,8 +255,10 @@ func _refresh() -> void:
 	var quests_press = _open_quests if not GameManager.quests.is_empty() else Callable()
 
 	# Row 1 — the apps that actually do things.
-	_app_grid.add_child(_make_app_tile("¥",   "ウォレット", Color(0.93, 0.74, 0.22), _open_wallet))
-	_app_grid.add_child(_make_app_tile("持",  "もちもの",   Color(0.45, 0.55, 0.85), items_press))
+	_wallet_box = _make_app_tile("¥",   "ウォレット", Color(0.93, 0.74, 0.22), _open_wallet)
+	_app_grid.add_child(_wallet_box)
+	_items_box = _make_app_tile("持",  "もちもの",   Color(0.45, 0.55, 0.85), items_press)
+	_app_grid.add_child(_items_box)
 	var quests_tile = _make_app_tile("任",  "クエスト",   Color(0.85, 0.50, 0.40), quests_press)
 	if GameManager.quests_unread:
 		_overlay_unread_dot(quests_tile)
@@ -216,7 +269,14 @@ func _refresh() -> void:
 	# remain placeholder slots until their own unlocks.
 	var weather_press = _open_weather if GameManager.weather_unlocked else Callable()
 	_app_grid.add_child(_make_app_tile("☀",  "てんき",     Color(0.40, 0.65, 0.90), weather_press))
-	_app_grid.add_child(_make_app_tile("地",  "ちず",       Color(0.55, 0.55, 0.65), Callable()))
+	# Contacts (れんらくさき) — active once the phone is owned. Lists people met.
+	# Red unread dot when a new memo has been earned but not yet seen.
+	var contacts_press = _open_contacts if GameManager.has_phone else Callable()
+	var contacts_tile = _make_app_tile("連",  "れんらくさき", Color(0.55, 0.60, 0.72), contacts_press)
+	if GameManager.has_phone and GameManager.any_contact_unread():
+		_overlay_unread_dot(contacts_tile)
+	_contacts_box = contacts_tile
+	_app_grid.add_child(contacts_tile)
 	_app_grid.add_child(_make_app_tile("写",  "カメラ",     Color(0.65, 0.45, 0.65), Callable()))
 
 	# Row 3 — Messages activates as soon as there's a thread. Red unread
@@ -225,6 +285,7 @@ func _refresh() -> void:
 	var messages_tile = _make_app_tile("✉",  "メッセージ", Color(0.45, 0.70, 0.55), messages_press)
 	if GameManager.has_unread_messages():
 		_overlay_unread_dot(messages_tile)
+	_messages_box = messages_tile
 	_app_grid.add_child(messages_tile)
 	_app_grid.add_child(_make_app_tile("⚙",   "せってい",     Color(0.50, 0.55, 0.55), Callable()))
 	_app_grid.add_child(_make_app_tile("時",  "とけい",       Color(0.40, 0.55, 0.75), Callable()))
@@ -249,6 +310,11 @@ func _open_wallet() -> void:
 func _open_messages() -> void:
 	if on_open_messages.is_valid():
 		on_open_messages.call()
+
+
+func _open_contacts() -> void:
+	if on_open_contacts.is_valid():
+		on_open_contacts.call()
 
 
 func _overlay_unread_dot(tile_root: Control) -> void:

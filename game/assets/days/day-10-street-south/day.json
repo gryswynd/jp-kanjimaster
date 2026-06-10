@@ -84,6 +84,39 @@
       "isDoor": false,
       "interactive": false,
       "collision": true
+    },
+    {
+      "name": "Flower_Ajisai",
+      "nameJp": "あじさい",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        524,
+        688
+      ],
+      "sprite": "res://assets/days/day-02-outside/objects/flower_ajisai.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Goldfish",
+      "nameJp": "きんぎょ",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        328,
+        222
+      ],
+      "sprite": "objects/goldfish.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false,
+      "size": [
+        50,
+        38
+      ],
+      "rainyOnly": true
     }
   ],
   "npcs": [],

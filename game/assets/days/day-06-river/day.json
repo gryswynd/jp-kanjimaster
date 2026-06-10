@@ -75,7 +75,7 @@
       "isDoor": false,
       "interactive": false,
       "collision": true,
-      "removedByFlag": "told_about_yuki"
+      "appearsUntilDay": 8
     },
     {
       "name": "Exit_South",
@@ -120,8 +120,8 @@
       "nameFromDay": 6,
       "appearsFromDay": 6,
       "position": [
-        600,
-        200
+        704,
+        208
       ],
       "size": [
         400,
@@ -135,7 +135,6 @@
       "name": "Exit_East",
       "nameJp": "みち",
       "appearsFromDay": 9,
-      "appearsWhenFlag": "told_about_yuki",
       "position": [
         1208,
         351
@@ -181,6 +180,74 @@
       "isDoor": false,
       "interactive": false,
       "collision": true
+    },
+    {
+      "name": "Flower_Ayame",
+      "nameJp": "あやめ",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        392,
+        454
+      ],
+      "sprite": "res://assets/days/day-02-outside/objects/flower_ayame.png",
+      "isDoor": false,
+      "interactive": true,
+      "collision": false
+    },
+    {
+      "name": "Fish_1",
+      "nameJp": "さかな",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        828,
+        228
+      ],
+      "sprite": "objects/fish_right.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": false,
+      "size": [
+        52,
+        33
+      ]
+    },
+    {
+      "name": "Fish_2",
+      "nameJp": "さかな",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        726,
+        256
+      ],
+      "sprite": "objects/fish_left.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": false,
+      "size": [
+        52,
+        33
+      ]
+    },
+    {
+      "name": "Fish_3",
+      "nameJp": "さかな",
+      "nameFromDay": 11,
+      "appearsFromDay": 11,
+      "position": [
+        926,
+        248
+      ],
+      "sprite": "objects/fish_right.png",
+      "isDoor": false,
+      "interactive": false,
+      "collision": false,
+      "size": [
+        52,
+        33
+      ]
     }
   ],
   "npcs": [
@@ -197,6 +264,19 @@
       "convoBackground": "mountain-river",
       "interactionRadius": 180,
       "appearsUntilDay": 6
+    },
+    {
+      "name": "yuki",
+      "nameJp": "ゆき",
+      "appearsFromDay": 11,
+      "x": 836,
+      "y": 316,
+      "spriteWidth": 156,
+      "spriteHeight": 104,
+      "interactionRadius": 220,
+      "sprite": "assets/days/day-09-river-east/characters/yuki_sprite.png",
+      "convoPortrait": "assets/days/day-09-river-east/characters/yuki_convo.png",
+      "convoBackground": "mountain-river"
     }
   ],
   "meConvoPortrait": "assets/characters/rikizo/rikizo_convo.png",

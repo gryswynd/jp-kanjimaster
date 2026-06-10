@@ -59,6 +59,7 @@ const TILE_SIZE := 32
 @onready var phone_overlay: CanvasLayer = $PhoneOverlay
 @onready var wallet_overlay: CanvasLayer = $WalletOverlay
 @onready var messages_overlay: CanvasLayer = $MessagesOverlay
+@onready var contacts_overlay: CanvasLayer = $ContactsOverlay
 @onready var conversation_overlay: CanvasLayer = $ConversationOverlay
 @onready var shop_menu_overlay: CanvasLayer = $ShopMenuOverlay
 @onready var cg_overlay: CanvasLayer = $CgOverlay
@@ -121,6 +122,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				"konbini-inside",
 				func(): GameManager.show_message({"jp": "ありがとうございます！", "en": "Thank you!"})
 			)
+		# DEV: Shift+F clears today's "first-talk" flags so first-talk NPC
+		# convos (e.g. Mom's Day-11 umbrella beat) + per-day auto-trigger beats
+		# re-fire — without resetting back to Day 1.
+		elif event.keycode == KEY_F and event.shift_pressed:
+			GameManager.npc_day_talked.clear()
+			GameManager.show_message({"jp": "[DEV] 会話をリセット", "en": "[DEV] first-talks re-armed"})
 		# Dev-only keyboard shortcuts mirror the mobile HUD buttons. Same gate
 		# applies: only work after the system is unlocked (i.e. at least one
 		# item/quest exists, which only happens after the water pickup).
@@ -278,6 +285,9 @@ func _ready() -> void:
 		phone_overlay.on_open_messages = func():
 			phone_overlay.close_phone()
 			messages_overlay.open_messages()
+		phone_overlay.on_open_contacts = func():
+			phone_overlay.close_phone()
+			contacts_overlay.open_contacts()
 	if messages_overlay:
 		messages_overlay.on_open_thread = func(contact_id):
 			messages_overlay.close_messages()
@@ -315,7 +325,9 @@ func _apply_weather() -> void:
 	if weather:
 		weather.set_weather(kind)
 	if player:
-		player.set_umbrella(kind == "rain")
+		# The over-head umbrella only deploys if Rikizo actually HAS the umbrella
+		# (Mom gives it on the first rainy day, Day 11). Otherwise he just gets wet.
+		player.set_umbrella(kind == "rain" and GameManager.has_item("umbrella"))
 
 
 func _refresh_objects() -> void:
@@ -332,6 +344,9 @@ func _refresh_objects() -> void:
 		var appears_until: int = int(obj_data.get("appearsUntilDay", 999))
 		if appears_until < GameManager.current_day:
 			continue
+		# Rainy-day-only objects (e.g. Mr. Goldfish) spawn only when it's raining.
+		if bool(obj_data.get("rainyOnly", false)) and GameManager.weather_for_day(GameManager.current_day) != "rain":
+			continue
 		if _object_removed_by_flag(obj_data):
 			continue
 		if _object_gated_by_flag(obj_data):
@@ -342,6 +357,12 @@ func _refresh_objects() -> void:
 		objects_container.add_child(obj_instance)
 		obj_instance.set_meta("day_dir", DAY_DATA_DIR)
 		obj_instance.setup(obj_data)
+		obj_instance.proximity_entered.connect(_on_object_proximity)
+		_register_and_grow_flowers(obj_instance, obj_data)
+		# Umbrella rack shows empty once the umbrella has been taken.
+		if obj_instance.object_name == "Umbrella_Rack" and GameManager.has_item("umbrella") \
+				and obj_instance.obj_sprite and ResourceLoader.exists("res://assets/days/day-01-home/objects/umbrella_stand_empty.png"):
+			obj_instance.obj_sprite.texture = load("res://assets/days/day-01-home/objects/umbrella_stand_empty.png")
 
 
 func _object_removed_by_flag(obj_data: Dictionary) -> bool:
@@ -421,8 +442,92 @@ func _notification(what: int) -> void:
 		GameManager._save()
 
 
+const RIPPLE_PATH := "res://assets/days/day-06-river/objects/ripple.png"
+var _river_fish_active: bool = false
+var _river_fish_gen: int = 0  # invalidates a prior loop when the world rebuilds
+
+
+func _start_jumping_fish() -> void:
+	## Day 11+ water ambience: fish sprites — the river Fish_* AND the street-south
+	## reservoir Goldfish — periodically leap in a world-space arc with a splash
+	## ripple. NOT the weather overlay; a local, world-space effect on the actual
+	## sprites. Frequency is rain-aware (more jumps in the rain, paying off Yuki's
+	## 「魚も雨がすきだと思う」). Self-stops on teardown (_clear_world clears the flag).
+	var fish: Array = []
+	for c in objects_container.get_children():
+		if not ("object_name" in c):
+			continue
+		var nm := str(c.object_name)
+		if nm.begins_with("Fish_") or nm == "Goldfish":
+			fish.append(c)
+	if fish.is_empty():
+		return
+	_river_fish_gen += 1
+	_river_fish_active = true
+	_river_fish_loop(fish, _river_fish_gen)
+
+
+func _river_fish_loop(fish: Array, gen: int) -> void:
+	while _river_fish_active and is_inside_tree() and gen == _river_fish_gen:
+		var raining: bool = GameManager.weather_for_day(GameManager.current_day) == "rain"
+		var wait: float = randf_range(1.6, 3.8) if raining else randf_range(4.5, 9.0)
+		await get_tree().create_timer(wait).timeout
+		if not _river_fish_active or not is_inside_tree() or gen != _river_fish_gen:
+			return
+		var valid: Array = fish.filter(func(f): return is_instance_valid(f))
+		if valid.is_empty():
+			return
+		_fish_jump(valid[randi() % valid.size()])
+
+
+func _fish_jump(fish: Node) -> void:
+	if not is_instance_valid(fish):
+		return
+	var spr := fish.obj_sprite as Sprite2D
+	if spr == null:
+		return
+	var rx: float = spr.position.x
+	var ry: float = spr.position.y
+	var rr: float = spr.rotation_degrees
+	var dir: float = 1.0 if randf() < 0.5 else -1.0
+	_spawn_ripple(fish.global_position)  # launch splash
+	var t := create_tween()
+	# rise — decelerate toward the apex
+	t.tween_property(spr, "position:y", ry - 50.0, 0.34).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	t.parallel().tween_property(spr, "position:x", rx + 18.0 * dir, 0.34)
+	t.parallel().tween_property(spr, "rotation_degrees", rr - 24.0 * dir, 0.34)
+	# fall — accelerate back into the water
+	t.tween_property(spr, "position:y", ry, 0.34).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	t.parallel().tween_property(spr, "position:x", rx, 0.34)
+	t.parallel().tween_property(spr, "rotation_degrees", rr + 24.0 * dir, 0.34)
+	t.tween_callback(_fish_land.bind(spr, rr, fish.global_position))
+
+
+func _fish_land(spr: Sprite2D, rest_rot: float, gpos: Vector2) -> void:
+	if is_instance_valid(spr):
+		spr.rotation_degrees = rest_rot
+	_spawn_ripple(gpos)  # landing splash
+
+
+func _spawn_ripple(gpos: Vector2) -> void:
+	if not ResourceLoader.exists(RIPPLE_PATH):
+		return
+	var s := Sprite2D.new()
+	s.texture = load(RIPPLE_PATH)
+	s.global_position = gpos
+	s.z_index = -1  # on the water surface, under the leaping fish
+	s.scale = Vector2(0.3, 0.3)
+	s.modulate = Color(1, 1, 1, 0.85)
+	objects_container.add_child(s)
+	var tw := create_tween()
+	tw.tween_property(s, "scale", Vector2(1.3, 1.3), 0.55)
+	tw.parallel().tween_property(s, "modulate:a", 0.0, 0.55)
+	tw.tween_callback(s.queue_free)
+
+
 func _clear_world() -> void:
 	## Free child nodes built by _build_world so the next _build_world starts clean.
+	_river_fish_active = false  # stop the river-fish jump loop on teardown
 	if map_chunks:
 		for c in map_chunks.get_children():
 			c.queue_free()
@@ -436,7 +541,7 @@ func _clear_world() -> void:
 		collision_map.clear_walls()
 	# Tilemap-mode artifacts (Floor/Walls/WallColliders/Objects tilemap layers)
 	# get added as siblings; remove any leftovers from previous loads.
-	var protected := [map_sprite, map_chunks, collision_map, player, npcs_container, objects_container, dialogue_overlay, calendar_overlay, choice_overlay, inventory_overlay, quest_overlay, phone_overlay, wallet_overlay, messages_overlay, conversation_overlay, shop_menu_overlay, cg_overlay, tap_to_pay, hud_overlay, message_popup, $MessageLayer, $TouchControls, get_node_or_null("PhoneCaseSwapOverlay")]
+	var protected := [map_sprite, map_chunks, collision_map, player, npcs_container, objects_container, dialogue_overlay, calendar_overlay, choice_overlay, inventory_overlay, quest_overlay, phone_overlay, wallet_overlay, messages_overlay, contacts_overlay, conversation_overlay, shop_menu_overlay, cg_overlay, tap_to_pay, hud_overlay, message_popup, $MessageLayer, $TouchControls, get_node_or_null("PhoneCaseSwapOverlay"), get_node_or_null("WeatherOverlay"), get_node_or_null("IntroOverlay")]
 	for child in get_children():
 		if child not in protected:
 			child.queue_free()
@@ -516,11 +621,19 @@ func _build_world(data: Dictionary) -> void:
 		player_sprite.offset = Vector2(0, -293.0 * 0.5)
 
 	# --- Player conversation portrait ---
+	# Resolve per-zone first, then fall back to the canonical day-01-home copy.
+	# Only day-01-home actually ships rikizo_convo.png, so without the fallback
+	# りきぞう's portrait is set ONLY after passing through home — and because
+	# portrait_map persists across zone loads, a save resumed in a non-home zone
+	# would show NO Rikizo portrait until the player walked back home (the
+	# intermittent "portrait missing on load" bug).
 	if data.has("meConvoPortrait"):
 		var me_portrait_file := str(data["meConvoPortrait"]).get_file()
-		var me_portrait_path := DAY_DATA_DIR + "characters/" + me_portrait_file
-		if ResourceLoader.exists(me_portrait_path):
-			portrait_map[&"りきぞう"] = load(me_portrait_path)
+		for cand in [DAY_DATA_DIR + "characters/" + me_portrait_file,
+				"res://assets/days/day-01-home/characters/" + me_portrait_file]:
+			if ResourceLoader.exists(cand):
+				portrait_map[&"りきぞう"] = load(cand)
+				break
 
 	# --- NPCs ---
 	var npcs_array: Array = data.get("npcs", [])
@@ -578,6 +691,9 @@ func _build_world(data: Dictionary) -> void:
 		var appears_until: int = int(obj_data.get("appearsUntilDay", 999))
 		if appears_until < GameManager.current_day:
 			continue
+		# Rainy-day-only objects (e.g. Mr. Goldfish) spawn only when it's raining.
+		if bool(obj_data.get("rainyOnly", false)) and GameManager.weather_for_day(GameManager.current_day) != "rain":
+			continue
 		# Story-flag-gating: skip objects removed by a GameManager flag
 		# (e.g. east river barrier vanishes once told_about_yuki is true).
 		if _object_removed_by_flag(obj_data):
@@ -594,6 +710,12 @@ func _build_world(data: Dictionary) -> void:
 		# Inject day dir so InteractiveObject can resolve day-relative sprite paths
 		obj_instance.set_meta("day_dir", DAY_DATA_DIR)
 		obj_instance.setup(obj_data)
+		obj_instance.proximity_entered.connect(_on_object_proximity)
+		_register_and_grow_flowers(obj_instance, obj_data)
+		# Umbrella rack shows empty once the umbrella has been taken.
+		if obj_instance.object_name == "Umbrella_Rack" and GameManager.has_item("umbrella") \
+				and obj_instance.obj_sprite and ResourceLoader.exists("res://assets/days/day-01-home/objects/umbrella_stand_empty.png"):
+			obj_instance.obj_sprite.texture = load("res://assets/days/day-01-home/objects/umbrella_stand_empty.png")
 		# Day 10 電気: restore the saved on/off sprite after a mid-day reload
 		# (off is the default sprite from day.json; only TV/Lamp react).
 		if GameManager.current_day >= 10 and obj_instance.obj_sprite:
@@ -625,6 +747,11 @@ func _build_world(data: Dictionary) -> void:
 		GameManager.set_quest_verb("onigiri_quest", "食べる", "Eat")
 		GameManager.set_quest_verb("drink_water", "飲む", "Drink")
 
+	# Day 11+: fish leap (rain-aware) in any zone that has them — the river Fish_*
+	# and the street-south reservoir Goldfish. _start_jumping_fish no-ops if none.
+	if GameManager.current_day >= 11:
+		_start_jumping_fish()
+
 
 func _on_npc_proximity(npc) -> void:
 	## Auto-trigger conversations that should fire just by walking near an
@@ -636,6 +763,21 @@ func _on_npc_proximity(npc) -> void:
 		return
 	if npc.npc_name == "dad" and GameManager.current_day == 4 and not GameManager.has_phone:
 		_handle_npc_interaction(npc)
+
+
+func _on_object_proximity(obj) -> void:
+	## Auto-fire a beat for objects flagged autoTrigger (e.g. the eki north
+	## fence "nothing there" line) — proximity, not an interact press. Once
+	## per day, guarded like the NPC proximity beats.
+	if GameManager.in_conversation or GameManager.is_interaction_locked():
+		return
+	if not obj.auto_trigger:
+		return
+	var key := "obj_%s_day%d" % [obj.object_name, GameManager.current_day]
+	if GameManager.npc_day_talked.has(key):
+		return
+	GameManager.npc_day_talked[key] = true
+	_handle_object_interaction(obj)
 
 
 func _resolve_npc_asset_path(p: String) -> String:
@@ -973,6 +1115,13 @@ func _rotating_line(key: String, pool: Array) -> Dictionary:
 	return pool[i]
 
 
+func _raining() -> bool:
+	## True when the current day's weather is rain (Day 11 so far). NPC weather
+	## small-talk swaps to rain-aware lines on these days; clear days keep the
+	## original いい天気 lines.
+	return GameManager.weather_for_day(GameManager.current_day) == "rain"
+
+
 func _handle_npc_interaction(npc) -> void:
 	GameManager.inspected[npc.npc_name] = true
 	# Relationship +1 per NPC per day (capped) — fires the first time Rikizo
@@ -1078,7 +1227,7 @@ func _handle_npc_interaction(npc) -> void:
 		# paranoia beat (once). Then the appetite refrain / reject existing food.
 		if GameManager.yamakawa_casual_day10 and not GameManager.yamakawa_broken_word:
 			GameManager.yamakawa_broken_word = true
-			GameManager.increment_tracker("paranoia")
+			GameManager.paranoia()
 			GameManager.start_conversation([
 				{"speaker": "りきぞう",    "jp": "やまかわ、電車は…？",           "en": "Yamakawa, the train...?"},
 				{"speaker": "yamakawa", "jp": "ん？電車？…なんでもないよ。", "en": "Hm? The train? ...It's nothing."},
@@ -1095,14 +1244,15 @@ func _handle_npc_interaction(npc) -> void:
 		return
 
 
-	# Yamakawa on Day 9 — tells Rikizo that Yuki is behind the depaato,
-	# pointing him to the river path east. Fires the first time the player
-	# talks to Yamakawa on Day 9+, in EITHER the outside konbini or the
-	# inside konbini scene. Takes priority over Yamakawa's other Day 9
-	# beats (the day-8 shopping-companion mode that would otherwise fire).
-	# Setting told_about_yuki = true unlocks the east river barrier in a
-	# downstream step (the Bollard_Chain_Vertical on day-06-river).
-	if npc.npc_name == "yamakawa" and GameManager.current_day >= 9 \
+	# Yamakawa on Day 9 — tells Rikizo that Yuki is behind the depaato, pointing
+	# him to the river path east. DAY-9-ONLY and KONBINI-ONLY: it's an optional
+	# hint (the east path opens by day now, so you can find Yuki on your own), so
+	# if you skip the konbini on Day 9 you simply miss it — it must NOT carry
+	# over to later days or fire in other scenes (e.g. ambush you at the depaato).
+	# Gating it to == 9 + konbini also keeps it from pre-empting the depaato
+	# Yamakawa beat. Sets told_about_yuki so it won't re-offer once heard.
+	if npc.npc_name == "yamakawa" and GameManager.current_day == 9 \
+			and DAY_DATA_DIR.find("konbini") != -1 \
 			and not GameManager.told_about_yuki:
 		options["on_end"] = func():
 			GameManager.told_about_yuki = true
@@ -1173,6 +1323,33 @@ func _handle_npc_interaction(npc) -> void:
 			], options)
 		return
 
+	# Yamakawa inside the デパート (Day 9+), planted in front of the blocked-off
+	# escalators. He wants to find a new restaurant and figures it's on an upper
+	# floor — but 上 (up) doesn't arrive until Day 16, so he can't say "up the
+	# escalator," and neither can Rikizo. The escalator stays unridden: the
+	# building is taller than their vocabulary (N5_GAME_ROADMAP.md). Full beat on
+	# the first talk of the day; a short stuck-on-the-word refrain on repeats.
+	if npc.npc_name == "yamakawa" and DAY_DATA_DIR.find("day-09-depaato-inside/") != -1 \
+			and GameManager.current_day >= 11:
+		var dk := "yamakawa_depaato_%d" % GameManager.current_day
+		if not GameManager.npc_day_talked.has(dk):
+			GameManager.npc_day_talked[dk] = true
+			GameManager.start_conversation([
+				{"speaker": "yamakawa", "jp": "りきぞう！来ましたね。",                "en": "Rikizo! You came."},
+				{"speaker": "yamakawa", "jp": "新しい レストランに 行きたいです。",    "en": "I want to go to a new restaurant."},
+				{"speaker": "りきぞう",    "jp": "レストランですか？",                  "en": "A restaurant?"},
+				{"speaker": "yamakawa", "jp": "はい！二かいですか？三かいですか？",    "en": "Yes! The second floor? The third floor?"},
+				{"speaker": "yamakawa", "jp": "エスカレーターで、えっと…",            "en": "By the escalator, um…"},
+				{"speaker": "yamakawa", "jp": "…ことばが わかりません。",              "en": "…I don't know the word."},
+				{"speaker": "yamakawa", "jp": "りきぞう、わかりますか？",              "en": "Rikizo, do you know it?"},
+				{"speaker": "りきぞう",    "jp": "…わかりません。",                     "en": "…I don't know."},
+			], options)
+		else:
+			GameManager.start_conversation([
+				{"speaker": "yamakawa", "jp": "エスカレーター… えっと… わかりません。", "en": "The escalator… um… I don't know."},
+			], options)
+		return
+
 	# Yamakawa on the river bank (Day 6+ migration) — takes precedence on
 	# the river chunk so the player gets the river dialog regardless of
 	# whether they met Yamakawa in the konbini first.
@@ -1226,13 +1403,29 @@ func _handle_npc_interaction(npc) -> void:
 		var clerk_key := "hotel_clerk_day%d" % GameManager.current_day
 		if not GameManager.npc_day_talked.has(clerk_key):
 			GameManager.npc_day_talked[clerk_key] = true
+			var clerk_convo: Array
+			if _raining():
+				clerk_convo = [
+					{"speaker": "hotel_clerk", "jp": "いらっしゃいませ。ホテルに ようこそ。",     "en": "Welcome. Welcome to the hotel."},
+					{"speaker": "りきぞう",       "jp": "ホテルですか…きれいですね。",            "en": "A hotel… it's pretty."},
+					{"speaker": "hotel_clerk", "jp": "ありがとうございます。今日は 雨ですね。",   "en": "Thank you. It's raining today, isn't it."},
+					{"speaker": "りきぞう",       "jp": "この ホテルは 人気ですか。",            "en": "Is this hotel popular?"},
+					{"speaker": "hotel_clerk", "jp": "はい、休日は とても 人気ですよ。",         "en": "Yes, it's very popular on holidays."},
+					{"speaker": "hotel_clerk", "jp": "雨でも、おきゃくさんが いますよ。",         "en": "Even in the rain, we have a guest."},
+				]
+			else:
+				clerk_convo = [
+					{"speaker": "hotel_clerk", "jp": "いらっしゃいませ。ホテルに ようこそ。",     "en": "Welcome. Welcome to the hotel."},
+					{"speaker": "りきぞう",       "jp": "ホテルですか…きれいですね。",            "en": "A hotel… it's pretty."},
+					{"speaker": "hotel_clerk", "jp": "ありがとうございます。今日は いい 天気ですね。", "en": "Thank you. The weather is nice today, isn't it."},
+					{"speaker": "りきぞう",       "jp": "この ホテルは 人気ですか。",            "en": "Is this hotel popular?"},
+					{"speaker": "hotel_clerk", "jp": "はい、休日は とても 人気ですよ。",         "en": "Yes, it's very popular on holidays."},
+					{"speaker": "hotel_clerk", "jp": "今日も おきゃくさんが います。",           "en": "We have a guest today, too."},
+				]
+			GameManager.start_conversation(clerk_convo, options)
+		elif _raining():
 			GameManager.start_conversation([
-				{"speaker": "hotel_clerk", "jp": "いらっしゃいませ。ホテルに ようこそ。",     "en": "Welcome. Welcome to the hotel."},
-				{"speaker": "りきぞう",       "jp": "ホテルですか…きれいですね。",            "en": "A hotel… it's pretty."},
-				{"speaker": "hotel_clerk", "jp": "ありがとうございます。今日は いい 天気ですね。", "en": "Thank you. The weather is nice today, isn't it."},
-				{"speaker": "りきぞう",       "jp": "この ホテルは 人気ですか。",            "en": "Is this hotel popular?"},
-				{"speaker": "hotel_clerk", "jp": "はい、休日は とても 人気ですよ。",         "en": "Yes, it's very popular on holidays."},
-				{"speaker": "hotel_clerk", "jp": "今日も おきゃくさんが います。",           "en": "We have a guest today, too."},
+				{"speaker": "hotel_clerk", "jp": "いらっしゃいませ。雨ですね。", "en": "Welcome. It's raining, isn't it."},
 			], options)
 		else:
 			GameManager.start_conversation([
@@ -1249,17 +1442,30 @@ func _handle_npc_interaction(npc) -> void:
 		var guest_key := "hotel_guest_day%d" % GameManager.current_day
 		if not GameManager.npc_day_talked.has(guest_key):
 			GameManager.npc_day_talked[guest_key] = true
-			GameManager.start_conversation([
-				{"speaker": "hotel_guest", "jp": "あ、こんにちは。",                "en": "Oh, hello."},
-				{"speaker": "りきぞう",       "jp": "こんにちは。ホテルに 来ましたか。",   "en": "Hello. Did you come to the hotel?"},
-				{"speaker": "hotel_guest", "jp": "うん、休みだからね。",            "en": "Yeah, 'cause it's a holiday."},
-				{"speaker": "hotel_guest", "jp": "天気が いいから、ここに 来ました。",  "en": "The weather's nice, so I came here."},
-				{"speaker": "りきぞう",       "jp": "どこから 来ましたか。",           "en": "Where did you come from?"},
-				{"speaker": "hotel_guest", "jp": "…ここの ちかくですよ。",          "en": "…Just nearby."},
-			], options)
+			GameManager.unlock_note("hotel_guest_met")  # contact memo: met the guest
+			var guest_convo: Array
+			if _raining():
+				guest_convo = [
+					{"speaker": "hotel_guest", "jp": "あ、こんにちは。",                "en": "Oh, hello."},
+					{"speaker": "りきぞう",       "jp": "こんにちは。ホテルに 来ましたか。",   "en": "Hello. Did you come to the hotel?"},
+					{"speaker": "hotel_guest", "jp": "うん、休みだからね。",            "en": "Yeah, 'cause it's a holiday."},
+					{"speaker": "hotel_guest", "jp": "雨だから、ホテルに 来ました。",    "en": "It's raining, so I came to the hotel."},
+					{"speaker": "りきぞう",       "jp": "どこから 来ましたか。",           "en": "Where did you come from?"},
+					{"speaker": "hotel_guest", "jp": "…ここの ちかくですよ。",          "en": "…Just nearby."},
+				]
+			else:
+				guest_convo = [
+					{"speaker": "hotel_guest", "jp": "あ、こんにちは。",                "en": "Oh, hello."},
+					{"speaker": "りきぞう",       "jp": "こんにちは。ホテルに 来ましたか。",   "en": "Hello. Did you come to the hotel?"},
+					{"speaker": "hotel_guest", "jp": "うん、休みだからね。",            "en": "Yeah, 'cause it's a holiday."},
+					{"speaker": "hotel_guest", "jp": "天気が いいから、ここに 来ました。",  "en": "The weather's nice, so I came here."},
+					{"speaker": "りきぞう",       "jp": "どこから 来ましたか。",           "en": "Where did you come from?"},
+					{"speaker": "hotel_guest", "jp": "…ここの ちかくですよ。",          "en": "…Just nearby."},
+				]
+			GameManager.start_conversation(guest_convo, options)
 		elif not GameManager.hotel_guest_noticed:
 			GameManager.hotel_guest_noticed = true
-			GameManager.increment_tracker("paranoia")
+			GameManager.paranoia()
 			var guest_shock: Texture2D = GameManager.alt_portraits.get("meShocked")
 			if guest_shock:
 				options["portrait_overrides"] = {"りきぞう": guest_shock}
@@ -1267,6 +1473,10 @@ func _handle_npc_interaction(npc) -> void:
 				{"speaker": "りきぞう",       "jp": "…かばんが ない。",       "en": "…No bags."},
 				{"speaker": "hotel_guest", "jp": "ん？",                 "en": "Hm?"},
 				{"speaker": "りきぞう",       "jp": "…いいえ。気分が いいです。", "en": "…Never mind. I feel good."},
+			], options)
+		elif _raining():
+			GameManager.start_conversation([
+				{"speaker": "hotel_guest", "jp": "雨の日は、ホテルが いいですよ。", "en": "On a rainy day, a hotel is nice."},
 			], options)
 		else:
 			GameManager.start_conversation([
@@ -1308,6 +1518,7 @@ func _handle_npc_interaction(npc) -> void:
 			# everyone else this week. His まだ finally has an object, and still
 			# doesn't resolve. First talk of Day 10; repeats fall to the refrain.
 			GameManager.npc_day_talked["ekicho_day10"] = true
+			GameManager.unlock_note("ekicho_train")  # contact memo: the train that won't go
 			GameManager.start_conversation([
 				{"speaker": "ekicho", "jp": "お、りきぞうくん。電車を見ましたか？", "en": "Oh, Rikizo. Did you see the train?"},
 				{"speaker": "りきぞう", "jp": "はい！電車がありますね！",          "en": "Yes! There's a train!"},
@@ -1324,12 +1535,34 @@ func _handle_npc_interaction(npc) -> void:
 			# reveal waits for Day 10).
 			var n: int = int(GameManager.trackers.get("ekicho_talks", 0))
 			GameManager.trackers["ekicho_talks"] = n + 1
-			var ekicho_refrain := [
-				[{"speaker": "ekicho", "jp": "まだですよ。",         "en": "Not yet."}],
-				[{"speaker": "ekicho", "jp": "まだ来ませんね。",     "en": "It still hasn't come."}],
-				[{"speaker": "ekicho", "jp": "長い道ですから。",     "en": "It's a long road, you see."}],
-				[{"speaker": "ekicho", "jp": "今日も、まだですよ。", "en": "Today too — not yet."}],
-			]
+			var ekicho_refrain: Array
+			if _raining():
+				# Day 11 (rain): the weather joins the standstill — the rain comes,
+				# but the train, which is right there, still doesn't go.
+				ekicho_refrain = [
+					[{"speaker": "ekicho", "jp": "今日は 雨ですね。",                "en": "It's raining today."}],
+					[{"speaker": "ekicho", "jp": "雨でも、電車は 行きませんね。",     "en": "Even in the rain, the train doesn't go."}],
+					[{"speaker": "ekicho", "jp": "古い駅に、雨…。",                 "en": "Rain on the old station…"}],
+					[{"speaker": "ekicho", "jp": "電車は ここに あります。でも、行きません。", "en": "The train is right here. But it doesn't go."}],
+				]
+			elif GameManager.current_day >= 10:
+				# Day 10+: the 電車 has arrived. It's not that it hasn't come — it's
+				# HERE, and it simply doesn't go anywhere (on 休み, like everyone).
+				ekicho_refrain = [
+					[{"speaker": "ekicho", "jp": "電車は ありますが、行きません。",  "en": "The train's here, but it doesn't go."}],
+					[{"speaker": "ekicho", "jp": "どこにも 行きませんね。",         "en": "It doesn't go anywhere."}],
+					[{"speaker": "ekicho", "jp": "電車は 休みですから。",           "en": "Because the train's on holiday."}],
+					[{"speaker": "ekicho", "jp": "毎日 ここに います。電車も。",     "en": "I'm here every day. The train too."}],
+				]
+			else:
+				# Pre-reveal (Day 9): the train hasn't been shown yet — he's still
+				# waiting for something that hasn't come.
+				ekicho_refrain = [
+					[{"speaker": "ekicho", "jp": "まだですよ。",         "en": "Not yet."}],
+					[{"speaker": "ekicho", "jp": "まだ来ませんね。",     "en": "It still hasn't come."}],
+					[{"speaker": "ekicho", "jp": "長い道ですから。",     "en": "It's a long road, you see."}],
+					[{"speaker": "ekicho", "jp": "今日も、まだですよ。", "en": "Today too — not yet."}],
+				]
 			GameManager.start_conversation(ekicho_refrain[n % ekicho_refrain.size()], options)
 		return
 
@@ -1471,25 +1704,54 @@ func _handle_npc_interaction(npc) -> void:
 				GameManager._save()
 			var give_convo := []
 			if GameManager.tree_san_unlocked:
-				# High tree-relationship: Rikizo credits Mr. Tree for the gift,
-				# and Mom — who has heard this one too many times — yells from
-				# the kitchen off-screen (no portrait line).
+				# High tree-relationship: Rikizo credits Mr. Tree for the gift, and
+				# Mom — who has heard this one too many times — cuts in. The bg
+				# swaps to her kitchen and she gets her exasperated portrait, then
+				# it swaps back to Dad's scene for the thank-you.
 				give_convo.append({"speaker": "りきぞう", "jp": "お父さん、プレゼントです。", "en": "Dad, a present."})
 				give_convo.append({"speaker": "dad",   "jp": "え、ぼくに？", "en": "Huh, for me?"})
 				give_convo.append({"speaker": "りきぞう", "jp": "はい！木さんからです。", "en": "Yes! It's from Mr. Tree."})
 				give_convo.append({"speaker": "dad",   "jp": "...木さん？", "en": "...Mr. Tree?"})
-				give_convo.append({"speaker": "", "jp": "お母さん：「りきぞう！木は 人じゃ ないですよ！」", "en": "Mom (from the kitchen): \"Rikizo! A tree isn't a person!\""})
-				give_convo.append({"speaker": "りきぞう", "jp": "...はい。", "en": "...Yes."})
+				var mom_cut_line := {"speaker": "mom", "jp": "りきぞう！木は 人じゃ ないですよ！", "en": "Rikizo! A tree isn't a person!", "background": "kitchen"}
+				var mom_cut_tex: Texture2D = GameManager.alt_portraits.get("momExasperated")
+				if mom_cut_tex:
+					mom_cut_line["portrait"] = mom_cut_tex
+				give_convo.append(mom_cut_line)
+				give_convo.append({"speaker": "りきぞう", "jp": "...はい。", "en": "...Yes.", "background": bg_key})
 				give_convo.append({"speaker": "dad",   "jp": "...ありがとう、りきぞう。", "en": "...Thank you, Rikizo."})
-				give_convo.append({"speaker": "dad",   "jp": "車も うれしいですよ。", "en": "The car is happy too."})
+				give_convo.append({"speaker": "dad",   "jp": "プレゼント、うれしいです。", "en": "I'm happy about the present."})
+				give_convo.append({"speaker": "dad",   "jp": "車も うれしいですよ！", "en": "Even the car's happy!"})
 			else:
 				give_convo.append({"speaker": "りきぞう", "jp": "お父さん、プレゼントです。", "en": "Dad, a present."})
 				give_convo.append({"speaker": "dad",   "jp": "え、ぼくに？", "en": "Huh, for me?"})
 				give_convo.append({"speaker": "りきぞう", "jp": "はい！", "en": "Yes!"})
 				give_convo.append({"speaker": "dad",   "jp": "...ありがとう、りきぞう。", "en": "...Thank you, Rikizo."})
-				give_convo.append({"speaker": "dad",   "jp": "うれしいです。", "en": "I'm happy."})
-				give_convo.append({"speaker": "dad",   "jp": "...車もうれしいですよ。", "en": "...The car is happy too."})
+				give_convo.append({"speaker": "dad",   "jp": "プレゼント、うれしいです。", "en": "I'm happy about the present."})
+				give_convo.append({"speaker": "dad",   "jp": "車も うれしいですよ！", "en": "Even the car's happy!"})
 			GameManager.start_conversation(give_convo, options)
+			return
+
+		# Mom flower gift: handing Mom a flower she grew earns a warm reaction
+		# and a relationship bump (beyond the once-a-day talk cap). Once per day,
+		# consumes one flower. Gated to AFTER the morning convo has played so it
+		# never pre-empts a scripted morning beat — lands on a follow-up talk.
+		if npc.npc_name == "mom" \
+				and GameManager.npc_day_talked.has("mom_day%d" % GameManager.current_day) \
+				and not GameManager.npc_day_talked.has("momflower_day%d" % GameManager.current_day) \
+				and GameManager.first_flower_in_inventory() != "":
+			var gift_type := GameManager.first_flower_in_inventory()
+			var gift_jp: String = GameManager.FLOWER_TYPES[gift_type]["jp"]
+			var gift_en: String = String(GameManager.FLOWER_TYPES[gift_type]["en"]).to_lower()
+			options["on_end"] = func():
+				GameManager.npc_day_talked["momflower_day%d" % GameManager.current_day] = true
+				GameManager.remove_item("flower_" + gift_type)
+				GameManager.increment_tracker("relationships", "mom", 1)
+				GameManager._save()
+			GameManager.start_conversation([
+				{"speaker": "りきぞう", "jp": "お母さん、はい。" + gift_jp + "です。", "en": "Mom, here. It's a " + gift_en + "."},
+				{"speaker": "mom",   "jp": "あら、お母さんの花ですね。",            "en": "Oh my, that's Mom's flower."},
+				{"speaker": "mom",   "jp": "ありがとう、りきぞう。うれしいです。",   "en": "Thank you, Rikizo. I'm happy."},
+			], options)
 			return
 
 		var day_key := "%s_day%d" % [npc.npc_name, GameManager.current_day]
@@ -1576,19 +1838,22 @@ func _handle_npc_interaction(npc) -> void:
 				GameManager.start_conversation(convo, options)
 				return
 			elif GameManager.current_day == 3 and npc.npc_name == "dad":
-				# Dad gives Rikizo money from teaching. The yen is added on
-				# conversation end so the popup confirms the new total.
-				var amount := 1000
+				# Dad pays Rikizo for teaching — the first paycheck, covering
+				# Days 1-3 (back pay for Days 1 & 2 + today). ¥3,000 here +
+				# ¥7,000 auto-wage over Days 4-10 = ¥10,000 by Day 10, so a
+				# saver can afford the ¥10,000 present. Labelled 先生のお金 so
+				# the wallet/money-app row reads in kanji.
+				var amount := 3000
 				options["on_end"] = func():
-					GameManager.add_yen(amount, "お父さん")
+					GameManager.add_yen(amount, "先生のお金")
 					GameManager.show_message({
 						"jp": "¥%d をもらいました。" % amount,
 						"en": "Got ¥%d." % amount,
 					})
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞう、お金です。",         "en": "Rikizo, money."},
-					{"speaker": "dad",   "jp": "せんせいのお金です。",       "en": "Teaching money."},
-					{"speaker": "りきぞう", "jp": "ありがとう、お父さん！",     "en": "Thank you, Dad!"},
+					{"speaker": "dad",   "jp": "りきぞう、先生のお金です。",       "en": "Rikizo, your teaching pay."},
+					{"speaker": "dad",   "jp": "1日と2日の分もです。",            "en": "Days 1 and 2 too."},
+					{"speaker": "りきぞう", "jp": "ありがとう、お父さん！",          "en": "Thank you, Dad!"},
 				], options)
 				return
 			elif GameManager.current_day == 4 and npc.npc_name == "dad" and not GameManager.has_phone:
@@ -1720,6 +1985,30 @@ func _handle_npc_interaction(npc) -> void:
 					{"speaker": "mom",   "jp": "りきぞうは先生になりましたね。",            "en": "You've become a teacher, Rikizo."},
 				], options)
 				return
+			elif GameManager.current_day == 11 and npc.npc_name == "mom":
+				# Day 11 breakfast with Mom — the rain + the garden behind the house
+				# (N5_GAME_ROADMAP.md). 花 (flower) is new today. The umbrella is NOT
+				# given here — it lives on the foyer rack (examine to take).
+				GameManager.start_conversation([
+					{"speaker": "mom",   "jp": "おはよう、りきぞう。今日は雨ですね。",     "en": "Good morning, Rikizo. It's raining today."},
+					{"speaker": "りきぞう", "jp": "雨ですか…天気がよくなかったですね。",   "en": "Rain... the weather wasn't good."},
+					{"speaker": "mom",   "jp": "でも、花にはいいですよ。",              "en": "But it's good for the flowers."},
+					{"speaker": "りきぞう", "jp": "花？",                              "en": "Flowers?"},
+					{"speaker": "mom",   "jp": "うん。家の後ろにありますよ。きれいですよ。", "en": "Yeah. Behind the house. They're beautiful."},
+				], options)
+				return
+			elif GameManager.current_day == 11 and npc.npc_name == "dad":
+				# Day 11 Dad — the fish enthusiast (N5_GAME_ROADMAP.md). Rain ruins his
+				# car day; fish (魚, new) + goldfish (金魚) cheer him up. Rikizo only has
+				# Yuki's vague text, so he doesn't actually know what's at the river.
+				GameManager.start_conversation([
+					{"speaker": "dad",   "jp": "雨ですね。車が…",             "en": "It's raining. The car…"},
+					{"speaker": "りきぞう", "jp": "お父さん、川に魚が いますか？", "en": "Dad, are there fish in the river?"},
+					{"speaker": "dad",   "jp": "魚か！いいですね。",           "en": "Fish! Nice."},
+					{"speaker": "dad",   "jp": "金魚もいますか？",            "en": "Are there goldfish too?"},
+					{"speaker": "りきぞう", "jp": "わかりません…",          "en": "I don't know…"},
+				], options)
+				return
 			elif GameManager.current_day == 10 and npc.npc_name == "dad":
 				GameManager.start_conversation([
 					{"speaker": "dad",   "jp": "りきぞう、電車を見ましたか？", "en": "Rikizo, did you see the train?"},
@@ -1817,6 +2106,11 @@ func _handle_npc_interaction(npc) -> void:
 					{"speaker": "mom", "jp": "休みはいいですね。天気もいいし、気分もいいし。", "en": "Holidays are nice. The weather's good, and the mood's good."}
 				], options)
 				return
+			if GameManager.current_day == 11 and npc.npc_name == "mom":
+				GameManager.start_conversation([
+					{"speaker": "mom", "jp": "雨ですね。かさを わすれないでね。", "en": "It's raining. Don't forget your umbrella."}
+				], options)
+				return
 			if GameManager.current_day == 10 and npc.npc_name == "dad":
 				GameManager.start_conversation([
 					{"speaker": "dad", "jp": "車も電車も...まだです。", "en": "The car and the train... not yet."}
@@ -1858,6 +2152,39 @@ func _handle_npc_interaction(npc) -> void:
 	# scenes he's seen leading up to this, the more visceral his
 	# response. Threshold is paranoia >= 3 (3 of 4 known void sites by
 	# day 9 = 75%). Tune the threshold here as more void events land.
+	# Day 11 — Yuki at the river. 魚 arrived today and the river "gained
+	# inhabitants" (N5_GAME_ROADMAP.md). Everyone else treats new things as
+	# having always existed (the いつも reality-edit) — but Yuki is the one who
+	# notices: the fish were NOT here yesterday, at all. Same discontinuity she
+	# clocked with the train-to-nowhere; she gently flags it as strange, then
+	# finds it beautiful anyway. Full beat first talk/day, soft refrain after.
+	if npc.npc_name == "yuki" and DAY_DATA_DIR.find("day-06-river/") != -1 \
+			and GameManager.current_day >= 11:
+		var yr := "yuki_river_%d" % GameManager.current_day
+		if not GameManager.npc_day_talked.has(yr):
+			GameManager.npc_day_talked[yr] = true
+			GameManager.unlock_note("yuki_fish")  # contact memo: fish weren't here yesterday
+			var shock: Texture2D = GameManager.alt_portraits.get("meShocked")
+			var huh := {"speaker": "りきぞう", "jp": "…え？", "en": "...Huh?"}
+			if shock:
+				huh["portrait"] = shock
+			GameManager.start_conversation([
+				{"speaker": "yuki",   "jp": "あ、りきぞうくん。",              "en": "Ah, Rikizo."},
+				{"speaker": "yuki",   "jp": "魚が いますよ。",                "en": "There are fish."},
+				{"speaker": "りきぞう", "jp": "魚…？川に 魚が いますか？",       "en": "Fish…? Are there fish in the river?"},
+				{"speaker": "yuki",   "jp": "はい。",                        "en": "Yes."},
+				{"speaker": "yuki",   "jp": "でも、きのうは いませんでした。",   "en": "But yesterday, there weren't any."},
+				{"speaker": "yuki",   "jp": "ぜんぜん いませんでした。",        "en": "There weren't any at all."},
+				huh,
+				{"speaker": "yuki",   "jp": "へんですね。",                  "en": "It's strange, isn't it."},
+				{"speaker": "yuki",   "jp": "でも、きれいですね。",            "en": "But they're pretty."},
+			], options)
+		else:
+			GameManager.start_conversation([
+				{"speaker": "yuki", "jp": "魚、きれいですね。", "en": "The fish are pretty."},
+			], options)
+		return
+
 	# Day 10 — Yuki on the platform, gazing down the line where the tracks run
 	# off into nothing (her convoBackground is the tracks-void cutscene). First
 	# platform talk = the gaze beat; repeats get a short refrain. Fires on the
@@ -1872,30 +2199,17 @@ func _handle_npc_interaction(npc) -> void:
 			options["on_end"] = func():
 				GameManager.met_yuki = true
 				GameManager.void_asked["yuki"] = true
-				GameManager.increment_tracker("paranoia")
+				GameManager.paranoia()
 				GameManager._save()
 			GameManager.start_conversation([
-				{"speaker": "yuki",   "jp": "あ...りきぞうくん。",            "en": "Ah... Rikizo."},
-				{"speaker": "りきぞう", "jp": "ゆきさん。ここに いますね。",    "en": "Yuki-san. You're here."},
-				{"speaker": "yuki",   "jp": "はい。きょうは、ここです。",     "en": "Yes. Today, I'm here."},
-				{"speaker": "yuki",   "jp": "あの電車を 見ますか？",         "en": "Do you see that train?"},
-				{"speaker": "りきぞう", "jp": "はい。大きい 電車ですね。",      "en": "Yes. It's a big train."},
-				{"speaker": "yuki",   "jp": "でも...どこにも いきません。",    "en": "But... it doesn't go anywhere."},
-				{"speaker": "りきぞう", "jp": "どこにも...？",                "en": "Nowhere...?"},
-				{"speaker": "yuki",   "jp": "あそこを 見て。",              "en": "Look over there."},
-				{"speaker": "りきぞう", "jp": "...白い。",                   "en": "...White."},
-				{"speaker": "yuki",   "jp": "なにも ないです。",            "en": "There's nothing."},
-				{"speaker": "yuki",   "jp": "電車は、どこにも いきません。",   "en": "The train goes nowhere."},
-				{"speaker": "りきぞう", "jp": "ぼくも、見ます。",              "en": "I see it too."},
-				{"speaker": "yuki",   "jp": "ふたりだけ、ですね。",          "en": "Just the two of us."},
-				{"speaker": "yuki",   "jp": "こわいです...",               "en": "I'm scared..."},
-				{"speaker": "りきぞう", "jp": "ゆきさん、だいじょうぶです。", "en": "Yuki-san, it's alright."},
-				{"speaker": "りきぞう", "jp": "ぼくが いますから。", "en": "Because I'm here."},
-				{"speaker": "yuki",   "jp": "...はい。", "en": "...Yes."},
-				{"speaker": "yuki",   "jp": "りきぞうくんは、先生ですね。", "en": "You're a teacher, aren't you."},
-				{"speaker": "りきぞう", "jp": "はい。先生です。", "en": "Yes. I'm a teacher."},
-				{"speaker": "yuki",   "jp": "じゃあ、だいじょうぶですね。", "en": "Then... it's alright, isn't it."},
-				{"speaker": "りきぞう", "jp": "...うん。",                   "en": "...Yeah."},
+				{"speaker": "yuki",   "jp": "あ…りきぞうくん。",                       "en": "Ah… Rikizo."},
+				{"speaker": "りきぞう", "jp": "ゆきさん。あの電車、大きいですね。",        "en": "Yuki-san. That train's big, isn't it."},
+				{"speaker": "yuki",   "jp": "はい。でも…どこにも いきません。あそこを 見て。", "en": "Yes. But… it goes nowhere. Look over there."},
+				{"speaker": "りきぞう", "jp": "…白い。なにも ない。ぼくも 見ます。",       "en": "…White. There's nothing. I see it too."},
+				{"speaker": "yuki",   "jp": "ふたりだけ、ですね。こわいです…。",          "en": "Just the two of us. I'm scared…"},
+				{"speaker": "りきぞう", "jp": "だいじょうぶです。ぼくが いますから。",      "en": "It's alright. Because I'm here."},
+				{"speaker": "yuki",   "jp": "りきぞうくんは 先生ですね。じゃあ、だいじょうぶ。", "en": "You're a teacher. Then… it's alright."},
+				{"speaker": "りきぞう", "jp": "…うん。",                               "en": "…Yeah."},
 			], options)
 		else:
 			# Repeat — rotate quiet lines so re-approaching isn't a dead line.
@@ -1918,6 +2232,10 @@ func _handle_npc_interaction(npc) -> void:
 		yuki_opts["on_end"] = func():
 			GameManager.met_yuki = true
 			GameManager.void_asked["yuki"] = true
+			# Finding Yuki by wandering east (the path opens by day now, not by
+			# Yamakawa's hint) counts as knowing about her, so Yamakawa won't
+			# later redundantly point you to someone you've already met.
+			GameManager.told_about_yuki = true
 			GameManager._save()
 		var paranoia_rating: int = int(GameManager.trackers.get("paranoia", 0))
 		var yuki_lines: Array
@@ -1987,8 +2305,8 @@ func _handle_npc_interaction(npc) -> void:
 				{"speaker": "りきぞう", "jp": "お母さん…！", "en": "Mom…!"},
 				{"speaker": "りきぞう", "jp": "そとに…なにも…！", "en": "Outside… nothing…!"},
 				{"speaker": "mom", "jp": "なに？", "en": "What?"},
-				{"speaker": "mom", "jp": "パソコンはありますよ。", "en": "You have your persocon, you know."},
-				{"speaker": "mom", "jp": "いい先生ですよ。パソコンでべんきょうしてね。", "en": "You're a good teacher. Go study on your persocon, OK?"},
+				{"speaker": "mom", "jp": "パソコンはありますよ。", "en": "You have your laptop, you know."},
+				{"speaker": "mom", "jp": "いい先生ですよ。パソコンでべんきょうしてね。", "en": "You're a good teacher. Go study on your laptop, OK?"},
 				{"speaker": "りきぞう", "jp": "…はい。", "en": "…OK."}
 			]
 			if shocked:
@@ -1999,9 +2317,9 @@ func _handle_npc_interaction(npc) -> void:
 				{"speaker": "りきぞう", "jp": "お父さん！", "en": "Dad!"},
 				{"speaker": "りきぞう", "jp": "そとに…なにもない…！", "en": "Outside… there's nothing…!"},
 				{"speaker": "dad", "jp": "ん？そとですか。", "en": "Hm? Outside?"},
-				{"speaker": "dad", "jp": "パソコンはいいですか？", "en": "Is your persocon working OK?"},
-				{"speaker": "りきぞう", "jp": "え…？パソコン…？", "en": "Huh…? The persocon…?"},
-				{"speaker": "dad", "jp": "先生ですよ。パソコンでがんばってね。", "en": "You're a teacher. Do your best on the persocon, OK?"},
+				{"speaker": "dad", "jp": "パソコンはいいですか？", "en": "Is your laptop working OK?"},
+				{"speaker": "りきぞう", "jp": "え…？パソコン…？", "en": "Huh…? The laptop…?"},
+				{"speaker": "dad", "jp": "先生ですよ。パソコンでがんばってね。", "en": "You're a teacher. Do your best on the laptop, OK?"},
 				{"speaker": "りきぞう", "jp": "…はい。", "en": "…OK."}
 			]
 			if shocked:
@@ -2057,7 +2375,11 @@ func _handle_object_interaction(obj) -> void:
 				obj.obj_sprite.texture = load(tvp) as Texture2D
 			if GameManager.tv_on:
 				GameManager.tv_turned_on = true
-				GameManager.show_message({"jp": "テレビをつけました。今日の天気は…いい天気です。", "en": "Turned on the TV. Today's weather is… nice."})
+				# Weather broadcast reflects the actual day's weather.
+				var tv_raining := GameManager.weather_for_day(GameManager.current_day) == "rain"
+				var tv_jp := "雨です。" if tv_raining else "いい天気です。"
+				var tv_en := "rain." if tv_raining else "nice."
+				GameManager.show_message({"jp": "テレビをつけました。今日の天気は…" + tv_jp, "en": "Turned on the TV. Today's weather is… " + tv_en})
 			else:
 				GameManager.show_message({"jp": "電気をけしました。", "en": "Turned it off."})
 			GameManager._save()
@@ -2132,20 +2454,37 @@ func _handle_object_interaction(obj) -> void:
 			], {"background": "street"})
 		else:
 			GameManager.show_message({"jp": "バス停です。", "en": "A bus stop."})
-	elif obj.object_name == "Fence":
-		# Day 5: the residential street's north edge. Beyond the fence the
-		# world simply hasn't been made yet — Rikizo peers over and finds the
-		# white nothing. First examine = the small dread beat; repeats shrug.
-		if first_examine:
-			GameManager.paranoia(1)
+	elif obj.object_name == "Umbrella_Rack":
+		# Foyer umbrella rack (Day 11). Examine to take Mom's clear umbrella — it
+		# enters the inventory (phone pops, もちもの highlighted) and the stand goes
+		# empty. Mom's door-gate nudges the player here on rainy days.
+		if not GameManager.has_item("umbrella"):
+			var take_opts := {"background": "entryway"}
+			take_opts["on_end"] = func():
+				GameManager.add_item({
+					"id": "umbrella",
+					"nameJp": "かさ", "nameEn": "Umbrella",
+					"jp": "かさ", "en": "Umbrella",
+					"sprite": "res://assets/shared/sprites/umbrella_icon.png",
+					"description": "[i]A clear umbrella from the foyer rack. Opens by itself in the rain.[/i]",
+				})
+				if obj.obj_sprite and ResourceLoader.exists("res://assets/days/day-01-home/objects/umbrella_stand_empty.png"):
+					obj.obj_sprite.texture = load("res://assets/days/day-01-home/objects/umbrella_stand_empty.png")
+				phone_overlay.notify_item_get()
 			GameManager.start_conversation([
-				{"speaker": "りきぞう", "jp": "フェンスです。", "en": "A fence."},
-				{"speaker": "りきぞう", "jp": "むこうは...", "en": "Beyond it..."},
-				{"speaker": "りきぞう", "jp": "...白いです。", "en": "...white."},
-				{"speaker": "りきぞう", "jp": "なにも ないですね。", "en": "There's nothing there."},
-			], {"background": "street"})
+				{"speaker": "りきぞう", "jp": "あ、かさだ。",      "en": "Oh, an umbrella."},
+				{"speaker": "りきぞう", "jp": "もっていこう。",    "en": "I'll take it."},
+			], take_opts)
 		else:
-			GameManager.show_message({"jp": "むこうは、なにも ないです。", "en": "Beyond it, there's nothing."})
+			GameManager.show_message({"jp": "かさは もう とりました。", "en": "Already took the umbrella."})
+	elif obj.object_name == "Eki_Fence":
+		# Day 5+ eki north edge: the green fence backs onto the unmade world.
+		# Rikizo just notes it out loud — neutral (no paranoia). Auto-fires via
+		# proximity (autoTrigger on the day.json object), once per day.
+		GameManager.start_conversation([
+			{"speaker": "りきぞう", "jp": "フェンスの むこうは…", "en": "Beyond the fence…"},
+			{"speaker": "りきぞう", "jp": "…なにも ないですね。", "en": "…there's nothing there."},
+		], {"background": "station"})
 	elif obj.object_name == "Curry_Hut":
 		# Riverside curry stand. Appears Day 7 (appearsFromDay), but the verbs
 		# gate the experience: Day 7 the player can only NOTICE it (ほしい
@@ -2201,7 +2540,13 @@ func _handle_object_interaction(obj) -> void:
 		# 飲む lands): Rikizo briefly considers drinking the river water,
 		# then decides against it — the first polite-negative use of the
 		# new verb, and a tiny "new verbs create new decisions" beat.
-		if GameManager.current_day >= 7:
+		# Day 11+ (魚 lands): the river has fish now — examining it is a 魚 beat.
+		if GameManager.current_day >= 11:
+			GameManager.start_conversation([
+				{"speaker": "りきぞう", "jp": "魚です！川に 魚が いますね。", "en": "Fish! There are fish in the river."},
+				{"speaker": "りきぞう", "jp": "きれいですね。",             "en": "They're pretty."},
+			], {"background": "mountain-river"})
+		elif GameManager.current_day >= 7:
 			GameManager.start_conversation([
 				{"speaker": "りきぞう", "jp": "川です。きれいですね。",   "en": "The river. It's pretty."},
 				{"speaker": "りきぞう", "jp": "...飲みますか？",         "en": "...Drink?"},
@@ -2212,6 +2557,7 @@ func _handle_object_interaction(obj) -> void:
 				{"speaker": "りきぞう", "jp": "川です。きれいですね。", "en": "The river. It's pretty."},
 			], {"background": "mountain-river"})
 	elif obj.object_name == "Salad" or obj.object_name == "Bread" or obj.object_name == "Coffee":
+		GameManager.unlock_note("mom_breakfast")  # contact memo: Mom makes breakfast
 		# Day 7+ breakfast — examining any of the three table foods plays
 		# the whole meal beat (per the roadmap): Mom invites Rikizo to
 		# eat, the いただきます/ごちそうさまでした ritual bookends an
@@ -2271,13 +2617,31 @@ func _handle_object_interaction(obj) -> void:
 			GameManager.show_message({"jp": "車です。", "en": "A car."})
 	elif obj.object_name == "Tree":
 		_handle_tree()
+	elif obj.object_name == "Goldfish":
+		_handle_goldfish()
 	elif obj.object_name == "Dirt":
 		_handle_dirt()
+	elif obj.object_name == "Garden":
+		# Day 11 flower-bed behind the carport (N5_GAME_ROADMAP.md). The dirt bed
+		# itself plays the 花 beat; the individual blooms (Flower_*) sitting on it
+		# are pickable — see _handle_flower. First examine = きれいな花
+		# (attributive_na); repeats note it's Mom's.
+		if first_examine:
+			GameManager.start_conversation([
+				{"speaker": "りきぞう", "jp": "花です。きれいな花ですね。", "en": "Flowers. Pretty flowers."},
+			], {"background": "outside"})
+		else:
+			GameManager.start_conversation([
+				{"speaker": "りきぞう", "jp": "お母さんの花ですか…", "en": "Mom's flowers..."},
+			], {"background": "outside"})
+	elif obj.object_name.begins_with("Flower_"):
+		_handle_flower(obj)
 	elif obj.object_name == "Water":
 		_handle_water(obj)
 	elif obj.object_name == "Special_Vending":
 		_handle_gachapon()
 	elif obj.object_name == "Gold" and GameManager.current_day >= 2:
+		GameManager.unlock_note("dad_gold")  # contact memo: touch his money → anger
 		# Day 2+ running gag: touching the gold makes dad yell from wherever he is.
 		var angry_dad: Texture2D = GameManager.alt_portraits.get("dadAngry")
 		var options := {"background": "living"}
@@ -2349,11 +2713,11 @@ func _handle_object_interaction(obj) -> void:
 		elif DAY_DATA_DIR.find("day-06-intersection/") != -1:
 			transition_to_day("day-08-depaato", Vector2(40, px_e.y))
 		elif DAY_DATA_DIR.find("day-06-river/") != -1:
-			# Day 9+ unlock: Yamakawa's Yuki convo flips told_about_yuki,
-			# which makes the Exit_East zone appear (gated via
-			# appearsWhenFlag on the day-06-river day.json). Player walks
-			# east off the river path → lands on the south concrete path
-			# of day-09-river-east just inside its west edge.
+			# Day 9+ the east path opens by DAY: the barricade clears
+			# (Bollard_Chain_Vertical appearsUntilDay:8) and Exit_East appears
+			# (appearsFromDay:9) — no Yamakawa hint required, so a player can
+			# wander east and meet Yuki on their own. Player walks east off the
+			# river path → south concrete path of day-09-river-east, west edge.
 			transition_to_day("day-09-river-east", Vector2(40, px_e.y))
 		elif DAY_DATA_DIR.find("day-10-street-south/") != -1:
 			# East arm of the T-junction → the hotel street (next chunk).
@@ -2634,46 +2998,137 @@ func _handle_water(obj) -> void:
 	GameManager.start_conversation(tutorial_convo, {"background": "kitchen"})
 
 
+const GROWN_OFFSETS := [Vector2(46, 8), Vector2(-46, 12), Vector2(24, -36)]
+
+
+func _handle_flower(obj) -> void:
+	## Pickable garden bloom (Flower_<Type>, N5_GAME_ROADMAP.md Day 11+).
+	## Examine → "とりますか？" choice. はい: the bloom enters the inventory and
+	## is PERMANENTLY removed (picked_up — never respawns). いいえ: a quick 花
+	## line; it stays (and a left-alone plant grows another bloom on a clear day
+	## after rain — see GameManager.grow_flowers). JP/EN come from FLOWER_TYPES.
+	var ftype := GameManager.flower_type_from_name(obj.object_name)
+	if ftype == "":
+		GameManager.show_message({"jp": "花です。", "en": "A flower."})
+		return
+	var meta: Dictionary = GameManager.FLOWER_TYPES[ftype]
+	var jp: String = meta["jp"]
+	var en_lc: String = String(meta["en"]).to_lower()
+	var do_pick := func():
+		GameManager.picked_up[obj.object_name] = true
+		obj.queue_free()
+		GameManager.add_item({
+			"id": "flower_" + ftype,
+			"nameJp": jp,
+			"nameEn": meta["en"],
+			"sprite": GameManager.FLOWER_SPRITE_DIR + "flower_%s.png" % ftype,
+			"description": "[i]にわで とった花。[/i]\n[i]A %s picked from the garden.[/i]" % en_lc,
+		})
+		GameManager._save()
+		GameManager.show_message({"jp": jp + "を とりました。", "en": "Picked a %s." % en_lc})
+	var leave := func():
+		# Left alone — just a quick on-screen line, no full conversation overlay.
+		GameManager.show_message({"jp": "きれいな花ですね。", "en": "A pretty flower."})
+	if choice_overlay:
+		choice_overlay.ask(
+			{"jp": jp + "を とりますか？", "en": "Pick the %s?" % en_lc},
+			do_pick, leave
+		)
+	else:
+		do_pick.call()
+
+
+func _spawn_grown_flowers(base_data: Dictionary) -> void:
+	## Spawn a base plant's grown extra blooms (GameManager.flower_extra) as
+	## independent, individually-pickable Flower objects at deterministic
+	## offsets around the base. Each grown bloom has a unique "__g<N>" name so
+	## picking one is tracked (and stays gone) separately from the others.
+	var base_name := str(base_data.get("name", ""))
+	var n := int(GameManager.flower_extra.get(base_name, 0))
+	if n <= 0:
+		return
+	var bpos: Array = base_data.get("position", [0, 0])
+	for g in range(1, n + 1):
+		var gname := "%s__g%d" % [base_name, g]
+		if GameManager.picked_up.get(gname, false):
+			continue
+		var off: Vector2 = GROWN_OFFSETS[(g - 1) % GROWN_OFFSETS.size()]
+		var gdata: Dictionary = base_data.duplicate(true)
+		gdata["name"] = gname
+		gdata["position"] = [float(bpos[0]) + off.x, float(bpos[1]) + off.y]
+		gdata["collision"] = false
+		var inst: Node = OBJECT_SCENE.instantiate()
+		objects_container.add_child(inst)
+		inst.set_meta("day_dir", DAY_DATA_DIR)
+		inst.setup(gdata)
+		inst.proximity_entered.connect(_on_object_proximity)
+
+
+func _register_and_grow_flowers(obj_instance: Node, obj_data: Dictionary) -> void:
+	## Called for each spawned object: if it's a base flower plant, register it
+	## (so grow_flowers can find it) and spawn any blooms it has already grown.
+	if obj_instance.object_name.begins_with("Flower_") and obj_instance.object_name.find("__g") == -1:
+		GameManager.register_flower(obj_instance.object_name)
+		_spawn_grown_flowers(obj_data)
+
+
 func _handle_tree() -> void:
-	## Tree-san unlock has a strict window: Days 2-4 only.
-	## - If already unlocked: tree-san is an NPC; bump relationship and
-	##   fire a day-specific line (different content unlocks per day).
-	## - Day 1: tree is just a tree.
-	## - Days 2-4 + not unlocked: count toward unlock. On 3rd examine in
-	##   that window, unlock (sets tree_san_unlocked, names it 木さん,
-	##   counts as the first day's relationship +1).
-	## - Day 5+ and not unlocked: tree stays a tree, no progress.
+	## Tree-san befriend is UNGATED: examining the tree 3 times (ANY day) makes
+	## him a friend. Once unlocked he's an NPC — relationship +1/day (capped).
+	## Reaching relationship 6 grants the tree-san phone case via a one-time
+	## scene. Befriending late just leaves fewer tree-san day-scenes to see.
 	var day := GameManager.current_day
 
+	# Every tree conversation grates on Mom (her son talks to a tree). Capped at
+	# +1/day via annoy()'s (reason, npc) cap so it can't be farmed by re-examining.
+	GameManager.annoy("mom", "tree")
+
 	if GameManager.tree_san_unlocked:
-		# Tree is now an NPC — relationship +1 (capped 1/day) and day-specific dialogue.
 		GameManager.bump_relationship("Tree")
+		# したしさ Lv.1 reward → grant (own, not equip) the tree-san case. Tier-based
+		# so it tracks the level curve (Lv.1 = closeness 5, reached ~day 6); other
+		# tier rewards can hang off GameManager.relationship_level() the same way.
+		if GameManager.relationship_level("Tree") >= 1 and not GameManager.tree_case_granted:
+			GameManager.tree_case_granted = true
+			GameManager.add_phone_case("tree_san")
+			GameManager._save()
+			var opts := {"background": "outside"}
+			var overrides := {}
+			var tpath := DAY_DATA_DIR + "characters/tree_convo.png"
+			if ResourceLoader.exists(tpath):
+				overrides["tree"] = load(tpath)
+			var paranoid: Texture2D = GameManager.alt_portraits.get("meShocked")
+			if paranoid:
+				overrides["りきぞう"] = paranoid
+			if not overrides.is_empty():
+				opts["portrait_overrides"] = overrides
+			opts["on_end"] = func():
+				GameManager.show_message({"jp": "ケースを もらいました。", "en": "Got a phone case."})
+			GameManager.start_conversation([
+				{"speaker": "りきぞう", "jp": "あれ？…なに、これ？", "en": "Huh? ...what's this?"},
+				{"speaker": "tree",   "jp": "...",                "en": "..."},
+				{"speaker": "りきぞう", "jp": "…どこから？",        "en": "...Where's this from?"},
+				{"speaker": "tree",   "jp": "...",                "en": "..."},
+			], opts)
+			return
 		_tree_convo(_tree_san_lines_for_day(day))
 		return
 
-	if day == 1:
-		_tree_convo([{"speaker": "りきぞう", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
-		return
+	# Not yet unlocked — EVERY examine counts, any day. 3rd one befriends him.
+	GameManager.tree_count += 1
+	match GameManager.tree_count:
+		1:
+			_tree_convo([{"speaker": "りきぞう", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
+		2:
+			_tree_convo([{"speaker": "りきぞう", "jp": "木...名は何ですか？", "en": "Tree... what's your name?"}])
+		3:
+			GameManager.tree_san_unlocked = true
+			GameManager.bump_relationship("Tree")
+			GameManager._save()
+			_tree_convo([{"speaker": "りきぞう", "jp": "今日から友だちです。木さん。", "en": "From today, we're friends. Mr. Tree."}])
+		_:
+			_tree_convo([{"speaker": "りきぞう", "jp": "木さん？", "en": "Mr. Tree?"}])
 
-	if day >= 2 and day <= 4:
-		GameManager.tree_count += 1
-		match GameManager.tree_count:
-			1:
-				_tree_convo([{"speaker": "りきぞう", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
-			2:
-				_tree_convo([{"speaker": "りきぞう", "jp": "木...名は何ですか？", "en": "Tree... what's your name?"}])
-			3:
-				# Unlock!
-				GameManager.tree_san_unlocked = true
-				GameManager.bump_relationship("Tree")
-				GameManager._save()
-				_tree_convo([{"speaker": "りきぞう", "jp": "今日から友だちです。木さん。", "en": "From today, we're friends. Mr. Tree."}])
-			_:
-				_tree_convo([{"speaker": "りきぞう", "jp": "木さん？", "en": "Mr. Tree?"}])
-		return
-
-	# Day 5+ and never unlocked — too late. Just a tree.
-	_tree_convo([{"speaker": "りきぞう", "jp": "木です。", "en": "A tree."}])
 
 
 func _tree_san_lines_for_day(day: int) -> Array:
@@ -2775,6 +3230,67 @@ func _tree_convo(rikizo_lines: Array) -> void:
 	GameManager.start_conversation(convo, options)
 
 
+func _handle_goldfish() -> void:
+	## Mr. Goldfish — 2nd unlockable, mirrors Tree-san but RAINY-DAY-ONLY (the
+	## Goldfish object only spawns when raining, so his case is rare). 3
+	## interactions (any day) befriend him; once unlocked, したしさ Lv.1 grants the
+	## goldfish phone case via a one-time scene. He never speaks — just …ぶくぶく….
+	if GameManager.goldfish_unlocked:
+		GameManager.bump_relationship("Goldfish")
+		if GameManager.relationship_level("Goldfish") >= 1 and not GameManager.goldfish_case_granted:
+			GameManager.goldfish_case_granted = true
+			GameManager.add_phone_case("goldfish")
+			GameManager._save()
+			var opts := {"background": "street"}
+			var overrides := {}
+			var gpath := "res://assets/days/day-10-street-south/characters/goldfish_convo.png"
+			if ResourceLoader.exists(gpath):
+				overrides["goldfish"] = load(gpath)
+			var paranoid: Texture2D = GameManager.alt_portraits.get("meShocked")
+			if paranoid:
+				overrides["りきぞう"] = paranoid
+			if not overrides.is_empty():
+				opts["portrait_overrides"] = overrides
+			opts["on_end"] = func():
+				GameManager.show_message({"jp": "ケースを もらいました。", "en": "Got a phone case."})
+			GameManager.start_conversation([
+				{"speaker": "りきぞう",  "jp": "あれ？…なに、これ？", "en": "Huh? ...what's this?"},
+				{"speaker": "goldfish", "jp": "…ぶくぶく…",          "en": "...blub blub..."},
+				{"speaker": "りきぞう",  "jp": "…どこから？",         "en": "...Where's this from?"},
+				{"speaker": "goldfish", "jp": "…ぶくぶく…",          "en": "...blub blub..."},
+			], opts)
+			return
+		_goldfish_convo([{"speaker": "りきぞう", "jp": "金魚さん、こんにちは。", "en": "Hello, Mr. Goldfish."}])
+		return
+
+	# Not yet unlocked — every interaction counts; the 3rd befriends him.
+	GameManager.goldfish_count += 1
+	match GameManager.goldfish_count:
+		1:
+			_goldfish_convo([{"speaker": "りきぞう", "jp": "金魚です。かわいい 金魚ですね。", "en": "A goldfish. Cute goldfish."}])
+		2:
+			_goldfish_convo([{"speaker": "りきぞう", "jp": "金魚さん…名は 何ですか？", "en": "Mr. Goldfish... what's your name?"}])
+		3:
+			GameManager.goldfish_unlocked = true
+			GameManager.bump_relationship("Goldfish")
+			GameManager._save()
+			_goldfish_convo([{"speaker": "りきぞう", "jp": "今日から 友だちです。金魚さん。", "en": "From today, we're friends. Mr. Goldfish."}])
+		_:
+			_goldfish_convo([{"speaker": "りきぞう", "jp": "金魚さん？", "en": "Mr. Goldfish?"}])
+
+
+func _goldfish_convo(rikizo_lines: Array) -> void:
+	var options := {"background": "street"}
+	var gpath := "res://assets/days/day-10-street-south/characters/goldfish_convo.png"
+	if ResourceLoader.exists(gpath):
+		options["portrait_overrides"] = {"goldfish": load(gpath)}
+	var convo := []
+	for line in rikizo_lines:
+		convo.append(line)
+		convo.append({"speaker": "goldfish", "jp": "…ぶくぶく…", "en": "...blub blub..."})
+	GameManager.start_conversation(convo, options)
+
+
 func _handle_dirt() -> void:
 	GameManager.dirt_count += 1
 	if GameManager.dirt_count == 1:
@@ -2812,10 +3328,18 @@ func _handle_laptop() -> void:
 
 	# Recap line for the "done" beat — closing out a day means Rikizo just
 	# taught the lesson that UNLOCKS the next day, so recap the NEXT day's
-	# kanji. Starts from closing Day 2 (Day 1's close is the plain outro).
+	# kanji (KANJI_BY_DAY[unlock_day]).
 	var unlock_day := prev_day + 1
 	var recap_line := {}
-	if prev_day >= 2 and KANJI_BY_DAY.has(unlock_day):
+	if prev_day == 1:
+		# Day 1's lesson is the days of the week — which are the element kanji
+		# (日月火水木金土 = sun/moon + fire/water/wood/metal/earth).
+		recap_line = {
+			"speaker": "りきぞう",
+			"jp": "今日のレッスンは ようびでした。「日月火水木金土」",
+			"en": "Today's lesson: the days of the week — 日月火水木金土.",
+		}
+	elif KANJI_BY_DAY.has(unlock_day):
 		recap_line = {
 			"speaker": "りきぞう",
 			"jp": "今日のレッスンは「%s」でした。" % KANJI_BY_DAY[unlock_day],
@@ -2831,14 +3355,19 @@ func _handle_laptop() -> void:
 	# The "done" beat (shown AFTER the fade-to-black) advances the day on close.
 	var done_on_end := func():
 		GameManager.advance_day()
+		# Day 5+: wage feedback moves entirely to the phone (auto-opened via
+		# phone_force_open) — coin + ¥-tile flash, then ringtone + メッセージ
+		# highlight if there are new messages. No on-screen money popup.
+		if GameManager.current_day >= 5:
+			phone_overlay.play_payday(GameManager.has_unread_messages())
+			return
 		var begin_msg := {
 			"jp": "Day %d が はじまった！" % GameManager.current_day,
 			"en": "Day %d has begun!" % GameManager.current_day,
 		}
-		# Day 4+ auto-deposits the teaching wage in advance_day — surface that
-		# in the day-begin popup so the player connects the lesson they just
-		# completed to the new balance. Only mention the PHONE if Rikizo
-		# actually has it (Day 4 morning the phone isn't handed over yet).
+		# Day 4 auto-deposits the teaching wage in advance_day — surface that in
+		# the day-begin popup (last day this shows on-screen; Day 5+ uses the
+		# phone). Mention the PHONE only if Rikizo has it.
 		if GameManager.current_day >= 4:
 			if GameManager.has_phone:
 				begin_msg["jp"] += "\nスマホに ¥%d が入りました。" % GameManager.DAILY_TEACHING_WAGE
@@ -2948,6 +3477,19 @@ func _handle_door(obj) -> void:
 	#        Mom answers いってらっしゃい from the kitchen (first cross-room
 	#        conversation in the game). Then transition.
 	if obj.object_name == "Front_Door" and GameManager.current_day >= 2:
+		# Rainy-day umbrella gate: Mom won't let Rikizo leave in the rain without
+		# the umbrella (it's on the foyer rack — examine it to grab it).
+		if GameManager.weather_for_day(GameManager.current_day) == "rain" and not GameManager.has_item("umbrella"):
+			var mom_p: Texture2D = load("res://assets/days/day-01-home/characters/sakura_convo.png") as Texture2D
+			var stop_opts := {"background": "entryway"}
+			if mom_p:
+				stop_opts["portrait_overrides"] = {"mom": mom_p}
+			GameManager.start_conversation([
+				{"speaker": "mom",   "jp": "りきぞう、雨ですよ。",             "en": "Rikizo, it's raining."},
+				{"speaker": "mom",   "jp": "かさを もっていってくださいね。",   "en": "Take an umbrella, okay?"},
+				{"speaker": "りきぞう", "jp": "あ、はい！",                     "en": "Oh — right!"},
+			], stop_opts)
+			return
 		var to_outside := func():
 			transition_to_day("day-02-outside", Vector2(1293, 1039))
 		if GameManager.current_day >= 5:

@@ -27,6 +27,7 @@ var _sfx_name := ""
 var _on_end: Callable = Callable()
 var _playing := false
 var _seq: Tween
+var _zoom: Tween  # long cutout zoom, on its own tween so it doesn't gate the onoma
 
 
 func _ready() -> void:
@@ -182,18 +183,23 @@ func play(bg_key: String, cutout_path: String, onomatopoeia: String = "", on_end
 
 	if _seq and _seq.is_valid():
 		_seq.kill()
+	# Slow continuous zoom runs on its OWN tween so it doesn't gate the
+	# onomatopoeia + sfx (those must pop early, not after the full 2.6s zoom).
+	if _zoom and _zoom.is_valid():
+		_zoom.kill()
+	_zoom = create_tween()
+	_zoom.tween_property(_cutout, "scale", Vector2(1.16, 1.16), 2.6)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
 	_seq = create_tween()
 	# 1. Fade in backdrop + bg + cutout together.
 	_seq.set_parallel(true)
 	_seq.tween_property(_backdrop, "modulate:a", 0.6, 0.35)
 	_seq.tween_property(_bg, "modulate:a", 1.0, 0.35)
 	_seq.tween_property(_cutout, "modulate:a", 1.0, 0.45)
-	# Slow continuous zoom on the cutout across the whole beat.
-	_seq.tween_property(_cutout, "scale", Vector2(1.16, 1.16), 2.6)\
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	# 2. Onomatopoeia pop shortly after the cutout lands.
+	# 2. Onomatopoeia pop EARLY — shortly after the cutout lands, during the zoom.
 	_seq.set_parallel(false)
-	_seq.tween_interval(0.55)
+	_seq.tween_interval(0.28)
 	if onomatopoeia != "":
 		# Particle burst lands with the text pop (the eat/drink moment).
 		# A light haptic tick + the sfx punctuate the contact.
@@ -263,6 +269,8 @@ func _finish() -> void:
 	_playing = false
 	if _seq and _seq.is_valid():
 		_seq.kill()
+	if _zoom and _zoom.is_valid():
+		_zoom.kill()
 	visible = false
 	var cb := _on_end
 	_on_end = Callable()

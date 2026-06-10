@@ -23,6 +23,7 @@ const SCHEDULE_OVERRIDES := {
 	5: {"りきぞう": "コンビニ"},
 	6: {"りきぞう": "川"},
 	8: {"りきぞう": "コンビニ"},
+	10: {"りきぞう": "ホテル"},  # signposts the new hotel so the player goes looking
 }
 
 var _backdrop: ColorRect

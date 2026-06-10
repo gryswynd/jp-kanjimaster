@@ -66,9 +66,9 @@ func _setup_umbrella() -> void:
 	if ResourceLoader.exists(p):
 		var tex := load(p) as Texture2D
 		_umbrella.texture = tex
-		var s := 86.0 / float(tex.get_width())  # ~86px wide on screen
+		var s := 100.0 / float(tex.get_width())  # ~100px wide (covers the head + a bit)
 		_umbrella.scale = Vector2(s, s)
-	_umbrella.position = Vector2(0, -104)  # just over the head (head-top ≈ -90 from feet)
+	_umbrella.position = Vector2(0, -90)  # over the head (scalloped edge ~forehead level)
 	_umbrella.z_index = 1                  # above the player sprite, below overhead _fg (z=100)
 	_umbrella.visible = false
 	add_child(_umbrella)
