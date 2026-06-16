@@ -24,11 +24,29 @@ import Capacitor
 class RkWebView: WKWebView {
     var suppressSelectionMenu = false
 
+    // Legacy (pre-iOS 16) UIMenuController path.
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if suppressSelectionMenu {
             return false
         }
         return super.canPerformAction(action, withSender: sender)
+    }
+
+    // iOS 16+ drives the text-selection menu through UIEditMenuInteraction, which
+    // builds from the responder chain's menu. Removing the standard edit groups here
+    // empties the menu while leaving the selection intact. Unknown identifiers are a
+    // safe no-op, so we strip generously across iOS versions.
+    override func buildMenu(with builder: UIMenuBuilder) {
+        if suppressSelectionMenu {
+            builder.remove(menu: .standardEdit)  // Cut / Copy / Paste / Select All
+            builder.remove(menu: .replace)
+            builder.remove(menu: .lookup)        // Look Up / Translate / Search Web
+            builder.remove(menu: .share)
+            builder.remove(menu: .find)
+            builder.remove(menu: .learn)
+            builder.remove(menu: .format)
+        }
+        super.buildMenu(with: builder)
     }
 }
 

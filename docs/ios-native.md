@@ -27,17 +27,26 @@ mode enter/exit — see `app/shared/select-explain.js` → `setNativeSelectionMe
    <viewController id="BYZ-38-t0r" customClass="RkBridgeViewController" customModule="App" .../>
    ```
 
-3. **⚠️ Add the Swift file to the Xcode target** — `cap sync` does NOT add arbitrary
-   Swift files to the build. Open `ios/App/App.xcworkspace`, drag
-   `RkBridgeViewController.swift` into the `App` group, and ensure it's checked for the
-   `App` target (Target Membership). Without this the storyboard reference resolves to
-   nothing and the app shows a blank/crashing root VC.
+3. **Swift file in the Xcode target — DONE (tracked).** `cap sync` does NOT add
+   arbitrary Swift files, so `RkBridgeViewController.swift` was added to the `App`
+   target directly in `App.xcodeproj/project.pbxproj` (4 entries mirroring
+   `AppDelegate.swift`: PBXBuildFile, PBXFileReference, the `App` group child, and the
+   Sources build phase). `project.pbxproj` is force-added to git so this survives.
+   If `ios/` is ever regenerated from scratch, re-add the file to the target (drag it
+   into the `App` group in Xcode, or replay those 4 pbxproj entries).
 
-**⚠️ Verification status: UNVERIFIED ON DEVICE.** Written but not yet run on an iOS
-device this session (development was on Android). `canPerformAction` reliably suppresses
-the menu on older iOS; on **iOS 16+** the selection menu is driven by
-`UIEditMenuInteraction`. If a residual menu still appears on a 16+ device, add to
-`RkBridgeViewController` the `WKUIDelegate` method
-`webView(_:editMenuForTextIn:suggestedActions:)` returning an empty `UIMenu(children: [])`
-(note: Capacitor sets its own `WKUIDelegate` via `WebViewDelegationHandler`, so you may
-need to forward other calls). **Test on a real device before the next TestFlight build.**
+**iOS 16+/26 hardening (applied).** The selection menu on iOS 16+ is driven by
+`UIEditMenuInteraction`, which `canPerformAction` alone doesn't reliably suppress. So
+`RkWebView` also overrides `buildMenu(with:)` and removes the standard edit-menu groups
+(`.standardEdit`, `.replace`, `.lookup`, `.share`, `.find`, `.learn`, `.format`) while
+suppression is on. This keeps everything inside the WebView subclass (no WKUIDelegate
+interposition, so Capacitor's own delegate is untouched).
+
+**Verification status:** compiles for both the iOS Simulator and a real device
+(Xcode 26.5, team PNFJ4FDHF3), and runs in the iPhone 17 simulator without crashing
+(confirms the storyboard→`RkBridgeViewController` wiring resolves). The actual
+menu-suppression behavior should still get a quick tap-test on a device/simulator. If a
+residual menu ever appears, the fallback is the `WKUIDelegate`
+`webView(_:editMenuForTextIn:suggestedActions:)` returning `UIMenu(children: [])` —
+but that requires forwarding other UI-delegate calls back to Capacitor's
+`WebViewDelegationHandler`, so prefer the `buildMenu` approach above.
