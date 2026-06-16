@@ -391,6 +391,13 @@ window.GlossaryModule = (function () {
     var e = byId[id];
     if (!e) return;
     closeNote();
+
+    // Tell Ask-Rikizo exactly which glossary term is open (no fixed lesson page).
+    try {
+      var tc = window.JPShared && window.JPShared.tutorContext;
+      if (tc) tc.patch({ view: 'glossary', lessonId: e._lessonId || null, page: null, item: e.surface || null });
+    } catch (err) {}
+
     var badge = TYPE_BADGE[e.type] || null;
     var lid = e._lessonId || firstValidLesson(e);
     var gotoLabel = '', gotoMode = null, gotoId = lid;

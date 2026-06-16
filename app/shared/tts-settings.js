@@ -226,6 +226,33 @@
         font-size: 0.7rem; color: var(--ink-3, oklch(0.55 0.012 60)); margin-top: 4px;
       }
 
+      /* Text-size segmented control */
+      .jp-set-textsize-seg {
+        display: flex; gap: 6px;
+      }
+      .jp-set-textsize-btn {
+        flex: 1;
+        display: flex; flex-direction: column; align-items: center; gap: 2px;
+        padding: 10px 4px;
+        border: 1px solid var(--hairline, rgba(0,0,0,0.14));
+        border-radius: 12px;
+        background: var(--washi, #f5f1e8);
+        color: var(--ink-2, #5d5852);
+        cursor: pointer;
+        line-height: 1;
+        transition: border-color 0.12s, background 0.12s, color 0.12s;
+      }
+      .jp-set-textsize-btn .jp-set-textsize-a { font-weight: 700; }
+      .jp-set-textsize-btn .jp-set-textsize-name {
+        font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em;
+        font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+      }
+      .jp-set-textsize-btn[aria-pressed="true"] {
+        border-color: var(--vermilion, #c2410c);
+        background: color-mix(in oklab, var(--vermilion, #c2410c) 10%, var(--washi, #f5f1e8));
+        color: var(--vermilion, #c2410c);
+      }
+
       /* Primary action button */
       .jp-set-btn {
         width: 100%;
@@ -897,6 +924,39 @@
     );
   }
 
+  // Text size — accessibility preset picker. State lives in localStorage via
+  // window.JPShared.fontScale, applied app-wide on <html> as --font-scale.
+  function buildTextSizeSection() {
+    var fs = window.JPShared && window.JPShared.fontScale;
+    if (!fs) return '';
+    var activeId = fs.getPresetId();
+    // Visually preview each step: the "A" grows with the preset's scale.
+    var btns = fs.presets.map(function (p) {
+      var pressed = (p.id === activeId) ? 'true' : 'false';
+      var aSize = (0.85 * p.scale).toFixed(2);
+      return (
+        '<button type="button" class="jp-set-textsize-btn" data-textsize="' + p.id + '"' +
+          ' aria-pressed="' + pressed + '">' +
+          '<span class="jp-set-textsize-a" style="font-size:' + aSize + 'rem;">A</span>' +
+          '<span class="jp-set-textsize-name">' + p.title + '</span>' +
+        '</button>'
+      );
+    }).join('');
+    return (
+      '<div class="jp-set-section-label">Text Size</div>' +
+      '<div class="jp-set-card" data-tour-set="textsize">' +
+        '<div class="jp-set-field">' +
+          '<div class="jp-set-field-label">Reading text size</div>' +
+          '<div class="jp-set-textsize-seg" id="jp-set-textsize-seg">' + btns + '</div>' +
+          '<div class="jp-set-toggle-sub" style="margin-top:8px;">' +
+            'Adjusts lessons, grammar, the dictionary, and word pop-ups. ' +
+            'Games and writing practice keep their size.' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
   function buildReadingAidsSection() {
     var rk = window.JPShared && window.JPShared.jpText;
     if (!rk) return '';
@@ -1292,6 +1352,7 @@
       buildTutorialsSection() +
       buildVoiceSection() +
       buildSoundSection() +
+      buildTextSizeSection() +
       buildReadingAidsSection() +
       buildPracticeHelpersSection() +
       buildUpgradesSection() +
@@ -1321,6 +1382,7 @@
     wireCompanion();
     wireVoice();
     wireSound();
+    wireTextSize();
     wireReadingAids();
     wirePracticeHelpers();
     wireTutorials();
@@ -1444,7 +1506,11 @@
     'k-streak-history', 'k-streak-freezes',
     'k-user-first', 'k-user-last',
   ];
-  var IMPORT_PREFIXES = ['k-best-', 'compose-draft-'];
+  // k-best-* = Dojo quiz bests. The game result/stamp prefixes (scramble k-scr-,
+  // link-up k-conn-/k-conn4-, marathon k-mara-) carry per-puzzle completion +
+  // stamps — included so those migrate too. (These are local-only by design and
+  // don't cloud-sync; importing restores them into localStorage.)
+  var IMPORT_PREFIXES = ['k-best-', 'compose-draft-', 'k-scr-', 'k-conn-', 'k-conn4-', 'k-mara-'];
 
   function importKeyAllowed(k) {
     if (!k) return false;
@@ -1752,6 +1818,24 @@
         ph.setKanaWriting(kana.checked);
       });
     }
+  }
+
+  function wireTextSize() {
+    var fs = window.JPShared && window.JPShared.fontScale;
+    if (!fs) return;
+    var seg = document.getElementById('jp-set-textsize-seg');
+    if (!seg) return;
+    seg.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.jp-set-textsize-btn') : null;
+      if (!btn) return;
+      var id = btn.getAttribute('data-textsize');
+      if (!id) return;
+      fs.setPreset(id);  // applies --font-scale immediately for live preview
+      var all = seg.querySelectorAll('.jp-set-textsize-btn');
+      for (var i = 0; i < all.length; i++) {
+        all[i].setAttribute('aria-pressed', all[i] === btn ? 'true' : 'false');
+      }
+    });
   }
 
   function wireReadingAids() {

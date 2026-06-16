@@ -31,7 +31,7 @@ const FORMATS = {
   mp3: { ext: 'mp3', mime: 'audio/mpeg' },
 };
 
-export async function transcribe({ base64, format = 'webm' }) {
+export async function transcribe({ base64, format = 'webm', onScreenJa = '' }) {
   if (!env.groqApiKey) throw httpError(503, 'stt_not_configured');
   if (!base64) return { transcript: '', confidence: 0, seconds: 0 };
 
@@ -45,8 +45,13 @@ export async function transcribe({ base64, format = 'webm' }) {
   form.append('response_format', 'json');
   form.append('temperature', '0');
   // NOTE: intentionally NO `language` field — auto-detect handles EN+JP mixed
-  // better than forcing one language. A prompt nudges Whisper toward our domain.
-  form.append('prompt', 'A student asks about Japanese, mixing English and Japanese (with kanji and kana).');
+  // better than forcing one language. The prompt nudges Whisper toward our domain
+  // AND toward the exact Japanese on the student's screen, so a voice question
+  // gets transcribed to what they're looking at (e.g. "takasou desu" → 高そうです)
+  // instead of garbling the dropped final vowel.
+  let prompt = 'A student asks about Japanese, mixing English and Japanese (with kanji and kana).';
+  if (onScreenJa) prompt += ' On screen now: ' + String(onScreenJa).slice(0, 220);
+  form.append('prompt', prompt);
 
   const resp = await fetch(GROQ_URL, {
     method: 'POST',

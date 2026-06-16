@@ -288,7 +288,10 @@
           return String(matchedForm).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
         if (matchedForm === t.surface && t.tokens && t.tokens.length && !t.original_id) {
-          return jt.render({ tokens: t.tokens });
+          // word:true → a glossary term is ONE word, so emit a single combined
+          // romaji line under it (per-kanji furigana stays). Without this the
+          // romaji breaks at the kanji/okurigana seam (古い → "furu i").
+          return jt.render({ tokens: t.tokens, word: true });
         }
         if (matchedForm === t.surface && t.reading) {
           return jt.render({ surface: t.surface, reading: t.reading });

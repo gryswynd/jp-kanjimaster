@@ -1182,6 +1182,15 @@ window.FinalReviewModule = (function () {
 
   function runSection(sec) {
     const stage = el('fr-stage');
+
+    // Tell Ask-Rikizo the student is in a review. lessonId is left null on purpose:
+    // review files contain the answers, so we do NOT let the server resolve them
+    // (Rikizo must not leak quiz answers). Rikizo still knows the screen context.
+    try {
+      const tc = window.JPShared && window.JPShared.tutorContext;
+      if (tc) tc.patch({ view: 'review', lessonId: null, page: null, item: null, sectionType: sec && sec.type });
+    } catch (e) {}
+
     try {
       switch (sec.type) {
         case 'speed_round':     renderSpeedRound(stage, sec); break;

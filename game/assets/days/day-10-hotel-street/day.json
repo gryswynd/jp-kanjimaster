@@ -32,8 +32,8 @@
     }
   },
   "playerStart": {
-    "x": 108,
-    "y": 464
+    "x": 116,
+    "y": 542
   },
   "objects": [
     {
@@ -42,11 +42,11 @@
       "appearsFromDay": 10,
       "position": [
         2,
-        438
+        424
       ],
       "size": [
-        64,
-        216
+        56,
+        240
       ],
       "isDoor": false,
       "interactive": true,
@@ -57,12 +57,12 @@
       "nameJp": "ホテル",
       "appearsFromDay": 10,
       "position": [
-        566,
-        312
+        738,
+        258
       ],
       "size": [
-        120,
-        46
+        222,
+        101
       ],
       "isDoor": false,
       "interactive": true,
@@ -73,12 +73,12 @@
       "nameJp": "こうじ",
       "appearsFromDay": 10,
       "position": [
-        1156,
-        414
+        1190,
+        424
       ],
       "size": [
-        108,
-        214
+        58,
+        240
       ],
       "sprite": "assets/days/day-05-street/objects/blockade.png",
       "isDoor": false,
@@ -86,33 +86,16 @@
       "collision": true
     },
     {
-      "name": "Bus_Stop",
-      "nameJp": "バスてい",
-      "appearsFromDay": 10,
-      "position": [
-        906,
-        289
-      ],
-      "size": [
-        120,
-        120
-      ],
-      "sprite": "assets/days/day-05-street/objects/bus_stop.png",
-      "isDoor": false,
-      "interactive": true,
-      "collision": true
-    },
-    {
       "name": "Black_Van",
       "nameJp": "くるま",
       "appearsFromDay": 10,
       "position": [
-        210,
-        52
+        270,
+        40
       ],
       "size": [
-        123,
-        74
+        128,
+        76
       ],
       "sprite": "assets/days/day-10-hotel-street/objects/van_black_side.png",
       "isDoor": false,
@@ -124,16 +107,33 @@
       "nameJp": "くるま",
       "appearsFromDay": 10,
       "position": [
-        26,
-        260
+        16,
+        226
       ],
       "size": [
-        134,
-        50
+        146,
+        54
       ],
       "sprite": "assets/days/day-10-hotel-street/objects/car_sedan_side.png",
       "isDoor": false,
       "interactive": false,
+      "collision": true
+    },
+    {
+      "name": "Bus_Stop",
+      "nameJp": "バス停",
+      "appearsFromDay": 10,
+      "position": [
+        398,
+        244
+      ],
+      "size": [
+        157,
+        157
+      ],
+      "sprite": "assets/days/day-05-street/objects/bus_stop.png",
+      "isDoor": false,
+      "interactive": true,
       "collision": true
     }
   ],

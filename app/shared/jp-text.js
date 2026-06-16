@@ -161,6 +161,22 @@
     return KANJI_RE.test(tok.k || '');
   }
 
+  // Standalone single-kana grammatical particles are SPOKEN differently from
+  // their literal kana, and content stored as plain jp strings (tokenized at
+  // render) doesn't carry the per-occurrence 'r' that would encode this. Catch
+  // the common traps at render so the romaji line reads the way it's pronounced:
+  //   は (topic/contrast) → wa     へ (direction) → e     を (object) → o
+  // The token is the particle only when its WHOLE surface is that one kana and no
+  // overriding reading is set (so words like はな / へや are unaffected). を has no
+  // word use in modern Japanese — it's always the object particle, spoken "o".
+  function particleRomaji(k, r) {
+    if (r && r !== k) return null;   // an explicit authored reading always wins
+    if (k === 'は') return 'wa';
+    if (k === 'へ') return 'e';
+    if (k === 'を') return 'o';
+    return null;
+  }
+
   function renderToken(tok, opts) {
     if (typeof tok === 'string') tok = { k: tok };
     var k = tok.k || '';
@@ -184,7 +200,7 @@
         '</span>';
     }
     if (k && /[぀-ゟ゠-ヿ]/.test(k)) {
-      var rom2 = kanaToRomaji(r || k);
+      var rom2 = particleRomaji(k, r) || kanaToRomaji(r || k);
       return '<span class="jp-token jp-token-bare">' +
         '<span class="jp-base">' + esc(k) + '</span>' +
         (noRomaji ? '' : '<span class="rt-romaji">' + esc(rom2) + '</span>') +
@@ -202,7 +218,7 @@
       var t = tokens[i];
       var k = t.k || '';
       var r = t.r || '';
-      out += kanaToRomaji(r || k);
+      out += particleRomaji(k, r) || kanaToRomaji(r || k);
     }
     return out;
   }
@@ -212,6 +228,23 @@
     var out = '';
     for (var i = 0; i < tokens.length; i++) out += renderToken(tokens[i]);
     return out;
+  }
+
+  // Render a token sequence that forms ONE word (e.g. a kanji adjective split
+  // into stem + okurigana: 小さい → 小[ちい] + さい). Furigana still sits over each
+  // kanji token, but a SINGLE combined romaji line is emitted under the whole
+  // word — otherwise each token centers its own romaji and the reading breaks at
+  // the kanji/okurigana seam ("chii sai" instead of "chiisai", "furu i" for 古い).
+  // Mirrors the group mechanism in Stories.renderTokens.
+  function renderWord(tokens) {
+    if (!Array.isArray(tokens) || !tokens.length) return '';
+    if (tokens.length === 1) return renderToken(tokens[0]); // nothing to combine
+    var inner = '';
+    for (var i = 0; i < tokens.length; i++) {
+      inner += renderToken(tokens[i], { noRomaji: true });
+    }
+    inner += '<span class="rt-romaji rt-romaji-group">' + esc(tokensToRomaji(tokens)) + '</span>';
+    return '<span class="jp-token-group">' + inner + '</span>';
   }
 
   /**
@@ -228,7 +261,11 @@
     if (typeof input === 'string') return renderTokens([{ k: input }]);
     if (Array.isArray(input)) return renderTokens(input);
     if (typeof input === 'object') {
-      if (input.tokens && input.tokens.length) return renderTokens(input.tokens);
+      // word:true → these tokens are ONE word (a glossary term); emit one
+      // combined romaji line instead of per-token romaji (see renderWord).
+      if (input.tokens && input.tokens.length) {
+        return input.word ? renderWord(input.tokens) : renderTokens(input.tokens);
+      }
       // Glossary-style shorthand: {surface, reading} → single token.
       if (input.surface != null) {
         if (input.reading && input.reading !== input.surface) {
@@ -293,6 +330,7 @@
   window.JPShared.jpText = {
     render: render,
     renderTokens: renderTokens,
+    renderWord: renderWord,
     renderToken: renderToken,
     tokensToRomaji: tokensToRomaji,
     kanaToRomaji: kanaToRomaji,

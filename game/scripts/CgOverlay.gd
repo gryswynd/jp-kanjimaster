@@ -21,6 +21,8 @@ var _cutout: TextureRect
 var _onoma: Label
 var _particles: CPUParticles2D
 var _dot_tex: Texture2D
+var _sfx: AudioStreamPlayer
+var _sfx_name := ""
 
 var _on_end: Callable = Callable()
 var _playing := false
@@ -31,6 +33,9 @@ func _ready() -> void:
 	layer = 13  # above gameplay + most overlays, below hard-modal dialogs
 	visible = false
 	_build_ui()
+	_sfx = AudioStreamPlayer.new()
+	_sfx.bus = "Master"
+	add_child(_sfx)
 
 
 func _build_ui() -> void:
@@ -144,11 +149,12 @@ func _config_fx(fx: String) -> void:
 		_particles.color_ramp = grad2
 
 
-func play(bg_key: String, cutout_path: String, onomatopoeia: String = "", on_end: Callable = Callable(), fx: String = "") -> void:
+func play(bg_key: String, cutout_path: String, onomatopoeia: String = "", on_end: Callable = Callable(), fx: String = "", sfx: String = "") -> void:
 	if _playing:
 		return
 	_playing = true
 	_on_end = on_end
+	_sfx_name = sfx
 	_config_fx(fx)
 	_particles.emitting = false  # reset; bursts on the onomatopoeia beat
 
@@ -190,6 +196,10 @@ func play(bg_key: String, cutout_path: String, onomatopoeia: String = "", on_end
 	_seq.tween_interval(0.55)
 	if onomatopoeia != "":
 		# Particle burst lands with the text pop (the eat/drink moment).
+		# A light haptic tick + the sfx punctuate the contact.
+		_seq.tween_callback(func():
+			Input.vibrate_handheld(50)  # no-op on desktop
+			_play_sfx())
 		if fx != "":
 			_seq.tween_callback(_burst)
 		_seq.set_parallel(true)
@@ -222,6 +232,18 @@ func _burst() -> void:
 	if _particles:
 		_particles.restart()
 		_particles.emitting = true
+
+
+func _play_sfx() -> void:
+	# Plays the per-call sfx clip (assets/audio/sfx_<name>.wav) at the
+	# eat/drink contact beat. Silent if no sfx name or the clip is missing.
+	if _sfx_name == "" or not _sfx:
+		return
+	var p := "res://assets/audio/sfx_%s.wav" % _sfx_name
+	if not ResourceLoader.exists(p):
+		return
+	_sfx.stream = load(p) as AudioStream
+	_sfx.play()
 
 
 func _on_input(event: InputEvent) -> void:

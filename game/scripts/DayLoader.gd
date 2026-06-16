@@ -69,6 +69,9 @@ const TILE_SIZE := 32
 
 var portrait_map: Dictionary = {}
 var npc_backgrounds: Dictionary = {}  # npc_name → background key
+# Per-scene rotation counters for repeatable NPC lines (key → next index).
+# Resets on scene load — only needs to vary within a visit, not persist.
+var _repeat_rotation: Dictionary = {}
 var map_width_px: int = 0
 var map_height_px: int = 0
 
@@ -90,7 +93,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				"res://assets/cg/cg-yamakawa-onigiri.png",
 				"もぐもぐ",
 				func(): GameManager.show_message({"jp": "おいしい！", "en": "Delicious!"}),
-				"rice"
+				"rice", "chew"
 			)
 		elif event.keycode == KEY_V and event.shift_pressed:
 			cg_overlay.play(
@@ -98,7 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				"res://assets/cg/cg-rikizo-drink.png",
 				"ごくごく",
 				func(): GameManager.show_message({"jp": "ふう。", "en": "Phew."}),
-				"water"
+				"water", "gulp"
 			)
 		# DEV: Shift+B previews the Rikizo soda cinematic. Real trigger is the
 		# inventory soda "drink" button.
@@ -108,7 +111,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				"res://assets/cg/cg-rikizo-soda.png",
 				"ごくごく",
 				func(): GameManager.show_message({"jp": "ふう。", "en": "Phew."}),
-				"water"
+				"water", "gulp"
 			)
 		# DEV: Shift+T previews the tap-to-pay overlay (¥150 sample). Real
 		# trigger is the konbini shop UI's purchase action.
@@ -124,7 +127,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		# These are NOT meant to ship; on mobile + Switch the player taps the
 		# HUD buttons exclusively.
 		elif event.keycode == KEY_I and not event.shift_pressed:
-			if inventory_overlay and not GameManager.inventory.is_empty():
+			if inventory_overlay and (GameManager.has_phone or not GameManager.inventory.is_empty()):
 				if inventory_overlay.visible:
 					inventory_overlay.close_inventory()
 				else:
@@ -169,6 +172,16 @@ func _ready() -> void:
 		# immediately fire a nearby exit/interaction.
 		player.global_position = Vector2(GameManager.resume_x, GameManager.resume_y)
 		GameManager.lock_interaction(400)
+	else:
+		# Fresh new game → play the cosmic opening sequence ONCE over Day 1
+		# (which has already built underneath the white overlay). Freeze the
+		# player via in_conversation for the duration; the overlay consumes taps
+		# and dissolves into Day 1 when it ends. After the first autosave,
+		# current_scene_id is set, so resume skips this on later launches.
+		var intro := get_node_or_null("IntroOverlay")
+		if intro:
+			GameManager.in_conversation = true
+			intro.play(func(): GameManager.in_conversation = false)
 
 	# Persist on quit/background + a periodic autosave, so the resume point
 	# survives even when no state-change save happened to fire.
@@ -205,7 +218,7 @@ func _ready() -> void:
 					GameManager.complete_quest("drink_water")
 					GameManager.remove_item("water_bottle")
 					GameManager.show_message({"jp": "ふう。おいしい水でした。", "en": "Phew. That was good water."}),
-				"water"
+				"water", "gulp"
 			)
 		# Soda "drink" button → same flow as water, minus the quest (soda has
 		# no quest of its own). Close inventory, play the soda cinematic over
@@ -219,7 +232,7 @@ func _ready() -> void:
 				func():
 					GameManager.remove_item("soda", 1)
 					GameManager.show_message({"jp": "ふう。つめたいソーダでした。", "en": "Phew. That was cold soda."}),
-				"water"
+				"water", "gulp"
 			)
 		# Onigiri "eat" button → close inventory, play the greedy-bite CG
 		# over the current location's bg, then resolve onigiri_quest (first
@@ -236,7 +249,7 @@ func _ready() -> void:
 					GameManager.complete_quest("onigiri_quest")
 					GameManager.remove_item("onigiri", 1)
 					GameManager.show_message({"jp": "おいしい！", "en": "Delicious!"}),
-				"rice"
+				"rice", "chew"
 			)
 		# Curry "eat" button → close inventory, play the curry eat-CG over a
 		# dim wash, then consume one plate. Bought at the riverside stand
@@ -250,7 +263,7 @@ func _ready() -> void:
 				func():
 					GameManager.remove_item("curry", 1)
 					GameManager.show_message({"jp": "おいしい！", "en": "Delicious!"}),
-				"rice"
+				"rice", "chew"
 			)
 	if phone_overlay:
 		phone_overlay.on_open_inventory = func():
@@ -276,6 +289,7 @@ func _ready() -> void:
 	GameManager.phone_force_open.connect(func():
 		phone_overlay.open_phone()
 		phone_overlay.vibrate()
+		Input.vibrate_handheld(140)  # device haptic buzz (no-op on desktop)
 	)
 
 	# Hide message popup initially
@@ -286,6 +300,22 @@ func _on_day_advanced(_new_day: int) -> void:
 	## When the day counter ticks up, refresh the objects layer so items
 	## with `appearsFromDay` <= current_day show up immediately.
 	_refresh_objects()
+	# Refresh weather too, in case the day flipped while standing in an outdoor scene.
+	_apply_weather()
+
+
+func _apply_weather() -> void:
+	## Drive the screen-space WeatherOverlay from the current day's weather, gated
+	## to outdoor scenes (interiors never rain). Called on every scene build and
+	## on day change.
+	var kind := GameManager.weather_for_day(GameManager.current_day)
+	if not GameManager.is_outdoor(GameManager.current_scene_id):
+		kind = "clear"
+	var weather := get_node_or_null("WeatherOverlay")
+	if weather:
+		weather.set_weather(kind)
+	if player:
+		player.set_umbrella(kind == "rain")
 
 
 func _refresh_objects() -> void:
@@ -448,6 +478,9 @@ func _build_world(data: Dictionary) -> void:
 		if ResourceLoader.exists(bg_path):
 			GameManager.convo_backgrounds[bg_key] = load(bg_path) as Texture2D
 
+	# --- Weather (Day 11+) ---
+	_apply_weather()
+
 	# --- Alt Portraits ---
 	var alt_map: Dictionary = data.get("altPortraits", {})
 	for alt_key in alt_map:
@@ -487,7 +520,7 @@ func _build_world(data: Dictionary) -> void:
 		var me_portrait_file := str(data["meConvoPortrait"]).get_file()
 		var me_portrait_path := DAY_DATA_DIR + "characters/" + me_portrait_file
 		if ResourceLoader.exists(me_portrait_path):
-			portrait_map[&"りきぞ"] = load(me_portrait_path)
+			portrait_map[&"りきぞう"] = load(me_portrait_path)
 
 	# --- NPCs ---
 	var npcs_array: Array = data.get("npcs", [])
@@ -931,6 +964,15 @@ func _on_player_interact() -> void:
 		_handle_object_interaction(best_target)
 
 
+func _rotating_line(key: String, pool: Array) -> Dictionary:
+	## Returns the next line from a small repeat pool, advancing a per-scene
+	## counter so re-talking cycles through them (modulo) instead of repeating
+	## one line forever. Resets on scene reload.
+	var i: int = _repeat_rotation.get(key, 0)
+	_repeat_rotation[key] = (i + 1) % pool.size()
+	return pool[i]
+
+
 func _handle_npc_interaction(npc) -> void:
 	GameManager.inspected[npc.npc_name] = true
 	# Relationship +1 per NPC per day (capped) — fires the first time Rikizo
@@ -985,16 +1027,27 @@ func _handle_npc_interaction(npc) -> void:
 	# e.g. curry), a one-time broken-word paranoia beat, and a refrain.
 	if npc.npc_name == "yamakawa" and GameManager.current_day >= 10 \
 			and DAY_DATA_DIR.find("day-09-konbini-gacha/") != -1:
-		# Quest resolution (priority): bring a NEW food (curry) → Appetite done.
+		# Bring a NEW food (e.g. curry): Yamakawa eagerly eats it (eat CG), and
+		# it joins his "tried" list — but the Appetite quest stays OPEN (he never
+		# stops wanting new things). Tried foods show struck-through in the log.
 		if GameManager.has_quest("yamakawa_appetite") and not GameManager.is_quest_complete("yamakawa_appetite") \
 				and GameManager.has_item("curry"):
-			options["on_end"] = func():
-				GameManager.remove_item("curry", 1)
-				GameManager.complete_quest("yamakawa_appetite")
+			var eat_curry := func():
+				cg_overlay.play(
+					"konbini-outside",
+					"res://assets/cg/cg-yamakawa-curry.png",
+					"もぐもぐ",
+					func():
+						GameManager.remove_item("curry", 1)
+						GameManager.mark_yamakawa_food("カレー", "Curry")
+						GameManager.show_message({"jp": "おいしい！でも、まだ...", "en": "Delicious! But... still..."}),
+					"rice", "chew"
+				)
+			options["on_end"] = eat_curry
 			GameManager.start_conversation([
-				{"speaker": "yamakawa", "jp": "カレー！？",                 "en": "Curry!?"},
-				{"speaker": "yamakawa", "jp": "新しい！ありがとう、りきぞ！", "en": "Something new! Thanks, Rikizo!"},
-				{"speaker": "yamakawa", "jp": "いただきます！",             "en": "Itadakimasu!"},
+				{"speaker": "yamakawa", "jp": "カレー！？", "en": "Curry!?"},
+				{"speaker": "yamakawa", "jp": "新しい！ありがとう、りきぞう！", "en": "Something new! Thanks, Rikizo!"},
+				{"speaker": "yamakawa", "jp": "いただきます！", "en": "Itadakimasu!"},
 			], options)
 			return
 		var yk10 := "yamakawa_day%d" % GameManager.current_day
@@ -1007,16 +1060,16 @@ func _handle_npc_interaction(npc) -> void:
 					GameManager.add_quest({"id": "yamakawa_appetite", "jp": "新しい食べ物をさがす", "en": "Find new food", "verb": null, "verb_en": null})
 					GameManager.phone_force_open.emit()
 			GameManager.start_conversation([
-				{"speaker": "yamakawa", "jp": "よ、りきぞ！天気いいね！",         "en": "Yo, Rikizo! Nice weather, huh!"},
-				{"speaker": "りきぞ",    "jp": "...え？",                         "en": "...Huh?"},
+				{"speaker": "yamakawa", "jp": "よ、りきぞう！天気いいね！",         "en": "Yo, Rikizo! Nice weather, huh!"},
+				{"speaker": "りきぞう",    "jp": "...え？",                         "en": "...Huh?"},
 				{"speaker": "yamakawa", "jp": "ん？どうした？",                   "en": "Hm? What's up?"},
-				{"speaker": "りきぞ",    "jp": "...うん、いい天気だね！",         "en": "...Yeah, nice weather!"},
+				{"speaker": "りきぞう",    "jp": "...うん、いい天気だね！",         "en": "...Yeah, nice weather!"},
 				{"speaker": "yamakawa", "jp": "今日も休みだよ。いいね！",         "en": "Today's a day off too. Nice!"},
-				{"speaker": "りきぞ",    "jp": "うん。でも...電車を見た？",       "en": "Yeah. But... did you see the train?"},
+				{"speaker": "りきぞう",    "jp": "うん。でも...電車を見た？",       "en": "Yeah. But... did you see the train?"},
 				{"speaker": "yamakawa", "jp": "電車？ああ、駅にあるね。でも、電車は...", "en": "The train? Oh yeah, it's at the station. But the train..."},
 				{"speaker": "yamakawa", "jp": "...まあ、いいか。",                 "en": "...Well, whatever."},
 				{"speaker": "yamakawa", "jp": "あ、新しいものがほしいな。",       "en": "Ah, I want something new."},
-				{"speaker": "りきぞ",    "jp": "新しいもの？",                   "en": "Something new?"},
+				{"speaker": "りきぞう",    "jp": "新しいもの？",                   "en": "Something new?"},
 				{"speaker": "yamakawa", "jp": "うん！コンビニのおにぎりはもう毎日だよ。", "en": "Yeah! It's konbini onigiri every single day now."},
 			], options)
 			return
@@ -1027,7 +1080,7 @@ func _handle_npc_interaction(npc) -> void:
 			GameManager.yamakawa_broken_word = true
 			GameManager.increment_tracker("paranoia")
 			GameManager.start_conversation([
-				{"speaker": "りきぞ",    "jp": "やまかわ、電車は…？",           "en": "Yamakawa, the train...?"},
+				{"speaker": "りきぞう",    "jp": "やまかわ、電車は…？",           "en": "Yamakawa, the train...?"},
 				{"speaker": "yamakawa", "jp": "ん？電車？…なんでもないよ。", "en": "Hm? The train? ...It's nothing."},
 			], options)
 			return
@@ -1055,12 +1108,12 @@ func _handle_npc_interaction(npc) -> void:
 			GameManager.told_about_yuki = true
 			GameManager._save()
 		GameManager.start_conversation([
-			{"speaker": "yamakawa", "jp": "りきぞ！",                                "en": "Rikizo!"},
-			{"speaker": "りきぞ",    "jp": "やまかわ！",                              "en": "Yamakawa!"},
+			{"speaker": "yamakawa", "jp": "りきぞう！",                                "en": "Rikizo!"},
+			{"speaker": "りきぞう",    "jp": "やまかわ！",                              "en": "Yamakawa!"},
 			{"speaker": "yamakawa", "jp": "ゆきさんはデパートの後ろにいますよ。",     "en": "Yuki-san is behind the depaato."},
-			{"speaker": "りきぞ",    "jp": "ゆきさん？ほんとう？",                    "en": "Yuki-san? Really?"},
+			{"speaker": "りきぞう",    "jp": "ゆきさん？ほんとう？",                    "en": "Yuki-san? Really?"},
 			{"speaker": "yamakawa", "jp": "はい！川に行ってください。",               "en": "Yes! Go to the river."},
-			{"speaker": "りきぞ",    "jp": "ありがとう、やまかわ！",                  "en": "Thanks, Yamakawa!"},
+			{"speaker": "りきぞう",    "jp": "ありがとう、やまかわ！",                  "en": "Thanks, Yamakawa!"},
 		], options)
 		return
 
@@ -1087,11 +1140,11 @@ func _handle_npc_interaction(npc) -> void:
 					GameManager.yamakawa_ate_konbini = true
 					_swap_yamakawa_to_no_onigiri()
 					GameManager.show_message({"jp": "おいしい！", "en": "Delicious!"}),
-				"rice"
+				"rice", "chew"
 			)
 		GameManager.start_conversation([
-			{"speaker": "yamakawa", "jp": "りきぞ！おにぎりを食べます！", "en": "Rikizo! I'm going to eat the onigiri!"},
-			{"speaker": "りきぞ",    "jp": "やっと！",                   "en": "Finally!"},
+			{"speaker": "yamakawa", "jp": "りきぞう！おにぎりを食べます！", "en": "Rikizo! I'm going to eat the onigiri!"},
+			{"speaker": "りきぞう",    "jp": "やっと！",                   "en": "Finally!"},
 			{"speaker": "yamakawa", "jp": "あ、カレーも 食べます！",      "en": "Oh, I'll eat curry too!"},
 			{"speaker": "yamakawa", "jp": "川に カレーやが ありますよ。",  "en": "There's a curry stand by the river."},
 		], {"background": "konbini-outside", "on_end": eat_cg})
@@ -1109,14 +1162,14 @@ func _handle_npc_interaction(npc) -> void:
 		if not GameManager.npc_day_talked.has(yk):
 			GameManager.npc_day_talked[yk] = true
 			GameManager.start_conversation([
-				{"speaker": "yamakawa", "jp": "りきぞ！買い物ですか？",            "en": "Rikizo! Shopping?"},
-				{"speaker": "りきぞ",    "jp": "はい！",                              "en": "Yes!"},
+				{"speaker": "yamakawa", "jp": "りきぞう！買い物ですか？",            "en": "Rikizo! Shopping?"},
+				{"speaker": "りきぞう",    "jp": "はい！",                              "en": "Yes!"},
 				{"speaker": "yamakawa", "jp": "いいですね。おにぎりは安いですよ。",   "en": "Nice. The onigiri is cheap."},
 				{"speaker": "yamakawa", "jp": "ジュースもいいですよ。",              "en": "Juice is good too."},
 			], options)
 		else:
 			GameManager.start_conversation([
-				{"speaker": "yamakawa", "jp": "りきぞ、また来ましたか！コンビニはいいですよ。", "en": "Rikizo, you came again! The convenience store is great."},
+				{"speaker": "yamakawa", "jp": "りきぞう、また来ましたか！コンビニはいいですよ。", "en": "Rikizo, you came again! The convenience store is great."},
 			], options)
 		return
 
@@ -1143,10 +1196,10 @@ func _handle_npc_interaction(npc) -> void:
 		if not GameManager.met_yamakawa_river:
 			GameManager.met_yamakawa_river = true
 			GameManager.start_conversation([
-				{"speaker": "yamakawa", "jp": "お、りきぞ！ここに来ましたか！",     "en": "Oh, Rikizo! You came here!"},
-				{"speaker": "りきぞ",    "jp": "やまかわ！川ですね！",              "en": "Yamakawa! A river!"},
+				{"speaker": "yamakawa", "jp": "お、りきぞう！ここに来ましたか！",     "en": "Oh, Rikizo! You came here!"},
+				{"speaker": "りきぞう",    "jp": "やまかわ！川ですね！",              "en": "Yamakawa! A river!"},
 				{"speaker": "yamakawa", "jp": "いい川ですよ。毎日ここに来ます。",   "en": "Good river. I come here every day."},
-				{"speaker": "りきぞ",    "jp": "水がきれいですね。",                "en": "The water is pretty."},
+				{"speaker": "りきぞう",    "jp": "水がきれいですね。",                "en": "The water is pretty."},
 				{"speaker": "yamakawa", "jp": "山から来ますよ、この水は。",         "en": "This water comes from the mountains."},
 				{"speaker": "yamakawa", "jp": "いいところですね。",                 "en": "Nice place, huh."},
 			], options)
@@ -1164,12 +1217,69 @@ func _handle_npc_interaction(npc) -> void:
 	# old station "has always been old") and 長い (the road that the
 	# player has walked end-to-end in seconds "is long"). The roadmap
 	# notes him as the only NPC who says まだ rather than いつも.
+	# Hotel front-desk CLERK (day-10-hotel-inside) — pure keigo service
+	# composure. First talk lands today's 天気 small-talk + 人気/休日, and
+	# drops the seed that "there's a guest today, too" (pointing the player
+	# toward the becalmed man by the sofas). Repeats settle into a polite
+	# いらっしゃいませ refrain.
+	if npc.npc_name == "hotel_clerk":
+		var clerk_key := "hotel_clerk_day%d" % GameManager.current_day
+		if not GameManager.npc_day_talked.has(clerk_key):
+			GameManager.npc_day_talked[clerk_key] = true
+			GameManager.start_conversation([
+				{"speaker": "hotel_clerk", "jp": "いらっしゃいませ。ホテルに ようこそ。",     "en": "Welcome. Welcome to the hotel."},
+				{"speaker": "りきぞう",       "jp": "ホテルですか…きれいですね。",            "en": "A hotel… it's pretty."},
+				{"speaker": "hotel_clerk", "jp": "ありがとうございます。今日は いい 天気ですね。", "en": "Thank you. The weather is nice today, isn't it."},
+				{"speaker": "りきぞう",       "jp": "この ホテルは 人気ですか。",            "en": "Is this hotel popular?"},
+				{"speaker": "hotel_clerk", "jp": "はい、休日は とても 人気ですよ。",         "en": "Yes, it's very popular on holidays."},
+				{"speaker": "hotel_clerk", "jp": "今日も おきゃくさんが います。",           "en": "We have a guest today, too."},
+			], options)
+		else:
+			GameManager.start_conversation([
+				{"speaker": "hotel_clerk", "jp": "いらっしゃいませ。いい 天気ですね。", "en": "Welcome. Nice weather, isn't it."},
+			], options)
+		return
+
+	# Hotel GUEST (day-10-hotel-inside) — the becalmed vacationer. Casual
+	# register (から for "because", だからね), deflects the origin question
+	# ("…just nearby"). On a LATER talk, Rikizo half-notices the man has no
+	# bags — a one-time paranoia beat — before the holiday haze smooths it
+	# over and he redirects to "…I feel good."
+	if npc.npc_name == "hotel_guest":
+		var guest_key := "hotel_guest_day%d" % GameManager.current_day
+		if not GameManager.npc_day_talked.has(guest_key):
+			GameManager.npc_day_talked[guest_key] = true
+			GameManager.start_conversation([
+				{"speaker": "hotel_guest", "jp": "あ、こんにちは。",                "en": "Oh, hello."},
+				{"speaker": "りきぞう",       "jp": "こんにちは。ホテルに 来ましたか。",   "en": "Hello. Did you come to the hotel?"},
+				{"speaker": "hotel_guest", "jp": "うん、休みだからね。",            "en": "Yeah, 'cause it's a holiday."},
+				{"speaker": "hotel_guest", "jp": "天気が いいから、ここに 来ました。",  "en": "The weather's nice, so I came here."},
+				{"speaker": "りきぞう",       "jp": "どこから 来ましたか。",           "en": "Where did you come from?"},
+				{"speaker": "hotel_guest", "jp": "…ここの ちかくですよ。",          "en": "…Just nearby."},
+			], options)
+		elif not GameManager.hotel_guest_noticed:
+			GameManager.hotel_guest_noticed = true
+			GameManager.increment_tracker("paranoia")
+			var guest_shock: Texture2D = GameManager.alt_portraits.get("meShocked")
+			if guest_shock:
+				options["portrait_overrides"] = {"りきぞう": guest_shock}
+			GameManager.start_conversation([
+				{"speaker": "りきぞう",       "jp": "…かばんが ない。",       "en": "…No bags."},
+				{"speaker": "hotel_guest", "jp": "ん？",                 "en": "Hm?"},
+				{"speaker": "りきぞう",       "jp": "…いいえ。気分が いいです。", "en": "…Never mind. I feel good."},
+			], options)
+		else:
+			GameManager.start_conversation([
+				{"speaker": "hotel_guest", "jp": "休みは いいですね。", "en": "Holidays are nice, aren't they."},
+			], options)
+		return
+
 	if npc.npc_name == "ekicho":
 		if not GameManager.met_ekicho:
 			GameManager.met_ekicho = true
 			GameManager.start_conversation([
 				{"speaker": "ekicho",  "jp": "いらっしゃいませ。",         "en": "Welcome."},
-				{"speaker": "りきぞ",  "jp": "駅長ですか？",               "en": "Are you the station master?"},
+				{"speaker": "りきぞう",  "jp": "駅長ですか？",               "en": "Are you the station master?"},
 				{"speaker": "ekicho",  "jp": "はい。この駅は古い駅ですよ。", "en": "Yes. This is an old station."},
 				{"speaker": "ekicho",  "jp": "長い道ですから。",           "en": "It's a long road, you see."},
 			], options)
@@ -1183,11 +1293,11 @@ func _handle_npc_interaction(npc) -> void:
 			# to the refrain.
 			GameManager.npc_day_talked["ekicho_day9"] = true
 			GameManager.start_conversation([
-				{"speaker": "ekicho", "jp": "お、りきぞくん。今日も来ましたね。", "en": "Oh, Rikizo. You came today too."},
-				{"speaker": "りきぞ", "jp": "駅長さん、中にいますね。",          "en": "Mr. Stationmaster — you're inside now."},
+				{"speaker": "ekicho", "jp": "お、りきぞうくん。今日も来ましたね。", "en": "Oh, Rikizo. You came today too."},
+				{"speaker": "りきぞう", "jp": "駅長さん、中にいますね。",          "en": "Mr. Stationmaster — you're inside now."},
 				{"speaker": "ekicho", "jp": "はい。ここは古い駅ですから。",      "en": "Yes. This is an old station, you see."},
 				{"speaker": "ekicho", "jp": "でも、まだ来ません。",              "en": "But it still hasn't come."},
-				{"speaker": "りきぞ", "jp": "だれが来ますか？",                  "en": "Who is coming?"},
+				{"speaker": "りきぞう", "jp": "だれが来ますか？",                  "en": "Who is coming?"},
 				{"speaker": "ekicho", "jp": "...わかりません。",                 "en": "...I don't know."},
 				{"speaker": "ekicho", "jp": "でも、毎日ここにいます。",          "en": "But I'm here every day."},
 			], options)
@@ -1199,12 +1309,12 @@ func _handle_npc_interaction(npc) -> void:
 			# doesn't resolve. First talk of Day 10; repeats fall to the refrain.
 			GameManager.npc_day_talked["ekicho_day10"] = true
 			GameManager.start_conversation([
-				{"speaker": "ekicho", "jp": "お、りきぞくん。電車を見ましたか？", "en": "Oh, Rikizo. Did you see the train?"},
-				{"speaker": "りきぞ", "jp": "はい！電車がありますね！",          "en": "Yes! There's a train!"},
+				{"speaker": "ekicho", "jp": "お、りきぞうくん。電車を見ましたか？", "en": "Oh, Rikizo. Did you see the train?"},
+				{"speaker": "りきぞう", "jp": "はい！電車がありますね！",          "en": "Yes! There's a train!"},
 				{"speaker": "ekicho", "jp": "そうです。でも...まだですよ。",      "en": "That's right. But... not yet."},
-				{"speaker": "りきぞ", "jp": "まだ...？",                         "en": "Not yet...?"},
+				{"speaker": "りきぞう", "jp": "まだ...？",                         "en": "Not yet...?"},
 				{"speaker": "ekicho", "jp": "電車は休みです。",                  "en": "The train is on holiday."},
-				{"speaker": "りきぞ", "jp": "電車も、休み...",                   "en": "The train too... on holiday..."},
+				{"speaker": "りきぞう", "jp": "電車も、休み...",                   "en": "The train too... on holiday..."},
 				{"speaker": "ekicho", "jp": "はい。毎日ここにいます。",          "en": "Yes. I'm here every day."},
 			], options)
 		else:
@@ -1242,14 +1352,14 @@ func _handle_npc_interaction(npc) -> void:
 			# New-quest signal: pop the phone, shake it, red dot on Quests.
 			GameManager.phone_force_open.emit()
 		GameManager.start_conversation([
-			{"speaker": "yamakawa", "jp": "お、りきぞ！ここに来ましたか！",     "en": "Oh, Rikizo! You came here!"},
-			{"speaker": "りきぞ",    "jp": "やまかわ！",                          "en": "Yamakawa!"},
+			{"speaker": "yamakawa", "jp": "お、りきぞう！ここに来ましたか！",     "en": "Oh, Rikizo! You came here!"},
+			{"speaker": "りきぞう",    "jp": "やまかわ！",                          "en": "Yamakawa!"},
 			{"speaker": "yamakawa", "jp": "毎日ここに来ます。コンビニはいいですよ。", "en": "I come here every day. The convenience store is great."},
-			{"speaker": "りきぞ",    "jp": "いつからですか？",                    "en": "Since when?"},
+			{"speaker": "りきぞう",    "jp": "いつからですか？",                    "en": "Since when?"},
 			{"speaker": "yamakawa", "jp": "いつから？...いつもですよ。",         "en": "Since when? ...Always."},
 			{"speaker": "yamakawa", "jp": "また来てくださいね。",                "en": "Come again, okay?"},
 			{"speaker": "yamakawa", "jp": "あ。",                                 "en": "Oh."},
-			{"speaker": "りきぞ",    "jp": "おにぎり...",                         "en": "Onigiri..."},
+			{"speaker": "りきぞう",    "jp": "おにぎり...",                         "en": "Onigiri..."},
 		], options)
 		return
 
@@ -1257,7 +1367,7 @@ func _handle_npc_interaction(npc) -> void:
 	# regardless of day. Fires after met_yamakawa flips true (above).
 	if npc.npc_name == "yamakawa":
 		GameManager.start_conversation([
-			{"speaker": "yamakawa", "jp": "りきぞ、また来ましたか！いいですね。", "en": "Rikizo, you came again! Nice."}
+			{"speaker": "yamakawa", "jp": "りきぞう、また来ましたか！いいですね。", "en": "Rikizo, you came again! Nice."}
 		], options)
 		return
 
@@ -1266,7 +1376,11 @@ func _handle_npc_interaction(npc) -> void:
 		# Mom: after Rikizo befriends Tree-san (which only happens on Days 2-4
 		# via 3 examines), he tells Mom about Mr. Tree. Mom chides him that
 		# a tree isn't a person — and ticks her annoyance up by one.
-		if npc.npc_name == "mom" and GameManager.tree_san_unlocked and not GameManager.told_mom_tree:
+		# Gated to AFTER today's scripted morning initial has fired (so this
+		# one-time beat never pre-empts the day-5/6/etc. morning convos —
+		# it lands on a follow-up talk instead).
+		if npc.npc_name == "mom" and GameManager.tree_san_unlocked and not GameManager.told_mom_tree \
+				and GameManager.npc_day_talked.has("mom_day%d" % GameManager.current_day):
 			GameManager.told_mom_tree = true
 			GameManager.annoy("mom", "tree")
 			# Swap mom's portrait to the exasperated alt for this beat.
@@ -1274,9 +1388,9 @@ func _handle_npc_interaction(npc) -> void:
 			if exasperated_mom:
 				options["portrait_overrides"] = {"mom": exasperated_mom}
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "お母さん、木さんはともだちです！", "en": "Mom, Mr. Tree is my friend!"},
-				{"speaker": "mom",   "jp": "木は人ではないですよ、りきぞ。",   "en": "A tree isn't a person, Rikizo."},
-				{"speaker": "りきぞ", "jp": "...そうですか。",                    "en": "...Is that so."},
+				{"speaker": "りきぞう", "jp": "お母さん、木さんはともだちです！", "en": "Mom, Mr. Tree is my friend!"},
+				{"speaker": "mom",   "jp": "木は人ではないですよ、りきぞう。",   "en": "A tree isn't a person, Rikizo."},
+				{"speaker": "りきぞう", "jp": "...そうですか。",                    "en": "...Is that so."},
 			], options)
 			return
 		# Dad: after Rikizo peeks at the void edge on Day 2, he asks Dad about it.
@@ -1285,9 +1399,9 @@ func _handle_npc_interaction(npc) -> void:
 		if npc.npc_name == "dad" and GameManager.current_day == 2 and GameManager.void_seen_day2 and not GameManager.told_dad_void_day2:
 			GameManager.told_dad_void_day2 = true
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "お父さん、外の白いのは何ですか？", "en": "Dad, what's the white stuff outside?"},
+				{"speaker": "りきぞう", "jp": "お父さん、外の白いのは何ですか？", "en": "Dad, what's the white stuff outside?"},
 				{"speaker": "dad",   "jp": "何もないです。いつもですよ。",       "en": "Nothing. It's always like that."},
-				{"speaker": "りきぞ", "jp": "...そうですか。",                    "en": "...Is that so."},
+				{"speaker": "りきぞう", "jp": "...そうですか。",                    "en": "...Is that so."},
 			], options)
 			return
 		# Day 7 cake interrogation — flag-gated so it can span multiple
@@ -1303,7 +1417,7 @@ func _handle_npc_interaction(npc) -> void:
 				if sideeye:
 					options["portrait_overrides"] = {"mom": sideeye}
 				GameManager.start_conversation([
-					{"speaker": "りきぞ", "jp": "お母さん、ケーキは？",         "en": "Mom, the cake?"},
+					{"speaker": "りきぞう", "jp": "お母さん、ケーキは？",         "en": "Mom, the cake?"},
 					{"speaker": "mom",   "jp": "ケーキ？...木さんが食べました。", "en": "The cake? ...Mr. Tree ate it."},
 				], options)
 			else:
@@ -1314,12 +1428,12 @@ func _handle_npc_interaction(npc) -> void:
 				var confess := []
 				if GameManager.mom_cake_asked:
 					confess = [
-						{"speaker": "りきぞ", "jp": "木さんは...食べません。",        "en": "Mr. Tree... doesn't eat."},
+						{"speaker": "りきぞう", "jp": "木さんは...食べません。",        "en": "Mr. Tree... doesn't eat."},
 						{"speaker": "mom",   "jp": "...お母さんのケーキです。お母さんが食べました。", "en": "...It was Mom's cake. Mom ate it."},
 					]
 				else:
 					confess = [
-						{"speaker": "りきぞ", "jp": "お母さん、ケーキは？",          "en": "Mom, the cake?"},
+						{"speaker": "りきぞう", "jp": "お母さん、ケーキは？",          "en": "Mom, the cake?"},
 						{"speaker": "mom",   "jp": "お母さんのケーキです。お母さんが食べました。", "en": "It was Mom's cake. Mom ate it."},
 					]
 				GameManager.start_conversation(confess, options)
@@ -1334,13 +1448,13 @@ func _handle_npc_interaction(npc) -> void:
 			if GameManager.is_quest_complete("drink_water"):
 				GameManager.start_conversation([
 					{"speaker": "dad",   "jp": "今日、水を飲みましたか？", "en": "Did you drink water today?"},
-					{"speaker": "りきぞ", "jp": "はい、飲みました！",       "en": "Yes, I drank it!"},
+					{"speaker": "りきぞう", "jp": "はい、飲みました！",       "en": "Yes, I drank it!"},
 					{"speaker": "dad",   "jp": "いいですね。",             "en": "Good."},
 				], options)
 			else:
 				GameManager.start_conversation([
 					{"speaker": "dad",   "jp": "今日、水を飲みましたか？",   "en": "Did you drink water today?"},
-					{"speaker": "りきぞ", "jp": "いいえ、まだです。",         "en": "No, not yet."},
+					{"speaker": "りきぞう", "jp": "いいえ、まだです。",         "en": "No, not yet."},
 					{"speaker": "dad",   "jp": "水を飲んでくださいね。",     "en": "Please drink water, okay?"},
 				], options)
 			return
@@ -1355,14 +1469,27 @@ func _handle_npc_interaction(npc) -> void:
 				GameManager.remove_item("present")
 				GameManager.gave_dad_present = true
 				GameManager._save()
-			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "お父さん、プレゼントです。", "en": "Dad, a present."},
-				{"speaker": "dad",   "jp": "え、ぼくに？",              "en": "Huh, for me?"},
-				{"speaker": "りきぞ", "jp": "はい！",                    "en": "Yes!"},
-				{"speaker": "dad",   "jp": "...ありがとう、りきぞ。",    "en": "...Thank you, Rikizo."},
-				{"speaker": "dad",   "jp": "うれしいです。",            "en": "I'm happy."},
-				{"speaker": "dad",   "jp": "...車もうれしいですよ。",    "en": "...The car is happy too."},
-			], options)
+			var give_convo := []
+			if GameManager.tree_san_unlocked:
+				# High tree-relationship: Rikizo credits Mr. Tree for the gift,
+				# and Mom — who has heard this one too many times — yells from
+				# the kitchen off-screen (no portrait line).
+				give_convo.append({"speaker": "りきぞう", "jp": "お父さん、プレゼントです。", "en": "Dad, a present."})
+				give_convo.append({"speaker": "dad",   "jp": "え、ぼくに？", "en": "Huh, for me?"})
+				give_convo.append({"speaker": "りきぞう", "jp": "はい！木さんからです。", "en": "Yes! It's from Mr. Tree."})
+				give_convo.append({"speaker": "dad",   "jp": "...木さん？", "en": "...Mr. Tree?"})
+				give_convo.append({"speaker": "", "jp": "お母さん：「りきぞう！木は 人じゃ ないですよ！」", "en": "Mom (from the kitchen): \"Rikizo! A tree isn't a person!\""})
+				give_convo.append({"speaker": "りきぞう", "jp": "...はい。", "en": "...Yes."})
+				give_convo.append({"speaker": "dad",   "jp": "...ありがとう、りきぞう。", "en": "...Thank you, Rikizo."})
+				give_convo.append({"speaker": "dad",   "jp": "車も うれしいですよ。", "en": "The car is happy too."})
+			else:
+				give_convo.append({"speaker": "りきぞう", "jp": "お父さん、プレゼントです。", "en": "Dad, a present."})
+				give_convo.append({"speaker": "dad",   "jp": "え、ぼくに？", "en": "Huh, for me?"})
+				give_convo.append({"speaker": "りきぞう", "jp": "はい！", "en": "Yes!"})
+				give_convo.append({"speaker": "dad",   "jp": "...ありがとう、りきぞう。", "en": "...Thank you, Rikizo."})
+				give_convo.append({"speaker": "dad",   "jp": "うれしいです。", "en": "I'm happy."})
+				give_convo.append({"speaker": "dad",   "jp": "...車もうれしいですよ。", "en": "...The car is happy too."})
+			GameManager.start_conversation(give_convo, options)
 			return
 
 		var day_key := "%s_day%d" % [npc.npc_name, GameManager.current_day]
@@ -1370,8 +1497,8 @@ func _handle_npc_interaction(npc) -> void:
 			GameManager.npc_day_talked[day_key] = true
 			if GameManager.current_day == 2 and npc.npc_name == "mom":
 				convo = [
-					{"speaker": "mom",   "jp": "りきぞ、今日は何ようびですか？", "en": "Rikizo, what day of the week is it today?"},
-					{"speaker": "りきぞ", "jp": "えっと...",                          "en": "Umm..."},
+					{"speaker": "mom",   "jp": "りきぞう、今日は何ようびですか？", "en": "Rikizo, what day of the week is it today?"},
+					{"speaker": "りきぞう", "jp": "えっと...",                          "en": "Umm..."},
 					{"speaker": "mom",   "jp": "毎日、カレンダーを見てね。",       "en": "Check the calendar every day, okay?"},
 					{"speaker": "mom",   "jp": "いい先生は毎日がんばるよ。",       "en": "A good teacher works hard every day."},
 				]
@@ -1386,7 +1513,7 @@ func _handle_npc_interaction(npc) -> void:
 				# chide line (per-line override).
 				var base := [
 					{"speaker": "mom",   "jp": "わたしたちは4人かぞくですね。", "en": "We're a four-person family, right?"},
-					{"speaker": "mom",   "jp": "お父さん、わたし、りきぞ、と...", "en": "Dad, me, Rikizo, and..."},
+					{"speaker": "mom",   "jp": "お父さん、わたし、りきぞう、と...", "en": "Dad, me, Rikizo, and..."},
 					{"speaker": "mom",   "jp": "...",                          "en": "..."},
 				]
 				if GameManager.tree_san_unlocked:
@@ -1394,13 +1521,13 @@ func _handle_npc_interaction(npc) -> void:
 					var exasp: Texture2D = GameManager.alt_portraits.get("momExasperated")
 					var chide_line: Dictionary = {
 						"speaker": "mom",
-						"jp": "りきぞ！木は人ではないですよ！",
+						"jp": "りきぞう！木は人ではないですよ！",
 						"en": "Rikizo! A tree isn't a person!",
 					}
 					if exasp:
 						chide_line["portrait"] = exasp
 					convo = base + [
-						{"speaker": "りきぞ", "jp": "木さんですか？", "en": "Is it Mr. Tree?"},
+						{"speaker": "りきぞう", "jp": "木さんですか？", "en": "Is it Mr. Tree?"},
 						chide_line,
 					]
 				else:
@@ -1412,10 +1539,10 @@ func _handle_npc_interaction(npc) -> void:
 			elif GameManager.current_day == 4 and npc.npc_name == "mom":
 				# Day 4: the cake. Mom claims it. All of it. Including the half.
 				convo = [
-					{"speaker": "mom",   "jp": "りきぞ、このケーキはお母さんのですよ。", "en": "Rikizo, this cake is Mom's."},
-					{"speaker": "りきぞ", "jp": "...半分は？",                            "en": "...Half?"},
+					{"speaker": "mom",   "jp": "りきぞう、このケーキはお母さんのですよ。", "en": "Rikizo, this cake is Mom's."},
+					{"speaker": "りきぞう", "jp": "...半分は？",                            "en": "...Half?"},
 					{"speaker": "mom",   "jp": "半分もお母さんのです。",                 "en": "The half is also Mom's."},
-					{"speaker": "りきぞ", "jp": "...",                                    "en": "..."},
+					{"speaker": "りきぞう", "jp": "...",                                    "en": "..."},
 				]
 				GameManager.start_conversation(convo, options)
 				return
@@ -1423,8 +1550,8 @@ func _handle_npc_interaction(npc) -> void:
 				# Day 5: Mom's send-off. te-form 来てください — first
 				# conjugated verb from her, asking Rikizo to come home.
 				convo = [
-					{"speaker": "mom",   "jp": "りきぞ、今日はどこに行きますか？", "en": "Rikizo, where are you going today?"},
-					{"speaker": "りきぞ", "jp": "店に行きます！",                  "en": "I'm going to the shops!"},
+					{"speaker": "mom",   "jp": "りきぞう、今日はどこに行きますか？", "en": "Rikizo, where are you going today?"},
+					{"speaker": "りきぞう", "jp": "店に行きます！",                  "en": "I'm going to the shops!"},
 					{"speaker": "mom",   "jp": "家に来てくださいね。",            "en": "Come home, okay?"},
 				]
 				GameManager.start_conversation(convo, options)
@@ -1441,8 +1568,8 @@ func _handle_npc_interaction(npc) -> void:
 				return
 			elif GameManager.current_day == 2 and npc.npc_name == "dad":
 				convo = [
-					{"speaker": "dad",   "jp": "りきぞ、今日もいい子ですね。",      "en": "Rikizo, you're a good kid today too."},
-					{"speaker": "りきぞ", "jp": "お父さん、あれは何ですか？",        "en": "Dad, what's that?"},
+					{"speaker": "dad",   "jp": "りきぞう、今日もいい子ですね。",      "en": "Rikizo, you're a good kid today too."},
+					{"speaker": "りきぞう", "jp": "お父さん、あれは何ですか？",        "en": "Dad, what's that?"},
 					{"speaker": "dad",   "jp": "金です。お父さんの金です。",        "en": "Gold. Dad's gold."},
 					{"speaker": "dad",   "jp": "...だめですよ。",                    "en": "...Don't even think about it."},
 				]
@@ -1459,9 +1586,9 @@ func _handle_npc_interaction(npc) -> void:
 						"en": "Got ¥%d." % amount,
 					})
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞ、お金です。",         "en": "Rikizo, money."},
+					{"speaker": "dad",   "jp": "りきぞう、お金です。",         "en": "Rikizo, money."},
 					{"speaker": "dad",   "jp": "せんせいのお金です。",       "en": "Teaching money."},
-					{"speaker": "りきぞ", "jp": "ありがとう、お父さん！",     "en": "Thank you, Dad!"},
+					{"speaker": "りきぞう", "jp": "ありがとう、お父さん！",     "en": "Thank you, Dad!"},
 				], options)
 				return
 			elif GameManager.current_day == 4 and npc.npc_name == "dad" and not GameManager.has_phone:
@@ -1482,11 +1609,11 @@ func _handle_npc_interaction(npc) -> void:
 					GameManager.inventory_changed.emit()
 					GameManager.phone_case_changed.emit()
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞ、ちょっと。",                     "en": "Rikizo, a moment."},
-					{"speaker": "dad",   "jp": "これはりきぞのスマホですよ。",           "en": "This is Rikizo's smartphone."},
-					{"speaker": "りきぞ", "jp": "スマホ！？",                              "en": "A smartphone!?"},
+					{"speaker": "dad",   "jp": "りきぞう、ちょっと。",                     "en": "Rikizo, a moment."},
+					{"speaker": "dad",   "jp": "これはりきぞうのスマホですよ。",           "en": "This is Rikizo's smartphone."},
+					{"speaker": "りきぞう", "jp": "スマホ！？",                              "en": "A smartphone!?"},
 					{"speaker": "dad",   "jp": "日本語のお金はすぐスマホです。分かりますか？", "en": "The Japanese[-lesson] money goes straight to the phone. Understand?"},
-					{"speaker": "りきぞ", "jp": "分かります！",                           "en": "I understand!"},
+					{"speaker": "りきぞう", "jp": "分かります！",                           "en": "I understand!"},
 					{"speaker": "dad",   "jp": "今週は大切ですよ。",                     "en": "This week is important."},
 				], options)
 				return
@@ -1495,8 +1622,8 @@ func _handle_npc_interaction(npc) -> void:
 				# (行きます), plus a paranoid reminder that the gold is off
 				# limits — だめ formally available now per N5.5.
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞ、どこに行きますか？",         "en": "Rikizo, where are you going?"},
-					{"speaker": "りきぞ", "jp": "外に行きます！",                     "en": "I'm going outside!"},
+					{"speaker": "dad",   "jp": "りきぞう、どこに行きますか？",         "en": "Rikizo, where are you going?"},
+					{"speaker": "りきぞう", "jp": "外に行きます！",                     "en": "I'm going outside!"},
 					{"speaker": "dad",   "jp": "店に行きますか？",                   "en": "Going to the shops?"},
 					{"speaker": "dad",   "jp": "だめですよ、金は...だめです。",      "en": "Don't... the gold is off limits."},
 				], options)
@@ -1508,8 +1635,8 @@ func _handle_npc_interaction(npc) -> void:
 				# a text-message-based one. First time Dad uses わたしの
 				# (about anything).
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞ、外に車がありますね。",     "en": "Rikizo, there's a car outside."},
-					{"speaker": "りきぞ", "jp": "車...？",                           "en": "A car...?"},
+					{"speaker": "dad",   "jp": "りきぞう、外に車がありますね。",     "en": "Rikizo, there's a car outside."},
+					{"speaker": "りきぞう", "jp": "車...？",                           "en": "A car...?"},
 					{"speaker": "dad",   "jp": "わたしの車です。",                  "en": "It's MY car."},
 					{"speaker": "dad",   "jp": "だめですよ、車は...だめです。",     "en": "Don't... the car is off limits."},
 				], options)
@@ -1529,13 +1656,13 @@ func _handle_npc_interaction(npc) -> void:
 					# Phone buzz + red dot on the Quests tile.
 					GameManager.phone_force_open.emit()
 				GameManager.start_conversation([
-					{"speaker": "mom",   "jp": "りきぞ、今日は買い物に行きますか？", "en": "Rikizo, are you going shopping today?"},
-					{"speaker": "りきぞ", "jp": "はい！",                              "en": "Yes!"},
+					{"speaker": "mom",   "jp": "りきぞう、今日は買い物に行きますか？", "en": "Rikizo, are you going shopping today?"},
+					{"speaker": "りきぞう", "jp": "はい！",                              "en": "Yes!"},
 					{"speaker": "mom",   "jp": "お金はありますか？",                  "en": "Do you have money?"},
-					{"speaker": "りきぞ", "jp": "はい、あります！",                    "en": "Yes, I do!"},
+					{"speaker": "りきぞう", "jp": "はい、あります！",                    "en": "Yes, I do!"},
 					{"speaker": "mom",   "jp": "高いものは買わないでくださいね。",     "en": "Don't buy expensive things, okay?"},
 					{"speaker": "mom",   "jp": "あ、お父さんのプレゼントを買ってきてください。", "en": "Oh, please go buy a present for Dad."},
-					{"speaker": "りきぞ", "jp": "はい、わかりました！",                "en": "Yes, understood!"},
+					{"speaker": "りきぞう", "jp": "はい、わかりました！",                "en": "Yes, understood!"},
 				], options)
 				return
 			elif GameManager.current_day == 8 and npc.npc_name == "dad":
@@ -1545,7 +1672,7 @@ func _handle_npc_interaction(npc) -> void:
 				# today. Dad then snaps back to his eternal car monologue,
 				# now with the new 新しい adjective permanently applied.
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞ、駅に駅長がいますよ。",         "en": "Rikizo, there's a station master at the station."},
+					{"speaker": "dad",   "jp": "りきぞう、駅に駅長がいますよ。",         "en": "Rikizo, there's a station master at the station."},
 					{"speaker": "dad",   "jp": "車の話をしました。",                   "en": "We talked about cars."},
 					{"speaker": "dad",   "jp": "いい人です。",                         "en": "Good person."},
 					{"speaker": "dad",   "jp": "...車はいいですよ。新しい車です。",     "en": "...Cars are good. It's a new car."},
@@ -1555,16 +1682,16 @@ func _handle_npc_interaction(npc) -> void:
 				if GameManager.is_quest_complete("shopping_present"):
 					# Present bought — Mom is pleased (post-purchase follow-up).
 					GameManager.start_conversation([
-						{"speaker": "mom",   "jp": "りきぞ、プレゼントを買いましたか？",       "en": "Rikizo, did you buy the present?"},
-						{"speaker": "りきぞ", "jp": "はい、買いました！",                      "en": "Yes, I bought it!"},
+						{"speaker": "mom",   "jp": "りきぞう、プレゼントを買いましたか？",       "en": "Rikizo, did you buy the present?"},
+						{"speaker": "りきぞう", "jp": "はい、買いました！",                      "en": "Yes, I bought it!"},
 						{"speaker": "mom",   "jp": "よかったです。お父さんもよろこびますよ。", "en": "Wonderful. Dad will be happy too."},
 					], options)
 				else:
 					# Pre-present nudge — points Rikizo at the depaato.
 					GameManager.start_conversation([
-						{"speaker": "mom",   "jp": "りきぞ、おはよう。",                     "en": "Rikizo, good morning."},
+						{"speaker": "mom",   "jp": "りきぞう、おはよう。",                     "en": "Rikizo, good morning."},
 						{"speaker": "mom",   "jp": "デパートでプレゼントを買ってくださいね。", "en": "Please buy the present at the depaato, okay?"},
-						{"speaker": "りきぞ", "jp": "はい、行きます！",                       "en": "Yes, I'll go!"},
+						{"speaker": "りきぞう", "jp": "はい、行きます！",                       "en": "Yes, I'll go!"},
 					], options)
 				return
 			elif GameManager.current_day == 9 and npc.npc_name == "dad":
@@ -1577,28 +1704,28 @@ func _handle_npc_interaction(npc) -> void:
 				else:
 					# Pre-present: Dad hasn't got it yet, none-the-wiser.
 					GameManager.start_conversation([
-						{"speaker": "dad",   "jp": "りきぞ、おはよう。",        "en": "Rikizo, good morning."},
+						{"speaker": "dad",   "jp": "りきぞう、おはよう。",        "en": "Rikizo, good morning."},
 						{"speaker": "dad",   "jp": "今日も出かけますか？",      "en": "Heading out today too?"},
-						{"speaker": "りきぞ", "jp": "はい！",                    "en": "Yes!"},
+						{"speaker": "りきぞう", "jp": "はい！",                    "en": "Yes!"},
 						{"speaker": "dad",   "jp": "...車はいいですよ。",        "en": "...Cars are good."},
 					], options)
 				return
 			elif GameManager.current_day == 10 and npc.npc_name == "mom":
 				GameManager.start_conversation([
-					{"speaker": "mom",   "jp": "おはよう、りきぞ。今日もいい天気ですね。", "en": "Good morning, Rikizo. Nice weather again today."},
-					{"speaker": "りきぞ", "jp": "お母さん、今日は休みですか？",            "en": "Mom, is today a day off?"},
+					{"speaker": "mom",   "jp": "おはよう、りきぞう。今日もいい天気ですね。", "en": "Good morning, Rikizo. Nice weather again today."},
+					{"speaker": "りきぞう", "jp": "お母さん、今日は休みですか？",            "en": "Mom, is today a day off?"},
 					{"speaker": "mom",   "jp": "うん、休みですよ。お父さんも休みです。",   "en": "Yes, it's a day off. Dad too."},
-					{"speaker": "りきぞ", "jp": "休日ですね！いい気分です。",             "en": "A holiday! I feel good."},
+					{"speaker": "りきぞう", "jp": "休日ですね！いい気分です。",             "en": "A holiday! I feel good."},
 					{"speaker": "mom",   "jp": "天気もいいですし、気分もいいですね。",     "en": "The weather's good and the mood's good too."},
-					{"speaker": "mom",   "jp": "りきぞは先生になりましたね。",            "en": "You've become a teacher, Rikizo."},
+					{"speaker": "mom",   "jp": "りきぞうは先生になりましたね。",            "en": "You've become a teacher, Rikizo."},
 				], options)
 				return
 			elif GameManager.current_day == 10 and npc.npc_name == "dad":
 				GameManager.start_conversation([
-					{"speaker": "dad",   "jp": "りきぞ、電車を見ましたか？", "en": "Rikizo, did you see the train?"},
-					{"speaker": "りきぞ", "jp": "電車ですか？駅に？",         "en": "A train? At the station?"},
+					{"speaker": "dad",   "jp": "りきぞう、電車を見ましたか？", "en": "Rikizo, did you see the train?"},
+					{"speaker": "りきぞう", "jp": "電車ですか？駅に？",         "en": "A train? At the station?"},
 					{"speaker": "dad",   "jp": "そうだよ。電車がありますよ。でも...", "en": "Yeah. There's a train. But..."},
-					{"speaker": "りきぞ", "jp": "でも？",                     "en": "But?"},
+					{"speaker": "りきぞう", "jp": "でも？",                     "en": "But?"},
 					{"speaker": "dad",   "jp": "まだです。電車に...",         "en": "Not yet. The train..."},
 				], options)
 				return
@@ -1624,10 +1751,25 @@ func _handle_npc_interaction(npc) -> void:
 				], options)
 				return
 			if GameManager.current_day == 5 and npc.npc_name == "mom":
-				# Day 5 repeatable — gentle "come back" reminder. Every day
-				# from now on, per the roadmap.
+				# Day 5 repeatable — gentle "come back" reminders that rotate
+				# so re-talking doesn't loop one line.
 				GameManager.start_conversation([
-					{"speaker": "mom", "jp": "また来てくださいね。", "en": "Come back again, okay?"}
+					_rotating_line("mom_rep_day5", [
+						{"speaker": "mom", "jp": "また来てくださいね。",       "en": "Come back again, okay?"},
+						{"speaker": "mom", "jp": "気をつけてね、りきぞう。",   "en": "Take care, Rikizo."},
+						{"speaker": "mom", "jp": "店はどうでしたか？",         "en": "How were the shops?"},
+					])
+				], options)
+				return
+			if GameManager.current_day == 6 and npc.npc_name == "mom":
+				# Day 6 repeatable — the mountains are the day's novelty; rotate
+				# a couple of small observations (was previously missing, so
+				# follow-up talks fell through to the generic greeting).
+				GameManager.start_conversation([
+					_rotating_line("mom_rep_day6", [
+						{"speaker": "mom", "jp": "山がきれいですね。",     "en": "The mountains are pretty."},
+						{"speaker": "mom", "jp": "家に来てくださいね。",   "en": "Come home, okay?"},
+					])
 				], options)
 				return
 			if GameManager.current_day == 8 and npc.npc_name == "mom":
@@ -1723,7 +1865,7 @@ func _handle_npc_interaction(npc) -> void:
 	if npc.npc_name == "yuki" and DAY_DATA_DIR.find("day-10-platform/") != -1:
 		var yuki_shock: Texture2D = GameManager.alt_portraits.get("meShocked")
 		if yuki_shock and not options.has("portrait_overrides"):
-			options["portrait_overrides"] = {"りきぞ": yuki_shock}
+			options["portrait_overrides"] = {"りきぞう": yuki_shock}
 		var yk := "yuki_day%d" % GameManager.current_day
 		if not GameManager.npc_day_talked.has(yk):
 			GameManager.npc_day_talked[yk] = true
@@ -1733,21 +1875,27 @@ func _handle_npc_interaction(npc) -> void:
 				GameManager.increment_tracker("paranoia")
 				GameManager._save()
 			GameManager.start_conversation([
-				{"speaker": "yuki",   "jp": "あ...りきぞくん。",            "en": "Ah... Rikizo."},
-				{"speaker": "りきぞ", "jp": "ゆきさん。ここに いますね。",    "en": "Yuki-san. You're here."},
+				{"speaker": "yuki",   "jp": "あ...りきぞうくん。",            "en": "Ah... Rikizo."},
+				{"speaker": "りきぞう", "jp": "ゆきさん。ここに いますね。",    "en": "Yuki-san. You're here."},
 				{"speaker": "yuki",   "jp": "はい。きょうは、ここです。",     "en": "Yes. Today, I'm here."},
 				{"speaker": "yuki",   "jp": "あの電車を 見ますか？",         "en": "Do you see that train?"},
-				{"speaker": "りきぞ", "jp": "はい。大きい 電車ですね。",      "en": "Yes. It's a big train."},
+				{"speaker": "りきぞう", "jp": "はい。大きい 電車ですね。",      "en": "Yes. It's a big train."},
 				{"speaker": "yuki",   "jp": "でも...どこにも いきません。",    "en": "But... it doesn't go anywhere."},
-				{"speaker": "りきぞ", "jp": "どこにも...？",                "en": "Nowhere...?"},
+				{"speaker": "りきぞう", "jp": "どこにも...？",                "en": "Nowhere...?"},
 				{"speaker": "yuki",   "jp": "あそこを 見て。",              "en": "Look over there."},
-				{"speaker": "りきぞ", "jp": "...白い。",                   "en": "...White."},
+				{"speaker": "りきぞう", "jp": "...白い。",                   "en": "...White."},
 				{"speaker": "yuki",   "jp": "なにも ないです。",            "en": "There's nothing."},
 				{"speaker": "yuki",   "jp": "電車は、どこにも いきません。",   "en": "The train goes nowhere."},
-				{"speaker": "りきぞ", "jp": "ぼくも、見ます。",              "en": "I see it too."},
+				{"speaker": "りきぞう", "jp": "ぼくも、見ます。",              "en": "I see it too."},
 				{"speaker": "yuki",   "jp": "ふたりだけ、ですね。",          "en": "Just the two of us."},
 				{"speaker": "yuki",   "jp": "こわいです...",               "en": "I'm scared..."},
-				{"speaker": "りきぞ", "jp": "...うん。",                   "en": "...Yeah."},
+				{"speaker": "りきぞう", "jp": "ゆきさん、だいじょうぶです。", "en": "Yuki-san, it's alright."},
+				{"speaker": "りきぞう", "jp": "ぼくが いますから。", "en": "Because I'm here."},
+				{"speaker": "yuki",   "jp": "...はい。", "en": "...Yes."},
+				{"speaker": "yuki",   "jp": "りきぞうくんは、先生ですね。", "en": "You're a teacher, aren't you."},
+				{"speaker": "りきぞう", "jp": "はい。先生です。", "en": "Yes. I'm a teacher."},
+				{"speaker": "yuki",   "jp": "じゃあ、だいじょうぶですね。", "en": "Then... it's alright, isn't it."},
+				{"speaker": "りきぞう", "jp": "...うん。",                   "en": "...Yeah."},
 			], options)
 		else:
 			# Repeat — rotate quiet lines so re-approaching isn't a dead line.
@@ -1766,7 +1914,7 @@ func _handle_npc_interaction(npc) -> void:
 		var yuki_shocked: Texture2D = GameManager.alt_portraits.get("meShocked")
 		var yuki_opts := {"background": "void"}
 		if yuki_shocked:
-			yuki_opts["portrait_overrides"] = {"りきぞ": yuki_shocked}
+			yuki_opts["portrait_overrides"] = {"りきぞう": yuki_shocked}
 		yuki_opts["on_end"] = func():
 			GameManager.met_yuki = true
 			GameManager.void_asked["yuki"] = true
@@ -1779,15 +1927,15 @@ func _handle_npc_interaction(npc) -> void:
 			# out before the social niceties. Less small-talk, more
 			# desperation, terse fragments.
 			yuki_lines = [
-				{"speaker": "yuki",   "jp": "あ！りきぞくん！？",         "en": "Ah! Rikizo!?"},
-				{"speaker": "りきぞ", "jp": "ゆきさん！あれ！",            "en": "Yuki! That!"},
+				{"speaker": "yuki",   "jp": "あ！りきぞうくん！？",         "en": "Ah! Rikizo!?"},
+				{"speaker": "りきぞう", "jp": "ゆきさん！あれ！",            "en": "Yuki! That!"},
 				{"speaker": "yuki",   "jp": "あれ...？",                    "en": "That...?"},
-				{"speaker": "りきぞ", "jp": "あれを見ますか！？",          "en": "Do you see that!?"},
+				{"speaker": "りきぞう", "jp": "あれを見ますか！？",          "en": "Do you see that!?"},
 				{"speaker": "yuki",   "jp": "白いです...見ますよ...",       "en": "It's white... I see it..."},
-				{"speaker": "りきぞ", "jp": "！！",                          "en": "!!"},
-				{"speaker": "りきぞ", "jp": "ぼくも見ます！ゆきさん！",    "en": "I see it too! Yuki!"},
-				{"speaker": "yuki",   "jp": "りきぞくん...こわいです...",   "en": "Rikizo... I'm scared..."},
-				{"speaker": "りきぞ", "jp": "ぼくもです...ふたりだけ...",   "en": "Me too... just the two of us..."},
+				{"speaker": "りきぞう", "jp": "！！",                          "en": "!!"},
+				{"speaker": "りきぞう", "jp": "ぼくも見ます！ゆきさん！",    "en": "I see it too! Yuki!"},
+				{"speaker": "yuki",   "jp": "りきぞうくん...こわいです...",   "en": "Rikizo... I'm scared..."},
+				{"speaker": "りきぞう", "jp": "ぼくもです...ふたりだけ...",   "en": "Me too... just the two of us..."},
 				{"speaker": "yuki",   "jp": "...わかりません...",            "en": "...I don't know..."},
 			]
 		else:
@@ -1795,17 +1943,17 @@ func _handle_npc_interaction(npc) -> void:
 			# up about it. Polite greetings first, void emerges into the
 			# convo organically.
 			yuki_lines = [
-				{"speaker": "yuki",   "jp": "あ！りきぞくん！？",         "en": "Ah! Rikizo!?"},
-				{"speaker": "りきぞ", "jp": "ゆきさん！",                   "en": "Yuki!"},
+				{"speaker": "yuki",   "jp": "あ！りきぞうくん！？",         "en": "Ah! Rikizo!?"},
+				{"speaker": "りきぞう", "jp": "ゆきさん！",                   "en": "Yuki!"},
 				{"speaker": "yuki",   "jp": "ここに...？",                   "en": "...Here?"},
-				{"speaker": "りきぞ", "jp": "やまかわが...",                "en": "Yamakawa..."},
+				{"speaker": "りきぞう", "jp": "やまかわが...",                "en": "Yamakawa..."},
 				{"speaker": "yuki",   "jp": "あ...",                          "en": "Ah..."},
-				{"speaker": "yuki",   "jp": "りきぞくん、あれ...",           "en": "Rikizo, that..."},
-				{"speaker": "りきぞ", "jp": "あれ？",                         "en": "That?"},
+				{"speaker": "yuki",   "jp": "りきぞうくん、あれ...",           "en": "Rikizo, that..."},
+				{"speaker": "りきぞう", "jp": "あれ？",                         "en": "That?"},
 				{"speaker": "yuki",   "jp": "白いです...こわいです...",       "en": "It's white... it's scary..."},
-				{"speaker": "りきぞ", "jp": "！ゆきさん、ぼくも見ます！",   "en": "! Yuki, I see it too!"},
+				{"speaker": "りきぞう", "jp": "！ゆきさん、ぼくも見ます！",   "en": "! Yuki, I see it too!"},
 				{"speaker": "yuki",   "jp": "ほんとう？",                     "en": "Really?"},
-				{"speaker": "りきぞ", "jp": "ふたりだけですね...",           "en": "Just the two of us..."},
+				{"speaker": "りきぞう", "jp": "ふたりだけですね...",           "en": "Just the two of us..."},
 				{"speaker": "yuki",   "jp": "...わかりません...",             "en": "...I don't know..."},
 			]
 		GameManager.start_conversation(yuki_lines, yuki_opts)
@@ -1819,13 +1967,13 @@ func _handle_npc_interaction(npc) -> void:
 		var yuki_again_shocked: Texture2D = GameManager.alt_portraits.get("meShocked")
 		var yuki_again_opts := {"background": "void"}
 		if yuki_again_shocked:
-			yuki_again_opts["portrait_overrides"] = {"りきぞ": yuki_again_shocked}
+			yuki_again_opts["portrait_overrides"] = {"りきぞう": yuki_again_shocked}
 		GameManager.start_conversation([
-			{"speaker": "yuki",   "jp": "りきぞくん...",             "en": "Rikizo..."},
-			{"speaker": "りきぞ", "jp": "ゆきさん。あれ、まだありますね。", "en": "Yuki-san. That's still there."},
+			{"speaker": "yuki",   "jp": "りきぞうくん...",             "en": "Rikizo..."},
+			{"speaker": "りきぞう", "jp": "ゆきさん。あれ、まだありますね。", "en": "Yuki-san. That's still there."},
 			{"speaker": "yuki",   "jp": "はい...白いです...",         "en": "Yes... it's white..."},
 			{"speaker": "yuki",   "jp": "こわいです...",             "en": "I'm scared..."},
-			{"speaker": "りきぞ", "jp": "ふたりだけですね...",         "en": "Just the two of us..."},
+			{"speaker": "りきぞう", "jp": "ふたりだけですね...",         "en": "Just the two of us..."},
 		], yuki_again_opts)
 		return
 
@@ -1836,28 +1984,28 @@ func _handle_npc_interaction(npc) -> void:
 
 		if npc.npc_name == "mom":
 			convo = [
-				{"speaker": "りきぞ", "jp": "お母さん…！", "en": "Mom…!"},
-				{"speaker": "りきぞ", "jp": "そとに…なにも…！", "en": "Outside… nothing…!"},
+				{"speaker": "りきぞう", "jp": "お母さん…！", "en": "Mom…!"},
+				{"speaker": "りきぞう", "jp": "そとに…なにも…！", "en": "Outside… nothing…!"},
 				{"speaker": "mom", "jp": "なに？", "en": "What?"},
 				{"speaker": "mom", "jp": "パソコンはありますよ。", "en": "You have your persocon, you know."},
 				{"speaker": "mom", "jp": "いい先生ですよ。パソコンでべんきょうしてね。", "en": "You're a good teacher. Go study on your persocon, OK?"},
-				{"speaker": "りきぞ", "jp": "…はい。", "en": "…OK."}
+				{"speaker": "りきぞう", "jp": "…はい。", "en": "…OK."}
 			]
 			if shocked:
-				options["portrait_overrides"] = {"りきぞ": shocked}
+				options["portrait_overrides"] = {"りきぞう": shocked}
 
 		elif npc.npc_name == "dad":
 			convo = [
-				{"speaker": "りきぞ", "jp": "お父さん！", "en": "Dad!"},
-				{"speaker": "りきぞ", "jp": "そとに…なにもない…！", "en": "Outside… there's nothing…!"},
+				{"speaker": "りきぞう", "jp": "お父さん！", "en": "Dad!"},
+				{"speaker": "りきぞう", "jp": "そとに…なにもない…！", "en": "Outside… there's nothing…!"},
 				{"speaker": "dad", "jp": "ん？そとですか。", "en": "Hm? Outside?"},
 				{"speaker": "dad", "jp": "パソコンはいいですか？", "en": "Is your persocon working OK?"},
-				{"speaker": "りきぞ", "jp": "え…？パソコン…？", "en": "Huh…? The persocon…?"},
+				{"speaker": "りきぞう", "jp": "え…？パソコン…？", "en": "Huh…? The persocon…?"},
 				{"speaker": "dad", "jp": "先生ですよ。パソコンでがんばってね。", "en": "You're a teacher. Do your best on the persocon, OK?"},
-				{"speaker": "りきぞ", "jp": "…はい。", "en": "…OK."}
+				{"speaker": "りきぞう", "jp": "…はい。", "en": "…OK."}
 			]
 			if shocked:
-				options["portrait_overrides"] = {"りきぞ": shocked}
+				options["portrait_overrides"] = {"りきぞう": shocked}
 
 		GameManager._save()
 
@@ -1939,16 +2087,22 @@ func _handle_object_interaction(obj) -> void:
 			# player takes in the view before Rikizo pops in to comment.
 			GameManager.start_conversation([
 				{"speaker": "", "jp": "...",                                 "en": "..."},
-				{"speaker": "りきぞ", "jp": "山です。",                       "en": "A mountain."},
-				{"speaker": "りきぞ", "jp": "...山さんですか？",              "en": "...Mr. Mountain?"},
-				{"speaker": "りきぞ", "jp": "あ、川も。山さんの川ですか？",   "en": "Oh, a river too. Is it Mr. Mountain's river?"},
-				{"speaker": "りきぞ", "jp": "...",                            "en": "..."},
+				{"speaker": "りきぞう", "jp": "山です。",                       "en": "A mountain."},
+				{"speaker": "りきぞう", "jp": "...山さんですか？",              "en": "...Mr. Mountain?"},
+				{"speaker": "りきぞう", "jp": "あ、川も。山さんの川ですか？",   "en": "Oh, a river too. Is it Mr. Mountain's river?"},
+				{"speaker": "りきぞう", "jp": "...",                            "en": "..."},
 			], {"background": "mountain-river"})
 			GameManager.paranoia(1)
 		else:
 			GameManager.start_conversation([
 				{"speaker": "", "jp": "...",                       "en": "..."},
-				{"speaker": "りきぞ", "jp": "山さん、こんにちは。", "en": "Hello, Mr. Mountain."},
+				_rotating_line("telescope_view", [
+					{"speaker": "りきぞう", "jp": "山さん、こんにちは。",         "en": "Hello, Mr. Mountain."},
+					{"speaker": "りきぞう", "jp": "川は…まだ とおいです。",       "en": "The river is... still far."},
+					{"speaker": "りきぞう", "jp": "山と川の あいだ、白いです。",   "en": "Between the mountain and the river, it's white."},
+					{"speaker": "りきぞう", "jp": "山さんは しずかですね。",       "en": "Mr. Mountain is quiet, isn't he."},
+					{"speaker": "りきぞう", "jp": "きれいですが…さびしいです。",   "en": "It's pretty, but... lonely."},
+				]),
 			], {"background": "mountain-river"})
 	elif obj.object_name == "Vending_Machine":
 		# Day 6-7: display-only — Rikizo notices the machine but 買う
@@ -1964,20 +2118,34 @@ func _handle_object_interaction(obj) -> void:
 		var on_end: Callable = func():
 			shop_menu_overlay.open_menu(vending_items)
 		GameManager.start_conversation([
-			{"speaker": "りきぞ", "jp": "じはんきです。", "en": "A vending machine."},
+			{"speaker": "りきぞう", "jp": "じはんきです。", "en": "A vending machine."},
 		], {"background": "street", "on_end": on_end})
 	elif obj.object_name == "Bus_Stop":
 		# Day 5+ residential street. First examine: Rikizo wonders about
 		# the bus — when it comes, where it goes. Street convo bg.
 		if first_examine:
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "バス停です。",                "en": "A bus stop."},
-				{"speaker": "りきぞ", "jp": "バスは...いつ来ますか？",     "en": "When does the bus come?"},
-				{"speaker": "りきぞ", "jp": "どこに行きますか？",          "en": "Where does it go?"},
-				{"speaker": "りきぞ", "jp": "...バスは、ないですね。",     "en": "...There's no bus."},
+				{"speaker": "りきぞう", "jp": "バス停です。",                "en": "A bus stop."},
+				{"speaker": "りきぞう", "jp": "バスは...いつ来ますか？",     "en": "When does the bus come?"},
+				{"speaker": "りきぞう", "jp": "どこに行きますか？",          "en": "Where does it go?"},
+				{"speaker": "りきぞう", "jp": "...バスは、ないですね。",     "en": "...There's no bus."},
 			], {"background": "street"})
 		else:
 			GameManager.show_message({"jp": "バス停です。", "en": "A bus stop."})
+	elif obj.object_name == "Fence":
+		# Day 5: the residential street's north edge. Beyond the fence the
+		# world simply hasn't been made yet — Rikizo peers over and finds the
+		# white nothing. First examine = the small dread beat; repeats shrug.
+		if first_examine:
+			GameManager.paranoia(1)
+			GameManager.start_conversation([
+				{"speaker": "りきぞう", "jp": "フェンスです。", "en": "A fence."},
+				{"speaker": "りきぞう", "jp": "むこうは...", "en": "Beyond it..."},
+				{"speaker": "りきぞう", "jp": "...白いです。", "en": "...white."},
+				{"speaker": "りきぞう", "jp": "なにも ないですね。", "en": "There's nothing there."},
+			], {"background": "street"})
+		else:
+			GameManager.show_message({"jp": "むこうは、なにも ないです。", "en": "Beyond it, there's nothing."})
 	elif obj.object_name == "Curry_Hut":
 		# Riverside curry stand. Appears Day 7 (appearsFromDay), but the verbs
 		# gate the experience: Day 7 the player can only NOTICE it (ほしい
@@ -1993,8 +2161,8 @@ func _handle_object_interaction(obj) -> void:
 			# back. No ほしい / 買う / eating yet (not taught until Day 8).
 			GameManager.start_conversation([
 				{"speaker": "cook",   "jp": "いらっしゃい！",      "en": "Welcome!"},
-				{"speaker": "りきぞ", "jp": "あ、カレーですね！",  "en": "Ah, it's curry!"},
-				{"speaker": "りきぞ", "jp": "また 来ます。",        "en": "I'll come again."},
+				{"speaker": "りきぞう", "jp": "あ、カレーですね！",  "en": "Ah, it's curry!"},
+				{"speaker": "りきぞう", "jp": "また 来ます。",        "en": "I'll come again."},
 				{"speaker": "cook",   "jp": "はい、どうぞ！",      "en": "Sure, anytime!"},
 			], curry_opts)
 		else:
@@ -2020,11 +2188,11 @@ func _handle_object_interaction(obj) -> void:
 			var shocked: Texture2D = GameManager.alt_portraits.get("meShocked")
 			var options := {"background": "street-void"}
 			if shocked:
-				options["portrait_overrides"] = {"りきぞ": shocked}
+				options["portrait_overrides"] = {"りきぞう": shocked}
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "工事です。",            "en": "Construction."},
-				{"speaker": "りきぞ", "jp": "...いいえ。",           "en": "...No."},
-				{"speaker": "りきぞ", "jp": "外...何もないです。",   "en": "Outside... there's nothing."},
+				{"speaker": "りきぞう", "jp": "工事です。",            "en": "Construction."},
+				{"speaker": "りきぞう", "jp": "...いいえ。",           "en": "...No."},
+				{"speaker": "りきぞう", "jp": "外...何もないです。",   "en": "Outside... there's nothing."},
 			], options)
 		else:
 			GameManager.show_message({"jp": "工事です。", "en": "Construction."})
@@ -2035,13 +2203,13 @@ func _handle_object_interaction(obj) -> void:
 		# new verb, and a tiny "new verbs create new decisions" beat.
 		if GameManager.current_day >= 7:
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "川です。きれいですね。",   "en": "The river. It's pretty."},
-				{"speaker": "りきぞ", "jp": "...飲みますか？",         "en": "...Drink?"},
-				{"speaker": "りきぞ", "jp": "...飲みません。",          "en": "...No."},
+				{"speaker": "りきぞう", "jp": "川です。きれいですね。",   "en": "The river. It's pretty."},
+				{"speaker": "りきぞう", "jp": "...飲みますか？",         "en": "...Drink?"},
+				{"speaker": "りきぞう", "jp": "...飲みません。",          "en": "...No."},
 			], {"background": "mountain-river"})
 		else:
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "川です。きれいですね。", "en": "The river. It's pretty."},
+				{"speaker": "りきぞう", "jp": "川です。きれいですね。", "en": "The river. It's pretty."},
 			], {"background": "mountain-river"})
 	elif obj.object_name == "Salad" or obj.object_name == "Bread" or obj.object_name == "Coffee":
 		# Day 7+ breakfast — examining any of the three table foods plays
@@ -2063,11 +2231,11 @@ func _handle_object_interaction(obj) -> void:
 				"res://assets/cg/cg-rikizo-breakfast.png",
 				"もぐもぐ",
 				finish_meal,
-				"rice"
+				"rice", "chew"
 			)
 		GameManager.start_conversation([
 			{"speaker": "mom",   "jp": "朝ごはんを食べてください。",          "en": "Please eat breakfast."},
-			{"speaker": "りきぞ", "jp": "いただきます！",                      "en": "Itadakimasu!"},
+			{"speaker": "りきぞう", "jp": "いただきます！",                      "en": "Itadakimasu!"},
 			{"speaker": "mom",   "jp": "パンとサラダです。コーヒーもありますよ。", "en": "Bread and salad. There's coffee too."},
 		], {"background": "kitchen", "on_end": eat_cg})
 	elif obj.object_name == "Cake":
@@ -2080,7 +2248,7 @@ func _handle_object_interaction(obj) -> void:
 			options["portrait_overrides"] = {"mom": stern_mom}
 		GameManager.start_conversation([
 			{"speaker": "mom",   "jp": "ケーキ！だめ！",       "en": "The cake! No!"},
-			{"speaker": "りきぞ", "jp": "す、すみません…！",   "en": "S-sorry…!"},
+			{"speaker": "りきぞう", "jp": "す、すみません…！",   "en": "S-sorry…!"},
 		], options)
 		GameManager.annoy("mom", "cake")
 	elif obj.object_name == "Dads_Car":
@@ -2117,7 +2285,7 @@ func _handle_object_interaction(obj) -> void:
 			options["portrait_overrides"] = {"dad": angry_dad}
 		GameManager.start_conversation([
 			{"speaker": "dad", "jp": "金！だめ！", "en": "The gold! No!"},
-			{"speaker": "りきぞ", "jp": "す、すみません…！", "en": "S-sorry…!"}
+			{"speaker": "りきぞう", "jp": "す、すみません…！", "en": "S-sorry…!"}
 		], options)
 		GameManager.annoy("dad", "gold")
 	elif obj.object_name == "Porch_Back":
@@ -2135,7 +2303,7 @@ func _handle_object_interaction(obj) -> void:
 				home_opts["portrait_overrides"] = {"mom": mom_portrait}
 			GameManager.start_conversation(
 				[
-					{"speaker": "りきぞ", "jp": "ただいま！", "en": "I'm home!",      "background": "entryway"},
+					{"speaker": "りきぞう", "jp": "ただいま！", "en": "I'm home!",      "background": "entryway"},
 					{"speaker": "mom",    "jp": "おかえり！", "en": "Welcome back!",  "background": "kitchen"},
 				],
 				home_opts
@@ -2242,13 +2410,21 @@ func _handle_object_interaction(obj) -> void:
 			# position via positioner once Door_Inside on the exterior
 			# is finalized.
 			transition_to_day("day-08-depaato", Vector2(624, 280))
+		elif DAY_DATA_DIR.find("day-10-hotel-inside/") != -1:
+			# Out the lobby glass doors → back onto the hotel street just
+			# south of the entrance/porte-cochère (now at x≈830 in the rebuilt
+			# exterior, with the hotel filling the NE 2/3).
+			transition_to_day("day-10-hotel-street", Vector2(832, 470))
 	elif obj.object_name == "Exit_Platform":
 		# Day 10: the waiting-room west passage (barricade gone) opens onto
 		# the platform behind the station.
 		transition_to_day("day-10-platform", Vector2(200, 540))
 	elif obj.object_name == "Exit_Door":
-		# Platform west doorway → back into the station waiting room.
-		transition_to_day("day-09-station-inside", Vector2(240, 500))
+		# Platform west doorway → back into the station waiting room. Spawn on
+		# the open concourse floor SOUTH of the turnstiles — the old (240,500)
+		# landed the player wedged inside the turnstile collision band
+		# (verified red at y≈500, x160–320 in the collision mask).
+		transition_to_day("day-09-station-inside", Vector2(200, 560))
 	elif obj.object_name == "Train":
 		# Parked train. Rikizo admires it; the doors give no response — 乗る
 		# (to board) is N4, so there is no interaction beyond looking.
@@ -2295,7 +2471,7 @@ func _handle_object_interaction(obj) -> void:
 			options["portrait_overrides"] = {"dad": angry_dad}
 		GameManager.start_conversation([
 			{"speaker": "dad", "jp": "おい！ドアをしめて！", "en": "Hey! Close the door!"},
-			{"speaker": "りきぞ", "jp": "す、すみません…！", "en": "S-sorry…!"}
+			{"speaker": "りきぞう", "jp": "す、すみません…！", "en": "S-sorry…!"}
 		], options)
 		GameManager.annoy("dad", "toilet_open")
 	elif not obj.message_data.is_empty():
@@ -2451,9 +2627,9 @@ func _handle_water(obj) -> void:
 	})
 
 	var tutorial_convo := [
-		{"speaker": "りきぞ", "jp": "水です。", "en": "Water."},
-		{"speaker": "りきぞ", "jp": "クエスト：水を＿＿", "en": "Quest: ＿＿ the water"},
-		{"speaker": "りきぞ", "jp": "「＿＿」は何ですか？", "en": "What does '＿＿' mean?"},
+		{"speaker": "りきぞう", "jp": "水です。", "en": "Water."},
+		{"speaker": "りきぞう", "jp": "クエスト：水を＿＿", "en": "Quest: ＿＿ the water"},
+		{"speaker": "りきぞう", "jp": "「＿＿」は何ですか？", "en": "What does '＿＿' mean?"},
 	]
 	GameManager.start_conversation(tutorial_convo, {"background": "kitchen"})
 
@@ -2476,28 +2652,28 @@ func _handle_tree() -> void:
 		return
 
 	if day == 1:
-		_tree_convo([{"speaker": "りきぞ", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
+		_tree_convo([{"speaker": "りきぞう", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
 		return
 
 	if day >= 2 and day <= 4:
 		GameManager.tree_count += 1
 		match GameManager.tree_count:
 			1:
-				_tree_convo([{"speaker": "りきぞ", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
+				_tree_convo([{"speaker": "りきぞう", "jp": "木です。いい木ですね。", "en": "A tree. Nice tree."}])
 			2:
-				_tree_convo([{"speaker": "りきぞ", "jp": "木...名は何ですか？", "en": "Tree... what's your name?"}])
+				_tree_convo([{"speaker": "りきぞう", "jp": "木...名は何ですか？", "en": "Tree... what's your name?"}])
 			3:
 				# Unlock!
 				GameManager.tree_san_unlocked = true
 				GameManager.bump_relationship("Tree")
 				GameManager._save()
-				_tree_convo([{"speaker": "りきぞ", "jp": "今日から友だちです。木さん。", "en": "From today, we're friends. Mr. Tree."}])
+				_tree_convo([{"speaker": "りきぞう", "jp": "今日から友だちです。木さん。", "en": "From today, we're friends. Mr. Tree."}])
 			_:
-				_tree_convo([{"speaker": "りきぞ", "jp": "木さん？", "en": "Mr. Tree?"}])
+				_tree_convo([{"speaker": "りきぞう", "jp": "木さん？", "en": "Mr. Tree?"}])
 		return
 
 	# Day 5+ and never unlocked — too late. Just a tree.
-	_tree_convo([{"speaker": "りきぞ", "jp": "木です。", "en": "A tree."}])
+	_tree_convo([{"speaker": "りきぞう", "jp": "木です。", "en": "A tree."}])
 
 
 func _tree_san_lines_for_day(day: int) -> Array:
@@ -2505,42 +2681,42 @@ func _tree_san_lines_for_day(day: int) -> Array:
 	## for Days 5+ until later-day scripts are written.
 	match day:
 		2:
-			return [{"speaker": "りきぞ", "jp": "木さん、こんにちは。", "en": "Hi, Mr. Tree."}]
+			return [{"speaker": "りきぞう", "jp": "木さん、こんにちは。", "en": "Hi, Mr. Tree."}]
 		3:
 			return [
-				{"speaker": "りきぞ", "jp": "木さん、今日もいい日ですね。", "en": "Mr. Tree, today's a good day too."},
-				{"speaker": "りきぞ", "jp": "お母さんは「木は人ではない」と言いました。", "en": "Mom said 'a tree isn't a person.'"},
+				{"speaker": "りきぞう", "jp": "木さん、今日もいい日ですね。", "en": "Mr. Tree, today's a good day too."},
+				{"speaker": "りきぞう", "jp": "お母さんは「木は人ではない」と言いました。", "en": "Mom said 'a tree isn't a person.'"},
 			]
 		4:
 			return [
-				{"speaker": "りきぞ", "jp": "木さん、お元気ですか？", "en": "Mr. Tree, how are you?"},
+				{"speaker": "りきぞう", "jp": "木さん、お元気ですか？", "en": "Mr. Tree, how are you?"},
 			]
 		5:
 			# Day 5: world opened up. Rikizo tells Tree-san he's heading
 			# out today too. Tree, naturally, is not going anywhere.
 			return [
-				{"speaker": "りきぞ", "jp": "木さん、今日も行きますよ。", "en": "Mr. Tree, I'm heading out today too."},
+				{"speaker": "りきぞう", "jp": "木さん、今日も行きますよ。", "en": "Mr. Tree, I'm heading out today too."},
 			]
 		6:
 			# Day 6: mountains materialized overnight. Rikizo reports
 			# the geological event to Tree-san. Tree, naturally, has
 			# always been here and has no comment.
 			return [
-				{"speaker": "りきぞ", "jp": "木さん、今日は山がありますよ。", "en": "Mr. Tree, there are mountains today."},
-				{"speaker": "りきぞ", "jp": "...木さんも、山が好きですか？",   "en": "...Do you like mountains too, Mr. Tree?"},
+				{"speaker": "りきぞう", "jp": "木さん、今日は山がありますよ。", "en": "Mr. Tree, there are mountains today."},
+				{"speaker": "りきぞう", "jp": "...木さんも、山が好きですか？",   "en": "...Do you like mountains too, Mr. Tree?"},
 			]
 		7:
 			# Day 7: eating exists now. Rikizo announces breakfast,
 			# checks whether trees eat (they don't), and — if Mom blamed
 			# Tree for the cake — quietly vindicates him.
 			var lines := [
-				{"speaker": "りきぞ", "jp": "木さん、今日からご飯を食べます。", "en": "Mr. Tree, starting today I eat meals."},
-				{"speaker": "りきぞ", "jp": "木さんも食べますか？",             "en": "Do you eat too, Mr. Tree?"},
+				{"speaker": "りきぞう", "jp": "木さん、今日からご飯を食べます。", "en": "Mr. Tree, starting today I eat meals."},
+				{"speaker": "りきぞう", "jp": "木さんも食べますか？",             "en": "Do you eat too, Mr. Tree?"},
 			]
 			if GameManager.mom_cake_done and GameManager.mom_cake_asked:
 				# Mom blamed the tree and then confessed — Rikizo absolves him.
 				lines.append({
-					"speaker": "りきぞ", "jp": "あ、ケーキは木さんじゃないですよ。お母さんでした。",
+					"speaker": "りきぞう", "jp": "あ、ケーキは木さんじゃないですよ。お母さんでした。",
 					"en": "Oh, the cake wasn't you, Mr. Tree. It was Mom."
 				})
 			return lines
@@ -2551,9 +2727,9 @@ func _tree_san_lines_for_day(day: int) -> Array:
 			# ほしい, to ask what Tree-san wants — and answers for him,
 			# because trees can't shop but they can want water.
 			return [
-				{"speaker": "りきぞ", "jp": "木さん、古い木ですね。",        "en": "Mr. Tree, you're an old tree, aren't you."},
-				{"speaker": "りきぞ", "jp": "木さんは何がほしいですか？",     "en": "What do you want, Mr. Tree?"},
-				{"speaker": "りきぞ", "jp": "...水ですね。",                  "en": "...water, huh."},
+				{"speaker": "りきぞう", "jp": "木さん、古い木ですね。",        "en": "Mr. Tree, you're an old tree, aren't you."},
+				{"speaker": "りきぞう", "jp": "木さんは何がほしいですか？",     "en": "What do you want, Mr. Tree?"},
+				{"speaker": "りきぞう", "jp": "...水ですね。",                  "en": "...water, huh."},
 			]
 		9:
 			# Day 9: gated on whether Rikizo has met Yuki yet. AFTER meeting
@@ -2562,28 +2738,28 @@ func _tree_san_lines_for_day(day: int) -> Array:
 			# gag while he heads out to the depaato.
 			if GameManager.met_yuki:
 				return [
-					{"speaker": "りきぞ", "jp": "木さん、ゆきさんと話しました。",   "en": "Mr. Tree, I talked with Yuki-san."},
-					{"speaker": "りきぞ", "jp": "ゆきさんも、あの白いのを見ます。", "en": "Yuki-san sees that white thing too."},
-					{"speaker": "りきぞ", "jp": "ぼくだけじゃないです。",           "en": "It's not just me."},
-					{"speaker": "りきぞ", "jp": "...木さん、よかったです。",         "en": "...That's good, Mr. Tree."},
+					{"speaker": "りきぞう", "jp": "木さん、ゆきさんと話しました。",   "en": "Mr. Tree, I talked with Yuki-san."},
+					{"speaker": "りきぞう", "jp": "ゆきさんも、あの白いのを見ます。", "en": "Yuki-san sees that white thing too."},
+					{"speaker": "りきぞう", "jp": "ぼくだけじゃないです。",           "en": "It's not just me."},
+					{"speaker": "りきぞう", "jp": "...木さん、よかったです。",         "en": "...That's good, Mr. Tree."},
 				]
 			return [
-				{"speaker": "りきぞ", "jp": "木さん、今日はデパートに行きます。", "en": "Mr. Tree, today I'm going to the depaato."},
-				{"speaker": "りきぞ", "jp": "木さんも行きますか？",               "en": "Are you going too, Mr. Tree?"},
-				{"speaker": "りきぞ", "jp": "...行きませんね。",                  "en": "...You're not going, huh."},
+				{"speaker": "りきぞう", "jp": "木さん、今日はデパートに行きます。", "en": "Mr. Tree, today I'm going to the depaato."},
+				{"speaker": "りきぞう", "jp": "木さんも行きますか？",               "en": "Are you going too, Mr. Tree?"},
+				{"speaker": "りきぞう", "jp": "...行きませんね。",                  "en": "...You're not going, huh."},
 			]
 		10:
 			# Day 10: casual register (G9). Rikizo greets the tree like a friend
 			# with 天気 small talk. If befriended, he wonders aloud when the 休み
 			# (vacation) ends — the first time he questions the holiday's limit.
 			var t10 := [
-				{"speaker": "りきぞ", "jp": "木さん、おはよう。今日もいい天気だね。", "en": "Mr. Tree, morning. Nice weather again today."},
+				{"speaker": "りきぞう", "jp": "木さん、おはよう。今日もいい天気だね。", "en": "Mr. Tree, morning. Nice weather again today."},
 			]
 			if GameManager.tree_san_unlocked:
-				t10.append({"speaker": "りきぞ", "jp": "木さん...休みはいつまでですか？", "en": "Mr. Tree... how long is the holiday?"})
+				t10.append({"speaker": "りきぞう", "jp": "木さん...休みはいつまでですか？", "en": "Mr. Tree... how long is the holiday?"})
 			return t10
 		_:
-			return [{"speaker": "りきぞ", "jp": "木さん、こんにちは。", "en": "Hi, Mr. Tree."}]
+			return [{"speaker": "りきぞう", "jp": "木さん、こんにちは。", "en": "Hi, Mr. Tree."}]
 
 
 func _tree_convo(rikizo_lines: Array) -> void:
@@ -2607,56 +2783,89 @@ func _handle_dirt() -> void:
 		GameManager.show_message({"jp": "土は土ですね。", "en": "Dirt is dirt."})
 
 
+func _fade_to_black(on_black: Callable) -> void:
+	## Fade the whole screen to black, run on_black at peak darkness, then fade
+	## back in. A soft transition used for the laptop lesson "montage" (the
+	## lesson passes in the dark). Same black-ColorRect approach as the intro.
+	var layer := CanvasLayer.new()
+	layer.layer = 20  # above every other overlay
+	var rect := ColorRect.new()
+	rect.color = Color(0, 0, 0, 0)
+	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	rect.mouse_filter = Control.MOUSE_FILTER_STOP  # swallow taps mid-transition
+	layer.add_child(rect)
+	add_child(layer)
+	var tw := create_tween()
+	tw.tween_property(rect, "color:a", 1.0, 0.45)
+	tw.tween_interval(0.12)
+	tw.tween_callback(on_black)   # set up the next beat while fully black
+	tw.tween_interval(0.45)
+	tw.tween_property(rect, "color:a", 0.0, 0.45)
+	tw.tween_callback(layer.queue_free)
+
+
 func _handle_laptop() -> void:
 	## Laptop interaction: ask the player Yes/No before advancing the day.
 	## Yes → 3-line lesson conversation + advance_day on close.
 	## No  → just close, no advancement.
 	var prev_day := GameManager.current_day
 
-	var do_lesson := func():
-		var convo := [
-			{"speaker": "りきぞ", "jp": "レッスンをします。", "en": "Time for a lesson."},
-			{"speaker": "りきぞ", "jp": "…おわった！", "en": "...done!"},
-		]
-		# Closing out a day means Rikizo just taught the lesson that
-		# UNLOCKS the next day — so recap the NEXT day's kanji. Starts
-		# from closing Day 2 (Day 1's close is the plain tutorial outro).
-		var unlock_day := prev_day + 1
-		if prev_day >= 2 and KANJI_BY_DAY.has(unlock_day):
-			convo.append({
-				"speaker": "りきぞ",
-				"jp": "今日のレッスンは「%s」でした。" % KANJI_BY_DAY[unlock_day],
-				"en": "Today's lesson was: %s" % KANJI_BY_DAY[unlock_day],
-			})
-		else:
-			convo.append({
-				"speaker": "りきぞ",
-				"jp": "Day %d の おわり。" % prev_day,
-				"en": "End of Day %d." % prev_day,
-			})
-		var options := {
-			"background": "bedroom",
-			"on_end": func():
-				GameManager.advance_day()
-				var begin_msg := {
-					"jp": "Day %d が はじまった！" % GameManager.current_day,
-					"en": "Day %d has begun!" % GameManager.current_day,
-				}
-				# Day 4+ auto-deposits the teaching wage in advance_day —
-				# surface that in the day-begin popup so the player connects
-				# the lesson they just completed to the new balance. Only
-				# mention the PHONE if Rikizo actually has it (Day 4 morning
-				# the phone hasn't been handed over by Dad yet).
-				if GameManager.current_day >= 4:
-					if GameManager.has_phone:
-						begin_msg["jp"] += "\nスマホに ¥%d が入りました。" % GameManager.DAILY_TEACHING_WAGE
-						begin_msg["en"] += "\n¥%d deposited to the phone." % GameManager.DAILY_TEACHING_WAGE
-					else:
-						begin_msg["jp"] += "\n¥%d が入りました。" % GameManager.DAILY_TEACHING_WAGE
-						begin_msg["en"] += "\n¥%d came in." % GameManager.DAILY_TEACHING_WAGE
-				GameManager.show_message(begin_msg)
+	# Recap line for the "done" beat — closing out a day means Rikizo just
+	# taught the lesson that UNLOCKS the next day, so recap the NEXT day's
+	# kanji. Starts from closing Day 2 (Day 1's close is the plain outro).
+	var unlock_day := prev_day + 1
+	var recap_line := {}
+	if prev_day >= 2 and KANJI_BY_DAY.has(unlock_day):
+		recap_line = {
+			"speaker": "りきぞう",
+			"jp": "今日のレッスンは「%s」でした。" % KANJI_BY_DAY[unlock_day],
+			"en": "Today's lesson was: %s" % KANJI_BY_DAY[unlock_day],
 		}
-		GameManager.start_conversation(convo, options)
+	else:
+		recap_line = {
+			"speaker": "りきぞう",
+			"jp": "Day %d の おわり。" % prev_day,
+			"en": "End of Day %d." % prev_day,
+		}
+
+	# The "done" beat (shown AFTER the fade-to-black) advances the day on close.
+	var done_on_end := func():
+		GameManager.advance_day()
+		var begin_msg := {
+			"jp": "Day %d が はじまった！" % GameManager.current_day,
+			"en": "Day %d has begun!" % GameManager.current_day,
+		}
+		# Day 4+ auto-deposits the teaching wage in advance_day — surface that
+		# in the day-begin popup so the player connects the lesson they just
+		# completed to the new balance. Only mention the PHONE if Rikizo
+		# actually has it (Day 4 morning the phone isn't handed over yet).
+		if GameManager.current_day >= 4:
+			if GameManager.has_phone:
+				begin_msg["jp"] += "\nスマホに ¥%d が入りました。" % GameManager.DAILY_TEACHING_WAGE
+				begin_msg["en"] += "\n¥%d deposited to the phone." % GameManager.DAILY_TEACHING_WAGE
+			else:
+				begin_msg["jp"] += "\n¥%d が入りました。" % GameManager.DAILY_TEACHING_WAGE
+				begin_msg["en"] += "\n¥%d came in." % GameManager.DAILY_TEACHING_WAGE
+		GameManager.show_message(begin_msg)
+
+	# The "done" beat (shown after the fade) — kept as a plain var so no
+	# multi-line lambda is inlined inside a dict literal (GDScript chokes on
+	# that). Mirrors the eat-CG pattern used elsewhere.
+	var show_done := func():
+		GameManager.start_conversation(
+			[{"speaker": "りきぞう", "jp": "…おわった！", "en": "...done!"}, recap_line],
+			{"background": "bedroom", "on_end": done_on_end}
+		)
+	var after_intro := func():
+		_fade_to_black(show_done)
+
+	var do_lesson := func():
+		# 1. "Time for a lesson." → 2. fade to black (the lesson passes) →
+		# 3. "...done!" + recap fade back in → advance the day on close.
+		GameManager.start_conversation(
+			[{"speaker": "りきぞう", "jp": "レッスンをします。", "en": "Time for a lesson."}],
+			{"background": "bedroom", "on_end": after_intro}
+		)
 
 	if choice_overlay:
 		choice_overlay.ask(
@@ -2695,14 +2904,14 @@ func _handle_door(obj) -> void:
 				var back_to_yard := func():
 					transition_to_day("day-02-outside", Vector2(1293, 1100))
 				GameManager.start_conversation(
-					[{"speaker": "りきぞ", "jp": "家に来ました。", "en": "Back home."}],
+					[{"speaker": "りきぞう", "jp": "家に来ました。", "en": "Back home."}],
 					{"background": "outside", "on_end": back_to_yard}
 				)
 				return
 			var to_street := func():
 				transition_to_day("day-05-street", Vector2(624, 208))
 			GameManager.start_conversation(
-				[{"speaker": "りきぞ", "jp": "外に行きます！", "en": "Heading out!"}],
+				[{"speaker": "りきぞう", "jp": "外に行きます！", "en": "Heading out!"}],
 				{"background": "outside", "on_end": to_street}
 			)
 			return
@@ -2713,9 +2922,9 @@ func _handle_door(obj) -> void:
 			var shocked: Texture2D = GameManager.alt_portraits.get("meShocked")
 			var options := {"background": "void"}
 			if shocked:
-				options["portrait_overrides"] = {"りきぞ": shocked}
+				options["portrait_overrides"] = {"りきぞう": shocked}
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "白いです。何もないです。", "en": "It's white. There's nothing."}
+				{"speaker": "りきぞう", "jp": "白いです。何もないです。", "en": "It's white. There's nothing."}
 			], options)
 			return
 		if GameManager.current_day >= 2 and GameManager.current_day <= 4:
@@ -2726,9 +2935,9 @@ func _handle_door(obj) -> void:
 			var shocked2: Texture2D = GameManager.alt_portraits.get("meShocked")
 			var opts2 := {"background": "void"}
 			if shocked2:
-				opts2["portrait_overrides"] = {"りきぞ": shocked2}
+				opts2["portrait_overrides"] = {"りきぞう": shocked2}
 			GameManager.start_conversation([
-				{"speaker": "りきぞ", "jp": "まだ白いです...", "en": "Still white..."}
+				{"speaker": "りきぞう", "jp": "まだ白いです...", "en": "Still white..."}
 			], opts2)
 		return
 
@@ -2744,14 +2953,14 @@ func _handle_door(obj) -> void:
 		if GameManager.current_day >= 5:
 			GameManager.start_conversation(
 				[
-					{"speaker": "りきぞ", "jp": "いってきます！",    "en": "I'm heading out!",       "background": "entryway"},
+					{"speaker": "りきぞう", "jp": "いってきます！",    "en": "I'm heading out!",       "background": "entryway"},
 					{"speaker": "mom",    "jp": "いってらっしゃい！", "en": "Off you go!",            "background": "kitchen"},
 				],
 				{"background": "entryway", "on_end": to_outside}
 			)
 		else:
 			GameManager.start_conversation(
-				[{"speaker": "りきぞ", "jp": "外です！", "en": "Outside!"}],
+				[{"speaker": "りきぞう", "jp": "外です！", "en": "Outside!"}],
 				{"background": "entryway", "on_end": to_outside}
 			)
 		return
@@ -2770,11 +2979,11 @@ func _handle_door(obj) -> void:
 				GameManager._save()
 		}
 		if shocked:
-			options["portrait_overrides"] = {"りきぞ": shocked}
+			options["portrait_overrides"] = {"りきぞう": shocked}
 		GameManager.start_conversation([
-			{"speaker": "りきぞ", "jp": "え…？", "en": "Huh…?"},
-			{"speaker": "りきぞ", "jp": "な…なにもない…！", "en": "Th-there's nothing there…!"},
-			{"speaker": "りきぞ", "jp": "なんですか、これ…？！", "en": "What is this…?!"}
+			{"speaker": "りきぞう", "jp": "え…？", "en": "Huh…?"},
+			{"speaker": "りきぞう", "jp": "な…なにもない…！", "en": "Th-there's nothing there…!"},
+			{"speaker": "りきぞう", "jp": "なんですか、これ…？！", "en": "What is this…?!"}
 		], options)
 		return
 

@@ -15,6 +15,7 @@ window.LessonModule = {
     let drillCorrect = 0;
     let drillTotal = 0;
     const drillAnswered = new Set();
+    const drillResults = {}; // itemKey → was-correct, so a revisited drill re-shows its result
     // Per-drill breakdown for the summary screen — populated in loadLesson,
     // incremented in renderDrills click handler.
     // Shape: [{ title, total, correct, sectionRef }, …] in section order.
@@ -400,8 +401,10 @@ window.LessonModule = {
         div.style.cssText = "padding:28px 22px 40px;position:relative;";
         const ghost = kanji[0] || (data.title || '本')[0];
         let html = '';
+        // JLPT level from the lesson's own metadata / id — not hardcoded.
+        const lvl = (meta && meta.level) || (data.id || '').split('.')[0] || 'N5';
         html += '<div class="jp-serif" style="font-size:150px;line-height:0.9;font-weight:500;color:var(--washi-3);position:absolute;right:-10px;top:0;letter-spacing:-0.05em;pointer-events:none;">' + esc(ghost) + '</div>';
-        html += '<div class="lh-meta" style="position:relative;">N5 · Lesson ' + esc(n) + '</div>';
+        html += '<div class="lh-meta" style="position:relative;">' + esc(lvl) + ' · Lesson ' + esc(n) + '</div>';
         html += '<div class="jp-serif" style="font-size:34px;font-weight:600;letter-spacing:-0.02em;line-height:1.15;margin:8px 0 6px;color:var(--ink);position:relative;">' + esc(data.title) + '</div>';
         if (meta.focus) html += '<div class="lh-lead" style="position:relative;">' + esc(meta.focus) + '</div>';
         if (kanji.length) {
@@ -416,7 +419,7 @@ window.LessonModule = {
         html += '<div style="padding:18px 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;">' +
             statCell('New kanji', kanji.length) +
             statCell('Sections', (data.sections ? data.sections.length - 1 : 0)) +
-            statCell('Level', 'N5', 'var(--vermilion)') +
+            statCell('Level', lvl, 'var(--vermilion)') +
         '</div>';
         div.innerHTML = html;
         // make intro kanji tappable to open term modal
@@ -491,13 +494,31 @@ window.LessonModule = {
         div.style.cssText = "padding:24px 0 32px;";
         div.innerHTML = sectionIntroBlock('New Kanji · ' + items.length + ' characters', 'あたらしい かんじ', '');
 
+        // Resolve a kanjiGrid item to its glossary kanji entry. Some lessons
+        // reference vocab-only ids, use `words` instead of `terms`, or list no
+        // kanji id at all — so also accept `words`, and fall back to matching the
+        // entry by surface. Callers then read on/kun/meaning from the entry OR the
+        // item's own inline fields, so a card is never blank.
+        function findKanjiBySurface(surface) {
+            if (!surface) return null;
+            for (const id in termMapData) {
+                const e = termMapData[id];
+                if (e && e.type === "kanji" && e.surface === surface) return e;
+            }
+            return null;
+        }
+        function resolveKanji(k) {
+            const refs = k.terms || k.words || [];
+            const kanjiId = k.termId || refs.find(id => termMapData[id] && termMapData[id].type === "kanji");
+            return (kanjiId && termMapData[kanjiId]) || findKanjiBySurface(k.kanji) || null;
+        }
+
         // strip
         const strip = el("div", "");
         strip.style.cssText = "display:flex;gap:8px;padding:18px 22px 0;overflow-x:auto;";
         strip.className = "noscroll";
         items.forEach((k, i) => {
-            const kanjiId = k.termId || (k.terms || []).find(id => termMapData[id] && termMapData[id].type === "kanji");
-            const t = kanjiId ? termMapData[kanjiId] : null;
+            const t = resolveKanji(k);
             const ch = (t && t.surface) || k.kanji || '';
             const on = i === kanjiSel;
             const b = el("button", "jp-serif", ch);
@@ -509,8 +530,7 @@ window.LessonModule = {
 
         // focus card
         const sk = items[kanjiSel] || {};
-        const kanjiId = sk.termId || (sk.terms || []).find(id => termMapData[id] && termMapData[id].type === "kanji");
-        const t = kanjiId ? termMapData[kanjiId] : null;
+        const t = resolveKanji(sk);
         const ch = (t && t.surface) || sk.kanji || '';
         const card = el("div", "");
         card.style.cssText = "margin:22px 22px 0;padding:24px 22px;background:var(--washi);border:1px solid var(--hairline);border-radius:var(--r-lg);position:relative;overflow:hidden;";
@@ -525,11 +545,11 @@ window.LessonModule = {
             '<div class="jp-serif" style="position:absolute;right:-20px;top:-30px;font-size:220px;line-height:1;color:var(--washi-3);font-weight:500;pointer-events:none;user-select:none;">' + esc(ch) + '</div>' +
             '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.18em;font-weight:600;position:relative;">' + String(kanjiSel + 1).padStart(2, "0") + ' / ' + String(items.length).padStart(2, "0") + '</div>' +
             '<div class="jp-serif lh-kbig" style="font-size:76px;line-height:1;margin:6px 0 10px;color:var(--ink);font-weight:500;position:relative;">' + esc(ch) + '</div>' +
-            '<div style="font-size:16px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;position:relative;">' + esc((t && t.meaning) || '') + '</div>' +
+            '<div style="font-size:16px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;position:relative;">' + esc((t && t.meaning) || sk.meaning || '') + '</div>' +
             '<div style="height:16px;"></div>' +
             '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hairline);border-radius:6px;overflow:hidden;position:relative;">' +
-              readingCell("On'yomi", (t && t.on) || '—') +
-              readingCell("Kun'yomi", (t && t.kun) || '—') +
+              readingCell("On'yomi", (t && t.on) || sk.on || '—') +
+              readingCell("Kun'yomi", (t && t.kun) || sk.kun || '—') +
             '</div>' +
             exampleHtml;
         // Wire per-reading TTS chips. Each .lh-kreading is one reading split out
@@ -781,7 +801,9 @@ window.LessonModule = {
                       '<div style="display:flex;gap:10px;align-items:flex-start;">' +
                         '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.1em;font-weight:700;width:20px;flex-shrink:0;padding-top:4px;">Q' + (i + 1) + '</div>' +
                         '<div style="flex:1;"><div class="jp-serif" style="font-size:15.5px;line-height:1.5;font-weight:500;color:var(--ink);">' + proc(q.q, q.terms) + '</div>' +
-                          (q.q_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.q_en) + '</div>' : '') + '</div>' +
+                          // English translation stays hidden until the answer is revealed — it
+                          // shouldn't give away comprehension before the student attempts it.
+                          (shown && q.q_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.q_en) + '</div>' : '') + '</div>' +
                       '</div>' +
                       (shown ? '' : '<button class="lh-showans jp-mono" style="margin-top:10px;margin-left:30px;padding:6px 12px;border-radius:999px;background:transparent;border:1px solid var(--hairline);color:var(--ink-2);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;">Show answer</button>') +
                     '</div>' +
@@ -837,6 +859,22 @@ window.LessonModule = {
             const choices = [...item.choices].sort(() => Math.random() - 0.5);
             const expHolder = el("div", "");
 
+            // Reveal the result: colour the buttons and show the feedback box.
+            // Reusable so a REVISITED (already-answered) drill re-renders its
+            // resolved state instead of an inert blank card. `clickedBtn` is null
+            // on a revisit (we only know correctness, not which wrong choice).
+            const showResult = (correct, clickedBtn) => {
+                Array.from(grid.children).forEach(cn => {
+                    if (cn.textContent === item.answer) { cn.style.background = 'var(--moss)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
+                    else if (cn === clickedBtn && !correct) { cn.style.background = 'var(--vermilion)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
+                });
+                const explainText = item.explain || item.explanation;
+                expHolder.innerHTML = '<div style="margin-top:18px;padding:14px 16px;border-radius:var(--r-md);background:' + (correct ? 'oklch(0.94 0.04 140)' : 'oklch(0.94 0.04 30)') + ';border:1px solid ' + (correct ? 'oklch(0.75 0.08 140)' : 'oklch(0.75 0.08 30)') + ';">' +
+                    '<div class="jp-mono" style="font-size:10px;letter-spacing:0.14em;font-weight:600;color:' + (correct ? 'oklch(0.4 0.1 140)' : 'oklch(0.45 0.14 30)') + ';text-transform:uppercase;margin-bottom:4px;">' + (correct ? '正解 · Correct' : 'もう一度 · Not quite') + '</div>' +
+                    (explainText ? '<div style="font-size:13px;color:var(--ink);line-height:1.5;">' + esc(explainText) + '</div>' : '<div style="font-size:13px;color:var(--ink);line-height:1.5;">Answer: <strong>' + esc(item.answer) + '</strong></div>') +
+                '</div>';
+            };
+
             choices.forEach(choice => {
                 const b = el("button", "jp-serif");
                 b.style.cssText = "padding:20px 16px;border-radius:var(--r-md);background:var(--washi);color:var(--ink);border:1px solid var(--hairline);font-size:22px;font-weight:500;cursor:pointer;transition:all 0.15s;";
@@ -844,15 +882,12 @@ window.LessonModule = {
                 b.onclick = () => {
                     if (solved) return; solved = true;
                     const correct = choice === item.answer;
+                    drillResults[itemKey] = correct;
                     try {
                         const fx = window.JPShared.sfx, hp = window.JPShared.haptics;
                         if (correct) { if (fx) fx.success(); if (hp) hp.success(); }
                         else { if (fx) fx.error(); if (hp) hp.error(); }
                     } catch (e) {}
-                    Array.from(grid.children).forEach(cn => {
-                        if (cn.textContent === item.answer) { cn.style.background = 'var(--moss)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
-                        else if (cn === b && !correct) { cn.style.background = 'var(--vermilion)'; cn.style.color = 'var(--washi)'; cn.style.border = 'none'; }
-                    });
                     if (!drillAnswered.has(itemKey)) {
                         drillAnswered.add(itemKey);
                         if (correct) {
@@ -867,16 +902,14 @@ window.LessonModule = {
                             if (rootTerm) window.JPShared.progress.flagTerm(rootTerm.surface);
                         });
                     }
-                    const explainText = item.explain || item.explanation;
-                    expHolder.innerHTML = '<div style="margin-top:18px;padding:14px 16px;border-radius:var(--r-md);background:' + (correct ? 'oklch(0.94 0.04 140)' : 'oklch(0.94 0.04 30)') + ';border:1px solid ' + (correct ? 'oklch(0.75 0.08 140)' : 'oklch(0.75 0.08 30)') + ';">' +
-                        '<div class="jp-mono" style="font-size:10px;letter-spacing:0.14em;font-weight:600;color:' + (correct ? 'oklch(0.4 0.1 140)' : 'oklch(0.45 0.14 30)') + ';text-transform:uppercase;margin-bottom:4px;">' + (correct ? '正解 · Correct' : 'もう一度 · Not quite') + '</div>' +
-                        (explainText ? '<div style="font-size:13px;color:var(--ink);line-height:1.5;">' + esc(explainText) + '</div>' : '<div style="font-size:13px;color:var(--ink);line-height:1.5;">Answer: <strong>' + esc(item.answer) + '</strong></div>') +
-                    '</div>';
+                    showResult(correct, b);
                 };
                 grid.appendChild(b);
             });
             block.appendChild(grid);
             block.appendChild(expHolder);
+            // Already answered earlier this session → show its resolved state.
+            if (solved) showResult(!!drillResults[itemKey], null);
             list.appendChild(block);
         });
         div.appendChild(list);
@@ -1450,15 +1483,15 @@ window.LessonModule = {
                 lessonId: lessonData.id,
                 title: title,
                 page: currentStep,
-                sectionType: sec ? sec.type : 'summary',
-                sample: sec ? tc.sampleFromSection(sec) : ''
+                sectionType: sec ? sec.type : 'summary'
             });
         } catch (e) {}
         const lessonNum = (lessonData.id || '').split('.')[1] || '';
+        const lessonLvl = (lessonData.meta && lessonData.meta.level) || (lessonData.id || '').split('.')[0] || 'N5';
 
         root.innerHTML = '<div class="lh-header">' + headerHtml({
             title: title,
-            code: 'N5 · LESSON ' + lessonNum,
+            code: lessonLvl + ' · LESSON ' + lessonNum,
             count: (idx + 1) + '/' + totalSteps,
             backLabel: null,
             rail: railHtml()

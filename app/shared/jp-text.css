@@ -75,7 +75,9 @@ html.k-furigana .jp-token > .rt-furigana {
 
 /* ───────────────────────── Romaji mode ────────────────────────────────── */
 html.k-romaji .jp-token {
-  margin-bottom: 0.65em;
+  /* Reserve room below for the floating romaji line. Must cover the romaji's
+     top gap + its own height; kept in em so it scales with the text-size zoom. */
+  margin-bottom: 0.85em;
   /* Tiny breathing room so adjacent romaji words don't collide. */
   padding: 0 0.12em;
 }
@@ -95,7 +97,7 @@ html.k-romaji .jp-token {
   vertical-align: baseline;
 }
 html.k-romaji .jp-token-group {
-  margin-bottom: 0.65em;
+  margin-bottom: 0.85em;
   padding: 0 0.12em;
 }
 /* Inside a group, the INNER .jp-token must NOT carry its own margin —
@@ -119,7 +121,7 @@ html.k-romaji .rt-romaji-group {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 0.1em;
+  margin-top: 0.3em;
   font-size: 0.5em;
   line-height: 1;
   white-space: nowrap;
@@ -136,7 +138,7 @@ html.k-romaji .jp-token > .rt-romaji {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 0.1em;
+  margin-top: 0.3em;
   font-size: 0.5em;
   line-height: 1;
   white-space: nowrap;

@@ -128,7 +128,9 @@
     var s = document.createElement('style');
     s.id = 'jp-auth-style';
     s.textContent = [
-      '.jp-auth-ov{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.42);display:flex;align-items:center;justify-content:center;padding:20px;}',
+      // 10000 sits ABOVE the Settings overlay (z-index:9999) — this modal opens
+      // from inside Settings, so it must stack on top of it, not behind.
+      '.jp-auth-ov{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.42);display:flex;align-items:center;justify-content:center;padding:20px;}',
       '.jp-auth-card{width:100%;max-width:340px;background:var(--washi,#f5f3f0);color:var(--ink,#323029);border-radius:16px;padding:22px 20px calc(20px + env(safe-area-inset-bottom));box-shadow:0 18px 50px rgba(0,0,0,0.3);font-family:"Schibsted Grotesk","Work Sans",system-ui,sans-serif;}',
       '.jp-auth-title{font-family:"Noto Serif JP",serif;font-size:1.15rem;font-weight:700;margin:0 0 4px;}',
       '.jp-auth-sub{font-size:0.82rem;color:var(--ink-3,#8b8480);margin:0 0 16px;}',
@@ -149,12 +151,21 @@
       alert('Accounts are not set up yet.');
       return;
     }
+    // Singleton: if the modal is already open, focus it instead of stacking a
+    // second (silent) copy behind the screen on every tap.
+    var existing = document.getElementById('jp-auth-ov');
+    if (existing) {
+      var firstInput = existing.querySelector('input, button');
+      if (firstInput && firstInput.focus) firstInput.focus();
+      return;
+    }
     injectStyles();
     var u = currentUser();
     var signedInEmail = u && !u.isAnonymous ? u.email : null;
 
     var ov = document.createElement('div');
     ov.className = 'jp-auth-ov';
+    ov.id = 'jp-auth-ov';
     ov.innerHTML =
       '<div class="jp-auth-card" role="dialog" aria-modal="true">' +
         '<button class="jp-auth-x" aria-label="Close">×</button>' +

@@ -348,7 +348,10 @@
      */
     isLessonUnlocked: function (entry) {
       if (this.isFree()) return true;
-      if (entry.id && /^N4\./.test(entry.id)) return this.isN4Unlocked();
+      // N4 lessons require the N4 gateway AND then gate progressively on their
+      // own prereq (now chained in the manifest), just like N5 — instead of the
+      // gateway unlocking the whole level at once.
+      if (entry.id && /^N4\./.test(entry.id) && !this.isN4Unlocked()) return false;
       if (entry.extraRequirePass && !this.isPassed(entry.extraRequirePass)) return false;
       return _prereqMet(entry.unlocksAfter, false);
     },
@@ -374,7 +377,9 @@
      */
     isReviewUnlocked: function (entry) {
       if (this.isFree()) return true;
-      if (entry.id && /^N4\./.test(entry.id)) return this.isN4Unlocked();
+      // N4 reviews require the gateway AND gate progressively on their prereq
+      // (the lesson they follow), like lessons — not all-unlocked on the gateway.
+      if (entry.id && /^N4\./.test(entry.id) && !this.isN4Unlocked()) return false;
       return _prereqMet(entry.unlocksAfter, false);
     },
 

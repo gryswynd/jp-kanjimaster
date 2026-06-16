@@ -230,6 +230,7 @@ func play(amount: int, bg_key: String = "", on_end: Callable = Callable()) -> vo
 func _flash_pop() -> void:
 	## Quick white flash punctuating the moment of contact. Runs on its
 	## own tween so it can fade out independently of the main sequence.
+	Input.vibrate_handheld(60)  # short "ピッ" contact tick (no-op on desktop)
 	_flash.color = Color(1, 1, 1, 0.85)
 	var t := create_tween()
 	t.tween_property(_flash, "color:a", 0.0, 0.28)\

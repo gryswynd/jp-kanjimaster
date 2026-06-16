@@ -2133,7 +2133,27 @@ window.PracticeModule = {
         const mainEl = document.getElementById('k-q-main');
         if(mainEl) mainEl.style.fontSize = isBig ? '5rem' : '2.5rem';
         kRenderOpts(a, dists);
+
+        // The Dojo draws a random card, so there's no lesson page to resolve —
+        // tell Ask-Rikizo the exact item on the card instead.
+        try {
+            const tc = window.JPShared && window.JPShared.tutorContext;
+            if (tc && curQItem) tc.patch({
+                view: 'practice',
+                lessonId: null,
+                page: null,
+                item: curQItem.kanji || curQItem.word || curQItem.dict || null,
+                sectionType: curMode
+            });
+        } catch (e) {}
     };
+
+    // A vocab word is "readable" (worth the bonus reading quiz) only if its
+    // DISPLAYED form contains a kanji. vocab-display.js shows kanji only once
+    // taught, so a pure-kana display — an all-kana word, OR a kanji word whose
+    // kanji isn't taught yet (友だち hybrid, いたい→痛い) — has nothing to read.
+    // CJK range mirrors app/shared/vocab-display.js so this agrees with pick().
+    function wordHasKanji(s) { return /[㐀-鿿]/.test(String(s || '')); }
 
     KanjiApp.check = function(sel, btn) {
         const nextBtn = document.getElementById('k-q-next');
@@ -2167,7 +2187,7 @@ window.PracticeModule = {
                 else if (curMode === 'quiz-reading') { readEl.innerText = curQItem.meaning; readEl.classList.remove('k-hidden'); }
             }
 
-            if(curMode === 'quiz-vocab' && quizPhase === 1) {
+            if(curMode === 'quiz-vocab' && quizPhase === 1 && wordHasKanji(curQItem.word || curQItem.surface)) {
                 setMsg('Correct! Bonus: select the reading.', 'is-correct');
                 setTimeout(() => {
                     quizPhase = 2;

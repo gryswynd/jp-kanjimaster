@@ -1490,8 +1490,7 @@ window.GrammarModule = {
           lessonId: grammarId,
           title: grammarData.title || sec.title || '',
           page: currentStep,
-          sectionType: sec.type,
-          sample: tc.sampleFromSection(sec)
+          sectionType: sec.type
         });
       } catch (e) {}
 

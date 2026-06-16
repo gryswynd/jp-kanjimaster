@@ -19,6 +19,7 @@ import { progressRouter } from './routes/progress.js';
 import { bugReportRouter } from './routes/bug-report.js';
 import { adminCostsRouter } from './routes/admin-costs.js';
 import { initCurriculum } from './lib/curriculum.js';
+import { initContent } from './lib/content.js';
 
 const app = express();
 app.set('trust proxy', true);
@@ -77,6 +78,7 @@ app.listen(env.port, () => {
     sttConfigured: !!env.groqApiKey,
     sttModel: env.sttModel,
   }));
-  // Warm the curriculum index so the first lookup_curriculum call isn't slow.
+  // Warm the curriculum + content indexes so the first request isn't slow.
   initCurriculum();
+  initContent();
 });

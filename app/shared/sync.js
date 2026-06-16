@@ -22,7 +22,12 @@
     'k-streak-history', 'k-streak-freezes',
     'k-user-first', 'k-user-last', 'k-user-email',
   ];
-  var PREFIXES = ['k-best-', 'compose-draft-'];
+  // Web mini-game per-puzzle results (status:'complete' + stamp): scramble k-scr-,
+  // link-up k-conn-/k-conn4-, marathon k-mara-. Synced as learning.gameResults so
+  // students keep their stamps across devices/reinstalls. (Distinct from the
+  // server's reserved `game` section, which is for the Godot adventure — Phase 2.)
+  var GAME_PREFIXES = ['k-scr-', 'k-conn-', 'k-conn4-', 'k-mara-'];
+  var PREFIXES = ['k-best-', 'compose-draft-'].concat(GAME_PREFIXES);
 
   var suppress = false;       // true while applyRemote writes (don't re-trigger push)
   var pushTimer = null;
@@ -57,6 +62,44 @@
     return out;
   }
 
+  // Collect all web mini-game results, keyed by FULL localStorage key (so apply
+  // can write them straight back). Values are parsed result objects {status,ts,tilt}.
+  function collectGameResults() {
+    var out = {};
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i); if (!k) continue;
+        for (var p = 0; p < GAME_PREFIXES.length; p++) {
+          if (k.indexOf(GAME_PREFIXES[p]) === 0) {
+            try { out[k] = JSON.parse(lsGet(k)); } catch (e) { out[k] = lsGet(k); }
+            break;
+          }
+        }
+      }
+    } catch (e) {}
+    return out;
+  }
+
+  // Merge two gameResults maps: completion is monotonic (status:'complete' wins);
+  // ties broken by the most-recent ts. Mirror of server lib/merge-progress.js.
+  function mergeGameResults(a, b) {
+    var out = {}; var k;
+    a = a || {}; b = b || {};
+    for (k in a) if (Object.prototype.hasOwnProperty.call(a, k)) out[k] = a[k];
+    for (k in b) {
+      if (!Object.prototype.hasOwnProperty.call(b, k)) continue;
+      var av = out[k], bv = b[k];
+      if (!av) { out[k] = bv; continue; }
+      if (!bv) continue;
+      var aDone = av && av.status === 'complete';
+      var bDone = bv && bv.status === 'complete';
+      if (aDone && !bDone) out[k] = av;
+      else if (bDone && !aDone) out[k] = bv;
+      else out[k] = ((+(bv && bv.ts) || 0) >= (+(av && av.ts) || 0)) ? bv : av;
+    }
+    return out;
+  }
+
   function baseUrl() {
     try { var qp = new URLSearchParams(location.search).get('tutor'); if (qp) return qp; } catch (e) {}
     var ls = lsGet('k-tutor-base-url'); if (ls) return ls;
@@ -85,6 +128,7 @@
         activeFlags: parseObj('k-active-flags'),
         bestScores: collectPrefixed('k-best-', true),
         composeDrafts: collectPrefixed('compose-draft-', false),
+        gameResults: collectGameResults(),
         n4Unlocked: lsGet('k-n4-unlocked') === 'true',
       },
       streak: {
@@ -100,7 +144,7 @@
         email: lsGet('k-user-email') || '',
       },
       updatedAt: Date.now(),
-      schemaVersion: 1,
+      schemaVersion: 2,
     };
   }
 
@@ -126,6 +170,7 @@
         activeFlags: orMap(L.activeFlags, R.activeFlags),
         bestScores: maxMap(L.bestScores, R.bestScores),
         composeDrafts: Object.assign({}, draftBase || {}, draftTop || {}),
+        gameResults: mergeGameResults(L.gameResults, R.gameResults),
         n4Unlocked: !!L.n4Unlocked || !!R.n4Unlocked,
       },
       streak: {
@@ -155,6 +200,10 @@
       Object.keys(Lr.bestScores || {}).forEach(function (cat) { lsSet('k-best-' + cat, String(Lr.bestScores[cat])); });
       Object.keys(Lr.composeDrafts || {}).forEach(function (sub) {
         var v = Lr.composeDrafts[sub]; if (v != null) lsSet('compose-draft-' + sub, String(v));
+      });
+      Object.keys(Lr.gameResults || {}).forEach(function (gk) {
+        var gv = Lr.gameResults[gk];
+        if (gv != null) lsSet(gk, typeof gv === 'string' ? gv : JSON.stringify(gv));
       });
       if (Lr.n4Unlocked) lsSet('k-n4-unlocked', 'true');
 

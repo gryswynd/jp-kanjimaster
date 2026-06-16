@@ -108,7 +108,7 @@ function bumpSvc(target, b) {
   target.firestore = (target.firestore || 0) + (b.firestoreCents || 0);
 }
 
-export async function recordCostRollup(deviceId, breakdown, totalCents) {
+export async function recordCostRollup(deviceId, breakdown, totalCents, email) {
   if (!totalCents) return;
   const day = todayStr();
   const H = String(new Date().getUTCHours());
@@ -125,6 +125,7 @@ export async function recordCostRollup(deviceId, breakdown, totalCents) {
   const dev = r.byDevice[deviceId] || (r.byDevice[deviceId] = { requests: 0, total: 0, svc: {} });
   dev.requests += 1;
   dev.total += totalCents;
+  if (email) dev.email = email;
   bumpSvc(dev.svc, breakdown);
   const slot = r.hourly[H] || (r.hourly[H] = { total: 0, requests: 0 });
   slot.total += totalCents;

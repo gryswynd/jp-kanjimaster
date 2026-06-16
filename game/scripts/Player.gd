@@ -49,9 +49,34 @@ func set_touch_vector(v: Vector2) -> void:
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+# Rain umbrella — an overlay sprite above the head (no new walk sheet). The head
+# is at top-center of the frame in all 4 directions, so one centered umbrella
+# works for every facing. Shown by DayLoader._apply_weather() on rainy outdoor days.
+var _umbrella: Sprite2D
+
 
 func _ready() -> void:
 	_update_sprite_frame()
+	_setup_umbrella()
+
+
+func _setup_umbrella() -> void:
+	_umbrella = Sprite2D.new()
+	var p := "res://assets/shared/sprites/umbrella.png"
+	if ResourceLoader.exists(p):
+		var tex := load(p) as Texture2D
+		_umbrella.texture = tex
+		var s := 86.0 / float(tex.get_width())  # ~86px wide on screen
+		_umbrella.scale = Vector2(s, s)
+	_umbrella.position = Vector2(0, -104)  # just over the head (head-top ≈ -90 from feet)
+	_umbrella.z_index = 1                  # above the player sprite, below overhead _fg (z=100)
+	_umbrella.visible = false
+	add_child(_umbrella)
+
+
+func set_umbrella(on: bool) -> void:
+	if _umbrella:
+		_umbrella.visible = on
 
 
 func _physics_process(delta: float) -> void:
