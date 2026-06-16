@@ -39,8 +39,11 @@ const flag = (n) => { const a = args.find(x => x.startsWith(`--${n}=`)); return 
 const LEVEL = flag('level') || 'N4';
 const ONLY = flag('only') ? new Set(flag('only').split(',')) : null;
 
+const STRICT = args.includes('--strict'); // exit non-zero if any finding (CI gate)
 const LEVELS = ['N5', 'N4', 'N3'];               // index = difficulty rank
-const STORY_RANK = LEVELS.indexOf(LEVEL);
+// `custom` stories have level:null but are pedagogically N4-or-below: rank them
+// as N4 so N3 vocab is flagged out-of-level (was -1, which flagged everything).
+const STORY_RANK = LEVEL === 'custom' ? LEVELS.indexOf('N4') : LEVELS.indexOf(LEVEL);
 
 const load = async (p) => JSON.parse(await readFile(path.join(ROOT, p), 'utf8'));
 const entriesOf = (g) => Array.isArray(g) ? g : (g.entries || g.particles || g.characters || []);
@@ -197,3 +200,8 @@ for (const s of stories) {
 console.log(`\n──────────\n${stories.length} ${LEVEL} stories scanned · ${storiesWith} with findings`);
 console.log(`OUT-OF-LEVEL surfaces: ${totalOOL} · UNGLOSSARIED surfaces: ${totalUNG}`);
 console.log(`(UNGLOSSARIED includes basic adverbs the glossary simply lacks — triage: promote-to-glossary vs reword.)`);
+
+if (STRICT && (totalOOL + totalUNG) > 0) {
+  console.error(`\n[strict] vocab audit found ${totalOOL + totalUNG} issue(s) — failing.`);
+  process.exit(1);
+}
