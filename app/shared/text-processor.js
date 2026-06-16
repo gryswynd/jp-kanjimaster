@@ -373,6 +373,12 @@
     // @returns {Object|null}   - base term object, or null if not found
     // -------------------------------------------------------------------------
     getRootTerm: function (termId, termMap) {
+      // termId may arrive as a conjugation object ({ id, form }) rather than a
+      // bare string — that's the shape lessons/grammar store for conjugated
+      // terms. Normalize to the id string; anything non-string can't resolve.
+      // (Guards against `termId.split` throwing below and freezing a drill.)
+      if (termId && typeof termId === 'object') termId = termId.id;
+      if (typeof termId !== 'string') return null;
       var term = termMap[termId];
       if (term) {
         return term.original_id ? termMap[term.original_id] : term;
