@@ -5114,6 +5114,115 @@
   "grammarUsed": [],
   "comprehension": {
     "intro": "Did you follow the story?",
-    "questions": []
+    "questions": [
+      {
+        "type": "written",
+        "q": "研究の問題は何でしたか。",
+        "q_en": "What was the topic of the research?",
+        "answer": "研究の問題は工場と森林でした。",
+        "accept": [
+          "工場と森林",
+          "工場と森林です"
+        ],
+        "explanation": "一つ目の段落に「研究の問題は工場と森林だった」と書いてあります。",
+        "terms": [],
+        "paraIdx": 0
+      },
+      {
+        "type": "written",
+        "q": "リーは毎日、図書館で何をしましたか。",
+        "q_en": "What did Lee do at the library every day?",
+        "answer": "リーは毎日、図書館で本を読んで、文書を書きました。",
+        "accept": [
+          "本を読んで、文書を書いた",
+          "本を読んで文書を書いた",
+          "文書を書いた"
+        ],
+        "explanation": "二つ目の段落に「毎日、図書館で本を読んで、文書を書いた」と書いてあります。",
+        "terms": [],
+        "paraIdx": 1
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは何をすることにしましたか。",
+        "q_en": "What did Rikizo decide to do?",
+        "answer": "りきぞうはリーの文書を写すことにしました。",
+        "accept": [
+          "リーの文書を写す",
+          "文書を写すことにした",
+          "写すことにした"
+        ],
+        "explanation": "りきぞうは「リーの文書を写すことにした」と書いてあります。",
+        "terms": [],
+        "paraIdx": 4
+      },
+      {
+        "type": "written",
+        "q": "工場が多い場所では、どうして水質がよくなくなりますか。",
+        "q_en": "In areas with many factories, why does the water quality get worse?",
+        "answer": "工場が多い場所では山林が少なくなって、地上の水が海洋に入るから、水質がよくなくなります。",
+        "accept": [
+          "山林が少なくなるから",
+          "山林が少なくなって、水が海洋に入るから"
+        ],
+        "explanation": "リーは「山林が少なくなって、地上の水が海洋に入ります。それで水質がよくなくなります」と話しました。",
+        "terms": [],
+        "paraIdx": 22
+      },
+      {
+        "type": "written",
+        "q": "すずき先生は、今回のプレゼンテーションで何を話すのがいいと言いましたか。",
+        "q_en": "For this presentation, what did Suzuki-sensei say it was best to talk about?",
+        "answer": "自分たちがいちばんよく知っていることを話すのがいいと言いました。",
+        "accept": [
+          "自分たちがいちばんよく知っていること",
+          "いちばんよく知っていること",
+          "よく知っていること"
+        ],
+        "explanation": "すずき先生は「自分たちがいちばんよく知って いることを話すのがいい」と言いました。",
+        "terms": [],
+        "paraIdx": 16
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは、この研究の正体は何だと思いましたか。",
+        "q_en": "What did Rikizo think the true nature of this research was?",
+        "answer": "見えない問題が見えるようになることだと思いました。",
+        "accept": [
+          "見えない問題が見えるようになること",
+          "見えない問題が見えるようになることだ"
+        ],
+        "explanation": "りきぞうは「この研究の正体は、見えない問題が見えるようになることだと思います」と話しました。",
+        "terms": [],
+        "paraIdx": 32
+      },
+      {
+        "type": "written",
+        "q": "リーは、どうしてむずかしいと思わなかったのですか。",
+        "q_en": "Why did Lee not find it difficult?",
+        "answer": "気軽にしていたから、むずかしいと思いませんでした。",
+        "accept": [
+          "気軽にしていたから",
+          "気軽にしていたからです"
+        ],
+        "explanation": "リーは「気軽にして いたから、むずかしいと思わなかったよ」と答えました。",
+        "terms": [],
+        "paraIdx": 38
+      },
+      {
+        "type": "written",
+        "q": "りきぞうは最後にどうすることにしましたか。",
+        "q_en": "What did Rikizo decide to do in the end?",
+        "answer": "りきぞうはリーを見習うことにしました。",
+        "accept": [
+          "リーを見習う",
+          "リーを見習うことにした",
+          "見習うことにした"
+        ],
+        "explanation": "最後の方に「りきぞうはリーを見習うことにした」と書いてあります。",
+        "terms": [],
+        "paraIdx": 42
+      }
+    ]
   }
 }
