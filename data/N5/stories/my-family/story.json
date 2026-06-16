@@ -481,18 +481,28 @@
         "q": "父のなまえは何ですか。",
         "q_en": "What is the father's name?",
         "answer": "たろうです",
-        "accept": ["たろう"],
+        "accept": [
+          "たろう"
+        ],
         "explanation": "父のなまえはたろうです。",
-        "terms": ["v_chichi"]
+        "terms": [
+          "v_chichi"
+        ],
+        "paraIdx": 2
       },
       {
         "type": "written",
         "q": "りきぞうはケンと何をしますか。",
         "q_en": "What does Rikizo do with Ken?",
         "answer": "ゲームをします",
-        "accept": ["ゲーム"],
+        "accept": [
+          "ゲーム"
+        ],
         "explanation": "ケンといっしょにゲームをします。",
-        "terms": ["v_geemu"]
+        "terms": [
+          "v_geemu"
+        ],
+        "paraIdx": 4
       }
     ]
   }
