@@ -702,10 +702,15 @@
       "notes": "Often written in kana (となり). Use with の to mark possession: 銀行のとなり = next to the bank.",
       "lesson_ids": "N4.2",
       "reading": "となり",
-      "matches": ["となり"],
+      "matches": [
+        "となり"
+      ],
       "readingAlign": "隣(となり)",
       "tokens": [
-        { "k": "隣", "r": "となり" }
+        {
+          "k": "隣",
+          "r": "となり"
+        }
       ]
     },
     {
@@ -3301,7 +3306,9 @@
       "notes": "",
       "lesson_ids": "N4.9",
       "reading": "ところ",
-      "matches": ["ところ"],
+      "matches": [
+        "ところ"
+      ],
       "readingAlign": "所(ところ)",
       "example": {
         "jp": "その 川は まちで いちばん きれいな 所 です。",
@@ -7215,7 +7222,10 @@
       "reading": "こんかい",
       "readingAlign": "今(こん)回(かい)",
       "tokens": [
-        { "k": "今回", "r": "こんかい" }
+        {
+          "k": "今回",
+          "r": "こんかい"
+        }
       ]
     },
     {
@@ -16348,6 +16358,50 @@
         "lessonId": "N4.17",
         "sectionType": "conversation"
       }
+    },
+    {
+      "id": "v_matsuri",
+      "surface": "まつり",
+      "meaning": "festival",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Added with user consent (common term). Kanji 祭 not taught by N4, so written in kana.",
+      "lesson_ids": "N4.27",
+      "reading": "まつり",
+      "readingAlign": "まつり",
+      "example": {
+        "jp": "七夕の まつりに 行きたい。",
+        "en": "I want to go to the Tanabata festival.",
+        "lessonId": "N4.27",
+        "sectionType": "reading"
+      },
+      "tokens": [
+        {
+          "k": "まつり"
+        }
+      ]
+    },
+    {
+      "id": "v_omatsuri",
+      "surface": "おまつり",
+      "meaning": "festival (polite)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Polite form of まつり; added with user consent.",
+      "lesson_ids": "N4.27",
+      "reading": "おまつり",
+      "readingAlign": "おまつり",
+      "example": {
+        "jp": "村の おまつりは 楽しかった。",
+        "en": "The village festival was fun.",
+        "lessonId": "N4.27",
+        "sectionType": "reading"
+      },
+      "tokens": [
+        {
+          "k": "おまつり"
+        }
+      ]
     }
   ]
 }
