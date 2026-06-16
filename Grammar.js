@@ -350,13 +350,47 @@ window.GrammarModule = {
         .gr-table-wrap { overflow-x: auto; margin-bottom: 12px; }
         .gr-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
         .gr-table th { background: #ECE7D8; color: #5E8C5F; font-weight: 700; padding: 10px 12px; text-align: left; border-bottom: 2px solid #5E8C5F; white-space: nowrap; }
-        .gr-table td { padding: 9px 12px; border-bottom: 1px solid #EDE7DA; vertical-align: top; font-family: 'Noto Sans JP', sans-serif; }
+        .gr-table td { padding: 9px 12px; border-bottom: 1px solid #EDE7DA; vertical-align: middle; font-family: 'Noto Sans JP', sans-serif; white-space: nowrap; }
         .gr-table tr:last-child td { border-bottom: none; }
         @media (hover: hover) { .gr-table tr:hover td { background: #F3EEE4; } }
         .gr-table-label { font-family: 'Poppins', sans-serif; font-weight: 600; color: #555; white-space: nowrap; }
-        .gr-table-meaning { font-family: 'Poppins', sans-serif; color: #888; font-style: italic; }
+        /* The trailing "meaning" column is a full sentence — let it wrap to a couple
+           of lines inside a sane width instead of toppling the row height. */
+        .gr-table-meaning { font-family: 'Poppins', sans-serif; color: #888; font-style: italic; white-space: normal; min-width: 150px; max-width: 230px; }
         .gr-cell-stem { background: rgba(0,184,148,0.2); border-radius: 2px; }
         .gr-cell-ending { background: rgba(214,48,49,0.2); border-radius: 2px; }
+
+        /* Wide tables on mobile: freeze the first (label) column + swipe hint.
+           No right-edge fade overlay — it obscured the peeking column ("white line").
+           The frozen column casts a soft shadow so it reads as pinned while scrolling. */
+        .gr-table-wrap { position: relative; }
+        .gr-table th:first-child, .gr-table td:first-child { position: sticky; left: 0; z-index: 1; }
+        .gr-table th:first-child { background: #ECE7D8; }
+        .gr-table td:first-child { background: #fff; }
+        .gr-table-wrap.is-scrollable .gr-table th:first-child,
+        .gr-table-wrap.is-scrollable .gr-table td:first-child { box-shadow: 6px 0 6px -4px rgba(0,0,0,0.10); }
+        .gr-table-hint { display: none; font-size: 0.72rem; color: #aaa; text-align: center; margin: -4px 0 12px; font-family: 'Poppins', sans-serif; }
+        .gr-table-wrap.is-scrollable ~ .gr-table-hint { display: block; }
+        .gr-table-wrap.is-scrollable.at-end ~ .gr-table-hint { opacity: 0.35; }
+
+        /* Concept matrix (e.g. permission/obligation quadrant). Rich cells do NOT
+           shrink to fit the screen — each column keeps a comfortable width and the
+           table scrolls sideways, with the row-label column frozen (reuses the
+           wide-table swipe affordance above). */
+        .gr-quadrant { border-collapse: separate; border-spacing: 8px; }
+        .gr-quadrant th { color: #5E8C5F; font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.4px; padding: 2px 6px 6px; text-align: center; font-family: 'Poppins', sans-serif; vertical-align: bottom; white-space: normal; }
+        .gr-quadrant th.gr-quad-rowlabel, .gr-quadrant th.gr-quad-corner {
+          position: sticky; left: 0; z-index: 2; background: #fff;
+        }
+        .gr-quadrant th.gr-quad-rowlabel { width: 86px; min-width: 86px; color: #555; font-size: 0.64rem; text-align: left; vertical-align: middle; line-height: 1.3; box-shadow: 6px 0 6px -4px rgba(0,0,0,0.08); }
+        .gr-quad-cell { background: #fff; border-radius: 12px; padding: 12px; vertical-align: top; border-left: 4px solid #ccc; min-width: 178px; max-width: 230px; }
+        .gr-quad-cell.tone-ok { border-left-color: #5E8C5F; background: #F6FAF4; }
+        .gr-quad-cell.tone-forbidden { border-left-color: #B23A2E; background: #FBF4F2; }
+        .gr-quad-form { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 1.1rem; color: #2f3542; margin-bottom: 2px; line-height: 1.4; }
+        .gr-quad-gloss { font-size: 0.74rem; color: #888; margin-bottom: 8px; font-family: 'Poppins', sans-serif; }
+        .gr-quad-cell .gr-example-card { margin-bottom: 0; padding: 8px 10px; background: rgba(255,255,255,0.65); }
+        .gr-quad-cell .gr-example-sentence { font-size: 0.98rem; margin-bottom: 4px; line-height: 1.7; }
+        .gr-quad-cell .gr-example-en { font-size: 0.78rem; }
         .gr-notes-box { background: #F3EEE4; border-radius: 8px; padding: 12px 14px; margin-top: 10px; font-size: 0.82rem; color: #666; }
         .gr-notes-box li { margin-bottom: 4px; }
 
@@ -791,6 +825,10 @@ window.GrammarModule = {
     }
 
     function renderGrammarTable(sec) {
+      // 2x2 concept matrices (e.g. the permission/obligation quadrant) render as
+      // a structured, mobile-friendly grid rather than a crammed text table.
+      if (sec.layout === 'quadrant') return renderGrammarQuadrant(sec);
+
       const div = el('div', 'gr-card-white');
       div.appendChild(el('div', '', '<strong>' + esc(sec.title) + '</strong>'));
       div.appendChild(el('div', 'gr-rule-explanation', esc(sec.description)));
@@ -822,11 +860,97 @@ window.GrammarModule = {
       wrap.appendChild(table);
       div.appendChild(wrap);
 
+      // Mobile affordance: when the table is wider than the screen, freeze the
+      // first column (CSS) and show a swipe hint that fades once scrolled to end.
+      div.appendChild(el('div', 'gr-table-hint', '← swipe to see more →'));
+      attachScrollHint(wrap);
+
       if (sec.notes && sec.notes.length) {
         const nb = el('ul', 'gr-notes-box');
         sec.notes.forEach(n => nb.appendChild(el('li', '', esc(n))));
         div.appendChild(nb);
       }
+      return div;
+    }
+
+    // Toggle .is-scrollable / .at-end on a table wrapper so the CSS can draw the
+    // edge fade + swipe hint only when the table actually overflows. Uses a
+    // ResizeObserver so it re-evaluates after layout, font-scale, and rotation.
+    function attachScrollHint(wrap) {
+      const update = () => {
+        const scrollable = wrap.scrollWidth > wrap.clientWidth + 2;
+        wrap.classList.toggle('is-scrollable', scrollable);
+        const atEnd = !scrollable || wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 2;
+        wrap.classList.toggle('at-end', atEnd);
+      };
+      wrap.addEventListener('scroll', update, { passive: true });
+      if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(update).observe(wrap);
+      } else {
+        requestAnimationFrame(update);
+      }
+    }
+
+    // Concept matrix (e.g. permission/obligation quadrant): axes preserved (column
+    // headers + frozen row labels), each cell a structured block — form, gloss, and
+    // a furigana example with TTS — colour-coded by tone. Rich cells keep a
+    // comfortable width and the table scrolls sideways rather than compressing;
+    // the row-label column is frozen and a swipe hint appears when it overflows
+    // (same affordance as the wide conjugation tables). Reuses the shared
+    // example-card + renderParts/speakParts.
+    function renderGrammarQuadrant(sec) {
+      const div = el('div', 'gr-card-white');
+      div.appendChild(el('div', '', '<strong>' + esc(sec.title) + '</strong>'));
+      if (sec.description) div.appendChild(el('div', 'gr-rule-explanation', esc(sec.description)));
+
+      const wrap = el('div', 'gr-table-wrap');
+      const table = el('table', 'gr-quadrant');
+      const headers = sec.headers || [];
+      if (headers.length) {
+        const thead = el('tr', '');
+        headers.forEach((h, i) => thead.appendChild(el('th', i === 0 ? 'gr-quad-corner' : '', esc(h))));
+        table.appendChild(el('thead', '', thead));
+      }
+      const tbody = el('tbody', '');
+      (sec.rows || []).forEach(row => {
+        const tr = el('tr', '');
+        tr.appendChild(el('th', 'gr-quad-rowlabel', esc(row.label)));
+        (row.cells || []).forEach(cell => {
+          const tone = (cell && cell.tone) ? ' tone-' + esc(cell.tone) : '';
+          const td = el('td', 'gr-quad-cell' + tone);
+          if (cell && typeof cell === 'object') {
+            if (cell.form) td.appendChild(el('div', 'gr-quad-form', jpRender({ text: cell.form, tokens: cell.formTokens })));
+            if (cell.gloss) td.appendChild(el('div', 'gr-quad-gloss', esc(cell.gloss)));
+            if (cell.example) {
+              const ex = el('div', 'gr-example-card');
+              const sent = el('div', 'gr-example-sentence');
+              sent.innerHTML = renderParts(cell.example.parts);
+              ex.appendChild(sent);
+              if (cell.example.en) ex.appendChild(el('div', 'gr-example-en', esc(cell.example.en)));
+              const tts = el('button', 'gr-tts-btn', '🔊');
+              tts.onclick = () => speakParts(cell.example.parts);
+              ex.appendChild(tts);
+              td.appendChild(ex);
+            }
+          } else {
+            td.textContent = cell || '';
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      wrap.appendChild(table);
+      div.appendChild(wrap);
+      div.appendChild(el('div', 'gr-table-hint', '← swipe to see more →'));
+      attachScrollHint(wrap);
+
+      if (sec.notes && sec.notes.length) {
+        const nb = el('ul', 'gr-notes-box');
+        sec.notes.forEach(n => nb.appendChild(el('li', '', esc(n))));
+        div.appendChild(nb);
+      }
+      if (sec.tip) div.appendChild(el('div', 'gr-tip-box', '💡 ' + esc(sec.tip)));
       return div;
     }
 
@@ -1421,6 +1545,9 @@ window.GrammarModule = {
         const pct = combinedTotal > 0 ? Math.round(combinedCorrect / combinedTotal * 100) : 100;
         const rank = [...SCORE_RANKS].reverse().find(r => pct >= r.min) || SCORE_RANKS[0];
         markGrammarComplete(grammarId, pct);
+
+        // Record streak activity on grammar completion (parallels Lesson.js).
+        if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
 
         // Build per-section breakdown, sorted worst-first for "needs work" emphasis.
         const breakdownEntries = allScores

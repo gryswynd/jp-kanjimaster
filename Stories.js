@@ -44,6 +44,15 @@ window.StoriesModule = (function () {
   let termMapData = {};         // id → term entry, for modal lookups
   let surfaceIdx = null;        // surface → entry, for runtime fallback
   let CONJUGATION_RULES = null; // loaded with glossaries; used by JP_OPEN_TERM
+  let cameFromQuiz = false;      // true after jumping to a page FROM a question
+  let _goToQuestionPage = null;  // reader hook (set in wireStoryEvents) for the quiz jump
+
+  // Content page (1-based, matches the page-foot "i / N") that holds a paragraph.
+  function paraIdxToPage(paraIdx) {
+    const pp = (pages || []).findIndex(pg =>
+      pg.segments && pg.segments.some(s => s.paraIdx === paraIdx));
+    return pp >= 0 ? pp + 1 : 1;
+  }
 
   // ── Comprehension-quiz answer persistence ─────────────────────────────────
   // Locked-in answers survive going back into the story (and an app close) so a
@@ -130,6 +139,12 @@ window.StoriesModule = (function () {
         border-bottom: 2px solid rgba(78,84,200,0.2);
         margin-right: 1px; transition: 0.2s;
       }
+      /* 説明-mode pick highlight (tap-to-build selection in the reader). */
+      .jp-token-picked,
+      .jp-term.jp-token-picked {
+        background: oklch(0.60 0.18 30 / 0.18);
+        border-radius: 4px; box-shadow: 0 0 0 2px oklch(0.60 0.18 30 / 0.35);
+      }
       @media (hover: hover) {
         .jp-term:hover { background: oklch(0.60 0.18 30 / 0.10); border-bottom-color: #C2410C; }
       }
@@ -189,6 +204,24 @@ window.StoriesModule = (function () {
         font-size: 0.8rem; color: oklch(0.5 0.012 60); font-style: italic;
         margin: -4px 0 10px;
       }
+      /* "Go to page" link under a question — jumps to the relevant passage. */
+      .jp-story-q-goto {
+        display: inline-block; margin: 0 0 10px; padding: 5px 12px;
+        background: transparent; border: 1px solid oklch(0.22 0.012 60 / 0.18);
+        border-radius: 999px; color: #6E5A18; font: inherit; font-size: 0.78rem;
+        font-weight: 600; cursor: pointer; -webkit-tap-highlight-color: transparent;
+      }
+      .jp-story-q-goto:active { background: oklch(0.60 0.18 30 / 0.08); }
+      /* Floating "← Questions" return button, shown after jumping from a question. */
+      .jp-back-to-q {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        bottom: calc(100% + 8px); white-space: nowrap;
+        padding: 9px 18px; border: none; border-radius: 999px;
+        background: var(--vermilion, #c2410c); color: #fff;
+        font: inherit; font-weight: 700; font-size: 0.85rem; cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.28); z-index: 5;
+      }
+      .jp-back-to-q[hidden] { display: none; }
       .jp-story-q-input {
         display: block; width: 100%; box-sizing: border-box;
         background: oklch(0.97 0.008 80); border: 1px solid oklch(0.22 0.012 60 / 0.14);
@@ -418,7 +451,21 @@ window.StoriesModule = (function () {
       .jp-flip-book { width: 100%; height: 100%; }
       .jp-flip-page { width: 100%; height: 100%; background: oklch(0.985 0.01 85);
         display: flex; flex-direction: column; overflow: hidden; -webkit-tap-highlight-color: transparent; }
-      .jp-flip-page .jp-page-inner { flex: 1 1 auto; min-height: 0; }
+      /* Scrollable page body. StPageFlip forces display:block inline on the visible
+         page, which kills any flex-based height bounding — so the scroll region is
+         absolutely positioned to fill the (position:absolute) page, giving it a
+         definite height no matter the page's display. Long text now scrolls;
+         horizontal swipe still flips (the lib only flips on horizontal drags). */
+      .jp-page-scroll {
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        overflow-y: auto; -webkit-overflow-scrolling: touch; touch-action: pan-y;
+        padding: 26px 22px 18px; box-sizing: border-box;
+        scrollbar-width: thin; scrollbar-color: rgba(80,70,60,0.35) transparent;
+      }
+      .jp-page-scroll::-webkit-scrollbar { width: 6px; }
+      .jp-page-scroll::-webkit-scrollbar-thumb {
+        background: rgba(80,70,60,0.32); border-radius: 3px;
+      }
       /* The closed book's hard cover (page 0). Color is on .jp-flip-cover-fill
          (an inner element) because StPageFlip overwrites the page's own style. */
       .jp-flip-cover { position: relative; }
@@ -470,10 +517,9 @@ window.StoriesModule = (function () {
       .jp-page.jp-flipping .jp-page-face::after { opacity: 1; }
       .jp-page.jp-flip-fwd-end { transform: rotateY(-180deg); }
       .jp-page.jp-flip-back-start { transform: rotateY(-180deg); }
-      .jp-page-inner {
-        flex: 1 1 auto; min-height: 0; overflow-y: auto;
-        padding: 26px 22px 18px; -webkit-overflow-scrolling: touch;
-      }
+      /* Content block; height + scrolling are owned by the .jp-page-scroll wrapper
+         (padding moved there so it isn't double-applied). */
+      .jp-page-inner { min-height: 0; }
       .jp-page-inner .jp-story-paragraph:last-child { margin-bottom: 0; }
       .jp-page-en {
         border-top: 1px dashed oklch(0.22 0.012 60 / 0.18);
@@ -487,6 +533,7 @@ window.StoriesModule = (function () {
         padding: 6px 0 4px; font-variant-numeric: tabular-nums;
       }
       .jp-book-controls {
+        position: relative; /* anchors the floating "← Questions" button */
         display: flex; align-items: center; justify-content: space-between; gap: 10px;
         padding: 12px 6px max(12px, env(safe-area-inset-bottom));
       }
@@ -812,6 +859,8 @@ window.StoriesModule = (function () {
 
   function renderStory(data) {
     if (window.JPApp) window.JPApp.hideTabBar();
+    // Drop any 説明-mode picks from the previous story/page render (stale refs).
+    try { if (window.JPShared.selectExplain) window.JPShared.selectExplain.clearPicked(); } catch (e) {}
     pages = paginateStory(data.paragraphs, data.comprehension);
     currentPage = 0;
     isFlipping = false;
@@ -841,6 +890,7 @@ window.StoriesModule = (function () {
             '<button class="jp-page-en-toggle" id="jp-page-en-toggle">EN</button>' +
           '</div>' +
           '<button class="jp-page-btn" id="jp-page-next">Page →</button>' +
+          '<button class="jp-back-to-q" id="jp-back-to-questions" hidden>← Questions</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -854,25 +904,30 @@ window.StoriesModule = (function () {
   // pages (and the legacy renderPageHtml wrapper).
   function pageContentHtml(page, data) {
     if (!page) return '';
+    let body;
     if (page.type === 'quiz') {
-      return '<div class="jp-page-inner">' + renderComprehensionCard(page.comprehension) + '</div>' +
-             '<div class="jp-page-foot"></div>';
+      body = '<div class="jp-page-inner">' + renderComprehensionCard(page.comprehension) + '</div>';
+    } else {
+      let inner = '';
+      page.segments.forEach(seg => {
+        const para = data.paragraphs[seg.paraIdx] || {};
+        const tokens = seg.tokens != null ? seg.tokens : para.tokens;
+        const speakJp = seg.jp != null ? seg.jp : para.jp;
+        inner += '<p class="jp-story-paragraph" data-para="' + seg.paraIdx + '" ' +
+          'data-speak-jp="' + escAttr(speakJp || '') + '">' +
+          '<span class="jp-story-jp">' + renderTokens(tokens) + '</span>' +
+          '<button class="jp-speak-sentence" data-speak-idx="' + seg.paraIdx + '" aria-label="Speak this paragraph">🔊</button>' +
+        '</p>';
+      });
+      body = '<div class="jp-page-inner">' + inner + '</div>';
+      if (page.enText) body += '<div class="jp-page-en" hidden>' + escHtml(page.enText) + '</div>';
     }
-    let inner = '';
-    page.segments.forEach(seg => {
-      const para = data.paragraphs[seg.paraIdx] || {};
-      const tokens = seg.tokens != null ? seg.tokens : para.tokens;
-      const speakJp = seg.jp != null ? seg.jp : para.jp;
-      inner += '<p class="jp-story-paragraph" data-para="' + seg.paraIdx + '" ' +
-        'data-speak-jp="' + escAttr(speakJp || '') + '">' +
-        '<span class="jp-story-jp">' + renderTokens(tokens) + '</span>' +
-        '<button class="jp-speak-sentence" data-speak-idx="' + seg.paraIdx + '" aria-label="Speak this paragraph">🔊</button>' +
-      '</p>';
-    });
-    let html = '<div class="jp-page-inner">' + inner + '</div>';
-    if (page.enText) html += '<div class="jp-page-en" hidden>' + escHtml(page.enText) + '</div>';
-    html += '<div class="jp-page-foot"></div>';
-    return html;
+    // Wrap the page body in an absolutely-positioned scroll region. StPageFlip forces
+    // display:block inline on the visible page, defeating any flex-based height
+    // bounding, so the content div would otherwise grow to its full height and get
+    // clipped by the page's overflow:hidden (long pages = cut-off text, no scroll).
+    // .jp-page-scroll fills the page (definite height) and scrolls — see the CSS.
+    return '<div class="jp-page-scroll">' + body + '<div class="jp-page-foot"></div></div>';
   }
   // Legacy wrapper (kept for the dormant CSS-flip path; unused by StPageFlip).
   function renderPageHtml(page, data) {
@@ -898,8 +953,19 @@ window.StoriesModule = (function () {
     // Synthetic conjugation ids ("<root>_<ruleKey>") split back to (rootId, ruleKey)
     // so the modal can generate the inflected entry on-demand.
     node.querySelectorAll('[data-term-id]').forEach(el => {
+      // In 説明 mode, tapping a word builds a multi-token selection to explain
+      // (native drag-select fights StPageFlip here), instead of opening the
+      // glossary. Outside the mode, the glossary tap is unchanged.
+      const se = () => window.JPShared && window.JPShared.selectExplain;
+      // While picking, stop the pointer-start from reaching the flip surface so a
+      // slightly-draggy tap never turns into a page flip (pattern reused from the
+      // quiz input/scroller guards below).
+      ['mousedown', 'touchstart', 'pointerdown'].forEach(ev =>
+        el.addEventListener(ev, e => { if (se() && se().isPickActive()) e.stopPropagation(); }, { passive: true }));
       el.onclick = function (e) {
         e.stopPropagation();
+        const sx = se();
+        if (sx && sx.isPickActive()) { sx.togglePickedToken(this); return; }
         const id = this.dataset.termId;
         if (!id || !window.JP_OPEN_TERM) return;
         const split = splitConjugatedId(id);
@@ -912,6 +978,30 @@ window.StoriesModule = (function () {
     // Reflect per-page EN reveal state onto this freshly rendered page's block.
     const en = node.querySelector('.jp-page-en');
     if (en) en.hidden = !enRevealed;
+
+    // Directional touch router: on a page whose text overflows, a VERTICAL drag
+    // should scroll the body, not flip the page. StPageFlip listens for touchmove
+    // on window, so we stop vertical-intent moves from bubbling up to it (native
+    // scroll still happens — we never preventDefault). HORIZONTAL drags fall
+    // through untouched, so swipe-to-flip keeps working.
+    const scroll = node.querySelector('.jp-page-scroll');
+    if (scroll) {
+      let sx = 0, sy = 0, axis = '';
+      scroll.addEventListener('touchstart', e => {
+        const t = e.touches[0]; sx = t.clientX; sy = t.clientY; axis = '';
+      }, { passive: true });
+      scroll.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        if (!axis) {
+          const dx = Math.abs(t.clientX - sx), dy = Math.abs(t.clientY - sy);
+          if (dx < 6 && dy < 6) return;           // not enough movement to decide
+          axis = dy > dx ? 'y' : 'x';
+        }
+        if (axis === 'y' && scroll.scrollHeight > scroll.clientHeight + 2) {
+          e.stopPropagation();                    // keep the flip surface from eating the scroll
+        }
+      }, { passive: true });
+    }
   }
 
   // ── Per-page English reveal ───────────────────────────────────────────────
@@ -920,10 +1010,14 @@ window.StoriesModule = (function () {
   function wireStoryEvents(data) {
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     enRevealed = false;
+    cameFromQuiz = false;
     pf = null;
 
     // ── Header nav (per story) ──
-    document.getElementById('jp-stories-exit').onclick = onExit;
+    document.getElementById('jp-stories-exit').onclick = (e) => {
+      try { if (window.JPShared.selectExplain) window.JPShared.selectExplain.clearPicked(); } catch (err) {}
+      if (typeof onExit === 'function') onExit(e);
+    };
     document.getElementById('jp-stories-list').onclick = renderSelector;
     document.getElementById('jp-stories-prev').onclick = () => {
       if (currentIndex > 0) { currentIndex--; loadStory(storyList[currentIndex]); }
@@ -1104,6 +1198,49 @@ window.StoriesModule = (function () {
     prevBtn.onclick = prevAction;
     nextBtn.onclick = nextAction;
 
+    // Jump from a comprehension question to the passage it's about, then reveal a
+    // "← Questions" button to return (answers persist via the quiz store).
+    function toggleBackToQuestions(on) {
+      const b = document.getElementById('jp-back-to-questions');
+      if (b) b.hidden = !on;
+    }
+    function goToQuestionPage(paraIdx) {
+      const target = paraIdxToPage(paraIdx);
+      if (pf && pf.turnToPage) {
+        pf.turnToPage(target);
+        if (pf.getCurrentPageIndex) currentPage = pf.getCurrentPageIndex();
+        updatePageControls();
+      } else {
+        showPage(target);
+      }
+      // A page may hold >1 paragraph — scroll the exact one to the top of its
+      // page's scroll container. Done explicitly (not scrollIntoView, which is
+      // unreliable inside StPageFlip's restructured/animating page DOM) after a
+      // short settle so the target page is the visible one.
+      setTimeout(() => {
+        const el = document.querySelector('.jp-story-paragraph[data-para="' + paraIdx + '"]');
+        if (!el) return;
+        const sc = el.closest('.jp-page-scroll');
+        if (sc) {
+          const r = el.getBoundingClientRect(), sr = sc.getBoundingClientRect();
+          sc.scrollTop += (r.top - sr.top) - 12;
+        } else if (el.scrollIntoView) {
+          el.scrollIntoView({ block: 'start' });
+        }
+      }, 90);
+      cameFromQuiz = true;
+      toggleBackToQuestions(true);
+      try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (e) {}
+    }
+    _goToQuestionPage = goToQuestionPage;
+
+    const backToQ = document.getElementById('jp-back-to-questions');
+    if (backToQ) backToQ.onclick = () => {
+      cameFromQuiz = false;
+      toggleBackToQuestions(false);
+      openQuiz();
+    };
+
     // ── Init StPageFlip (single-page portrait flip with the real text). ──
     const Lib = window.St || window.PageFlip;
     const Ctor = (Lib && Lib.PageFlip) || (typeof window.PageFlip === 'function' ? window.PageFlip : null);
@@ -1117,12 +1254,19 @@ window.StoriesModule = (function () {
             minWidth: 260, maxWidth: 1400, minHeight: 360, maxHeight: 2000,
             usePortrait: true, showCover: true, drawShadow: true,
             maxShadowOpacity: 0.5, flippingTime: reduceMotion ? 0 : 700,
-            useMouseEvents: true, mobileScrollSupport: false, disableFlipByClick: true,
+            // mobileScrollSupport:true (the library default) is what lets a page
+            // be INTERACTIVE: vertical drags scroll natively + taps fall through to
+            // word pop-ups, while horizontal swipes still flip. (false made the lib
+            // preventDefault every touchstart, eating scroll + taps.)
+            useMouseEvents: true, mobileScrollSupport: true, disableFlipByClick: true,
           });
           pf.loadFromHTML(pageEls);
           pf.on('flip', (e) => {
             currentPage = e.data;
             updatePageControls();
+            // Picks are page-local — clear them when the page turns so the 説明
+            // pill never lingers anchored to an off-screen token.
+            try { if (window.JPShared.selectExplain) window.JPShared.selectExplain.clearPicked(); } catch (err) {}
             try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (err) {}
           });
           mount.style.visibility = '';
@@ -1234,8 +1378,10 @@ window.StoriesModule = (function () {
   // Tuned for the .jp-story-paragraph rule (font-size:1.15rem; line-height:2.2)
   // on a ~320px phone content width. Conservative so furigana/romaji vertical
   // inflation never overflows a page. Three named knobs — retune after device test.
-  const PAGE_CHAR_BUDGET = 140; // soft target: stop ADDING paragraphs once exceeded
-  const PAGE_HARD_CAP    = 220; // a single paragraph longer than this is split at 。
+  // Pages now SCROLL, so a paragraph is NEVER split across pages — a long one gets
+  // its own scrollable page. The budgets only decide how many WHOLE paragraphs may
+  // share a page (so short dialogue lines still group). Tunable after device test.
+  const PAGE_CHAR_BUDGET = 300; // soft target: stop ADDING whole paragraphs past this
   const PAGE_MAX_PARAS   = 4;   // never pack more than N paragraphs onto one page
 
   // paginateStory(paragraphs, comprehension) -> Page[]
@@ -1256,13 +1402,9 @@ window.StoriesModule = (function () {
     flush();
     (paragraphs || []).forEach((p, idx) => {
       const len = (p.jp || '').length;
-      if (len > PAGE_HARD_CAP) {
-        // Oversized paragraph: own page(s), sentence-split.
-        flush();
-        const segs = splitParagraphAtSentences(p, idx, PAGE_HARD_CAP);
-        segs.forEach(seg => pages.push({ type: 'prose', segments: [seg] }));
-        return;
-      }
+      // Never split a paragraph across pages — a long one keeps its own page and
+      // scrolls. Only start a new page when adding this WHOLE paragraph would
+      // exceed the budget or the per-page paragraph cap.
       if (cur.segments.length > 0 &&
           (cur.chars + len > PAGE_CHAR_BUDGET || cur.segments.length >= PAGE_MAX_PARAS)) {
         flush();
@@ -1463,6 +1605,8 @@ window.StoriesModule = (function () {
       const u = window.JPShared && window.JPShared.unlock;
       if (u && u.recordStoryResult) u.recordStoryResult(id, pct);
     } catch (e) {}
+    // Finishing a story counts toward the daily streak (parallels Lesson/Grammar).
+    if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
   }
 
   // A comprehension question is "written" (free-text) when it carries an answer
@@ -1566,7 +1710,15 @@ window.StoriesModule = (function () {
     comprehension.questions.forEach((q, qi) => {
       html += '<div class="jp-story-q" data-qi="' + qi + '">' +
         '<div class="jp-story-q-text">' + escHtml(q.q) + '</div>';
-      if (q.q_en) html += '<div class="jp-story-q-en">' + escHtml(q.q_en) + '</div>';
+      // English is hidden until the question is answered — the student reads the
+      // Japanese question to test comprehension; it reveals with the model answer.
+      if (q.q_en) html += '<div class="jp-story-q-en" hidden data-en-for="' + qi + '">' + escHtml(q.q_en) + '</div>';
+      // Jump straight to the passage this question is about (closes the quiz,
+      // turns to that page). paraIdx is authored; map it to the page number.
+      if (typeof q.paraIdx === 'number') {
+        html += '<button class="jp-story-q-goto" data-paraidx="' + q.paraIdx + '">' +
+                '📖 Go to page ' + paraIdxToPage(q.paraIdx) + ' →</button>';
+      }
       if (isWrittenQ(q)) {
         html += '<textarea class="jp-story-q-input" data-qi="' + qi + '" rows="1" ' +
                 'autocapitalize="off" autocomplete="off" spellcheck="false" ' +
@@ -1630,6 +1782,8 @@ window.StoriesModule = (function () {
         if (idx === q.correct) b.classList.add('correct');
         else if (idx === oi) b.classList.add('wrong');
       });
+      const en = wrapper.querySelector('.jp-story-q-en');
+      if (en) en.hidden = false;
       const ex = wrapper.querySelector('.jp-story-q-explain');
       if (ex) ex.hidden = false;
     }
@@ -1640,6 +1794,8 @@ window.StoriesModule = (function () {
       if (check) check.disabled = true;
       const model = wrapper.querySelector('.jp-story-q-model');
       if (model) model.hidden = false;
+      const en = wrapper.querySelector('.jp-story-q-en');
+      if (en) en.hidden = false;
       const ex = wrapper.querySelector('.jp-story-q-explain');
       if (ex) ex.hidden = false;
     }
@@ -1675,6 +1831,18 @@ window.StoriesModule = (function () {
       };
     });
 
+    // "Go to page" — close the quiz and jump to the passage this question is
+    // about. The reader exposes the jump via _goToQuestionPage (set in
+    // wireStoryEvents); answers persist, so reopening via "← Questions" restores.
+    card.querySelectorAll('.jp-story-q-goto').forEach(btn => {
+      btn.onclick = function () {
+        const paraIdx = parseInt(this.dataset.paraidx, 10);
+        const ov = document.getElementById('jp-quiz-overlay');
+        if (ov) ov.remove();
+        if (_goToQuestionPage) _goToQuestionPage(paraIdx);
+      };
+    });
+
     // StPageFlip only whitelists <a>/<button> (checkTarget); a <textarea> is
     // otherwise treated as a flip-drag start and its touchstart/mousedown is
     // preventDefault'd — which blocks the field from focusing. The flip's
@@ -1691,7 +1859,7 @@ window.StoriesModule = (function () {
     // learner can't reach the lower questions. Keep the gesture from reaching the
     // flip surface so the page-inner's native overflow scroll works. (Drag-flip
     // on the quiz page is unneeded — Prev / List / the end CTA handle navigation.)
-    const scroller = card.closest('.jp-page-inner');
+    const scroller = card.closest('.jp-page-scroll');
     if (scroller) {
       scroller.style.touchAction = 'pan-y';
       ['touchstart', 'touchmove', 'pointerdown', 'mousedown'].forEach(ev =>

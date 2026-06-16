@@ -7,6 +7,16 @@ node_modules/
 www/
 # Native iOS project (generated on the Mac via: npx cap add ios)
 /ios/
+# Native Android project (generated via: npx cap add android).
+# Manual edits to it (manifest permissions etc.) are documented in docs/android.md
+# so the dir can be rebuilt if lost.
+/android/
+
+# Secrets — never commit. Live keys belong in Secret Manager, not the repo.
+.env
+.env.*
+.env.key
+!.env.example
 
 # Firebase Hosting local deploy cache
 .firebase/

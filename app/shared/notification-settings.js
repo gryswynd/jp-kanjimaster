@@ -283,7 +283,11 @@
             if (state === 'unsupported') {
               showMsg('Notifications only work in the installed app.', true);
             } else {
-              showMsg('Notifications are blocked. Enable them in iOS Settings → Rikizo.', true);
+              var isAndroid = window.Capacitor && window.Capacitor.getPlatform &&
+                window.Capacitor.getPlatform() === 'android';
+              showMsg(isAndroid
+                ? 'Notifications are blocked. Enable them in Android Settings → Apps → Rikizo → Notifications.'
+                : 'Notifications are blocked. Enable them in iOS Settings → Rikizo.', true);
             }
             return;
           }

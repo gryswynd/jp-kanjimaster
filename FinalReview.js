@@ -2169,6 +2169,8 @@ window.FinalReviewModule = (function () {
         window.JPShared.progress.setReviewScore(_reviewId, pct);
       }
     }
+    // Completing a final review counts toward the daily streak.
+    if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
 
     const scoreEmoji = getScoreEmoji(pct);
 

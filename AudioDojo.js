@@ -476,6 +476,11 @@ window.AudioDojoModule = (function () {
       if (qSection) qSection.hidden = false;
       var tt = document.getElementById('ad-transcript-toggle');
       if (tt) tt.style.display = 'block';   // transcript becomes available on completion
+      // Listening through a passage counts toward the daily streak (recordActivity
+      // is idempotent per day). Only on the first completion this session.
+      if (!completedOnce && window.JPShared && window.JPShared.streak) {
+        window.JPShared.streak.recordActivity();
+      }
       completedOnce = true;
     }
 

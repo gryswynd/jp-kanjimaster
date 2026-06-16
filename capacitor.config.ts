@@ -10,6 +10,9 @@ const config: CapacitorConfig = {
     contentInset: 'never',
     backgroundColor: '#272320',
   },
+  android: {
+    backgroundColor: '#272320',
+  },
   plugins: {
     SplashScreen: {
       launchShowDuration: 0,
