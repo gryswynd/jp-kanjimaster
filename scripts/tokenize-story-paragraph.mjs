@@ -28,16 +28,26 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 // ── Args ────────────────────────────────────────────────────────────────────
+// Supports BOTH `--key=value` and `--key value` (space) forms. The space form
+// for --en used to silently set en=true and drop the English as a stray
+// positional — see post-mortem. Value-taking flags consume the next token.
 const args = process.argv.slice(2);
-const positional = args.filter(a => !a.startsWith('--'));
+const VALUE_FLAGS = new Set(['en', 'english', 'insert', 'replace', 'kind']);
+const positional = [];
+const flags = {};
+for (let i = 0; i < args.length; i++) {
+  const a = args[i];
+  if (a.startsWith('--')) {
+    const [k, ...v] = a.slice(2).split('=');
+    if (v.length) flags[k] = v.join('=');
+    else if (VALUE_FLAGS.has(k) && i + 1 < args.length && !args[i + 1].startsWith('--')) flags[k] = args[++i];
+    else flags[k] = true;
+  } else {
+    positional.push(a);
+  }
+}
 const slug = positional[0];
 const jp = positional[1];
-const flags = Object.fromEntries(
-  args.filter(a => a.startsWith('--')).map(a => {
-    const [k, ...v] = a.replace(/^--/, '').split('=');
-    return [k, v.join('=') || true];
-  })
-);
 const en = flags.en || flags.english || '';
 const insertAt = flags.insert != null ? parseInt(flags.insert, 10) : null;
 const replaceAt = flags.replace != null ? parseInt(flags.replace, 10) : null;
