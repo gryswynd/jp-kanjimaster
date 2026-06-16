@@ -47,6 +47,13 @@
   // unlocksAfter (see isAudioStoryUnlocked).
   var AUDIO_DOJO_UNLOCK_AFTER = 'N5.3';
 
+  // ── New-unlock badge state ──────────────────────────────────────────────────
+  // k-unlock-unseen: flat array of leaf keys ("<type>:<id>", or bare "linkup"/
+  // "scramble") the user hasn't opened yet — drives the home/tab/sub-item dots.
+  // Seeded once (SEEDED_KEY) so pre-existing unlocks never retroactively badge.
+  var UNSEEN_KEY = 'k-unlock-unseen';
+  var SEEDED_KEY = 'k-unlock-seen-seeded';
+
   var MODULE_META = {
     grammar:  { icon: '🌿', label: 'Grammar Garden' },
     practice: { icon: '🥋', label: 'Dojo' },
@@ -93,9 +100,16 @@
     return (_getScores()[prereqId] || 0) >= PASS_THRESHOLD;
   }
 
+  // Leaf key for an unseen-badge item descriptor {type,id}. Practice activities
+  // (linkup/scramble) use the bare type token; everything else is "type:id".
+  function _leafKey(item) {
+    if (item.type === 'linkup' || item.type === 'scramble') return item.type;
+    return item.type + ':' + item.id;
+  }
+
   // Snapshot all currently-unlocked IDs across all content types.
   // Returns { modules: Set, lessons: Set, grammar: Set, reviews: Set,
-  //           stories: Set, compose: Set, game: Set }
+  //           stories: Set, compose: Set, game: Set, practice: Set }
   function _snapshotUnlocks(manifest) {
     var api = window.JPShared.unlock;
     var snap = {
@@ -105,13 +119,18 @@
       reviews: new Set(),
       stories: new Set(),
       compose: new Set(),
-      game:    new Set()
+      game:    new Set(),
+      practice: new Set()
     };
 
     // modules
     ['grammar','practice','compose','story','review','game'].forEach(function (m) {
       if (api.isModuleVisible(m)) snap.modules.add(m);
     });
+
+    // Practice activities (no manifest needed) — Link Up / Scramble.
+    if (api.isLinkUpUnlocked())   snap.practice.add('linkup');
+    if (api.isScrambleUnlocked()) snap.practice.add('scramble');
 
     var d = manifest && manifest.data;
     if (!d) return snap;
@@ -156,6 +175,14 @@
       }
     });
 
+    // Practice activities (Link Up / Scramble) — leaf = bare type token.
+    if (before.practice && after.practice) {
+      if (!before.practice.has('linkup') && after.practice.has('linkup'))
+        items.push({ type: 'linkup', id: 'linkup', icon: '🔗', label: 'Link Up' });
+      if (!before.practice.has('scramble') && after.practice.has('scramble'))
+        items.push({ type: 'scramble', id: 'scramble', icon: '🌸', label: 'Scramble' });
+    }
+
     function addItems(type, beforeSet, afterSet, icon) {
       afterSet.forEach(function (id) {
         if (!beforeSet.has(id)) {
@@ -184,6 +211,77 @@
     SCRAMBLE_UNLOCK_AFTER: SCRAMBLE_UNLOCK_AFTER,
     LINKUP_UNLOCK_AFTER:   LINKUP_UNLOCK_AFTER,
     AUDIO_DOJO_UNLOCK_AFTER: AUDIO_DOJO_UNLOCK_AFTER,
+
+    // ── New-unlock badges (unseen set) ───────────────────────────────────────
+    // Leaf type → the home module whose tile/tab should badge. `module:X` leaves
+    // map to X directly (handled in the helpers below).
+    MODULE_FOR_TYPE: {
+      lesson: 'lesson', grammar: 'grammar', review: 'review', story: 'story',
+      compose: 'compose', game: 'game', linkup: 'practice', scramble: 'practice'
+    },
+
+    _getUnseen: function () {
+      try { return JSON.parse(localStorage.getItem(UNSEEN_KEY) || '[]'); }
+      catch (e) { return []; }
+    },
+    _saveUnseen: function (arr) {
+      try { localStorage.setItem(UNSEEN_KEY, JSON.stringify(arr)); } catch (e) {}
+    },
+    _parseLeaf: function (key) {
+      var c = key.indexOf(':');
+      return c < 0 ? { type: key, id: null } : { type: key.slice(0, c), id: key.slice(c + 1) };
+    },
+
+    // One-time: mark the current state "seen" so only FUTURE unlocks badge.
+    // Idempotent; safe to call on every boot.
+    seedSeenIfNeeded: function () {
+      if (localStorage.getItem(SEEDED_KEY) === '1') return;
+      localStorage.setItem(SEEDED_KEY, '1');
+      if (localStorage.getItem(UNSEEN_KEY) == null) this._saveUnseen([]);
+    },
+
+    // Add newly-unlocked descriptors ({type,id,...}) to the unseen set.
+    addUnseen: function (items) {
+      if (!items || !items.length) return;
+      if (localStorage.getItem(SEEDED_KEY) !== '1') this.seedSeenIfNeeded();
+      var set = this._getUnseen(), seen = {};
+      set.forEach(function (k) { seen[k] = 1; });
+      for (var i = 0; i < items.length; i++) {
+        var k = _leafKey(items[i]);
+        if (!seen[k]) { set.push(k); seen[k] = 1; }
+      }
+      this._saveUnseen(set);
+    },
+
+    getUnseen: function () { return this._getUnseen(); },
+    isUnseen: function (key) { return this._getUnseen().indexOf(key) >= 0; },
+
+    // Remove a leaf when the user opens that specific item.
+    markSeen: function (key) {
+      if (!key) return;
+      var set = this._getUnseen(), i = set.indexOf(key);
+      if (i >= 0) { set.splice(i, 1); this._saveUnseen(set); }
+    },
+
+    // True if a module's tile/tab should show a dot: a module:X leaf for it,
+    // or any content/practice leaf that maps to it.
+    hasUnseenForModule: function (moduleKey) {
+      var set = this._getUnseen();
+      for (var i = 0; i < set.length; i++) {
+        var p = this._parseLeaf(set[i]);
+        if (p.type === 'module' && p.id === moduleKey) return true;
+        if (this.MODULE_FOR_TYPE[p.type] === moduleKey) return true;
+      }
+      return false;
+    },
+    unseenCountForModule: function (moduleKey) {
+      var set = this._getUnseen(), n = 0;
+      for (var i = 0; i < set.length; i++) {
+        var p = this._parseLeaf(set[i]);
+        if ((p.type === 'module' && p.id === moduleKey) || this.MODULE_FOR_TYPE[p.type] === moduleKey) n++;
+      }
+      return n;
+    },
 
     // ── N4 gateway ─────────────────────────────────────────────────────────
 
@@ -329,6 +427,7 @@
         case 'writing-kanji': return true;
         case 'writing-kana':  return true;
         case 'map':      return true;                       // progress view, always visible
+        case 'custom':   return true;                       // opt-in paid module — surfaced via k-custom-enabled; never re-locks
         default:         return false;
       }
     },

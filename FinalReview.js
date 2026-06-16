@@ -2326,7 +2326,8 @@ window.FinalReviewModule = (function () {
     // Record score via unlock engine so progression gates update correctly.
     const unlockApi = window.JPShared && window.JPShared.unlock;
     if (unlockApi && _manifestCache) {
-      unlockApi.computeUnlocks(_reviewId, pct, _manifestCache);
+      const _r = unlockApi.computeUnlocks(_reviewId, pct, _manifestCache);
+      if (unlockApi.addUnseen && _r) unlockApi.addUnseen(_r.newItems);
     }
 
     // Build N4 unlock CTA for the N5 Final Review (paid gateway placeholder).

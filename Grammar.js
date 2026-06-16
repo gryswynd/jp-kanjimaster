@@ -1462,7 +1462,10 @@ window.GrammarModule = {
     function renderDrills(sec, stepIdx) {
       const div = el('div', '');
       const mcqItems = (sec.items || []).filter(i => i.kind === 'mcq');
-      let secCorrect = 0, secAnswered = 0;
+      // Seed the section accumulator from any restored score so re-rendering a
+      // resumed/back-navigated section never zeroes its earned credit.
+      let secCorrect = (sectionScores[stepIdx] && sectionScores[stepIdx].correct) || 0;
+      let secAnswered = 0;
       (sec.items || []).forEach((item, itemIdx) => {
         if (item.kind === 'mcq') {
           const card = el('div', 'gr-drill-card');
@@ -1473,11 +1476,14 @@ window.GrammarModule = {
           card.appendChild(qEl);
           const optsDiv = el('div', '');
           const expEl = el('div', 'gr-explanation', item.explanation ? esc(item.explanation) : '');
-          let solved = false;
-          const itemKey = 'gr_drill__' + grammarId + '__' + itemIdx;
+          const itemKey = 'gr_drill__' + grammarId + '__' + stepIdx + '__' + itemIdx;
+          // Already answered in this (restored) session → render resolved and
+          // inert so it can't be re-clicked and overwrite the saved score.
+          let solved = drillAnswered.has(itemKey);
           const shuffled = [...item.choices].sort(() => Math.random() - 0.5);
           shuffled.forEach(choice => {
             const btn = el('button', 'gr-mcq-opt', esc(choice));
+            if (solved && choice === item.answer) btn.classList.add('correct');
             btn.onclick = () => {
               if (solved) return; solved = true;
               fxAnswer(choice === item.answer);
@@ -1490,25 +1496,49 @@ window.GrammarModule = {
                 optsDiv.querySelectorAll('.gr-mcq-opt').forEach(c => {
                   if (c.textContent === item.answer) c.classList.add('correct');
                 });
+                // Auto-flag must never throw before the answer renders.
                 if (item.terms && item.terms.length > 0) {
-                  item.terms.forEach(termId => {
-                    const rt = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
-                    if (rt) window.JPShared.progress.flagTerm(rt.surface);
-                  });
+                  try {
+                    item.terms.forEach(termId => {
+                      const rt = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
+                      if (rt) window.JPShared.progress.flagTerm(rt.surface);
+                    });
+                  } catch (e) {}
                 }
               }
               secAnswered++;
               sectionScores[stepIdx] = { title: sec.title, type: sec.type, correct: secCorrect, total: mcqItems.length };
               if (expEl.textContent) expEl.classList.add('visible');
+              persistGrammarState();
             };
             optsDiv.appendChild(btn);
           });
+          // Restored answered item → show its explanation as resolved.
+          if (solved && expEl.textContent) expEl.classList.add('visible');
           card.appendChild(optsDiv);
           card.appendChild(expEl);
           div.appendChild(card);
         }
       });
       return div;
+    }
+
+    // ──────────────────────────────────────────────
+    // SESSION PERSISTENCE — resume step + earned credit so backing out of a
+    // grammar point mid-way and returning never wipes completed work.
+    // Snapshots the whole runtime state (covers every interactive step type),
+    // keyed by grammarId under k-session-grammar.
+    // ──────────────────────────────────────────────
+
+    function persistGrammarState() {
+      if (!window.JPShared.sessionProgress || !grammarId) return;
+      window.JPShared.sessionProgress.save('grammar', grammarId, {
+        step: currentStep,
+        drillCorrect: drillCorrect,
+        answered: Array.from(drillAnswered),
+        completed: Array.from(completedSteps),
+        scores: sectionScores
+      });
     }
 
     // ──────────────────────────────────────────────
@@ -1545,6 +1575,8 @@ window.GrammarModule = {
         const pct = combinedTotal > 0 ? Math.round(combinedCorrect / combinedTotal * 100) : 100;
         const rank = [...SCORE_RANKS].reverse().find(r => pct >= r.min) || SCORE_RANKS[0];
         markGrammarComplete(grammarId, pct);
+        // Finished — drop the resume snapshot so a fresh re-attempt starts clean.
+        if (window.JPShared.sessionProgress) window.JPShared.sessionProgress.clear('grammar', grammarId);
 
         // Record streak activity on grammar completion (parallels Lesson.js).
         if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
@@ -1578,6 +1610,7 @@ window.GrammarModule = {
           ? unlockApi.computeUnlocks(grammarId, 100, _manifestCache)
           : null;
         const newItems = (unlockResult && unlockResult.newItems) || [];
+        if (unlockApi && unlockApi.addUnseen) unlockApi.addUnseen(newItems);
 
         // Build unlock chips (same style as Lesson.js reveal).
         const unlockHtml = newItems.length > 0 ? `
@@ -1628,7 +1661,7 @@ window.GrammarModule = {
       const stepIdx = currentStep;
       if (isInteractive && !completedSteps.has(stepIdx)) nextBtn.disabled = true;
       else if (!isInteractive) nextBtn.disabled = false; // reset if navigating back from an interactive step
-      const enableNext = isInteractive ? () => { completedSteps.add(stepIdx); nextBtn.disabled = false; } : null;
+      const enableNext = isInteractive ? () => { completedSteps.add(stepIdx); nextBtn.disabled = false; persistGrammarState(); } : null;
 
       try {
         if      (sec.type === 'grammarIntro')      content = renderGrammarIntro(sec);
@@ -1690,8 +1723,8 @@ window.GrammarModule = {
           <button class="gr-nav-btn prev">Prev</button>
           <button class="gr-nav-btn next">Next</button>
         </div>`;
-      root.querySelector('.gr-back-btn').onclick = () => renderMenu();
-      root.querySelector('.gr-exit-btn').onclick = exitCallback;
+      root.querySelector('.gr-back-btn').onclick = () => { persistGrammarState(); renderMenu(); };
+      root.querySelector('.gr-exit-btn').onclick = () => { persistGrammarState(); exitCallback(); };
 
       try {
         // Cache-bust the grammar JSON so authored edits land without forcing
@@ -1716,11 +1749,26 @@ window.GrammarModule = {
         totalSteps = grammarData.sections.length + 1;
         showEN = false;
 
+        // Restore an interrupted sitting — resume step + earned credit — so
+        // backing out of a grammar point and returning never wipes completed
+        // work (parallels Lesson.js's resume).
+        const savedG = window.JPShared.sessionProgress
+            ? window.JPShared.sessionProgress.get('grammar', grammarId) : null;
+        if (savedG) {
+          drillCorrect = savedG.drillCorrect || 0;
+          (savedG.answered || []).forEach(k => drillAnswered.add(k));
+          (savedG.completed || []).forEach(k => completedSteps.add(k));
+          Object.assign(sectionScores, savedG.scores || {});
+          if (typeof savedG.step === 'number' && savedG.step > 0 && savedG.step < totalSteps) {
+            currentStep = savedG.step;
+          }
+        }
+
         root.querySelector('.gr-nav-btn.prev').onclick = () => {
-          if (currentStep > 0) { currentStep--; showEN = false; renderCurrentStep(); }
+          if (currentStep > 0) { currentStep--; showEN = false; persistGrammarState(); renderCurrentStep(); }
         };
         root.querySelector('.gr-nav-btn.next').onclick = () => {
-          if (currentStep < totalSteps) { currentStep++; showEN = false; renderCurrentStep(); }
+          if (currentStep < totalSteps) { currentStep++; showEN = false; persistGrammarState(); renderCurrentStep(); }
           else renderMenu();
         };
         renderCurrentStep();
@@ -1965,7 +2013,15 @@ window.GrammarModule = {
         lantern.style.left = xPctAt(i) + '%';
         lantern.style.top = lanternTopAt(i) + 'px';
         lantern.style.transform = 'translateX(-50%)';
-        lantern.onclick = () => { if (sk) sk.tapFeedback(lantern); loadGrammarLesson(g.file, g.id); };
+        lantern.dataset.grammarId = g.id;
+        var u = window.JPShared && window.JPShared.unlock;
+        if (u && u.isUnseen('grammar:' + g.id)) {
+          var dot = document.createElement('span');
+          dot.className = 'jp-unseen-dot';
+          dot.style.cssText = 'position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;';
+          lantern.appendChild(dot);
+        }
+        lantern.onclick = () => { if (u && u.markSeen) u.markSeen('grammar:' + g.id); if (sk) sk.tapFeedback(lantern); loadGrammarLesson(g.file, g.id); };
         garden.appendChild(lantern);
       });
     }

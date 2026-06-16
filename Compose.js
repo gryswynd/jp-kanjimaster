@@ -505,6 +505,7 @@ window.ComposeModule = {
         }
 
         const progress = window.JPShared && window.JPShared.progress;
+        var u = window.JPShared && window.JPShared.unlock;
         files.forEach(cf => {
             const totalPrompts = (cf.prompts || []).length + (cf.challengePrompts || []).length;
             const draftState = loadDraftState(cf);
@@ -528,8 +529,13 @@ window.ComposeModule = {
                 }
             }
 
+            const leaf = 'compose:' + (cf.lesson || cf.id);
+            const unseenDot = (u && u.isUnseen(leaf))
+                ? '<span class="jp-unseen-dot" style="position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;"></span>'
+                : '';
             html += `
                 <div class="c-menu-card" onclick="ComposeApp.startCompose('${escHtml(cf.id)}')">
+                    ${unseenDot}
                     ${stampHtml}
                     <div class="c-menu-emoji">${cf.emoji || '✏️'}</div>
                     <div class="c-menu-info">
@@ -568,6 +574,8 @@ window.ComposeModule = {
     ComposeApp.startCompose = function(composeId) {
         const compose = COMPOSE_FILES.find(cf => cf.id === composeId);
         if (!compose) return;
+        var u = window.JPShared && window.JPShared.unlock;
+        if (u && u.markSeen) u.markSeen('compose:' + (compose.lesson || compose.id));
         currentCompose = compose;
         currentKnownKanji = computeKnownKanjiForCompose(compose);
 

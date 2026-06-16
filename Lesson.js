@@ -822,6 +822,16 @@ window.LessonModule = {
         return div;
     }
 
+    // Stable key for a drill MCQ — includes the section's index so two drills
+    // that happen to share a prompt at the same item index never collide once
+    // answers are persisted across sittings. Used by both the renderer and the
+    // resume replay in loadLesson, so they MUST agree (call after the intro
+    // section has been unshifted so indices line up with render time).
+    function drillItemKey(sec, itemIdx, item) {
+        const secIdx = lessonData ? lessonData.sections.indexOf(sec) : -1;
+        return 'drill__' + secIdx + '__' + itemIdx + '__' + item.q;
+    }
+
     function renderDrills(sec) {
         const div = el("div", "");
         div.style.cssText = "padding:24px 22px 32px;";
@@ -836,7 +846,7 @@ window.LessonModule = {
         const list = el("div", ""); list.style.cssText = "display:flex;flex-direction:column;gap:24px;";
         mcqs.forEach((item, itemIdx) => {
             const block = el("div", "");
-            const itemKey = 'drill__' + itemIdx + '__' + item.q;
+            const itemKey = drillItemKey(sec, itemIdx, item);
             let solved = drillAnswered.has(itemKey);
 
             // The bracketed word is the reading target. A yomikata drill must
@@ -883,6 +893,11 @@ window.LessonModule = {
                     if (solved) return; solved = true;
                     const correct = choice === item.answer;
                     drillResults[itemKey] = correct;
+                    // Persist immediately so backing out mid-lesson and
+                    // returning never wipes this drill's credit.
+                    if (window.JPShared.sessionProgress && lessonData && lessonData.id) {
+                        window.JPShared.sessionProgress.saveResult('lesson', lessonData.id, itemKey, correct);
+                    }
                     try {
                         const fx = window.JPShared.sfx, hp = window.JPShared.haptics;
                         if (correct) { if (fx) fx.success(); if (hp) hp.success(); }
@@ -896,11 +911,15 @@ window.LessonModule = {
                             if (stat) stat.correct++;
                         }
                     }
+                    // Auto-flag is a nicety — never let a bad term throw before
+                    // showResult and leave the button inert (the N4.22 drill-3 bug).
                     if (!correct && item.terms && item.terms.length) {
-                        item.terms.forEach(termId => {
-                            const rootTerm = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
-                            if (rootTerm) window.JPShared.progress.flagTerm(rootTerm.surface);
-                        });
+                        try {
+                            item.terms.forEach(termId => {
+                                const rootTerm = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
+                                if (rootTerm) window.JPShared.progress.flagTerm(rootTerm.surface);
+                            });
+                        } catch (e) {}
                     }
                     showResult(correct, b);
                 };
@@ -1023,6 +1042,7 @@ window.LessonModule = {
         let result = null;
         if (unlock && manifestData && lessonData && lessonData.id) {
             result = unlock.computeUnlocks(lessonData.id, pct, manifestData);
+            if (unlock.addUnseen) unlock.addUnseen(result.newItems);
         }
 
         // Stash a pending celebration — the home screen's Rikizo dispatcher
@@ -1330,6 +1350,7 @@ window.LessonModule = {
           const nudge = sk ? (sk.hashIndexSalted(lesson.id, 'x', 5) - 2) * 3 : 0;       // ±6px
 
           const file = el('div', 'lh-file');
+          file.dataset.lessonId = lesson.id;
           file.style.transform = 'rotate(' + tilt + 'deg) translateX(' + nudge + 'px)';
           if (!completed && !currentMarked) { file.classList.add('lh-file--current'); currentMarked = true; }
 
@@ -1355,7 +1376,18 @@ window.LessonModule = {
           face.appendChild(el('div', 'lh-file-right', rightHtml));
           file.appendChild(face);
 
-          file.onclick = () => openLessonFile(file, lesson);
+          var u = window.JPShared && window.JPShared.unlock;
+          if (u && u.isUnseen && u.isUnseen('lesson:' + lesson.id)) {
+            var dot = document.createElement('span');
+            dot.className = 'jp-unseen-dot';
+            dot.style.cssText = 'position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;';
+            file.appendChild(dot);
+          }
+
+          file.onclick = () => {
+            if (u && u.markSeen) u.markSeen('lesson:' + lesson.id);
+            openLessonFile(file, lesson);
+          };
           menuEl.appendChild(file);
         });
     }
@@ -1406,6 +1438,7 @@ window.LessonModule = {
           const resources = payload.resources;
           lessonData = payload.data;
           drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
+          Object.keys(drillResults).forEach(k => delete drillResults[k]);
           drillStats = [];
           lessonData.sections.forEach(sec => {
               if (sec.type !== 'drills') return;
@@ -1421,6 +1454,28 @@ window.LessonModule = {
           lessonData.sections.unshift({ type: 'intro', title: lessonData.title });
           totalSteps = lessonData.sections.length;
           showEN = false; showAnswers = false;
+
+          // Restore drills answered in a previous, interrupted sitting so a
+          // resume never wipes already-earned credit (the N4.22 incident).
+          // Runs AFTER the intro unshift so drillItemKey's section index matches
+          // what the renderer will compute.
+          const savedSession = window.JPShared.sessionProgress
+              ? window.JPShared.sessionProgress.get('lesson', lessonData.id) : null;
+          const savedResults = (savedSession && savedSession.results) || null;
+          if (savedResults) {
+              lessonData.sections.forEach(sec => {
+                  if (sec.type !== 'drills') return;
+                  const stat = drillStats.find(s => s.sectionRef === sec);
+                  (sec.items || []).filter(it => it.kind === 'mcq').forEach((item, itemIdx) => {
+                      const key = drillItemKey(sec, itemIdx, item);
+                      if (!(key in savedResults)) return;
+                      const correct = !!savedResults[key];
+                      drillAnswered.add(key);
+                      drillResults[key] = correct;
+                      if (correct) { drillCorrect++; if (stat) stat.correct++; }
+                  });
+              });
+          }
 
           // Resume from the saved step if we have one (clamped). If the saved
           // step is past the end (lesson grew or got rearranged), fall back to
@@ -1512,7 +1567,10 @@ window.LessonModule = {
         if (isSummary) {
             // Finished the lesson — clear the saved resume step so a fresh
             // attempt next time starts back at the intro.
-            if (lessonData && lessonData.id) _clearResume(lessonData.id);
+            if (lessonData && lessonData.id) {
+                _clearResume(lessonData.id);
+                if (window.JPShared.sessionProgress) window.JPShared.sessionProgress.clear('lesson', lessonData.id);
+            }
             renderSummary(body, footer); return;
         }
 

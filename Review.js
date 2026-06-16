@@ -186,6 +186,7 @@
       const stampUrl = stampApi && stampApi.getStampUrl ? stampApi.getStampUrl() : '';
       const pooUrl = stampApi && stampApi.getPooUrl ? stampApi.getPooUrl() : '';
       const sk = window.JPShared && window.JPShared.sceneKit;
+      var u = window.JPShared && window.JPShared.unlock;
       const cfg = this.config;
       const artUrl = name => window.getAssetUrl ? window.getAssetUrl(cfg, 'assets/scenes/' + name) : '';
 
@@ -230,7 +231,7 @@
             ${gradeHtml}
             <div class="jp-review-paper-head"><span class="jp-review-paper-id">${review.id}</span><span class="jp-review-paper-title">${review.title || ''}</span></div>
             <div class="jp-review-paper-body"></div>
-            ${goHtml}${stampHtml}
+            ${goHtml}${stampHtml}${(u && u.isUnseen('review:' + review.id)) ? `<span class="jp-unseen-dot" style="position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;"></span>` : ''}
           </div>
         `;
       });
@@ -263,7 +264,7 @@
       document.getElementById('jp-back-to-levels').onclick = () => this.renderLevelPickerView(this._reviewsByLevel);
 
       stage.querySelectorAll('.jp-review-paper').forEach(item => {
-        item.onclick = () => { if (sk) sk.tapFeedback(item); this.loadReview(item.dataset.file, item.dataset.id); };
+        item.onclick = () => { if (sk) sk.tapFeedback(item); if (u && u.markSeen) u.markSeen('review:' + item.dataset.id); this.loadReview(item.dataset.file, item.dataset.id); };
       });
     },
 
@@ -958,17 +959,63 @@
       });
     },
 
-    startQuiz: function() {
+    // Stable id for this review's saved-session record (matches renderEnd's
+    // score key so resume + best-score use the same identity).
+    reviewKey: function() {
+      if (!this.config) return '';
+      return this.config._reviewId
+        || (this.config.path ? this.config.path.replace(/.*\//, '').replace('.json', '') : '');
+    },
+
+    // mode: undefined → check for a saved partial and offer Resume/Restart;
+    //       'resume'   → continue from the saved question/score;
+    //       'fresh'    → start the review over (clears any saved partial).
+    startQuiz: function(mode) {
       if(this.state.questions.length === 0) return;
-      this.state.idx = 0;
-      this.state.score = 0;
+      const id = this.reviewKey();
+      const sp = window.JPShared.sessionProgress;
+
+      // First entry: if an interrupted sitting was saved, let the learner choose
+      // to continue it or restart this graded review.
+      if (!mode && id && sp) {
+        const saved = sp.get('review', id);
+        if (saved && typeof saved.step === 'number' && saved.step > 0 && saved.step < this.state.questions.length) {
+          return this.renderResumePrompt(saved);
+        }
+      }
+
       this.state.maxScore = this.state.questions.reduce((sum, q) => sum + 1, 0);
+      if (mode === 'resume' && id && sp) {
+        const saved = sp.get('review', id) || {};
+        this.state.idx = Math.min(saved.step || 0, this.state.questions.length);
+        this.state.score = saved.score || 0;
+      } else {
+        if (id && sp) sp.clear('review', id);
+        this.state.idx = 0;
+        this.state.score = 0;
+      }
       this.teacherMode = false;
       const header = document.getElementById('jp-quiz-header');
       if (header) header.classList.remove('teacher-active');
       this.renderTeacherBar();
       this.updateUI();
       this.renderQ();
+    },
+
+    renderResumePrompt: function(saved) {
+      const stage = this.el('jp-stage');
+      if (!stage) return this.startQuiz('resume');
+      const total = this.state.questions.length;
+      const done = saved.step || 0;
+      stage.innerHTML = `
+        <div style="text-align:center; padding:30px 20px; animation: jpFadeIn 0.4s;">
+          <div style="font-size:2.4rem; margin-bottom:8px;">⏸️</div>
+          <h2 style="margin:0 0 8px; color:#2d3436;">Continue where you left off?</h2>
+          <p style="color:#666; line-height:1.6; margin-bottom:22px;">You were on question ${done + 1} of ${total}.</p>
+          <button class="jp-btn jp-btn-main" onclick="ReviewModule.startQuiz('resume')">Resume</button>
+          <br>
+          <button class="jp-btn" onclick="ReviewModule.startQuiz('fresh')" style="margin-top:10px;">Start Over</button>
+        </div>`;
     },
 
     renderQ: function() {
@@ -1385,6 +1432,12 @@
 
     next: function() {
       this.state.idx++;
+      // Persist progress after each answered question so exiting mid-review and
+      // returning resumes here with the score so far (no answer wipe).
+      const id = this.reviewKey();
+      if (id && window.JPShared.sessionProgress) {
+        window.JPShared.sessionProgress.save('review', id, { step: this.state.idx, score: this.state.score });
+      }
       this.renderQ();
     },
 
@@ -1396,6 +1449,8 @@
 
       // Save top score to localStorage
       const reviewName = this.config._reviewId || this.config.path.replace(/.*\//, '').replace('.json', '');
+      // Finished — drop the resume record so a fresh attempt starts clean.
+      if (window.JPShared.sessionProgress) window.JPShared.sessionProgress.clear('review', reviewName);
       const prevBest = window.JPShared.progress.getReviewScore(reviewName);
       const isNewBest = prevBest === undefined || pct > prevBest;
       if (isNewBest) {

@@ -791,6 +791,10 @@ window.StoriesModule = (function () {
       const badge = s.category === 'custom' ? 'CUSTOM' : (s.level || 'STORY');
       const done = !!(unlockApi && unlockApi.isCompleted && unlockApi.isCompleted(s.id));
       const stamp = done ? stampHtml('jp-book-cover-stamp') : '';
+      const u = window.JPShared && window.JPShared.unlock;
+      const unseenDot = (u && u.isUnseen && u.isUnseen('story:' + s.id))
+        ? '<span class="jp-unseen-dot" style="position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;"></span>'
+        : '';
       html += `<div class="jp-book-cover" data-id="${escAttr(s.id)}">
         <div class="jp-book-cover-page"></div>
         <div class="jp-book-cover-face" style="background:${colorFromId(s.id)};">
@@ -798,7 +802,7 @@ window.StoriesModule = (function () {
           <div class="jp-book-cover-title">${escHtml(s.title || s.subtitle || s.id)}</div>
           <div class="jp-book-cover-en">${escHtml(s.subtitle || '')}</div>
         </div>
-        ${stamp}
+        ${stamp}${unseenDot}
       </div>`;
     }
     html += '</div></div></div>';
@@ -811,6 +815,8 @@ window.StoriesModule = (function () {
         const id = card.dataset.id;
         const idx = storyList.findIndex(s => s.id === id);
         if (idx < 0) return;
+        const u = window.JPShared && window.JPShared.unlock;
+        if (u && u.markSeen) u.markSeen('story:' + id);
         currentIndex = idx;
         if (sk) sk.tapFeedback(card);
         // The reader opens onto the CLOSED book (matching cover); the user opens

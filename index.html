@@ -643,6 +643,12 @@ window.JPApp = {
       console.warn('[JPApp] manifest unavailable at boot:', e);
       this._manifest = null;
     }
+    // Load the unlock engine before the first home paint so new-unlock dots
+    // render on boot, and seed "current state = seen" once (no retroactive dots).
+    try {
+      if (!window.JPShared.unlock) await this.loadModule('app/shared/unlock.js');
+      if (window.JPShared.unlock) window.JPShared.unlock.seedSeenIfNeeded();
+    } catch (e) { console.warn('[JPApp] unlock seed skipped:', e); }
     this.renderMenu();
     this._nativeBoot();
 
@@ -1203,6 +1209,15 @@ window.JPApp = {
     '</div>';
   },
 
+  // --- New-unlock alert dot ---
+  _unseenDot: function() {
+    return '<span style="position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px var(--washi);"></span>';
+  },
+  _hasUnseen: function(mod) {
+    var u = window.JPShared && window.JPShared.unlock;
+    return !!(u && u.hasUnseenForModule && u.hasUnseenForModule(mod));
+  },
+
   // --- Module grid ---
   _moduleGrid: function() {
     var self = this;
@@ -1233,6 +1248,7 @@ window.JPApp = {
             '<div style="font-family:var(--font-jp-display);font-size:22px;font-weight:500;color:' + color + ';line-height:1;">' + m.kanji + '</div>' +
           '</div>' +
           '<div class="mono" style="font-size:10px;color:var(--ink-3);letter-spacing:0.08em;text-transform:uppercase;">Open</div>' +
+          (self._hasUnseen(m.key) ? self._unseenDot() : '') +
         '</button>';
       }
       // Locked cell — muted, teaches progression.
@@ -1439,11 +1455,13 @@ window.JPApp = {
       var on = t.key === active;
       var locked = t.mod ? !self._isModuleVisible(t.mod) : false;
       var dimStyle = locked ? 'opacity:0.42;' : '';
+      var newDot = (!locked && t.mod && self._hasUnseen(t.mod)) ? '<span style="position:absolute;right:-7px;top:-4px;width:8px;height:8px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px var(--washi);"></span>' : '';
       // Locked tabs still wire the action — JPApp.launch's guard will toast the reason.
       return '<button class="rk-tab' + (on ? ' active' : '') + '" style="' + dimStyle + '" onclick="' + t.action + '">' +
         '<div style="position:relative;display:inline-flex;">' +
           '<svg width="22" height="22" viewBox="0 0 24 24">' + t.glyph + '</svg>' +
           (locked ? '<span style="position:absolute;right:-6px;top:-3px;font-size:9px;line-height:1;">🔒</span>' : '') +
+          newDot +
         '</div>' +
         '<span style="font-size:10px;font-weight:' + (on ? 600 : 500) + ';letter-spacing:0.02em;">' + t.label + '</span>' +
         (on ? '<div class="rk-tab-ind"></div>' : '') +
@@ -1773,6 +1791,9 @@ window.JPApp = {
       return;
     }
     this._view = mode;
+    // Clear-on-enter: entering a module dismisses its home-tile "new" dot; the
+    // specific new sub-item keeps its own dot until the user opens it.
+    if (window.JPShared.unlock && window.JPShared.unlock.markSeen) window.JPShared.unlock.markSeen('module:' + mode);
     if (mode === 'game') { this.hideTabBar(); this._showAdventureTeaser(); return; }
     this.container.innerHTML = '<div class="rk-loading">loading ' + this._esc(mode) + '</div>';
     // Leaving Home — re-apply presence (contextual/home modes hide; always stays).

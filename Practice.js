@@ -1460,6 +1460,22 @@ window.PracticeModule = {
             gamesTile.style.cursor = gamesOk ? '' : 'default';
             if (gamesFoot) gamesFoot.textContent = gamesOk ? 'Open' : '🔒 Locked';
         }
+
+        // "New unlock" red dot on parent buttons — cleared when the activity opens.
+        const u = window.JPShared && window.JPShared.unlock;
+        function setUnseenDot(sel, leaf) {
+            document.querySelectorAll(sel).forEach(function (btn) {
+                const old = btn.querySelector('.k-unseen-dot'); if (old) old.remove();
+                if (u && u.isUnseen && u.isUnseen(leaf)) {
+                    if (!btn.style.position) btn.style.position = 'relative';
+                    const d = document.createElement('span'); d.className = 'k-unseen-dot';
+                    d.style.cssText = 'position:absolute;top:6px;right:8px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;';
+                    btn.appendChild(d);
+                }
+            });
+        }
+        setUnseenDot('button[data-gate="linkup"]', 'linkup');
+        setUnseenDot('button[data-gate="scramble"]', 'scramble');
     }
 
     KanjiApp.showMenu = function() {
@@ -1529,6 +1545,11 @@ window.PracticeModule = {
     };
 
     KanjiApp.start = function(type, mode, subMode='normal') {
+        const _u = window.JPShared && window.JPShared.unlock;
+        if (_u && _u.markSeen) {
+            if (type === 'connections' || type === 'connections4') _u.markSeen('linkup');
+            else if (type === 'scramble' || type === 'marathon') _u.markSeen('scramble');
+        }
         if (window.JPApp) window.JPApp.hideTabBar();
         // Activity gates — final defense even if the menu wasn't refreshed.
         const u = window.JPShared && window.JPShared.unlock;
