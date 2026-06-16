@@ -39,7 +39,6 @@ window.StoriesModule = (function () {
   let storyDoneMarked = false;  // guard so completion is persisted once per load
   let currentPage = 0;          // position within pages
   let isFlipping = false;       // guards re-entrant page flips
-  let pf = null;                // StPageFlip instance for the reader
   let categoryOpt = null;       // 'curriculum' | 'custom' | null (both)
   let termMapData = {};         // id → term entry, for modal lookups
   let surfaceIdx = null;        // surface → entry, for runtime fallback
@@ -138,12 +137,6 @@ window.StoriesModule = (function () {
         color: #C2410C; font-weight: 700; cursor: pointer;
         border-bottom: 2px solid rgba(78,84,200,0.2);
         margin-right: 1px; transition: 0.2s;
-      }
-      /* 説明-mode pick highlight (tap-to-build selection in the reader). */
-      .jp-token-picked,
-      .jp-term.jp-token-picked {
-        background: oklch(0.60 0.18 30 / 0.18);
-        border-radius: 4px; box-shadow: 0 0 0 2px oklch(0.60 0.18 30 / 0.35);
       }
       @media (hover: hover) {
         .jp-term:hover { background: oklch(0.60 0.18 30 / 0.10); border-bottom-color: #C2410C; }
@@ -433,12 +426,8 @@ window.StoriesModule = (function () {
         box-shadow: inset 9px 0 16px rgba(0,0,0,0.06), 0 8px 22px rgba(0,0,0,0.12);
         border: 1px solid oklch(0.22 0.012 60 / 0.08);
       }
-      .jp-book-viewport {
-        position: absolute; inset: 0;
-        perspective: 1500px; -webkit-perspective: 1500px;
-      }
-      /* Each page is a rigid leaf with a front (content) and a blank back, so a
-         turn shows the page's reverse mid-flip like a real book. */
+      /* Each page is an absolutely-positioned leaf; the spine-edge transform-origin
+         + preserve-3d let it rotate like a real page turn (animation in flipTo()). */
       .jp-page {
         position: absolute; inset: 0; transform-origin: left center;
         transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
@@ -446,9 +435,11 @@ window.StoriesModule = (function () {
       .jp-page--incoming { z-index: 0; }
       .jp-page--current { z-index: 1; }
       .jp-page { transition: opacity 0.18s ease; }
-      /* StPageFlip reader: the mount fills the book frame; each leaf is a paper
-         page (real DOM, so furigana/term-taps/TTS work on the turning page). */
-      .jp-flip-book { width: 100%; height: 100%; }
+      /* Reader mount fills the book frame and holds the 3D perspective for the
+         button-driven CSS leaf-flip. Perspective lives here (NOT on .jp-book-frame,
+         which owns overflow) so the WebKit perspective+overflow bug never triggers. */
+      .jp-flip-book { width: 100%; height: 100%; position: relative;
+        perspective: 1500px; -webkit-perspective: 1500px; }
       .jp-flip-page { width: 100%; height: 100%; background: oklch(0.985 0.01 85);
         display: flex; flex-direction: column; overflow: hidden; -webkit-tap-highlight-color: transparent; }
       /* Scrollable page body. StPageFlip forces display:block inline on the visible
@@ -859,8 +850,8 @@ window.StoriesModule = (function () {
 
   function renderStory(data) {
     if (window.JPApp) window.JPApp.hideTabBar();
-    // Drop any 説明-mode picks from the previous story/page render (stale refs).
-    try { if (window.JPShared.selectExplain) window.JPShared.selectExplain.clearPicked(); } catch (e) {}
+    // Clear any lingering 説明 selection from the previous story/page render.
+    try { const s = window.getSelection(); if (s) s.removeAllRanges(); } catch (e) {}
     pages = paginateStory(data.paragraphs, data.comprehension);
     currentPage = 0;
     isFlipping = false;
@@ -929,11 +920,6 @@ window.StoriesModule = (function () {
     // .jp-page-scroll fills the page (definite height) and scrolls — see the CSS.
     return '<div class="jp-page-scroll">' + body + '<div class="jp-page-foot"></div></div>';
   }
-  // Legacy wrapper (kept for the dormant CSS-flip path; unused by StPageFlip).
-  function renderPageHtml(page, data) {
-    return '<div class="jp-page-face">' + pageContentHtml(page, data) +
-           '</div><div class="jp-page-back" aria-hidden="true"></div>';
-  }
 
   // Wire only the handlers that live INSIDE one page node (per-paragraph TTS,
   // term clicks, comprehension). Header/play-all/page-nav are wired once.
@@ -953,19 +939,11 @@ window.StoriesModule = (function () {
     // Synthetic conjugation ids ("<root>_<ruleKey>") split back to (rootId, ruleKey)
     // so the modal can generate the inflected entry on-demand.
     node.querySelectorAll('[data-term-id]').forEach(el => {
-      // In 説明 mode, tapping a word builds a multi-token selection to explain
-      // (native drag-select fights StPageFlip here), instead of opening the
-      // glossary. Outside the mode, the glossary tap is unchanged.
-      const se = () => window.JPShared && window.JPShared.selectExplain;
-      // While picking, stop the pointer-start from reaching the flip surface so a
-      // slightly-draggy tap never turns into a page flip (pattern reused from the
-      // quiz input/scroller guards below).
-      ['mousedown', 'touchstart', 'pointerdown'].forEach(ev =>
-        el.addEventListener(ev, e => { if (se() && se().isPickActive()) e.stopPropagation(); }, { passive: true }));
+      // Tap a word to open its glossary entry. 説明 (setsumei) mode now uses native
+      // hold-and-drag selection — handled globally by select-explain.js, like the
+      // rest of the app — so the reader no longer intercepts taps for picking.
       el.onclick = function (e) {
         e.stopPropagation();
-        const sx = se();
-        if (sx && sx.isPickActive()) { sx.togglePickedToken(this); return; }
         const id = this.dataset.termId;
         if (!id || !window.JP_OPEN_TERM) return;
         const split = splitConjugatedId(id);
@@ -978,30 +956,6 @@ window.StoriesModule = (function () {
     // Reflect per-page EN reveal state onto this freshly rendered page's block.
     const en = node.querySelector('.jp-page-en');
     if (en) en.hidden = !enRevealed;
-
-    // Directional touch router: on a page whose text overflows, a VERTICAL drag
-    // should scroll the body, not flip the page. StPageFlip listens for touchmove
-    // on window, so we stop vertical-intent moves from bubbling up to it (native
-    // scroll still happens — we never preventDefault). HORIZONTAL drags fall
-    // through untouched, so swipe-to-flip keeps working.
-    const scroll = node.querySelector('.jp-page-scroll');
-    if (scroll) {
-      let sx = 0, sy = 0, axis = '';
-      scroll.addEventListener('touchstart', e => {
-        const t = e.touches[0]; sx = t.clientX; sy = t.clientY; axis = '';
-      }, { passive: true });
-      scroll.addEventListener('touchmove', e => {
-        const t = e.touches[0];
-        if (!axis) {
-          const dx = Math.abs(t.clientX - sx), dy = Math.abs(t.clientY - sy);
-          if (dx < 6 && dy < 6) return;           // not enough movement to decide
-          axis = dy > dx ? 'y' : 'x';
-        }
-        if (axis === 'y' && scroll.scrollHeight > scroll.clientHeight + 2) {
-          e.stopPropagation();                    // keep the flip surface from eating the scroll
-        }
-      }, { passive: true });
-    }
   }
 
   // ── Per-page English reveal ───────────────────────────────────────────────
@@ -1011,11 +965,10 @@ window.StoriesModule = (function () {
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     enRevealed = false;
     cameFromQuiz = false;
-    pf = null;
 
     // ── Header nav (per story) ──
     document.getElementById('jp-stories-exit').onclick = (e) => {
-      try { if (window.JPShared.selectExplain) window.JPShared.selectExplain.clearPicked(); } catch (err) {}
+      try { const s = window.getSelection(); if (s) s.removeAllRanges(); } catch (err) {}
       if (typeof onExit === 'function') onExit(e);
     };
     document.getElementById('jp-stories-list').onclick = renderSelector;
@@ -1035,7 +988,7 @@ window.StoriesModule = (function () {
     const sInfo = storyList[currentIndex] || {};
     const coverBadge = sInfo.category === 'custom' ? 'CUSTOM' : (sInfo.level || 'STORY');
     const cover = document.createElement('div');
-    cover.className = 'jp-flip-page jp-flip-cover';
+    cover.className = 'jp-flip-page jp-page jp-flip-cover';
     cover.setAttribute('data-density', 'hard');
     // The color goes on an INNER fill — StPageFlip overwrites the page element's
     // own inline style on loadFromHTML, but leaves children alone.
@@ -1062,7 +1015,7 @@ window.StoriesModule = (function () {
 
     pages.forEach((pg, i) => {
       const leaf = document.createElement('div');
-      leaf.className = 'jp-flip-page';
+      leaf.className = 'jp-flip-page jp-page';
       leaf.setAttribute('data-density', 'soft');
       leaf.innerHTML = pageContentHtml(pg, data);
       const foot = leaf.querySelector('.jp-page-foot');
@@ -1144,6 +1097,74 @@ window.StoriesModule = (function () {
       updatePageControls();
     }
 
+    // Animated, button-only page turn (replaces StPageFlip). Applies the CSS
+    // leaf-flip to the outgoing/incoming leaf; native scroll/selection/edge-taps
+    // are free because nothing intercepts touch anymore. isFlipping guards
+    // re-entrancy; transitionend + timeout make finish idempotent.
+    function pageTurnSideEffects() {
+      updatePageControls();
+      // Clear any lingering 説明 selection so its pill never anchors off-screen.
+      try { const s = window.getSelection(); if (s) s.removeAllRanges(); } catch (e) {}
+      try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (e) {}
+    }
+    function flipTo(target, afterSwap) {
+      if (isFlipping) return;
+      target = Math.max(0, Math.min(pages.length, target));
+      const from = currentPage;
+      if (target === from) { if (typeof afterSwap === 'function') afterSwap(); return; }
+      const forward = target > from;
+      const outEl = pageEls[from], inEl = pageEls[target];
+      if (!outEl || !inEl) return;
+
+      const finish = () => {
+        [outEl, inEl].forEach(el => {
+          el.classList.remove('jp-flipping', 'jp-flip-fwd-end', 'jp-flip-back-start');
+          el.style.transform = ''; el.style.zIndex = '';
+        });
+        currentPage = target;
+        pageEls.forEach((el, idx) => { el.style.display = idx === target ? '' : 'none'; });
+        isFlipping = false;
+        pageTurnSideEffects();
+        if (typeof afterSwap === 'function') afterSwap();
+      };
+
+      if (reduceMotion) { finish(); return; }
+
+      isFlipping = true;
+      outEl.style.display = ''; inEl.style.display = '';
+      const DUR = 520;
+      let done = false;
+      if (forward) {
+        // Current leaf turns away on its spine (0 → -180°), revealing the next beneath.
+        const leaf = outEl;
+        inEl.style.zIndex = '1'; leaf.style.zIndex = '3';
+        const onEnd = (e) => {
+          if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
+          done = true; leaf.removeEventListener('transitionend', onEnd); finish();
+        };
+        leaf.addEventListener('transitionend', onEnd);
+        leaf.classList.add('jp-flipping');
+        void leaf.offsetWidth;                 // commit start state before animating
+        leaf.classList.add('jp-flip-fwd-end');
+        setTimeout(onEnd, DUR + 120);
+      } else {
+        // Incoming (previous) leaf starts open at -180° and swings shut over current.
+        const leaf = inEl;
+        leaf.style.zIndex = '3'; outEl.style.zIndex = '1';
+        leaf.classList.add('jp-flip-back-start');   // -180°, no transition yet
+        void leaf.offsetWidth;
+        const onEnd = (e) => {
+          if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
+          done = true; leaf.removeEventListener('transitionend', onEnd);
+          leaf.classList.remove('jp-flip-back-start'); finish();
+        };
+        leaf.addEventListener('transitionend', onEnd);
+        leaf.classList.add('jp-flipping');
+        leaf.classList.remove('jp-flip-back-start');  // transition back to base 0°
+        setTimeout(onEnd, DUR + 120);
+      }
+    }
+
     // The next story in the list is reachable only when unlocked (or in free mode).
     function nextStoryUnlocked() {
       const next = storyList[currentIndex + 1];
@@ -1156,7 +1177,7 @@ window.StoriesModule = (function () {
       return !!(c && Array.isArray(c.questions) && c.questions.length > 0);
     }
     function nextAction() {
-      if (currentPage < pages.length) { if (pf) pf.flipNext(); else showPage(currentPage + 1); }
+      if (currentPage < pages.length) { flipTo(currentPage + 1); }
       else if (hasComprehensionQs()) { openQuiz(); }
       else if (nextStoryUnlocked()) { currentIndex++; loadStory(storyList[currentIndex]); }
     }
@@ -1183,17 +1204,7 @@ window.StoriesModule = (function () {
     }
     function prevAction() {
       if (currentPage <= 0) return;
-      // StPageFlip's animated back-flip (flipPrev / flip(i)) is broken in portrait
-      // mode — it no-ops. turnToPrevPage() reliably steps back (instant), so we
-      // drive it and sync our page state + sound ourselves (it fires no 'flip').
-      if (pf && pf.turnToPrevPage) {
-        pf.turnToPrevPage();
-        if (pf.getCurrentPageIndex) currentPage = pf.getCurrentPageIndex();
-        updatePageControls();
-        try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (e) {}
-      } else {
-        showPage(currentPage - 1);
-      }
+      flipTo(currentPage - 1);
     }
     prevBtn.onclick = prevAction;
     nextBtn.onclick = nextAction;
@@ -1206,18 +1217,12 @@ window.StoriesModule = (function () {
     }
     function goToQuestionPage(paraIdx) {
       const target = paraIdxToPage(paraIdx);
-      if (pf && pf.turnToPage) {
-        pf.turnToPage(target);
-        if (pf.getCurrentPageIndex) currentPage = pf.getCurrentPageIndex();
-        updatePageControls();
-      } else {
-        showPage(target);
-      }
-      // A page may hold >1 paragraph — scroll the exact one to the top of its
-      // page's scroll container. Done explicitly (not scrollIntoView, which is
-      // unreliable inside StPageFlip's restructured/animating page DOM) after a
-      // short settle so the target page is the visible one.
-      setTimeout(() => {
+      cameFromQuiz = true;
+      toggleBackToQuestions(true);
+      // Scroll the exact paragraph to the top of its page's scroll container AFTER
+      // the flip settles (the turn is async now). flipTo also fires afterSwap when
+      // the target is already the current page, so this always runs.
+      flipTo(target, () => {
         const el = document.querySelector('.jp-story-paragraph[data-para="' + paraIdx + '"]');
         if (!el) return;
         const sc = el.closest('.jp-page-scroll');
@@ -1227,10 +1232,7 @@ window.StoriesModule = (function () {
         } else if (el.scrollIntoView) {
           el.scrollIntoView({ block: 'start' });
         }
-      }, 90);
-      cameFromQuiz = true;
-      toggleBackToQuestions(true);
-      try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (e) {}
+      });
     }
     _goToQuestionPage = goToQuestionPage;
 
@@ -1241,44 +1243,12 @@ window.StoriesModule = (function () {
       openQuiz();
     };
 
-    // ── Init StPageFlip (single-page portrait flip with the real text). ──
-    const Lib = window.St || window.PageFlip;
-    const Ctor = (Lib && Lib.PageFlip) || (typeof window.PageFlip === 'function' ? window.PageFlip : null);
-    if (Ctor) {
-      requestAnimationFrame(() => {
-        try {
-          pf = new Ctor(mount, {
-            width: Math.max(280, mount.clientWidth || 340),
-            height: Math.max(400, mount.clientHeight || 560),
-            size: 'stretch', autoSize: true,
-            minWidth: 260, maxWidth: 1400, minHeight: 360, maxHeight: 2000,
-            usePortrait: true, showCover: true, drawShadow: true,
-            maxShadowOpacity: 0.5, flippingTime: reduceMotion ? 0 : 700,
-            // mobileScrollSupport:true (the library default) is what lets a page
-            // be INTERACTIVE: vertical drags scroll natively + taps fall through to
-            // word pop-ups, while horizontal swipes still flip. (false made the lib
-            // preventDefault every touchstart, eating scroll + taps.)
-            useMouseEvents: true, mobileScrollSupport: true, disableFlipByClick: true,
-          });
-          pf.loadFromHTML(pageEls);
-          pf.on('flip', (e) => {
-            currentPage = e.data;
-            updatePageControls();
-            // Picks are page-local — clear them when the page turns so the 説明
-            // pill never lingers anchored to an off-screen token.
-            try { if (window.JPShared.selectExplain) window.JPShared.selectExplain.clearPicked(); } catch (err) {}
-            try { if (window.JPShared.sfx) window.JPShared.sfx.pageTurn(); } catch (err) {}
-          });
-          mount.style.visibility = '';
-          updatePageControls();
-        } catch (err) {
-          console.warn('[Stories] StPageFlip init failed; using static pages:', err && err.message);
-          pf = null; mount.style.visibility = ''; showPage(1);
-        }
-      });
-    } else {
-      mount.style.visibility = ''; showPage(1);
-    }
+    // Open the reader on the closed cover (page 0); "Open →" flips to page 1.
+    // (Replaces StPageFlip — pages now turn via the button-driven flipTo() above.)
+    mount.style.visibility = '';
+    currentPage = 0;
+    pageEls.forEach((el, idx) => { el.style.display = idx === 0 ? '' : 'none'; });
+    updatePageControls();
 
     // ── Play-all (whole story, unchanged behaviour) ──
     const playBtn = document.getElementById('jp-stories-play-all');
@@ -1303,76 +1273,6 @@ window.StoriesModule = (function () {
     updatePageControls();
   }
 
-  // 3D page-turn controller. Renders the destination page into the hidden
-  // buffer, animates the spine-edge rotation, then swaps node roles. Idempotent
-  // finish (transitionend + timeout fallback) and an isFlipping guard keep the
-  // UI from wedging in the WKWebView.
-  function goPage(targetPage, data, reduceMotion, afterSwap) {
-    if (isFlipping) return;
-    targetPage = Math.max(0, Math.min(pages.length - 1, targetPage));
-    if (targetPage === currentPage) return;
-    const forward = targetPage > currentPage;
-    const cur = container.querySelector('.jp-page--current');
-    const inc = container.querySelector('.jp-page--incoming');
-    if (!cur || !inc) return;
-
-    inc.innerHTML = renderPageHtml(pages[targetPage], data);
-    wirePage(inc, data);
-
-    const finish = () => {
-      // Swap roles: incoming becomes current.
-      cur.className = 'jp-page jp-page--incoming';
-      cur.style.transform = '';
-      cur.style.opacity = '';
-      inc.className = 'jp-page jp-page--current';
-      inc.style.transform = '';
-      inc.style.opacity = '';
-      currentPage = targetPage;
-      isFlipping = false;
-      if (typeof afterSwap === 'function') afterSwap();
-    };
-
-    if (reduceMotion) { finish(); return; }
-    isFlipping = true;
-
-    // NOTE: legacy CSS leaf-flip fallback. The live reader uses StPageFlip
-    // (real DOM pages, so furigana/term-taps/TTS work on the turning page); an
-    // earlier WebGL page-curl spike was dropped — a blank sweeping sheet can't
-    // show page text, so it never read as a real turn.
-    const DUR = 520;
-
-    if (forward) {
-      // Current leaf turns away on its spine (0 → -180°), revealing the next
-      // page beneath; its front darkens then its blank back shows past 90°.
-      const leaf = cur;
-      let done = false;
-      const onEnd = (e) => {
-        if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
-        done = true; leaf.removeEventListener('transitionend', onEnd); finish();
-      };
-      leaf.addEventListener('transitionend', onEnd);
-      leaf.classList.add('jp-flipping');
-      void leaf.offsetWidth; // commit start state before animating
-      leaf.classList.add('jp-flip-fwd-end');
-      setTimeout(onEnd, DUR + 120);
-    } else {
-      // Incoming leaf (the previous page) starts open at -180° and swings shut
-      // over the current page, landing flat (0°).
-      const leaf = inc;
-      leaf.classList.add('jp-flip-back-start'); // -180°, no transition yet
-      void leaf.offsetWidth;
-      let done = false;
-      const onEnd = (e) => {
-        if (done || (e && e.propertyName && e.propertyName !== 'transform')) return;
-        done = true; leaf.removeEventListener('transitionend', onEnd);
-        leaf.classList.remove('jp-flip-back-start'); finish();
-      };
-      leaf.addEventListener('transitionend', onEnd);
-      leaf.classList.add('jp-flipping');
-      leaf.classList.remove('jp-flip-back-start'); // transition back to base 0°
-      setTimeout(onEnd, DUR + 120);
-    }
-  }
 
   // ── Pagination (deterministic greedy grouping — no DOM measurement) ───────
   // Tuned for the .jp-story-paragraph rule (font-size:1.15rem; line-height:2.2)

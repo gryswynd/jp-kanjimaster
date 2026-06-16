@@ -590,7 +590,6 @@ window.JPApp = {
     await this.loadModule('app/shared/sfx.js');
     await this.loadModule('app/shared/scene-kit.js');
     await this.loadModule('app/shared/garden-stage.js'); // living koi ponds (Grammar Garden)
-    await this.loadModule('vendor/page-flip.browser.js'); // StPageFlip (Stories reader)
     await this.loadModule('app/shared/practice-helpers.js');
     // Context-aware homograph-particle sense resolver (used by the story renderer).
     await this.loadModule('app/shared/particle-sense.js');
@@ -1793,6 +1792,7 @@ window.JPApp = {
         'app/shared/user-profile.js',
         'app/shared/tts-settings.js',
         'app/shared/progress.js',
+        'app/shared/session-progress.js',
         'app/shared/unlock.js',
         'app/shared/unlock-codes.js',
         'app/shared/vocab-display.js',
