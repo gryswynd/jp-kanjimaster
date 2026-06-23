@@ -116,11 +116,14 @@ const GLOSSARY_PATHS = [
 const CONJUGATION_RULES = JSON.parse(
   await fs.readFile(path.join(ROOT, 'conjugation_rules.json'), 'utf8')
 );
+const COUNTER_RULES = JSON.parse(
+  await fs.readFile(path.join(ROOT, 'counter_rules.json'), 'utf8')
+);
 
 const surfaceIdx = await buildGlossaryIndex(
   GLOSSARY_PATHS,
   (p, enc) => fs.readFile(p, enc),
-  { includeReadings: true, conjugationRules: CONJUGATION_RULES }
+  { includeReadings: true, conjugationRules: CONJUGATION_RULES, counterRules: COUNTER_RULES }
 );
 
 // Build a reverse id→entry map so we can resolve token.g lookups.

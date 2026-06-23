@@ -387,7 +387,12 @@
             "見ながら"
           ],
           "alts": [
-            ["写真を", "山の", "真ん中で", "とりました"]
+            [
+              "写真を",
+              "山の",
+              "真ん中で",
+              "とりました"
+            ]
           ],
           "explanation": "山の真ん中 (middle of the mountains) + で (location of action) + 写真を (photos — を marks direct object) + とりました (took — polite past of 撮る). で marks where the action of taking photos occurred. に would mark destination or existence, not the location of an action."
         },
@@ -581,15 +586,27 @@
             "p_wa",
             "v_nani",
             "p_wo",
-            {"id": "v_suru", "form": "polite_masu"},
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_shashin",
             "p_wo",
-            {"id": "v_toru", "form": "tari_form"},
+            {
+              "id": "v_toru",
+              "form": "tari_form"
+            },
             "v_ryokan",
             "p_ni",
-            {"id": "v_iku", "form": "tari_form"},
-            {"id": "v_suru", "form": "polite_masu"}
+            {
+              "id": "v_iku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
           ],
           "explanation": "Sentence 2 says 旅先では写真をとったり、旅館に行ったりします (at her destinations, she does things like taking photos and going to ryokan). ～たり～たりする lists representative actions from a set."
         },
@@ -612,9 +629,15 @@
             "v_dou",
             "g_desu",
             "p_ka",
-            {"id": "v_kirei", "form": "te_form"},
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
             "p_mo",
-            {"id": "v_ookii", "form": "polite_adj"},
+            {
+              "id": "v_ookii",
+              "form": "polite_adj"
+            },
             "g_desu"
           ],
           "explanation": "Sentence 3 says 顔はきれいで、体も大きいです (her face is beautiful and her body is also large). きれいで is the te-connector form of the な-adjective きれい, linking the two descriptions."
@@ -633,7 +656,10 @@
             "p_wa",
             "v_nani",
             "p_wo",
-            {"id": "v_miru", "form": "plain_desire_tai"},
+            {
+              "id": "v_miru",
+              "form": "plain_desire_tai"
+            },
             "g_desu",
             "p_ka",
             "v_sekai",
@@ -767,7 +793,13 @@
           "terms": [
             "v_sekaijuu",
             "v_tabibito",
-            "v_yuumei"
+            "v_yuumei",
+            "g_desu",
+            "v_ano",
+            "p_de",
+            "p_na",
+            "p_wa",
+            "v_hito"
           ],
           "explanation": "有名 (famous) is a な-adjective used as 有名な旅人 (a famous traveler). 真っ白 (pure white) describes color, not reputation. 中心 (center) and 真ん中 (middle) are nouns referring to a central position and do not describe a person's fame."
         },
@@ -785,7 +817,12 @@
             "v_ryokou",
             "v_kaeru",
             "v_shashin",
-            "v_miru"
+            "v_miru",
+            "v_takusan",
+            "p_kara",
+            "p_no",
+            "p_to",
+            "p_wo"
           ],
           "explanation": "写真 (photograph) fits naturally — you show someone photos after returning from a trip. 旅館 (ryokan) cannot be 'shown' in this way. 世界 (world) and 自分 (oneself) do not fit the grammar pattern 見せてもらう (to have something shown to you)."
         },
@@ -803,7 +840,11 @@
             "v_atama",
             "v_itai",
             "v_kaoiro",
-            "v_ii"
+            "v_ii",
+            "v_yoi",
+            "g_desu",
+            "p_ga",
+            "p_mo"
           ],
           "explanation": "顔色 (complexion / face color) fits naturally here — when a person's head hurts, their complexion often suffers too. 顔色がよくない is a set phrase meaning 'to look pale or unwell'. The other options (旅先, 中心, 旅人) do not fit this health context."
         },
@@ -821,7 +862,14 @@
             "v_gaka",
             "v_atamagaii",
             "v_kokoro",
-            "v_kirei"
+            "v_kirei",
+            "v_ano",
+            "v_ii",
+            "g_da",
+            "p_ga",
+            "p_mo",
+            "p_shi",
+            "p_wa"
           ],
           "explanation": "頭がいい is a set compound phrase meaning 'smart / intelligent' (literally 'head is good'). The sentence praises the painter for being smart and having a beautiful heart. 首 (neck), 体 (body), and 顔色 (complexion) do not form this same idiom with がいい."
         }
@@ -846,7 +894,10 @@
             "v_tabisaki",
             "v_shashin",
             "v_toru",
-            "v_ryokan"
+            "v_ryokan",
+            "p_de",
+            "p_ni",
+            "p_wo"
           ],
           "explanation": "The ～たり～たりする pattern requires both verbs to be in the たり form. とったり (tari form of 撮る) pairs with 行ったり to list representative actions. とりながら would mean 'while taking photos' (simultaneous action, not a list). とって is the te-form connector. とりたいです expresses desire and changes the meaning entirely."
         },
@@ -864,7 +915,8 @@
             "v_shashin",
             "v_toru",
             "v_yama",
-            "v_aruku"
+            "v_aruku",
+            "p_wo"
           ],
           "explanation": "ながら (nagara form) expresses two actions happening at the same time: taking photos WHILE walking. It attaches to the ます-stem (とり + ながら). とったり needs a matching ～たり to complete the pattern. とってから means 'after taking photos' (sequential, not simultaneous). とりたくて expresses 'wanting to take photos and...' which changes the meaning."
         },
@@ -881,7 +933,9 @@
           "terms": [
             "v_tabibito",
             "v_sekaijuu",
-            "v_ryokou"
+            "v_ryokou",
+            "v_ano",
+            "p_wa"
           ],
           "explanation": "を marks the space traversed with movement verbs. 世界中を旅行する means 'to travel through/across the whole world' — を marks the extent of the journey. に would mark a destination (going TO a specific place). で would mark the location of an action (doing something AT a place, not traversing it). から means 'from'."
         },
@@ -898,7 +952,14 @@
           "terms": [
             "v_kaoiro",
             "v_ii",
-            "v_daijoubu"
+            "v_daijoubu",
+            "char_yamakawa",
+            "g_desu",
+            "v_san",
+            "p_ga",
+            "p_ka",
+            "p_ne",
+            "p_wa"
           ],
           "explanation": "よくない is the plain negative form of いい (good). いい is an irregular adjective whose negative stem is よ-, making the negative よくない. This irregular form must be memorized (never いくない). よくて is the te-form connector. よかった is the plain past ('was good'). よい is a more formal/literary synonym of いい, but in this context the expected negative is よくない."
         }

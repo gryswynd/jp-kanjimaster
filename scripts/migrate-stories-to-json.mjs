@@ -258,6 +258,7 @@ const targets = listStoryTargets(manifest)
 console.log(`Migrating ${targets.length} story${targets.length === 1 ? '' : 'ies'}…`);
 
 const conjugationRules = JSON.parse(await readFile(path.join(ROOT, 'conjugation_rules.json'), 'utf8'));
+const counterRules = JSON.parse(await readFile(path.join(ROOT, 'counter_rules.json'), 'utf8'));
 const glossaryIndex = await buildGlossaryIndex(
   [
     path.join(ROOT, 'data/N5/glossary.N5.json'),
@@ -267,7 +268,7 @@ const glossaryIndex = await buildGlossaryIndex(
     path.join(ROOT, 'shared/characters.json')
   ],
   readFile,
-  { includeReadings: true, conjugationRules, verbose: true }
+  { includeReadings: true, conjugationRules, counterRules, verbose: true }
 );
 console.log(`Indexed ${glossaryIndex.size} surfaces (incl. readings + characters + inflections).`);
 

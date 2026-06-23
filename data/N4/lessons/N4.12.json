@@ -828,6 +828,47 @@
             "p_kara_because",
             "g_desu"
           ]
+        },
+        {
+          "q": "りきぞうは 自分の 何を 大切に して いますか。",
+          "q_en": "What of his own does Rikizo take care of?",
+          "a": "自分の 体を 大切に して います。",
+          "a_en": "He takes care of his own body.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_jibun",
+            "p_no",
+            "v_nani",
+            "p_wo",
+            "v_taisetsu",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_jibun",
+            "p_no",
+            "v_karada",
+            "p_wo",
+            "v_taisetsu",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
         }
       ]
     },
@@ -1001,6 +1042,28 @@
             "v_jouzu",
             "g_da",
             "p_kara_because",
+            "g_desu"
+          ]
+        },
+        {
+          "q": "この 画家の 体は どうですか。",
+          "q_en": "What is this painter's body like?",
+          "a": "体が 大きいです。",
+          "a_en": "His body is large.",
+          "terms": [
+            "v_kono",
+            "v_gaka",
+            "p_no",
+            "v_karada",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_karada",
+            "p_ga",
+            "v_ookii",
             "g_desu"
           ]
         }

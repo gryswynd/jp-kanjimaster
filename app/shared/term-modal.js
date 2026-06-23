@@ -194,7 +194,7 @@
       if (vocabEl) { vocabEl.style.display = 'block'; }
       if (charEl)  { charEl.style.display = 'none'; }
 
-      var textToSpeak = t.reading || t.surface;
+      var textToSpeak = t.reading || t.kun || t.on || t.surface;
 
       // --- Title row (surface + speaker button) ---
       var titleEl = document.getElementById('jp-m-title');
@@ -211,7 +211,19 @@
       var metaEl = document.getElementById('jp-m-meta');
       if (metaEl) {
         var meaning = t.meaning ? ' \u2022 ' + t.meaning.replace(/<[^>]*>/g, '') : '';
-        metaEl.innerText = (t.reading || '') + meaning;
+        // Kanji entries carry on/kun; show BOTH (whichever exist) so an on-only
+        // kanji (e.g. \u6bce / \u5186 \u2014 empty kun) never renders a blank readings line.
+        // Non-kanji terms keep their single reading.
+        var readingStr;
+        if (t.on || t.kun) {
+          var rp = [];
+          if (t.on)  rp.push('On ' + t.on);
+          if (t.kun) rp.push('Kun ' + t.kun);
+          readingStr = rp.join('  \u30fb  ');
+        } else {
+          readingStr = t.reading || '';
+        }
+        metaEl.innerText = readingStr + meaning;
       }
 
       // --- Notes ---

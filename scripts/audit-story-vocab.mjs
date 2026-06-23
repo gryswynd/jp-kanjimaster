@@ -139,6 +139,7 @@ function auditStory(data, slug) {
       if (isKana(k) && k.length === 1) continue;            // stray single kana (inflection)
 
       if (t.g && GRAMMAR_SUFFIX_IDS.has(baseId(t.g))) continue;   // N4 grammar suffix, not N3 vocab
+      if (t.g && /^count_/.test(t.g)) continue;                   // counter-engine form (七つ, 三本, …)
 
       // Lowest known level across the group-id path and the surface path.
       const gRank = t.g ? idRank[baseId(t.g)] : undefined;

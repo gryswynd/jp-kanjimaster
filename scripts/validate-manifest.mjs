@@ -92,6 +92,25 @@ function visit(id, stack) {
 }
 for (const id of byId.keys()) if (color.get(id) === WHITE) visit(id, []);
 
+// 4. Review menu titles must match the review file's own title. The review FILE
+//    is the source of truth for its name; the manifest `title` is only what the
+//    menu shows. If they drift, the menu lies about which review you're opening.
+for (const lvl of Object.keys(data)) {
+  for (const it of (data[lvl].reviews || [])) {
+    if (!it || !it.file) continue;
+    let fj;
+    try {
+      fj = JSON.parse(await readFile(path.join(ROOT, it.file), 'utf8'));
+    } catch (e) {
+      errors.push(`review ${it.id} (${lvl}) — cannot read file "${it.file}": ${e.message}`);
+      continue;
+    }
+    if (typeof fj.title === 'string' && it.title !== fj.title) {
+      errors.push(`review ${it.id} (${lvl}) title drift — manifest="${it.title}" but file says "${fj.title}". The review file is the source of truth; sync the manifest title to match.`);
+    }
+  }
+}
+
 // ── Report ──────────────────────────────────────────────────────────────────
 if (warnings.length) {
   console.warn(`[validate-manifest] ${warnings.length} warning(s):`);

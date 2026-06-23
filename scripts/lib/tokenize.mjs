@@ -133,6 +133,14 @@ async function loadConjugate() {
   return _conjugateMod;
 }
 
+// Counter engine — lazy import (same pattern as the conjugation engine).
+let _countersMod = null;
+async function loadCounters() {
+  if (_countersMod) return _countersMod;
+  _countersMod = await import('./counters.mjs');
+  return _countersMod;
+}
+
 export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
   opts = opts || {};
   const idx = new Map();
@@ -276,6 +284,28 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
       }
     }
     if (opts.verbose) console.log(`[buildGlossaryIndex] added ${conjugated} inflected surfaces from ${roots.length} roots`);
+  }
+
+  // OPTIONAL: pre-generate counter surfaces via the shared counter engine.
+  // Japanese counting is rule-generated (counter_rules.json), so we never enumerate
+  // (number × counter) pairs in the glossary. When `opts.counterRules` is provided
+  // we bake a bounded set of counter surfaces (七つ, 三本, 五時, …) into the index —
+  // each carrying a synthetic `count_<n>_<counter>` id the runtime re-derives for
+  // the term popup. Real glossary vocab + conjugations win on collision (!idx.has),
+  // so e.g. 一つ keeps its authored entry while 七つ resolves through the engine.
+  if (opts.counterRules) {
+    const { generateCounterTerms } = await loadCounters();
+    let counted = 0;
+    for (const term of generateCounterTerms(opts.counterRules, { maxN: opts.counterMaxN })) {
+      if (idx.has(term.surface)) continue;   // authored vocab / conjugation wins
+      const tokens = deriveTokens(term.surface, term.reading) || [{ k: term.surface }];
+      idx.set(term.surface, {
+        id: term.id, surface: term.surface, reading: term.reading,
+        meaning: term.meaning, type: 'counter', tokens
+      });
+      counted++;
+    }
+    if (opts.verbose) console.log(`[buildGlossaryIndex] added ${counted} counter surfaces`);
   }
 
   // PASS 3: authored kana variants in `matches[]` (e.g. v_suki.matches=["すき"],
@@ -538,9 +568,10 @@ export function tokenizeText(text, glossaryIndex) {
         for (const t of entry.tokens) out.push({ ...t, g });
       } else if (entry.tokens && entry.tokens.length === 1 && entry.tokens[0].k === matched) {
         // Single-piece authored tokens — splice as-is, but attach the group
-        // id for inflected entries so the renderer can resolve the term-id
-        // back to its conjugation pair when opening the modal.
-        if (entry.type === 'inflected' && entry.id) {
+        // id for inflected / counter entries so the renderer can resolve the
+        // term-id back to its conjugation pair or counter form when opening
+        // the modal (e.g. 十 = count_10_tsu, 一本 = count_1_hon).
+        if ((entry.type === 'inflected' || entry.type === 'counter') && entry.id) {
           out.push({ ...entry.tokens[0], g: entry.id });
         } else {
           out.push({ ...entry.tokens[0] });

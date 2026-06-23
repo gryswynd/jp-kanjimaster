@@ -43,6 +43,7 @@ window.StoriesModule = (function () {
   let termMapData = {};         // id → term entry, for modal lookups
   let surfaceIdx = null;        // surface → entry, for runtime fallback
   let CONJUGATION_RULES = null; // loaded with glossaries; used by JP_OPEN_TERM
+  let COUNTER_RULES = null;     // loaded with glossaries; resolves count_* chips
   let cameFromQuiz = false;      // true after jumping to a page FROM a question
   let _goToQuestionPage = null;  // reader hook (set in wireStoryEvents) for the quiz jump
 
@@ -411,7 +412,12 @@ window.StoriesModule = (function () {
         animation: jpReaderIn 0.3s ease;
       }
       @keyframes jpReaderIn { from { opacity: 0; transform: scale(0.985); } to { opacity: 1; transform: none; } }
-      .jp-reading .jp-story-header { position: static; }
+      /* The reader title is long; always stack it ABOVE the controls (own row,
+         full-width + readable) with the controls in a row below — at every width
+         and orientation. Otherwise a wide nav squeezes the title into a tall
+         per-character column that pushes the book off-screen. */
+      .jp-reading .jp-story-header { position: static; flex-direction: column; align-items: stretch; gap: 8px; }
+      .jp-reading .jp-story-nav { justify-content: flex-start; }
       .jp-book {
         flex: 1 1 auto; min-height: 0; padding: 16px 14px 0;
         display: flex; flex-direction: column;
@@ -577,15 +583,18 @@ window.StoriesModule = (function () {
     const particleUrl = getCdnUrl(manifest.shared.particles);
     const characterUrl = getCdnUrl(manifest.shared.characters);
     const conjUrl = getCdnUrl(manifest.globalFiles.conjugationRules);
+    const counterUrl = manifest.globalFiles.counterRules ? getCdnUrl(manifest.globalFiles.counterRules) : null;
     const levelGlossaryUrls = (manifest.levels || []).map(lvl => getCdnUrl(manifest.data[lvl].glossary));
 
-    const [conjRules, particles, characters, ...glossaries] = await Promise.all([
+    const [conjRules, counterRules, particles, characters, ...glossaries] = await Promise.all([
       fetch(conjUrl + bust).then(r => r.json()),
+      counterUrl ? fetch(counterUrl + bust).then(r => r.json()) : Promise.resolve(null),
       fetch(particleUrl + bust).then(r => r.json()),
       fetch(characterUrl + bust).then(r => r.json()),
       ...levelGlossaryUrls.map(u => fetch(u + bust).then(r => r.json()))
     ]);
     CONJUGATION_RULES = conjRules;
+    COUNTER_RULES = counterRules;
 
     termMapData = {};
     surfaceIdx = new Map();
@@ -623,6 +632,15 @@ window.StoriesModule = (function () {
       window.JP_OPEN_TERM = function (id, form, enableFlag) {
         if (typeof form === 'boolean') { enableFlag = form; form = null; }
         let termId = id;
+        // Counter chips (七つ → count_7_tsu, 三本 → count_3_hon) aren't enumerated
+        // in the glossary — re-derive the term on demand via the counter engine
+        // and cache it, mirroring the conjugation path below.
+        const countMatch = /^count_(\d+)_(.+)$/.exec(id);
+        if (countMatch && !termMapData[id] && COUNTER_RULES &&
+            window.JPShared.counterEngine && window.JPShared.counterEngine.buildCounterTerm) {
+          const ct = window.JPShared.counterEngine.buildCounterTerm(countMatch[2], parseInt(countMatch[1], 10), COUNTER_RULES);
+          if (ct) termMapData[ct.id] = Object.assign({ type: 'counter' }, ct);
+        }
         if (form && CONJUGATION_RULES) {
           const conjugatedId = id + '_' + form;
           if (!termMapData[conjugatedId]) {
@@ -1519,18 +1537,9 @@ window.StoriesModule = (function () {
   // string and no MCQ options; otherwise it's the classic multiple-choice item.
   function isWrittenQ(q) { return q && typeof q.answer === 'string' && q.answer !== '' && !Array.isArray(q.options); }
 
-  // Normalize a Japanese answer for lenient comparison: NFKC fold (full→half
-  // width), strip all whitespace, and trim trailing sentence punctuation.
-  // Kana/kanji are kept exactly as authored — the renderer never guesses readings.
-  function normAns(s) {
-    return String(s == null ? '' : s)
-      .normalize('NFKC')
-      .replace(/\s+/g, '')
-      .replace(/[。.．、,!！?？]+$/u, '')
-      .trim();
-  }
+  // Lenient grading (normalize/match) now lives in the shared module
+  // window.JPShared.writtenAnswer so Stories and Lessons grade identically.
   const hasKanji = (s) => /[一-鿿㐀-䶿]/.test(s);
-  const kataToHira = (s) => String(s).replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
 
   // Surface→reading pairs for the CURRENT story, harvested from its own tokens
   // (which carry authored readings, e.g. 青→あお, 月光→げっこう). Grouped tokens
@@ -1569,45 +1578,21 @@ window.StoriesModule = (function () {
     return story.__readingPairs;
   }
 
-  // Convert kanji-bearing text to its kana reading using the story pairs
-  // (greedy longest-match), folding katakana → hiragana. Unmatched chars pass through.
-  function readingOf(text) {
-    const pairs = storyReadingPairs();
-    let out = '', i = 0;
-    while (i < text.length) {
-      let hit = null;
-      for (const [s, r] of pairs) { if (s && text.startsWith(s, i)) { hit = [s, r]; break; } }
-      if (hit) { out += hit[1]; i += hit[0].length; } else { out += text[i]; i++; }
-    }
-    return kataToHira(out);
-  }
-
-  // Hybrid lenient match (see plan): accept a minimalistic answer that is a
-  // subset of the model answer (or vice-versa), or that contains an authored
-  // `accept` core/variant. A substring-direction hit must be a kanji or 2+
-  // chars so a lone particle (な) doesn't pass. A KANA answer also matches when
-  // it equals/contains the reading of the kanji model/accept (あおい ⇄ 青).
+  // Grade via the shared module, supplying a reading resolver built from THIS
+  // story's tokens (so あおい ⇄ 青 still works against the story's own readings).
   function matchWritten(student, q) {
-    const ns = normAns(student);
-    if (!ns) return false;
-    const na = normAns(q.answer);
-    if (na && ns === na) return true;
-    const substantial = ns.length >= 2 || hasKanji(ns);
-    if (substantial && na && (na.includes(ns) || ns.includes(na))) return true;
-    for (const a of (q.accept || [])) {
-      const nk = normAns(a);
-      if (nk && ns.includes(nk)) return true;
-    }
-    // Reading-based (kana answer vs kanji target): fold both to hiragana readings.
-    const sk = kataToHira(ns);
-    if (sk.length >= 2) {
-      const targets = [na].concat(q.accept || []).filter(Boolean);
-      for (const t of targets) {
-        const rk = readingOf(normAns(t));
-        if (rk && rk.length >= 2 && (rk === sk || rk.includes(sk) || sk.includes(rk))) return true;
-      }
-    }
-    return false;
+    const wa = window.JPShared.writtenAnswer;
+    // Conjugation-tolerant grading: q.aTerms (baked by derive-answer-terms.mjs)
+    // lists the answer's verbs/adjectives by dictionary id, so any valid form is
+    // accepted (走る/走った for an answer authored 走ります; plain past for 〜ました).
+    const tp = window.JPShared.textProcessor;
+    return wa.match(student, q, {
+      readingFn: wa.makeReadingFn(storyReadingPairs()),
+      conjugate: tp && tp.conjugate,
+      getRoot: tp && tp.getRootTerm,
+      rules: CONJUGATION_RULES,
+      termMap: termMapData
+    });
   }
 
   function renderComprehensionCard(comprehension) {

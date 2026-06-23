@@ -5,7 +5,8 @@
   "description": "Rikizo — Japanese learning app (Capacitor native shell).",
   "type": "module",
   "scripts": {
-    "build:www": "node scripts/validate-manifest.mjs && node scripts/validate-stories.mjs && node scripts/validate-audiostories.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/validate-particle-senses.mjs && node scripts/build-www.mjs",
+    "build:www": "node scripts/validate-manifest.mjs && node scripts/validate-lessons.mjs && node scripts/validate-stories.mjs && node scripts/validate-audiostories.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/validate-particle-senses.mjs && node scripts/build-www.mjs",
+    "validate:lessons": "node scripts/validate-lessons.mjs",
     "validate:particles": "node scripts/validate-particle-senses.mjs",
     "validate:stories": "node scripts/validate-stories.mjs",
     "validate:fonts": "node scripts/validate-fonts.mjs",

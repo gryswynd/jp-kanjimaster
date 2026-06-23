@@ -6,7 +6,20 @@
     "phase": 4,
     "type": "assessment",
     "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 13–14.",
-    "kanji": ["音","楽","歌","声","低","軽","仕","事","曜","早","急","員"]
+    "kanji": [
+      "音",
+      "楽",
+      "歌",
+      "声",
+      "低",
+      "軽",
+      "仕",
+      "事",
+      "曜",
+      "早",
+      "急",
+      "員"
+    ]
   },
   "sections": [
     {
@@ -340,7 +353,12 @@
             "声楽を"
           ],
           "alts": [
-            ["音楽を", "聞きながら", "朝ご飯を", "食べます"]
+            [
+              "音楽を",
+              "聞きながら",
+              "朝ご飯を",
+              "食べます"
+            ]
           ],
           "explanation": "ながら (while doing) attaches to the ます-stem: 食べ + ながら or 聞き + ながら. Both orderings are natural: 朝ご飯を食べながら音楽を聞きます (listening to music while eating breakfast) or 音楽を聞きながら朝ご飯を食べます (eating breakfast while listening to music). The main action comes at the end."
         },
@@ -549,11 +567,17 @@
             "v_donna",
             "v_ongaku",
             "p_wo",
-            {"id": "v_kiku", "form": "polite_masu"},
+            {
+              "id": "v_kiku",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_keiongaku",
             "p_shika",
-            {"id": "v_kiku", "form": "polite_negative"}
+            {
+              "id": "v_kiku",
+              "form": "polite_negative"
+            }
           ],
           "explanation": "Sentence 2 says 軽音楽しか聞きません (only listens to light music). しか + negative form = exclusive 'only / nothing but'. The answer matches the passage exactly."
         },
@@ -573,16 +597,28 @@
             "v_asa",
             "v_nani",
             "p_wo",
-            {"id": "v_suru", "form": "polite_masu"},
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_hayaoki",
-            {"id": "v_suru", "form": "te_form"},
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
             "v_asagohan",
             "p_wo",
-            {"id": "v_taberu", "form": "nagara_form"},
+            {
+              "id": "v_taberu",
+              "form": "nagara_form"
+            },
             "v_uta",
             "p_wo",
-            {"id": "v_kiku", "form": "polite_masu"}
+            {
+              "id": "v_kiku",
+              "form": "polite_masu"
+            }
           ],
           "explanation": "Sentence 3 says 早起きして、朝ご飯を食べながら歌を聞きます (gets up early and listens to songs while eating breakfast). 食べながら uses ながら to express two simultaneous actions. 早起き means 'early rising'."
         },
@@ -733,7 +769,12 @@
           "terms": [
             "v_kaisha",
             "v_mainichi",
-            "v_shigoto"
+            "v_shigoto",
+            "char_yamakawa",
+            "v_san",
+            "p_de",
+            "p_wa",
+            "p_wo"
           ],
           "explanation": "仕事 (work / job) fits naturally — doing work (仕事をする) at the company every day. 音楽 (music) and 早起き (early rising) are activities but not typical company actions with する. 曜日 (day of the week) is a time word, not an activity."
         },
@@ -753,7 +794,12 @@
             {
               "id": "v_kirei",
               "form": "polite_adj"
-            }
+            },
+            "v_totemo",
+            "v_ano",
+            "p_ne",
+            "p_no",
+            "p_wa"
           ],
           "explanation": "低音 (low tone / bass) fits — あの歌手の低音はとてもきれいですね = 'That singer's bass tone is very beautiful'. きれい is a な-adjective meaning 'beautiful / clean'. 音楽 (music) and 声楽 (vocal music) are genres, not specific voice qualities belonging to the singer. 軽口 (witty remark) is unrelated to voice."
         },
@@ -771,7 +817,8 @@
             "v_konshuu",
             "v_isogashii",
             "v_nichiyoubi",
-            "p_shika"
+            "p_shika",
+            "p_wa"
           ],
           "explanation": "日曜日 (Sunday) fits — this week is too busy and I can only meet on Sunday. しか + negative (会えません) = 'nothing but / only'. A day name (日曜日) is a natural noun to be limited with しか. 仕事, 歌手, and 早起き do not fit a context of 'can only meet on ___'."
         },
@@ -789,7 +836,15 @@
             "v_tenin",
             "v_san",
             "v_tegaru",
-            "v_hanashigoe"
+            "v_hanashigoe",
+            "v_chiisai",
+            "g_desu",
+            "v_sono",
+            "p_de",
+            "p_mo",
+            "p_na",
+            "p_wa",
+            "v_hito"
           ],
           "explanation": "手軽 (easy-going / informal / approachable — な-adjective) fits here — a store clerk described as 手軽な人 is easygoing and approachable. 低音 (bass/low tone) and 急行 (express train) do not describe a person's character. 早口 (fast talker) contradicts the following clause 話し声も小さい (speaking voice is also quiet)."
         }
@@ -813,7 +868,9 @@
           "terms": [
             "v_kashu",
             "v_seigaku",
-            "v_utau"
+            "v_utau",
+            "v_kono",
+            "p_wa"
           ],
           "explanation": "しか + negative verb = 'nothing but / only'. 声楽しか歌いません = 'only sings vocal music (sings nothing but vocal music)'. だけ (only) uses a positive verb: 声楽だけ歌います. ばかり (nothing but — overuse nuance) also takes a positive form. でも (even/any~) has a different meaning. When the predicate is negative, use しか."
         },
@@ -830,7 +887,8 @@
           "terms": [
             "v_ongaku",
             "v_kiku",
-            "v_shigoto"
+            "v_shigoto",
+            "p_wo"
           ],
           "explanation": "ながら (nagara form) attaches to the ます-stem to express two simultaneous actions: 聞き + ながら + 仕事をする = 'working while listening to music'. たり requires a matching ～たり to complete the ～たり～たりする pattern. てから means 'after doing'. たくて expresses desire and changes the meaning entirely."
         },
@@ -847,7 +905,10 @@
           "terms": [
             "v_kyuukou",
             "p_ni",
-            {"id": "v_noru", "form": "polite_potential"},
+            {
+              "id": "v_noru",
+              "form": "polite_potential"
+            },
             "p_ka",
             "p_wa",
             "v_donna",
@@ -869,7 +930,12 @@
             "v_doko",
             "p_demo",
             "v_kiku",
-            "v_ongaku"
+            "v_ongaku",
+            "g_desu",
+            "p_kara",
+            "v_ii",
+            "p_ne",
+            "p_wa"
           ],
           "explanation": "どこでも = 'anywhere / everywhere'. でも after a question word (どこ, 何, いつ, だれ) creates an 'any~' inclusive meaning: どこでも (anywhere), 何でも (anything), いつでも (anytime). どこでも聞けるから = 'because you can listen anywhere'. どれでも (any one of those) and どのでも are not natural here; どうでも (doesn't matter) has a different nuance."
         },
@@ -890,7 +956,9 @@
             {
               "id": "v_isogashii",
               "form": "polite_past_adj"
-            }
+            },
+            "p_de",
+            "p_wa"
           ],
           "explanation": "ばかり after a noun = 'nothing but / all I do is ~' — with a nuance of excess or weariness. 仕事ばかりで = 'nothing but work' (implying overwork or complaint). しか requires a negative predicate (しか + ません). だけ is neutral restriction without the complaint nuance. でも = 'even / any~'. When expressing that something is too much or exhausting, ばかり is the natural choice."
         }

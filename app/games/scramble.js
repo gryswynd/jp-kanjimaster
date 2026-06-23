@@ -110,6 +110,12 @@
         'font-size:1.05rem;font-weight:600;color:#2f3542;' +
         'box-shadow:0 10px 28px rgba(0,0,0,0.18);transform:scale(1.06);}' +
 
+      // Insertion caret — shows where a dragged tile will drop in the slot
+      '.scr-caret{display:inline-block;width:4px;height:2.2em;align-self:center;' +
+        'border-radius:2px;background:#d4729a;box-shadow:0 0 6px rgba(212,114,154,0.9);' +
+        'margin:0 -2px;pointer-events:none;animation:scrCaretBlink 0.6s ease-in-out infinite;}' +
+      '@keyframes scrCaretBlink{0%,100%{opacity:1}50%{opacity:0.2}}' +
+
       // Action buttons
       '.scr-actions{padding:0 4px;}' +
       '.scr-btn-check{display:block;width:100%;padding:13px;border:none;' +
@@ -252,6 +258,7 @@
   // Drag state
   var drag    = null;
   var ghostEl = null;
+  var caretEl = null;
 
   // ── Data loading ──────────────────────────────────────────────────
   function loadData(level, cb) {
@@ -491,37 +498,32 @@
   }
 
   // ── Drag / tap system ─────────────────────────────────────────────
+  // Move/up/cancel listen on WINDOW (not the tile). With per-tile listeners +
+  // pointer capture, a tile removed mid-drag (or an interrupted gesture) could
+  // strand the listeners and leave the body-level ghost stuck on screen until
+  // the app was restarted. Window listeners always fire, and cleanupDrag() also
+  // sweeps any orphaned ghost/caret as a safety net.
   function onPointerDown(e) {
     if (locked) return;
     var tile = e.target.closest('.scr-tile');
     if (!tile) return;
-
     e.preventDefault();
-    tile.setPointerCapture(e.pointerId);
+    cleanupDrag(); // clear any stuck prior drag before starting a new one
 
     var zone = tile.dataset.zone;
     var idx  = parseInt(tile.dataset.idx, 10);
-
     drag = {
-      active:  false,
-      el:      tile,
-      zone:    zone,
-      idx:     idx,
-      text:    zone === 'bank' ? bankTiles[idx] : slotTiles[idx],
-      startX:  e.clientX,
-      startY:  e.clientY,
-      offsetX: 0,
-      offsetY: 0
+      active: false, el: tile, zone: zone, idx: idx,
+      text: zone === 'bank' ? bankTiles[idx] : slotTiles[idx],
+      startX: e.clientX, startY: e.clientY, offsetX: 0, offsetY: 0
     };
-
-    tile.addEventListener('pointermove', onPointerMove);
-    tile.addEventListener('pointerup', onPointerUp);
-    tile.addEventListener('pointercancel', onPointerCancel);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
   }
 
   function onPointerMove(e) {
     if (!drag) return;
-
     var dx = e.clientX - drag.startX;
     var dy = e.clientY - drag.startY;
 
@@ -531,13 +533,11 @@
       drag.offsetX = e.clientX - rect.left;
       drag.offsetY = e.clientY - rect.top;
       drag.el.classList.add('scr-dragging');
-
+      removeGhost();
       var ghost = document.createElement('div');
       ghost.className = 'scr-tile-ghost';
       ghost.textContent = drag.text;
       ghost.style.width = rect.width + 'px';
-      ghost.style.left = (e.clientX - drag.offsetX) + 'px';
-      ghost.style.top  = (e.clientY - drag.offsetY) + 'px';
       document.body.appendChild(ghost);
       ghostEl = ghost;
     }
@@ -545,79 +545,50 @@
     if (drag.active && ghostEl) {
       ghostEl.style.left = (e.clientX - drag.offsetX) + 'px';
       ghostEl.style.top  = (e.clientY - drag.offsetY) + 'px';
-
-      // Highlight slot area when dragging over it
       var slotArea = container.querySelector('#scr-slot-area');
       if (slotArea) {
         var sr = slotArea.getBoundingClientRect();
         var over = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
                    e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
         slotArea.classList.toggle('scr-drop-active', over);
+        if (over) updateCaret(e.clientX); else removeCaret();
       }
     }
   }
 
   function onPointerUp(e) {
-    if (!drag) return;
-    finishDrag(e);
-  }
-
-  function onPointerCancel(e) {
-    if (!drag) return;
-    finishDrag(e);
-  }
-
-  function finishDrag(e) {
     var d = drag;
-    drag = null;
+    if (!d) { cleanupDrag(); return; }
 
-    d.el.removeEventListener('pointermove', onPointerMove);
-    d.el.removeEventListener('pointerup', onPointerUp);
-    d.el.removeEventListener('pointercancel', onPointerCancel);
+    var slotArea = container.querySelector('#scr-slot-area');
+    var inSlot = false;
+    if (d.active && slotArea) {
+      var sr = slotArea.getBoundingClientRect();
+      inSlot = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
+               e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
+    }
+    // Measure the insertion index with the caret removed (stable layout), then
+    // tear everything down before mutating the model.
+    removeCaret();
+    var ins = (d.active && inSlot) ? getSlotInsertIdx(e.clientX, d.zone === 'slot' ? d.idx : -1) : -1;
+    cleanupDrag();
 
+    lastColors = null;
     if (d.active) {
-      d.el.classList.remove('scr-dragging');
-      if (ghostEl) { ghostEl.remove(); ghostEl = null; }
-
-      var slotArea = container.querySelector('#scr-slot-area');
-      if (slotArea) slotArea.classList.remove('scr-drop-active');
-
-      var sr = slotArea ? slotArea.getBoundingClientRect()
-             : { top: 0, bottom: 0, left: 0, right: 0 };
-      var inSlot = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
-                   e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
-
-      lastColors = null;
       if (d.zone === 'bank') {
-        if (inSlot) {
-          bankTiles.splice(d.idx, 1);
-          var ins = getSlotInsertIdx(e.clientX, -1);
-          slotTiles.splice(ins, 0, d.text);
-        }
+        if (inSlot) { bankTiles.splice(d.idx, 1); slotTiles.splice(ins, 0, d.text); }
         // else stays in bank
       } else {
-        // From slot
         slotTiles.splice(d.idx, 1);
-        if (inSlot) {
-          var ins = getSlotInsertIdx(e.clientX, d.idx);
-          slotTiles.splice(ins, 0, d.text);
-        } else {
-          bankTiles.push(d.text);
-        }
+        if (inSlot) slotTiles.splice(ins, 0, d.text);
+        else bankTiles.push(d.text);
       }
-      renderGame();
     } else {
       // Tap: toggle between zones
-      lastColors = null;
-      if (d.zone === 'bank') {
-        bankTiles.splice(d.idx, 1);
-        slotTiles.push(d.text);
-      } else {
-        slotTiles.splice(d.idx, 1);
-        bankTiles.push(d.text);
-      }
-      renderGame();
+      if (d.zone === 'bank') { bankTiles.splice(d.idx, 1); slotTiles.push(d.text); }
+      else { slotTiles.splice(d.idx, 1); bankTiles.push(d.text); }
     }
+    renderGame();
   }
 
   function getSlotInsertIdx(clientX, skipIdx) {
@@ -634,8 +605,50 @@
     return pos;
   }
 
+  // Show the blinking insertion caret at the drop position among the (non-dragged)
+  // slot tiles. Measured with the caret absent so the position never jitters.
+  function updateCaret(clientX) {
+    var slotEl = container.querySelector('#scr-slot');
+    if (!slotEl || !drag) return;
+    removeCaret();
+    var idx = getSlotInsertIdx(clientX, drag.zone === 'slot' ? drag.idx : -1);
+    var all = slotEl.querySelectorAll('.scr-tile');
+    var vis = [];
+    for (var i = 0; i < all.length; i++) if (!all[i].classList.contains('scr-dragging')) vis.push(all[i]);
+    var caret = document.createElement('span');
+    caret.className = 'scr-caret';
+    // Inline the critical box so it renders even if the injected class CSS is
+    // overridden/absent; flex:0 0 auto stops a flex row from shrinking it to 0.
+    caret.style.cssText = 'display:inline-block;flex:0 0 auto;width:4px;height:34px;' +
+      'align-self:center;border-radius:2px;background:#d4729a;' +
+      'box-shadow:0 0 6px rgba(212,114,154,0.9);margin:0 -2px;pointer-events:none;';
+    if (idx >= vis.length) slotEl.appendChild(caret);
+    else slotEl.insertBefore(caret, vis[idx]);
+    caretEl = caret;
+  }
+
+  function removeCaret() {
+    if (caretEl && caretEl.parentNode) caretEl.parentNode.removeChild(caretEl);
+    caretEl = null;
+    if (container) container.querySelectorAll('.scr-caret').forEach(function (c) { c.remove(); });
+  }
+
+  function removeGhost() {
+    if (ghostEl && ghostEl.parentNode) ghostEl.parentNode.removeChild(ghostEl);
+    ghostEl = null;
+    // Sweep any orphaned ghost(s) that lost their ref to an interrupted gesture.
+    document.querySelectorAll('.scr-tile-ghost').forEach(function (g) { g.remove(); });
+  }
+
   function cleanupDrag() {
-    if (ghostEl) { ghostEl.remove(); ghostEl = null; }
+    window.removeEventListener('pointermove', onPointerMove);
+    window.removeEventListener('pointerup', onPointerUp);
+    window.removeEventListener('pointercancel', onPointerUp);
+    removeGhost();
+    removeCaret();
+    var slotArea = container && container.querySelector('#scr-slot-area');
+    if (slotArea) slotArea.classList.remove('scr-drop-active');
+    if (drag && drag.el) drag.el.classList.remove('scr-dragging');
     drag = null;
   }
 

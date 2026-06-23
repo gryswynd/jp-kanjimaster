@@ -404,6 +404,9 @@
 
       try {
         const manifest = await window.getManifest(this.config);
+        // Cache the manifest so the (synchronous) renderEnd can feed it to the
+        // unlock engine when the review is completed — see #7 in renderEnd.
+        this._manifest = manifest;
         const quizUrl = this.getUrl();
         const conjUrl     = this.getUrl(manifest.globalFiles.conjugationRules);
         const counterUrl  = this.getUrl(manifest.globalFiles.counterRules);
@@ -746,11 +749,16 @@
                 padding: 10px 16px;
                 border-radius: 8px;
                 border: 2px solid #E2DCCF;
-                cursor: pointer;
-                transition: all 0.2s;
+                cursor: grab;
+                transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s, border-color 0.18s, background 0.18s;
                 font-weight: 600;
+                touch-action: none;
+                user-select: none;
+                -webkit-user-select: none;
             }
             @media (hover: hover) { .jp-chip:hover { border-color: var(--jp-primary); transform: translateY(-2px); } }
+            .jp-chip:active { cursor: grabbing; }
+            .jp-chip.jp-chip-dragging { opacity: 0.25; transform: scale(0.95); }
             .jp-chip.used { opacity: 0.3; pointer-events: none; }
             .jp-scramble-placeholder { color: #aaa; font-style: italic; }
             .jp-scramble-submit { margin-top: 12px; }
@@ -786,6 +794,22 @@
             .jp-chip-correct   { background: oklch(0.58 0.09 140 / 0.14) !important; border-color: #5E8C5F !important; color: #3A5A3C !important; }
             .jp-chip-misplaced { background: oklch(0.72 0.11 70 / 0.16)  !important; border-color: #C7902F !important; color: #7d5200 !important; }
             .jp-chip-wrong     { background: oklch(0.60 0.18 30 / 0.14)  !important; border-color: #C2410C !important; color: #9A3412 !important; }
+
+            /* Drag-to-build (mirrors the Dojo scramble interaction) */
+            .jp-chip-ghost {
+                position: fixed; z-index: 10000; pointer-events: none;
+                background: white; padding: 10px 16px; border-radius: 8px;
+                border: 2px solid var(--jp-primary); font-weight: 600;
+                box-shadow: 0 10px 28px rgba(0,0,0,0.18); transform: scale(1.06);
+            }
+            .jp-scramble-box.drop-active { border-color: var(--jp-primary); background: oklch(0.58 0.09 140 / 0.05); }
+            .jp-scramble-caret {
+                display: inline-block; width: 4px; height: 2.2em; align-self: center;
+                border-radius: 2px; background: var(--jp-primary); box-shadow: 0 0 6px var(--jp-primary);
+                margin: 0 -2px; pointer-events: none;
+                animation: jpCaretBlink 0.6s ease-in-out infinite;
+            }
+            @keyframes jpCaretBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
 
             /* Interaction Area */
             #jp-interaction {
@@ -1202,182 +1226,279 @@
       });
     },
 
+    // Drag-to-build scramble — mirrors the Dojo scramble interaction
+    // (app/games/scramble.js): tap a chip to toggle it between the word bank and
+    // the answer box, or drag it with a floating ghost cursor and an insertion
+    // point. Chips show the segment text VERBATIM (the answer/explanation define
+    // the conjugation) — no glossary lookup, so a て-form chip never reverts to
+    // its dictionary form. Keeps Review's distractors / "remove extra words" /
+    // attempt scoring / colour feedback.
     renderScramble: function(q) {
       const box = this.el('jp-interaction');
       const segments = q.segments;
       const distractorWords = q.distractors || [];
       const full = segments.join('');
       const altFulls = (q.alts || []).map(a => a.join(''));
+      const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-      let order = [];
+      // --- per-question drag/tap state ---
+      let bankTiles = [...segments, ...distractorWords].sort(() => Math.random() - 0.5);
+      let slotTiles = [];
+      let drag = null;        // { active, el, zone, idx, text, startX, startY, offsetX, offsetY }
+      let ghostEl = null;     // floating clone that follows the pointer
+      let caretEl = null;     // insertion caret shown at the drop position
+      let locked = false;     // true once answered correctly
+      let lastColors = null;  // per-slot colours from the most recent wrong check
       let attempts = 0;
-      let cleared = false;
-      // Map inChip el → pool chip el so we can re-enable chips when clearing the answer box
-      const inChipToPoolChip = new Map();
+      let cleared = false;    // distractors removed → max score 0
 
-      // --- Answer box ---
+      // --- DOM scaffold ---
       const ansBox = document.createElement('div');
       ansBox.className = 'jp-scramble-box';
-
-      const setPlaceholder = () => {
-        ansBox.innerHTML = '';
-        const ph = document.createElement('span');
-        ph.className = 'jp-scramble-placeholder';
-        ph.innerText = 'Tap words below…';
-        ansBox.appendChild(ph);
-      };
-      setPlaceholder();
-
-      // --- Chip pool ---
       const pool = document.createElement('div');
       pool.className = 'jp-chip-pool';
-
-      const allChipMeta = []; // { chip, isDistractor }
-
-      const shuffled = [...segments, ...distractorWords].sort(() => Math.random() - 0.5);
-      shuffled.forEach(word => {
-        const isDistractor = distractorWords.includes(word);
-        const chip = document.createElement('div');
-        chip.className = 'jp-chip';
-        chip.innerHTML = this.jpRender(word);
-        allChipMeta.push({ chip, isDistractor });
-
-        chip.onclick = () => {
-          if (chip.classList.contains('used')) return;
-          const ph = ansBox.querySelector('.jp-scramble-placeholder');
-          if (ph) ph.remove();
-
-          const inChip = document.createElement('div');
-          inChip.className = 'jp-chip jp-in-chip';
-          inChip.innerHTML = this.jpRender(word);
-          inChipToPoolChip.set(inChip, chip);
-
-          inChip.onclick = () => {
-            inChip.remove();
-            chip.classList.remove('used');
-            const i = order.lastIndexOf(word);
-            if (i !== -1) order.splice(i, 1);
-            if (order.length === 0) setPlaceholder();
-            ansBox.classList.remove('wrong', 'correct');
-            clearColors();
-            updateSubmitState();
-          };
-
-          ansBox.appendChild(inChip);
-          order.push(word);
-          chip.classList.add('used');
-          clearColors();
-          ansBox.classList.remove('wrong', 'correct');
-          updateSubmitState();
-        };
-
-        pool.appendChild(chip);
-      });
-
-      // --- Helpers ---
-      const updateSubmitState = () => {
-        const ready = order.length === segments.length;
-        submitBtn.disabled = !ready;
-        submitBtn.style.opacity = ready ? '1' : '0.35';
-      };
-
-      const clearAnswerBox = () => {
-        ansBox.querySelectorAll('.jp-in-chip').forEach(ic => {
-          const poolChip = inChipToPoolChip.get(ic);
-          if (poolChip) poolChip.classList.remove('used');
-        });
-        order = [];
-        setPlaceholder();
-        ansBox.classList.remove('wrong', 'correct');
-        updateSubmitState();
-      };
-
-      // --- Color helpers ---
-      const clearColors = () => {
-        ansBox.querySelectorAll('.jp-in-chip').forEach(c =>
-          c.classList.remove('jp-chip-correct', 'jp-chip-misplaced', 'jp-chip-wrong')
-        );
-      };
-
-      const applyColors = () => {
-        const inChips = Array.from(ansBox.querySelectorAll('.jp-in-chip'));
-        const usedSeg = new Array(segments.length).fill(false);
-        const result = new Array(order.length).fill('wrong');
-        // First pass: exact position matches → green
-        for (let i = 0; i < order.length; i++) {
-          if (i < segments.length && order[i] === segments[i]) {
-            result[i] = 'correct'; usedSeg[i] = true;
-          }
-        }
-        // Second pass: right word, wrong spot → yellow
-        for (let i = 0; i < order.length; i++) {
-          if (result[i] !== 'wrong') continue;
-          for (let j = 0; j < segments.length; j++) {
-            if (!usedSeg[j] && order[i] === segments[j]) {
-              result[i] = 'misplaced'; usedSeg[j] = true; break;
-            }
-          }
-        }
-        inChips.forEach((chip, i) => {
-          chip.classList.remove('jp-chip-correct', 'jp-chip-misplaced', 'jp-chip-wrong');
-          chip.classList.add('jp-chip-' + result[i]);
-          // Mirror the color to the pool chip so it persists between attempts
-          const poolChip = inChipToPoolChip.get(chip);
-          if (poolChip) {
-            poolChip.classList.remove('jp-chip-correct', 'jp-chip-misplaced', 'jp-chip-wrong');
-            poolChip.classList.add('jp-chip-' + result[i]);
-          }
-        });
-      };
-
-      // --- Submit button ---
       const submitBtn = document.createElement('button');
       submitBtn.className = 'jp-btn jp-btn-main jp-scramble-submit';
       submitBtn.innerText = 'Check ✓';
-      submitBtn.disabled = true;
-      submitBtn.style.opacity = '0.35';
-
-      submitBtn.onclick = () => {
-        if (order.length !== segments.length) return;
-        const userAnswer = order.join('');
-        const isCorrect = userAnswer === full || altFulls.includes(userAnswer);
-        attempts++;
-
-        if (isCorrect) {
-          const pts = cleared ? 0 : attempts === 1 ? 2 : attempts === 2 ? 1 : 0;
-          ansBox.classList.add('correct');
-          ansBox.classList.remove('wrong');
-          // Lock all interaction
-          allChipMeta.forEach(({ chip }) => chip.style.pointerEvents = 'none');
-          ansBox.querySelectorAll('.jp-in-chip').forEach(c => c.style.pointerEvents = 'none');
-          submitBtn.style.display = 'none';
-          clearBtn.style.display = 'none';
-          this.showScrambleFeedback(true, pts, null, q.explanation);
-        } else {
-          ansBox.classList.add('wrong');
-          applyColors();
-          if (distractorWords.length > 0) clearBtn.style.display = 'block';
-        }
-      };
-
-      // --- Clear distractors button ---
       const clearBtn = document.createElement('button');
       clearBtn.className = 'jp-clear-btn';
       clearBtn.innerHTML = '🧹 Remove extra words';
 
+      // --- helpers ---
+      const updateSubmitState = () => {
+        const ready = slotTiles.length === segments.length;
+        submitBtn.disabled = !ready;
+        submitBtn.style.opacity = ready ? '1' : '0.35';
+      };
+
+      // Two-pass colouring: exact-position → green, right word/wrong spot → yellow,
+      // otherwise red. Identical logic to the Dojo scramble.
+      const computeColors = (placed, correct) => {
+        const usedSeg = new Array(correct.length).fill(false);
+        const result = new Array(placed.length).fill('wrong');
+        for (let i = 0; i < placed.length; i++) {
+          if (i < correct.length && placed[i] === correct[i]) { result[i] = 'correct'; usedSeg[i] = true; }
+        }
+        for (let i = 0; i < placed.length; i++) {
+          if (result[i] !== 'wrong') continue;
+          for (let j = 0; j < correct.length; j++) {
+            if (!usedSeg[j] && placed[i] === correct[j]) { result[i] = 'misplaced'; usedSeg[j] = true; break; }
+          }
+        }
+        return result;
+      };
+
+      // Where in the answer box would a chip dropped at clientX land? Skip the
+      // chip currently being dragged (skipIdx) so it doesn't count against itself.
+      const getSlotInsertIdx = (clientX, skipIdx) => {
+        const tiles = ansBox.querySelectorAll('.jp-chip');
+        let pos = 0;
+        for (let i = 0; i < tiles.length; i++) {
+          if (i === skipIdx) continue;
+          const rect = tiles[i].getBoundingClientRect();
+          if (clientX < rect.left + rect.width / 2) return pos;
+          pos++;
+        }
+        return pos;
+      };
+
+      // Full re-render of bank + answer box from the slotTiles/bankTiles arrays,
+      // re-binding pointer handlers (mirrors the Dojo renderGame()).
+      const renderTiles = () => {
+        ansBox.innerHTML = '';
+        ansBox.classList.remove('drop-active');
+        if (slotTiles.length === 0) {
+          const ph = document.createElement('span');
+          ph.className = 'jp-scramble-placeholder';
+          ph.innerText = 'Tap or drag words to build the sentence…';
+          ansBox.appendChild(ph);
+        } else {
+          slotTiles.forEach((t, i) => {
+            const chip = document.createElement('div');
+            chip.className = 'jp-chip jp-in-chip';
+            if (lastColors && lastColors[i]) chip.classList.add('jp-chip-' + lastColors[i]);
+            chip.dataset.zone = 'slot';
+            chip.dataset.idx = i;
+            chip.innerHTML = esc(t);
+            ansBox.appendChild(chip);
+          });
+        }
+        pool.innerHTML = '';
+        bankTiles.forEach((t, i) => {
+          const chip = document.createElement('div');
+          chip.className = 'jp-chip';
+          chip.dataset.zone = 'bank';
+          chip.dataset.idx = i;
+          chip.innerHTML = esc(t);
+          pool.appendChild(chip);
+        });
+        if (!locked) {
+          ansBox.querySelectorAll('.jp-chip').forEach(tile => tile.addEventListener('pointerdown', onPointerDown));
+          pool.querySelectorAll('.jp-chip').forEach(tile => tile.addEventListener('pointerdown', onPointerDown));
+        }
+        updateSubmitState();
+      };
+
+      // --- pointer drag system (ported from app/games/scramble.js) ---
+      // Move/up/cancel listen on WINDOW (not the tile) and the ghost/caret are
+      // always swept by cleanupDrag(). A per-tile listener + pointer capture
+      // could strand the body-level ghost on screen (frozen until restart) when
+      // the tile was removed mid-drag or the gesture was interrupted.
+      const removeGhost = () => {
+        if (ghostEl && ghostEl.parentNode) ghostEl.parentNode.removeChild(ghostEl);
+        ghostEl = null;
+        document.querySelectorAll('.jp-chip-ghost').forEach(g => g.remove());
+      };
+      const removeCaret = () => {
+        if (caretEl && caretEl.parentNode) caretEl.parentNode.removeChild(caretEl);
+        caretEl = null;
+        ansBox.querySelectorAll('.jp-scramble-caret').forEach(c => c.remove());
+      };
+      const updateCaret = (clientX) => {
+        if (!drag) return;
+        removeCaret();
+        const idx = getSlotInsertIdx(clientX, drag.zone === 'slot' ? drag.idx : -1);
+        const vis = [...ansBox.querySelectorAll('.jp-chip')].filter(t => !t.classList.contains('jp-chip-dragging'));
+        const caret = document.createElement('span');
+        caret.className = 'jp-scramble-caret';
+        caret.style.cssText = 'display:inline-block;flex:0 0 auto;width:4px;height:34px;' +
+          'align-self:center;border-radius:2px;background:var(--jp-primary);' +
+          'box-shadow:0 0 6px var(--jp-primary);margin:0 -2px;pointer-events:none;';
+        if (idx >= vis.length) ansBox.appendChild(caret);
+        else ansBox.insertBefore(caret, vis[idx]);
+        caretEl = caret;
+      };
+      const cleanupDrag = () => {
+        window.removeEventListener('pointermove', onPointerMove);
+        window.removeEventListener('pointerup', onPointerUp);
+        window.removeEventListener('pointercancel', onPointerUp);
+        removeGhost();
+        removeCaret();
+        ansBox.classList.remove('drop-active');
+        if (drag && drag.el) drag.el.classList.remove('jp-chip-dragging');
+        drag = null;
+      };
+
+      const onPointerDown = (e) => {
+        if (locked) return;
+        const tile = e.target.closest('.jp-chip');
+        if (!tile) return;
+        e.preventDefault();
+        cleanupDrag(); // clear any stuck prior drag before starting a new one
+        const zone = tile.dataset.zone;
+        const idx = parseInt(tile.dataset.idx, 10);
+        drag = {
+          active: false, el: tile, zone, idx,
+          text: zone === 'bank' ? bankTiles[idx] : slotTiles[idx],
+          startX: e.clientX, startY: e.clientY, offsetX: 0, offsetY: 0
+        };
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerUp);
+      };
+
+      const onPointerMove = (e) => {
+        if (!drag) return;
+        const dx = e.clientX - drag.startX, dy = e.clientY - drag.startY;
+        if (!drag.active && (dx * dx + dy * dy) > 36) {
+          drag.active = true;
+          const rect = drag.el.getBoundingClientRect();
+          drag.offsetX = e.clientX - rect.left;
+          drag.offsetY = e.clientY - rect.top;
+          drag.el.classList.add('jp-chip-dragging');
+          removeGhost();
+          const ghost = document.createElement('div');
+          ghost.className = 'jp-chip jp-chip-ghost';
+          ghost.innerHTML = esc(drag.text);
+          ghost.style.width = rect.width + 'px';
+          document.body.appendChild(ghost);
+          ghostEl = ghost;
+        }
+        if (drag.active && ghostEl) {
+          ghostEl.style.left = (e.clientX - drag.offsetX) + 'px';
+          ghostEl.style.top = (e.clientY - drag.offsetY) + 'px';
+          const sr = ansBox.getBoundingClientRect();
+          const over = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
+                       e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
+          ansBox.classList.toggle('drop-active', over);
+          if (over) updateCaret(e.clientX); else removeCaret();
+        }
+      };
+
+      const onPointerUp = (e) => {
+        const d = drag;
+        if (!d) { cleanupDrag(); return; }
+        let inSlot = false;
+        if (d.active) {
+          const sr = ansBox.getBoundingClientRect();
+          inSlot = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
+                   e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
+        }
+        // Measure the drop index with the caret removed (stable), then tear down.
+        removeCaret();
+        const ins = (d.active && inSlot) ? getSlotInsertIdx(e.clientX, d.zone === 'slot' ? d.idx : -1) : -1;
+        cleanupDrag();
+        lastColors = null;
+        ansBox.classList.remove('wrong', 'correct');
+
+        if (d.active) {
+          if (d.zone === 'bank') {
+            if (inSlot) { bankTiles.splice(d.idx, 1); slotTiles.splice(ins, 0, d.text); }
+          } else {
+            slotTiles.splice(d.idx, 1);
+            if (inSlot) slotTiles.splice(ins, 0, d.text);
+            else bankTiles.push(d.text);
+          }
+        } else {
+          // tap → toggle the chip between zones
+          if (d.zone === 'bank') { bankTiles.splice(d.idx, 1); slotTiles.push(d.text); }
+          else { slotTiles.splice(d.idx, 1); bankTiles.push(d.text); }
+        }
+        renderTiles();
+      };
+
+      // --- submit / scoring ---
+      submitBtn.onclick = () => {
+        if (locked || slotTiles.length !== segments.length) return;
+        const userAnswer = slotTiles.join('');
+        const isCorrect = userAnswer === full || altFulls.includes(userAnswer);
+        attempts++;
+
+        if (isCorrect) {
+          locked = true;
+          const pts = cleared ? 0 : attempts === 1 ? 2 : attempts === 2 ? 1 : 0;
+          lastColors = null;
+          renderTiles();
+          ansBox.classList.add('correct');
+          ansBox.classList.remove('wrong');
+          // Lock all interaction and paint the answer green.
+          ansBox.querySelectorAll('.jp-chip').forEach(c => {
+            c.classList.add('jp-chip-correct');
+            c.style.pointerEvents = 'none';
+          });
+          pool.querySelectorAll('.jp-chip').forEach(c => c.style.pointerEvents = 'none');
+          submitBtn.style.display = 'none';
+          clearBtn.style.display = 'none';
+          this.showScrambleFeedback(true, pts, null, q.explanation);
+        } else {
+          lastColors = computeColors(slotTiles, segments);
+          renderTiles();
+          ansBox.classList.add('wrong');
+          if (distractorWords.length > 0 && !cleared) clearBtn.style.display = 'block';
+        }
+      };
+
+      // --- "remove extra words": clear the board, drop distractors, cap at 0 pts ---
       clearBtn.onclick = () => {
         cleared = true;
         clearBtn.style.display = 'none';
-        clearAnswerBox();
-        // Remove distractor chips from the pool entirely
-        allChipMeta.forEach(({ chip, isDistractor }) => {
-          if (isDistractor) chip.remove();
-        });
-        // Hide feedback and let them try clean
+        bankTiles = [...bankTiles, ...slotTiles].filter(t => !distractorWords.includes(t));
+        slotTiles = [];
+        lastColors = null;
+        ansBox.classList.remove('wrong', 'correct');
+        renderTiles();
         const fb = this.el('jp-fb');
-        fb.style.display = 'none';
-        fb.className = 'jp-feedback';
-        // Show a small notice below the pool
+        if (fb) { fb.style.display = 'none'; fb.className = 'jp-feedback'; }
         const notice = document.createElement('div');
         notice.style.cssText = 'font-size:0.78rem; color:#aaa; margin-top:6px; font-style:italic;';
         notice.innerText = 'Extra words removed — max score for this question is now 0 pts.';
@@ -1388,6 +1509,7 @@
       box.appendChild(pool);
       box.appendChild(submitBtn);
       box.appendChild(clearBtn);
+      renderTiles();  // initial paint (defines disabled state, binds handlers)
     },
 
     showScrambleFeedback: function(isCorrect, pts, errorMsg, explanation) {
@@ -1407,7 +1529,7 @@
         const ptLabel = pts === 1 ? 'point' : 'points';
         hd.innerHTML = `Correct! 🎉 <span class="jp-pts-badge">${star} +${pts} ${ptLabel}</span>`;
         hd.style.color = 'var(--jp-success)';
-        if (exDiv) exDiv.innerText = explanation || '';
+        if (exDiv) exDiv.innerHTML = explanation || '';
         this.el('jp-next').style.display = 'flex';
       } else {
         fb.className = 'jp-feedback wrong';
@@ -1455,6 +1577,17 @@
       const isNewBest = prevBest === undefined || pct > prevBest;
       if (isNewBest) {
         window.JPShared.progress.setReviewScore(reviewName, pct);
+      }
+
+      // Advance the progression gates. Completing a review must recompute the
+      // unlock snapshot (mark this review done + raise its score) so the next
+      // lesson unlocks and this review drops out of "up next". Mirrors the
+      // Lesson/Grammar/FinalReview completion paths. _saveLessonScore only
+      // raises, so calling this on a lower re-take never re-locks anything.
+      const unlockApi = window.JPShared && window.JPShared.unlock;
+      if (unlockApi && this._manifest) {
+        const r = unlockApi.computeUnlocks(reviewName, pct, this._manifest);
+        if (unlockApi.addUnseen && r) unlockApi.addUnseen(r.newItems);
       }
 
       // Record streak activity on review completion

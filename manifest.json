@@ -873,7 +873,7 @@
             "題",
             "説"
           ],
-          "unlocksAfter": "N4 1st Half Review"
+          "unlocksAfter": "N4.Review.9"
         },
         {
           "id": "N4.20",
@@ -1083,25 +1083,25 @@
       "reviews": [
         {
           "id": "N4.Review.1",
-          "title": "Returning, Using & Getting Around",
+          "title": "Phase 4 Review: Returning, Using & Getting Around",
           "file": "data/N4/reviews/N4.Review.1.json",
           "unlocksAfter": "N4.2"
         },
         {
           "id": "N4.Review.2",
-          "title": "Self, Time of Day & Colors",
+          "title": "Phase 4 Review: Self, Time of Day & Colors",
           "file": "data/N4/reviews/N4.Review.2.json",
           "unlocksAfter": "N4.4"
         },
         {
           "id": "N4.Review.3",
-          "title": "Food, Ingredients & Meals",
+          "title": "Phase 4 Review: Food, Ingredients & Meals",
           "file": "data/N4/reviews/N4.Review.3.json",
           "unlocksAfter": "G16"
         },
         {
           "id": "N4.Review.4",
-          "title": "Family & Seasons",
+          "title": "Phase 4 Review: Family & Seasons",
           "file": "data/N4/reviews/N4.Review.4.json",
           "unlocksAfter": "N4.8"
         },
@@ -1142,19 +1142,19 @@
         },
         {
           "id": "N4.Review.10",
-          "title": "Body, Life & Work",
+          "title": "Phase 4 Review: Maps, Libraries & Night Life",
           "file": "data/N4/reviews/N4.Review.10.json",
           "unlocksAfter": "N4.20"
         },
         {
           "id": "N4.Review.11",
-          "title": "Movement, Nature & Geography",
+          "title": "Phase 4 Review: Commerce, Possessions & Writing",
           "file": "data/N4/reviews/N4.Review.11.json",
           "unlocksAfter": "N4.22"
         },
         {
           "id": "N4.Review.12",
-          "title": "Lifestyle, Trade & Attributes",
+          "title": "Phase 4 Review: Physical Attributes & Education",
           "file": "data/N4/reviews/N4.Review.12.json",
           "unlocksAfter": "N4.24"
         },
@@ -1166,7 +1166,7 @@
         },
         {
           "id": "N4.Review.14",
-          "title": "Nature, Places & Measurement",
+          "title": "Review: Waiting, Meeting & Village Life",
           "file": "data/N4/reviews/N4.Review.14.json",
           "unlocksAfter": "N4.28"
         },
@@ -1178,35 +1178,21 @@
         },
         {
           "id": "N4.Review.16",
-          "title": "Times, Openings & City Life",
+          "title": "Phase 4 Review: Times, Openings & City Life",
           "file": "data/N4/reviews/N4.Review.16.json",
           "unlocksAfter": "N4.32"
         },
         {
           "id": "N4.Review.17",
-          "title": "Districts, Departure & City Life",
+          "title": "Phase 4 Review: Districts, Departure & City Life",
           "file": "data/N4/reviews/N4.Review.17.json",
           "unlocksAfter": "G31"
         },
         {
           "id": "N4.Review.18",
-          "title": "Owners, Business & Production",
+          "title": "Phase 4 Review: Owners, Business & Production",
           "file": "data/N4/reviews/N4.Review.18.json",
           "unlocksAfter": "N4.36"
-        },
-        {
-          "id": "N4 1st Half Review",
-          "title": "N4 Complete Phase 4 Review",
-          "scope": "N4.1–N4.18",
-          "file": "data/N4/reviews/N4 Half Review.json",
-          "unlocksAfter": "N4.Review.9"
-        },
-        {
-          "id": "N4 2nd Half Review",
-          "title": "N4 Complete Phase 4 Review — Part 2",
-          "scope": "N4.19–N4.36",
-          "file": "data/N4/reviews/N4 Half Review 2.json",
-          "unlocksAfter": "N4.Final.Review"
         },
         {
           "id": "N4.Final.Review",
@@ -1742,6 +1728,30 @@
           "title": "The Village Summer Festival",
           "titleJp": "村の夏まつり",
           "dir": "data/custom/stories/mura-no-natsumatsuri",
+          "file": "story.json",
+          "unlocksAfter": null
+        },
+        {
+          "id": "yatai-no-ichinichi",
+          "title": "A Day at the Food Stall",
+          "titleJp": "屋台の一日",
+          "dir": "data/custom/stories/yatai-no-ichinichi",
+          "file": "story.json",
+          "unlocksAfter": null
+        },
+        {
+          "id": "tokkyuu-no-tabi",
+          "title": "The Limited Express Trip",
+          "titleJp": "特急の旅",
+          "dir": "data/custom/stories/tokkyuu-no-tabi",
+          "file": "story.json",
+          "unlocksAfter": null
+        },
+        {
+          "id": "ki-san-wa-kazoku",
+          "title": "Is Tree-san Family?",
+          "titleJp": "木さんは家族？",
+          "dir": "data/custom/stories/ki-san-wa-kazoku",
           "file": "story.json",
           "unlocksAfter": null
         }

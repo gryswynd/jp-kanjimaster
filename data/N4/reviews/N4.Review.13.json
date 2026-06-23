@@ -6,7 +6,16 @@
     "phase": 4,
     "type": "assessment",
     "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons N4.25–N4.26.",
-    "kanji": ["文", "注", "研", "究", "正", "考", "方", "悪"]
+    "kanji": [
+      "文",
+      "注",
+      "研",
+      "究",
+      "正",
+      "考",
+      "方",
+      "悪"
+    ]
   },
   "sections": [
     {
@@ -340,40 +349,89 @@
         {
           "kind": "scramble",
           "q": "If you pay attention, you will understand the meaning.",
-          "segments": ["注意すれば", "意味が", "分かります"],
-          "distractors": ["注意したら", "意味を", "分かりません"],
+          "segments": [
+            "注意すれば",
+            "意味が",
+            "分かります"
+          ],
+          "distractors": [
+            "注意したら",
+            "意味を",
+            "分かりません"
+          ],
           "alts": [],
           "explanation": "<b>～ば</b> expresses a conditional: 'if you do X, then Y.' 注意すれば = 'if you pay attention.' The result follows naturally."
         },
         {
           "kind": "scramble",
           "q": "When New Year comes, I have to correct bad ways of thinking.",
-          "segments": ["正月が", "来たら", "悪い", "考え方を", "正さなければ", "いけません"],
-          "distractors": ["来れば", "考え方は", "正して"],
+          "segments": [
+            "正月が",
+            "来たら",
+            "悪い",
+            "考え方を",
+            "正さなければ",
+            "いけません"
+          ],
+          "distractors": [
+            "来れば",
+            "考え方は",
+            "正して"
+          ],
           "alts": [],
           "explanation": "<b>～たら</b> expresses a conditional in time sequence: 'when/if X happens.' <b>～なければいけません</b> expresses obligation: 'must / have to.'"
         },
         {
           "kind": "scramble",
           "q": "If you are going to study literature, this document is important.",
-          "segments": ["文学を", "勉強するなら", "この", "文書が", "大切です"],
-          "distractors": ["文学は", "勉強すれば", "文書を"],
+          "segments": [
+            "文学を",
+            "勉強するなら",
+            "この",
+            "文書が",
+            "大切です"
+          ],
+          "distractors": [
+            "文学は",
+            "勉強すれば",
+            "文書を"
+          ],
           "alts": [],
           "explanation": "<b>～なら</b> is a contextual conditional: 'if that is the case / given that you plan to do X.' It responds to a known situation or stated plan."
         },
         {
           "kind": "scramble",
           "q": "If you want to correct your way of thinking, it is better to read good literature.",
-          "segments": ["考え方を", "正したいなら", "いい 文学を", "読む 方が", "いいです"],
-          "distractors": ["考え方は", "正すなら", "読んだ 方が"],
+          "segments": [
+            "考え方を",
+            "正したいなら",
+            "いい 文学を",
+            "読む 方が",
+            "いいです"
+          ],
+          "distractors": [
+            "考え方は",
+            "正すなら",
+            "読んだ 方が"
+          ],
           "alts": [],
           "explanation": "<b>～たいなら</b> combines the desire form (～たい) with the contextual conditional (～なら): 'if you want to do X.' 考え方を 正したいなら = 'if you want to correct your way of thinking.' The correct order puts the goal condition first, then the recommendation."
         },
         {
           "kind": "scramble",
           "q": "Researchers must carefully read documents.",
-          "segments": ["研究者は", "文書を", "注意して", "読まなければ", "いけません"],
-          "distractors": ["研究者が", "文書が", "読んで"],
+          "segments": [
+            "研究者は",
+            "文書を",
+            "注意して",
+            "読まなければ",
+            "いけません"
+          ],
+          "distractors": [
+            "研究者が",
+            "文書が",
+            "読んで"
+          ],
           "alts": [],
           "explanation": "<b>～なければいけません</b> expresses obligation: 'must / have to.' Researchers (研究者) are obligated to read documents carefully."
         }
@@ -815,56 +873,96 @@
         {
           "kind": "mcq",
           "q": "[文学]を 研究して います。",
-          "choices": ["ぶんがく", "もんがく", "ふみがく", "ぶんか"],
+          "choices": [
+            "ぶんがく",
+            "もんがく",
+            "ふみがく",
+            "ぶんか"
+          ],
           "answer": "ぶんがく",
           "explanation": "文学 (literature) is read as <b>bungaku</b>. 文 reads ぶん; 学 reads がく."
         },
         {
           "kind": "mcq",
           "q": "[注意]して 聞いて ください。",
-          "choices": ["ちゅうい", "ちゅうもく", "じゅうい", "ちゅうもん"],
+          "choices": [
+            "ちゅうい",
+            "ちゅうもく",
+            "じゅうい",
+            "ちゅうもん"
+          ],
           "answer": "ちゅうい",
           "explanation": "注意 (caution / careful attention) is read as <b>chuui</b>. 注 reads ちゅう; 意 reads い."
         },
         {
           "kind": "mcq",
           "q": "[研究]は むずかしいです。",
-          "choices": ["けんきゅう", "けんか", "けんこう", "けんぶつ"],
+          "choices": [
+            "けんきゅう",
+            "けんか",
+            "けんこう",
+            "けんぶつ"
+          ],
           "answer": "けんきゅう",
           "explanation": "研究 (research) is read as <b>kenkyuu</b>. 研 reads けん; 究 reads きゅう."
         },
         {
           "kind": "mcq",
           "q": "[究明]が 大切です。",
-          "choices": ["きゅうめい", "くめい", "けんめい", "きゅうしん"],
+          "choices": [
+            "きゅうめい",
+            "くめい",
+            "けんめい",
+            "きゅうしん"
+          ],
           "answer": "きゅうめい",
           "explanation": "究明 (investigation / clarification) is read as <b>kyuumei</b>. 究 reads きゅう; 明 reads めい."
         },
         {
           "kind": "mcq",
           "q": "[正しい] 考え方が 大切です。",
-          "choices": ["ただしい", "まさしい", "せいしい", "しょうしい"],
+          "choices": [
+            "ただしい",
+            "まさしい",
+            "せいしい",
+            "しょうしい"
+          ],
           "answer": "ただしい",
           "explanation": "正しい (correct) is read as <b>tadashii</b>. This is the kun-reading of 正."
         },
         {
           "kind": "mcq",
           "q": "[考え方]が 大切です。",
-          "choices": ["かんがえかた", "かんがいかた", "こうかた", "かんがえほう"],
+          "choices": [
+            "かんがえかた",
+            "かんがいかた",
+            "こうかた",
+            "かんがえほう"
+          ],
           "answer": "かんがえかた",
           "explanation": "考え方 (way of thinking) is read as <b>kangaekata</b>. 考え reads かんがえ; 方 reads かた."
         },
         {
           "kind": "mcq",
           "q": "先生の [見方]に 注目します。",
-          "choices": ["みかた", "けんかた", "みほう", "けんほう"],
+          "choices": [
+            "みかた",
+            "けんかた",
+            "みほう",
+            "けんほう"
+          ],
           "answer": "みかた",
           "explanation": "見方 (way of seeing / perspective) is read as <b>mikata</b>. 見 reads み; 方 reads かた."
         },
         {
           "kind": "mcq",
           "q": "[悪質]な 行動は よくないです。",
-          "choices": ["あくしつ", "わるしつ", "あくしち", "わるちつ"],
+          "choices": [
+            "あくしつ",
+            "わるしつ",
+            "あくしち",
+            "わるちつ"
+          ],
           "answer": "あくしつ",
           "explanation": "悪質 (malicious / of bad quality) is read as <b>akushitsu</b>. 悪 reads あく (on-reading); 質 reads しつ."
         }
@@ -878,7 +976,12 @@
         {
           "kind": "mcq",
           "q": "図書館で 本を ______ して、大学に 持って きた。",
-          "choices": ["注文", "注意", "注目", "文学"],
+          "choices": [
+            "注文",
+            "注意",
+            "注目",
+            "文学"
+          ],
           "answer": "注文",
           "explanation": "注文 (order / request for an item) fits the context of ordering a book from the library. 注目 means 'attention/focus'; 注意 means 'careful attention/caution.'",
           "terms": [
@@ -909,7 +1012,12 @@
         {
           "kind": "mcq",
           "q": "その 研究者は 大学に 長い ______ を 出しました。",
-          "choices": ["文書", "作文", "英文", "注文"],
+          "choices": [
+            "文書",
+            "作文",
+            "英文",
+            "注文"
+          ],
           "answer": "文書",
           "explanation": "文書 (document / written paper) is what a researcher formally submits to a university. 作文 is a student composition essay; 英文 is English text.",
           "terms": [
@@ -926,13 +1034,19 @@
             {
               "id": "v_dasu",
               "form": "polite_mashita"
-            }
+            },
+            "p_wo"
           ]
         },
         {
           "kind": "mcq",
           "q": "先生は 学生に 正しい ______ を 教えて います。",
-          "choices": ["考え方", "悪質", "注文", "文書"],
+          "choices": [
+            "考え方",
+            "悪質",
+            "注文",
+            "文書"
+          ],
           "answer": "考え方",
           "explanation": "考え方 (way of thinking) is what a teacher would guide students to develop. 悪質 means malicious/bad quality, which doesn't fit.",
           "terms": [
@@ -952,13 +1066,19 @@
             {
               "id": "v_iru",
               "form": "polite_masu"
-            }
+            },
+            "p_wo"
           ]
         },
         {
           "kind": "mcq",
           "q": "研究者は 文書の 問題を 正しく ______ しなければ いけません。",
-          "choices": ["究明", "注文", "作文", "注目"],
+          "choices": [
+            "究明",
+            "注文",
+            "作文",
+            "注目"
+          ],
           "answer": "究明",
           "explanation": "究明 (investigation / clarification) is what a researcher must do with problems in documents. 注文 means 'order'; 作文 means 'composition essay.'",
           "terms": [
@@ -996,9 +1116,14 @@
         {
           "kind": "mcq",
           "q": "毎日 注意して 勉強______ 、日本語が 上手に なりますよ。",
-          "choices": ["すれば", "したら", "するなら", "するとき"],
+          "choices": [
+            "すれば",
+            "しても",
+            "するなら",
+            "するとき"
+          ],
           "answer": "すれば",
-          "explanation": "<b>～ば</b> and ～たら can both express this conditional, but ～ば is preferred for stating a general, reliable cause-and-effect: 'whenever you do X, Y will result.' ～するなら requires a pre-stated context or plan. ～するとき means 'when' (a specific time), not 'if.'",
+          "explanation": "<b>～ば</b> expresses a general, reliable cause-and-effect conditional: 'if/whenever you do X, Y will result' — 勉強すれば、上手に なります. ～しても is concessive ('even if you study…'), which contradicts the positive result. ～するなら requires a pre-stated context or plan. ～するとき means 'when' (a specific time), not 'if.'",
           "terms": [
             "v_mainichi",
             "v_chuui",
@@ -1027,7 +1152,12 @@
         {
           "kind": "mcq",
           "q": "作文を 出し______ 、先生に 見て もらいました。",
-          "choices": ["てから", "ながら", "たり", "ように"],
+          "choices": [
+            "てから",
+            "ながら",
+            "たり",
+            "ように"
+          ],
           "answer": "てから",
           "explanation": "<b>てから</b> means 'after doing.' The student submitted the composition and then had the teacher look at it — a clear time sequence.",
           "terms": [
@@ -1047,13 +1177,19 @@
             {
               "id": "v_morau",
               "form": "polite_mashita"
-            }
+            },
+            "p_shi"
           ]
         },
         {
           "kind": "mcq",
           "q": "研究者に なる______ 、毎日 注意して 勉強しなければ いけません。",
-          "choices": ["なら", "ために", "ながら", "てから"],
+          "choices": [
+            "なら",
+            "ために",
+            "ながら",
+            "てから"
+          ],
           "answer": "なら",
           "explanation": "<b>～なら</b> is a contextual conditional: 'if that is the case / if you intend to become a researcher, you must study carefully every day.' It responds to a goal or stated intention.",
           "terms": [
@@ -1084,7 +1220,12 @@
         {
           "kind": "mcq",
           "q": "悪質な 考え方を 持って ______ いけません。",
-          "choices": ["は", "が", "を", "に"],
+          "choices": [
+            "は",
+            "が",
+            "を",
+            "に"
+          ],
           "answer": "は",
           "explanation": "<b>てはいけない</b> expresses prohibition: 'must not / should not.' The particle は connects the て-form verb to いけない. 悪質な 考え方を 持ってはいけません means 'must not hold malicious ways of thinking.'",
           "terms": [
@@ -1108,7 +1249,12 @@
         {
           "kind": "mcq",
           "q": "文学を 勉強するなら、古い ______ を 注意して 読む 方が いいです。",
-          "choices": ["文書", "注文", "考え方", "注目"],
+          "choices": [
+            "文書",
+            "注文",
+            "考え方",
+            "注目"
+          ],
           "answer": "文書",
           "explanation": "文書 (document) is what a literature student should read carefully. 注文 means 'order'; 考え方 means 'way of thinking'; 注目 means 'attention/focus'.",
           "terms": [

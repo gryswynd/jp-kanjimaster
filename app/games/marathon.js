@@ -65,6 +65,7 @@
       '.mara-tile.mara-misplaced{border-color:#e6a817;background:#fff8e0;color:#6b4500;}' +
       '.mara-tile.mara-wrong{border-color:#c0392b;background:#fde8e8;animation:maraShake 0.45s ease;}' +
       '.mara-tile-ghost{position:fixed;z-index:10000;pointer-events:none;padding:10px 16px;background:#fff;border:2px solid #d4729a;border-radius:10px;font-family:"Noto Sans JP",sans-serif;font-size:1.05rem;font-weight:600;color:#2f3542;box-shadow:0 10px 28px rgba(0,0,0,0.18);transform:scale(1.06);}' +
+      '@keyframes maraCaretBlink{0%,100%{opacity:1}50%{opacity:0.2}}' +
       '.mara-actions{padding:0 4px;}' +
       '.mara-btn-check{display:block;width:100%;padding:13px;border:none;border-radius:12px;font-weight:700;font-size:0.93rem;cursor:pointer;color:#fff;background:linear-gradient(135deg,#d4729a 0%,#b8527e 100%);box-shadow:0 4px 12px rgba(212,114,154,0.3);transition:opacity 0.15s,transform 0.1s;}' +
       '.mara-btn-check:active:not(:disabled){transform:scale(0.97);}' +
@@ -159,7 +160,7 @@
   var cfg = {}, container = null, allMarathons = [], dataCache = null;
   var curMarathon = null, flatItems = [], curIdx = 0;
   var slotTiles = [], bankTiles = [], locked = false;
-  var drag = null, ghostEl = null;
+  var drag = null, ghostEl = null, caretEl = null;
   var lastColors = null; // persisted tile colors from last wrong check
 
   // ── Flatten marathon into ordered item list with phase info ───────
@@ -355,22 +356,25 @@
   }
 
   // ── Drag / tap ────────────────────────────────────────────────────
+  // Move/up/cancel listen on WINDOW (not the tile) so an interrupted gesture or
+  // a tile removed mid-drag can't strand the body-level ghost on screen (the
+  // "frozen chip until restart" bug). cleanupDrag() also sweeps orphaned ghosts.
   function onPointerDown(e) {
     if (locked) return;
     var tile = e.target.closest('.mara-tile');
     if (!tile) return;
     e.preventDefault();
-    tile.setPointerCapture(e.pointerId);
+    cleanupDrag(); // clear any stuck prior drag before starting a new one
+    var idx = parseInt(tile.dataset.idx, 10);
+    var zone = tile.dataset.zone;
     drag = {
-      active: false, el: tile,
-      zone: tile.dataset.zone,
-      idx: parseInt(tile.dataset.idx, 10),
-      text: tile.dataset.zone === 'bank' ? bankTiles[parseInt(tile.dataset.idx, 10)] : slotTiles[parseInt(tile.dataset.idx, 10)],
+      active: false, el: tile, zone: zone, idx: idx,
+      text: zone === 'bank' ? bankTiles[idx] : slotTiles[idx],
       startX: e.clientX, startY: e.clientY, offsetX: 0, offsetY: 0
     };
-    tile.addEventListener('pointermove', onPointerMove);
-    tile.addEventListener('pointerup', onPointerUp);
-    tile.addEventListener('pointercancel', onPointerUp);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
   }
 
   function onPointerMove(e) {
@@ -382,12 +386,11 @@
       drag.offsetX = e.clientX - rect.left;
       drag.offsetY = e.clientY - rect.top;
       drag.el.classList.add('mara-dragging');
+      removeGhost();
       var ghost = document.createElement('div');
       ghost.className = 'mara-tile-ghost';
       ghost.textContent = drag.text;
       ghost.style.width = rect.width + 'px';
-      ghost.style.left = (e.clientX - drag.offsetX) + 'px';
-      ghost.style.top = (e.clientY - drag.offsetY) + 'px';
       document.body.appendChild(ghost);
       ghostEl = ghost;
     }
@@ -397,42 +400,41 @@
       var slotArea = container.querySelector('#mara-slot-area');
       if (slotArea) {
         var sr = slotArea.getBoundingClientRect();
-        slotArea.classList.toggle('mara-drop-active',
-          e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
-          e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30);
+        var over = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
+                   e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
+        slotArea.classList.toggle('mara-drop-active', over);
+        if (over) updateCaret(e.clientX); else removeCaret();
       }
     }
   }
 
   function onPointerUp(e) {
-    if (!drag) return;
-    var d = drag; drag = null;
-    d.el.removeEventListener('pointermove', onPointerMove);
-    d.el.removeEventListener('pointerup', onPointerUp);
-    d.el.removeEventListener('pointercancel', onPointerUp);
+    var d = drag;
+    if (!d) { cleanupDrag(); return; }
+    var slotArea = container.querySelector('#mara-slot-area');
+    var inSlot = false;
+    if (d.active && slotArea) {
+      var sr = slotArea.getBoundingClientRect();
+      inSlot = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
+               e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
+    }
+    removeCaret();
+    var ins = (d.active && inSlot) ? getSlotInsertIdx(e.clientX, d.zone === 'slot' ? d.idx : -1) : -1;
+    cleanupDrag();
+    lastColors = null;
     if (d.active) {
-      d.el.classList.remove('mara-dragging');
-      if (ghostEl) { ghostEl.remove(); ghostEl = null; }
-      var slotArea = container.querySelector('#mara-slot-area');
-      if (slotArea) slotArea.classList.remove('mara-drop-active');
-      var sr = slotArea ? slotArea.getBoundingClientRect() : { top: 0, bottom: 0, left: 0, right: 0 };
-      var inSlot = e.clientY >= sr.top - 30 && e.clientY <= sr.bottom + 30 &&
-                   e.clientX >= sr.left - 30 && e.clientX <= sr.right + 30;
-      lastColors = null;
       if (d.zone === 'bank') {
-        if (inSlot) { bankTiles.splice(d.idx, 1); slotTiles.splice(getSlotInsertIdx(e.clientX, -1), 0, d.text); }
+        if (inSlot) { bankTiles.splice(d.idx, 1); slotTiles.splice(ins, 0, d.text); }
       } else {
         slotTiles.splice(d.idx, 1);
-        if (inSlot) { slotTiles.splice(getSlotInsertIdx(e.clientX, d.idx), 0, d.text); }
-        else { bankTiles.push(d.text); }
+        if (inSlot) slotTiles.splice(ins, 0, d.text);
+        else bankTiles.push(d.text);
       }
-      renderGame();
     } else {
-      lastColors = null;
       if (d.zone === 'bank') { bankTiles.splice(d.idx, 1); slotTiles.push(d.text); }
       else { slotTiles.splice(d.idx, 1); bankTiles.push(d.text); }
-      renderGame();
     }
+    renderGame();
   }
 
   function getSlotInsertIdx(clientX, skipIdx) {
@@ -449,7 +451,49 @@
     return pos;
   }
 
-  function cleanupDrag() { if (ghostEl) { ghostEl.remove(); ghostEl = null; } drag = null; }
+  // Blinking insertion caret at the drop position among the (non-dragged) tiles.
+  function updateCaret(clientX) {
+    var slotEl = container.querySelector('#mara-slot');
+    if (!slotEl || !drag) return;
+    removeCaret();
+    var idx = getSlotInsertIdx(clientX, drag.zone === 'slot' ? drag.idx : -1);
+    var all = slotEl.querySelectorAll('.mara-tile');
+    var vis = [];
+    for (var i = 0; i < all.length; i++) if (!all[i].classList.contains('mara-dragging')) vis.push(all[i]);
+    var caret = document.createElement('span');
+    caret.className = 'mara-caret';
+    caret.style.cssText = 'display:inline-block;flex:0 0 auto;width:4px;height:34px;' +
+      'align-self:center;border-radius:2px;background:#d4729a;' +
+      'box-shadow:0 0 6px rgba(212,114,154,0.9);margin:0 -2px;pointer-events:none;' +
+      'animation:maraCaretBlink 0.6s ease-in-out infinite;';
+    if (idx >= vis.length) slotEl.appendChild(caret);
+    else slotEl.insertBefore(caret, vis[idx]);
+    caretEl = caret;
+  }
+
+  function removeCaret() {
+    if (caretEl && caretEl.parentNode) caretEl.parentNode.removeChild(caretEl);
+    caretEl = null;
+    if (container) container.querySelectorAll('.mara-caret').forEach(function (c) { c.remove(); });
+  }
+
+  function removeGhost() {
+    if (ghostEl && ghostEl.parentNode) ghostEl.parentNode.removeChild(ghostEl);
+    ghostEl = null;
+    document.querySelectorAll('.mara-tile-ghost').forEach(function (g) { g.remove(); });
+  }
+
+  function cleanupDrag() {
+    window.removeEventListener('pointermove', onPointerMove);
+    window.removeEventListener('pointerup', onPointerUp);
+    window.removeEventListener('pointercancel', onPointerUp);
+    removeGhost();
+    removeCaret();
+    var slotArea = container && container.querySelector('#mara-slot-area');
+    if (slotArea) slotArea.classList.remove('mara-drop-active');
+    if (drag && drag.el) drag.el.classList.remove('mara-dragging');
+    drag = null;
+  }
 
   // ── Answer checking ───────────────────────────────────────────────
   function checkAnswer() {

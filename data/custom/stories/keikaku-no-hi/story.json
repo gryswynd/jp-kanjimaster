@@ -4508,7 +4508,8 @@
         ],
         "explanation": "「りきぞうはクラスの行事の中心になった」と書いてあります。",
         "terms": [],
-        "paraIdx": 0
+        "paraIdx": 0,
+        "aTerms": []
       },
       {
         "type": "written",
@@ -4522,7 +4523,8 @@
         ],
         "explanation": "「そのつぎの夜は十五まいの紙になった」と書いてあります。",
         "terms": [],
-        "paraIdx": 1
+        "paraIdx": 1,
+        "aTerms": []
       },
       {
         "type": "written",
@@ -4536,7 +4538,11 @@
         ],
         "explanation": "「でも、けんはテーブルを左に動かし始めた」と書いてあります。",
         "terms": [],
-        "paraIdx": 4
+        "paraIdx": 4,
+        "aTerms": [
+          "v_ugokasu",
+          "v_hakobu"
+        ]
       },
       {
         "type": "written",
@@ -4550,7 +4556,11 @@
         ],
         "explanation": "「やまかわはそのテーブルの上にすわった」と書いてあります。",
         "terms": [],
-        "paraIdx": 7
+        "paraIdx": 7,
+        "aTerms": [
+          "v_suwaru",
+          "v_ugokasu"
+        ]
       },
       {
         "type": "written",
@@ -4564,7 +4574,12 @@
         ],
         "explanation": "「だれも手を上げなかった」と書いてあります。",
         "terms": [],
-        "paraIdx": 2
+        "paraIdx": 2,
+        "aTerms": [
+          "v_dare",
+          "v_ageru_raise",
+          "v_yomu"
+        ]
       },
       {
         "type": "written",
@@ -4578,7 +4593,11 @@
         ],
         "explanation": "「行事が終わった時、りきぞうは建物の外に出て、計画書を見た。計画は正しかった」と書いてあります。",
         "terms": [],
-        "paraIdx": 8
+        "paraIdx": 8,
+        "aTerms": [
+          "v_tadashii",
+          "v_omou"
+        ]
       },
       {
         "type": "written",
@@ -4592,7 +4611,13 @@
         ],
         "explanation": "「でも、いちばん大きかったことは転んだことだった気がした」と書いてあります。",
         "terms": [],
-        "paraIdx": 10
+        "paraIdx": 10,
+        "aTerms": [
+          "v_ookii",
+          "v_korobu",
+          "g_da",
+          "v_suru"
+        ]
       }
     ]
   }

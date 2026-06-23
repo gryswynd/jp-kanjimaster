@@ -32,6 +32,7 @@ const ROOT = path.resolve(__dirname, '..');
 // Build the canonical glossary index (vocab + particles + characters +
 // pre-generated inflections), identical to the story migration setup.
 const conjugationRules = JSON.parse(await readFile(path.join(ROOT, 'conjugation_rules.json'), 'utf8'));
+const counterRules = JSON.parse(await readFile(path.join(ROOT, 'counter_rules.json'), 'utf8'));
 const glossaryIndex = await buildGlossaryIndex(
   [
     path.join(ROOT, 'data/N5/glossary.N5.json'),
@@ -41,7 +42,7 @@ const glossaryIndex = await buildGlossaryIndex(
     path.join(ROOT, 'shared/characters.json')
   ],
   readFile,
-  { includeReadings: true, conjugationRules }
+  { includeReadings: true, conjugationRules, counterRules }
 );
 console.log(`Indexed ${glossaryIndex.size} surfaces (incl. readings + characters + inflections).`);
 

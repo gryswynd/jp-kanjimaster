@@ -226,7 +226,7 @@
   // ── Initialization ─────────────────────────────────────────────────
   function init(containerEl, ctx) {
     if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
-    if (ghostEl) { ghostEl.remove(); ghostEl = null; }
+    cleanupDragVisuals(); // sweep any orphaned ghost + stray window listeners on re-entry
 
     injectStyles();
     cfg           = ctx;
@@ -435,6 +435,7 @@
   // ── Drag & Drop (Pointer Events API) ──────────────────────────────
   function startDrag(e, word, from, el) {
     e.preventDefault();
+    cleanupDragVisuals();   // clear any stuck prior drag before starting a new one
     dragWord = word;
     dragFrom = from;
     sourceEl = el;
@@ -442,6 +443,7 @@
     el.classList.add('is-dragging');
     try { el.setPointerCapture(e.pointerId); } catch (_) {}
 
+    removeGhost();
     ghostEl = document.createElement('div');
     ghostEl.className = 'conn-ghost';
     ghostEl.textContent = word;
@@ -449,9 +451,11 @@
     ghostEl.style.top  = e.clientY + 'px';
     document.body.appendChild(ghostEl);
 
-    el.addEventListener('pointermove',   onPointerMove);
-    el.addEventListener('pointerup',     onPointerUp);
-    el.addEventListener('pointercancel', onPointerCancel);
+    // Listen on WINDOW (not sourceEl): a source chip removed mid-drag or an
+    // interrupted gesture can't strand the listeners + leave the ghost stuck.
+    window.addEventListener('pointermove',   onPointerMove);
+    window.addEventListener('pointerup',     onPointerUp);
+    window.addEventListener('pointercancel', onPointerCancel);
   }
 
   function onPointerMove(e) {
@@ -478,7 +482,7 @@
   }
 
   function onPointerUp(e) {
-    if (!sourceEl) return;
+    if (!sourceEl) { cleanupDragVisuals(); return; }
 
     var word = dragWord;
     var from = dragFrom;
@@ -506,17 +510,24 @@
     dragWord = null; dragFrom = null; sourceEl = null;
   }
 
+  function removeGhost() {
+    if (ghostEl && ghostEl.parentNode) ghostEl.parentNode.removeChild(ghostEl);
+    ghostEl = null;
+    // Sweep any orphaned ghost(s) that lost their ref to an interrupted gesture.
+    document.querySelectorAll('.conn-ghost').forEach(function (g) { g.remove(); });
+  }
+
   function cleanupDragVisuals() {
-    if (sourceEl) {
-      sourceEl.classList.remove('is-dragging');
-      sourceEl.removeEventListener('pointermove',   onPointerMove);
-      sourceEl.removeEventListener('pointerup',     onPointerUp);
-      sourceEl.removeEventListener('pointercancel', onPointerCancel);
+    window.removeEventListener('pointermove',   onPointerMove);
+    window.removeEventListener('pointerup',     onPointerUp);
+    window.removeEventListener('pointercancel', onPointerCancel);
+    if (sourceEl) sourceEl.classList.remove('is-dragging');
+    removeGhost();
+    if (container) {
+      container.querySelectorAll('.conn-col.drag-over').forEach(function (c) {
+        c.classList.remove('drag-over');
+      });
     }
-    if (ghostEl) { ghostEl.remove(); ghostEl = null; }
-    container.querySelectorAll('.conn-col.drag-over').forEach(function (c) {
-      c.classList.remove('drag-over');
-    });
     var bankEl = document.getElementById('conn-bank');
     if (bankEl) bankEl.classList.remove('drag-over');
   }
@@ -654,7 +665,7 @@
     /** Tear down — clean up DOM and any dangling timers. */
     destroy: function () {
       if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
-      if (ghostEl)      { ghostEl.remove(); ghostEl = null; }
+      cleanupDragVisuals(); // remove window listeners + sweep ghost before teardown
       if (container)    { container.innerHTML = ''; }
       container    = null;
       cfg          = {};

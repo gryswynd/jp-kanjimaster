@@ -27,6 +27,7 @@ window.LessonModule = {
     let currentLevelLessons = null;
     let manifestData = null;
     let kanjiSel = 0; // selected kanji index in the kanji panel
+    let readingFnCache = null; // cached kanji→reading resolver for written-answer grading (per lesson)
     let coverLoad = null; // prefetched { file, p:Promise<{data,resources}|null> } for the cover→lesson open
     let coverTabs = '';   // cached progress-strip HTML so the swing overlay's folder matches the cover
 
@@ -90,6 +91,13 @@ window.LessonModule = {
           /* Atoms */
           .lh-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
           .lh-h2 { font-family: var(--font-jp-display); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin: 6px 0; color: var(--ink); }
+          /* Reading comprehension — written-answer (story-style) */
+          .lh-wa-input { width: 100%; min-height: 44px; margin-top: 10px; border: 1.5px solid var(--hairline); border-radius: 10px; padding: 9px 11px; font-size: 15px; font-family: var(--font-jp); line-height: 1.6; color: var(--ink); background: var(--washi-2); resize: vertical; outline: none; box-sizing: border-box; }
+          .lh-wa-input:focus { border-color: var(--vermilion); }
+          .lh-wa-check { margin-top: 8px; padding: 7px 16px; border-radius: 999px; background: var(--ink); border: none; color: var(--washi); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; cursor: pointer; }
+          .lh-wa-yours { font-size: 14.5px; line-height: 1.5; font-weight: 600; padding: 7px 10px; border-radius: 8px; margin-bottom: 8px; border: 1.5px solid var(--hairline); color: var(--ink); }
+          .lh-wa-yours.lh-wa-correct { border-color: var(--moss); background: oklch(0.58 0.09 140 / 0.10); color: var(--moss); }
+          .lh-wa-yours.lh-wa-wrong { border-color: var(--vermilion); background: oklch(0.60 0.18 30 / 0.10); color: var(--vermilion); }
           .lh-lead { color: var(--ink-2); font-size: 13.5px; line-height: 1.5; }
           .lh-card { background: var(--washi); border: 1px solid var(--hairline); border-radius: var(--r-lg); }
 
@@ -476,11 +484,13 @@ window.LessonModule = {
                   '<button class="lh-speak" title="Listen">🔊</button>' +
                 '</div>' +
                 (revealed
-                  ? '<div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--hairline);font-size:13px;color:var(--ink-2);line-height:1.5;">' + esc(item.en) + '</div>'
+                  ? '<button class="lh-reveal-off" style="margin-top:10px;padding-top:10px;border:none;border-top:1px dashed var(--hairline);background:none;width:100%;text-align:left;font-size:13px;color:var(--ink-2);line-height:1.5;cursor:pointer;">' + esc(item.en) + '</button>'
                   : '<button class="lh-reveal jp-mono" style="margin-top:10px;background:none;border:none;padding:0;font-size:11px;color:var(--vermilion);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Tap to reveal →</button>');
             card.querySelector('.lh-speak').onclick = (e) => { e.stopPropagation(); window.JPShared.tts.speak(item.jp, { terms: item.terms, termMap: termMapData }); };
-            const rev = card.querySelector('.lh-reveal');
-            if (rev) rev.onclick = () => { item._rev = true; renderCurrentStep(); };
+            // Toggle: "Tap to reveal" shows the meaning; tapping the revealed
+            // English again hides it (matches the conversation show/hide).
+            const rev = card.querySelector('.lh-reveal') || card.querySelector('.lh-reveal-off');
+            if (rev) rev.onclick = () => { item._rev = !item._rev; renderCurrentStep(); };
             wrap.appendChild(card);
         });
         div.appendChild(wrap);
@@ -794,26 +804,85 @@ window.LessonModule = {
             sec.questions.forEach((q, i) => {
                 const card = el("div", "");
                 card.style.cssText = "border:1px solid var(--hairline);border-radius:var(--r-md);background:var(--washi);overflow:hidden;";
-                const shown = !!q._ans;
-                const aHtml = q.a_terms ? proc(q.a, q.a_terms) : esc(q.a);
-                card.innerHTML =
-                    '<div style="padding:12px 14px 10px;">' +
-                      '<div style="display:flex;gap:10px;align-items:flex-start;">' +
-                        '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.1em;font-weight:700;width:20px;flex-shrink:0;padding-top:4px;">Q' + (i + 1) + '</div>' +
-                        '<div style="flex:1;"><div class="jp-serif" style="font-size:15.5px;line-height:1.5;font-weight:500;color:var(--ink);">' + proc(q.q, q.terms) + '</div>' +
-                          // English translation stays hidden until the answer is revealed — it
-                          // shouldn't give away comprehension before the student attempts it.
-                          (shown && q.q_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.q_en) + '</div>' : '') + '</div>' +
-                      '</div>' +
-                      (shown ? '' : '<button class="lh-showans jp-mono" style="margin-top:10px;margin-left:30px;padding:6px 12px;border-radius:999px;background:transparent;border:1px solid var(--hairline);color:var(--ink-2);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;">Show answer</button>') +
-                    '</div>' +
-                    (shown ? '<div style="padding:10px 14px 12px 44px;border-top:1px dashed var(--hairline-2);background:var(--washi-2);">' +
-                        '<div class="jp-mono" style="font-size:9.5px;color:var(--moss);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:3px;">答え · Answer</div>' +
-                        '<div class="jp-serif" style="font-size:15px;line-height:1.5;font-weight:500;color:var(--ink);">' + aHtml + '</div>' +
-                        (q.a_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.a_en) + '</div>' : '') +
-                    '</div>' : '');
-                const showBtn = card.querySelector('.lh-showans');
-                if (showBtn) showBtn.onclick = () => { q._ans = true; renderCurrentStep(); };
+                const key = readingItemKey(sec, i);
+                const stat = drillStats.find(s => s.sectionRef === sec);
+                // Restore the typed text for a question answered in a prior sitting.
+                if (q._waChecked && q._waText == null && lessonData && lessonData.id) {
+                    q._waText = ((loadLessonQuiz(lessonData.id)[key]) || {}).text || '';
+                }
+
+                // Paint the card from q's written-answer state; re-painted in place
+                // on Check (no full step re-render, so other inputs keep focus/value).
+                const paint = () => {
+                    const checked = !!q._waChecked;
+                    const aHtml = q.a_terms ? proc(q.a, q.a_terms) : esc(q.a);
+                    let h =
+                        '<div style="padding:12px 14px 10px;">' +
+                          '<div style="display:flex;gap:10px;align-items:flex-start;">' +
+                            '<div class="jp-mono" style="font-size:10px;color:var(--vermilion);letter-spacing:0.1em;font-weight:700;width:20px;flex-shrink:0;padding-top:4px;">Q' + (i + 1) + '</div>' +
+                            '<div style="flex:1;"><div class="jp-serif" style="font-size:15.5px;line-height:1.5;font-weight:500;color:var(--ink);">' + proc(q.q, q.terms) + '</div>' +
+                              // English stays hidden until the answer is checked — it must not
+                              // give away comprehension before the student attempts it.
+                              (checked && q.q_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.q_en) + '</div>' : '') + '</div>' +
+                          '</div>' +
+                          (checked ? '' :
+                            '<textarea class="lh-wa-input" rows="1" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="ここに 答えを 書いて ください"></textarea>' +
+                            '<button class="lh-wa-check jp-mono">Check</button>') +
+                        '</div>' +
+                        (checked ?
+                          '<div style="padding:10px 14px 12px 14px;border-top:1px dashed var(--hairline-2);background:var(--washi-2);">' +
+                            '<div class="lh-wa-yours ' + (q._waRight ? 'lh-wa-correct' : 'lh-wa-wrong') + '">' + (q._waText ? esc(q._waText) : '—') + '</div>' +
+                            '<div class="jp-mono" style="font-size:9.5px;color:var(--moss);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:3px;">答え · Answer</div>' +
+                            '<div class="jp-serif" style="font-size:15px;line-height:1.5;font-weight:500;color:var(--ink);">' + aHtml + '</div>' +
+                            (q.a_en ? '<div style="font-size:11.5px;color:var(--ink-3);margin-top:2px;font-style:italic;">' + esc(q.a_en) + '</div>' : '') +
+                            (q.explanation ? '<div style="font-size:11.5px;color:var(--ink-2);margin-top:6px;line-height:1.5;">' + esc(q.explanation) + '</div>' : '') +
+                          '</div>' : '');
+                    card.innerHTML = h;
+                    if (checked) return;
+                    const ta = card.querySelector('.lh-wa-input');
+                    const cb = card.querySelector('.lh-wa-check');
+                    if (cb) cb.onclick = () => {
+                        const text = ta ? ta.value : '';
+                        const wa = window.JPShared.writtenAnswer;
+                        // Conjugation-tolerant grading: q.a_terms identifies the answer's
+                        // verbs/adjectives by dictionary id, so the matcher accepts any
+                        // valid form (走る/走った/走って for an answer authored 走ります).
+                        const tp = window.JPShared.textProcessor;
+                        const isRight = wa ? wa.match(text, { answer: q.a, accept: q.accept, answerTerms: q.a_terms }, {
+                            readingFn: lessonReadingFn(),
+                            conjugate: tp && tp.conjugate,
+                            getRoot: tp && tp.getRootTerm,
+                            rules: CONJUGATION_RULES,
+                            termMap: termMapData
+                        }) : false;
+                        q._waChecked = true; q._waRight = isRight; q._waText = text;
+                        // Score it like a drill: dedupe, persist correctness (resume), tally.
+                        if (!drillAnswered.has(key)) {
+                            drillAnswered.add(key);
+                            drillResults[key] = isRight;
+                            if (window.JPShared.sessionProgress && lessonData && lessonData.id) {
+                                window.JPShared.sessionProgress.saveResult('lesson', lessonData.id, key, isRight);
+                            }
+                            if (isRight) { drillCorrect++; if (stat) stat.correct++; }
+                        }
+                        if (lessonData && lessonData.id) saveLessonQuizText(lessonData.id, key, text);
+                        try {
+                            const fx = window.JPShared.sfx, hp = window.JPShared.haptics;
+                            if (isRight) { if (fx) fx.success(); if (hp) hp.success(); }
+                            else { if (fx) fx.error(); if (hp) hp.error(); }
+                        } catch (e) {}
+                        if (!isRight && q.terms && q.terms.length) {
+                            try {
+                                q.terms.forEach(termId => {
+                                    const rootTerm = window.JPShared.textProcessor.getRootTerm(termId, termMapData);
+                                    if (rootTerm) window.JPShared.progress.flagTerm(rootTerm.surface);
+                                });
+                            } catch (e) {}
+                        }
+                        paint();
+                    };
+                };
+                paint();
                 qList.appendChild(card);
             });
             qWrap.appendChild(qList);
@@ -830,6 +899,30 @@ window.LessonModule = {
     function drillItemKey(sec, itemIdx, item) {
         const secIdx = lessonData ? lessonData.sections.indexOf(sec) : -1;
         return 'drill__' + secIdx + '__' + itemIdx + '__' + item.q;
+    }
+
+    // Stable key for a reading comprehension written-answer (scored like a drill).
+    function readingItemKey(sec, qIdx) {
+        const secIdx = lessonData ? lessonData.sections.indexOf(sec) : -1;
+        return 'reading__' + secIdx + '__' + qIdx;
+    }
+
+    // Lenient grader's reading resolver, built once per lesson from the glossary
+    // termMap (kanji→reading) so あおい ⇄ 青 matches like in stories.
+    function lessonReadingFn() {
+        const wa = window.JPShared && window.JPShared.writtenAnswer;
+        if (!wa) return null;
+        if (!readingFnCache) readingFnCache = wa.makeReadingFn(wa.pairsFromTermMap(termMapData));
+        return readingFnCache;
+    }
+
+    // Typed reading answers — text persisted in k-lesson-quiz-<id> (correctness
+    // rides the existing sessionProgress 'lesson' results, like drills).
+    function loadLessonQuiz(id) {
+        try { return JSON.parse(localStorage.getItem('k-lesson-quiz-' + id) || '{}'); } catch (e) { return {}; }
+    }
+    function saveLessonQuizText(id, key, text) {
+        try { const m = loadLessonQuiz(id); m[key] = { text: text }; localStorage.setItem('k-lesson-quiz-' + id, JSON.stringify(m)); } catch (e) {}
     }
 
     function renderDrills(sec) {
@@ -1438,13 +1531,22 @@ window.LessonModule = {
           const resources = payload.resources;
           lessonData = payload.data;
           drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
+          readingFnCache = null;
           Object.keys(drillResults).forEach(k => delete drillResults[k]);
           drillStats = [];
           lessonData.sections.forEach(sec => {
-              if (sec.type !== 'drills') return;
-              const mcqCount = (sec.items || []).filter(it => it.kind === 'mcq').length;
-              drillTotal += mcqCount;
-              drillStats.push({ title: sec.title || 'Drill', total: mcqCount, correct: 0, sectionRef: sec });
+              if (sec.type === 'drills') {
+                  const mcqCount = (sec.items || []).filter(it => it.kind === 'mcq').length;
+                  drillTotal += mcqCount;
+                  drillStats.push({ title: sec.title || 'Drill', total: mcqCount, correct: 0, sectionRef: sec });
+              } else if (sec.type === 'reading') {
+                  // Reading comprehension written-answers now count toward the lesson score.
+                  const qCount = (sec.questions || []).length;
+                  if (qCount) {
+                      drillTotal += qCount;
+                      drillStats.push({ title: sec.title || 'Reading', total: qCount, correct: 0, sectionRef: sec });
+                  }
+              }
           });
           termMapData = resources.map;
           CONJUGATION_RULES = resources.conj;
@@ -1464,16 +1566,27 @@ window.LessonModule = {
           const savedResults = (savedSession && savedSession.results) || null;
           if (savedResults) {
               lessonData.sections.forEach(sec => {
-                  if (sec.type !== 'drills') return;
                   const stat = drillStats.find(s => s.sectionRef === sec);
-                  (sec.items || []).filter(it => it.kind === 'mcq').forEach((item, itemIdx) => {
-                      const key = drillItemKey(sec, itemIdx, item);
-                      if (!(key in savedResults)) return;
-                      const correct = !!savedResults[key];
-                      drillAnswered.add(key);
-                      drillResults[key] = correct;
-                      if (correct) { drillCorrect++; if (stat) stat.correct++; }
-                  });
+                  if (sec.type === 'drills') {
+                      (sec.items || []).filter(it => it.kind === 'mcq').forEach((item, itemIdx) => {
+                          const key = drillItemKey(sec, itemIdx, item);
+                          if (!(key in savedResults)) return;
+                          const correct = !!savedResults[key];
+                          drillAnswered.add(key);
+                          drillResults[key] = correct;
+                          if (correct) { drillCorrect++; if (stat) stat.correct++; }
+                      });
+                  } else if (sec.type === 'reading') {
+                      (sec.questions || []).forEach((q, qi) => {
+                          const key = readingItemKey(sec, qi);
+                          if (!(key in savedResults)) return;
+                          const correct = !!savedResults[key];
+                          drillAnswered.add(key);
+                          drillResults[key] = correct;
+                          q._waChecked = true; q._waRight = correct; // renderer shows it resolved
+                          if (correct) { drillCorrect++; if (stat) stat.correct++; }
+                      });
+                  }
               });
           }
 

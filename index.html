@@ -456,8 +456,8 @@ window.JPApp = {
     //     so the bundled build and the hosted version.json can never drift.
     //   • The OTA updater compares this bundled buildNumber to the hosted one.
     // appVersion is the human-facing label (keep ~in sync with Xcode MARKETING_VERSION).
-    appVersion: "1.1",
-    buildNumber: 2,
+    appVersion: "1.2",
+    buildNumber: 4,
     // Where the OTA updater looks for newer builds. Empty = OTA disabled (app just
     // runs its bundled copy, fully offline). Set to the Firebase Hosting URL once
     // hosting is live, e.g. "https://rikizo-app.web.app".
@@ -593,6 +593,8 @@ window.JPApp = {
     await this.loadModule('app/shared/practice-helpers.js');
     // Context-aware homograph-particle sense resolver (used by the story renderer).
     await this.loadModule('app/shared/particle-sense.js');
+    // Shared lenient grader for free-text comprehension answers (Stories + Lessons).
+    await this.loadModule('app/shared/written-answer.js');
     // Load Reading Aids renderer EARLY so the html.k-furigana / .k-romaji
     // classes are set before first paint (no flash of bare-then-furigana).
     await this.loadModule('app/shared/jp-text.js');
@@ -649,6 +651,27 @@ window.JPApp = {
       if (!window.JPShared.unlock) await this.loadModule('app/shared/unlock.js');
       if (window.JPShared.unlock) window.JPShared.unlock.seedSeenIfNeeded();
     } catch (e) { console.warn('[JPApp] unlock seed skipped:', e); }
+    // Backfill historical review passes. Review scores are saved to
+    // `k-review-scores` (progress store), but the unlock + "up next" gates read
+    // `k-lesson-scores`. A review passed before the gate was wired (or on an old
+    // build) otherwise never counts — leaving it stuck in "up next" and blocking
+    // the next lesson. Mirror review scores across (raises-only) and mark ≥60
+    // reviews completed. Idempotent, so it's safe to run every boot.
+    try {
+      var rvScores = JSON.parse(localStorage.getItem('k-review-scores')   || '{}');
+      var lsScores = JSON.parse(localStorage.getItem('k-lesson-scores')    || '{}');
+      var lsDone   = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}');
+      var bf = false;
+      Object.keys(rvScores).forEach(function (id) {
+        var pct = rvScores[id] || 0;
+        if (pct > (lsScores[id] || 0)) { lsScores[id] = pct; bf = true; }
+        if (pct >= 60 && !lsDone[id]) { lsDone[id] = true; bf = true; }
+      });
+      if (bf) {
+        localStorage.setItem('k-lesson-scores',    JSON.stringify(lsScores));
+        localStorage.setItem('k-lesson-completed', JSON.stringify(lsDone));
+      }
+    } catch (e) { console.warn('[JPApp] review-score backfill skipped:', e); }
     this.renderMenu();
     this._nativeBoot();
 

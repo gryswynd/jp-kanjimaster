@@ -918,6 +918,38 @@
               "form": "polite_mashita"
             }
           ]
+        },
+        {
+          "q": "りきぞうは 夜、何を して いますか。",
+          "q_en": "What does Rikizo do in the evening?",
+          "a": "歩いて います。",
+          "a_en": "He is walking.",
+          "terms": [
+            "char_rikizo",
+            "p_wa",
+            "v_yoru",
+            "v_nani",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            {
+              "id": "v_aruku",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
+          ]
         }
       ]
     },
@@ -1104,6 +1136,41 @@
             },
             "p_kara_because",
             "g_desu"
+          ]
+        },
+        {
+          "q": "毎日 重ねる ことで、問題は どう なりますか。",
+          "q_en": "By building up every day, how do problems change?",
+          "a": "問題が 小さく なります。",
+          "a_en": "Problems become smaller.",
+          "terms": [
+            "v_mainichi",
+            {
+              "id": "v_kasaneru",
+              "form": "plain_form"
+            },
+            "v_koto",
+            "p_de",
+            "v_mondai",
+            "p_wa",
+            "v_dou",
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_ka"
+          ],
+          "a_terms": [
+            "v_mondai",
+            "p_ga",
+            {
+              "id": "v_chiisai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
           ]
         }
       ]

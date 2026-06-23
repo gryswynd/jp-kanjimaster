@@ -81,6 +81,9 @@ if (!Array.isArray(story.paragraphs)) story.paragraphs = [];
 // their glossary readings/groups — must match migrate-stories-to-json.mjs, or
 // te/ta/potential forms tokenize as reading-less bare kanji.
 const conjugationRules = JSON.parse(await readFile(path.join(ROOT, 'conjugation_rules.json'), 'utf8'));
+// Counter rules let number+counter surfaces (七つ, 三本, 五時, …) tokenize with
+// correct furigana via the shared counter engine — no per-combo glossary entry.
+const counterRules = JSON.parse(await readFile(path.join(ROOT, 'counter_rules.json'), 'utf8'));
 const glossaryIndex = await buildGlossaryIndex(
   [
     path.join(ROOT, 'data/N5/glossary.N5.json'),
@@ -90,7 +93,7 @@ const glossaryIndex = await buildGlossaryIndex(
     path.join(ROOT, 'shared/characters.json')
   ],
   readFile,
-  { includeReadings: true, conjugationRules }
+  { includeReadings: true, conjugationRules, counterRules }
 );
 
 const tokens = tokenizeText(jp, glossaryIndex);

@@ -6,7 +6,20 @@
     "phase": 4,
     "type": "assessment",
     "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 15–16.",
-    "kanji": ["薬", "病", "院", "医", "者", "死", "動", "犬", "銀", "去", "走", "運"]
+    "kanji": [
+      "薬",
+      "病",
+      "院",
+      "医",
+      "者",
+      "死",
+      "動",
+      "犬",
+      "銀",
+      "去",
+      "走",
+      "運"
+    ]
   },
   "sections": [
     {
@@ -25,12 +38,18 @@
                 "char_yuki",
                 "v_san",
                 "p_wa",
-                { "id": "v_daijoubu", "form": "polite_adj" },
+                {
+                  "id": "v_daijoubu",
+                  "form": "polite_adj"
+                },
                 "p_ka",
                 "v_byouki",
                 "p_wa",
                 "v_yoku",
-                { "id": "v_naru", "form": "polite_mashita" },
+                {
+                  "id": "v_naru",
+                  "form": "polite_mashita"
+                },
                 "p_ka"
               ]
             },
@@ -40,12 +59,18 @@
               "terms": [
                 "v_sukoshi",
                 "v_yoku",
-                { "id": "v_naru", "form": "polite_mashita" },
+                {
+                  "id": "v_naru",
+                  "form": "polite_mashita"
+                },
                 "v_isha",
                 "p_ni",
                 "v_kusuri",
                 "p_wo",
-                { "id": "v_morau", "form": "polite_mashita" }
+                {
+                  "id": "v_morau",
+                  "form": "polite_mashita"
+                }
               ]
             },
             {
@@ -53,8 +78,14 @@
               "jp": "入院しないで よかったですね。病院は 大きい 所ですか。",
               "terms": [
                 "v_nyuuin",
-                { "id": "v_suru", "form": "polite_negative_te" },
-                { "id": "v_ii", "form": "polite_past_adj" },
+                {
+                  "id": "v_suru",
+                  "form": "polite_negative_te"
+                },
+                {
+                  "id": "v_ii",
+                  "form": "polite_past_adj"
+                },
                 "p_ne",
                 "v_byouin",
                 "p_wa",
@@ -75,7 +106,10 @@
                 "v_isha",
                 "p_ga",
                 "v_takusan",
-                { "id": "v_iru", "form": "polite_masu" }
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                }
               ]
             }
           ],
@@ -101,8 +135,14 @@
                 "v_san",
                 "p_wa",
                 "v_mainichi",
-                { "id": "v_hashiru", "form": "te_form" },
-                { "id": "v_iru", "form": "polite_masu" },
+                {
+                  "id": "v_hashiru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "polite_masu"
+                },
                 "p_ka"
               ]
             },
@@ -113,12 +153,24 @@
                 "p_hai",
                 "v_inu",
                 "p_to",
-                { "id": "v_hashiru", "form": "tari_form" },
-                { "id": "v_aruku", "form": "tari_form" },
-                { "id": "v_suru", "form": "polite_masu" },
+                {
+                  "id": "v_hashiru",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_aruku",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_suru",
+                  "form": "polite_masu"
+                },
                 "v_undou",
                 "p_ni",
-                { "id": "v_naru", "form": "polite_masu" },
+                {
+                  "id": "v_naru",
+                  "form": "polite_masu"
+                },
                 "p_kara_because"
               ]
             },
@@ -131,7 +183,10 @@
                 "p_wa",
                 "v_yaken",
                 "p_dewa",
-                { "id": "v_aru", "form": "polite_negative" },
+                {
+                  "id": "v_aru",
+                  "form": "polite_negative"
+                },
                 "p_ka"
               ]
             },
@@ -171,13 +226,25 @@
               "terms": [
                 "v_senshuu",
                 "p_kara",
-                { "id": "v_hashiru", "form": "te_form" },
-                { "id": "v_iru", "form": "plain_form" },
+                {
+                  "id": "v_hashiru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "plain_form"
+                },
                 "p_kedo",
                 "v_mainichi",
-                { "id": "v_hashiru", "form": "potential" },
+                {
+                  "id": "v_hashiru",
+                  "form": "potential"
+                },
                 "p_ka",
-                { "id": "v_wakaru", "form": "plain_negative" }
+                {
+                  "id": "v_wakaru",
+                  "form": "plain_negative"
+                }
               ]
             },
             {
@@ -185,16 +252,31 @@
               "jp": "毎日じゃないよ。走ったり 歩いたり するだけで 体が 動く。",
               "terms": [
                 "v_mainichi",
-                { "id": "g_da", "form": "da_negative" },
+                {
+                  "id": "g_da",
+                  "form": "da_negative"
+                },
                 "p_yo",
-                { "id": "v_hashiru", "form": "tari_form" },
-                { "id": "v_aruku", "form": "tari_form" },
-                { "id": "v_suru", "form": "plain_form" },
+                {
+                  "id": "v_hashiru",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_aruku",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_suru",
+                  "form": "plain_form"
+                },
                 "p_dake",
                 "p_de",
                 "v_karada",
                 "p_ga",
-                { "id": "v_ugoku", "form": "plain_form" }
+                {
+                  "id": "v_ugoku",
+                  "form": "plain_form"
+                }
               ]
             },
             {
@@ -203,10 +285,16 @@
               "terms": [
                 "v_sukoshi",
                 "p_shika",
-                { "id": "v_hashiru", "form": "plain_potential_negative" },
+                {
+                  "id": "v_hashiru",
+                  "form": "plain_potential_negative"
+                },
                 "p_kedo",
                 "v_mata",
-                { "id": "v_hashiru", "form": "plain_desire_tai" }
+                {
+                  "id": "v_hashiru",
+                  "form": "plain_desire_tai"
+                }
               ]
             },
             {
@@ -218,13 +306,25 @@
                 "p_wa",
                 "v_kibun",
                 "p_ga",
-                { "id": "v_ii", "form": "plain_form" },
+                {
+                  "id": "v_ii",
+                  "form": "plain_form"
+                },
                 "p_yo",
-                { "id": "v_hashiru", "form": "te_form" },
+                {
+                  "id": "v_hashiru",
+                  "form": "te_form"
+                },
                 "v_karada",
                 "p_ga",
-                { "id": "v_genki", "form": "adverbial" },
-                { "id": "v_naru", "form": "plain_form" },
+                {
+                  "id": "v_genki",
+                  "form": "adverbial"
+                },
+                {
+                  "id": "v_naru",
+                  "form": "plain_form"
+                },
                 "p_yo"
               ]
             }
@@ -292,7 +392,12 @@
             "医者しか"
           ],
           "alts": [
-            ["運動したり", "走ったり", "去年、", "しました"]
+            [
+              "運動したり",
+              "走ったり",
+              "去年、",
+              "しました"
+            ]
           ],
           "explanation": "～たり～たりする lists representative actions from a larger set. 去年 (last year) is a time expression that can float sentence-initially or after the first たり segment. 運動したり (tari-form of 運動する) + 走ったり (tari-form of 走る) + しました completes the ～たりする pattern in polite past."
         },
@@ -341,24 +446,45 @@
             "char_rikizo",
             "p_wa",
             "v_maiasa",
-            { "id": "v_hayai", "form": "adverbial" },
-            { "id": "v_okiru", "form": "te_form" },
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_okiru",
+              "form": "te_form"
+            },
             "v_inu",
             "p_to",
             "v_issho",
-            { "id": "v_hashiru", "form": "polite_masu" }
+            {
+              "id": "v_hashiru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
           "jp": "走ったり 歩いたり しながら、よく 運動します。",
           "en": "While doing things like running and walking, Rikizo exercises well.",
           "terms": [
-            { "id": "v_hashiru", "form": "tari_form" },
-            { "id": "v_aruku", "form": "tari_form" },
-            { "id": "v_suru", "form": "nagara_form" },
+            {
+              "id": "v_hashiru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "nagara_form"
+            },
             "v_yoku",
             "v_undou",
-            { "id": "v_suru", "form": "polite_masu" }
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -370,11 +496,17 @@
             "p_wa",
             "v_byouki",
             "p_ni",
-            { "id": "v_naru", "form": "te_form" },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
             "v_byouin",
             "p_ni",
             "v_nyuuin",
-            { "id": "v_suru", "form": "polite_mashita" }
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
           ]
         },
         {
@@ -385,10 +517,16 @@
             "p_ni",
             "v_nomigusuri",
             "p_shika",
-            { "id": "v_morau", "form": "polite_past_negative" },
+            {
+              "id": "v_morau",
+              "form": "polite_past_negative"
+            },
             "p_ga_but",
             "v_mainichi",
-            { "id": "v_nomu", "form": "polite_mashita" }
+            {
+              "id": "v_nomu",
+              "form": "polite_mashita"
+            }
           ]
         },
         {
@@ -397,11 +535,20 @@
           "terms": [
             "v_sorekara",
             "v_maiasa",
-            { "id": "v_hashiru", "form": "te_form" },
+            {
+              "id": "v_hashiru",
+              "form": "te_form"
+            },
             "v_karada",
             "p_ga",
-            { "id": "v_genki", "form": "adverbial" },
-            { "id": "v_naru", "form": "polite_mashita" }
+            {
+              "id": "v_genki",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "polite_mashita"
+            }
           ]
         }
       ],
@@ -421,13 +568,19 @@
             "v_maiasa",
             "v_nani",
             "p_wo",
-            { "id": "v_suru", "form": "polite_masu" },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_inu",
             "p_to",
             "v_issho",
             "p_ni",
-            { "id": "v_hashiru", "form": "polite_masu" }
+            {
+              "id": "v_hashiru",
+              "form": "polite_masu"
+            }
           ],
           "explanation": "Sentence 1 says りきぞうは毎朝早く起きて、犬といっしょに走ります (Rikizo wakes up early every morning and runs together with his dog). いっしょに means 'together'. と after a noun means 'with'."
         },
@@ -445,15 +598,24 @@
             "char_rikizo",
             "p_wa",
             "v_dou",
-            { "id": "v_suru", "form": "polite_mashita" },
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            },
             "p_ka",
             "v_byouki",
             "p_ni",
-            { "id": "v_naru", "form": "te_form" },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
             "v_byouin",
             "p_ni",
             "v_nyuuin",
-            { "id": "v_suru", "form": "polite_mashita" }
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
+            }
           ],
           "explanation": "Sentence 3 says 去年、りきぞうは病気になって、病院に入院しました (Last year, Rikizo got sick and was hospitalized). 病気になる = 'to get sick / become ill'. 入院 means hospitalization — staying in a hospital for treatment. 入院する is a common suru-verb compound."
         },
@@ -472,11 +634,17 @@
             "v_kusuri",
             "p_wo",
             "v_dou",
-            { "id": "v_morau", "form": "polite_mashita" },
+            {
+              "id": "v_morau",
+              "form": "polite_mashita"
+            },
             "p_ka",
             "v_nomigusuri",
             "p_shika",
-            { "id": "v_morau", "form": "polite_past_negative" }
+            {
+              "id": "v_morau",
+              "form": "polite_past_negative"
+            }
           ],
           "explanation": "Sentence 4 says 医者に飲み薬しかもらいませんでしたが (the doctor only gave oral medicine). しか + negative = 'nothing but / only'. もらいませんでした is the polite past negative of もらう (to receive). しか requires a negative predicate — positive forms like もらいました cannot follow しか."
         }
@@ -607,7 +775,10 @@
             "p_de",
             "v_byouin",
             "p_ni",
-            { "id": "v_iku", "form": "polite_mashita" }
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            }
           ],
           "explanation": "病院 (hospital) fits — when sick (病気で), you go to the hospital. で after a noun marks a cause or reason: 病気で = because of illness. 銀行 (bank), 動物 (animal), and 運動 (exercise) do not fit a medical context."
         },
@@ -625,13 +796,20 @@
             "v_maiasa",
             "v_inu",
             "p_to",
-            { "id": "v_hashiru", "form": "plain_form" },
+            {
+              "id": "v_hashiru",
+              "form": "plain_form"
+            },
             "p_no",
             "p_wa",
             "v_ii",
             "v_undou",
             "p_ni",
-            { "id": "v_naru", "form": "polite_masu" }
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            },
+            "p_no_question"
           ],
           "explanation": "運動 (exercise) fits — running with your dog every morning becomes good exercise (いい運動になります). ～になる means 'to become'. 入院 (hospitalization) and 病気 (illness) are negative medical outcomes. 薬 (medicine) is not something you 'become' through running."
         },
@@ -650,13 +828,22 @@
             "p_wa",
             "v_byouki",
             "p_ni",
-            { "id": "v_naru", "form": "te_form" },
+            {
+              "id": "v_naru",
+              "form": "te_form"
+            },
             "v_byouin",
             "p_ni",
-            { "id": "v_iku", "form": "polite_mashita" },
+            {
+              "id": "v_iku",
+              "form": "polite_mashita"
+            },
             "v_kotoshi",
             "p_wa",
-            { "id": "v_genki", "form": "polite_adj" }
+            {
+              "id": "v_genki",
+              "form": "polite_adj"
+            }
           ],
           "explanation": "去年 (last year) fits — last year someone got sick and went to the hospital, but this year they are healthy. 去 + 年 = きょねん. 医者 (doctor), 入院 (hospitalization), and 薬 (medicine) are all medically-related but do not fit the grammatical slot for a time expression."
         },
@@ -671,15 +858,27 @@
           ],
           "answer": "休んだ",
           "terms": [
-            { "id": "v_tsukareru", "form": "te_form" },
-            { "id": "v_iru", "form": "plain_form" },
+            {
+              "id": "v_tsukareru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "plain_form"
+            },
             "v_toki",
             "p_wa",
             "v_yoku",
-            { "id": "v_yasumu", "form": "plain_past" },
+            {
+              "id": "v_yasumu",
+              "form": "plain_past"
+            },
             "v_hou",
             "p_ga",
-            { "id": "v_ii", "form": "polite_adj" },
+            {
+              "id": "v_ii",
+              "form": "polite_adj"
+            },
             "p_yo"
           ],
           "explanation": "休んだ (rested — plain past of 休む) fits — when you're tired (つかれている時), it's better to rest well. ～たほうがいい means 'it's better to do ~'. 走った (ran) and 運動した (exercised) are the opposite advice for tiredness. 入院した (was hospitalized) is too extreme."
@@ -704,8 +903,14 @@
           "terms": [
             "v_ongaku",
             "p_wo",
-            { "id": "v_kiku", "form": "nagara_form" },
-            { "id": "v_hashiru", "form": "polite_masu" }
+            {
+              "id": "v_kiku",
+              "form": "nagara_form"
+            },
+            {
+              "id": "v_hashiru",
+              "form": "polite_masu"
+            }
           ],
           "explanation": "ながら attaches to the ます-stem to express two simultaneous actions: 聞き + ながら + 走ります = 'I run while listening to music'. たり requires a paired ～たり to complete the pattern. てから means 'after doing'. ばかり after a noun means 'nothing but' and does not attach to a verb stem."
         },
@@ -723,7 +928,10 @@
             "v_kono",
             "v_byouin",
             "p_shika",
-            { "id": "v_iku", "form": "potential_negative" }
+            {
+              "id": "v_iku",
+              "form": "potential_negative"
+            }
           ],
           "explanation": "しか always requires a NEGATIVE predicate. この病院しか行けません = 'I can only go to this hospital (can go nowhere but this hospital)'. 行けません is the polite potential negative of 行く. Using ます (affirmative) or ました (past affirmative) after しか is grammatically wrong — しか + negative = 'nothing but / only'."
         },
@@ -738,14 +946,32 @@
           ],
           "answer": "listing representative actions (～たり～たりする)",
           "terms": [
-            { "id": "v_hashiru", "form": "tari_form" },
-            { "id": "v_aruku", "form": "tari_form" },
-            { "id": "v_suru", "form": "polite_masu" }
+            {
+              "id": "v_hashiru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
           ],
           "a_terms": [
-            { "id": "v_hashiru", "form": "tari_form" },
-            { "id": "v_aruku", "form": "tari_form" },
-            { "id": "v_suru", "form": "plain_form" }
+            {
+              "id": "v_hashiru",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_aruku",
+              "form": "tari_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "plain_form"
+            }
           ],
           "explanation": "走ったり歩いたりします uses the ～たり～たりする pattern. This lists representative actions from a larger set — implying the person does other things too, not just running and walking. The た-form + り suffix is added to each verb. ～ながら (simultaneous) uses the ます-stem, not the た-form."
         },
@@ -763,7 +989,10 @@
             "v_maiasa",
             "v_inu",
             "p_to",
-            { "id": "v_hashiru", "form": "polite_potential" },
+            {
+              "id": "v_hashiru",
+              "form": "polite_potential"
+            },
             "p_ka"
           ],
           "explanation": "走れます is the polite potential form of 走る (to run): polite_potential. It means 'can run / am able to run'. The potential form of godan verbs shifts to the え-column: 走る (u-ending) → 走れる (e-potential), then ます suffix. 走れますか asks 'Can you run?'"
@@ -785,7 +1014,11 @@
             "p_bakari",
             "p_de",
             "v_totemo",
-            { "id": "v_isogashii", "form": "polite_adj" }
+            {
+              "id": "v_isogashii",
+              "form": "polite_adj"
+            },
+            "g_desu"
           ],
           "explanation": "いそがしい (busy) fits — 今週は病院ばかりで、とてもいそがしいです = 'This week is nothing but hospital visits, I'm very busy.' ばかり after a noun = 'nothing but ~ / all I have is ~', often with a nuance of exhaustion or complaint. 元気 (healthy), 運がいい (lucky), and 大丈夫 (okay) all contradict the implied hardship."
         }
