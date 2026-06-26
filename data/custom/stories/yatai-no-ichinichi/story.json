@@ -1512,7 +1512,7 @@
       ]
     },
     {
-      "jp": "それから、けんは水を運んでいるとき、転びました。でもけんはすぐに立って、また動きました。「わたしは元気です。」とけんは大きい声で言いました。りきぞうも元気になりました。",
+      "jp": "それから、けんは水を運んでいる時、転びました。でもけんはすぐに立って、また動きました。「わたしは元気です。」とけんは大きい声で言いました。りきぞうも元気になりました。",
       "en": "After that, while Ken was carrying water, he tripped. But Ken stood right back up and started moving again. \"I'm fine,\" Ken said in a loud voice. Rikizo cheered up too.",
       "tokens": [
         {
@@ -1549,10 +1549,8 @@
           "k": "いる"
         },
         {
-          "k": "と"
-        },
-        {
-          "k": "き"
+          "k": "時",
+          "r": "とき"
         },
         {
           "k": "、"
@@ -2132,8 +2130,8 @@
       ]
     },
     {
-      "jp": "夜になって、屋台の仕事が終わりました。主人はうれしそうな顔で、「また来てください。」と言いました。りきぞうには、これは新しい試みでした。今日はいろいろありましたが、二人とも少し進歩したと思いました。",
-      "en": "When night came, the work at the stall ended. With a pleased look, the owner said, \"Please come again.\" For Rikizo, this had been a new kind of attempt. A lot happened today, but he thought that both of them had improved a little.",
+      "jp": "夜になって、屋台の仕事が終わりました。主人はうれしそうな顔で、「また来てください。」と言いました。りきぞうには、これは新しい試みでした。今日はいろいろありましたが、りきぞうもけんも、少し進歩したと思いました。",
+      "en": "When night came, the work at the stall ended. With a pleased look, the owner said, \"Please come again.\" For Rikizo, this had been a new kind of attempt. A lot happened today, but he thought that both Rikizo and Ken had improved a little.",
       "tokens": [
         {
           "k": "夜",
@@ -2305,14 +2303,19 @@
           "k": "、"
         },
         {
-          "k": "二人",
-          "r": "ふたり"
-        },
-        {
-          "k": "と"
+          "k": "りきぞう"
         },
         {
           "k": "も"
+        },
+        {
+          "k": "けん"
+        },
+        {
+          "k": "も"
+        },
+        {
+          "k": "、"
         },
         {
           "k": "少",
@@ -2390,7 +2393,7 @@
       },
       {
         "type": "written",
-        "q": "おきゃくさんが「一つ」と言ったとき、けんはいくつ出しましたか。",
+        "q": "おきゃくさんが「一つ」と言った時、けんはいくつ出しましたか。",
         "q_en": "When the customer said \"one,\" how many did Ken bring out?",
         "answer": "七つ出しました。",
         "accept": [
@@ -2440,7 +2443,7 @@
       },
       {
         "type": "written",
-        "q": "けんは水を運んでいるとき、どうなりましたか。",
+        "q": "けんは水を運んでいる時、どうなりましたか。",
         "q_en": "What happened to Ken while he was carrying water?",
         "answer": "転びました。",
         "accept": [
@@ -2448,7 +2451,7 @@
           "転んだ",
           "ころびました"
         ],
-        "explanation": "「水を運んでいるとき、転びました。」とあります。",
+        "explanation": "「水を運んでいる時、転びました。」とあります。",
         "terms": [],
         "paraIdx": 7,
         "aTerms": [

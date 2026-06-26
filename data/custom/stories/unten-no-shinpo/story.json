@@ -1227,8 +1227,8 @@
       ]
     },
     {
-      "jp": "たろうは少し考えた。「まあ、あとでな」と言った。",
-      "en": "Taro considered for a moment. \"Well, later,\" he said.",
+      "jp": "たろうは少し考えた。「まあ、また今度な」と言った。",
+      "en": "Taro thought for a moment. \"Well, some other time,\" he said.",
       "tokens": [
         {
           "k": "たろう"
@@ -1268,7 +1268,14 @@
           "k": "、"
         },
         {
-          "k": "あとでな"
+          "k": "また"
+        },
+        {
+          "k": "今度",
+          "r": "こんど"
+        },
+        {
+          "k": "な"
         },
         {
           "k": "」"
@@ -1386,8 +1393,8 @@
       ]
     },
     {
-      "jp": "運転の体験は土ようびの朝に始まった。たろうは大通りの近くの広い場所まで車を運んで きた。「ここは問題ない」とたろうは言った。りきぞうは前の所にすわった。手動で動かす物を持った。自転車のそれより低い所にあった。「手動で動かすのは同じ だが、少しちがう」とりきぞうは思った。",
-      "en": "The driving experience started on Saturday morning. Taro drove the car to a wide open space near the main street. \"Here is fine,\" Taro said. Rikizo sat in the front spot. He grabbed the manual control. It was positioned lower than a bicycle's. \"Moving it by hand is the same, but it's a little different,\" Rikizo thought.",
+      "jp": "運転の体験は土ようびの朝に始まった。たろうは大通りの近くの広い場所まで車を運んできた。「ここは問題ない」とたろうは言った。りきぞうは前の所にすわった。手動で動かす物を持った。その物は、自転車のより低い所だった。「手動で動かすのは同じだが、少しちがう」とりきぞうは思った。",
+      "en": "The driving lesson began on Saturday morning. Taro brought the car to a wide place near the main street. \"No problem here,\" Taro said. Rikizo sat in front. He held the control he moved by hand; it sat lower than the bicycle's. \"Operating by hand is the same, but a little different,\" Rikizo thought.",
       "tokens": [
         {
           "k": "運転",
@@ -1498,9 +1505,6 @@
         {
           "k": "んで",
           "g": "v_hakobu_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "きた",
@@ -1617,14 +1621,25 @@
           "k": "。"
         },
         {
+          "k": "その"
+        },
+        {
+          "k": "物",
+          "r": "もの"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "、"
+        },
+        {
           "k": "自転車",
           "r": "じてんしゃ"
         },
         {
           "k": "の"
-        },
-        {
-          "k": "それ"
         },
         {
           "k": "より"
@@ -1643,8 +1658,8 @@
           "r": "ところ"
         },
         {
-          "k": "にあった",
-          "g": "v_niau_plain_past"
+          "k": "だった",
+          "g": "g_da_da_past"
         },
         {
           "k": "。"
@@ -1683,9 +1698,6 @@
         {
           "k": "じ",
           "g": "v_onaji"
-        },
-        {
-          "k": " "
         },
         {
           "k": "だ"
@@ -2113,8 +2125,8 @@
       ]
     },
     {
-      "jp": "車はゆっくり動き始めた。りきぞうは集中して前を見て いた。自転車の運動と少し同じだったが、車の方が重大だと思った。その強度は弱くないと思った。",
-      "en": "The car began to move slowly. Rikizo concentrated, looking ahead. It was similar to the physical motion of cycling, but he thought driving felt much more serious. He thought the intensity was not weak.",
+      "jp": "車はゆっくり動いた。りきぞうは集中して前を見ていた。自転車の運動と少し同じだったが、車の方が重大だと思った。その強度は弱くないと思った。",
+      "en": "The car moved slowly. Rikizo concentrated and watched ahead. It was a bit like cycling, but the car felt more serious. Its force was not weak, he thought.",
       "tokens": [
         {
           "k": "車",
@@ -2128,16 +2140,13 @@
           "k": "ゆっくり"
         },
         {
-          "k": "動き"
+          "k": "動",
+          "r": "うご",
+          "g": "v_ugoku_plain_past"
         },
         {
-          "k": "始",
-          "r": "はじ",
-          "g": "v_hajimeru_plain_past"
-        },
-        {
-          "k": "めた",
-          "g": "v_hajimeru_plain_past"
+          "k": "いた",
+          "g": "v_ugoku_plain_past"
         },
         {
           "k": "。"
@@ -2173,9 +2182,6 @@
         {
           "k": "て",
           "g": "v_miru_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "いた",
@@ -2617,23 +2623,29 @@
       ]
     },
     {
-      "jp": "「乗り回したくて」とけんは答えた。「たろうさん、いいですか？」",
-      "en": "\"I wanted to cruise around,\" Ken answered. \"Taro-san, is that okay?\"",
+      "jp": "「わたしも運転したいです」とけんは答えた。「たろうさん、いいですか？」",
+      "en": "\"I want to drive too,\" Ken answered. \"Taro-san, is that okay?\"",
       "tokens": [
         {
           "k": "「"
         },
         {
-          "k": "乗り回",
-          "r": "のりまわ",
-          "g": "v_norimawasu_plain_past"
+          "k": "わたし",
+          "g": "v_watashi"
         },
         {
-          "k": "した",
-          "g": "v_norimawasu_plain_past"
+          "k": "も"
         },
         {
-          "k": "くて"
+          "k": "運転",
+          "r": "うんてん"
+        },
+        {
+          "k": "したい",
+          "g": "v_suru_plain_desire_tai"
+        },
+        {
+          "k": "です"
         },
         {
           "k": "」"
@@ -3338,8 +3350,8 @@
       ]
     },
     {
-      "jp": "「りきぞう、止まるのが早すぎる」とたろうは言った。「もっと進んでから止まるんだ」",
-      "en": "\"Rikizo, you're stopping too early,\" said Taro. \"Move further before stopping.\"",
+      "jp": "「りきぞう、止まるのが早いよ」とたろうは言った。「もっと進んでから止まるんだ」",
+      "en": "\"Rikizo, you stop too early,\" Taro said. \"Go a bit more before you stop.\"",
       "tokens": [
         {
           "k": "「"
@@ -3366,7 +3378,16 @@
           "k": "が"
         },
         {
-          "k": "早すぎる"
+          "k": "早",
+          "r": "はや",
+          "g": "v_hayai"
+        },
+        {
+          "k": "い",
+          "g": "v_hayai"
+        },
+        {
+          "k": "よ"
         },
         {
           "k": "」"
@@ -3992,8 +4013,8 @@
       ]
     },
     {
-      "jp": "りきぞうはたろうのすることを写そうとした。旅行でも同じだろうと思って、たろうと同じに動かした。でも、そのすることがいつも変わって いた。",
-      "en": "Rikizo tried to copy what Taro did. Thinking it would be the same when traveling too, he moved the same way as Taro. But what Taro did always changed.",
+      "jp": "りきぞうはたろうのすることを写そうとした。旅行でも同じだろうと思って、たろうと同じに動かした。でも、そのすることがいつもかわっていた。",
+      "en": "Rikizo tried to copy what Taro did. Thinking it would be the same as on a trip, he moved the way Taro did. But what Taro did kept changing.",
       "tokens": [
         {
           "k": "りきぞう"
@@ -4123,16 +4144,8 @@
           "k": "いつも"
         },
         {
-          "k": "変",
-          "r": "か",
-          "g": "v_kawaru_2_te_form"
-        },
-        {
-          "k": "わって",
-          "g": "v_kawaru_2_te_form"
-        },
-        {
-          "k": " "
+          "k": "かわって",
+          "g": "v_kawaru_te_form"
         },
         {
           "k": "いた",
@@ -4203,8 +4216,8 @@
       ]
     },
     {
-      "jp": "「体験で変わる」とたろうは言った。「それが運転の体験だ」",
-      "en": "\"It changes by experience,\" Taro said. \"That's the experience of driving.\"",
+      "jp": "「体験でかわる」とたろうは言った。「それが運転の体験だ」",
+      "en": "\"It changes with experience,\" Taro said. \"That is what driving experience is.\"",
       "tokens": [
         {
           "k": "「"
@@ -4217,12 +4230,7 @@
           "k": "で"
         },
         {
-          "k": "変",
-          "r": "か",
-          "g": "v_kawaru_2"
-        },
-        {
-          "k": "わる",
+          "k": "かわる",
           "g": "v_kawaru_2"
         },
         {
@@ -4577,8 +4585,8 @@
       ]
     },
     {
-      "jp": "「少し歩いて くる」と言った。",
-      "en": "\"I'll walk a bit,\" he said.",
+      "jp": "「少し歩いて来る」と言った。",
+      "en": "\"I will walk a bit,\" he said.",
       "tokens": [
         {
           "k": "「"
@@ -4602,10 +4610,13 @@
           "g": "v_aruku_te_form"
         },
         {
-          "k": " "
+          "k": "来",
+          "r": "く",
+          "g": "v_kuru"
         },
         {
-          "k": "くる"
+          "k": "る",
+          "g": "v_kuru"
         },
         {
           "k": "」"
@@ -4799,8 +4810,8 @@
       ]
     },
     {
-      "jp": "「また食べて いるのか」とりきぞうは言った。\n「もうたくさん食べた」とけんは答えた。\n「おにぎりばかりじゃないか」\n「でも、りきぞうは食べられないよ。運転して いるから」とけんは言った。\nりきぞうは何も言わなかった。",
-      "en": "\"You're eating again?\" said Rikizo.\n\"I've already eaten a lot,\" Ken answered.\n\"It's nothing but onigiri.\"\n\"But Rikizo can't eat any,\" Ken said. \"You're driving.\"\nRikizo said nothing.",
+      "jp": "「また食べているのか」とりきぞうは言った。\n「もうたくさん食べた」とけんは答えた。\n「おにぎりだけじゃないか」\n「でも、りきぞうは食べられないよ。運転しているから」とけんは言った。\nりきぞうは何も言わなかった。",
+      "en": "\"Eating again?\" Rikizo said.\n\"I already ate a lot,\" Ken answered.\n\"It is just onigiri.\"\n\"But you cannot eat, Rikizo, you are driving,\" Ken said.\nRikizo said nothing.",
       "tokens": [
         {
           "k": "「"
@@ -4816,9 +4827,6 @@
         {
           "k": "べて",
           "g": "v_taberu_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "いる"
@@ -4910,7 +4918,7 @@
           "k": "おにぎり"
         },
         {
-          "k": "ばかり"
+          "k": "だけ"
         },
         {
           "k": "じゃない",
@@ -4963,9 +4971,6 @@
         {
           "k": "して",
           "g": "v_suru_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "いる"
@@ -5960,7 +5965,7 @@
       ]
     },
     {
-      "jp": "「でも...」",
+      "jp": "「でも…」",
       "en": "\"But...\"",
       "tokens": [
         {
@@ -5970,7 +5975,7 @@
           "k": "でも"
         },
         {
-          "k": "..."
+          "k": "…"
         },
         {
           "k": "」"

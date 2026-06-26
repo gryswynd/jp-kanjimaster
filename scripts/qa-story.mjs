@@ -29,7 +29,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { buildGlossaryIndex } from './lib/tokenize.mjs';
+import { buildGlossaryIndex, tokenizeText } from './lib/tokenize.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
@@ -68,7 +68,7 @@ function inScope(a, ceiling) {
 const MANIFEST = JSON.parse(await fs.readFile(path.join(ROOT, 'manifest.json'), 'utf8'));
 
 function getStoryMeta(slug) {
-  for (const lvl of ['N5', 'N4', 'N3']) {
+  for (const lvl of ['N5', 'N4', 'N3', 'custom']) {
     const data = MANIFEST.data && MANIFEST.data[lvl];
     if (!data) continue;
     for (const s of data.stories || []) {
@@ -80,13 +80,33 @@ function getStoryMeta(slug) {
 
 function listStories({ level, all }) {
   const out = [];
-  const levels = all ? ['N5', 'N4', 'N3'] : (level ? [level] : []);
+  const levels = all ? ['N5', 'N4', 'N3', 'custom'] : (level ? [level] : []);
   for (const lvl of levels) {
     const data = MANIFEST.data && MANIFEST.data[lvl];
     if (!data) continue;
     for (const s of data.stories || []) out.push({ slug: s.id, level: lvl });
   }
   return out;
+}
+
+// ── Audiostory registry (data/audiostories.index.json, NOT in the manifest) ──
+const AUDIO_INDEX = JSON.parse(
+  await fs.readFile(path.join(ROOT, 'data/audiostories.index.json'), 'utf8')
+);
+function getAudioMeta(slug) {
+  const e = (AUDIO_INDEX.audiostories || []).find(a => a.id === slug);
+  if (!e) return null;
+  const level = e.level || (e.dir ? e.dir.split('/')[1] : null);   // dir = data/<lvl>/audiostories/<slug>
+  return { slug, level, unlocksAfter: e.unlocksAfter || null, dir: e.dir, file: e.file || 'audiostory.json' };
+}
+function listAudiostories({ level } = {}) {
+  return (AUDIO_INDEX.audiostories || [])
+    .map(a => ({ slug: a.id, level: a.level || (a.dir ? a.dir.split('/')[1] : null) }))
+    .filter(t => !level || t.level === level);
+}
+// Empty violations shape (so printReport never dereferences undefined on errors).
+function emptyV() {
+  return { untagged: [], vocab: [], particle: [], form: [], kanji: [], unknownId: [], split: [], orthography: [] };
 }
 
 // Cumulative kanji taught through ceiling (N5 all + N4.1..idx if ceiling is N4).
@@ -111,7 +131,8 @@ const GLOSSARY_PATHS = [
   path.join(ROOT, 'data/N4/glossary.N4.json'),
   path.join(ROOT, 'data/N3/glossary.N3.json'),
   path.join(ROOT, 'shared/particles.json'),
-  path.join(ROOT, 'shared/characters.json')
+  path.join(ROOT, 'shared/characters.json'),
+  path.join(ROOT, 'shared/loanwords.json')
 ];
 const CONJUGATION_RULES = JSON.parse(
   await fs.readFile(path.join(ROOT, 'conjugation_rules.json'), 'utf8')
@@ -209,21 +230,30 @@ function synthFormScope(entry, ceiling) {
 }
 
 // ── Per-story QA pass ────────────────────────────────────────────────────────
-async function qaStory(slug) {
-  const meta = getStoryMeta(slug);
+async function qaStory(slug, opts = {}) {
+  const isAudio = !!opts.audiostory;
+  const meta = isAudio ? getAudioMeta(slug) : getStoryMeta(slug);
   if (!meta) {
-    console.error(`[qa] no story in manifest: ${slug}`);
-    return { slug, ok: false, error: 'not-in-manifest' };
+    console.error(`[qa] ${slug} not in ${isAudio ? 'audiostories.index.json' : 'manifest'}`);
+    return { slug, ok: false, error: 'not-found', violations: emptyV() };
   }
-  const storyPath = path.join(ROOT, 'data', meta.level, 'stories', slug, 'story.json');
+  const docPath = isAudio
+    ? path.join(ROOT, meta.dir, meta.file)
+    : path.join(ROOT, 'data', meta.level, 'stories', slug, 'story.json');
   let story;
   try {
-    story = JSON.parse(await fs.readFile(storyPath, 'utf8'));
+    story = JSON.parse(await fs.readFile(docPath, 'utf8'));
   } catch (e) {
-    console.error(`[qa] cannot read ${storyPath}: ${e.message}`);
-    return { slug, ok: false, error: 'read-failed' };
+    console.error(`[qa] cannot read ${docPath}: ${e.message}`);
+    return { slug, ok: false, error: 'read-failed', violations: emptyV() };
   }
-  const ceiling = parseLessonId(meta.unlocksAfter || story.unlocksAfter);
+  // Audiostories always gate to a lesson (unlocksAfter = N5.2, N5.4, …). Custom
+  // (paid) stories have no unlocksAfter — they rank at N4 end (mirrors
+  // audit-story-vocab.mjs); without this ceiling is null and EVERY scope check
+  // silently passes, which is how untaught kanji slipped into paid content.
+  const ceiling = (!isAudio && meta.level === 'custom')
+    ? { lvl: 'N4', idx: Number.MAX_SAFE_INTEGER }
+    : parseLessonId(meta.unlocksAfter || story.unlocksAfter);
   const taughtKanji = buildTaughtKanji(ceiling);
 
   const violations = {
@@ -232,7 +262,9 @@ async function qaStory(slug) {
     particle: [],
     form: [],
     kanji: [],
-    unknownId: []
+    unknownId: [],
+    split: [],        // kana grammatical unit rendered as raw particle chips (とき→と+き)
+    orthography: []   // same word written both kanji and kana within the story
   };
 
   // Walk every kanji char in narration ONCE per char (dedupe per story to
@@ -316,6 +348,80 @@ async function qaStory(slug) {
     }
   });
 
+  // Comprehension questions are shown to the learner too — gate their kanji the
+  // same way (this block was previously unchecked, letting 本当/最後/段落/選 in).
+  const seenQKanji = new Set();
+  for (const q of (story.comprehension && story.comprehension.questions) || []) {
+    for (const field of ['q', 'answer', 'explanation']) {
+      const txt = q[field] || '';
+      for (const ch of txt) {
+        if (/[一-鿿㐀-䶿]/.test(ch) && !seenQKanji.has(ch)) {
+          seenQKanji.add(ch);
+          if (!taughtKanji.has(ch)) {
+            violations.kanji.push({ ch, paragraph: `[Q.${field}] ${txt.slice(0, 30)}…` });
+          }
+        }
+      }
+    }
+  }
+
+  // Spoken comprehension question `q` is audio content — gate its vocab/particle/
+  // FORM scope too (live-tokenized; mirrors the paragraph-token scope above).
+  for (const q of (story.comprehension && story.comprehension.questions) || []) {
+    for (const t of tokenizeText(q.q || '', surfaceIdx)) {
+      const c = classifyToken(t);
+      const entry = c.entry;
+      if (!entry) continue;
+      if (entry.particle || (entry.id && String(entry.id).startsWith('p_'))) {
+        const lid = parseLessonId(entry.introducedIn);
+        if (lid && !inScope(lid, ceiling)) violations.particle.push({ p: 'Q', k: t.k, id: entry.id, intro: entry.introducedIn, ceiling: meta.unlocksAfter });
+        continue;
+      }
+      if (entry.type === 'character') continue;
+      if (entry.type === 'inflected') {
+        const f = synthFormScope(entry, ceiling);
+        if (f && f.violation) violations.form.push({ p: 'Q', k: t.k, id: entry.id, form: f.formKey, intro: CONJUGATION_RULES[f.formKey]?.introducedIn, ceiling: meta.unlocksAfter });
+        const root = idIdx.get(entry.original_id);
+        if (root) { const rid = entryLessonId(root); if (rid && !inScope(rid, ceiling)) violations.vocab.push({ p: 'Q', k: t.k, id: root.id, lesson: root.lesson_ids || root.lesson, ceiling: meta.unlocksAfter }); }
+        continue;
+      }
+      const lid = entryLessonId(entry);
+      if (lid && !inScope(lid, ceiling)) violations.vocab.push({ p: 'Q', k: t.k, id: entry.id, lesson: entry.lesson_ids || entry.lesson, ceiling: meta.unlocksAfter });
+    }
+  }
+
+  // Kana grammatical units that must NOT render as raw particle chips. とき→時 /
+  // もの→物 (taught kanji); counter+とも ("both") splits to と+も (misleading).
+  const SPLIT_UNITS = { 'とき': 'use 時', 'もの': 'use 物' };
+  const isCounter = (t) =>
+    !!t && ((t.g && String(t.g).startsWith('count_')) || /(?:人|つ|本|個|回|匹|台)$/.test(t.k || ''));
+  story.paragraphs.forEach((p, pi) => {
+    const ts = p.tokens || [];
+    for (let j = 0; j < ts.length - 1; j++) {
+      const a = ts[j], b = ts[j + 1];
+      if ((a.k || '').length !== 1 || (b.k || '').length !== 1) continue;
+      const two = (a.k || '') + (b.k || '');
+      if (SPLIT_UNITS[two] && !a.g && !b.g) {
+        violations.split.push({ p: pi + 1, k: two, fix: SPLIT_UNITS[two] });
+      } else if (two === 'とも' && !a.g && !b.g && isCounter(ts[j - 1])) {
+        violations.split.push({ p: pi + 1, k: (ts[j - 1].k || '') + 'とも', fix: 'reword (…も…も / は)' });
+      }
+    }
+  });
+
+  // Orthography consistency: a standalone word written both kanji and kana in the
+  // same story. Curated to words that genuinely should be one form; nominalizers
+  // (こと/ところ) and compounds (事/所) are excluded — they legitimately differ.
+  const PAIRS = [['次', 'つぎ'], ['時', 'とき']];
+  const allText = (story.paragraphs || []).map(p => p.jp || '').join('') +
+    ((story.comprehension && story.comprehension.questions) || [])
+      .map(q => [q.q, q.answer, q.explanation].join('')).join('');
+  for (const [kj, kn] of PAIRS) {
+    if (allText.includes(kj) && allText.includes(kn)) {
+      violations.orthography.push({ pair: kj + '/' + kn });
+    }
+  }
+
   return {
     slug,
     level: meta.level,
@@ -327,7 +433,9 @@ async function qaStory(slug) {
       violations.particle.length === 0 &&
       violations.form.length === 0 &&
       violations.kanji.length === 0 &&
-      violations.unknownId.length === 0
+      violations.unknownId.length === 0 &&
+      violations.split.length === 0 &&
+      violations.orthography.length === 0
   };
 }
 
@@ -369,6 +477,14 @@ function printReport(r) {
     console.log(`\n  OUT-OF-SCOPE KANJI (${v.kanji.length}):`);
     process.stdout.write(table(v.kanji, ['ch', 'paragraph']));
   }
+  if (v.split.length) {
+    console.log(`\n  SPLIT KANA CHIPS (${v.split.length}):`);
+    process.stdout.write(table(v.split, ['p', 'k', 'fix']));
+  }
+  if (v.orthography.length) {
+    console.log(`\n  ORTHOGRAPHY INCONSISTENCY (${v.orthography.length}):`);
+    process.stdout.write(table(v.orthography, ['pair']));
+  }
 }
 function dedupe(rows, keyFn) {
   const seen = new Set();
@@ -383,25 +499,23 @@ function dedupe(rows, keyFn) {
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────
+const AUDIO = !!flags.audiostories;
 let targets = [];
 if (positional.length) {
-  targets = positional.map(slug => {
-    const meta = getStoryMeta(slug);
-    return { slug, level: meta?.level };
-  });
+  targets = positional.map(slug => ({ slug }));
 } else if (flags.all || flags.level) {
-  targets = listStories({ level: flags.level, all: flags.all });
+  targets = AUDIO ? listAudiostories({ level: flags.level }) : listStories({ level: flags.level, all: flags.all });
 } else {
-  console.error('usage: node scripts/qa-story.mjs <slug> | --level=N4 | --all');
+  console.error('usage: node scripts/qa-story.mjs <slug> [--audiostories] | --level=N5 [--audiostories] | --all [--audiostories]');
   process.exit(2);
 }
 
 let failed = 0;
 for (const t of targets) {
-  const r = await qaStory(t.slug);
+  const r = await qaStory(t.slug, { audiostory: AUDIO });
   printReport(r);
   if (!r.ok) failed++;
 }
 
-console.log(`\n${targets.length} story(ies) checked, ${failed} with violations.`);
+console.log(`\n${targets.length} ${AUDIO ? 'audiostory(ies)' : 'story(ies)'} checked, ${failed} with violations.`);
 process.exit(failed ? 1 : 0);

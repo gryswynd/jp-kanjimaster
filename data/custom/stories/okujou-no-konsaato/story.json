@@ -696,8 +696,8 @@
       ]
     },
     {
-      "jp": "試食の後、屋上に強風が来た。風が強くて、テーブルの上の品物が動き始めた。紙も動いた。りきぞうは品物を手でとめた。でも、風は強かった。",
-      "en": "After the tasting, a strong wind came across the rooftop. The wind was strong, and the items on the table started to move. Papers moved too. Rikizo held the items down with his hands. But the wind was strong.",
+      "jp": "試食の後、屋上に強風が来た。風が強くて、テーブルの上の品物が動いた。紙も動いた。りきぞうは品物を手でとめた。でも、風は強かった。",
+      "en": "After the tasting, a strong wind came to the rooftop. The wind was strong, and the goods on the table moved. The paper moved too. Rikizo held the goods down with his hands. But the wind was strong.",
       "tokens": [
         {
           "k": "試食",
@@ -780,16 +780,13 @@
           "k": "が"
         },
         {
-          "k": "動き"
+          "k": "動",
+          "r": "うご",
+          "g": "v_ugoku_plain_past"
         },
         {
-          "k": "始",
-          "r": "はじ",
-          "g": "v_hajimeru_plain_past"
-        },
-        {
-          "k": "めた",
-          "g": "v_hajimeru_plain_past"
+          "k": "いた",
+          "g": "v_ugoku_plain_past"
         },
         {
           "k": "。"
@@ -924,8 +921,8 @@
       ]
     },
     {
-      "jp": "ジョエル先生はみんなを見た。「コンサートは...どうしましょうか」と先生は言った。",
-      "en": "Joel-sensei looked at everyone. \"The concert... what should we do?\" the teacher said.",
+      "jp": "ジョエル先生はみんなを見た。「コンサートは…どうしましょうか」と先生は言った。",
+      "en": "Joel-sensei looked at everyone. \"The concert… what should we do?\" the teacher said.",
       "tokens": [
         {
           "k": "ジョエル先生",
@@ -958,14 +955,15 @@
           "k": "「"
         },
         {
-          "k": "コンサート"
+          "k": "コンサート",
+          "r": "こんさーと"
         },
         {
           "k": "は",
           "r": "わ"
         },
         {
-          "k": "..."
+          "k": "…"
         },
         {
           "k": "どう"
@@ -2033,8 +2031,8 @@
       ]
     },
     {
-      "jp": "「小さい物を見せます」とけんは言った。けんは手の中から小さい黒い物を出した。「この物がなくなります」とけんは言った。",
-      "en": "\"Let me show you a small object,\" Ken said. He took a small black object out from his hand. \"This object will vanish,\" he declared.",
+      "jp": "「小さい物を見せます。」とけんは言った。けんは手の中から小さい黒い物を出した。それから、けんは手を開いた。黒い物は、もうなかった。",
+      "en": "\"I'll show you a small thing,\" Ken said. Ken took a small black thing from his hand. Then Ken opened his hand. The black thing was gone.",
       "tokens": [
         {
           "k": "「"
@@ -2064,6 +2062,9 @@
         {
           "k": "せます",
           "g": "v_miseru_polite_masu"
+        },
+        {
+          "k": "。"
         },
         {
           "k": "」"
@@ -2150,27 +2151,10 @@
           "k": "。"
         },
         {
-          "k": "「"
+          "k": "それから"
         },
         {
-          "k": "この"
-        },
-        {
-          "k": "物",
-          "r": "もの"
-        },
-        {
-          "k": "が"
-        },
-        {
-          "k": "なくなります",
-          "g": "v_nakunaru_polite_masu"
-        },
-        {
-          "k": "」"
-        },
-        {
-          "k": "と"
+          "k": "、"
         },
         {
           "k": "けん"
@@ -2180,13 +2164,51 @@
           "r": "わ"
         },
         {
-          "k": "言",
-          "r": "い",
-          "g": "v_iu_plain_past"
+          "k": "手",
+          "r": "て"
         },
         {
-          "k": "った",
-          "g": "v_iu_plain_past"
+          "k": "を",
+          "r": "お"
+        },
+        {
+          "k": "開",
+          "r": "あ",
+          "g": "v_aku_2_plain_past"
+        },
+        {
+          "k": "いた",
+          "g": "v_aku_2_plain_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "黒",
+          "r": "くろ",
+          "g": "v_kuroi"
+        },
+        {
+          "k": "い",
+          "g": "v_kuroi"
+        },
+        {
+          "k": "物",
+          "r": "もの"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "もう"
+        },
+        {
+          "k": "なかった",
+          "g": "v_aru_plain_past_negative"
         },
         {
           "k": "。"
@@ -2445,8 +2467,8 @@
       ]
     },
     {
-      "jp": "ジョエル先生がしずかに言った。「…なくなったね」",
-      "en": "Joel-sensei said quietly, \"...It's gone, isn't it.\"",
+      "jp": "ジョエル先生がしずかに言った。「…もうありませんね」",
+      "en": "Joel-sensei said quietly, \"…It's gone now, isn't it.\"",
       "tokens": [
         {
           "k": "ジョエル先生",
@@ -2480,8 +2502,10 @@
           "k": "…"
         },
         {
-          "k": "なくなった",
-          "g": "v_nakunaru_plain_past"
+          "k": "もう"
+        },
+        {
+          "k": "ありません"
         },
         {
           "k": "ね"
@@ -2546,7 +2570,7 @@
       ]
     },
     {
-      "jp": "それから、みんなは外を見た。物はなくなって いた。ほんとうになくなって いた。",
+      "jp": "それから、みんなは外を見た。物は、もうなかった。ほんとうに、もうなかった。",
       "en": "Then everyone looked outside. The object was gone. It was truly gone.",
       "tokens": [
         {
@@ -2591,15 +2615,14 @@
           "r": "わ"
         },
         {
-          "k": "なくなって",
-          "g": "v_nakunaru_te_form"
+          "k": "、"
         },
         {
-          "k": " "
+          "k": "もう"
         },
         {
-          "k": "いた",
-          "g": "v_iru_plain_past"
+          "k": "なかった",
+          "g": "v_aru_plain_past_negative"
         },
         {
           "k": "。"
@@ -2608,15 +2631,14 @@
           "k": "ほんとうに"
         },
         {
-          "k": "なくなって",
-          "g": "v_nakunaru_te_form"
+          "k": "、"
         },
         {
-          "k": " "
+          "k": "もう"
         },
         {
-          "k": "いた",
-          "g": "v_iru_plain_past"
+          "k": "なかった",
+          "g": "v_aru_plain_past_negative"
         },
         {
           "k": "。"
@@ -2624,8 +2646,8 @@
       ]
     },
     {
-      "jp": "けんは屋上の外の方を見たくて、体を前に出した。体重があるけんは、少し転びそうになった。りきぞうが急いでけんの手を持った。「とまれ！」",
-      "en": "Ken wanted to look over the outside of the rooftop and thrust his body forward. The weighty Ken nearly tumbled. Rikizo quickly grabbed Ken's hand. \"Stop!\"",
+      "jp": "けんは屋上の外の方を見るために、体を前に出した。体重があるけんの体が、前に大きく動いた。りきぞうが急いでけんの手を持った。「けん！」とりきぞうは大きい声で言った。",
+      "en": "To see outside the rooftop, Ken leaned his body forward. Heavy Ken's body lurched forward. Rikizo quickly grabbed Ken's hand. \"Ken!\" Rikizo said loudly.",
       "tokens": [
         {
           "k": "けん"
@@ -2659,14 +2681,18 @@
         {
           "k": "見",
           "r": "み",
-          "g": "v_miru_plain_past"
+          "g": "v_miru"
         },
         {
-          "k": "た",
-          "g": "v_miru_plain_past"
+          "k": "る",
+          "g": "v_miru"
         },
         {
-          "k": "くて"
+          "k": "ため",
+          "g": "v_tame"
+        },
+        {
+          "k": "に"
         },
         {
           "k": "、"
@@ -2712,33 +2738,42 @@
           "k": "けん"
         },
         {
-          "k": "は",
-          "r": "わ"
+          "k": "の"
+        },
+        {
+          "k": "体",
+          "r": "からだ"
+        },
+        {
+          "k": "が"
         },
         {
           "k": "、"
         },
         {
-          "k": "少",
-          "r": "すこ",
-          "g": "v_sukoshi"
-        },
-        {
-          "k": "し",
-          "g": "v_sukoshi"
-        },
-        {
-          "k": "転び"
-        },
-        {
-          "k": "そう"
+          "k": "前",
+          "r": "まえ"
         },
         {
           "k": "に"
         },
         {
-          "k": "なった",
-          "g": "v_naru_plain_past"
+          "k": "大",
+          "r": "おお",
+          "g": "v_ookii_adverbial"
+        },
+        {
+          "k": "きく",
+          "g": "v_ookii_adverbial"
+        },
+        {
+          "k": "動",
+          "r": "うご",
+          "g": "v_ugoku_plain_past"
+        },
+        {
+          "k": "いた",
+          "g": "v_ugoku_plain_past"
         },
         {
           "k": "。"
@@ -2788,16 +2823,51 @@
           "k": "「"
         },
         {
-          "k": "と"
-        },
-        {
-          "k": "まれ"
+          "k": "けん"
         },
         {
           "k": "！"
         },
         {
           "k": "」"
+        },
+        {
+          "k": "と"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "大",
+          "r": "おお",
+          "g": "v_ookii"
+        },
+        {
+          "k": "きい",
+          "g": "v_ookii"
+        },
+        {
+          "k": "声",
+          "r": "こえ"
+        },
+        {
+          "k": "で"
+        },
+        {
+          "k": "言",
+          "r": "い",
+          "g": "v_iu_plain_past"
+        },
+        {
+          "k": "った",
+          "g": "v_iu_plain_past"
+        },
+        {
+          "k": "。"
         }
       ]
     },
@@ -3136,8 +3206,8 @@
       ]
     },
     {
-      "jp": "「特集みたいだ」とジョエル先生は小声で言った。",
-      "en": "\"It's like a special feature,\" Joel-sensei murmured.",
+      "jp": "「特集みたいですね」とジョエル先生は小声で言った。",
+      "en": "\"It's like a special feature,\" Joel-sensei said in a low voice.",
       "tokens": [
         {
           "k": "「"
@@ -3147,7 +3217,13 @@
           "r": "とくしゅう"
         },
         {
-          "k": "みたいだ"
+          "k": "みたい"
+        },
+        {
+          "k": "です"
+        },
+        {
+          "k": "ね"
         },
         {
           "k": "」"
@@ -4212,7 +4288,7 @@
       },
       {
         "type": "written",
-        "q": "ジョエル先生はどうしてミキを選びましたか。",
+        "q": "ジョエル先生はどうしてミキにしましたか。",
         "q_en": "Why did Joel-sensei choose Miki?",
         "answer": "ミキの低音の声が今夜の夜空に合うからです。",
         "accept": [

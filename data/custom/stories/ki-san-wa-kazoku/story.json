@@ -8,7 +8,7 @@
   "unlocksAfter": null,
   "paragraphs": [
     {
-      "jp": "りきぞうの家の前に、大きくて古い木があります。その木は、りきぞうが子どものときから、いつもそこにあります。りきぞうはこの木が大好きです。だから、この木の名前を「木さん」にしました。毎日、学校から帰って、木さんに「帰ったよ。」と言います。",
+      "jp": "りきぞうの家の前に、大きくて古い木があります。その木は、りきぞうが子どもの時から、いつもそこにあります。りきぞうはこの木が大好きです。だから、この木の名前を「木さん」にしました。毎日、学校から帰って、木さんに「帰ったよ。」と言います。",
       "en": "In front of Rikizo's house there is a big, old tree. It has always been there since Rikizo was a child. Rikizo loves this tree. So he named it 'Tree-san.' Every day, coming home from school, he says to Tree-san, 'I'm back.'",
       "tokens": [
         {
@@ -98,10 +98,8 @@
           "k": "の"
         },
         {
-          "k": "と"
-        },
-        {
-          "k": "き"
+          "k": "時",
+          "r": "とき"
         },
         {
           "k": "から"
@@ -1142,12 +1140,12 @@
       ]
     },
     {
-      "jp": "次の日、りきぞうはお母さんに聞きました。「お母さん、木さんも、うちの家族？」お母さんは台所で料理をしながら、「はいはい。」と言いました。りきぞうはとてもうれしくなりました。「お母さんが、木さんは家族だと言った！」",
+      "jp": "つぎの日、りきぞうはお母さんに聞きました。「お母さん、木さんも、うちの家族？」お母さんは台所で料理をしながら、「はいはい。」と言いました。りきぞうはとてもうれしくなりました。「お母さんが、木さんは家族だと言った！」",
       "en": "The next day, Rikizo asked his mom. 'Mom, is Tree-san part of our family too?' His mom, cooking in the kitchen, said, 'Yeah, yeah.' Rikizo became very happy. 'Mom said Tree-san is family!'",
       "tokens": [
         {
-          "k": "次",
-          "r": "つぎ"
+          "k": "つぎ",
+          "g": "v_tsugi"
         },
         {
           "k": "の"
@@ -2654,12 +2652,12 @@
       ]
     },
     {
-      "jp": "次の日、けんがまた来ました。りきぞうは「木さんが、プレゼントをくれたんだ。」と言いました。「木さんが？」けんは、とてもおもしろくなりました。「りきぞう、木さんはお金を持っていないよ。」「お母さんが、木さんにお金を貸したのかな。」とりきぞうは言いました。",
+      "jp": "つぎの日、けんがまた来ました。りきぞうは「木さんが、プレゼントをくれたんだ。」と言いました。「木さんが？」けんは、とてもおもしろくなりました。「りきぞう、木さんはお金を持っていないよ。」「お母さんが、木さんにお金を貸したのかな。」とりきぞうは言いました。",
       "en": "The next day, Ken came again. Rikizo said, 'Tree-san gave me a present.' 'Tree-san did?' Ken found it very funny. 'Rikizo, Tree-san doesn't have any money.' 'Maybe Mom lent Tree-san some money,' Rikizo said.",
       "tokens": [
         {
-          "k": "次",
-          "r": "つぎ"
+          "k": "つぎ",
+          "g": "v_tsugi"
         },
         {
           "k": "の"
@@ -3832,12 +3830,12 @@
       ]
     },
     {
-      "jp": "次の朝、りきぞうはお母さんに言いました。「お母さん、木さんも家族だから、木さんにもお金をあげて！」お母さんは大きい声で、「それはだめ！」と言いました。りきぞうは、とてもうれしくなりました。木さんも、風の中で、楽しそうに動いていました。",
+      "jp": "つぎの朝、りきぞうはお母さんに言いました。「お母さん、木さんも家族だから、木さんにもお金をあげて！」お母さんは大きい声で、「それはだめ！」と言いました。りきぞうは、とてもうれしくなりました。木さんも、風の中で、楽しそうに動いていました。",
       "en": "The next morning, Rikizo said to his mom, 'Mom, since Tree-san is family too, give Tree-san an allowance!' His mom said loudly, 'That's a no!' Rikizo became very happy. Tree-san too was moving happily in the wind.",
       "tokens": [
         {
-          "k": "次",
-          "r": "つぎ"
+          "k": "つぎ",
+          "g": "v_tsugi"
         },
         {
           "k": "の"
@@ -4169,7 +4167,7 @@
       },
       {
         "type": "written",
-        "q": "新しいノートは、本当はだれが買いましたか。",
+        "q": "新しいノートは、だれが買いましたか。",
         "q_en": "Who really bought the new notebook?",
         "answer": "お母さんが買いました。",
         "accept": [

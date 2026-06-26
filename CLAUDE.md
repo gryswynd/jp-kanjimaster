@@ -128,6 +128,35 @@ Findings come in two buckets:
 - `vocabUsed[]` / `grammarUsed[]` ids resolve against the glossary
 - `comprehension.questions[].correct` is a valid index into `options[]`
 
+### Agent 3.5 — Content QA gate (`qa-story.mjs`) — REQUIRED for paid content
+
+```bash
+node scripts/qa-story.mjs <slug>          # one story
+node scripts/qa-story.mjs --level=custom  # all custom (paid) stories
+```
+
+Catches the *content* slips the audit/validator miss — the ones that erode trust in
+**paid** stories. Must report **0 violations** for a custom story before it ships:
+
+- **OUT-OF-SCOPE KANJI** — a kanji not taught by the story's ceiling. Custom stories
+  rank at **N4-end** (N5 + all N4; N3 is out). The taught set is the manifest
+  `lesson.kanji` lists — it is authoritative. Common offenders: 次 (kanji is N3 →
+  use **つぎ**, which chips via `v_tsugi`), 変 (→ **かわる**, `v_kawaru`), and in
+  comprehension 当/最/段/落/選 (本当・最後・段落・選ぶ → reword, don't kana-ify into an
+  untagged run).
+- **SPLIT KANA CHIPS** — a kana grammatical unit that renders as raw particle chips:
+  とき→と+き and もの→も+の (use the taught kanji **時 / 物**), counter+**とも**
+  ("both") → と+も (reword: …も…も / は).
+- **ORTHOGRAPHY** — the same standalone word written both kanji and kana in one story
+  (次/つぎ, 時/とき). Pick one. (Nominalizers こと/ところ stay kana; compounds 仕事/台所
+  stay kanji — these are NOT inconsistencies.)
+- **OUT-OF-SCOPE VOCAB / UNTAGGED / FORM** — N3 vocab in an N4 story, or content words
+  that don't chip. Reword or glossary them.
+
+**Orthography rule of thumb:** use a kanji **only when it's taught** (in `lesson.kanji`
+at/below the ceiling); use it **consistently**; comprehension `q`/`answer`/`explanation`
+text is **in scope** for the same gate as narration.
+
 ### Comprehension questions (optional, deferred — NOT in the pipeline)
 
 `story.json.comprehension.questions[]` exists in the schema, but authoring MCQs

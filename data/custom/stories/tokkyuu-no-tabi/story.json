@@ -2172,7 +2172,7 @@
       ]
     },
     {
-      "jp": "つぎは、みんなの駅です。でも、やまかわはまだ休んでいました。「やまかわ、起きて！次だよ！」とリーが大きい声で言いました。やまかわは急いで立って、電車の中で転びました。",
+      "jp": "つぎは、みんなの駅です。でも、やまかわはまだ休んでいました。「やまかわ、起きて！つぎだよ！」とリーが大きい声で言いました。やまかわは急いで立って、電車の中で転びました。",
       "en": "The next stop is everyone's station. But Yamakawa was still resting. \"Yamakawa, wake up! It's next!\" Lee said in a loud voice. Yamakawa stood up in a hurry and tripped inside the train.",
       "tokens": [
         {
@@ -2255,8 +2255,8 @@
           "k": "！"
         },
         {
-          "k": "次",
-          "r": "つぎ"
+          "k": "つぎ",
+          "g": "v_tsugi"
         },
         {
           "k": "だ"
@@ -2645,7 +2645,7 @@
       },
       {
         "type": "written",
-        "q": "やまかわが「ここは京都だ」と言ったとき、本当に京都でしたか。",
+        "q": "やまかわが「ここは京都だ」と言ったとき、そこは京都でしたか。",
         "q_en": "When Yamakawa said \"This is Kyoto,\" was it really Kyoto?",
         "answer": "いいえ、まだ京都ではありませんでした。",
         "accept": [
@@ -2717,7 +2717,7 @@
       },
       {
         "type": "written",
-        "q": "やまかわは最後に、電車の中でどうなりましたか。",
+        "q": "やまかわは電車の中でどうなりましたか。",
         "q_en": "What happened to Yamakawa in the train at the end?",
         "answer": "急いで立って、転びました。",
         "accept": [

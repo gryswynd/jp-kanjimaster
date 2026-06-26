@@ -440,8 +440,8 @@
       ]
     },
     {
-      "jp": "毎晩、りきぞうは計画を書いた。三まいの紙になった。「まだ少ない」とりきぞうは思った。つぎの夜は七まいの紙になった。「もう少し書こう」と思った。そのつぎの夜は十五まいの紙になった。特に、場所の区切りと行事の住所の書き方と物の使用と時間の計り方を、りきぞうは集中して書いた。計画の開始から終わりまでを読むのにとても長い時間だった。計画は合理てきだった。「特に問題はない」と思いながら、りきぞうは有力者のような意思を持って、計画書を持ちながら休んだ。",
-      "en": "Every night, Rikizo wrote the plan. Three sheets of paper. \"Still not enough,\" he thought. The next night: seven sheets. \"I'll write a little more.\" The night after that: fifteen sheets. In particular, he concentrated on writing about the division of locations, the venue addresses, how to use the things, and how to measure the timing. Reading from start to finish took a very long time. The plan was rational. \"No particular problems,\" he thought, and with an intention like an influential person, he fell asleep holding the plan.",
+      "jp": "毎晩、りきぞうは計画を書いた。紙が多くなった。場所のこと、行事の住所のこと、物の使用のこと、時間のことを、りきぞうは集中して書いた。計画はとても長くなった。「特に問題はない」と思いながら、りきぞうは計画書を持って休んだ。",
+      "en": "Every night, Rikizo wrote his plan. The pages grew many. He focused on writing about the places, the event's address, the use of materials, and the timing. The plan became very long. Thinking \"there is no particular problem,\" Rikizo held his plan and rested.",
       "tokens": [
         {
           "k": "毎晩",
@@ -478,206 +478,23 @@
           "k": "。"
         },
         {
-          "k": "三",
-          "r": "さん"
-        },
-        {
-          "k": "まい"
-        },
-        {
-          "k": "の"
-        },
-        {
           "k": "紙",
           "r": "かみ"
         },
         {
-          "k": "に"
+          "k": "が"
         },
         {
-          "k": "なった",
-          "g": "v_naru_plain_past"
+          "k": "多",
+          "r": "おお",
+          "g": "v_ooi_plain_become_past"
         },
         {
-          "k": "。"
-        },
-        {
-          "k": "「"
-        },
-        {
-          "k": "まだ"
-        },
-        {
-          "k": "少",
-          "r": "すく",
-          "g": "v_sukunai"
-        },
-        {
-          "k": "ない",
-          "g": "v_sukunai"
-        },
-        {
-          "k": "」"
-        },
-        {
-          "k": "と"
-        },
-        {
-          "k": "りきぞう"
-        },
-        {
-          "k": "は",
-          "r": "わ"
-        },
-        {
-          "k": "思",
-          "r": "おも",
-          "g": "v_omou_plain_past"
-        },
-        {
-          "k": "った",
-          "g": "v_omou_plain_past"
+          "k": "くなった",
+          "g": "v_ooi_plain_become_past"
         },
         {
           "k": "。"
-        },
-        {
-          "k": "つぎ",
-          "g": "v_tsugi"
-        },
-        {
-          "k": "の"
-        },
-        {
-          "k": "夜",
-          "r": "よる"
-        },
-        {
-          "k": "は",
-          "r": "わ"
-        },
-        {
-          "k": "七"
-        },
-        {
-          "k": "まい"
-        },
-        {
-          "k": "の"
-        },
-        {
-          "k": "紙",
-          "r": "かみ"
-        },
-        {
-          "k": "に"
-        },
-        {
-          "k": "なった",
-          "g": "v_naru_plain_past"
-        },
-        {
-          "k": "。"
-        },
-        {
-          "k": "「"
-        },
-        {
-          "k": "もう"
-        },
-        {
-          "k": "少",
-          "r": "すこ",
-          "g": "v_sukoshi"
-        },
-        {
-          "k": "し",
-          "g": "v_sukoshi"
-        },
-        {
-          "k": "書",
-          "r": "か",
-          "g": "v_kaku_plain_volitional"
-        },
-        {
-          "k": "こう",
-          "g": "v_kaku_plain_volitional"
-        },
-        {
-          "k": "」"
-        },
-        {
-          "k": "と"
-        },
-        {
-          "k": "思",
-          "r": "おも",
-          "g": "v_omou_plain_past"
-        },
-        {
-          "k": "った",
-          "g": "v_omou_plain_past"
-        },
-        {
-          "k": "。"
-        },
-        {
-          "k": "その"
-        },
-        {
-          "k": "つぎ",
-          "g": "v_tsugi"
-        },
-        {
-          "k": "の"
-        },
-        {
-          "k": "夜",
-          "r": "よる"
-        },
-        {
-          "k": "は",
-          "r": "わ"
-        },
-        {
-          "k": "十",
-          "r": "とお"
-        },
-        {
-          "k": "五",
-          "r": "ご"
-        },
-        {
-          "k": "まい"
-        },
-        {
-          "k": "の"
-        },
-        {
-          "k": "紙",
-          "r": "かみ"
-        },
-        {
-          "k": "に"
-        },
-        {
-          "k": "なった",
-          "g": "v_naru_plain_past"
-        },
-        {
-          "k": "。"
-        },
-        {
-          "k": "特",
-          "r": "とく",
-          "g": "v_tokuni"
-        },
-        {
-          "k": "に",
-          "g": "v_tokuni"
-        },
-        {
-          "k": "、"
         },
         {
           "k": "場所",
@@ -687,15 +504,10 @@
           "k": "の"
         },
         {
-          "k": "区",
-          "r": "く"
+          "k": "こと"
         },
         {
-          "k": "切",
-          "r": "き"
-        },
-        {
-          "k": "りと"
+          "k": "、"
         },
         {
           "k": "行事",
@@ -712,18 +524,10 @@
           "k": "の"
         },
         {
-          "k": "書",
-          "r": "か"
+          "k": "こと"
         },
         {
-          "k": "き"
-        },
-        {
-          "k": "方",
-          "r": "のほう"
-        },
-        {
-          "k": "と"
+          "k": "、"
         },
         {
           "k": "物",
@@ -737,7 +541,13 @@
           "r": "しよう"
         },
         {
-          "k": "と"
+          "k": "の"
+        },
+        {
+          "k": "こと"
+        },
+        {
+          "k": "、"
         },
         {
           "k": "時間",
@@ -747,11 +557,7 @@
           "k": "の"
         },
         {
-          "k": "計り"
-        },
-        {
-          "k": "方",
-          "r": "のほう"
+          "k": "こと"
         },
         {
           "k": "を",
@@ -792,42 +598,8 @@
           "r": "けいかく"
         },
         {
-          "k": "の"
-        },
-        {
-          "k": "開始",
-          "r": "かいし"
-        },
-        {
-          "k": "から"
-        },
-        {
-          "k": "終",
-          "r": "お",
-          "g": "v_owari"
-        },
-        {
-          "k": "わり",
-          "g": "v_owari"
-        },
-        {
-          "k": "まで"
-        },
-        {
-          "k": "を",
-          "r": "お"
-        },
-        {
-          "k": "読",
-          "r": "よ",
-          "g": "v_yomu"
-        },
-        {
-          "k": "む",
-          "g": "v_yomu"
-        },
-        {
-          "k": "のに"
+          "k": "は",
+          "r": "わ"
         },
         {
           "k": "とても"
@@ -835,43 +607,11 @@
         {
           "k": "長",
           "r": "なが",
-          "g": "v_nagai"
+          "g": "v_nagai_plain_become_past"
         },
         {
-          "k": "い",
-          "g": "v_nagai"
-        },
-        {
-          "k": "時間",
-          "r": "じかん"
-        },
-        {
-          "k": "だった",
-          "g": "g_da_da_past"
-        },
-        {
-          "k": "。"
-        },
-        {
-          "k": "計画",
-          "r": "けいかく"
-        },
-        {
-          "k": "は",
-          "r": "わ"
-        },
-        {
-          "k": "合理",
-          "r": "ごうり",
-          "g": "v_gouriteki"
-        },
-        {
-          "k": "てき",
-          "g": "v_gouriteki"
-        },
-        {
-          "k": "だった",
-          "g": "g_da_da_past"
+          "k": "くなった",
+          "g": "v_nagai_plain_become_past"
         },
         {
           "k": "。"
@@ -926,39 +666,6 @@
           "r": "わ"
         },
         {
-          "k": "有力者",
-          "r": "ゆうりょくしゃ"
-        },
-        {
-          "k": "の"
-        },
-        {
-          "k": "よう"
-        },
-        {
-          "k": "な"
-        },
-        {
-          "k": "意思",
-          "r": "いし"
-        },
-        {
-          "k": "を",
-          "r": "お"
-        },
-        {
-          "k": "持",
-          "r": "も",
-          "g": "v_motsu_te_form"
-        },
-        {
-          "k": "って",
-          "g": "v_motsu_te_form"
-        },
-        {
-          "k": "、"
-        },
-        {
           "k": "計画",
           "r": "けいかく"
         },
@@ -973,11 +680,11 @@
         {
           "k": "持",
           "r": "も",
-          "g": "v_motsu_nagara_form"
+          "g": "v_motsu_te_form"
         },
         {
-          "k": "ちながら",
-          "g": "v_motsu_nagara_form"
+          "k": "って",
+          "g": "v_motsu_te_form"
         },
         {
           "k": "休",
@@ -1804,8 +1511,8 @@
       ]
     },
     {
-      "jp": "試みを始めてから、すぐに問題が起きた。けんはテーブルを動かす仕事があった。りきぞうの計画では、テーブルを建物の右に動かすことだった。でも、けんはテーブルを左に動かし始めた。「けん、右だよ！」とりきぞうは言った。けんは「え？こちらから見ると、これが右じゃない？」と答えた。「そちらから見ても左だよ！」とりきぞうは言ったが、けんはもうテーブルを出口の前まで運んでいた。けんは「ん、そっか」と言いながら、またテーブルを動かし始めた。今度は出口の前から、建物の外に運んだ。計画にはそんな注文はなかった。けんは建物の外に出た。",
-      "en": "After they started, there was a problem right away. Ken had the job of moving the table to the right of the building. But Ken started moving it to the left. \"Ken, to the right!\" Rikizo said. Ken answered, \"Huh? From my side, isn't this the right?\" \"From your side it's still the left!\" Rikizo said, but Ken had already carried the table to in front of the exit. \"Okay, got it,\" Ken said, and started moving it again. This time, from the exit all the way outside the building. There was no such order in the plan. Ken went outside and stayed there.",
+      "jp": "試みを始めてから、すぐに問題が起きた。けんはテーブルを動かす仕事があった。りきぞうの計画では、テーブルを建物の右に動かすことだった。でも、けんはテーブルを左に動かした。「けん、右だよ！」とりきぞうは言った。けんは「え？こちらから見ると、これが右じゃない？」と答えた。「そちらから見ても左だよ！」とりきぞうは言ったが、けんはもうテーブルを出口の前まで運んでいた。けんは「あ、そうか」と言いながら、またテーブルを動かした。今度は出口の前から、建物の外に運んだ。計画にはそんな注文はなかった。けんは建物の外に出た。",
+      "en": "Soon after the attempt began, a problem arose. Ken had the job of moving a table. In Rikizo's plan, the table was supposed to go to the right of the building. But Ken moved the table to the left. \"Ken, it's the right!\" Rikizo said. Ken answered, \"Huh? From over here, isn't this the right?\" \"Even from there it's the left!\" Rikizo said, but Ken had already carried the table to the front of the exit. \"Oh, I see,\" Ken said, and moved the table again. This time he carried it from the exit out of the building. There was no such instruction in the plan. Ken went outside.",
       "tokens": [
         {
           "k": "試",
@@ -1984,22 +1691,13 @@
           "k": "に"
         },
         {
-          "k": "動"
+          "k": "動",
+          "r": "うご",
+          "g": "v_ugokasu_plain_past"
         },
         {
-          "k": "か"
-        },
-        {
-          "k": "し"
-        },
-        {
-          "k": "始",
-          "r": "はじ",
-          "g": "v_hajimeru_plain_past"
-        },
-        {
-          "k": "めた",
-          "g": "v_hajimeru_plain_past"
+          "k": "かした",
+          "g": "v_ugokasu_plain_past"
         },
         {
           "k": "。"
@@ -2244,13 +1942,16 @@
           "k": "「"
         },
         {
-          "k": "ん"
+          "k": "あ"
         },
         {
           "k": "、"
         },
         {
-          "k": "そっか"
+          "k": "そう"
+        },
+        {
+          "k": "か"
         },
         {
           "k": "」"
@@ -2282,22 +1983,13 @@
           "r": "お"
         },
         {
-          "k": "動"
+          "k": "動",
+          "r": "うご",
+          "g": "v_ugokasu_plain_past"
         },
         {
-          "k": "か"
-        },
-        {
-          "k": "し"
-        },
-        {
-          "k": "始",
-          "r": "はじ",
-          "g": "v_hajimeru_plain_past"
-        },
-        {
-          "k": "めた",
-          "g": "v_hajimeru_plain_past"
+          "k": "かした",
+          "g": "v_ugokasu_plain_past"
         },
         {
           "k": "。"
@@ -2418,8 +2110,8 @@
       ]
     },
     {
-      "jp": "りきぞうは計画書を開いて「右」の紙を見た。計画は正しかった。問題はけんの右と私の右の区別だ、とりきぞうは思った。計画書を読みながら建物の中を歩いていた時、けんがまだ動かしていなかった物が前にあった。りきぞうは転んだ。「いたい！」りきぞうは口答えしたかったが、立って計画書を集中して見た。「問題はけんの意思だ。以上。」と言った。",
-      "en": "Rikizo opened the plan and found the \"right\" sheet. The plan was correct. The problem was the distinction between Ken's right and his own right, Rikizo thought. Walking through the building reading the plan, something Ken still hadn't moved was right in the way. Rikizo fell. \"Ouch!\" He wanted to talk back, but stood up and studied the plan carefully. \"The problem is Ken's intention. That's all.\" he said aloud.",
+      "jp": "りきぞうは計画書を開いて「右」の紙を見た。計画は正しかった。問題はけんの右と私の右の区別だ、とりきぞうは思った。計画書を読みながら建物の中を歩いていた時、けんがまだ動かしていなかった物が、りきぞうの前に出ていた。りきぞうは転んだ。「いたい！」りきぞうは口答えしたかったが、立って計画書を集中して見た。「問題はけんの意思だ。以上。」と言った。",
+      "en": "Rikizo opened his plan and looked at the \"right\" page. The plan was correct. The problem is the difference between Ken's right and my right, Rikizo thought. While reading the plan and walking inside the building, an object Ken had not moved yet was sticking out in front of Rikizo. Rikizo tripped. \"Ouch!\" Rikizo wanted to talk back, but he stood up and studied the plan. \"The problem is Ken's will. That is all,\" he said.",
       "tokens": [
         {
           "k": "りきぞう"
@@ -2655,12 +2347,33 @@
           "k": "が"
         },
         {
+          "k": "、"
+        },
+        {
+          "k": "りきぞう"
+        },
+        {
+          "k": "の"
+        },
+        {
           "k": "前",
           "r": "まえ"
         },
         {
-          "k": "にあった",
-          "g": "v_niau_plain_past"
+          "k": "に"
+        },
+        {
+          "k": "出",
+          "r": "で",
+          "g": "v_deru_te_form"
+        },
+        {
+          "k": "て",
+          "g": "v_deru_te_form"
+        },
+        {
+          "k": "いた",
+          "g": "v_iru_plain_past"
         },
         {
           "k": "。"
@@ -2818,8 +2531,8 @@
       ]
     },
     {
-      "jp": "りきぞうはもう一度建物の中に入った。けんはまだ外にいた。また、同じ物が前にあった。りきぞうはまた転んだ。同じ物。同じ場所。りきぞうは立って、また計画書を開いた。「問題はけんだ。以上。」と言った。",
-      "en": "Rikizo went back inside the building. Ken was still outside. Again, the same object was right in the way. Rikizo fell again. Same object. Same place. He stood up and opened the plan. \"The problem is Ken. That's all.\" he said aloud.",
+      "jp": "りきぞうはもう一度建物の中に入った。けんはまだ外にいた。また、同じ物が前に出ていた。りきぞうはまた転んだ。同じ物。同じ場所。りきぞうは立って、また計画書を開いた。「問題はけんだ。以上。」と言った。",
+      "en": "Rikizo went back inside the building. Ken was still outside. Again, the same object was sticking out in front. Rikizo tripped again. Same object. Same place. He stood up and opened the plan again. \"The problem is Ken. That is all,\" he said.",
       "tokens": [
         {
           "k": "りきぞう"
@@ -2912,8 +2625,20 @@
           "r": "まえ"
         },
         {
-          "k": "にあった",
-          "g": "v_niau_plain_past"
+          "k": "に"
+        },
+        {
+          "k": "出",
+          "r": "で",
+          "g": "v_deru_te_form"
+        },
+        {
+          "k": "て",
+          "g": "v_deru_te_form"
+        },
+        {
+          "k": "いた",
+          "g": "v_iru_plain_past"
         },
         {
           "k": "。"
@@ -3469,8 +3194,8 @@
       ]
     },
     {
-      "jp": "行事が終わった時、りきぞうは建物の外に出て、計画書を見た。計画は正しかった。区切りも正しかった。場所の住所も正しかった。注文も正しかった。テーブルの動かし方も変わらなかった。以上。",
-      "en": "When the event was over, Rikizo went outside and looked at the plan. The plan was correct. The divisions were correct. The location addresses were correct. The orders were correct. The table's moving method hadn't changed. That's all.",
+      "jp": "行事が終わった時、りきぞうは建物の外に出て、計画書を見た。計画は正しかった。場所も住所も正しかった。注文も正しかった。テーブルを動かすことも、かわらなかった。以上。",
+      "en": "When the event ended, Rikizo went outside the building and looked at his plan. The plan was correct. The places and addresses were correct. The orders were correct. Moving the table did not change either. That is all.",
       "tokens": [
         {
           "k": "行事",
@@ -3573,34 +3298,11 @@
           "k": "。"
         },
         {
-          "k": "区",
-          "r": "く"
-        },
-        {
-          "k": "切",
-          "r": "き"
-        },
-        {
-          "k": "りも"
-        },
-        {
-          "k": "正",
-          "r": "ただ",
-          "g": "v_tadashii_plain_past_adj"
-        },
-        {
-          "k": "しかった",
-          "g": "v_tadashii_plain_past_adj"
-        },
-        {
-          "k": "。"
-        },
-        {
           "k": "場所",
           "r": "ばしょ"
         },
         {
-          "k": "の"
+          "k": "も"
         },
         {
           "k": "住所",
@@ -3645,32 +3347,30 @@
           "r": "てーぶる"
         },
         {
-          "k": "の"
+          "k": "を",
+          "r": "お"
         },
         {
-          "k": "動"
+          "k": "動",
+          "r": "うご",
+          "g": "v_ugokasu"
         },
         {
-          "k": "か"
+          "k": "かす",
+          "g": "v_ugokasu"
         },
         {
-          "k": "し"
-        },
-        {
-          "k": "方",
-          "r": "のほう"
+          "k": "こと"
         },
         {
           "k": "も"
         },
         {
-          "k": "変",
-          "r": "か",
-          "g": "v_kawaru_2_plain_past_negative"
+          "k": "、"
         },
         {
-          "k": "わらなかった",
-          "g": "v_kawaru_2_plain_past_negative"
+          "k": "かわらなかった",
+          "g": "v_kawaru_plain_past_negative"
         },
         {
           "k": "。"

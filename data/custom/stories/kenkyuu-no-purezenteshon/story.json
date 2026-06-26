@@ -1188,8 +1188,8 @@
       ]
     },
     {
-      "jp": "リーはりきぞうの文書を集中して 見た。一まい目を見た。二まい目を見た。また一まい目を見た。",
-      "en": "Lee studied Rikizo's documents closely. He looked at page one. He looked at page two. He looked at page one again.",
+      "jp": "リーはりきぞうの文書を集中して見た。上から下まで、よく見た。それから、また見た。",
+      "en": "Lee studied Rikizo's document intently. He read top to bottom carefully. Then he read it again.",
       "tokens": [
         {
           "k": "リー"
@@ -1221,7 +1221,36 @@
           "g": "v_suru_te_form"
         },
         {
-          "k": " "
+          "k": "見",
+          "r": "み",
+          "g": "v_miru_plain_past"
+        },
+        {
+          "k": "た",
+          "g": "v_miru_plain_past"
+        },
+        {
+          "k": "。"
+        },
+        {
+          "k": "上",
+          "r": "うえ"
+        },
+        {
+          "k": "から"
+        },
+        {
+          "k": "下",
+          "r": "した"
+        },
+        {
+          "k": "まで"
+        },
+        {
+          "k": "、"
+        },
+        {
+          "k": "よく"
         },
         {
           "k": "見",
@@ -1236,73 +1265,13 @@
           "k": "。"
         },
         {
-          "k": "一"
+          "k": "それから"
         },
         {
-          "k": "まい"
-        },
-        {
-          "k": "目",
-          "r": "め"
-        },
-        {
-          "k": "を",
-          "r": "お"
-        },
-        {
-          "k": "見",
-          "r": "み",
-          "g": "v_miru_plain_past"
-        },
-        {
-          "k": "た",
-          "g": "v_miru_plain_past"
-        },
-        {
-          "k": "。"
-        },
-        {
-          "k": "二"
-        },
-        {
-          "k": "まい"
-        },
-        {
-          "k": "目",
-          "r": "め"
-        },
-        {
-          "k": "を",
-          "r": "お"
-        },
-        {
-          "k": "見",
-          "r": "み",
-          "g": "v_miru_plain_past"
-        },
-        {
-          "k": "た",
-          "g": "v_miru_plain_past"
-        },
-        {
-          "k": "。"
+          "k": "、"
         },
         {
           "k": "また"
-        },
-        {
-          "k": "一"
-        },
-        {
-          "k": "まい"
-        },
-        {
-          "k": "目",
-          "r": "め"
-        },
-        {
-          "k": "を",
-          "r": "お"
         },
         {
           "k": "見",
@@ -1319,8 +1288,8 @@
       ]
     },
     {
-      "jp": "「…地味だけど、なんかいいね」とリーは言った。「この字、すごいよ。」",
-      "en": "\"…It's plain, but there's something I like about it,\" Lee said. \"These characters are amazing.\"",
+      "jp": "「…地味だけど、いいね」とリーは言った。「この字、すごいよ。」",
+      "en": "\"…It's plain, but it's good,\" Lee said. \"This handwriting is amazing.\"",
       "tokens": [
         {
           "k": "「"
@@ -1339,11 +1308,10 @@
           "k": "、"
         },
         {
-          "k": "なんかい",
-          "g": "v_nankai"
+          "k": "いい"
         },
         {
-          "k": "いね"
+          "k": "ね"
         },
         {
           "k": "」"
@@ -1825,8 +1793,8 @@
       ]
     },
     {
-      "jp": "クラスのプレゼンテーションの日の前の週、ある学生がすずき先生に発言した。「先生、この研究、むずかしすぎませんか。工場と森林と海洋と水質…たくさんありすぎます。」",
-      "en": "The week before the presentation day, one of the students said something to Suzuki-sensei. \"Sensei, isn't this research too hard? Factories, forests, oceans, water quality… there's too much of it.\"",
+      "jp": "クラスのプレゼンテーションの日の前の週、ある学生がすずき先生に発言した。「先生、この研究はむずかしくないですか。工場と森林と海洋と水質、たくさんあって、わたしにはむずかしいです。」",
+      "en": "The week before the presentation, a student spoke up to Suzuki-sensei. \"Sensei, isn't this research hard? Factories, forests, oceans, water quality — there's so much, it's hard for me.\"",
       "tokens": [
         {
           "k": "クラス",
@@ -1836,7 +1804,8 @@
           "k": "の"
         },
         {
-          "k": "プレゼンテーション"
+          "k": "プレゼンテーション",
+          "r": "ぷれぜんてーしょん"
         },
         {
           "k": "の"
@@ -1907,14 +1876,15 @@
           "r": "けんきゅう"
         },
         {
-          "k": "、"
+          "k": "は",
+          "r": "わ"
         },
         {
-          "k": "むずかし"
+          "k": "むずかしくない",
+          "g": "v_muzukashii_plain_negative"
         },
         {
-          "k": "すぎません",
-          "g": "v_sugiru_polite_negative"
+          "k": "です"
         },
         {
           "k": "か"
@@ -1948,17 +1918,35 @@
           "r": "すいしつ"
         },
         {
-          "k": "…"
+          "k": "、"
         },
         {
           "k": "たくさん"
         },
         {
-          "k": "あり"
+          "k": "あって",
+          "g": "v_aru_te_form"
         },
         {
-          "k": "すぎます",
-          "g": "v_sugiru_polite_masu"
+          "k": "、"
+        },
+        {
+          "k": "わたし",
+          "g": "v_watashi"
+        },
+        {
+          "k": "に"
+        },
+        {
+          "k": "は",
+          "r": "わ"
+        },
+        {
+          "k": "むずかしい",
+          "g": "v_muzukashii"
+        },
+        {
+          "k": "です"
         },
         {
           "k": "。"
@@ -1969,8 +1957,8 @@
       ]
     },
     {
-      "jp": "すずき先生は少し考えてから答えた。「その意見は大切だよ。でも、研究者の学習というのは、むずかしいことを区別して 考えることだ。工場と森林、山林と海洋、水質と地上のことは、どれも意味がある。みんなを一つの 問題として見て、正体が分からなくなる。」",
-      "en": "Suzuki-sensei thought for a moment, then answered. \"That's a good point. But learning like a researcher means distinguishing difficult things clearly. Factories and forests, mountain forests and oceans, water quality and what's on the ground — each of those things has its own meaning. When you look at everything as one single problem, you can't see what the real nature of it is.\"",
+      "jp": "すずき先生は少し考えてから答えた。「その意見は大切だよ。でも、研究者の学習というのは、むずかしいことを区別して考えることだ。工場と森林、山林と海洋、水質と地上のことは、どれも意味がある。だから、一つ一つ、よく区別することが大切だ。」",
+      "en": "Suzuki-sensei thought, then answered. \"That view is important. But a researcher's learning is thinking by distinguishing hard things. Factories and forests, mountains and oceans, water and land — each has meaning. So distinguishing each one carefully matters.\"",
       "tokens": [
         {
           "k": "すずき先生",
@@ -2093,9 +2081,6 @@
           "g": "v_suru_te_form"
         },
         {
-          "k": " "
-        },
-        {
           "k": "考",
           "r": "かんが",
           "g": "v_kangaeru"
@@ -2185,11 +2170,13 @@
           "k": "。"
         },
         {
-          "k": "みんな"
+          "k": "だ"
         },
         {
-          "k": "を",
-          "r": "お"
+          "k": "から"
+        },
+        {
+          "k": "、"
         },
         {
           "k": "一",
@@ -2201,47 +2188,39 @@
           "g": "v_hitotsu"
         },
         {
-          "k": "の"
+          "k": "一",
+          "r": "ひと",
+          "g": "v_hitotsu"
         },
         {
-          "k": " "
-        },
-        {
-          "k": "問題",
-          "r": "もんだい"
-        },
-        {
-          "k": "として"
-        },
-        {
-          "k": "見",
-          "r": "み",
-          "g": "v_miru_te_form"
-        },
-        {
-          "k": "て",
-          "g": "v_miru_te_form"
+          "k": "つ",
+          "g": "v_hitotsu"
         },
         {
           "k": "、"
         },
         {
-          "k": "正体",
-          "r": "しょうたい"
+          "k": "よく"
+        },
+        {
+          "k": "区別",
+          "r": "くべつ"
+        },
+        {
+          "k": "する"
+        },
+        {
+          "k": "こと"
         },
         {
           "k": "が"
         },
         {
-          "k": "分",
-          "r": "わ"
+          "k": "大切",
+          "r": "たいせつ"
         },
         {
-          "k": "から"
-        },
-        {
-          "k": "なくなる",
-          "g": "k_bou"
+          "k": "だ"
         },
         {
           "k": "。"
@@ -2852,8 +2831,8 @@
       ]
     },
     {
-      "jp": "「工場と森林の研究です。工場が多い場所では、山林が少なくなります。山林が少なくなって、地上の水が海洋に入ります。それで水質がよくなくなります。」",
-      "en": "\"This is research about factories and forests. In areas with many factories, mountain forests decrease. As mountain forests decrease, water on the ground flows into the ocean. And so water quality gets worse.\"",
+      "jp": "「工場と森林の研究です。工場が多い場所では、山林が小さくなります。山林が小さくなって、地上の水が海洋に入ります。それで、水質がよくないです。」",
+      "en": "\"It's research on factories and forests. Where there are many factories, the forests get smaller. As the forests shrink, the land's water flows into the ocean. So the water quality is not good.\"",
       "tokens": [
         {
           "k": "「"
@@ -2916,13 +2895,13 @@
           "k": "が"
         },
         {
-          "k": "少",
-          "r": "すく",
-          "g": "v_sukunai_polite_become"
+          "k": "小",
+          "r": "ちい",
+          "g": "v_chiisai_polite_become"
         },
         {
-          "k": "なくなります",
-          "g": "v_sukunai_polite_become"
+          "k": "さくなります",
+          "g": "v_chiisai_polite_become"
         },
         {
           "k": "。"
@@ -2935,13 +2914,13 @@
           "k": "が"
         },
         {
-          "k": "少",
-          "r": "すく",
-          "g": "v_sukunai_adverbial"
+          "k": "小",
+          "r": "ちい",
+          "g": "v_chiisai_adverbial"
         },
         {
-          "k": "なく",
-          "g": "v_sukunai_adverbial"
+          "k": "さく",
+          "g": "v_chiisai_adverbial"
         },
         {
           "k": "なって",
@@ -2987,6 +2966,9 @@
           "k": "それで"
         },
         {
+          "k": "、"
+        },
+        {
           "k": "水質",
           "r": "すいしつ"
         },
@@ -2994,11 +2976,11 @@
           "k": "が"
         },
         {
-          "k": "よく"
+          "k": "よくない",
+          "g": "v_ii_plain_negative"
         },
         {
-          "k": "なくなります",
-          "g": "v_nakunaru_polite_masu"
+          "k": "です"
         },
         {
           "k": "。"
@@ -3607,8 +3589,8 @@
       ]
     },
     {
-      "jp": "「工場の近くに住んで いる人は、山林が少なくなって いることを知って います。でも、みんなは分かって いません。水質がよくなくなることは地上から見えないからです。今回の研究で、リーさんは西洋の研究者の文書や英文の引用を読んで、大切なことを知りました。この研究の正体は、見えない問題が見えるようになることだと思います。」",
-      "en": "\"People who live near factories know that mountain forests are decreasing. But not everyone understands. The fact that water quality is getting worse is not visible from the ground. Through this research, Lee-san read the documents of Western researchers and English citations and learned something important. I think the real nature of this research is: making invisible problems visible.\"",
+      "jp": "「工場の近くに住んでいる人は、山林が小さくなっていることを知っています。でも、みんなは分かっていません。水質がよくないことは地上から見えないからです。今回の研究で、リーさんは西洋の研究者の文書や英文の引用を読んで、大切なことを知りました。この研究の正体は、見えない問題が見えるようになることだと思います。」",
+      "en": "\"People who live near factories know the mountain forests are shrinking. But not everyone understands, because the worsening water quality can't be seen from the ground. Through this research, Lee read Western researchers' documents and English citations and learned something important. I think the real nature of this research is making invisible problems visible.\"",
       "tokens": [
         {
           "k": "「"
@@ -3642,9 +3624,6 @@
           "g": "v_sumu_te_form"
         },
         {
-          "k": " "
-        },
-        {
           "k": "いる"
         },
         {
@@ -3666,20 +3645,17 @@
           "k": "が"
         },
         {
-          "k": "少",
-          "r": "すく",
-          "g": "v_sukunai_adverbial"
+          "k": "小",
+          "r": "ちい",
+          "g": "v_chiisai_adverbial"
         },
         {
-          "k": "なく",
-          "g": "v_sukunai_adverbial"
+          "k": "さく",
+          "g": "v_chiisai_adverbial"
         },
         {
           "k": "なって",
           "g": "v_naru_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "いる"
@@ -3699,9 +3675,6 @@
         {
           "k": "って",
           "g": "v_shiru_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "います"
@@ -3732,9 +3705,6 @@
           "g": "v_wakaru_te_form"
         },
         {
-          "k": " "
-        },
-        {
           "k": "いません",
           "g": "v_iru_polite_negative"
         },
@@ -3749,11 +3719,8 @@
           "k": "が"
         },
         {
-          "k": "よく"
-        },
-        {
-          "k": "なくなる",
-          "g": "k_bou"
+          "k": "よくない",
+          "g": "v_ii_plain_negative"
         },
         {
           "k": "こと"
@@ -4728,8 +4695,8 @@
       ]
     },
     {
-      "jp": "つぎの週から、りきぞうも図書館に行き始めた。作文の勉強も始めた。「世代と学習はちがう」と、ある研究者の文書に書いて あった。りきぞうはその引用を自分の作文に書いた。",
-      "en": "Starting the following week, Rikizo also began going to the library. He started studying writing too. \"Generations and learning are different,\" was written in a researcher's document. Rikizo cited that in his own composition.",
+      "jp": "つぎの週から、りきぞうも毎日、図書館に行った。作文の勉強も始めた。「世代と学習はちがう」と、ある研究者の文書に書いてあった。りきぞうはその引用を自分の作文に書いた。",
+      "en": "From the next week, Rikizo also went to the library every day and started studying composition. \"Generation and learning differ,\" a researcher's document said. Rikizo wrote that quote into his own composition.",
       "tokens": [
         {
           "k": "つぎ",
@@ -4754,6 +4721,13 @@
           "k": "も"
         },
         {
+          "k": "毎日",
+          "r": "まいにち"
+        },
+        {
+          "k": "、"
+        },
+        {
           "k": "図書館",
           "r": "としょかん"
         },
@@ -4761,16 +4735,13 @@
           "k": "に"
         },
         {
-          "k": "行き"
+          "k": "行",
+          "r": "い",
+          "g": "v_iku_plain_past"
         },
         {
-          "k": "始",
-          "r": "はじ",
-          "g": "v_hajimeru_plain_past"
-        },
-        {
-          "k": "めた",
-          "g": "v_hajimeru_plain_past"
+          "k": "った",
+          "g": "v_iku_plain_past"
         },
         {
           "k": "。"
@@ -4856,9 +4827,6 @@
         {
           "k": "いて",
           "g": "v_kaku_te_form"
-        },
-        {
-          "k": " "
         },
         {
           "k": "あった",
@@ -5124,7 +5092,7 @@
           "工場と森林",
           "工場と森林です"
         ],
-        "explanation": "一つ目の段落に「研究の問題は工場と森林だった」と書いてあります。",
+        "explanation": "お話の中に「研究の問題は工場と森林だった」と書いてあります。",
         "terms": [],
         "paraIdx": 0,
         "aTerms": []
@@ -5139,7 +5107,7 @@
           "本を読んで文書を書いた",
           "文書を書いた"
         ],
-        "explanation": "二つ目の段落に「毎日、図書館で本を読んで、文書を書いた」と書いてあります。",
+        "explanation": "お話の中に「毎日、図書館で本を読んで、文書を書いた」と書いてあります。",
         "terms": [],
         "paraIdx": 1,
         "aTerms": [
@@ -5167,22 +5135,22 @@
       },
       {
         "type": "written",
-        "q": "工場が多い場所では、どうして水質がよくなくなりますか。",
+        "q": "工場が多い場所では、どうして水質がよくないですか。",
         "q_en": "In areas with many factories, why does the water quality get worse?",
-        "answer": "工場が多い場所では山林が少なくなって、地上の水が海洋に入るから、水質がよくなくなります。",
+        "answer": "工場が多い場所では山林が小さくなって、地上の水が海洋に入るから、水質がよくないです。",
         "accept": [
           "山林が少なくなるから",
           "山林が少なくなって、水が海洋に入るから"
         ],
-        "explanation": "リーは「山林が少なくなって、地上の水が海洋に入ります。それで水質がよくなくなります」と話しました。",
+        "explanation": "リーは「山林が小さくなって、地上の水が海洋に入ります。それで水質がよくないです」と話しました。",
         "terms": [],
         "paraIdx": 22,
         "aTerms": [
           "v_ooi",
-          "v_sukunai",
+          "v_chiisai",
           "v_naru",
           "v_hairu",
-          "v_nakunaru"
+          "v_ii"
         ]
       },
       {
@@ -5242,7 +5210,7 @@
       },
       {
         "type": "written",
-        "q": "りきぞうは最後にどうすることにしましたか。",
+        "q": "りきぞうはおわりにどうすることにしましたか。",
         "q_en": "What did Rikizo decide to do in the end?",
         "answer": "りきぞうはリーを見習うことにしました。",
         "accept": [
@@ -5250,7 +5218,7 @@
           "リーを見習うことにした",
           "見習うことにした"
         ],
-        "explanation": "最後の方に「りきぞうはリーを見習うことにした」と書いてあります。",
+        "explanation": "お話のおわりの方に「りきぞうはリーを見習うことにした」と書いてあります。",
         "terms": [],
         "paraIdx": 42,
         "aTerms": [
