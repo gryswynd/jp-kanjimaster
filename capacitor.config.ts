@@ -19,6 +19,15 @@ const config: CapacitorConfig = {
       backgroundColor: '#272320',
       showSpinner: false,
     },
+    // Firebase Authentication (@capacitor-firebase/authentication). skipNativeAuth
+    // lets the native layer return a credential that our compat JS SDK signs in
+    // with (see app/shared/auth.js). iOS: add the reversed-client-id URL scheme
+    // from GoogleService-Info.plist + the "Sign in with Apple" capability.
+    // Android: GoogleService-Info → google-services.json + SHA-1/256 in Firebase.
+    FirebaseAuthentication: {
+      skipNativeAuth: true,
+      providers: ['apple.com', 'google.com'],
+    },
   },
 };
 

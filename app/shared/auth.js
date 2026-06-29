@@ -116,6 +116,83 @@
     await ensureSignedIn();
   }
 
+  // ── Native provider sign-in (Apple / Google) ───────────────────────────────
+  // Uses the official Firebase plugin @capacitor-firebase/authentication in
+  // skipNativeAuth mode: the native layer runs the provider flow and hands back
+  // a credential ({idToken, nonce}); we mint the matching Firebase web (compat)
+  // credential and LINK it to the silent-anonymous user (keeps progress),
+  // falling back to a plain sign-in if that identity is already its own account.
+  // On web/dev we use Firebase's popup flow. The plugin is read off
+  // window.Capacitor.Plugins.FirebaseAuthentication so this stays import-free.
+  function isNative() {
+    return !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+  }
+  function platform() {
+    try { return (window.Capacitor && window.Capacitor.getPlatform && window.Capacitor.getPlatform()) || 'web'; }
+    catch (e) { return 'web'; }
+  }
+  function plugin(name) {
+    return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins[name]) || null;
+  }
+  function fbAuthPlugin() { return plugin('FirebaseAuthentication'); }
+
+  // Link the provider credential to the current anonymous user when possible,
+  // else sign in with it. Returns the resulting user.
+  async function linkOrSignIn(credential) {
+    var u = authObj.currentUser;
+    if (u && u.isAnonymous) {
+      try {
+        var res = await u.linkWithCredential(credential);
+        return res.user;
+      } catch (e) {
+        // This identity already belongs to another account — sign into it.
+        var code = (e && e.code) || '';
+        if (code.indexOf('credential-already-in-use') >= 0 || code.indexOf('email-already-in-use') >= 0) {
+          var cred = (e && e.credential) || credential;
+          var r2 = await authObj.signInWithCredential(cred);
+          return r2.user;
+        }
+        throw e;
+      }
+    }
+    var r = await authObj.signInWithCredential(credential);
+    return r.user;
+  }
+
+  async function signInWithApple() {
+    await init();
+    if (isNative()) {
+      var FA = fbAuthPlugin();
+      if (!FA) throw new Error('Apple sign-in is not available in this build.');
+      var result = await FA.signInWithApple({ skipNativeAuth: true });
+      var cred = result && result.credential;
+      if (!cred || !cred.idToken) throw new Error('Apple did not return an identity token.');
+      var provider = new fb.auth.OAuthProvider('apple.com');
+      var credential = provider.credential({ idToken: cred.idToken, rawNonce: cred.nonce });
+      return await linkOrSignIn(credential);
+    }
+    var prov = new fb.auth.OAuthProvider('apple.com');
+    prov.addScope('email'); prov.addScope('name');
+    var res = await authObj.signInWithPopup(prov);
+    return res.user;
+  }
+
+  async function signInWithGoogle() {
+    await init();
+    if (isNative()) {
+      var FA = fbAuthPlugin();
+      if (!FA) throw new Error('Google sign-in is not available in this build.');
+      var result = await FA.signInWithGoogle({ skipNativeAuth: true });
+      var cred = result && result.credential;
+      if (!cred || !cred.idToken) throw new Error('Google did not return an ID token.');
+      var credential = fb.auth.GoogleAuthProvider.credential(cred.idToken);
+      return await linkOrSignIn(credential);
+    }
+    var provider = new fb.auth.GoogleAuthProvider();
+    var res = await authObj.signInWithPopup(provider);
+    return res.user;
+  }
+
   function currentUser() { return (enabled && authObj && authObj.currentUser) || null; }
   function isEnabled() { return !!enabled; }
   function onChange(cb) {
@@ -141,7 +218,13 @@
       '.jp-auth-btn{padding:12px;border-radius:999px;border:none;font:inherit;font-weight:700;cursor:pointer;}',
       '.jp-auth-btn.primary{background:var(--ink,#323029);color:var(--washi,#f5f3f0);}',
       '.jp-auth-btn.ghost{background:transparent;border:1px solid var(--hairline,rgba(0,0,0,0.14));color:var(--ink-2,#5d5852);}',
-      '.jp-auth-x{float:right;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--ink-3,#8b8480);line-height:1;}'
+      '.jp-auth-x{float:right;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--ink-3,#8b8480);line-height:1;}',
+      '.jp-auth-providers{display:flex;flex-direction:column;gap:8px;margin:4px 0 2px;}',
+      '.jp-auth-btn.provider{display:flex;align-items:center;justify-content:center;gap:8px;}',
+      '.jp-auth-btn.provider.apple{background:#000;color:#fff;}',
+      '.jp-auth-btn.provider.apple::before{content:"\\F8FF";font-family:-apple-system,system-ui;}',
+      '.jp-auth-btn.provider.google{background:#fff;color:#3c4043;border:1px solid var(--hairline,rgba(0,0,0,0.18));}',
+      '.jp-auth-or{text-align:center;font-size:0.72rem;color:var(--ink-3,#8b8480);text-transform:uppercase;letter-spacing:0.06em;margin:10px 0 2px;}'
     ].join('');
     document.head.appendChild(s);
   }
@@ -162,6 +245,20 @@
     injectStyles();
     var u = currentUser();
     var signedInEmail = u && !u.isAnonymous ? u.email : null;
+    // Only surface a provider button when it's actually usable, so nothing
+    // breaks before the native plugin + Firebase console setup land:
+    //   native → @capacitor-firebase/authentication present (after npm i + cap sync)
+    //   web    → opt in via RIKIZO_FIREBASE.webOAuth (providers enabled in console)
+    var webOAuthOn = !!(cfg() && cfg().webOAuth);
+    var providerReady = (isNative() && !!fbAuthPlugin()) || (!isNative() && webOAuthOn);
+    var showApple = !signedInEmail && providerReady;
+    var showGoogle = !signedInEmail && providerReady;
+    var providerHtml = (showApple || showGoogle)
+      ? '<div class="jp-auth-providers">' +
+          (showApple ? '<button class="jp-auth-btn provider apple jp-auth-apple"> Continue with Apple</button>' : '') +
+          (showGoogle ? '<button class="jp-auth-btn provider google jp-auth-google">Continue with Google</button>' : '') +
+        '</div><div class="jp-auth-or">or</div>'
+      : '';
 
     var ov = document.createElement('div');
     ov.className = 'jp-auth-ov';
@@ -173,6 +270,7 @@
         '<p class="jp-auth-sub">' + (signedInEmail
             ? ('Signed in as ' + escHtml(signedInEmail))
             : 'Create an account so your progress is safe and follows you to other devices.') + '</p>' +
+        providerHtml +
         (signedInEmail ? '' :
           '<label>Email</label><input class="jp-auth-email" type="email" autocomplete="email" inputmode="email">' +
           '<label>Password</label><input class="jp-auth-pw" type="password" autocomplete="current-password">') +
@@ -218,6 +316,17 @@
     if (signoutBtn) signoutBtn.onclick = function () {
       signOut().then(close).catch(fail);
     };
+
+    var appleBtn = ov.querySelector('.jp-auth-apple');
+    if (appleBtn) appleBtn.onclick = function () {
+      errEl.textContent = '';
+      signInWithApple().then(afterAuth).catch(fail);
+    };
+    var googleBtn = ov.querySelector('.jp-auth-google');
+    if (googleBtn) googleBtn.onclick = function () {
+      errEl.textContent = '';
+      signInWithGoogle().then(afterAuth).catch(fail);
+    };
   }
 
   function escHtml(s) {
@@ -243,6 +352,8 @@
     getIdToken: getIdToken,
     signUpEmail: signUpEmail,
     signInEmail: signInEmail,
+    signInWithApple: signInWithApple,
+    signInWithGoogle: signInWithGoogle,
     signOut: signOut,
     onChange: onChange,
     openAccountUI: openAccountUI,
