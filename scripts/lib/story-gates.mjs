@@ -114,8 +114,12 @@ export async function buildGateContext({ readFile, root }) {
   }
   const ruleKeys = Object.keys(conjugationRules).sort((a, b) => b.length - a.length);
 
+  // Cast roster (for the generator's character picker + author brief).
+  let characters = [];
+  try { characters = (JSON.parse(await readFile(path.join(R, 'shared/characters.json'), 'utf8')).characters) || []; } catch {}
+
   return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank,
-           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules };
+           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters };
 }
 
 // ── validateStory (← validate-stories.mjs) ───────────────────────────────────
