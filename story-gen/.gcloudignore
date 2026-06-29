@@ -1,0 +1,7 @@
+# Upload only what the image needs. vendor/ + content/ are STAGED (predeploy) and
+# must ship, so they are intentionally NOT ignored.
+node_modules/
+.env
+*.local
+npm-debug.log
+.DS_Store

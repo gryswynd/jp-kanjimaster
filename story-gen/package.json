@@ -1,0 +1,20 @@
+{
+  "name": "rikizo-story-gen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloud Run backend that generates per-user custom stories with Claude, gated to the learner's curriculum.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node scripts/stage.mjs && node --watch index.js",
+    "stage": "node scripts/stage.mjs",
+    "predeploy": "node scripts/stage.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@google-cloud/firestore": "^7.10.0",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.0"
+  }
+}
