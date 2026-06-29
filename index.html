@@ -467,7 +467,11 @@ window.JPApp = {
     apiBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app",
     // AI tutor (Rikizo Press-to-Ask) — same Cloud Run service as apiBaseUrl.
     // Overridable at runtime via ?tutor= or localStorage k-tutor-base-url.
-    tutorBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app"
+    tutorBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app",
+    // Custom story generator (separate Cloud Run service, same Firebase project).
+    // Set to the rikizo-story-gen URL after deploy; empty = builder shows "unavailable".
+    // Overridable at runtime via ?storygen= or localStorage k-storygen-base-url.
+    storyGenBaseUrl: ""
   },
 
   _manifest: null,
@@ -476,6 +480,9 @@ window.JPApp = {
   _isModuleVisible: function(module) {
     var cfg = window.RIKIZO_CONFIG;
     if (cfg && cfg.mode === 'free') return true;
+    // Custom-story builder — surfaced only via the Custom opt-in tile (k-custom-enabled),
+    // so it's always "visible" to the launcher when reached.
+    if (module === 'build') return true;
     if (window.JPShared && window.JPShared.unlock) {
       return window.JPShared.unlock.isModuleVisible(module);
     }
@@ -625,6 +632,9 @@ window.JPApp = {
     // AND a server URL is set, so this is a no-op in the current local-only build.
     await this.loadModule('app/shared/auth.js');
     await this.loadModule('app/shared/sync.js');
+    // Custom-story generator transport (window.JPShared.storyGen). Inert unless
+    // storyGenBaseUrl is set; needs auth for the ID token.
+    await this.loadModule('app/shared/story-gen-client.js');
     await this.loadModule('app/shared/tutor-quota.js');
     await this.loadModule('app/shared/tutor-client.js');
     await this.loadModule('app/shared/tutor-context.js');
@@ -1259,6 +1269,7 @@ window.JPApp = {
     try { customOn = localStorage.getItem('k-custom-enabled') === '1'; } catch (e) {}
     if (customOn) {
       mods.push({ key: 'custom', label: 'Custom', jp: 'カスタム', kanji: '創', accent: 'gold' });
+      mods.push({ key: 'build', label: 'Create', jp: 'つくる', kanji: '作', accent: 'gold' });
     }
     var cells = mods.map(function(m) {
       var color = self._accent(m.accent);
@@ -1865,6 +1876,7 @@ window.JPApp = {
       grammar:        { global: 'GrammarModule',             file: 'Grammar.js' },
       game:           { global: 'GameModule',                file: 'Game.js' },
       custom:         { global: 'CustomStoriesModule',       file: 'Stories.js' },
+      build:          { global: 'CustomStoryBuilderModule',  file: 'CustomStoryBuilder.js' },
       'teacher-bingo':{ global: 'KanjiBingoGeneratorModule', file: 'KanjiBingoGenerator.js' },
       'writing-kanji':{ global: 'WritingKanjiModule',        file: 'WritingKanji.js',
                         deps: ['app/shared/stroke-canvas.js', 'app/shared/ink-morph.js'] },

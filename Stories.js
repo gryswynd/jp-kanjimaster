@@ -684,6 +684,29 @@ window.StoriesModule = (function () {
     }
   }
 
+  // Server-generated stories the user owns, cached locally by CustomStoryBuilder
+  // (index in k-user-stories, full body in k-user-story-<id>). Rendered in the
+  // custom category; loadStory uses the in-memory _body (no fetch).
+  function readUserStories() {
+    let index = [];
+    try { index = JSON.parse(localStorage.getItem('k-user-stories') || '[]'); } catch (e) {}
+    const out = [];
+    for (const meta of (Array.isArray(index) ? index : [])) {
+      if (!meta || !meta.id) continue;
+      let body = null;
+      try { body = JSON.parse(localStorage.getItem('k-user-story-' + meta.id) || 'null'); } catch (e) {}
+      if (!body || body.schemaVersion !== '2.0.0') continue;
+      out.push({
+        id: meta.id, dir: null, file: null,
+        title: body.title || meta.title || '',
+        subtitle: body.englishTitle || meta.englishTitle || '',
+        level: null, category: 'custom', unlocksAfter: null,
+        _body: body, _userStory: true, _sharedBy: meta.sharedBy || null,
+      });
+    }
+    return out;
+  }
+
   // ── Story list (curriculum + custom, filtered by categoryOpt) ───────────
   function buildStoryList(manifest) {
     const sortKeys = buildCurriculumSortKeys(manifest);
@@ -702,6 +725,10 @@ window.StoriesModule = (function () {
           unlocksAfter: s.unlocksAfter
         });
       }
+    }
+    // Server-generated (per-user) custom stories, cached locally by the builder.
+    if (!categoryOpt || categoryOpt === 'custom') {
+      for (const us of readUserStories()) storyList.push(us);
     }
     storyList.sort((a, b) => {
       // Curriculum first, sorted by unlocksAfter; then custom.
@@ -863,10 +890,17 @@ window.StoriesModule = (function () {
   async function loadStory(storyInfo) {
     container.innerHTML = '<div class="jp-story-container"><div class="jp-story-loading"><div class="jp-story-loading-spinner"></div>Loading story…</div></div>';
     try {
-      const url = getCdnUrl(storyInfo.dir + '/' + (storyInfo.file || 'story.json')) + '?t=' + Date.now();
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Failed to load story: ' + res.status);
-      const data = await res.json();
+      // Server-generated stories carry their body in-memory (cached locally);
+      // bundled stories fetch their story.json by path.
+      let data;
+      if (storyInfo._body) {
+        data = storyInfo._body;
+      } else {
+        const url = getCdnUrl(storyInfo.dir + '/' + (storyInfo.file || 'story.json')) + '?t=' + Date.now();
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Failed to load story: ' + res.status);
+        data = await res.json();
+      }
       if (!data.schemaVersion || data.schemaVersion !== '2.0.0') {
         throw new Error('Unsupported story schema: ' + data.schemaVersion);
       }
