@@ -265,7 +265,8 @@ const glossaryIndex = await buildGlossaryIndex(
     path.join(ROOT, 'data/N4/glossary.N4.json'),
     path.join(ROOT, 'data/N3/glossary.N3.json'),
     path.join(ROOT, 'shared/particles.json'),
-    path.join(ROOT, 'shared/characters.json')
+    path.join(ROOT, 'shared/characters.json'),
+    path.join(ROOT, 'shared/loanwords.json')
   ],
   readFile,
   { includeReadings: true, conjugationRules, counterRules, verbose: true }

@@ -10,6 +10,7 @@ window.LessonModule = {
     let totalSteps = 0;
     let lessonData = null;
     let termMapData = {};
+    let loanwordIds = new Set();   // pool ids — filtered out of vocab lists (drilled in the dojo)
     let showEN = false;
     let showAnswers = false;
     let drillCorrect = 0;
@@ -321,11 +322,15 @@ window.LessonModule = {
         const counterUrl = getCdnUrl(manifest.globalFiles.counterRules);
         const particleUrl = getCdnUrl(manifest.shared.particles);
         const characterUrl = getCdnUrl(manifest.shared.characters);
-        const [conj, counter, particleData, characterData, ...glossParts] = await Promise.all([
+        const loanwordUrl = manifest.shared.loanwords ? getCdnUrl(manifest.shared.loanwords) : null;
+        const originsUrl = manifest.shared.loanwordOrigins ? getCdnUrl(manifest.shared.loanwordOrigins) : null;
+        const [conj, counter, particleData, characterData, loanwordData, originsData, ...glossParts] = await Promise.all([
              fetch(conjUrl).then(r => r.json()),
              fetch(counterUrl).then(r => r.json()),
              fetch(particleUrl).then(r => r.json()),
              fetch(characterUrl).then(r => r.json()),
+             loanwordUrl ? fetch(loanwordUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+             originsUrl ? fetch(originsUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
              ...manifest.levels.map(lvl => fetch(getCdnUrl(manifest.data[lvl].glossary)).then(r => r.json()))
         ]);
         const map = {};
@@ -336,12 +341,21 @@ window.LessonModule = {
         (characterData.characters || []).forEach(c => {
             map[c.id] = Object.assign({}, c, { portraitUrl: getCdnUrl(c.portrait) });
         });
+        // Fold the always-allowed loanword pool into the term map so loanwords in
+        // lesson PROSE still tokenize + open their modal — but record their ids so
+        // renderVocab can drop them from the vocab LIST (drilled in the dojo).
+        const lwIds = new Set();
+        ((loanwordData && loanwordData.loanwords) || []).forEach(w => {
+            map[w.id] = Object.assign({ type: 'loanword' }, w);
+            lwIds.add(w.id);
+        });
+        const loanwordOrigins = (originsData && originsData.origins) || {};
         if (window.JPShared && window.JPShared.assets && window.JPShared.assets.preloadImages) {
             window.JPShared.assets.preloadImages(
                 (characterData.characters || []).map(c => getCdnUrl(c.portrait)).filter(Boolean)
             );
         }
-        return { map, conj, counter };
+        return { map, conj, counter, loanwordIds: lwIds, loanwordOrigins };
     }
 
     // --- RANK CELEBRATION ---
@@ -617,7 +631,10 @@ window.LessonModule = {
     function renderVocab(sec) {
         const div = el("div", "");
         div.style.cssText = "padding:24px 0 32px;";
-        const total = (sec.groups || []).reduce((a, g) => a + (g.items || []).length, 0);
+        // Loanwords are drilled in the dojo (Gairaigo Gauntlet), not in lesson
+        // vocab — drop their ids here so the kanji vocab list stays pure.
+        const visibleItems = (g) => (g.items || []).filter(ref => !(typeof ref === 'string' && loanwordIds.has(ref)));
+        const total = (sec.groups || []).reduce((a, g) => a + visibleItems(g).length, 0);
         // Hybrid display: render compounds as e.g. 友だち until 達 is taught.
         // Current lesson's own meta.kanji are treated as known here because the
         // kanji section sits above the vocab section on the page.
@@ -637,14 +654,18 @@ window.LessonModule = {
         div.innerHTML = sectionIntroBlock(metaLine, heading, leadLine);
         const holder = el("div", "");
         holder.style.cssText = "margin-top:22px;";
-        (sec.groups || []).forEach((g, gi) => {
+        let visIdx = 0;
+        (sec.groups || []).forEach((g) => {
+            const items = visibleItems(g);
+            if (!items.length) return;   // group became empty after dropping loanwords
+            visIdx++;
             const grp = el("div", "");
             grp.style.cssText = "margin-bottom:18px;";
             grp.innerHTML = '<div style="padding:0 22px;margin-bottom:8px;display:flex;align-items:center;gap:10px;">' +
-                '<div class="lh-meta" style="font-size:10px;">' + String(gi + 1).padStart(2, "0") + '</div>' +
+                '<div class="lh-meta" style="font-size:10px;">' + String(visIdx).padStart(2, "0") + '</div>' +
                 '<div class="jp-serif" style="font-size:14px;font-weight:600;color:var(--ink);">' + esc(g.label || '') + '</div>' +
                 '<div style="flex:1;height:1px;background:var(--hairline);"></div></div>';
-            (g.items || []).forEach((ref, vi) => {
+            items.forEach((ref, vi) => {
                 const t = (typeof ref === 'string') ? termMapData[ref] : null;
                 if (!t) return;
                 const row = el("button", "");
@@ -1549,9 +1570,11 @@ window.LessonModule = {
               }
           });
           termMapData = resources.map;
+          loanwordIds = resources.loanwordIds || new Set();
           CONJUGATION_RULES = resources.conj;
           COUNTER_RULES = resources.counter;
           window.JPShared.termModal.setTermMap(termMapData);
+          if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap(resources.loanwordOrigins || {});
 
           lessonData.sections.unshift({ type: 'intro', title: lessonData.title });
           totalSteps = lessonData.sections.length;

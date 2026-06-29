@@ -966,14 +966,16 @@ window.FinalReviewModule = (function () {
       const dataUrl = getUrl(frEntry.file);
 
       // Load data files in parallel
-      const [data, conjData, ctrData, glossN5Raw, glossN4Raw, particlesRaw, characterDataRaw] = await Promise.all([
+      const [data, conjData, ctrData, glossN5Raw, glossN4Raw, particlesRaw, characterDataRaw, loanwordRaw, originsRaw] = await Promise.all([
         window.JPShared.assets.fetchJSON(dataUrl),
         window.JPShared.assets.fetchJSON(getUrl(manifest.globalFiles.conjugationRules)),
         window.JPShared.assets.fetchJSON(getUrl(manifest.globalFiles.counterRules)),
         window.JPShared.assets.fetchJSON(getUrl(manifest.data.N5.glossary)),
         window.JPShared.assets.fetchJSON(getUrl(manifest.data.N4.glossary)),
         window.JPShared.assets.fetchJSON(getUrl(manifest.shared.particles)),
-        window.JPShared.assets.fetchJSON(getUrl(manifest.shared.characters))
+        window.JPShared.assets.fetchJSON(getUrl(manifest.shared.characters)),
+        manifest.shared.loanwords ? window.JPShared.assets.fetchJSON(getUrl(manifest.shared.loanwords)).catch(() => null) : Promise.resolve(null),
+        manifest.shared.loanwordOrigins ? window.JPShared.assets.fetchJSON(getUrl(manifest.shared.loanwordOrigins)).catch(() => null) : Promise.resolve(null)
       ]);
 
       reviewData = data;
@@ -1003,9 +1005,11 @@ window.FinalReviewModule = (function () {
       characters.forEach(c => {
         if (c.id) termMap[c.id] = Object.assign({}, c, { portraitUrl: getUrl(c.portrait) });
       });
+      ((loanwordRaw && loanwordRaw.loanwords) || []).forEach(w => { termMap[w.id] = Object.assign({ type: 'loanword' }, w); });
 
       // Wire up term modal so tapping vocab shows meaning popup
       window.JPShared.termModal.setTermMap(termMap);
+      if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap((originsRaw && originsRaw.origins) || {});
       window.JPShared.termModal.inject();
       window.JP_OPEN_TERM = function(id, enableFlag) {
         window.JPShared.termModal.open(id, {

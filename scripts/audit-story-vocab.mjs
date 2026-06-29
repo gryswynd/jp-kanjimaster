@@ -46,7 +46,7 @@ const LEVELS = ['N5', 'N4', 'N3'];               // index = difficulty rank
 const STORY_RANK = LEVEL === 'custom' ? LEVELS.indexOf('N4') : LEVELS.indexOf(LEVEL);
 
 const load = async (p) => JSON.parse(await readFile(path.join(ROOT, p), 'utf8'));
-const entriesOf = (g) => Array.isArray(g) ? g : (g.entries || g.particles || g.characters || []);
+const entriesOf = (g) => Array.isArray(g) ? g : (g.entries || g.particles || g.characters || g.loanwords || []);
 
 // ── Build id → level-rank map (lowest level wins) + always-approved ids ──────
 const idRank = {};                                // glossary entry id → rank
@@ -56,7 +56,7 @@ for (let r = 0; r < LEVELS.length; r++) {
     if (e && e.id && !(e.id in idRank)) idRank[e.id] = r;
   }
 }
-for (const f of ['shared/particles.json', 'shared/characters.json']) {
+for (const f of ['shared/particles.json', 'shared/characters.json', 'shared/loanwords.json']) {
   try { for (const e of entriesOf(await load(f))) if (e && e.id) approvedIds.add(e.id); } catch {}
 }
 const ALL_IDS = [...Object.keys(idRank), ...approvedIds].sort((a, b) => b.length - a.length);
@@ -74,7 +74,7 @@ for (let r = 0; r < LEVELS.length; r++) {
     if (Array.isArray(e.tokens)) noteSurface(e.tokens.map(t => t.k).join(''), r);
   }
 }
-for (const f of ['shared/particles.json', 'shared/characters.json']) {
+for (const f of ['shared/particles.json', 'shared/characters.json', 'shared/loanwords.json']) {
   try {
     for (const e of entriesOf(await load(f))) {
       if (!e) continue;

@@ -23,7 +23,9 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSy
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { keyHash } from './build-audio-manifest.mjs';
+import { loadTtsNormalize } from './lib/load-normalize.mjs';
 
+const norm = loadTtsNormalize();   // same reading overrides the key path uses (月よう日→げつようび)
 const ROOT = new URL('..', import.meta.url).pathname;
 const FORCE = process.argv.includes('--force');
 const VOICE = process.env.VOICE || 'Fenrir';
@@ -211,8 +213,11 @@ async function buildPassage(story) {
   let cum = 0;
   let synthChars = 0;
   for (let i = 0; i < paras.length; i++) {
-    const { hash, cached } = await ensureClip(paras[i]);   // reuse the per-paragraph clip
-    if (!cached) synthChars += paras[i].length;
+    // Synthesize the NORMALIZED text (reading overrides applied) so the passage
+    // matches the keyed clips — e.g. 月よう日 reads げつようび, not "…ひ".
+    const synthText = norm.normalizeKey(paras[i], null);
+    const { hash, cached } = await ensureClip(synthText);  // reuse the per-paragraph clip
+    if (!cached) synthChars += synthText.length;
     const seg = join(CLIPS_DIR, `${hash}.m4a`);
     segPaths.push(seg);
     breakpoints.push(Math.round(cum * 1000) / 1000);

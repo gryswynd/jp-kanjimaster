@@ -720,11 +720,15 @@ window.GrammarModule = {
       const counterUrl = getCdnUrl(manifest.globalFiles.counterRules);
       const particleUrl = getCdnUrl(manifest.shared.particles);
       const characterUrl = getCdnUrl(manifest.shared.characters);
-      const [conj, counter, particleData, characterData, ...glossParts] = await Promise.all([
+      const loanwordUrl = manifest.shared.loanwords ? getCdnUrl(manifest.shared.loanwords) : null;
+      const originsUrl = manifest.shared.loanwordOrigins ? getCdnUrl(manifest.shared.loanwordOrigins) : null;
+      const [conj, counter, particleData, characterData, loanwordData, originsData, ...glossParts] = await Promise.all([
         fetch(conjUrl).then(r => r.json()),
         fetch(counterUrl).then(r => r.json()),
         fetch(particleUrl).then(r => r.json()),
         fetch(characterUrl).then(r => r.json()),
+        loanwordUrl ? fetch(loanwordUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+        originsUrl ? fetch(originsUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
         ...manifest.levels.map(lvl => fetch(getCdnUrl(manifest.data[lvl].glossary)).then(r => r.json()))
       ]);
       const map = {};
@@ -735,13 +739,15 @@ window.GrammarModule = {
       (characterData.characters || []).forEach(c => {
         map[c.id] = Object.assign({}, c, { portraitUrl: getCdnUrl(c.portrait) });
       });
+      ((loanwordData && loanwordData.loanwords) || []).forEach(w => { map[w.id] = Object.assign({ type: 'loanword' }, w); });
+      const loanwordOrigins = (originsData && originsData.origins) || {};
       // Preload portrait images in the background so they appear instantly on first tap
       if (window.JPShared && window.JPShared.assets && window.JPShared.assets.preloadImages) {
         window.JPShared.assets.preloadImages(
           (characterData.characters || []).map(c => getCdnUrl(c.portrait)).filter(Boolean)
         );
       }
-      return { map, conj, counter };
+      return { map, conj, counter, loanwordOrigins };
     }
 
     // ──────────────────────────────────────────────
@@ -1744,6 +1750,7 @@ window.GrammarModule = {
         CONJUGATION_RULES = resources.conj;
         COUNTER_RULES = resources.counter;
         window.JPShared.termModal.setTermMap(termMapData);
+        if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap(resources.loanwordOrigins || {});
 
         currentStep = 0;
         totalSteps = grammarData.sections.length + 1;

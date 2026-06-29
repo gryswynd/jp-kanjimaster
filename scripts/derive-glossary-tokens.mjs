@@ -66,6 +66,35 @@ async function processGlossary(file) {
   return { file, added, unchanged, written: added > 0 };
 }
 
+async function processLoanwords(file) {
+  const fullPath = path.join(ROOT, file);
+  const raw = await readFile(fullPath, 'utf8');
+  const data = JSON.parse(raw);
+  if (!Array.isArray(data.loanwords)) {
+    console.warn(`[skip] ${file}: no loanwords[]`);
+    return { file, written: false };
+  }
+  let added = 0;
+  let unchanged = 0;
+  for (const entry of data.loanwords) {
+    if (entry.tokens) { unchanged++; continue; }
+    // Pure-katakana surface + hiragana reading → single token carrying `r`
+    // (drives romaji mode; the renderer shows no furigana over katakana).
+    const tokens = deriveTokens(entry.surface, entry.reading);
+    if (tokens) {
+      entry.tokens = tokens;
+      added++;
+    } else {
+      unchanged++;
+    }
+  }
+  if (added > 0) {
+    await writeFile(fullPath, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  }
+  console.log(`[${file}] added tokens to ${added} loanwords, ${unchanged} unchanged`);
+  return { file, added, unchanged, written: added > 0 };
+}
+
 async function processParticles(file) {
   const fullPath = path.join(ROOT, file);
   const raw = await readFile(fullPath, 'utf8');
@@ -100,7 +129,8 @@ const TARGETS = [
   { type: 'glossary',  file: 'data/N5/glossary.N5.json' },
   { type: 'glossary',  file: 'data/N4/glossary.N4.json' },
   { type: 'glossary',  file: 'data/N3/glossary.N3.json' },
-  { type: 'particles', file: 'shared/particles.json' }
+  { type: 'particles', file: 'shared/particles.json' },
+  { type: 'loanwords', file: 'shared/loanwords.json' }
 ];
 
 const results = [];
@@ -108,6 +138,8 @@ for (const t of TARGETS) {
   try {
     const r = t.type === 'particles'
       ? await processParticles(t.file)
+      : t.type === 'loanwords'
+      ? await processLoanwords(t.file)
       : await processGlossary(t.file);
     results.push(r);
   } catch (err) {

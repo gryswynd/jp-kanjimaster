@@ -264,12 +264,12 @@ func _make_item_card(item: Dictionary, buyable: bool) -> Control:
 		var item_id := str(item.get("id", ""))
 		var stepper := HBoxContainer.new()
 		stepper.alignment = BoxContainer.ALIGNMENT_CENTER
-		stepper.add_theme_constant_override("separation", 8)
+		stepper.add_theme_constant_override("separation", 14)
 
 		var minus := Button.new()
 		minus.text = "−"
-		minus.add_theme_font_size_override("font_size", 18)
-		minus.custom_minimum_size = Vector2(36, 32)
+		minus.add_theme_font_size_override("font_size", 22)
+		minus.custom_minimum_size = Vector2(56, 48)
 		minus.focus_mode = Control.FOCUS_NONE
 		minus.pressed.connect(func(): _adjust(item_id, -1))
 		stepper.add_child(minus)
@@ -278,15 +278,15 @@ func _make_item_card(item: Dictionary, buyable: bool) -> Control:
 		qty.text = "0"
 		qty.add_theme_font_size_override("font_size", 18)
 		qty.add_theme_color_override("font_color", Color(0.12, 0.08, 0.05))
-		qty.custom_minimum_size = Vector2(28, 0)
+		qty.custom_minimum_size = Vector2(40, 0)
 		qty.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		stepper.add_child(qty)
 		_qty_labels[item_id] = qty
 
 		var plus := Button.new()
 		plus.text = "+"
-		plus.add_theme_font_size_override("font_size", 18)
-		plus.custom_minimum_size = Vector2(36, 32)
+		plus.add_theme_font_size_override("font_size", 22)
+		plus.custom_minimum_size = Vector2(56, 48)
 		plus.focus_mode = Control.FOCUS_NONE
 		plus.pressed.connect(func(): _adjust(item_id, 1))
 		stepper.add_child(plus)

@@ -439,6 +439,7 @@ window.GameModule = (function() {
 
     // --- Term / Glossary State ---
     let termMap = {};
+    let gameLoanwordOrigins = {};
     let conjugationRules = null;
     let counterRules = null;
     let _surfaceIndex = null;
@@ -1329,6 +1330,8 @@ window.GameModule = (function() {
         const counterUrl  = getSharedAssetUrl(manifest.globalFiles.counterRules) + cacheBust;
         const particleUrl   = getSharedAssetUrl(manifest.shared.particles) + cacheBust;
         const characterUrl  = getSharedAssetUrl(manifest.shared.characters) + cacheBust;
+        const loanwordUrl   = manifest.shared.loanwords ? getSharedAssetUrl(manifest.shared.loanwords) + cacheBust : null;
+        const originsUrl    = manifest.shared.loanwordOrigins ? getSharedAssetUrl(manifest.shared.loanwordOrigins) + cacheBust : null;
         const glossUrls = manifest.levels.map(lvl => getSharedAssetUrl(manifest.data[lvl].glossary) + cacheBust);
         return Promise.all([
           fetch(dayUrl).then(r => r.json()),
@@ -1336,8 +1339,10 @@ window.GameModule = (function() {
           fetch(counterUrl).then(r => r.json()),
           fetch(particleUrl).then(r => r.json()),
           fetch(characterUrl).then(r => r.json()),
+          loanwordUrl ? fetch(loanwordUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+          originsUrl ? fetch(originsUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
           ...glossUrls.map(url => fetch(url).then(r => r.json()))
-        ]).then(([day, conj, counter, particleData, characterData, ...glossParts]) => {
+        ]).then(([day, conj, counter, particleData, characterData, loanwordData, originsData, ...glossParts]) => {
           glossParts.forEach(g => g.entries.forEach(e => { termMap[e.id] = e; }));
           (particleData.particles || []).forEach(p => {
             termMap[p.id] = { id: p.id, surface: p.particle, reading: p.reading, meaning: p.role, notes: p.explanation, type: 'particle', matches: p.matches || [] };
@@ -1345,6 +1350,8 @@ window.GameModule = (function() {
           (characterData.characters || []).forEach(c => {
             termMap[c.id] = Object.assign({}, c, { portraitUrl: getSharedAssetUrl(c.portrait) });
           });
+          ((loanwordData && loanwordData.loanwords) || []).forEach(w => { termMap[w.id] = Object.assign({ type: 'loanword' }, w); });
+          gameLoanwordOrigins = (originsData && originsData.origins) || {};
           // Preload portrait images in the background so they appear instantly on first tap
           if (window.JPShared && window.JPShared.assets && window.JPShared.assets.preloadImages) {
             window.JPShared.assets.preloadImages(
@@ -1362,6 +1369,7 @@ window.GameModule = (function() {
         if (window.JPShared && window.JPShared.termModal) {
           window.JPShared.termModal.inject();
           window.JPShared.termModal.setTermMap(termMap);
+          if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap(gameLoanwordOrigins);
         }
         loadImages();
       })

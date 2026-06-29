@@ -412,6 +412,8 @@
         const counterUrl  = this.getUrl(manifest.globalFiles.counterRules);
         const particleUrl = this.getUrl(manifest.shared.particles);
         const characterUrl = this.getUrl(manifest.shared.characters);
+        const loanwordUrl = manifest.shared.loanwords ? this.getUrl(manifest.shared.loanwords) : null;
+        const originsUrl = manifest.shared.loanwordOrigins ? this.getUrl(manifest.shared.loanwordOrigins) : null;
         const glossaryUrls = manifest.levels.map(lvl => this.getUrl(manifest.data[lvl].glossary));
 
         console.log('[Review] Quiz URL:', quizUrl);
@@ -419,12 +421,14 @@
         console.log('[Review] Counter URL:', counterUrl);
 
         // 1. Fetch Quiz Data + Glossary + Conjugations + Counter Rules in parallel
-        const [quizRes, conjRes, counterRes, particleRes, characterRes, ...glossResponses] = await Promise.all([
+        const [quizRes, conjRes, counterRes, particleRes, characterRes, loanwordRes, originsRes, ...glossResponses] = await Promise.all([
             fetch(quizUrl),
             fetch(conjUrl),
             fetch(counterUrl),
             fetch(particleUrl),
             fetch(characterUrl),
+            loanwordUrl ? fetch(loanwordUrl).catch(() => null) : Promise.resolve(null),
+            originsUrl ? fetch(originsUrl).catch(() => null) : Promise.resolve(null),
             ...glossaryUrls.map(u => fetch(u))
         ]);
 
@@ -449,6 +453,8 @@
         this.state.counterRules = await counterRes.json();
         const particleData = await particleRes.json();
         const characterData = await characterRes.json();
+        const loanwordData = (loanwordRes && loanwordRes.ok) ? await loanwordRes.json().catch(() => null) : null;
+        const originsData = (originsRes && originsRes.ok) ? await originsRes.json().catch(() => null) : null;
 
         const glossData = { entries: glossParts.flatMap(g => g.entries) };
         console.log('[Review] Quiz title:', quizData.title);
@@ -463,6 +469,8 @@
         (characterData.characters || []).forEach(c => {
             this.state.termMap[c.id] = Object.assign({}, c, { portraitUrl: this.getUrl(c.portrait) });
         });
+        ((loanwordData && loanwordData.loanwords) || []).forEach(w => { this.state.termMap[w.id] = Object.assign({ type: 'loanword' }, w); });
+        this._loanwordOrigins = (originsData && originsData.origins) || {};
         // Preload portrait images in the background so they appear instantly on first tap
         if (window.JPShared && window.JPShared.assets && window.JPShared.assets.preloadImages) {
             const getUrl = this.getUrl.bind(this);
@@ -476,6 +484,7 @@
         this.injectStyles();
         console.log('[Review] Injecting modal...');
         window.JPShared.termModal.setTermMap(this.state.termMap);
+        if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap(this._loanwordOrigins || {});
         window.JPShared.termModal.inject();
         // Wire JP_OPEN_TERM to Review's flagTerm so quiz auto-flagging and
         // modal flagging use the same method (getRootTerm-aware, returns bool).

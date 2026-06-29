@@ -2,22 +2,274 @@
   "schemaVersion": "1.0.0",
   "audiostories": [
     {
-      "id": "asa-no-seikatsu",
+      "id": "kazoku",
       "level": "N5",
-      "title": "あさのせいかつ",
-      "englishTitle": "Morning Routine",
-      "dir": "data/N5/audiostories/asa-no-seikatsu",
+      "title": "かぞく",
+      "englishTitle": "My Family",
+      "dir": "data/N5/audiostories/kazoku",
       "file": "audiostory.json",
-      "order": 10
+      "order": 10,
+      "unlocksAfter": "N5.2"
     },
     {
-      "id": "shumatsu-no-koen",
+      "id": "tanjoubi",
       "level": "N5",
-      "title": "しゅうまつのこうえん",
-      "englishTitle": "The Park on the Weekend",
-      "dir": "data/N5/audiostories/shumatsu-no-koen",
+      "title": "たんじょうび",
+      "englishTitle": "The Birthday Party",
+      "dir": "data/N5/audiostories/tanjoubi",
       "file": "audiostory.json",
-      "order": 20
+      "order": 20,
+      "unlocksAfter": "N5.4"
+    },
+    {
+      "id": "machi-e",
+      "level": "N5",
+      "title": "まちへ",
+      "englishTitle": "Going to Town",
+      "dir": "data/N5/audiostories/machi-e",
+      "file": "audiostory.json",
+      "order": 30,
+      "unlocksAfter": "N5.6"
+    },
+    {
+      "id": "kaimono",
+      "level": "N5",
+      "title": "かいもの",
+      "englishTitle": "Shopping",
+      "dir": "data/N5/audiostories/kaimono",
+      "file": "audiostory.json",
+      "order": 40,
+      "unlocksAfter": "N5.8"
+    },
+    {
+      "id": "tenki",
+      "level": "N5",
+      "title": "てんき",
+      "englishTitle": "The Weather",
+      "dir": "data/N5/audiostories/tenki",
+      "file": "audiostory.json",
+      "order": 50,
+      "unlocksAfter": "N5.10"
+    },
+    {
+      "id": "nihongo",
+      "level": "N5",
+      "title": "にほんご",
+      "englishTitle": "Studying Japanese",
+      "dir": "data/N5/audiostories/nihongo",
+      "file": "audiostory.json",
+      "order": 60,
+      "unlocksAfter": "N5.12"
+    },
+    {
+      "id": "denwa",
+      "level": "N5",
+      "title": "でんわ",
+      "englishTitle": "A Phone Call",
+      "dir": "data/N5/audiostories/denwa",
+      "file": "audiostory.json",
+      "order": 70,
+      "unlocksAfter": "N5.14"
+    },
+    {
+      "id": "michi",
+      "level": "N5",
+      "title": "みち",
+      "englishTitle": "Directions",
+      "dir": "data/N5/audiostories/michi",
+      "file": "audiostory.json",
+      "order": 80,
+      "unlocksAfter": "N5.16"
+    },
+    {
+      "id": "kaisha",
+      "level": "N5",
+      "title": "かいしゃ",
+      "englishTitle": "At the Company",
+      "dir": "data/N5/audiostories/kaisha",
+      "file": "audiostory.json",
+      "order": 90,
+      "unlocksAfter": "N5.18"
+    },
+    {
+      "id": "tsuukin",
+      "level": "N4",
+      "title": "つうきん",
+      "englishTitle": "The Commute",
+      "dir": "data/N4/audiostories/tsuukin",
+      "file": "audiostory.json",
+      "order": 100,
+      "unlocksAfter": "N4.2"
+    },
+    {
+      "id": "iro",
+      "level": "N4",
+      "title": "いろ",
+      "englishTitle": "Colors & What I Can Do",
+      "dir": "data/N4/audiostories/iro",
+      "file": "audiostory.json",
+      "order": 110,
+      "unlocksAfter": "N4.4"
+    },
+    {
+      "id": "shokuji",
+      "level": "N4",
+      "title": "しょくじ",
+      "englishTitle": "A Meal",
+      "dir": "data/N4/audiostories/shokuji",
+      "file": "audiostory.json",
+      "order": 120,
+      "unlocksAfter": "N4.6"
+    },
+    {
+      "id": "kazoku-kisetsu",
+      "level": "N4",
+      "title": "かぞくときせつ",
+      "englishTitle": "Family & Seasons",
+      "dir": "data/N4/audiostories/kazoku-kisetsu",
+      "file": "audiostory.json",
+      "order": 130,
+      "unlocksAfter": "N4.8"
+    },
+    {
+      "id": "eiga",
+      "level": "N4",
+      "title": "えいが",
+      "englishTitle": "A Day Out & a Movie",
+      "dir": "data/N4/audiostories/eiga",
+      "file": "audiostory.json",
+      "order": 140,
+      "unlocksAfter": "N4.10"
+    },
+    {
+      "id": "ryokou",
+      "level": "N4",
+      "title": "りょこう",
+      "englishTitle": "A Trip Abroad",
+      "dir": "data/N4/audiostories/ryokou",
+      "file": "audiostory.json",
+      "order": 150,
+      "unlocksAfter": "N4.12"
+    },
+    {
+      "id": "ongaku",
+      "level": "N4",
+      "title": "おんがく",
+      "englishTitle": "Work & Music",
+      "dir": "data/N4/audiostories/ongaku",
+      "file": "audiostory.json",
+      "order": 160,
+      "unlocksAfter": "N4.14"
+    },
+    {
+      "id": "kenkou",
+      "level": "N4",
+      "title": "けんこう",
+      "englishTitle": "Staying Healthy",
+      "dir": "data/N4/audiostories/kenkou",
+      "file": "audiostory.json",
+      "order": 170,
+      "unlocksAfter": "N4.16"
+    },
+    {
+      "id": "kyouto",
+      "level": "N4",
+      "title": "きょうとへ",
+      "englishTitle": "A Trip to Kyoto",
+      "dir": "data/N4/audiostories/kyouto",
+      "file": "audiostory.json",
+      "order": 180,
+      "unlocksAfter": "N4.18"
+    },
+    {
+      "id": "yoru",
+      "level": "N4",
+      "title": "よるのまち",
+      "englishTitle": "The Town at Night",
+      "dir": "data/N4/audiostories/yoru",
+      "file": "audiostory.json",
+      "order": 190,
+      "unlocksAfter": "N4.20"
+    },
+    {
+      "id": "mise",
+      "level": "N4",
+      "title": "みせのルール",
+      "englishTitle": "Shop Rules",
+      "dir": "data/N4/audiostories/mise",
+      "file": "audiostory.json",
+      "order": 200,
+      "unlocksAfter": "N4.22"
+    },
+    {
+      "id": "benkyou",
+      "level": "N4",
+      "title": "べんきょう",
+      "englishTitle": "Getting Better at Study",
+      "dir": "data/N4/audiostories/benkyou",
+      "file": "audiostory.json",
+      "order": 210,
+      "unlocksAfter": "N4.24"
+    },
+    {
+      "id": "kenkyuu",
+      "level": "N4",
+      "title": "けんきゅう",
+      "englishTitle": "Research",
+      "dir": "data/N4/audiostories/kenkyuu",
+      "file": "audiostory.json",
+      "order": 220,
+      "unlocksAfter": "N4.26"
+    },
+    {
+      "id": "matsuri",
+      "level": "N4",
+      "title": "むらのまつり",
+      "englishTitle": "The Village Festival",
+      "dir": "data/N4/audiostories/matsuri",
+      "file": "audiostory.json",
+      "order": 230,
+      "unlocksAfter": "N4.28"
+    },
+    {
+      "id": "taifuu",
+      "level": "N4",
+      "title": "たいふう",
+      "englishTitle": "The Typhoon",
+      "dir": "data/N4/audiostories/taifuu",
+      "file": "audiostory.json",
+      "order": 240,
+      "unlocksAfter": "N4.30"
+    },
+    {
+      "id": "kaigi",
+      "level": "N4",
+      "title": "ことば",
+      "englishTitle": "Learning New Words",
+      "dir": "data/N4/audiostories/kaigi",
+      "file": "audiostory.json",
+      "order": 250,
+      "unlocksAfter": "N4.32"
+    },
+    {
+      "id": "shukkin",
+      "level": "N4",
+      "title": "しゅっきん",
+      "englishTitle": "Commuting to the New Office",
+      "dir": "data/N4/audiostories/shukkin",
+      "file": "audiostory.json",
+      "order": 260,
+      "unlocksAfter": "N4.34"
+    },
+    {
+      "id": "ichinichi",
+      "level": "N4",
+      "title": "あるいちにち",
+      "englishTitle": "A Full Day",
+      "dir": "data/N4/audiostories/ichinichi",
+      "file": "audiostory.json",
+      "order": 270,
+      "unlocksAfter": "N4.36"
     }
   ]
 }

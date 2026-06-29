@@ -149,6 +149,11 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
   // for these — those tokens would re-introduce the kanji form into prose
   // that was written in kana.
   const readingOnlyKeys = new Set();
+  // Kanji-bearing character keys (e.g. 木さん, 金魚さん, すずき先生). These route
+  // through the matchesAlias emit path so the kanji get per-char furigana via
+  // deriveTokens and the whole name chips to the character id. Kana character
+  // names (りきぞう, けん) are left on their existing path (no change).
+  const characterKanjiKeys = new Set();
 
   for (const p of jsonPaths) {
     const raw = await readFile(p, 'utf8');
@@ -205,7 +210,10 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
         if (c.name) variants.add(c.name);
         if (Array.isArray(c.matches)) for (const m of c.matches) variants.add(m);
         for (const k of variants) {
-          if (k && !idx.has(k)) idx.set(k, adapted);
+          if (k && !idx.has(k)) {
+            idx.set(k, adapted);
+            if (/[一-鿿]/.test(k)) characterKanjiKeys.add(k);
+          }
         }
       }
     }
@@ -394,6 +402,9 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
     Array.from(idx.entries()).sort((a, b) => b[0].length - a[0].length)
   );
   // Attach metadata so consumers can check for reading-only matches.
+  // Kanji-bearing character names emit through the matchesAlias path (per-char
+  // furigana + character-id group), exactly like an authored kana-hybrid alias.
+  for (const k of characterKanjiKeys) matchesKeys.add(k);
   sorted._readingOnlyKeys = readingOnlyKeys;
   sorted._matchesKeys = matchesKeys;
   return sorted;

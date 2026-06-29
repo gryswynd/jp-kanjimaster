@@ -14,6 +14,8 @@
     "helperVocab": "shared/helper-vocab.json",
     "particles": "shared/particles.json",
     "characters": "shared/characters.json",
+    "loanwords": "shared/loanwords.json",
+    "loanwordOrigins": "shared/loanword-origins.json",
     "playerSprite": "assets/characters/rikizo/rikizo_sheet.png"
   },
   "data": {
@@ -1752,6 +1754,14 @@
           "title": "Is Tree-san Family?",
           "titleJp": "木さんは家族？",
           "dir": "data/custom/stories/ki-san-wa-kazoku",
+          "file": "story.json",
+          "unlocksAfter": null
+        },
+        {
+          "id": "omoi-kaban-no-nazo",
+          "title": "The Mystery of the Heavy Bag",
+          "titleJp": "重いかばんの問題",
+          "dir": "data/custom/stories/omoi-kaban-no-nazo",
           "file": "story.json",
           "unlocksAfter": null
         }

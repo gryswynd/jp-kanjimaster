@@ -34,7 +34,8 @@ window.GlossaryModule = (function () {
     vocab:    { label: '語',    cls: 'v' },
     grammar:  { label: '文法',  cls: 'g' },
     phrase:   { label: '表現',  cls: 'p' },
-    particle: { label: '助詞',  cls: 'pt' }
+    particle: { label: '助詞',  cls: 'pt' },
+    loanword: { label: '外来',  cls: 'lw' }
   };
 
   // ── State ──────────────────────────────────────────────────────────────────
@@ -42,6 +43,7 @@ window.GlossaryModule = (function () {
   var config = null;
   var onExit = null;
   var byId = {};            // id → entry (deduped canonical set)
+  var origins = {};         // langKey → { displayName, flag } for loanword origins
   var lessonTitle = {};     // "N5.1" → "People & Family" (N5/N4 from manifest)
   var learned = [];         // kept entries, decorated with sort keys
   var sortMode = 'kana';    // 'kana' | 'lesson'
@@ -102,6 +104,25 @@ window.GlossaryModule = (function () {
         totalLearnable++;
       });
     });
+
+    // Always-allowed loanword pool + origins lookup (level-agnostic). Shown in
+    // their own ungated "Loan-Words" section (see buildLearnedView).
+    var lwPath = (manifest && manifest.shared && manifest.shared.loanwords) || 'shared/loanwords.json';
+    var orPath = (manifest && manifest.shared && manifest.shared.loanwordOrigins) || 'shared/loanword-origins.json';
+    var lwRes = await Promise.all([
+      fetch(getUrl(lwPath) + bust).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+      fetch(getUrl(orPath) + bust).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+    ]);
+    origins = (lwRes[1] && lwRes[1].origins) || {};
+    if (lwRes[0] && Array.isArray(lwRes[0].loanwords)) {
+      lwRes[0].loanwords.forEach(function (w) {
+        if (!w || !w.id || byId[w.id]) return;
+        w.type = 'loanword';
+        w._loanword = true;
+        byId[w.id] = w;
+        totalLearnable++;
+      });
+    }
   }
 
   function buildLessonMeta(manifest) {
@@ -145,10 +166,15 @@ window.GlossaryModule = (function () {
     learned = [];
     Object.keys(byId).forEach(function (id) {
       var e = byId[id];
-      var lid = firstValidLesson(e);
-      if (!lid) return; // defensive: skip bare-level/untagged
-      if (!free) {
-        if (!unlock || !unlock.isCompleted(lid)) return;
+      var lid;
+      if (e._loanword) {
+        lid = 'Loan-Words';        // synthetic group; always shown, sorts last
+      } else {
+        lid = firstValidLesson(e);
+        if (!lid) return; // defensive: skip bare-level/untagged
+        if (!free) {
+          if (!unlock || !unlock.isCompleted(lid)) return;
+        }
       }
       var reading = e.reading || e.surface || '';
       e._lessonId = lid;
@@ -401,7 +427,9 @@ window.GlossaryModule = (function () {
     var badge = TYPE_BADGE[e.type] || null;
     var lid = e._lessonId || firstValidLesson(e);
     var gotoLabel = '', gotoMode = null, gotoId = lid;
-    if (lid && /^G\d+$/.test(lid)) { gotoMode = 'grammar'; gotoLabel = 'Go to grammar ' + lid; }
+    var originInfo = (e._loanword && e.origin && origins[e.origin]) ? origins[e.origin] : null;
+    if (e._loanword) { gotoMode = null; gotoLabel = 'Loan-word · always available'; }
+    else if (lid && /^G\d+$/.test(lid)) { gotoMode = 'grammar'; gotoLabel = 'Go to grammar ' + lid; }
     else if (lid && /Review/i.test(lid)) { gotoMode = null; gotoLabel = 'Taught in ' + lid; }
     else if (lid) { gotoMode = 'lesson'; gotoLabel = 'Go to lesson ' + lid + (lessonTitle[lid] ? ' · ' + lessonTitle[lid] : ''); }
 
@@ -418,6 +446,7 @@ window.GlossaryModule = (function () {
           (badge ? '<span class="jp-gl-note-badge b-' + badge.cls + '">' + badge.label + '</span>' : '') +
         '</div>' +
         (e.reading ? '<div class="jp-gl-note-reading">' + esc(e.reading) + '</div>' : '') +
+        (originInfo ? '<div class="jp-gl-note-origin">' + esc(originInfo.flag || '') + ' from ' + esc(originInfo.displayName || e.origin) + '</div>' : '') +
         '<div class="jp-gl-note-meaning">' + esc(e.meaning || '') + '</div>' +
         (e.notes ? '<div class="jp-gl-note-notes">' + esc(e.notes) + '</div>' : '') +
         (ex ? '<div class="jp-gl-note-ex">' +
@@ -546,7 +575,8 @@ window.GlossaryModule = (function () {
       '.jp-gl-note-head{display:flex;align-items:center;gap:10px;margin-bottom:4px;}',
       '.jp-gl-note-surface{font-size:30px;color:var(--ink);}',
       '.jp-gl-note-badge{font-size:11px;font-weight:700;color:#fff;padding:2px 8px;border-radius:999px;background:var(--ink-3);}',
-      '.jp-gl-note-badge.b-k{background:var(--vermilion);}.jp-gl-note-badge.b-v{background:var(--indigo);}.jp-gl-note-badge.b-g{background:var(--moss);}.jp-gl-note-badge.b-p{background:var(--gold);}.jp-gl-note-badge.b-pt{background:#8a6d3b;}',
+      '.jp-gl-note-badge.b-k{background:var(--vermilion);}.jp-gl-note-badge.b-v{background:var(--indigo);}.jp-gl-note-badge.b-g{background:var(--moss);}.jp-gl-note-badge.b-p{background:var(--gold);}.jp-gl-note-badge.b-pt{background:#8a6d3b;}.jp-gl-note-badge.b-lw{background:#0e7490;}',
+      '.jp-gl-note-origin{font-size:12px;font-weight:600;color:#0e7490;margin-top:2px;}',
       '.jp-gl-note-reading{font-size:13px;color:var(--ink-3);margin-bottom:8px;}',
       '.jp-gl-note-meaning{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px;}',
       '.jp-gl-note-notes{font-size:13px;line-height:1.55;color:var(--ink-2);white-space:pre-wrap;border-top:1px dashed rgba(0,0,0,.12);padding-top:10px;margin-top:4px;}',

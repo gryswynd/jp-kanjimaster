@@ -48,13 +48,14 @@ const glossaryFiles = [
   'data/N5/glossary.N5.json',
   'data/N4/glossary.N4.json',
   'data/N3/glossary.N3.json',
-  'shared/particles.json'
+  'shared/particles.json',
+  'shared/loanwords.json'
 ];
 for (const gf of glossaryFiles) {
   const p = path.join(ROOT, gf);
   if (!existsSync(p)) continue;
   const data = JSON.parse(await readFile(p, 'utf8'));
-  for (const e of (data.entries || data.particles || [])) {
+  for (const e of (data.entries || data.particles || data.loanwords || [])) {
     if (e.id) glossaryIds.add(e.id);
   }
 }

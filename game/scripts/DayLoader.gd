@@ -177,7 +177,7 @@ func _ready() -> void:
 		# Drop the player exactly where they left off (overrides day.json
 		# playerStart), with a brief lockout so a buffered tap doesn't
 		# immediately fire a nearby exit/interaction.
-		player.global_position = Vector2(GameManager.resume_x, GameManager.resume_y)
+		player.global_position = _safe_spawn(Vector2(GameManager.resume_x, GameManager.resume_y))
 		GameManager.lock_interaction(400)
 	else:
 		# Fresh new game → play the cosmic opening sequence ONCE over Day 1
@@ -404,14 +404,53 @@ func transition_to_day(day_id: String, spawn_position: Vector2) -> void:
 	GameManager.load_day(DAY_JSON)
 	_build_world(GameManager.day_data)
 
-	# Override player spawn (replaces day.json's playerStart for transition use)
-	player.global_position = spawn_position
+	# Override player spawn (replaces day.json's playerStart for transition use).
+	# Guard against landing inside a wall (some exits preserve Y across a boundary,
+	# which can coincide with a wall in the target chunk → player wedged).
+	player.global_position = _safe_spawn(spawn_position)
 
 	# Brief interaction lockout so a buffered or double-tapped interact press
 	# (e.g. the one that triggered this transition) doesn't immediately fire
 	# whatever's near the new spawn point — was causing players to skip the
 	# yard and land on the street when leaving the house on Day 5+.
 	GameManager.lock_interaction(400)
+
+
+# Player collision footprint (main.tscn): RectangleShape2D 24×30 at offset (0,-5).
+const _SPAWN_HALF := Vector2(12, 15)
+const _SPAWN_OFFSET := Vector2(0, -5)
+
+
+func _spawn_blocked(pos: Vector2) -> bool:
+	## True if the player's collision footprint at `pos` overlaps a wall pixel.
+	if collision_map == null:
+		return false
+	var c := pos + _SPAWN_OFFSET
+	var hx := _SPAWN_HALF.x - 1.0  # inset 1px so merely edge-touching is fine
+	var hy := _SPAWN_HALF.y - 1.0
+	for p in [c, c + Vector2(-hx, -hy), c + Vector2(hx, -hy),
+			c + Vector2(-hx, hy), c + Vector2(hx, hy)]:
+		if collision_map.is_wall(p.x, p.y):
+			return true
+	return false
+
+
+func _safe_spawn(pos: Vector2) -> Vector2:
+	## Guard against a transition dropping the player inside a wall. If the spawn
+	## footprint is clear, return `pos` unchanged; otherwise spiral outward (8px
+	## steps, up to ~200px) to the nearest wall-free spot. Logs when it nudges so
+	## the offending hardcoded spawn can be fixed at its source.
+	if not _spawn_blocked(pos):
+		return pos
+	for ring in range(1, 26):  # 25 rings × 8px ≈ 200px
+		var r := ring * 8.0
+		for ang in range(0, 360, 30):
+			var cand := pos + Vector2(r, 0).rotated(deg_to_rad(ang))
+			if not _spawn_blocked(cand):
+				push_warning("Spawn %s was in a wall; nudged to %s" % [pos, cand])
+				return cand
+	push_warning("Spawn %s was in a wall; no clear spot found within 200px" % pos)
+	return pos
 
 
 func _current_day_id() -> String:
@@ -2009,6 +2048,48 @@ func _handle_npc_interaction(npc) -> void:
 					{"speaker": "りきぞう", "jp": "わかりません…",          "en": "I don't know…"},
 				], options)
 				return
+			elif GameManager.current_day == 12 and npc.npc_name == "mom":
+				# Day 12: the first school day (N5_GAME_ROADMAP.md "Study & Country").
+				# 学校 / 本 are new today. Mom is matter-of-fact — school has "always"
+				# existed; the word just arrives now. She frames it through Rikizo's
+				# identity (高校生) and sends him off with his book + notebook.
+				# Mom hands over the school textbook (高校日本語 — first of the "book"
+				# item category) + a noto. Neither is usable yet (読む / writing aren't
+				# taught), so they're flavor/collectibles. The noto reuses the konbini
+				# "notebook" id so it stacks with a bought one. Guard so re-talking
+				# can't double-give.
+				if not GameManager.has_item("book_jp_hs"):
+					options["on_end"] = func():
+						GameManager.add_item({
+							"id": "book_jp_hs",
+							"nameJp": "高校日本語", "nameEn": "High School Japanese",
+							"sprite": "res://assets/days/day-01-home/objects/book_jp_hs.png",
+							"description": "[i]A high-school Japanese textbook. You can't read it yet.[/i]",
+						})
+						GameManager.add_item({
+							"id": "notebook",
+							"nameJp": "ノート", "nameEn": "Notebook",
+							"sprite": "res://assets/days/day-05-konbini/objects/notebook.png",
+							"description": "[i]A blank notebook. Nothing to write yet.[/i]",
+						})
+						phone_overlay.notify_item_get()
+				GameManager.start_conversation([
+					{"speaker": "mom",   "jp": "おはよう、りきぞう。今日は 学校ですよ。",   "en": "Good morning, Rikizo. Today is school."},
+					{"speaker": "りきぞう", "jp": "学校…？",                            "en": "School…?"},
+					{"speaker": "mom",   "jp": "そうよ。りきぞうは 高校生でしょう？",      "en": "That's right. You're a high schooler, aren't you?"},
+					{"speaker": "mom",   "jp": "本と ノートです。どうぞ。",            "en": "Here's a book and a notebook."},
+					{"speaker": "りきぞう", "jp": "ありがとう、お母さん。",              "en": "Thanks, Mom."},
+				], options)
+				return
+			elif GameManager.current_day == 12 and npc.npc_name == "dad":
+				# Day 12: Dad frames it as the break being over — Golden Week / the
+				# extended vacation ends, so today it's back to school. 学校 new today.
+				GameManager.start_conversation([
+					{"speaker": "dad",   "jp": "りきぞう、休みは もう おわりですよ。", "en": "Rikizo, the break's over now."},
+					{"speaker": "りきぞう", "jp": "おわり…。",                       "en": "Over…"},
+					{"speaker": "dad",   "jp": "今日から 学校です。がんばってね。",   "en": "School starts today. Do your best."},
+				], options)
+				return
 			elif GameManager.current_day == 10 and npc.npc_name == "dad":
 				GameManager.start_conversation([
 					{"speaker": "dad",   "jp": "りきぞう、電車を見ましたか？", "en": "Rikizo, did you see the train?"},
@@ -3213,6 +3294,15 @@ func _tree_san_lines_for_day(day: int) -> Array:
 			if GameManager.tree_san_unlocked:
 				t10.append({"speaker": "りきぞう", "jp": "木さん...休みはいつまでですか？", "en": "Mr. Tree... how long is the holiday?"})
 			return t10
+		12:
+			# Day 12: school exists now (学校, new). Rikizo tells Tree-san he's off
+			# to school for the first time. The tree, an institution unto itself,
+			# does not enroll.
+			return [
+				{"speaker": "りきぞう", "jp": "木さん、今日は 学校です。",        "en": "Mr. Tree, today is school."},
+				{"speaker": "りきぞう", "jp": "木さんも 学校に 行きますか？",     "en": "Are you going to school too, Mr. Tree?"},
+				{"speaker": "りきぞう", "jp": "...行きませんね。",                "en": "...You're not going, huh."},
+			]
 		_:
 			return [{"speaker": "りきぞう", "jp": "木さん、こんにちは。", "en": "Hi, Mr. Tree."}]
 
@@ -3375,6 +3465,18 @@ func _handle_laptop() -> void:
 			else:
 				begin_msg["jp"] += "\n¥%d が入りました。" % GameManager.DAILY_TEACHING_WAGE
 				begin_msg["en"] += "\n¥%d came in." % GameManager.DAILY_TEACHING_WAGE
+		# Day 1 ONLY: after the first taught lesson, the cosmic narrator returns on
+		# the white void to welcome Day 2 ("new things have appeared…"). Reuses the
+		# cold-open overlay with the warm bed. Then the normal day-begin popup.
+		if prev_day == 1:
+			var intro := get_node_or_null("IntroOverlay")
+			if intro:
+				GameManager.in_conversation = true
+				var after_narr := func():
+					GameManager.in_conversation = false
+					GameManager.show_message(begin_msg)
+				intro.play_interstitial(after_narr)
+				return
 		GameManager.show_message(begin_msg)
 
 	# The "done" beat (shown after the fade) — kept as a plain var so no

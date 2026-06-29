@@ -307,8 +307,12 @@ window.AudioDojoModule = (function () {
       qHtml += '<div class="ad-q" data-qi="' + qi + '">' +
         '<button class="ad-q-play" data-qi="' + qi + '">🔊 Question ' + (qi + 1) + '</button>' +
         '<div class="ad-q-opts">';
-      (q.options || []).forEach((opt, oi) => {
-        qHtml += '<button class="ad-q-opt" data-qi="' + qi + '" data-oi="' + oi + '">' + esc(opt) + '</button>';
+      // Shuffle the DISPLAY order so the correct answer isn't always first;
+      // data-oi keeps the ORIGINAL index, so correctness logic is unaffected.
+      var order = (q.options || []).map(function (_, i) { return i; });
+      for (var s = order.length - 1; s > 0; s--) { var t = Math.floor(Math.random() * (s + 1)); var tmp = order[s]; order[s] = order[t]; order[t] = tmp; }
+      order.forEach(function (oi) {
+        qHtml += '<button class="ad-q-opt" data-qi="' + qi + '" data-oi="' + oi + '">' + esc(q.options[oi]) + '</button>';
       });
       qHtml += '</div>';
       if (q.explanation) qHtml += '<div class="ad-q-explain" hidden data-explain-for="' + qi + '">' + esc(q.explanation) + '</div>';
@@ -571,10 +575,11 @@ window.AudioDojoModule = (function () {
         wrap.dataset.answered = '1';
         answered++;
         if (oi === q.correct) correct++;
-        wrap.querySelectorAll('.ad-q-opt').forEach((b, idx) => {
+        wrap.querySelectorAll('.ad-q-opt').forEach((b) => {
           b.disabled = true;
-          if (idx === q.correct) b.classList.add('correct');
-          else if (idx === oi) b.classList.add('wrong');
+          const boi = parseInt(b.dataset.oi, 10);   // original index (display is shuffled)
+          if (boi === q.correct) b.classList.add('correct');
+          else if (boi === oi) b.classList.add('wrong');
         });
         const ex = wrap.querySelector('.ad-q-explain');
         if (ex) ex.hidden = false;

@@ -651,22 +651,6 @@
       }
     },
     {
-      "id": "v_beddo",
-      "surface": "ベッド",
-      "reading": "ベッド",
-      "meaning": "bed",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.1",
-      "notes": "Loanword from English 'bed'.",
-      "example": {
-        "jp": "わたしの ベッドは いいです。テレビが あります。",
-        "en": "My bed is nice. There is a TV.",
-        "lessonId": "N5.1",
-        "sectionType": "reading"
-      }
-    },
-    {
       "id": "v_chichi",
       "surface": "父",
       "reading": "ちち",
@@ -1406,22 +1390,6 @@
       ]
     },
     {
-      "id": "v_pasokon",
-      "surface": "パソコン",
-      "reading": "パソコン",
-      "meaning": "personal computer",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.1",
-      "notes": "Loanword from 'personal computer'.",
-      "example": {
-        "jp": "そうですか。お父さんの パソコンは いいですか。",
-        "en": "I see. Is your father's computer good?",
-        "lessonId": "N5.1",
-        "sectionType": "conversation"
-      }
-    },
-    {
       "id": "v_san",
       "surface": "さん",
       "reading": "さん",
@@ -1491,38 +1459,6 @@
         "en": "Even though it's expensive, you bought a lot, didn't you?",
         "lessonId": "N4.21",
         "sectionType": "warmup"
-      }
-    },
-    {
-      "id": "v_terebi",
-      "surface": "テレビ",
-      "reading": "テレビ",
-      "meaning": "television",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.1",
-      "notes": "Loanword from English 'television'.",
-      "example": {
-        "jp": "わたしの ベッドは いいです。テレビが あります。",
-        "en": "My bed is nice. There is a TV.",
-        "lessonId": "N5.1",
-        "sectionType": "reading"
-      }
-    },
-    {
-      "id": "v_toire",
-      "surface": "トイレ",
-      "reading": "トイレ",
-      "meaning": "toilet; bathroom",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.1",
-      "notes": "Loanword from English 'toilet'.",
-      "example": {
-        "jp": "すみません。トイレは どこですか。",
-        "en": "Excuse me. Where is the bathroom?",
-        "lessonId": "N5.1",
-        "sectionType": "conversation"
       }
     },
     {
@@ -1818,22 +1754,6 @@
           "r": "どようび"
         }
       ]
-    },
-    {
-      "id": "v_geemu",
-      "surface": "ゲーム",
-      "meaning": "game",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.2",
-      "reading": "ゲーム",
-      "example": {
-        "jp": "りきぞうは ゲームを します。",
-        "en": "Rikizo plays a game.",
-        "lessonId": "N5.2",
-        "sectionType": "reading"
-      }
     },
     {
       "id": "v_getsuyoubi",
@@ -2781,7 +2701,10 @@
       "reading": "さん",
       "readingAlign": "三(さん)",
       "tokens": [
-        { "k": "三", "r": "さん" }
+        {
+          "k": "三",
+          "r": "さん"
+        }
       ]
     },
     {
@@ -2795,7 +2718,10 @@
       "reading": "ご",
       "readingAlign": "五(ご)",
       "tokens": [
-        { "k": "五", "r": "ご" }
+        {
+          "k": "五",
+          "r": "ご"
+        }
       ]
     },
     {
@@ -2809,8 +2735,14 @@
       "reading": "さんぜん",
       "readingAlign": "三(さん)千(ぜん)",
       "tokens": [
-        { "k": "三", "r": "さん" },
-        { "k": "千", "r": "ぜん" }
+        {
+          "k": "三",
+          "r": "さん"
+        },
+        {
+          "k": "千",
+          "r": "ぜん"
+        }
       ]
     },
     {
@@ -2824,8 +2756,14 @@
       "reading": "ごひゃく",
       "readingAlign": "五(ご)百(ひゃく)",
       "tokens": [
-        { "k": "五", "r": "ご" },
-        { "k": "百", "r": "ひゃく" }
+        {
+          "k": "五",
+          "r": "ご"
+        },
+        {
+          "k": "百",
+          "r": "ひゃく"
+        }
       ]
     },
     {
@@ -3867,28 +3805,6 @@
       ]
     },
     {
-      "id": "v_keeki",
-      "surface": "ケーキ",
-      "meaning": "cake",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.4",
-      "reading": "けーき",
-      "example": {
-        "jp": "きのう ケーキが ありました。",
-        "en": "Yesterday there was cake.",
-        "lessonId": "N5.4",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "ケーキ",
-          "r": "けーき"
-        }
-      ]
-    },
-    {
       "id": "v_kinou",
       "surface": "昨日",
       "matches": [
@@ -4172,35 +4088,6 @@
       }
     },
     {
-      "id": "v_sumaho",
-      "surface": "スマホ",
-      "reading": "すまほ",
-      "meaning": "smartphone",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.4",
-      "notes": "Short for スマートフォン (smartphone). The abbreviated form is standard in daily use.",
-      "example": {
-        "jp": "これ は 父 の スマホ です。",
-        "en": "This is my dad's smartphone.",
-        "manual": true,
-        "terms": [
-          "v_kore",
-          "p_wa",
-          "v_chichi",
-          "p_no",
-          "v_sumaho",
-          "g_desu"
-        ]
-      },
-      "tokens": [
-        {
-          "k": "スマホ",
-          "r": "すまほ"
-        }
-      ]
-    },
-    {
       "id": "v_tokidoki",
       "surface": "時々",
       "meaning": "sometimes",
@@ -4395,28 +4282,6 @@
       }
     },
     {
-      "id": "v_basu",
-      "surface": "バス",
-      "meaning": "bus",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.5",
-      "reading": "ばす",
-      "example": {
-        "jp": "うちから バスで 来ました。",
-        "en": "He came from home by bus.",
-        "lessonId": "N5.5",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "バス",
-          "r": "ばす"
-        }
-      ]
-    },
-    {
       "id": "v_doko",
       "surface": "どこ",
       "reading": "どこ",
@@ -4487,7 +4352,9 @@
       "notes": "",
       "lesson_ids": "N5.5",
       "reading": "いく",
-      "matches": ["いく"],
+      "matches": [
+        "いく"
+      ],
       "verb_class": "irr_iku",
       "readingAlign": "行(い)く",
       "example": {
@@ -4521,28 +4388,6 @@
         "lessonId": "N5.15",
         "sectionType": "warmup"
       }
-    },
-    {
-      "id": "v_konbini",
-      "surface": "コンビニ",
-      "reading": "こんびに",
-      "meaning": "convenience store",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.5",
-      "notes": "Short for コンビニエンスストア. The abbreviated form is universal in daily Japanese.",
-      "example": {
-        "jp": "駅に コンビニが あります。",
-        "en": "There is a convenience store at the station.",
-        "lessonId": "N5.5",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "コンビニ",
-          "r": "こんびに"
-        }
-      ]
     },
     {
       "id": "v_kuru",
@@ -4704,56 +4549,6 @@
         "lessonId": "N4.9",
         "sectionType": "reading"
       }
-    },
-    {
-      "id": "v_suupaa",
-      "surface": "スーパー",
-      "reading": "すーぱー",
-      "meaning": "supermarket",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.5",
-      "notes": "Short for スーパーマーケット.",
-      "example": {
-        "jp": "スーパーにも 行きました。",
-        "en": "He also went to the supermarket.",
-        "lessonId": "N5.5",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "スーパ",
-          "r": "すーぱ"
-        },
-        {
-          "k": "ー"
-        }
-      ]
-    },
-    {
-      "id": "v_takushii",
-      "surface": "タクシー",
-      "reading": "たくしー",
-      "meaning": "taxi",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.5",
-      "notes": "",
-      "example": {
-        "jp": "タクシーは だめです。",
-        "en": "Taxis are no good.",
-        "lessonId": "N5.5",
-        "sectionType": "conversation"
-      },
-      "tokens": [
-        {
-          "k": "タクシ",
-          "r": "たくし"
-        },
-        {
-          "k": "ー"
-        }
-      ]
     },
     {
       "id": "v_uchi",
@@ -4974,28 +4769,6 @@
       ]
     },
     {
-      "id": "v_meeru",
-      "surface": "メール",
-      "meaning": "email / message",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.6",
-      "reading": "めーる",
-      "example": {
-        "jp": "山と 川の メールです。",
-        "en": "It is an email about the mountain and river.",
-        "lessonId": "N5.6",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "メール",
-          "r": "めーる"
-        }
-      ]
-    },
-    {
       "id": "v_michi",
       "surface": "道",
       "meaning": "road / street",
@@ -5187,78 +4960,6 @@
       ]
     },
     {
-      "id": "v_juusu",
-      "surface": "ジュース",
-      "reading": "じゅーす",
-      "meaning": "juice / soft drink",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.7",
-      "notes": "In Japanese, ジュース can refer to any non-alcoholic cold drink, not just fruit juice.",
-      "example": {
-        "jp": "りきぞうは コーヒーを 飲みました。やまかわは ジュースを 飲みました。",
-        "en": "Rikizo drank coffee. Yamakawa drank juice.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "ジュース",
-          "r": "じゅーす"
-        }
-      ]
-    },
-    {
-      "id": "v_karee",
-      "surface": "カレー",
-      "meaning": "curry",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.7",
-      "reading": "かれー",
-      "example": {
-        "jp": "カレーは 大きいです。",
-        "en": "The curry is big.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "カレ",
-          "r": "かれ"
-        },
-        {
-          "k": "ー"
-        }
-      ]
-    },
-    {
-      "id": "v_koohii",
-      "surface": "コーヒー",
-      "reading": "こーひー",
-      "meaning": "coffee",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.7",
-      "notes": "",
-      "example": {
-        "jp": "パンを 食べて、コーヒーを 飲みました。",
-        "en": "Sensei ate bread and then drank coffee.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "コーヒ",
-          "r": "こーひ"
-        },
-        {
-          "k": "ー"
-        }
-      ]
-    },
-    {
       "id": "v_nomu",
       "surface": "飲む",
       "meaning": "to drink",
@@ -5309,72 +5010,6 @@
         },
         {
           "k": "きい"
-        }
-      ]
-    },
-    {
-      "id": "v_pan",
-      "surface": "パン",
-      "reading": "ぱん",
-      "meaning": "bread",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.7",
-      "notes": "From Portuguese 'pão'. Refers to bread in general.",
-      "example": {
-        "jp": "サラダと パンを 食べました。",
-        "en": "Sensei ate salad and bread.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "パン",
-          "r": "ぱん"
-        }
-      ]
-    },
-    {
-      "id": "v_resutoran",
-      "surface": "レストラン",
-      "reading": "れすとらん",
-      "meaning": "restaurant",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.7",
-      "notes": "",
-      "example": {
-        "jp": "レストランは いいです。",
-        "en": "The restaurant is nice.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "レストラン",
-          "r": "れすとらん"
-        }
-      ]
-    },
-    {
-      "id": "v_sarada",
-      "surface": "サラダ",
-      "reading": "さらだ",
-      "meaning": "salad",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.7",
-      "notes": "",
-      "example": {
-        "jp": "サラダと パンを 食べました。",
-        "en": "Sensei ate salad and bread.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "サラダ",
-          "r": "さらだ"
         }
       ]
     },
@@ -5530,28 +5165,6 @@
         },
         {
           "k": "しい"
-        }
-      ]
-    },
-    {
-      "id": "v_depaato",
-      "surface": "デパート",
-      "reading": "でぱーと",
-      "meaning": "department store",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.8",
-      "notes": "Short for デパートメントストア.",
-      "example": {
-        "jp": "デパートは 新しいですよ。",
-        "en": "The department store is new, you know.",
-        "lessonId": "N5.8",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "デパート",
-          "r": "でぱーと"
         }
       ]
     },
@@ -5743,50 +5356,6 @@
         "lessonId": "N5.8",
         "sectionType": "reading"
       }
-    },
-    {
-      "id": "v_purezento",
-      "surface": "プレゼント",
-      "reading": "ぷれぜんと",
-      "meaning": "present / gift",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.8",
-      "notes": "",
-      "example": {
-        "jp": "長い プレゼントが ほしいです。",
-        "en": "The station master wants a long gift.",
-        "lessonId": "N5.8",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "プレゼント",
-          "r": "ぷれぜんと"
-        }
-      ]
-    },
-    {
-      "id": "v_teeburu",
-      "surface": "テーブル",
-      "reading": "てーぶる",
-      "meaning": "table",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.8",
-      "notes": "Loanword from English 'table'. Common household/restaurant furniture.",
-      "example": {
-        "jp": "テーブルに プレゼントが あります。新しい でしょう。",
-        "en": "There is a present on the table. It is probably new.",
-        "lessonId": "N5.8",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "テーブル",
-          "r": "てーぶる"
-        }
-      ]
     },
     {
       "id": "v_sugoi",
@@ -6130,7 +5699,9 @@
       "notes": "",
       "lesson_ids": "N5.9",
       "reading": "まえ",
-      "matches": ["まえ"],
+      "matches": [
+        "まえ"
+      ],
       "readingAlign": "前(まえ)",
       "example": {
         "jp": "駅の 前に 大きい 店が あります。",
@@ -6266,173 +5837,6 @@
       ]
     },
     {
-      "id": "v_chokoreeto",
-      "surface": "チョコレート",
-      "meaning": "chocolate",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.9",
-      "reading": "ちょこれーと",
-      "example": {
-        "jp": "これ は 母 の チョコレート です。",
-        "en": "This is my mom's chocolate.",
-        "manual": true,
-        "terms": [
-          "v_kore",
-          "p_wa",
-          "v_haha",
-          "p_no",
-          "v_chokoreeto",
-          "g_desu"
-        ]
-      },
-      "tokens": [
-        {
-          "k": "チョコレート",
-          "r": "ちょこれーと"
-        }
-      ]
-    },
-    {
-      "id": "v_piza",
-      "surface": "ピザ",
-      "meaning": "pizza",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.9",
-      "reading": "ぴざ",
-      "example": {
-        "jp": "ピザ は おいしいですね。",
-        "en": "Pizza is delicious, isn't it?",
-        "manual": true,
-        "terms": [
-          "v_piza",
-          "p_wa",
-          {
-            "id": "v_oishii",
-            "form": "polite_adj"
-          },
-          "p_ne"
-        ]
-      },
-      "tokens": [
-        {
-          "k": "ピザ",
-          "r": "ぴざ"
-        }
-      ]
-    },
-    {
-      "id": "v_sandoicchi",
-      "surface": "サンドイッチ",
-      "meaning": "sandwich",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.9",
-      "reading": "さんどいっち",
-      "example": {
-        "jp": "サンドイッチ を ください。",
-        "en": "A sandwich, please.",
-        "manual": true,
-        "terms": [
-          "v_sandoicchi",
-          "p_wo",
-          "v_kudasai"
-        ]
-      },
-      "tokens": [
-        {
-          "k": "サンドイッチ",
-          "r": "さんどいっち"
-        }
-      ]
-    },
-    {
-      "id": "v_aisukuriimu",
-      "surface": "アイスクリーム",
-      "meaning": "ice cream",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.9",
-      "reading": "あいすくりーむ",
-      "example": {
-        "jp": "アイスクリーム が ほしいです。",
-        "en": "I want ice cream.",
-        "manual": true,
-        "terms": [
-          "v_aisukuriimu",
-          "p_ga",
-          {
-            "id": "v_hoshii",
-            "form": "polite_adj"
-          }
-        ]
-      },
-      "tokens": [
-        {
-          "k": "アイスクリーム",
-          "r": "あいすくりーむ"
-        }
-      ]
-    },
-    {
-      "id": "v_sarada",
-      "surface": "サラダ",
-      "meaning": "salad",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "",
-      "lesson_ids": "N5.9",
-      "reading": "さらだ",
-      "example": {
-        "jp": "サラダと パンを 食べました。",
-        "en": "Sensei ate salad and bread.",
-        "lessonId": "N5.7",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "サラダ",
-          "r": "さらだ"
-        }
-      ]
-    },
-    {
-      "id": "v_purin",
-      "surface": "プリン",
-      "meaning": "pudding / flan",
-      "type": "vocab",
-      "gtype": "noun",
-      "notes": "Japanese プリン is a custard pudding (crème caramel), a staple of デパ地下 sweets counters.",
-      "lesson_ids": "N5.9",
-      "reading": "ぷりん",
-      "example": {
-        "jp": "プリン と ケーキ が あります。",
-        "en": "There is pudding and cake.",
-        "manual": true,
-        "terms": [
-          "v_purin",
-          "p_to",
-          "v_keeki",
-          "p_ga",
-          {
-            "id": "v_aru",
-            "form": "polite_masu"
-          }
-        ]
-      },
-      "tokens": [
-        {
-          "k": "プリン",
-          "r": "ぷりん"
-        }
-      ]
-    },
-    {
       "id": "k_ama",
       "lesson": "N5.10",
       "type": "kanji",
@@ -6531,28 +5935,6 @@
         {
           "k": "電車",
           "r": "でんしゃ"
-        }
-      ]
-    },
-    {
-      "id": "v_hoteru",
-      "surface": "ホテル",
-      "reading": "ほてる",
-      "meaning": "hotel",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.10",
-      "notes": "",
-      "example": {
-        "jp": "山の 中に ホテルが ありました。ホテルは 古いですが、人気が あります。",
-        "en": "There was a hotel in the mountains. The hotel is old, but it's popular.",
-        "lessonId": "N5.10",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "ホテル",
-          "r": "ほてる"
         }
       ]
     },
@@ -7311,28 +6693,6 @@
       ]
     },
     {
-      "id": "v_kurasu_class",
-      "surface": "クラス",
-      "reading": "くらす",
-      "meaning": "class",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.1",
-      "notes": "",
-      "example": {
-        "jp": "この クラスは いいですよ。男子が います。女子が います。",
-        "en": "This class is great. There are boys. There are girls.",
-        "lessonId": "N5.1",
-        "sectionType": "conversation"
-      },
-      "tokens": [
-        {
-          "k": "クラス",
-          "r": "くらす"
-        }
-      ]
-    },
-    {
       "id": "v_manabu",
       "surface": "学ぶ",
       "meaning": "learn (polite)",
@@ -7432,28 +6792,6 @@
       ]
     },
     {
-      "id": "v_nooto",
-      "surface": "ノート",
-      "reading": "のーと",
-      "meaning": "notebook",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.12",
-      "notes": "",
-      "example": {
-        "jp": "テストの 前に 日本語の 本を 買いました。ノートと ペンも ありますよ。",
-        "en": "I bought a Japanese book before the test. I also have a notebook and pen.",
-        "lessonId": "N5.12",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "ノート",
-          "r": "のーと"
-        }
-      ]
-    },
-    {
       "id": "v_omoshiroi",
       "surface": "おもしろい",
       "reading": "おもしろい",
@@ -7468,28 +6806,6 @@
         "lessonId": "N5.12",
         "sectionType": "reading"
       }
-    },
-    {
-      "id": "v_pen",
-      "surface": "ペン",
-      "reading": "ぺん",
-      "meaning": "pen",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.12",
-      "notes": "",
-      "example": {
-        "jp": "テストの 前に 日本語の 本を 買いました。ノートと ペンも ありますよ。",
-        "en": "I bought a Japanese book before the test. I also have a notebook and pen.",
-        "lessonId": "N5.12",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "ペン",
-          "r": "ぺん"
-        }
-      ]
     },
     {
       "id": "v_shougakkou",
@@ -7511,28 +6827,6 @@
         {
           "k": "小学校",
           "r": "しょうがっこう"
-        }
-      ]
-    },
-    {
-      "id": "v_tesuto",
-      "surface": "テスト",
-      "reading": "てすと",
-      "meaning": "test / exam",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.12",
-      "notes": "",
-      "example": {
-        "jp": "テストは 来週 あります。毎日 よく 学んでいます。",
-        "en": "The test is next week. I am studying well every day.",
-        "lessonId": "N5.12",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "テスト",
-          "r": "てすと"
         }
       ]
     },
@@ -8735,28 +8029,6 @@
       "notes": ""
     },
     {
-      "id": "v_arubaito",
-      "surface": "アルバイト",
-      "reading": "あるばいと",
-      "meaning": "part-time job",
-      "type": "vocab",
-      "gtype": "noun",
-      "lesson_ids": "N5.17",
-      "notes": "From German 'Arbeit'. Often shortened to バイト in casual speech.",
-      "example": {
-        "jp": "社会に 出て、会社に 入って、たくさん 話しましょう。アルバイトも いいですよ。",
-        "en": "Enter society, join a company, and let's speak a lot. Part-time work is also good!",
-        "lessonId": "N5.17",
-        "sectionType": "reading"
-      },
-      "tokens": [
-        {
-          "k": "アルバイト",
-          "r": "あるばいと"
-        }
-      ]
-    },
-    {
       "id": "v_kuchi",
       "surface": "口",
       "meaning": "mouth",
@@ -8992,7 +8264,9 @@
       "notes": "",
       "lesson_ids": "N5.17",
       "reading": "いりぐち",
-      "matches": ["入口"],
+      "matches": [
+        "入口"
+      ],
       "readingAlign": "入(い)り口(ぐち)",
       "example": {
         "jp": "今日、りきぞうさんは 会社に 来ました。入り口は 右に ありました。",
@@ -9755,7 +9029,7 @@
       "type": "vocab",
       "gtype": "verb",
       "verb_class": "ichidan",
-      "lesson_ids": "N5.7",
+      "lesson_ids": "N5.1",
       "notes": "Polite form of いる. Used for animate existence (people, animals).",
       "tokens": [
         {
@@ -9771,7 +9045,7 @@
       "type": "vocab",
       "gtype": "verb",
       "verb_class": "godan",
-      "lesson_ids": "N5.7",
+      "lesson_ids": "N5.1",
       "notes": "Polite form of ある. Used for inanimate existence (things, events).",
       "tokens": [
         {
@@ -9787,7 +9061,7 @@
       "type": "vocab",
       "gtype": "verb",
       "verb_class": "suru",
-      "lesson_ids": "N5.5",
+      "lesson_ids": "N5.1",
       "notes": "Polite form of する. The universal 'do' verb.",
       "tokens": [
         {
@@ -10371,7 +9645,7 @@
       "meaning": "came (polite past, kana)",
       "type": "vocab",
       "gtype": "verb",
-      "lesson_ids": "N5",
+      "lesson_ids": "N5.5",
       "notes": "Common suffix/auxiliary added for story tokenization coverage."
     },
     {

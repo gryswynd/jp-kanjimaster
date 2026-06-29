@@ -8,6 +8,22 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
+// Emoji / pictographic symbols are rendered by the OS emoji font, never by the
+// bundled Noto JP subset — so they must NOT be in the coverage requirement
+// (e.g. loanword-origin flags 🇩🇪🇺🇸, 🕉, ⚡). Excludes the BMP symbol blocks,
+// ZWJ / variation-selectors / keycap, and the entire SMP symbol+emoji range
+// (U+1F000–U+1FFFF, which holds no kanji — CJK Ext B starts at U+20000).
+function isEmojiOrSymbol(cp) {
+  return (
+    cp === 0x200d ||                       // zero-width joiner (emoji sequences)
+    cp === 0x20e3 ||                       // combining enclosing keycap
+    (cp >= 0x2600 && cp <= 0x27bf) ||      // misc symbols + dingbats
+    (cp >= 0x2b00 && cp <= 0x2bff) ||      // misc symbols & arrows (★ etc.)
+    (cp >= 0xfe00 && cp <= 0xfe0f) ||      // variation selectors
+    (cp >= 0x1f000 && cp <= 0x1ffff)       // SMP symbols + emoji (flags live here)
+  );
+}
+
 export function collectJpChars(root) {
   const chars = new Set();
   function walk(dir) {
@@ -18,7 +34,8 @@ export function collectJpChars(root) {
       if (st.isDirectory()) walk(p);
       else if (name.endsWith('.json')) {
         for (const ch of readFileSync(p, 'utf8')) {
-          if (ch.codePointAt(0) >= 0x2000) chars.add(ch);
+          const cp = ch.codePointAt(0);
+          if (cp >= 0x2000 && !isEmojiOrSymbol(cp)) chars.add(ch);
         }
       }
     }

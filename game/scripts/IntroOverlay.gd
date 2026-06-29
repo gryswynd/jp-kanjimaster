@@ -36,6 +36,20 @@ const BEATS := [
 	 "en": "Welcome to Day 1.", "tone": "plucky", "hold": 3.0},
 ]
 
+# Day-1→Day-2 interstitial — the cosmic narrator again, on the same white void,
+# AFTER Rikizo's first taught lesson. Played via play_interstitial() with the warm
+# "hope" bed (no dire drone). Reuses the same look/tap-skip as the cold open.
+const DAY2_BEATS := [
+	{"jp": "ようこそ、二日目へ。",
+	 "en": "Welcome to Day 2.", "hold": 3.0},
+	{"jp": "君が 教えた言葉が、この世界に 新しい何かを 生んだようだ。",
+	 "en": "It seems the words you taught have brought something new into this world.", "hold": 4.4},
+	{"jp": "なんと、不思議な。",
+	 "en": "How curious…", "hold": 2.8},
+	{"jp": "さあ——楽しんで。",
+	 "en": "Now then — have fun…", "hold": 3.0},
+]
+
 var _bg: ColorRect
 var _box: VBoxContainer
 var _jp: Label
@@ -50,6 +64,8 @@ var _running := false
 var _tapped := false
 var _accept_tap := false
 var _pivoted := false
+var _beats: Array = BEATS
+var _bed_key := ""  # "" = cold-open audio arc; otherwise a warm bed key (e.g. "hope")
 
 
 func _ready() -> void:
@@ -136,26 +152,45 @@ func _build_ui() -> void:
 
 
 func play(on_end: Callable = Callable()) -> void:
+	# The cold open: the full dire→plucky arc with the drone/chime/hope audio.
+	play_beats(BEATS, on_end, "")
+
+
+func play_interstitial(on_end: Callable = Callable()) -> void:
+	# The Day-1→Day-2 cosmic narrator: the same white void, the warm "hope" bed.
+	play_beats(DAY2_BEATS, on_end, "hope")
+
+
+func play_beats(beats: Array, on_end: Callable = Callable(), bed: String = "") -> void:
 	if _running:
 		return
+	_beats = beats
+	_bed_key = bed
 	_on_end = on_end
 	_running = true
 	_pivoted = false
 	visible = true
 	_bg.modulate.a = 1.0
 	_box.modulate.a = 0.0
-	if _drone.stream:
-		_drone.volume_db = -40.0
-		_drone.play()
-		create_tween().tween_property(_drone, "volume_db", -6.0, 1.2)
+	if bed == "":
+		# Cold-open arc: dread drone fades in, pivots to chime+hope mid-sequence.
+		if _drone.stream:
+			_drone.volume_db = -40.0
+			_drone.play()
+			create_tween().tween_property(_drone, "volume_db", -6.0, 1.2)
+	else:
+		# Interstitial: one warm bed from the start, no dire drone / pivot.
+		_start_bed(bed)
 	_run()
 
 
 func _run() -> void:
-	for b in BEATS:
+	for b in _beats:
 		_jp.text = str(b.get("jp", ""))
 		_en.text = str(b.get("en", ""))
-		if str(b.get("tone", "")) == "plucky" and not _pivoted:
+		# Pivot (drone→chime+hope) is only for the cold-open arc, not the bed-only
+		# interstitial.
+		if _bed_key == "" and str(b.get("tone", "")) == "plucky" and not _pivoted:
 			_pivoted = true
 			_fade_drone()
 			if _chime.stream:
@@ -165,7 +200,7 @@ func _run() -> void:
 		await _wait_for_tap()
 		await _fade(_box, 0.0, 0.4)
 	_stop_hope()                # fade the bed out under the final dissolve
-	await _fade(_bg, 0.0, 0.9)  # dissolve the void into Day 1
+	await _fade(_bg, 0.0, 0.9)  # dissolve the void into the day
 	if _drone.playing:
 		_drone.stop()
 	visible = false
@@ -220,6 +255,20 @@ func _set_full_loop(stream) -> void:
 	w.loop_begin = 0
 	w.loop_end = w.data.size() / (bytes_per_sample * channels)
 	w.loop_mode = AudioStreamWAV.LOOP_FORWARD
+
+
+func _start_bed(key: String) -> void:
+	# Interstitial audio: load the chosen warm bed (intro_<key>.wav) into the _hope
+	# channel and crossfade it in from the start. _stop_hope() fades it out at the
+	# end. Reusing _hope keeps a single bed channel; the cold-open drone is untouched.
+	var path := "res://assets/audio/intro_%s.wav" % key
+	if not ResourceLoader.exists(path):
+		return
+	_hope.stream = load(path)
+	_set_full_loop(_hope.stream)
+	_hope.volume_db = -40.0
+	_hope.play()
+	create_tween().tween_property(_hope, "volume_db", -11.0, 2.0)
 
 
 func _start_hope() -> void:

@@ -40,7 +40,7 @@ window.PracticeModule = {
                   var(--washi);
                 color: var(--ink);
                 display: flex; flex-direction: column;
-                width: 100%; min-height: 100vh; min-height: 100dvh; position: relative;
+                width: 100%; height: 100vh; height: 100dvh; position: relative;
             }
             #kanji-app-root * { box-sizing: border-box; }
 
@@ -85,7 +85,7 @@ window.PracticeModule = {
             #kanji-app-root .jp-settings-gear:active { transform: scale(0.94); }
 
             #k-app-container {
-                flex: 1; overflow-y: auto;
+                flex: 1; min-height: 0; overflow-y: auto;
                 padding: 22px 18px calc(22px + env(safe-area-inset-bottom));
                 display: flex; flex-direction: column; align-items: center;
                 width: 100%; position: relative; z-index: 1;
@@ -599,7 +599,7 @@ window.PracticeModule = {
             .k-overlay-stats .k-big { font-family: var(--font-jp-display); font-size: 1.4rem; font-weight: 700; }
             .k-overlay-stats .k-lbl { font-family: var(--font-mono); font-size: 9.5px; text-transform: uppercase; color: var(--ink-3); font-weight: 500; letter-spacing: 0.14em; margin-top: 4px; }
             .k-overlay-body {
-                flex: 1; overflow-y: auto;
+                flex: 1; min-height: 0; overflow-y: auto;
                 padding: 14px 16px;
                 -webkit-overflow-scrolling: touch;
                 overscroll-behavior: contain;
@@ -980,6 +980,9 @@ window.PracticeModule = {
 
                 <div class="k-lbl">VERB PRACTICE</div>
                 <button class="k-btn k-btn--indigo" data-gate="conjugation" onclick="KanjiApp.start('dojo','dojo')">⚡ Conjugation Station</button>
+
+                <div class="k-lbl">LOAN-WORDS</div>
+                <button class="k-btn k-btn--moss" onclick="KanjiApp.start('loanword','loanword')">🌐 Gairaigo Gauntlet</button>
             </div>
 
             <div id="k-view-hub-writing" class="k-hidden" style="width:100%">
@@ -1131,6 +1134,16 @@ window.PracticeModule = {
                 <button class="k-btn k-btn-sec" onclick="KanjiApp.showMenu()" style="margin-top:10px">Exit Station</button>
             </div>
 
+            <div id="k-view-loanword" class="k-hidden" style="width:100%">
+                <div class="k-stat-row">
+                    <span class="k-stat-progress" id="k-loanword-progress">0 / 0</span>
+                    <span class="k-pill">🏆 <b id="k-loanword-best">0</b></span>
+                    <span class="k-pill streak">🔥 <b id="k-loanword-streak">0</b></span>
+                </div>
+                <div id="k-loanword-stage"></div>
+                <button class="k-btn k-btn-sec" onclick="KanjiApp.showMenu()" style="margin-top:10px">Exit Gauntlet</button>
+            </div>
+
             <div id="k-view-quiz" class="k-hidden" style="width:100%; display:flex; flex-direction:column; height:100%">
                 <div class="k-stat-row">
                     <span class="k-pill">🏆 <b id="k-best">0</b></span>
@@ -1182,7 +1195,7 @@ window.PracticeModule = {
       window.JPShared.stampSettings.setConfig(REPO_CONFIG);
     }
 
-    const ALL_VIEWS = ['k-view-menu','k-view-hub-kanji','k-view-hub-vocab','k-view-hub-writing','k-view-hub-audio','k-view-hub-games','k-view-hub-daily','k-view-hub-flags','k-view-hub-flags-grammar','k-view-flash','k-view-quiz','k-view-conn','k-view-conn4','k-view-scr','k-view-mara','k-view-dojo'];
+    const ALL_VIEWS = ['k-view-menu','k-view-hub-kanji','k-view-hub-vocab','k-view-hub-writing','k-view-hub-audio','k-view-hub-games','k-view-hub-daily','k-view-hub-flags','k-view-hub-flags-grammar','k-view-flash','k-view-quiz','k-view-conn','k-view-conn4','k-view-scr','k-view-mara','k-view-dojo','k-view-loanword'];
     const DB = { kanji: [], verb: [], lessons: [], vocabMap: new Map(), grammarMap: new Map() };
     const activeLessons = new Set();
     let curSet=[], curIdx=0, curStreak=0, curBest=0, curMode='', curAns='', curType='', curSubMode='normal', curQItem=null, curCategory='';
@@ -1259,7 +1272,7 @@ window.PracticeModule = {
         var H = window.JPShared && window.JPShared.haptics;
         if (H) { (streak >= 20 ? H.heavy : H.medium)(); }
 
-        var targetView = document.getElementById(curMode === 'flash' ? 'k-view-flash' : curMode === 'connections' ? 'k-view-conn' : curMode === 'connections4' ? 'k-view-conn4' : curMode === 'scramble' ? 'k-view-scr' : curMode === 'marathon' ? 'k-view-mara' : curMode === 'dojo' ? 'k-view-dojo' : 'k-view-quiz');
+        var targetView = document.getElementById(curMode === 'flash' ? 'k-view-flash' : curMode === 'connections' ? 'k-view-conn' : curMode === 'connections4' ? 'k-view-conn4' : curMode === 'scramble' ? 'k-view-scr' : curMode === 'marathon' ? 'k-view-mara' : curMode === 'dojo' ? 'k-view-dojo' : curMode === 'loanword' ? 'k-view-loanword' : 'k-view-quiz');
         if (!targetView) return;
         targetView.style.position = 'relative';
 
@@ -1604,6 +1617,9 @@ window.PracticeModule = {
             return;
         } else if (type === 'dojo') {
             dojoStart();
+            return;
+        } else if (type === 'loanword') {
+            loanwordStart();
             return;
         }
 
@@ -1986,6 +2002,74 @@ window.PracticeModule = {
         });
     }
 
+    // ---- Gairaigo Gauntlet (loanword drill plugin) ----
+    let loanwordScriptLoaded = false;
+
+    async function loanwordLoadScript() {
+        if (loanwordScriptLoaded) return true;
+        try {
+            const url = window.getAssetUrl(REPO_CONFIG, 'app/games/loanword-dojo.js') + '?t=' + Date.now();
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const code = await res.text();
+            const script = document.createElement('script');
+            script.textContent = code;
+            document.body.appendChild(script);
+            loanwordScriptLoaded = true;
+            return true;
+        } catch(e) {
+            console.error('[Practice] Failed to load loanword-dojo.js:', e);
+            alert('Could not load Gairaigo Gauntlet.');
+            return false;
+        }
+    }
+
+    async function loanwordStart() {
+        if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
+        if (!await loanwordLoadScript()) return;
+        if (!DB.loanwords || !DB.loanwords.length) { alert('No loan-words available yet.'); KanjiApp.showMenu(); return; }
+
+        ALL_VIEWS.forEach(i => { const el = document.getElementById(i); if (el) el.classList.add('k-hidden'); });
+        const lv = document.getElementById('k-view-loanword');
+        if (lv) lv.classList.remove('k-hidden');
+
+        let lwStreak = 0;
+        let lwBest = bestScores.loanword || 0;
+        setTxt('k-loanword-streak', 0);
+        setTxt('k-loanword-best', lwBest);
+
+        window.JPShared.loanwordDojo.init(document.getElementById('k-loanword-stage'), {
+            loanwords: DB.loanwords,
+            origins: DB.loanwordOrigins || {},
+            onCorrect: function() {
+                var H = window.JPShared && window.JPShared.haptics;
+                if (H) H.success();
+                lwStreak++;
+                if (lwStreak > lwBest) {
+                    lwBest = lwStreak;
+                    bestScores.loanword = lwBest;
+                    window.JPShared.progress.setBestScore('loanword', lwBest);
+                }
+                setTxt('k-loanword-streak', lwStreak);
+                setTxt('k-loanword-best', lwBest);
+                if (lwStreak >= 5 && lwStreak % 5 === 0) {
+                    var saved = curMode; curMode = 'loanword';
+                    launchHanabi(lwStreak);
+                    curMode = saved;
+                }
+            },
+            onWrong: function() {
+                var H = window.JPShared && window.JPShared.haptics;
+                if (H) H.warning();
+                lwStreak = 0;
+                setTxt('k-loanword-streak', 0);
+            },
+            onExit: function() { KanjiApp.showMenu(); },
+            onProgress: function(current, total) { setTxt('k-loanword-progress', current + ' / ' + total); },
+            getStreakInfo: function() { return { streak: lwStreak, best: lwBest }; }
+        });
+    }
+
     // ---- Flashcards (plugin module) ----
     let flashcardsScriptLoaded = false;
 
@@ -2299,15 +2383,22 @@ window.PracticeModule = {
                 });
             });
 
-            const particlesUrl = (manifest.shared && manifest.shared.particles)
-                ? window.getAssetUrl(REPO_CONFIG, manifest.shared.particles) + "?t=" + Date.now()
+            const sharedUrl = (key) => (manifest.shared && manifest.shared[key])
+                ? window.getAssetUrl(REPO_CONFIG, manifest.shared[key]) + "?t=" + Date.now()
                 : null;
+            const particlesUrl = sharedUrl('particles');
+            const loanwordsUrl = sharedUrl('loanwords');
+            const originsUrl = sharedUrl('loanwordOrigins');
             const fetchedParts = await Promise.all([
                 ...manifest.levels.map(lvl => fetch(window.getAssetUrl(REPO_CONFIG, manifest.data[lvl].glossary) + "?t=" + Date.now()).then(r => r.json())),
-                particlesUrl ? fetch(particlesUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null)
+                particlesUrl ? fetch(particlesUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+                loanwordsUrl ? fetch(loanwordsUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+                originsUrl ? fetch(originsUrl).then(r => r.json()).catch(() => null) : Promise.resolve(null)
             ]);
             const glossParts = fetchedParts.slice(0, manifest.levels.length);
             const particleData = fetchedParts[manifest.levels.length];
+            const loanwordData = fetchedParts[manifest.levels.length + 1];
+            const originsData = fetchedParts[manifest.levels.length + 2];
             const raw = glossParts.flatMap(g => g.entries);
 
             // Index grammar (gtype-tagged) entries and particles by surface so the
@@ -2336,6 +2427,15 @@ window.PracticeModule = {
             const allVocab = DB.allVocab;
             allVocab.forEach(v => {
                 DB.vocabMap.set(v.surface, v);
+            });
+
+            // Always-allowed loanword pool (gairaigo). Kept OUT of allVocab so it
+            // never leaks into the kanji vocab flashcards/quizzes — it has its own
+            // drill (Gairaigo Gauntlet). Added to vocabMap only for modal lookup.
+            DB.loanwords = (loanwordData && Array.isArray(loanwordData.loanwords)) ? loanwordData.loanwords : [];
+            DB.loanwordOrigins = (originsData && originsData.origins) ? originsData.origins : {};
+            DB.loanwords.forEach(w => {
+                if (w.surface && !DB.vocabMap.has(w.surface)) DB.vocabMap.set(w.surface, Object.assign({ type: 'loanword' }, w));
             });
 
             DB.kanji = raw.filter(i => i.type === 'kanji').map(k => {

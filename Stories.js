@@ -585,12 +585,16 @@ window.StoriesModule = (function () {
     const conjUrl = getCdnUrl(manifest.globalFiles.conjugationRules);
     const counterUrl = manifest.globalFiles.counterRules ? getCdnUrl(manifest.globalFiles.counterRules) : null;
     const levelGlossaryUrls = (manifest.levels || []).map(lvl => getCdnUrl(manifest.data[lvl].glossary));
+    const loanwordUrl = manifest.shared.loanwords ? getCdnUrl(manifest.shared.loanwords) : null;
+    const originsUrl = manifest.shared.loanwordOrigins ? getCdnUrl(manifest.shared.loanwordOrigins) : null;
 
-    const [conjRules, counterRules, particles, characters, ...glossaries] = await Promise.all([
+    const [conjRules, counterRules, particles, characters, loanwordData, originsData, ...glossaries] = await Promise.all([
       fetch(conjUrl + bust).then(r => r.json()),
       counterUrl ? fetch(counterUrl + bust).then(r => r.json()) : Promise.resolve(null),
       fetch(particleUrl + bust).then(r => r.json()),
       fetch(characterUrl + bust).then(r => r.json()),
+      loanwordUrl ? fetch(loanwordUrl + bust).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+      originsUrl ? fetch(originsUrl + bust).then(r => r.json()).catch(() => null) : Promise.resolve(null),
       ...levelGlossaryUrls.map(u => fetch(u + bust).then(r => r.json()))
     ]);
     CONJUGATION_RULES = conjRules;
@@ -625,8 +629,18 @@ window.StoriesModule = (function () {
         if (k && !surfaceIdx.has(k)) surfaceIdx.set(k, termMapData[c.id]);
       }
     }
+    // Always-allowed loanword pool — folded into BOTH maps so bare loanword
+    // tokens in prose ({k:"コンサート"} with no g) chip via surfaceIdx AND the
+    // modal resolves them by id. (Migrated out of the leveled glossaries.)
+    for (const w of ((loanwordData && loanwordData.loanwords) || [])) {
+      const e = Object.assign({ type: 'loanword' }, w);
+      if (e.id) termMapData[e.id] = e;
+      if (e.surface && !surfaceIdx.has(e.surface)) surfaceIdx.set(e.surface, e);
+      if (e.reading && e.reading !== e.surface && !surfaceIdx.has(e.reading)) surfaceIdx.set(e.reading, e);
+    }
     if (window.JPShared && window.JPShared.termModal) {
       window.JPShared.termModal.setTermMap(termMapData);
+      if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap((originsData && originsData.origins) || {});
       window.JPShared.termModal.inject();
       // Custom JP_OPEN_TERM that supports flagging (port of old Story.js).
       window.JP_OPEN_TERM = function (id, form, enableFlag) {

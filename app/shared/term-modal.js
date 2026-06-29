@@ -32,6 +32,7 @@
 
   // The currently-active module's term map. Only one module is loaded at a time.
   var _termMap = {};
+  var _originMap = {};   // langKey → { displayName, flag } for loanword origins
 
   window.JPShared.termModal = {
 
@@ -42,6 +43,15 @@
      */
     setTermMap: function (map) {
       _termMap = map || {};
+    },
+
+    /**
+     * Register the loanword-origins lookup so a loanword term's modal can show
+     * its source language + flag (e.g. アルバイト → 🇩🇪 German).
+     * @param {Object} origins — { [langKey]: { displayName, flag } }
+     */
+    setOriginMap: function (origins) {
+      _originMap = origins || {};
     },
 
     /**
@@ -223,7 +233,12 @@
         } else {
           readingStr = t.reading || '';
         }
-        metaEl.innerText = readingStr + meaning;
+        var originStr = '';
+        if (t.origin && _originMap[t.origin]) {
+          var o = _originMap[t.origin];
+          originStr = '  •  ' + (o.flag || '') + ' ' + (o.displayName || t.origin);
+        }
+        metaEl.innerText = readingStr + meaning + originStr;
       }
 
       // --- Notes ---

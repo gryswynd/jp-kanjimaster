@@ -102,6 +102,9 @@
     var key = reading ? nz.readingKey(text) : nz.normalizeKey(text, termPairs);
     var rec = manifest.clips[key];
     if (!rec) return null;
+    // Server-delivered clips (addClips) carry an absolute url; bundled clips
+    // resolve against the local manifest basePath.
+    if (rec.url) return { url: rec.url, dur: rec.dur, key: key };
     return { url: resolve(manifest.basePath + '/' + rec.file), dur: rec.dur, key: key };
   }
 
@@ -177,6 +180,32 @@
     setConfig: function (config) {
       repoConfig = config;
       ensureManifest();
+    },
+
+    /**
+     * Merge a per-story clip map (server-generated custom stories) into the
+     * in-memory manifest. Each entry is keyed by the SAME normalizeKey the
+     * build generator uses, so playback resolves with no other change. Clips
+     * live at an absolute basePath (the GCS bucket), stored as rec.url so they
+     * bypass the local-asset resolver. Additive + idempotent; safe to call on
+     * every story load. Missing keys remain a silent no-op as before.
+     * @param {Object} clipMap { normalizeKey: { file, dur } | "file" }
+     * @param {string} [basePath] absolute URL prefix for relative files
+     */
+    addClips: function (clipMap, basePath) {
+      if (!clipMap || typeof clipMap !== 'object') return;
+      var base = basePath ? String(basePath).replace(/\/+$/, '') : '';
+      var apply = function () {
+        Object.keys(clipMap).forEach(function (key) {
+          var rec = clipMap[key];
+          if (!rec) return;
+          var file = (typeof rec === 'string') ? rec : rec.file;
+          if (!file) return;
+          var url = /^https?:\/\//.test(file) ? file : (base ? base + '/' + file : file);
+          manifest.clips[key] = { file: file, dur: (rec && rec.dur) || 0, url: url };
+        });
+      };
+      if (manifest) apply(); else ensureManifest().then(apply);
     },
 
     /**

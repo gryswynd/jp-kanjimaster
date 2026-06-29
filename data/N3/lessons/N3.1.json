@@ -1,0 +1,446 @@
+{
+  "contentVersion": "1.0.0",
+  "id": "N3.1",
+  "title": "Phase 5 Lesson 1: Memory & Regret",
+  "meta": {
+    "phase": 5,
+    "lesson": 1,
+    "focus": "Talking about memory and forgetting: remembering, forgetting, waking up, what remains, overtime, and being disappointed.",
+    "kanji": ["忘", "覚", "念", "残"]
+  },
+  "newKanji": [
+    {
+      "kanji": "忘",
+      "on": "ボウ",
+      "kun": "わす(れる)",
+      "meaning": "Forget",
+      "termId": "k_wasureru"
+    },
+    {
+      "kanji": "覚",
+      "on": "カク",
+      "kun": "おぼ(える) / さ(める)",
+      "meaning": "Remember / Wake",
+      "termId": "k_oboeru"
+    },
+    {
+      "kanji": "念",
+      "on": "ネン",
+      "kun": "—",
+      "meaning": "Thought / Feeling",
+      "termId": "k_nen"
+    },
+    {
+      "kanji": "残",
+      "on": "ザン",
+      "kun": "のこ(る)",
+      "meaning": "Remain / Regret",
+      "termId": "k_nokoru"
+    }
+  ],
+  "sections": [
+    {
+      "type": "warmup",
+      "title": "Warm-Up Review（ウォームアップ）",
+      "instructions": "Ask your partner these questions using previously learned vocabulary:",
+      "items": [
+        {
+          "jp": "毎日 何時に 起きますか。",
+          "en": "What time do you wake up every day?",
+          "terms": ["v_mainichi", "v_nanji", "p_ni", { "id": "v_okiru", "form": "polite_masu" }, "p_ka"]
+        },
+        {
+          "jp": "昨日、何を 食べましたか。",
+          "en": "What did you eat yesterday?",
+          "terms": ["v_kinou", "v_nani", "p_wo", { "id": "v_taberu", "form": "polite_mashita" }, "p_ka"]
+        },
+        {
+          "jp": "今、何を 読んで いますか。",
+          "en": "What are you reading right now?",
+          "terms": ["v_ima", "v_nani", "p_wo", { "id": "v_yomu", "form": "te_form" }, { "id": "v_iru", "form": "polite_masu" }, "p_ka"]
+        },
+        {
+          "jp": "学校は 楽しいですか。",
+          "en": "Is school fun?",
+          "terms": ["v_gakkou", "p_wa", "v_tanoshii", "g_desu", "p_ka"]
+        }
+      ]
+    },
+    {
+      "type": "kanjiGrid",
+      "title": "New Kanji（新しい 漢字）",
+      "items": [
+        {
+          "kanji": "忘",
+          "on": "ボウ",
+          "kun": "わす",
+          "meaning": "Forget",
+          "terms": ["k_wasureru", "v_wasureru", "v_wasuremono", "v_bounenkai"]
+        },
+        {
+          "kanji": "覚",
+          "on": "カク",
+          "kun": "おぼ / さ",
+          "meaning": "Remember / Wake",
+          "terms": ["k_oboeru", "v_oboeru", "v_sameru", "v_samasu", "v_jikaku", "v_mezamashi"]
+        },
+        {
+          "kanji": "念",
+          "on": "ネン",
+          "kun": "—",
+          "meaning": "Thought / Feeling",
+          "terms": ["k_nen", "v_zannen", "v_neniri", "v_nenriki"]
+        },
+        {
+          "kanji": "残",
+          "on": "ザン",
+          "kun": "のこ",
+          "meaning": "Remain / Regret",
+          "terms": ["k_nokoru", "v_nokoru", "v_nokosu", "v_nokori", "v_zangyou"]
+        }
+      ]
+    },
+    {
+      "type": "vocabList",
+      "title": "Vocabulary & Compounds（ことば）",
+      "groups": [
+        {
+          "label": "Remember & Forget",
+          "items": ["v_oboeru", "v_wasureru", "v_wasuremono", "v_jikaku"]
+        },
+        {
+          "label": "Waking & Reminders",
+          "items": ["v_sameru", "v_samasu", "v_mezamashi"]
+        },
+        {
+          "label": "Remaining & Overtime",
+          "items": ["v_nokoru", "v_nokosu", "v_nokori", "v_zangyou"]
+        },
+        {
+          "label": "Regret & Care",
+          "items": ["v_zannen", "v_neniri", "v_bounenkai", "v_nenriki"]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 1（会話）: A Forgotten Book",
+      "context": "りきぞう realizes he left his book at school.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "学校に 本を 忘れました。",
+          "en": "I forgot my book at school.",
+          "terms": ["v_gakkou", "p_ni", "v_hon", "p_wo", { "id": "v_wasureru", "form": "polite_mashita" }]
+        },
+        {
+          "spk": "B",
+          "jp": "残念ですね。今から 帰りますか。",
+          "en": "That's a shame. Will you head back now?",
+          "terms": ["v_zannen", "g_desu", "p_ne", "v_ima", "p_kara", { "id": "v_kaeru", "form": "polite_masu" }, "p_ka"]
+        },
+        {
+          "spk": "A",
+          "jp": "はい。私は よく 忘れ物を します。",
+          "en": "Yes. I often forget things.",
+          "terms": ["p_hai", "v_watashi", "p_wa", "v_yoku", "v_wasuremono", "p_wo", { "id": "v_suru", "form": "polite_masu" }]
+        },
+        {
+          "spk": "B",
+          "jp": "本の 名前を 覚えて いますか。",
+          "en": "Do you remember the book's title?",
+          "terms": ["v_hon", "p_no", "v_namae", "p_wo", { "id": "v_oboeru", "form": "te_form" }, { "id": "v_iru", "form": "polite_masu" }, "p_ka"]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 2（会話）: Before the Exam",
+      "context": "Two classmates compare notes just before a test.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "今日は 試験です。たくさん 覚えましたか。",
+          "en": "Today is the exam. Did you memorize a lot?",
+          "terms": ["v_kyou", "p_wa", "v_shiken", "g_desu", "v_takusan", { "id": "v_oboeru", "form": "polite_mashita" }, "p_ka"]
+        },
+        {
+          "spk": "B",
+          "jp": "はい、昨日 たくさん 覚えました。",
+          "en": "Yes, I memorized a lot yesterday.",
+          "terms": ["p_hai", "v_kinou", "v_takusan", { "id": "v_oboeru", "form": "polite_mashita" }]
+        },
+        {
+          "spk": "A",
+          "jp": "私は ちょっと 忘れました。残念です。",
+          "en": "I forgot a little. What a shame.",
+          "terms": ["v_watashi", "p_wa", "v_chotto", { "id": "v_wasureru", "form": "polite_mashita" }, "v_zannen", "g_desu"]
+        },
+        {
+          "spk": "B",
+          "jp": "今から いっしょに 覚えましょう。",
+          "en": "Let's memorize it together now.",
+          "terms": ["v_ima", "p_kara", "v_issho", "p_ni", { "id": "v_oboeru", "form": "polite_volitional_mashou" }]
+        }
+      ]
+    },
+    {
+      "type": "conversation",
+      "title": "Conversation Practice 3（会話）: Working Late",
+      "context": "りきぞう explains why he will be home late.",
+      "lines": [
+        {
+          "spk": "A",
+          "jp": "今日も 残業ですか。",
+          "en": "Overtime again today?",
+          "terms": ["v_kyou", "p_mo", "v_zangyou", "g_desu", "p_ka"]
+        },
+        {
+          "spk": "B",
+          "jp": "はい。会社に 残ります。",
+          "en": "Yes. I'll stay at the company.",
+          "terms": ["p_hai", "v_kaisha", "p_ni", { "id": "v_nokoru", "form": "polite_masu" }]
+        },
+        {
+          "spk": "A",
+          "jp": "残念ですね。朝は 目覚ましで 起きますか。",
+          "en": "Too bad. Do you wake up with an alarm in the morning?",
+          "terms": ["v_zannen", "g_desu", "p_ne", "v_asa", "p_wa", "v_mezamashi", "p_de", { "id": "v_okiru", "form": "polite_masu" }, "p_ka"]
+        },
+        {
+          "spk": "B",
+          "jp": "はい。毎日 とても 忙しいです。",
+          "en": "Yes. I'm very busy every day.",
+          "terms": ["p_hai", "v_mainichi", "v_totemo", "v_isogashii", "g_desu"]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 1: A Forgetful Morning",
+      "passage": [
+        {
+          "jp": "りきぞうは 毎日 目覚ましで 起きます。",
+          "en": "Rikizo wakes up with an alarm clock every day.",
+          "terms": ["char_rikizo", "p_wa", "v_mainichi", "v_mezamashi", "p_de", { "id": "v_okiru", "form": "polite_masu" }]
+        },
+        {
+          "jp": "今日は 目覚ましを 忘れました。",
+          "en": "Today he forgot the alarm clock.",
+          "terms": ["v_kyou", "p_wa", "v_mezamashi", "p_wo", { "id": "v_wasureru", "form": "polite_mashita" }]
+        },
+        {
+          "jp": "九時に 起きました。",
+          "en": "He woke up at nine o'clock.",
+          "terms": [{ "counter": "ji", "n": 9 }, "p_ni", { "id": "v_okiru", "form": "polite_mashita" }]
+        },
+        {
+          "jp": "学校に 本も 忘れました。とても 残念でした。",
+          "en": "He also forgot his book at school. It was very disappointing.",
+          "terms": ["v_gakkou", "p_ni", "v_hon", "p_mo", { "id": "v_wasureru", "form": "polite_mashita" }, "v_totemo", "v_zannen", { "id": "g_desu", "form": "copula_past" }]
+        },
+        {
+          "jp": "りきぞうは よく 忘れ物を します。",
+          "en": "Rikizo often forgets things.",
+          "terms": ["char_rikizo", "p_wa", "v_yoku", "v_wasuremono", "p_wo", { "id": "v_suru", "form": "polite_masu" }]
+        }
+      ],
+      "questions": [
+        {
+          "q": "りきぞうは 何で 起きますか。",
+          "q_en": "What does Rikizo wake up with?",
+          "a": "目覚ましで 起きます。",
+          "a_en": "He wakes up with an alarm clock.",
+          "terms": ["char_rikizo", "p_wa", "v_nan", "p_de", { "id": "v_okiru", "form": "polite_masu" }, "p_ka"],
+          "a_terms": ["v_mezamashi", "p_de", { "id": "v_okiru", "form": "polite_masu" }]
+        },
+        {
+          "q": "今日、何時に 起きましたか。",
+          "q_en": "What time did he wake up today?",
+          "a": "九時に 起きました。",
+          "a_en": "He woke up at nine o'clock.",
+          "terms": ["v_kyou", "v_nanji", "p_ni", { "id": "v_okiru", "form": "polite_mashita" }, "p_ka"],
+          "a_terms": [{ "counter": "ji", "n": 9 }, "p_ni", { "id": "v_okiru", "form": "polite_mashita" }]
+        },
+        {
+          "q": "学校に 何を 忘れましたか。",
+          "q_en": "What did he forget at school?",
+          "a": "本を 忘れました。",
+          "a_en": "He forgot his book.",
+          "terms": ["v_gakkou", "p_ni", "v_nani", "p_wo", { "id": "v_wasureru", "form": "polite_mashita" }, "p_ka"],
+          "a_terms": ["v_hon", "p_wo", { "id": "v_wasureru", "form": "polite_mashita" }]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "title": "Reading Practice 2: Working Late",
+      "passage": [
+        {
+          "jp": "父は 会社で 働いて います。",
+          "en": "My father works at a company.",
+          "terms": ["v_chichi", "p_wa", "v_kaisha", "p_de", { "id": "v_hataraku", "form": "te_form" }, { "id": "v_iru", "form": "polite_masu" }]
+        },
+        {
+          "jp": "今日も 残業です。",
+          "en": "Today is overtime again.",
+          "terms": ["v_kyou", "p_mo", "v_zangyou", "g_desu"]
+        },
+        {
+          "jp": "父は 会社に 残ります。",
+          "en": "My father stays at the company.",
+          "terms": ["v_chichi", "p_wa", "v_kaisha", "p_ni", { "id": "v_nokoru", "form": "polite_masu" }]
+        },
+        {
+          "jp": "父の 仕事は とても 念入りです。",
+          "en": "My father's work is very thorough.",
+          "terms": ["v_chichi", "p_no", "v_shigoto", "p_wa", "v_totemo", "v_neniri", "g_desu"]
+        },
+        {
+          "jp": "父は お金を 残します。",
+          "en": "My father saves money.",
+          "terms": ["v_chichi", "p_wa", "v_okane", "p_wo", { "id": "v_nokosu", "form": "polite_masu" }]
+        }
+      ],
+      "questions": [
+        {
+          "q": "父は どこで 働いて いますか。",
+          "q_en": "Where does the father work?",
+          "a": "会社で 働いて います。",
+          "a_en": "He works at a company.",
+          "terms": ["v_chichi", "p_wa", "v_doko", "p_de", { "id": "v_hataraku", "form": "te_form" }, { "id": "v_iru", "form": "polite_masu" }, "p_ka"],
+          "a_terms": ["v_kaisha", "p_de", { "id": "v_hataraku", "form": "te_form" }, { "id": "v_iru", "form": "polite_masu" }]
+        },
+        {
+          "q": "父の 仕事は どうですか。",
+          "q_en": "What is the father's work like?",
+          "a": "とても 念入りです。",
+          "a_en": "It is very thorough.",
+          "terms": ["v_chichi", "p_no", "v_shigoto", "p_wa", "v_dou", "g_desu", "p_ka"],
+          "a_terms": ["v_totemo", "v_neniri", "g_desu"]
+        },
+        {
+          "q": "父は 何を 残しますか。",
+          "q_en": "What does the father save?",
+          "a": "お金を 残します。",
+          "a_en": "He saves money.",
+          "terms": ["v_chichi", "p_wa", "v_nani", "p_wo", { "id": "v_nokosu", "form": "polite_masu" }, "p_ka"],
+          "a_terms": ["v_okane", "p_wo", { "id": "v_nokosu", "form": "polite_masu" }]
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 1: Kanji Readings",
+      "instructions": "Choose the correct reading for the word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "[忘れる] の よみかたは？",
+          "choices": ["わすれる", "おぼえる", "のこる", "さめる"],
+          "answer": "わすれる",
+          "explanation": "「忘れる」 is read 「わすれる」 — to forget."
+        },
+        {
+          "kind": "mcq",
+          "q": "[覚える] の よみかたは？",
+          "choices": ["おぼえる", "わすれる", "のこす", "ねんいり"],
+          "answer": "おぼえる",
+          "explanation": "「覚える」 is read 「おぼえる」 — to memorize / remember."
+        },
+        {
+          "kind": "mcq",
+          "q": "[残念] の よみかたは？",
+          "choices": ["ざんねん", "ねんいり", "ざんぎょう", "じかく"],
+          "answer": "ざんねん",
+          "explanation": "「残念」 is read 「ざんねん」 — regrettable / a shame."
+        },
+        {
+          "kind": "mcq",
+          "q": "[残業] の よみかたは？",
+          "choices": ["ざんぎょう", "ざんねん", "のこり", "ねんりき"],
+          "answer": "ざんぎょう",
+          "explanation": "「残業」 is read 「ざんぎょう」 — overtime work."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 2: Vocabulary",
+      "instructions": "Select the correct meaning for the word shown.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "忘れ物 [わすれもの]",
+          "choices": ["forgotten item", "year-end party", "overtime", "alarm clock"],
+          "answer": "forgotten item",
+          "terms": [],
+          "explanation": "「忘れ物」 (わすれもの) means \"a forgotten item / lost property\"."
+        },
+        {
+          "kind": "mcq",
+          "q": "残念 [ざんねん]",
+          "choices": ["regrettable / a shame", "careful", "remaining", "busy"],
+          "answer": "regrettable / a shame",
+          "terms": [],
+          "explanation": "「残念」 (ざんねん) means \"regrettable / disappointing\"."
+        },
+        {
+          "kind": "mcq",
+          "q": "目覚まし [めざまし]",
+          "choices": ["alarm clock", "memory", "year-end party", "stamp"],
+          "answer": "alarm clock",
+          "terms": [],
+          "explanation": "「目覚まし」 (めざまし) means \"alarm clock\"."
+        },
+        {
+          "kind": "mcq",
+          "q": "念入り [ねんいり]",
+          "choices": ["careful / thorough", "disappointing", "overtime", "forgotten item"],
+          "answer": "careful / thorough",
+          "terms": [],
+          "explanation": "「念入り」 (ねんいり) means \"careful / thorough / meticulous\"."
+        }
+      ]
+    },
+    {
+      "type": "drills",
+      "title": "Drill 3: Grammar & Forms",
+      "instructions": "Choose the correct verb form to complete each sentence.",
+      "items": [
+        {
+          "kind": "mcq",
+          "q": "学校に 本を ______。",
+          "choices": ["忘れました", "覚えました", "残りました", "起きました"],
+          "answer": "忘れました",
+          "terms": ["v_gakkou", "p_ni", "v_hon", "p_wo", { "id": "v_wasureru", "form": "polite_mashita" }],
+          "explanation": "Correct: 学校に 本を 忘れました。 (I forgot my book at school.)"
+        },
+        {
+          "kind": "mcq",
+          "q": "名前を よく ______ いますか。",
+          "choices": ["覚えて", "忘れて", "残して", "起きて"],
+          "answer": "覚えて",
+          "terms": ["v_namae", "p_wo", "v_yoku", { "id": "v_oboeru", "form": "te_form" }, { "id": "v_iru", "form": "polite_masu" }, "p_ka"],
+          "explanation": "Correct: 名前を よく 覚えて いますか。 (Do you remember the name well?)"
+        },
+        {
+          "kind": "mcq",
+          "q": "今日も 会社に ______。",
+          "choices": ["残ります", "覚えます", "忘れます", "帰ります"],
+          "answer": "残ります",
+          "terms": ["v_kyou", "p_mo", "v_kaisha", "p_ni", { "id": "v_nokoru", "form": "polite_masu" }],
+          "explanation": "Correct: 今日も 会社に 残ります。 (I'll stay at the company again today.)"
+        },
+        {
+          "kind": "mcq",
+          "q": "今から いっしょに ______。",
+          "choices": ["覚えましょう", "忘れましょう", "残りましょう", "起きましょう"],
+          "answer": "覚えましょう",
+          "terms": ["v_ima", "p_kara", "v_issho", "p_ni", { "id": "v_oboeru", "form": "polite_volitional_mashou" }],
+          "explanation": "Correct: 今から いっしょに 覚えましょう。 (Let's memorize it together now.)"
+        }
+      ]
+    }
+  ]
+}
