@@ -27,7 +27,7 @@ const conjugationRules = JSON.parse(await readFile(path.join(ROOT, 'conjugation_
 const counterRules = JSON.parse(await readFile(path.join(ROOT, 'counter_rules.json'), 'utf8'));
 const GLOSSARY_PATHS = [
   'data/N5/glossary.N5.json', 'data/N4/glossary.N4.json', 'data/N3/glossary.N3.json',
-  'shared/particles.json', 'shared/characters.json'
+  'shared/particles.json', 'shared/characters.json', 'shared/loanwords.json'
 ].map(p => path.join(ROOT, p));
 
 const glossaryIndex = await buildGlossaryIndex(GLOSSARY_PATHS, readFile,
@@ -75,8 +75,8 @@ function toRoot(g) {
 }
 
 // Ordered, de-duped root ids from the answer's tokens.
-function answerTerms(answer) {
-  const toks = tokenizeText(String(answer || ''), glossaryIndex);
+function answerTerms(answer, ceiling) {
+  const toks = tokenizeText(String(answer || ''), glossaryIndex, { ceiling });
   const out = [], seen = new Set();
   for (const t of toks) {
     if (!t.g) continue;
@@ -95,12 +95,14 @@ for (const file of files) {
   const slug = path.basename(path.dirname(file));
   if (ONLY && slug !== ONLY) continue;
   const data = JSON.parse(await readFile(file, 'utf8'));
+  const lvlMatch = file.match(/data\/(N[345])\//);
+  const ceiling = file.includes('/custom/') ? 'N4.99' : (lvlMatch ? `${lvlMatch[1]}.99` : null);
   const qs = (data.comprehension && data.comprehension.questions) || [];
   let changed = false;
   for (const q of qs) {
     const isWritten = q.type === 'written' || (!q.options && q.answer);
     if (!isWritten || !q.answer) continue;
-    const aTerms = answerTerms(q.answer);
+    const aTerms = answerTerms(q.answer, ceiling);
     const prev = JSON.stringify(q.aTerms || null);
     if (JSON.stringify(aTerms) !== prev) { q.aTerms = aTerms; changed = true; qsTouched++; }
   }

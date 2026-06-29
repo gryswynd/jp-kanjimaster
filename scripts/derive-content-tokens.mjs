@@ -39,7 +39,8 @@ const glossaryIndex = await buildGlossaryIndex(
     path.join(ROOT, 'data/N4/glossary.N4.json'),
     path.join(ROOT, 'data/N3/glossary.N3.json'),
     path.join(ROOT, 'shared/particles.json'),
-    path.join(ROOT, 'shared/characters.json')
+    path.join(ROOT, 'shared/characters.json'),
+    path.join(ROOT, 'shared/loanwords.json')
   ],
   readFile,
   { includeReadings: true, conjugationRules, counterRules }
@@ -49,16 +50,17 @@ console.log(`Indexed ${glossaryIndex.size} surfaces (incl. readings + characters
 const stats = { parts: 0, withReading: 0, mismatches: [] };
 
 // Walk a tree; tokenize the .text of every member of any `parts` array.
-function deriveOnParts(node, file) {
+// `ceiling` (e.g. "N4.99") enables the lattice's out-of-level disambiguation.
+function deriveOnParts(node, file, ceiling) {
   if (Array.isArray(node)) {
-    for (const child of node) deriveOnParts(child, file);
+    for (const child of node) deriveOnParts(child, file, ceiling);
     return;
   }
   if (node && typeof node === 'object') {
     if (Array.isArray(node.parts)) {
       for (const part of node.parts) {
         if (part && typeof part === 'object' && typeof part.text === 'string' && part.text) {
-          const tokens = tokenizeText(part.text, glossaryIndex);
+          const tokens = tokenizeText(part.text, glossaryIndex, { ceiling });
           const reconstructed = reconstructFromTokens(tokens);
           if (reconstructed !== part.text) {
             // Don't write tokens that don't reconstruct — leave the part bare
@@ -73,7 +75,7 @@ function deriveOnParts(node, file) {
         }
       }
     }
-    for (const key in node) deriveOnParts(node[key], file);
+    for (const key in node) deriveOnParts(node[key], file, ceiling);
   }
 }
 
@@ -89,7 +91,9 @@ for (const dir of GRAMMAR_DIRS) {
   for (const f of files) {
     const full = path.join(ROOT, dir, f);
     const data = JSON.parse(await readFile(full, 'utf8'));
-    deriveOnParts(data, `${dir}/${f}`);
+    const lvlMatch = dir.match(/N([345])/);
+    const ceiling = lvlMatch ? `N${lvlMatch[1]}.99` : null;
+    deriveOnParts(data, `${dir}/${f}`, ceiling);
     await writeFile(full, JSON.stringify(data, null, 2) + '\n', 'utf8');
     filesWritten++;
   }

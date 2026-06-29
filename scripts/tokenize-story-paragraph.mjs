@@ -63,11 +63,13 @@ if (!slug || !jp) {
 }
 
 // ── Locate the target JSON ─────────────────────────────────────────────────
-let storyPath = null;
+let storyPath = null, storyLvl = null;
 for (const lvl of ['N5', 'N4', 'N3', 'custom']) {
   const p = path.join(ROOT, 'data', lvl, subdir, slug, fileName);
-  if (existsSync(p)) { storyPath = p; break; }
+  if (existsSync(p)) { storyPath = p; storyLvl = lvl; break; }
 }
+// Ceiling for out-of-level lattice disambiguation (custom ranks at N4).
+const ceiling = storyLvl === 'custom' ? 'N4.99' : (storyLvl ? `${storyLvl}.99` : null);
 if (!storyPath) {
   console.error(`[error] ${fileName} not found for slug "${slug}". Run the scaffolder first.`);
   process.exit(1);
@@ -90,13 +92,14 @@ const glossaryIndex = await buildGlossaryIndex(
     path.join(ROOT, 'data/N4/glossary.N4.json'),
     path.join(ROOT, 'data/N3/glossary.N3.json'),
     path.join(ROOT, 'shared/particles.json'),
-    path.join(ROOT, 'shared/characters.json')
+    path.join(ROOT, 'shared/characters.json'),
+    path.join(ROOT, 'shared/loanwords.json')
   ],
   readFile,
   { includeReadings: true, conjugationRules, counterRules }
 );
 
-const tokens = tokenizeText(jp, glossaryIndex);
+const tokens = tokenizeText(jp, glossaryIndex, { ceiling });
 const reconstructed = reconstructFromTokens(tokens);
 if (reconstructed !== jp) {
   console.error(`[error] token reconstruction mismatch:`);

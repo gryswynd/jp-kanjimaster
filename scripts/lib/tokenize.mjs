@@ -209,6 +209,19 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
         }
       }
     }
+    if (Array.isArray(data.loanwords)) {
+      // Always-allowed gairaigo pool (shared/loanwords.json). Pure-katakana
+      // surface + hiragana reading; indexed like vocab so prose tokenizes with
+      // the reading + id group instead of a bare reading-less katakana run.
+      for (const e of data.loanwords) {
+        const surface = e.surface;
+        if (surface && !idx.has(surface)) idx.set(surface, e);
+        if (opts.includeReadings && e.reading && e.reading.length >= 4 && e.reading !== surface && !idx.has(e.reading)) {
+          idx.set(e.reading, e);
+          readingOnlyKeys.add(e.reading);
+        }
+      }
+    }
   }
 
   // OPTIONAL: pre-generate conjugated forms via the shared conjugation engine.
@@ -257,6 +270,11 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
         const tokens = deriveTokens(synth.surface, synth.reading) || [{ k: synth.surface }];
         synth.tokens = tokens;
         synth.type = 'inflected';
+        // Lattice-only: carry the ROOT's level rank so an inflected form of an
+        // out-of-level word (e.g. 似合った from 似合う N3) is scored out-of-level.
+        // Read solely by tokenizeTextLattice; lessonRank()/preferableTo() ignore it,
+        // so the greedy index/output is unchanged.
+        synth._rootRank = lessonRank(entry);
         if (!idx.has(synth.surface)) {
           idx.set(synth.surface, synth);
           conjugated++;
@@ -301,7 +319,7 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
       const tokens = deriveTokens(term.surface, term.reading) || [{ k: term.surface }];
       idx.set(term.surface, {
         id: term.id, surface: term.surface, reading: term.reading,
-        meaning: term.meaning, type: 'counter', tokens
+        meaning: term.meaning, type: 'counter', tokens, _rootRank: 0
       });
       counted++;
     }
@@ -409,7 +427,7 @@ const BOUNDARY_OVERRIDES = new Set(['は', 'へ', 'を']);
 //                Each entry MUST have a `tokens` array (added by the derive
 //                script) for the matched output to carry readings.
 
-export function tokenizeText(text, glossaryIndex) {
+export function tokenizeTextGreedy(text, glossaryIndex) {
   if (!text) return [];
 
   // Index by first char. Longest match wins (the glossaryIndex was already
@@ -628,6 +646,149 @@ export function tokenizeText(text, glossaryIndex) {
   }
   flushUnmatched();
   return out;
+}
+
+// ── Emit one matched surface → token(s) ─────────────────────────────────────
+// Mirrors tokenizeText's emit branches EXACTLY so the lattice produces the same
+// {k,r,g} shapes greedy would for a given surface. (Kept separate in Phase 1 so
+// the shipping greedy path stays byte-identical; can be deduped later.)
+function emitMatch(matched, glossaryIndex) {
+  const out = [];
+  const entry = glossaryIndex.get(matched);
+  const isReadingOnlyMatch = glossaryIndex._readingOnlyKeys && glossaryIndex._readingOnlyKeys.has(matched);
+  const isMatchesAlias = glossaryIndex._matchesKeys && glossaryIndex._matchesKeys.has(matched);
+  const matchedIsKana = /^[぀-ヿー]+$/.test(matched);
+  const particleRomaji = entry.id && PARTICLE_PRONUNCIATIONS[entry.id];
+  if (isMatchesAlias) {
+    const g = entry.id;
+    const hasKanji = /[一-鿿]/.test(matched);
+    if (hasKanji && entry.reading) {
+      const derived = deriveTokens(matched, entry.reading);
+      if (derived && derived.length) { for (const t of derived) out.push({ ...t, g }); }
+      else out.push({ k: matched, g });
+    } else out.push({ k: matched, g });
+  } else if (isReadingOnlyMatch) {
+    if (entry.id) out.push({ k: matched, g: entry.id }); else out.push({ k: matched });
+  } else if (entry.tokens && entry.tokens.length > 1 && entry.tokens.map(t => t.k || '').join('') === matched) {
+    const g = entry.id; for (const t of entry.tokens) out.push({ ...t, g });
+  } else if (entry.tokens && entry.tokens.length === 1 && entry.tokens[0].k === matched) {
+    if ((entry.type === 'inflected' || entry.type === 'counter') && entry.id) out.push({ ...entry.tokens[0], g: entry.id });
+    else out.push({ ...entry.tokens[0] });
+  } else if (matchedIsKana) {
+    if (particleRomaji) out.push({ k: matched, r: particleRomaji }); else out.push({ k: matched });
+  } else if (entry.reading && entry.reading !== matched) {
+    out.push({ k: matched, r: entry.reading });
+  } else {
+    out.push({ k: matched });
+  }
+  return out;
+}
+
+function rankFromLessonId(s) {
+  const m = String(s || '').match(/^N([345])\.(\d+)/);
+  if (!m) return null;
+  return (5 - Number(m[1])) * 100 + Number(m[2]);
+}
+
+// ── Whole-sentence segmentation: min-cost lattice (Viterbi) ──────────────────
+//
+// Holistic alternative to greedy longest-match. Builds a lattice of every
+// candidate surface at every position + flat-cost fallback runs, then picks the
+// minimum-cost path. Deterministic, glossary-driven, build-time only (NOT a
+// runtime morphological analyzer). Emits the same {k,r,g} tokens as greedy.
+//
+// Cost signals (opts.ceiling = a lessonId like "N4.99" enables the level penalty):
+//   - W_WORD per glossary edge        → fewer/longer tokens win (≈ longest-match)
+//   - W_OUTLEVEL when an entry resolves ABOVE the ceiling → に+ある (N5) beats
+//                                         にあった→似合う (N3); the headline fix
+//   - tiny lessonRank tiebreak        → prefer earlier-taught (frequency proxy)
+//   - W_FALLBACK (high) for unmatched → last resort; but a single fallback run
+//                                        still beats fragmenting into a particle
+//                                        + an unglossaried char (と+き → "とき")
+//   - W_SKP small single-kana nudge   → a covering word edged out a lone particle
+export function tokenizeTextLattice(text, glossaryIndex, opts = {}) {
+  if (!text) return [];
+  const n = text.length;
+  const ceilingRank = opts.ceiling ? rankFromLessonId(opts.ceiling) : null;
+
+  const byFirstChar = new Map();
+  for (const [surface] of glossaryIndex) {
+    const c = surface[0];
+    if (!byFirstChar.has(c)) byFirstChar.set(c, []);
+    byFirstChar.get(c).push(surface);
+  }
+
+  const PUNCT = /[、。！？「」『』（）：；・…\s.\-—~]/;
+  const isKana = (s) => /^[぀-ヿー]+$/.test(s);
+  // Fallback (unmatched) run cost = FB0 + FB1·length. The fixed part makes a run
+  // ONE segment (so と+き collapses to "とき" rather than a particle + bare char);
+  // the per-char part keeps a run from swallowing glossariable words (子ども stays
+  // chipped). Tuned so: run beats particle+lone-char, but glossary path beats run.
+  // W_OUTLEVEL is sized to a WINDOW: big enough that an in-level alternative path
+  // beats an out-of-level single edge (に+ある > にあった→似合う), but small enough
+  // that an out-of-level word with NO in-level alternative still beats fragmenting
+  // into a fallback run (かぞく → keep the 家族 chip, don't split into か+ぞく; the
+  // out-of-level-ness is a CONTENT issue for audit/qa, not a reason to garble).
+  const W_WORD = 10, W_SKP = 2, W_PUNCT = 0, W_OUTLEVEL = 30, MAXRUN = 12;
+  // FB1 > a particle's cost (≈12) so a fallback run never absorbs a valid
+  // adjacent particle (の stays a particle; no new untagged runs). と+き-style
+  // splits of unglossaried kana therefore stay as greedy emits them — those are
+  // a glossary/orthography concern that qa-story's SPLIT-KANA check already flags
+  // (→ 時). The lattice's win here is out-of-level disambiguation, not coverage.
+  const FB0 = 20, FB1 = 13;
+
+  const rankOf = (entry) => {
+    if (!entry) return 998;
+    if (typeof entry._rootRank === 'number') return entry._rootRank;
+    return lessonRank(entry);
+  };
+  const edgeCost = (surface, entry) => {
+    let c = W_WORD;
+    const r = rankOf(entry);
+    if (ceilingRank != null && r < 900 && r > ceilingRank) c += W_OUTLEVEL;
+    c += r / 100000;                                   // tiebreak: earlier-taught first
+    if (surface.length === 1 && isKana(surface)) c += W_SKP;
+    return c;
+  };
+
+  const best = new Array(n + 1).fill(Infinity); best[0] = 0;
+  const back = new Array(n + 1).fill(null);
+  const relax = (from, to, edge, cost) => {
+    const nc = best[from] + cost;
+    if (nc < best[to]) { best[to] = nc; back[to] = { from, ...edge }; }
+  };
+
+  for (let i = 0; i < n; i++) {
+    if (best[i] === Infinity) continue;
+    const ch = text[i];
+    if (PUNCT.test(ch)) { relax(i, i + 1, { punct: true }, W_PUNCT); continue; }
+    for (const s of (byFirstChar.get(ch) || [])) {
+      if (text.startsWith(s, i)) relax(i, i + s.length, { surface: s }, edgeCost(s, glossaryIndex.get(s)));
+    }
+    for (let j = i; j < n && (j - i) < MAXRUN && !PUNCT.test(text[j]); j++) {
+      relax(i, j + 1, { fallback: true }, FB0 + FB1 * (j + 1 - i));
+    }
+  }
+  if (best[n] === Infinity) return tokenizeTextGreedy(text, glossaryIndex);   // safety net
+
+  const edges = [];
+  for (let p = n; p > 0;) { const e = back[p]; edges.push({ ...e, to: p }); p = e.from; }
+  edges.reverse();
+
+  const out = [];
+  for (const e of edges) {
+    if (e.punct || e.fallback) out.push({ k: text.slice(e.from, e.to) });
+    else for (const t of emitMatch(e.surface, glossaryIndex)) out.push(t);
+  }
+  return out;
+}
+
+// Canonical tokenizer entry point. As of the lattice migration this delegates
+// to the min-cost segmenter; the greedy implementation is kept as
+// tokenizeTextGreedy (reference + lattice safety net). Callers pass
+// opts.ceiling (a lessonId like "N4.99") to enable out-of-level disambiguation.
+export function tokenizeText(text, glossaryIndex, opts) {
+  return tokenizeTextLattice(text, glossaryIndex, opts || {});
 }
 
 // ── Sanity: tokens concatenated must reconstruct the original text ──────────
