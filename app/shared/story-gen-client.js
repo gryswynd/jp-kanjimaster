@@ -64,5 +64,10 @@
     list: function () { return req('GET', '/v1/stories'); },
     getStory: function (id) { return req('GET', '/v1/stories/' + encodeURIComponent(id)); },
     registerPush: function (token, platform) { return req('POST', '/v1/push/register', { token: token, platform: platform }); },
+    // Friends (Phase 3)
+    myFriendCode: function () { return req('GET', '/v1/friends/me'); },
+    addFriend: function (code) { return req('POST', '/v1/friends', { code: code }); },
+    listFriends: function () { return req('GET', '/v1/friends'); },
+    removeFriend: function (uid) { return req('DELETE', '/v1/friends/' + encodeURIComponent(uid)); },
   };
 })();

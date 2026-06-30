@@ -480,9 +480,9 @@ window.JPApp = {
   _isModuleVisible: function(module) {
     var cfg = window.RIKIZO_CONFIG;
     if (cfg && cfg.mode === 'free') return true;
-    // Custom-story builder — surfaced only via the Custom opt-in tile (k-custom-enabled),
-    // so it's always "visible" to the launcher when reached.
-    if (module === 'build') return true;
+    // Custom-story builder + Friends — surfaced via their own entry points, so
+    // they're always "visible" to the launcher when reached.
+    if (module === 'build' || module === 'friends') return true;
     if (window.JPShared && window.JPShared.unlock) {
       return window.JPShared.unlock.isModuleVisible(module);
     }
@@ -1273,6 +1273,13 @@ window.JPApp = {
     if (customOn) {
       mods.push({ key: 'custom', label: 'Custom', jp: 'カスタム', kanji: '創', accent: 'gold' });
     }
+    // Friends — shown once the user has a real (non-anonymous) account.
+    try {
+      var fa = window.JPShared && window.JPShared.auth;
+      if (fa && fa.currentUser && fa.currentUser() && !fa.currentUser().isAnonymous) {
+        mods.push({ key: 'friends', label: 'Friends', jp: 'ともだち', kanji: '友', accent: 'indigo' });
+      }
+    } catch (e) {}
     var cells = mods.map(function(m) {
       var color = self._accent(m.accent);
       var visible = self._isModuleVisible(m.key);
@@ -1879,6 +1886,7 @@ window.JPApp = {
       game:           { global: 'GameModule',                file: 'Game.js' },
       custom:         { global: 'CustomStoriesModule',       file: 'Stories.js' },
       build:          { global: 'CustomStoryBuilderModule',  file: 'CustomStoryBuilder.js' },
+      friends:        { global: 'FriendsModule',             file: 'Friends.js' },
       'teacher-bingo':{ global: 'KanjiBingoGeneratorModule', file: 'KanjiBingoGenerator.js' },
       'writing-kanji':{ global: 'WritingKanjiModule',        file: 'WritingKanji.js',
                         deps: ['app/shared/stroke-canvas.js', 'app/shared/ink-morph.js'] },
