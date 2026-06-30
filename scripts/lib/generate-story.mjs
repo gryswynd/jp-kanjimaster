@@ -340,7 +340,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   // stragglers + cross-paragraph issues (e.g. 時/とき orthography) the per-paragraph
   // gate can't see. Fixes only flagged pieces, never regenerates the whole story.
   let violations = collectViolations(story, ctx, vopts);
-  for (let round = 1; round <= 4 && violations.length; round++) {
+  for (let round = 1; round <= 7 && violations.length; round++) {
     const byPara = new Map(); const titleMsgs = []; const compMsgs = []; const generalMsgs = [];
     for (const v of violations) {
       if (v.scope === 'title') titleMsgs.push(v.msg);
@@ -364,6 +364,27 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
     } catch (e) { if (e && e.fatal) throw e; log(`finish ${round}: parse failed (${e.message})`); }
     violations = collectViolations(story, ctx, vopts);
     log(`finish ${round}: ${violations.length} violation(s)`);
+  }
+
+  // 6) Last resort — a stubborn word that survived repeated rewording has no
+  // in-scope synonym. Rather than bin a near-perfect story over it, instruct a
+  // DELETE/replace of the offending sentence (guaranteed removal). Paragraph
+  // count is preserved (we rewrite, not drop, the paragraph), so the length
+  // floor still holds.
+  if (violations.length) {
+    const byPara = new Map();
+    for (const v of violations) if (v.scope === 'paragraph' && v.index) { if (!byPara.has(v.index)) byPara.set(v.index, []); byPara.get(v.index).push(v.msg); }
+    for (const [idx, msgs] of byPara) {
+      const i = idx - 1;
+      if (i < 0 || i >= story.paragraphs.length) continue;
+      const prompt = `This paragraph STILL has out-of-scope content that earlier rewrites could not fix — the offending word likely has no in-scope synonym:\n\n${story.paragraphs[i].jp}\n\nProblems:\n${msgs.map(m => '• ' + m).join('\n')}\n\nRewrite this paragraph and simply DELETE or replace the offending sentence(s) entirely — it is better to drop a sentence than to keep ANY out-of-scope word. Keep 1–3 natural, strictly in-scope sentences that still fit the story. Return ONLY {"jp":"…","en":"…"}.`;
+      try {
+        const obj = parseJsonObject(await call([{ role: 'user', content: prompt }], 700));
+        if (obj && obj.jp) story.paragraphs[i] = bakeParagraph(obj.jp, obj.en || story.paragraphs[i].en, params, ctx);
+      } catch (e) { if (e && e.fatal) throw e; }
+    }
+    violations = collectViolations(story, ctx, vopts);
+    log(`last-resort: ${violations.length} violation(s)`);
   }
 
   const ok = violations.length === 0;

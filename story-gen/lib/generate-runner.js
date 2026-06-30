@@ -152,6 +152,7 @@ function genRecord({ uid, email, params, res, status, storyId, error, quality, r
     error: error || null,
     rounds: (res && res.rounds) || 0,
     residualViolations: (res && Array.isArray(res.violations)) ? res.violations.length : 0,
+    residualMessages: (res && Array.isArray(res.violations)) ? res.violations.slice(0, 8) : [],
     regenerated: !!regenerated,
     quality: quality || null,
     costCents: round2(costCents),

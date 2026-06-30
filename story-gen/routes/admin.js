@@ -95,7 +95,8 @@ adminRouter.get('/v1/admin/storygen-dashboard', async (req, res, next) => {
         ? `<span class="q q${g.quality.overall}" title="${esc((g.quality.note || '') + '  [coh ' + g.quality.coherence + ' nat ' + g.quality.naturalness + ' scope ' + g.quality.inScope + ' theme ' + g.quality.themeFit + ' cast ' + g.quality.castUsage + ']')}">${stars(g.quality.overall)}</span>`
         : '—';
       const len = g.targetParagraphs ? `${g.actualParagraphs}/${g.targetParagraphs}` : (g.actualParagraphs || '—');
-      const st = g.status === 'done' ? '<span class="ok">done</span>' : `<span class="bad">${esc(g.error || 'failed')}</span>`;
+      const resid = (g.residualMessages && g.residualMessages.length) ? esc(g.residualMessages.join(' | ')) : '';
+      const st = g.status === 'done' ? '<span class="ok">done</span>' : `<span class="bad"${resid ? ` title="${resid}"` : ''}>${esc(g.error || 'failed')}${g.residualViolations ? ' (' + g.residualViolations + ')' : ''}</span>`;
       return `<tr>
         <td>${t}</td>
         <td>${esc((g.email || g.uid || '').slice(0, 22))}</td>
