@@ -736,8 +736,12 @@ window.JPApp = {
     }
     rescheduleReminders();
     try {
-      P.App && P.App.addListener && P.App.addListener('appStateChange', function(s) {
-        if (s && s.isActive) rescheduleReminders();
+      // Reschedule reminders when the app returns to the foreground. Uses the web
+      // visibilitychange event (works on iOS/Android/web) instead of @capacitor/app
+      // — that plugin was removed to resolve an iOS SPM package-identity clash with
+      // @capacitor-firebase/app (both resolve to identity "app").
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') rescheduleReminders();
       });
     } catch (e) {}
   },

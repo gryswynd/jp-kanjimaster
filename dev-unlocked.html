@@ -550,8 +550,8 @@ window.JPApp = {
     }
     rescheduleReminders();
     try {
-      P.App && P.App.addListener && P.App.addListener('appStateChange', function(s) {
-        if (s && s.isActive) rescheduleReminders();
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') rescheduleReminders();
       });
     } catch (e) {}
   },
