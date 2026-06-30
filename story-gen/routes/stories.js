@@ -11,7 +11,7 @@
  */
 import express from 'express';
 import { requireUid } from '../lib/auth.js';
-import { reserveGeneration, createJob, getJob, listStories, getStory, getPricingFlags } from '../lib/store.js';
+import { reserveGeneration, createJob, getJob, listStories, getStory, getPricingFlags, savePushToken } from '../lib/store.js';
 import { toParams, runJob } from '../lib/generate-runner.js';
 import { httpError } from '../lib/errors.js';
 
@@ -42,6 +42,16 @@ storiesRouter.get('/v1/stories/jobs/:id', requireUid, async (req, res, next) => 
 storiesRouter.get('/v1/stories', requireUid, async (req, res, next) => {
   try { res.json({ stories: await listStories(req.uid) }); }
   catch (e) { next(e); }
+});
+
+// Register this device's FCM push token (so we can ping when a story is ready).
+storiesRouter.post('/v1/push/register', requireUid, async (req, res, next) => {
+  try {
+    const b = req.body || {};
+    if (!b.token) { res.json({ ok: false }); return; }
+    await savePushToken(req.uid, String(b.token), String(b.platform || ''));
+    res.json({ ok: true });
+  } catch (e) { next(e); }
 });
 
 storiesRouter.get('/v1/stories/:id', requireUid, async (req, res, next) => {

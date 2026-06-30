@@ -635,6 +635,9 @@ window.JPApp = {
     // Custom-story generator transport (window.JPShared.storyGen). Inert unless
     // storyGenBaseUrl is set; needs auth for the ID token.
     await this.loadModule('app/shared/story-gen-client.js');
+    // Push notifications ("your story is ready"). Inert until the
+    // @capacitor/push-notifications plugin is present + the user is signed in.
+    await this.loadModule('app/shared/push.js');
     await this.loadModule('app/shared/tutor-quota.js');
     await this.loadModule('app/shared/tutor-client.js');
     await this.loadModule('app/shared/tutor-context.js');

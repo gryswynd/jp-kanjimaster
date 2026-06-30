@@ -63,5 +63,6 @@
     pollJob: function (jobId) { return req('GET', '/v1/stories/jobs/' + encodeURIComponent(jobId)); },
     list: function () { return req('GET', '/v1/stories'); },
     getStory: function (id) { return req('GET', '/v1/stories/' + encodeURIComponent(id)); },
+    registerPush: function (token, platform) { return req('POST', '/v1/push/register', { token: token, platform: platform }); },
   };
 })();

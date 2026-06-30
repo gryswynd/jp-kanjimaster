@@ -132,6 +132,46 @@ export async function listStories(uid) {
   return snap.docs.map(d => meta(d.data())).sort((a, b) => b.createdAt - a.createdAt);
 }
 
+// ── Push tokens (FCM) ───────────────────────────────────────────────────────
+// Stored as users/{uid}.pushTokens (array of {token, platform, ts}); de-duped.
+export async function savePushToken(uid, token, platform) {
+  if (!token) return;
+  if (MEMORY) {
+    const k = memKey(uid, 'push');
+    const arr = (mem.quota.get(k) || []).filter(t => t.token !== token);
+    arr.push({ token, platform: platform || '', ts: Date.now() });
+    mem.quota.set(k, arr);
+    return;
+  }
+  const ref = (await db()).doc(`users/${uid}`);
+  await (await db()).runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const arr = ((snap.exists && snap.data().pushTokens) || []).filter(t => t && t.token !== token);
+    arr.push({ token, platform: platform || '', ts: Date.now() });
+    tx.set(ref, { pushTokens: arr.slice(-10) }, { merge: true });   // cap per user
+  });
+}
+export async function getPushTokens(uid) {
+  if (MEMORY) return (mem.quota.get(memKey(uid, 'push')) || []).map(t => t.token);
+  const snap = await (await db()).doc(`users/${uid}`).get();
+  return ((snap.exists && snap.data().pushTokens) || []).map(t => t.token).filter(Boolean);
+}
+export async function prunePushTokens(uid, deadTokens) {
+  if (!deadTokens || !deadTokens.length) return;
+  const dead = new Set(deadTokens);
+  if (MEMORY) {
+    const k = memKey(uid, 'push');
+    mem.quota.set(k, (mem.quota.get(k) || []).filter(t => !dead.has(t.token)));
+    return;
+  }
+  const ref = (await db()).doc(`users/${uid}`);
+  await (await db()).runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const arr = ((snap.exists && snap.data().pushTokens) || []).filter(t => t && !dead.has(t.token));
+    tx.set(ref, { pushTokens: arr }, { merge: true });
+  });
+}
+
 // ── Cost rollup ────────────────────────────────────────────────────────────────
 export async function recordCost(uid, email, totalCents, breakdown) {
   const day = today();

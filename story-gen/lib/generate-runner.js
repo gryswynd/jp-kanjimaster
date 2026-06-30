@@ -10,7 +10,8 @@ import { generateStory } from '../vendor/lib/generate-story.mjs';
 import { anthropicCall, authorSystem } from './anthropic.js';
 import { computeCost } from './cost-meter.js';
 import { env, DEFAULT_FLAGS } from './config.js';
-import { updateJob, saveStory, recordCost, releaseGeneration, getPricingFlags } from './store.js';
+import { updateJob, saveStory, recordCost, releaseGeneration, getPricingFlags, getPushTokens, prunePushTokens } from './store.js';
+import { sendPush } from './firebase.js';
 
 let _ctxPromise = null;
 let _authorPromise = null;
@@ -65,6 +66,19 @@ export async function runJob(uid, email, jobId, params) {
     }
     const storyId = await saveStory(uid, res.story);
     await updateJob(uid, jobId, { status: 'done', storyId, rounds: res.rounds, costCents: Math.round(cost.totalCents * 100) / 100 });
+
+    // Notify the device(s) the story is ready (no-op if no tokens / no push set up).
+    try {
+      const tokens = await getPushTokens(uid);
+      if (tokens.length) {
+        const dead = await sendPush(
+          tokens,
+          { title: 'Your story is ready! 📖', body: res.story.title || 'Tap to read your new story.' },
+          { type: 'story', storyId }
+        );
+        if (dead.length) await prunePushTokens(uid, dead);
+      }
+    } catch (e) { /* push is best-effort */ }
   } catch (e) {
     await releaseGeneration(uid).catch(() => {});
     await updateJob(uid, jobId, { status: 'failed', error: String((e && e.reason) || (e && e.message) || 'error') }).catch(() => {});
