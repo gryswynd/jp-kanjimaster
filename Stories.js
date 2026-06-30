@@ -688,6 +688,26 @@ window.StoriesModule = (function () {
   // Pull the user's server-generated stories into the local cache so they appear
   // in Custom even if the builder's poll didn't cache them (e.g. the user left
   // mid-generation). Best-effort: silent if offline / not signed in.
+  function deletedUserStoryIds() {
+    try { const a = JSON.parse(localStorage.getItem('k-user-stories-deleted') || '[]'); return Array.isArray(a) ? a : []; }
+    catch (e) { return []; }
+  }
+  // Drop a server-generated story from the device: clear its cache + index and
+  // remember it as deleted so syncServerStories won't re-add it. (The server copy
+  // is left orphaned for now — harmless; a true server delete can come later.)
+  function deleteUserStory(id) {
+    try {
+      const del = deletedUserStoryIds();
+      if (del.indexOf(id) < 0) del.push(id);
+      localStorage.setItem('k-user-stories-deleted', JSON.stringify(del));
+      localStorage.removeItem('k-user-story-' + id);
+      let idx = []; try { idx = JSON.parse(localStorage.getItem('k-user-stories') || '[]'); } catch (e) {}
+      idx = (Array.isArray(idx) ? idx : []).filter(m => m && m.id !== id);
+      localStorage.setItem('k-user-stories', JSON.stringify(idx));
+    } catch (e) {}
+    storyList = storyList.filter(s => s.id !== id);
+  }
+
   async function syncServerStories() {
     const sg = window.JPShared && window.JPShared.storyGen;
     if (!sg || !sg.isConfigured || !sg.isConfigured() || !sg.isSignedIn || !sg.isSignedIn()) return;
@@ -696,9 +716,11 @@ window.StoriesModule = (function () {
     let index = [];
     try { index = JSON.parse(localStorage.getItem('k-user-stories') || '[]'); } catch (e) {}
     if (!Array.isArray(index)) index = [];
+    const deleted = deletedUserStoryIds();
     const have = {}; index.forEach(m => { if (m && m.id) have[m.id] = true; });
     for (const meta of list) {
       if (!meta || !meta.id) continue;
+      if (deleted.indexOf(meta.id) >= 0) continue;     // user deleted it locally
       const bodyKey = 'k-user-story-' + meta.id;
       let cached = null;
       try { cached = localStorage.getItem(bodyKey); } catch (e) {}
@@ -722,9 +744,10 @@ window.StoriesModule = (function () {
   function readUserStories() {
     let index = [];
     try { index = JSON.parse(localStorage.getItem('k-user-stories') || '[]'); } catch (e) {}
+    const deleted = deletedUserStoryIds();
     const out = [];
     for (const meta of (Array.isArray(index) ? index : [])) {
-      if (!meta || !meta.id) continue;
+      if (!meta || !meta.id || deleted.indexOf(meta.id) >= 0) continue;
       let body = null;
       try { body = JSON.parse(localStorage.getItem('k-user-story-' + meta.id) || 'null'); } catch (e) {}
       if (!body || body.schemaVersion !== '2.0.0') continue;
@@ -886,6 +909,11 @@ window.StoriesModule = (function () {
       const unseenDot = (u && u.isUnseen && u.isUnseen('story:' + s.id))
         ? '<span class="jp-unseen-dot" style="position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;"></span>'
         : '';
+      // TESTING ONLY — delete control on generated stories. Remove before
+      // production (along with deleteUserStory / k-user-stories-deleted).
+      const delBtn = s._userStory
+        ? `<button class="jp-book-del" data-del="${escAttr(s.id)}" aria-label="Delete story" title="Delete (testing)" style="position:absolute;top:4px;left:4px;z-index:7;width:22px;height:22px;border-radius:50%;border:none;background:rgba(0,0,0,0.55);color:#fff;font-size:15px;line-height:20px;text-align:center;cursor:pointer;padding:0;">×</button>`
+        : '';
       html += `<div class="jp-book-cover" data-id="${escAttr(s.id)}">
         <div class="jp-book-cover-page"></div>
         <div class="jp-book-cover-face" style="background:${colorFromId(s.id)};">
@@ -893,13 +921,23 @@ window.StoriesModule = (function () {
           <div class="jp-book-cover-title">${escHtml(s.title || s.subtitle || s.id)}</div>
           <div class="jp-book-cover-en">${escHtml(s.subtitle || '')}</div>
         </div>
-        ${stamp}${unseenDot}
+        ${stamp}${unseenDot}${delBtn}
       </div>`;
     }
     html += '</div></div></div>';
     container.innerHTML = html;
     document.getElementById('jp-stories-exit').onclick = onExit;
     document.getElementById('jp-stories-back-to-levels').onclick = renderSelector;
+    // TESTING ONLY — delete control (see render above). Remove before production.
+    container.querySelectorAll('.jp-book-del').forEach(btn => {
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        const id = btn.getAttribute('data-del');
+        if (!window.confirm('Delete this story from your device? (testing)')) return;
+        deleteUserStory(id);
+        renderSelector();
+      };
+    });
     const sk = window.JPShared && window.JPShared.sceneKit;
     container.querySelectorAll('.jp-book-cover').forEach(card => {
       card.onclick = () => {
