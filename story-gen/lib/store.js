@@ -12,7 +12,7 @@
  *   pricing-flags/storygen               { killSwitch, maxDailyTotalUSD, perUserPerDay, maxParagraphs }
  *   storygen-cost-rollup/{day}           { day, generations, costSumCents, svc, byUser }
  */
-import { randomUUID } from 'node:crypto';
+import { randomUUID, randomBytes } from 'node:crypto';
 import { env, DEFAULT_FLAGS } from './config.js';
 import { httpError } from './errors.js';
 
@@ -28,7 +28,7 @@ async function db() {
 }
 
 // ── In-memory backend ────────────────────────────────────────────────────────
-const mem = { jobs: new Map(), stories: new Map(), quota: new Map(), flags: null, rollup: new Map() };
+const mem = { jobs: new Map(), stories: new Map(), quota: new Map(), flags: null, rollup: new Map(), codes: new Map(), userCode: new Map(), friends: new Map() };
 const memKey = (uid, id) => `${uid}/${id}`;
 
 const MEMORY = env.useMemoryStore;
@@ -203,4 +203,99 @@ export async function getCostRollups(days = 7) {
   if (MEMORY) return [...mem.rollup.values()].sort((a, b) => (a.day < b.day ? 1 : -1)).slice(0, days);
   const snap = await (await db()).collection('storygen-cost-rollup').orderBy('day', 'desc').limit(days).get();
   return snap.docs.map(d => d.data());
+}
+
+// ── Friends (codes + mutual links + coarse progress) ─────────────────────────
+// Firestore: users/{uid}.friendCode, friendCodes/{code}={uid},
+//            users/{uid}/friends/{friendUid}={since}
+const CODE_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // no ambiguous 0/O/1/I/L
+function makeCode() {
+  let s = '';
+  const bytes = randomBytes(8);
+  for (let i = 0; i < 6; i++) s += CODE_ALPHABET[bytes[i] % CODE_ALPHABET.length];
+  return s;
+}
+
+export async function ensureFriendCode(uid) {
+  if (MEMORY) {
+    if (mem.userCode.has(uid)) return mem.userCode.get(uid);
+    let code; do { code = makeCode(); } while (mem.codes.has(code));
+    mem.userCode.set(uid, code); mem.codes.set(code, uid); return code;
+  }
+  const ref = (await db()).doc(`users/${uid}`);
+  const snap = await ref.get();
+  if (snap.exists && snap.data().friendCode) return snap.data().friendCode;
+  // Mint a unique code (retry on collision).
+  for (let attempt = 0; attempt < 8; attempt++) {
+    const code = makeCode();
+    const codeRef = (await db()).doc(`friendCodes/${code}`);
+    try {
+      await (await db()).runTransaction(async (tx) => {
+        const c = await tx.get(codeRef);
+        if (c.exists) throw new Error('collision');
+        tx.set(codeRef, { uid });
+        tx.set(ref, { friendCode: code }, { merge: true });
+      });
+      return code;
+    } catch (e) { if (String(e.message) !== 'collision') throw e; }
+  }
+  throw httpError(500, 'code_mint_failed');
+}
+
+export async function resolveFriendCode(code) {
+  const c = String(code || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (!c) return null;
+  if (MEMORY) return mem.codes.get(c) || null;
+  const snap = await (await db()).doc(`friendCodes/${c}`).get();
+  return snap.exists ? snap.data().uid : null;
+}
+
+export async function addFriendMutual(uid, friendUid) {
+  if (uid === friendUid) throw httpError(400, 'cannot_friend_self');
+  const now = Date.now();
+  if (MEMORY) {
+    if (!mem.friends.has(uid)) mem.friends.set(uid, new Map());
+    if (!mem.friends.has(friendUid)) mem.friends.set(friendUid, new Map());
+    mem.friends.get(uid).set(friendUid, now); mem.friends.get(friendUid).set(uid, now);
+    return;
+  }
+  await (await db()).doc(`users/${uid}/friends/${friendUid}`).set({ since: now }, { merge: true });
+  await (await db()).doc(`users/${friendUid}/friends/${uid}`).set({ since: now }, { merge: true });
+}
+
+export async function removeFriend(uid, friendUid) {
+  if (MEMORY) {
+    if (mem.friends.has(uid)) mem.friends.get(uid).delete(friendUid);
+    if (mem.friends.has(friendUid)) mem.friends.get(friendUid).delete(uid);
+    return;
+  }
+  await (await db()).doc(`users/${uid}/friends/${friendUid}`).delete().catch(() => {});
+  await (await db()).doc(`users/${friendUid}/friends/${uid}`).delete().catch(() => {});
+}
+
+export async function listFriendUids(uid) {
+  if (MEMORY) return [...(mem.friends.get(uid) || new Map()).keys()];
+  const snap = await (await db()).collection(`users/${uid}/friends`).get();
+  return snap.docs.map(d => d.id);
+}
+
+// Coarse progress for a friend (no raw scores / flags). Reads the friend's synced
+// users/{uid} doc (learning + streak + profile written by the tutor's progress sync).
+export async function friendSummary(uid) {
+  let data = null;
+  if (!MEMORY) { const s = await (await db()).doc(`users/${uid}`).get(); data = s.exists ? s.data() : null; }
+  const learning = (data && data.learning) || {};
+  const completed = learning.lessonCompleted || {};
+  const rank = (id) => { const m = /^N([345])\.(\d+)$/.exec(id); return m ? (5 - +m[1]) * 1000 + +m[2] : -1; };
+  let furthest = '', best = -1;
+  for (const id of Object.keys(completed)) if (completed[id] && rank(id) > best) { best = rank(id); furthest = id; }
+  const level = /^N4\./.test(furthest) ? 'N4' : (furthest ? 'N5' : (learning.n4Unlocked ? 'N4' : 'N5'));
+  const profile = (data && data.profile) || {};
+  return {
+    uid,
+    name: (profile.first || '').trim() || 'Friend',
+    level,
+    lessonsCompleted: Object.values(completed).filter(Boolean).length,
+    streak: (data && data.streak && data.streak.current) || 0,
+  };
 }

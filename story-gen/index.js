@@ -7,6 +7,7 @@ import express from 'express';
 import { env } from './lib/config.js';
 import { authMiddleware } from './lib/auth.js';
 import { storiesRouter } from './routes/stories.js';
+import { friendsRouter } from './routes/friends.js';
 import { adminRouter } from './routes/admin.js';
 import { warm } from './lib/generate-runner.js';
 
@@ -15,7 +16,7 @@ app.set('trust proxy', true);
 
 app.use((req, res, next) => {
   res.set('Access-Control-Allow-Origin', req.get('Origin') || '*');
-  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.set('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Token');
   res.set('Access-Control-Max-Age', '86400');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -29,6 +30,7 @@ app.get('/healthz', (_req, res) => res.json({ ok: true }));
 app.use(authMiddleware);
 app.use(adminRouter);
 app.use(storiesRouter);
+app.use(friendsRouter);
 
 app.use((err, _req, res, _next) => {
   const status = err.status || 500;
