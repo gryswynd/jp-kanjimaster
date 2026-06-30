@@ -33,11 +33,13 @@ Reply with **ONLY a single JSON object**, no prose, no markdown fences. Shape:
    in kana instead. This applies to the title, paragraphs, AND comprehension questions/answers.
 2. **Vocabulary level:** Stay within the stated vocab level. Prefer the simplest word that
    works. When unsure whether a word is in level, choose a simpler, more common synonym.
-   **Never use a word whose kanji isn't in the ALLOWED list** — if you'd have to write a
-   content word in kana only because its kanji is untaught, pick a different in-level word
-   instead. Write verbs/nouns in their taught kanji form when that kanji is allowed
-   (見る, not みる) — EXCEPT the ～て helper auxiliaries みる / いく / くる / しまう / おく,
-   which correctly stay in kana.
+   **Kanji vs kana (important):** Write a word in kanji **only if every kanji in it is in the
+   ALLOWED list** — and when it is, you MUST use the kanji (一つ not ひとつ, 町 not まち, when
+   those kanji are allowed; writing a taught-kanji word in kana is rejected). If a word's
+   kanji is NOT all allowed, write the **whole word in kana** (e.g. おもう if 思 isn't taught
+   yet). Do NOT use an untaught kanji, and do NOT avoid a common in-level word just because
+   its kanji isn't taught — write it in kana. Kana is also correct for こと/もの/できる,
+   particles, and the ～て helpers (みる/いく/くる/しまう/おく).
 3. **Grammar:** Use only grammar at or below the stated grammar gate. No conditionals,
    passives, causatives, or other forms beyond the gate unless the gate includes them.
 4. **Orthography consistency:** Spell each word ONE way throughout (don't mix 時/とき).

@@ -84,13 +84,28 @@ export async function buildGateContext({ readFile, root }) {
   const approvedIds = new Set();
   const surfaceRank = {};
   const noteSurface = (s, r) => { if (s && (!(s in surfaceRank) || r < surfaceRank[s])) surfaceRank[s] = r; };
+  // kana reading → its KANJI surface + lowest level rank. Lets the generator tell
+  // the difference between "you wrote a taught-kanji word in kana (use the kanji)"
+  // and "this word is out of scope (reword it)".
+  const readingToEntry = {};
+  const noteReading = (reading, surface, r) => {
+    if (!reading || !surface || !/[一-鿿]/.test(surface)) return;
+    const cur = readingToEntry[reading];
+    if (!cur || r < cur.rank) readingToEntry[reading] = { surface, rank: r };
+  };
   for (let r = 0; r < LEVELS.length; r++) {
     for (const e of entriesOf(await load(`data/${LEVELS[r]}/glossary.${LEVELS[r]}.json`))) {
       if (!e) continue;
       if (e.id && !(e.id in idRank)) idRank[e.id] = r;
       noteSurface(e.surface, r);
       if (Array.isArray(e.tokens)) noteSurface(e.tokens.map(t => t.k).join(''), r);
+      noteReading(e.reading, e.surface, r);
     }
+  }
+  // Counter forms (一つ/ひとつ, 三本/さんぼん…) come from the engine, not the glossary —
+  // add their kana readings so "ひとつ" → "use 一つ".
+  for (const [key, e] of surfaceIdx) {
+    if (e && e.type === 'counter' && e.reading) noteReading(e.reading, e.surface || key, 0);
   }
   for (const f of ['shared/particles.json', 'shared/characters.json', 'shared/loanwords.json']) {
     try {
@@ -139,7 +154,7 @@ export async function buildGateContext({ readFile, root }) {
     for (const g of (manifest.data[lvl].grammar || [])) if (g && g.id) grammarTitles[g.id] = g.title || g.titleJp || g.id;
   }
 
-  return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank,
+  return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank, readingToEntry,
            ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, loanwords, lessonVocab, grammarTitles };
 }
 

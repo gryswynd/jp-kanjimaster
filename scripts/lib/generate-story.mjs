@@ -88,6 +88,9 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
   const out = [];
   const add = (scope, index, msg) => out.push({ scope, index, msg });
   const vocabRank = LEVELS.indexOf(vocabLevel) >= 0 ? LEVELS.indexOf(vocabLevel) : 1;
+  const ceilingRank = ceiling ? (LEVEL_RANK[ceiling.lvl] != null ? LEVEL_RANK[ceiling.lvl] : 1) : 1;
+  const taughtKanji = buildTaughtKanji(ctx.manifest, ceiling);
+  const allKanjiTaught = (s) => [...String(s || '')].every(ch => !/[一-鿿]/.test(ch) || taughtKanji.has(ch));
   const paras = story.paragraphs || [];
   const paraOfKanji = (ch) => { const i = paras.findIndex(p => (p.jp || '').includes(ch)); return i >= 0 ? i + 1 : null; };
 
@@ -102,8 +105,7 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
     for (const [surface] of ta.outOfLevel) add('title', null, `out-of-level word "${surface}" — use ${vocabLevel}-or-below vocab`);
     for (const [surface] of ta.unglossaried) add('title', null, `"${surface}" isn't in the curriculum — use taught vocabulary`);
     for (const [word, fix] of Object.entries(TITLE_STOPLIST)) if (story.title.includes(word)) add('title', null, `uses "${word}" (out of scope) — use ${fix}`);
-    const taught = buildTaughtKanji(ctx.manifest, ceiling);
-    for (const ch of story.title) if (/[一-鿿㐀-䶿]/.test(ch) && !taught.has(ch)) add('title', null, `kanji 「${ch}」 isn't taught — use kana or a different word`);
+    for (const ch of story.title) if (/[一-鿿㐀-䶿]/.test(ch) && !taughtKanji.has(ch)) add('title', null, `kanji 「${ch}」 isn't taught — use kana or a different word`);
   }
 
   // Reconstruction (a paragraph's tokens didn't rebuild its jp).
@@ -125,14 +127,22 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
   }
   const paraOrComp = (p) => (p === 'Q' ? ['comprehension', null] : ['paragraph', p]);
   for (const x of dedupe(q.violations.vocab, x => x.p + x.id).slice(0, 16)) { const [s, i] = paraOrComp(x.p); add(s, i, `out-of-scope word "${x.k}" — use a simpler in-level word`); }
-  for (const x of q.violations.untagged.slice(0, 16)) if (!isOkKana(x.k)) { const [s, i] = paraOrComp(x.p); add(s, i, `"${x.k}" isn't a recognized word — reword it`); }
+  for (const x of q.violations.untagged.slice(0, 16)) {
+    if (isOkKana(x.k)) continue;
+    const [s, i] = paraOrComp(x.p);
+    const re = ctx.readingToEntry && ctx.readingToEntry[x.k];
+    if (!re) { add(s, i, `"${x.k}" isn't a recognized word — reword it (or use a simpler in-level word)`); continue; }
+    if (re.rank > ceilingRank) { add(s, i, `out-of-level word "${x.k}" (${re.surface}, ${LEVELS[re.rank] || 'N3'}) — replace with an in-level word`); continue; }
+    // In-scope word: push to kanji ONLY if its kanji is taught; otherwise the kana
+    // form is correct (in-scope vocab whose kanji comes later) → allow, no flag.
+    if (allKanjiTaught(re.surface)) add(s, i, `write "${x.k}" in its taught KANJI form (${re.surface}) — don't write a taught-kanji word in kana`);
+  }
   for (const x of q.violations.split) { const [s, i] = paraOrComp(x.p); add(s, i, `"${x.k}" — ${x.fix}`); }
   for (const x of q.violations.form.slice(0, 10)) { const [s, i] = paraOrComp(x.p); add(s, i, `grammar form "${x.k}" is taught later — use a simpler form`); }
   for (const x of q.violations.particle.slice(0, 10)) { const [s, i] = paraOrComp(x.p); add(s, i, `particle "${x.k}" is taught later — rephrase (e.g. 〜って → 〜と)`); }
   for (const x of q.violations.orthography) add('paragraph', null, `spelling inconsistency ${x.pair} — pick one spelling throughout`);
 
   // Out-of-level words the ceiling-biased tokenizer hid by splitting (ことば=N3 → こと+ば).
-  const ceilingRank = ceiling ? (LEVEL_RANK[ceiling.lvl] != null ? LEVEL_RANK[ceiling.lvl] : 1) : 1;
   const seenOOL = new Set();
   paras.forEach((p, i) => {
     for (const t of tokenizeText(p.jp || '', ctx.surfaceIdx)) {
