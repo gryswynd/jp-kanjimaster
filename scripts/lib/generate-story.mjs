@@ -214,12 +214,19 @@ function buildScope(params, ctx) {
   const palette = [...new Set((ctx.vocabEntries || []).filter(e => e.surface && inScope(e.lesson, ceiling)).map(e => e.surface))];
   const genre = (params.themes || []).filter(t => /fantasy|sci-?fi|horror|adventure|period/i.test(t));
   const gairaigo = ['ヒーロー', 'モンスター', 'レベル', 'ゲーム', 'ロボット', 'エネルギー', 'チーム', 'パワー', 'ドア', 'ベル'].filter(w => (ctx.loanwords || []).indexOf(w) >= 0);
+  // High-frequency words the model defaults to even when out of scope. Forbid them
+  // explicitly — level-aware: only when the entry is ABOVE the learner's ceiling.
+  const HF_FORBID = [{ s: 'やる', use: 'する', why: 'casual する, not taught until N3.22' }];
+  const forbid = HF_FORBID
+    .filter(f => { const e = (ctx.vocabEntries || []).find(x => x.surface === f.s); return e && !inScope(e.lesson, ceiling); })
+    .map(f => `「${f.s}」(${f.why}) → use 「${f.use}」`);
 
   return [
     `THEME(S): ${(params.themes || []).join(', ') || 'slice of life'}.` + (params.tone ? ` TONE: ${params.tone}.` : ''),
     'CAST (use these characters by their Japanese names):',
     cast || '- (narrator only)',
     `VOCAB LEVEL: ${params.vocabLevel} or below. GRAMMAR: up to and including ${params.grammarGate} — no grammar taught after it.`,
+    forbid.length ? `HARD RULE — NEVER use these high-frequency words (out of scope here): ${forbid.join('; ')}.` : '',
     `ALLOWED KANJI (use ONLY these; write every other word in kana):`,
     kanji.join(''),
     `ALLOWED VOCABULARY — the learner has been taught these ${palette.length} content words (plus particles, copula/polite endings, numbers/counters, and conjugations of these). Build the story almost entirely from this list. If a word you want is NOT here, it is NOT taught yet — DO NOT use it; express the idea with listed words (e.g. if 笑う isn't here, use うれしい/おもしろい or describe the action). Even basics like 思う/言う/見る are allowed ONLY if they appear here:`,

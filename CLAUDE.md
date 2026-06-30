@@ -319,6 +319,10 @@ npm run vendor:fonts       # re-subsets Noto Sans/Serif JP to the current conten
   decision — only add them when explicitly asked.
 - ❌ Don't let a story ship with out-of-level vocab. Agent 3
   (`audit-story-vocab.mjs`) must report 0 out-of-level.
+- ❌ Don't use **やる** (casual する) in content below **N3.22** — it isn't taught
+  until then (introduced N3.22 casual register; giving-sense reinforced N3.75). Use
+  する. Kanji 遣る is N1 → やる is always kana. The glossary entry `v_yaru` (N3.22)
+  gates it, and the generator forbids it explicitly below ceiling.
 - ❌ Don't edit files in `www/` or `ios/App/App/public/` directly — they're
   generated.
 - ❌ Don't bypass `validate-stories.mjs` with `--no-verify` on commits unless
