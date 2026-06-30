@@ -193,7 +193,10 @@ function assembleStory(raw, params, ctx) {
   };
 }
 
-function buildBrief(params, ctx) {
+// The per-generation scope (cast, level, grammar gate, allowed kanji, the in-scope
+// WORD palette, focus, gairaigo). Injected ONCE into the cached system prompt and
+// reused across every incremental call.
+function buildScope(params, ctx) {
   const ceiling = params.ceiling;
   const kanji = [...buildTaughtKanji(ctx.manifest, ceiling)].sort();
   const cast = (params.castIds || [])
@@ -201,164 +204,163 @@ function buildBrief(params, ctx) {
     .filter(Boolean)
     .map(c => `- ${c.surface} (${c.meaning}): ${c.description}`)
     .join('\n');
-  // Focus words = flagged words + vocab drawn from the lessons the learner chose
-  // to reinforce (capped so the brief stays lean).
   const lessonWords = [];
-  for (const lid of (params.focusLessons || [])) {
-    for (const w of (ctx.lessonVocab && ctx.lessonVocab[lid]) || []) lessonWords.push(w);
-  }
-  const allFocus = [];
-  const seenF = new Set();
-  for (const w of [...(params.focusWords || []), ...lessonWords]) {
-    if (w && !seenF.has(w)) { seenF.add(w); allFocus.push(w); }
-  }
+  for (const lid of (params.focusLessons || [])) for (const w of (ctx.lessonVocab && ctx.lessonVocab[lid]) || []) lessonWords.push(w);
+  const allFocus = []; const seenF = new Set();
+  for (const w of [...(params.focusWords || []), ...lessonWords]) if (w && !seenF.has(w)) { seenF.add(w); allFocus.push(w); }
   const focus = allFocus.slice(0, 50).join('、');
   const focusGrammar = (params.focusGrammar || [])
-    .map(id => (ctx.grammarTitles && ctx.grammarTitles[id]) ? `${id} (${ctx.grammarTitles[id]})` : id)
-    .join('; ');
-  // In-scope WORD palette (the PM handoff): the exact vocabulary the learner has
-  // been taught. The author composes within this; if a word isn't here, it's not
-  // taught yet and must be worked around.
-  const palette = [...new Set((ctx.vocabEntries || [])
-    .filter(e => e.surface && inScope(e.lesson, ceiling))
-    .map(e => e.surface))];
+    .map(id => (ctx.grammarTitles && ctx.grammarTitles[id]) ? `${id} (${ctx.grammarTitles[id]})` : id).join('; ');
+  const palette = [...new Set((ctx.vocabEntries || []).filter(e => e.surface && inScope(e.lesson, ceiling)).map(e => e.surface))];
+  const genre = (params.themes || []).filter(t => /fantasy|sci-?fi|horror|adventure|period/i.test(t));
+  const gairaigo = ['ヒーロー', 'モンスター', 'レベル', 'ゲーム', 'ロボット', 'エネルギー', 'チーム', 'パワー', 'ドア', 'ベル'].filter(w => (ctx.loanwords || []).indexOf(w) >= 0);
 
-  const lines = [
-    `Write a graded-reader story of ${params.targetParagraphs} paragraphs` +
-      (params.minParagraphs ? ` (this is important: NO FEWER than ${params.minParagraphs} paragraphs)` : '') + '.',
-    `Each paragraph should be a full beat of 2–4 sentences — not one-liners — so the story has real substance.`,
-    '',
-    `THEME(S): ${(params.themes || []).join(', ') || 'slice of life'}.`,
-    params.tone ? `TONE: ${params.tone}.` : '',
-    '',
+  return [
+    `THEME(S): ${(params.themes || []).join(', ') || 'slice of life'}.` + (params.tone ? ` TONE: ${params.tone}.` : ''),
     'CAST (use these characters by their Japanese names):',
     cast || '- (narrator only)',
-    '',
-    `VOCAB LEVEL: ${params.vocabLevel} or below (this is the hard ceiling — no harder vocab).`,
-    `GRAMMAR GATE: up to and including ${params.grammarGate}. Do not use grammar taught after it.`,
-    '',
+    `VOCAB LEVEL: ${params.vocabLevel} or below. GRAMMAR: up to and including ${params.grammarGate} — no grammar taught after it.`,
     `ALLOWED KANJI (use ONLY these; write every other word in kana):`,
     kanji.join(''),
-    '',
-    `ALLOWED VOCABULARY — the learner has been taught these ${palette.length} content words (plus particles, copula/polite endings, numbers/counters, and conjugations of these words). Build the story almost entirely from this list. If a word you want is NOT here, it is NOT taught yet — DO NOT use it; express the idea with words that ARE here (e.g. if 笑う isn't listed, write 「おもしろい」「うれしい」 or describe the action). Common basics like 思う/言う/見る are only allowed if they appear below:`,
+    `ALLOWED VOCABULARY — the learner has been taught these ${palette.length} content words (plus particles, copula/polite endings, numbers/counters, and conjugations of these). Build the story almost entirely from this list. If a word you want is NOT here, it is NOT taught yet — DO NOT use it; express the idea with listed words (e.g. if 笑う isn't here, use うれしい/おもしろい or describe the action). Even basics like 思う/言う/見る are allowed ONLY if they appear here:`,
     palette.join('、'),
-    '',
-    focus ? `FOCUS WORDS (weave these in naturally, repeat where it fits): ${focus}` : '',
-    focusGrammar ? `FOCUS GRAMMAR (make sure the story uses these patterns): ${focusGrammar}` : '',
-    (function () {
-      const genre = (params.themes || []).filter(t => /fantasy|sci-?fi|horror|adventure|period/i.test(t));
-      if (!genre.length) return '';
-      const pool = (ctx.loanwords || []);
-      const sample = ['ヒーロー', 'モンスター', 'レベル', 'ゲーム', 'ロボット', 'エネルギー', 'チーム', 'パワー', 'ドア', 'ベル']
-        .filter(w => pool.indexOf(w) >= 0);
-      return `GENRE FLAVOR: authentic Japanese katakana loanwords (gairaigo) are IN SCOPE and encouraged for ${genre.join('/')} — use real, common ones where they fit${sample.length ? ` (e.g. ${sample.join('、')})` : ''}. Write them in katakana.`;
-    })(),
-    params.includeComprehension
-      ? `\nEnd with ${params.numQuestions || 4} short-answer (written) comprehension questions.`
-      : `\nNo comprehension questions (use an empty array).`,
-    '',
-    'Return ONLY the JSON object described in your instructions.',
-  ];
-  return lines.filter(l => l !== '').join('\n');
+    focus ? `FOCUS WORDS (weave in naturally where they fit): ${focus}` : '',
+    focusGrammar ? `FOCUS GRAMMAR (use these patterns): ${focusGrammar}` : '',
+    genre.length ? `GENRE FLAVOR: authentic katakana loanwords (gairaigo) are IN SCOPE for ${genre.join('/')}${gairaigo.length ? ` (e.g. ${gairaigo.join('、')})` : ''}.` : '',
+  ].filter(l => l !== '').join('\n');
+}
+
+function buildSystem(authorSystem, params, ctx) {
+  return authorSystem + '\n\n=== THIS STORY — STAY STRICTLY IN SCOPE ===\n' + buildScope(params, ctx);
+}
+
+// Violations for ONE paragraph (reuses collectViolations on a 1-paragraph pseudo-
+// story; keeps only paragraph-scope problems). The benign title 'x' is filtered out.
+function paragraphViolations(para, ctx, vopts) {
+  const mini = { schemaVersion: '2.0.0', id: 'p', title: 'x', englishTitle: 'x', paragraphs: [para], comprehension: { questions: [] } };
+  return collectViolations(mini, ctx, { ...vopts, minParagraphs: 0 }).filter(v => v.scope === 'paragraph').map(v => v.msg);
+}
+
+// Give the story a short in-scope title, gated + repaired (≤3 tries).
+async function writeTitle(story, call, params, ctx, vopts) {
+  const body = story.paragraphs.map(p => p.jp).join(' ').slice(0, 600);
+  let msgs = [{ role: 'user', content: `Give this story a short Japanese title, STRICTLY in scope (only allowed vocab/kanji). STORY:\n${body}\nReturn ONLY {"title":"…","englishTitle":"…"}.` }];
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    let o; try { o = parseJsonObject(await call(msgs, 300)); } catch (e) { continue; }
+    story.title = String(o.title || ''); story.englishTitle = String(o.englishTitle || story.englishTitle || '');
+    const tv = collectViolations(story, ctx, { ...vopts, minParagraphs: 0 }).filter(v => v.scope === 'title').map(v => v.msg);
+    if (!tv.length) return;
+    msgs = [...msgs, { role: 'assistant', content: JSON.stringify({ title: story.title, englishTitle: story.englishTitle }) },
+      { role: 'user', content: 'The title is out of scope:\n' + tv.map(m => '• ' + m).join('\n') + '\nGive a different short in-scope title. Return ONLY {"title":"…","englishTitle":"…"}.' }];
+  }
+}
+
+// Write + gate the comprehension questions (≤3 tries).
+async function writeComprehension(story, call, params, ctx, vopts) {
+  const n = params.numQuestions || 3;
+  const body = story.paragraphs.map((p, i) => (i + 1) + '. ' + p.jp).join('\n');
+  let msgs = [{ role: 'user', content: `Write ${n} short-answer (written) comprehension questions for this story, STRICTLY in scope. STORY:\n${body}\nEach question: {q (Japanese), q_en (English), answer (short Japanese), explanation (English)}. Return ONLY {"comprehension":[…]}.` }];
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    let o; try { o = parseJsonObject(await call(msgs, 1600)); } catch (e) { continue; }
+    story.comprehension.questions = (o.comprehension || []).map(q => bakeQuestion(q, params, ctx));
+    const cv = collectViolations(story, ctx, { ...vopts, minParagraphs: 0 }).filter(v => v.scope === 'comprehension').map(v => v.msg);
+    if (!cv.length) return;
+    msgs = [...msgs, { role: 'assistant', content: JSON.stringify(o) },
+      { role: 'user', content: 'The questions are out of scope:\n' + cv.map(m => '• ' + m).join('\n') + '\nRewrite ALL questions in scope. Return ONLY {"comprehension":[…]}.' }];
+  }
 }
 
 /**
- * @param {object}   opts
- * @param {object}   opts.params  generation parameters (see buildBrief / assembleStory)
- * @param {object}   opts.ctx     buildGateContext() result (+ characters)
- * @param {function} opts.anthropicCall  async ({system, messages, maxTokens}) =>
- *                                        { text, usage:{inputTokens,outputTokens} }
- * @param {string}   opts.authorSystem   the static author system prompt (author.v1.md)
- * @param {function} [opts.log]
+ * Incremental, paragraph-by-paragraph generation — mirrors the human authoring
+ * pipeline (outline → write+gate+fix each paragraph before moving on → title →
+ * comprehension), so scope problems are fixed locally instead of piling up into a
+ * whole-story whack-a-mole. The scope + in-scope vocab palette live in the cached
+ * system prompt; each call is small.
+ * @param {function} opts.anthropicCall  async ({system, messages, maxTokens}) => { text, usage }
+ * @param {string}   opts.authorSystem   the static author prompt (author.v1.md)
  */
 export async function generateStory({ params, ctx, anthropicCall, authorSystem, log = () => {} }) {
-  // Gate ceiling: a real student lesson gates precisely; otherwise custom = N4-end.
   const gateMeta = (params.ceiling && params.ceiling.idx !== Number.MAX_SAFE_INTEGER)
     ? { level: params.ceiling.lvl, unlocksAfter: `${params.ceiling.lvl}.${params.ceiling.idx}` }
     : { level: 'custom', unlocksAfter: null };
-
-  const usage = { inputTokens: 0, outputTokens: 0 };
-  const addUsage = (u) => { usage.inputTokens += u?.inputTokens || 0; usage.outputTokens += u?.outputTokens || 0; };
   const vopts = { vocabLevel: params.vocabLevel, ceiling: params.ceiling, gateMeta, ceilingStr: params.ceilingStr, minParagraphs: params.minParagraphs };
-  const call = async (msgs, maxTokens) => { const r = await anthropicCall({ system: authorSystem, messages: msgs, maxTokens }); addUsage(r.usage); return r.text; };
+  const usage = { inputTokens: 0, outputTokens: 0 };
+  const sys = buildSystem(authorSystem, params, ctx);
+  const call = async (msgs, maxTokens) => {
+    const r = await anthropicCall({ system: sys, messages: msgs, maxTokens });
+    usage.inputTokens += r.usage?.inputTokens || 0; usage.outputTokens += r.usage?.outputTokens || 0;
+    return r.text;
+  };
+  const total = Math.max(2, params.targetParagraphs || 8);
 
-  // Longer stories have more surface area for scope edge-cases → more rounds.
-  const maxRounds = Math.min(9, MAX_ROUNDS + Math.floor((params.targetParagraphs || 8) / 8));
+  // 1) Outline (beats) for coherence.
+  let beats = [];
+  try {
+    const o = parseJsonObject(await call([{ role: 'user', content: `Plan a ${total}-beat outline (use the theme, cast, and scope above). Each beat = one short English sentence describing what happens in that paragraph. Return ONLY {"beats":["…"]} with exactly ${total} beats.` }], 1500));
+    if (Array.isArray(o.beats)) beats = o.beats.map(String);
+  } catch (e) { log(`outline parse failed (${e.message})`); }
+  while (beats.length < total) beats.push(`Continue the story (paragraph ${beats.length + 1}).`);
+  beats = beats.slice(0, total);
 
-  // ── Round 1: full generation ──────────────────────────────────────────────
-  // Scale the output budget with length — a long story's JSON easily exceeds a
-  // fixed cap and truncates into invalid JSON.
-  const genTokens = Math.min(8000, 2200 + (params.targetParagraphs || 8) * 280);
-  let story;
-  {
-    let raw = null;
-    for (let attempt = 0; attempt < 2 && !raw; attempt++) {
-      const msgs = attempt === 0
-        ? [{ role: 'user', content: buildBrief(params, ctx) }]
-        : [{ role: 'user', content: buildBrief(params, ctx) }, { role: 'user', content: 'Return ONLY the complete JSON object (no prose, no fences) and keep it within length.' }];
-      const text = await call(msgs, genTokens);
-      try { raw = parseJsonObject(text); } catch (e) { log(`round 1 parse failed (${e.message})`); }
+  // 2) Author each paragraph; gate + repair it in place before moving on.
+  const story = { schemaVersion: '2.0.0', id: params.id, title: '', englishTitle: '', category: 'custom', level: null, unlocksAfter: null, paragraphs: [], vocabUsed: [], grammarUsed: [], comprehension: { intro: 'Did you follow the story?', questions: [] } };
+  for (let i = 0; i < beats.length; i++) {
+    const soFar = story.paragraphs.slice(-6).map(p => p.jp).join('\n') || '(none — this is the opening)';
+    const basePrompt = `STORY SO FAR:\n${soFar}\n\nWrite paragraph ${i + 1} of ${total}. BEAT: ${beats[i]}\n2–4 sentences, flowing naturally from the story so far, STRICTLY in scope. Return ONLY {"jp":"…","en":"…"}.`;
+    let para = null, msgs = [{ role: 'user', content: basePrompt }];
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      let obj;
+      try { obj = parseJsonObject(await call(msgs, 800)); }
+      catch (e) { msgs = [{ role: 'user', content: basePrompt }, { role: 'user', content: 'Return ONLY {"jp":"…","en":"…"} — valid JSON, no prose.' }]; continue; }
+      const cand = bakeParagraph(obj.jp, obj.en, params, ctx);
+      para = cand;
+      const v = paragraphViolations(cand, ctx, vopts);
+      if (!v.length) break;
+      if (attempt < 3) msgs = [{ role: 'user', content: basePrompt }, { role: 'assistant', content: JSON.stringify({ jp: cand.jp, en: cand.en }) },
+        { role: 'user', content: 'This paragraph is out of scope:\n' + v.map(m => '• ' + m).join('\n') + '\nRewrite ONLY this paragraph fixing every issue, same beat, strictly in scope. Return ONLY {"jp":"…","en":"…"}.' }];
     }
-    if (!raw) return { ok: false, story: null, usage, rounds: 1, violations: ['Could not produce valid story JSON (likely too long). Try a shorter length.'] };
-    story = assembleStory(raw, params, ctx);
+    if (para && para.jp) {
+      story.paragraphs.push(para);
+      const rem = paragraphViolations(para, ctx, vopts).length;
+      log(`¶${i + 1}/${total}${rem ? ` (${rem} residual)` : ''}`);
+    }
   }
+
+  // 3) Title + 4) comprehension (each gated).
+  await writeTitle(story, call, params, ctx, vopts);
+  if (params.includeComprehension !== false) await writeComprehension(story, call, params, ctx, vopts);
+
+  // 5) Finishing pass — targeted splice repair to clean residual paragraph
+  // stragglers + cross-paragraph issues (e.g. 時/とき orthography) the per-paragraph
+  // gate can't see. Fixes only flagged pieces, never regenerates the whole story.
   let violations = collectViolations(story, ctx, vopts);
-  log(`round 1: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
-  if (!violations.length) return { ok: true, story, usage, rounds: 1, violations: [] };
-
-  // ── Repair rounds: fix ONLY the flagged pieces (no whole-story regen) ──────
-  const compactStory = () => 'Title: ' + story.title + '\n' + story.paragraphs.map((p, i) => (i + 1) + '. ' + p.jp).join('\n');
-
-  for (let round = 2; round <= maxRounds; round++) {
-    const lengthViol = violations.find(v => v.scope === 'length');
-    try {
-      if (lengthViol) {
-        // Expand: ask for ADD-ONLY new paragraphs that continue the story.
-        const need = params.minParagraphs || (params.targetParagraphs || 8);
-        const addN = Math.max(2, need - story.paragraphs.length + 1);
-        const req = `The story is too short (${story.paragraphs.length} paragraphs; needs at least ${need}). Continue it with ${addN} MORE paragraphs that flow naturally from the current ending — same characters, theme, and scope (2–4 sentences each). Return ONLY {"paragraphs":[{"jp":"…","en":"…"}]} containing JUST the new paragraphs.\n\nCURRENT ENDING:\n` + story.paragraphs.slice(-4).map(p => p.jp).join('\n');
-        const fix = parseJsonObject(await call([{ role: 'user', content: req }], Math.min(8000, 1200 + addN * 360)));
-        for (const np of (fix.paragraphs || [])) if (np && np.jp) story.paragraphs.push(bakeParagraph(np.jp, np.en, params, ctx));
-      } else {
-        // Targeted splice: rewrite only flagged paragraphs / title / comprehension.
-        const byPara = new Map(); const titleMsgs = []; const compMsgs = []; const generalMsgs = [];
-        for (const v of violations) {
-          if (v.scope === 'title') titleMsgs.push(v.msg);
-          else if (v.scope === 'comprehension') compMsgs.push(v.msg);
-          else if (v.scope === 'paragraph' && v.index) { if (!byPara.has(v.index)) byPara.set(v.index, []); byPara.get(v.index).push(v.msg); }
-          else generalMsgs.push(v.msg);   // schema / orthography / unindexed
-        }
-        const flagged = [...byPara.keys()].sort((a, b) => a - b);
-        let req = 'Fix ONLY the listed problems in this story and return a JSON object with just the changed pieces:\n' +
-          '{ "title": "…" (only if a Title fix is listed), "paragraphs": [{"index":N,"jp":"…","en":"…"}] (only the listed paragraphs), "comprehension": [{"q":"…","q_en":"…","answer":"…","explanation":"…"}] (ALL questions, only if a Comprehension fix is listed) }\n\n' +
-          'CURRENT STORY:\n' + compactStory() + '\n\nPROBLEMS TO FIX:\n';
-        if (titleMsgs.length) req += '- Title: ' + titleMsgs.join('; ') + '\n';
-        for (const idx of flagged) req += `- Paragraph ${idx}: ${byPara.get(idx).join('; ')}\n`;
-        if (generalMsgs.length) req += '- Overall (apply across the story): ' + generalMsgs.join('; ') + '\n';
-        if (compMsgs.length) req += `- Comprehension (return ALL ${params.numQuestions || (story.comprehension.questions || []).length} questions): ${compMsgs.join('; ')}\n`;
-        req += '\nKeep every unflagged paragraph EXACTLY as-is. Stay strictly in scope.';
-
-        // Budget scales with how much is being rewritten so the JSON doesn't truncate.
-        const repairTokens = Math.min(8000, 1500 + flagged.length * 360 + (compMsgs.length ? (params.numQuestions || 3) * 220 : 0) + (titleMsgs.length ? 200 : 0));
-        const fix = parseJsonObject(await call([{ role: 'user', content: req }], repairTokens));
-        if (fix.title && titleMsgs.length) story.title = String(fix.title);
-        for (const fp of (fix.paragraphs || [])) {
-          const i = (parseInt(fp.index, 10) || 0) - 1;
-          if (i >= 0 && i < story.paragraphs.length && fp.jp) story.paragraphs[i] = bakeParagraph(fp.jp, fp.en || story.paragraphs[i].en, params, ctx);
-        }
-        if (compMsgs.length && Array.isArray(fix.comprehension) && fix.comprehension.length) {
-          story.comprehension.questions = fix.comprehension.map(q => bakeQuestion(q, params, ctx));
-        }
-      }
-    } catch (e) {
-      log(`round ${round}: repair parse failed (${e.message})`);
-      continue;   // try again next round with the same violations
+  for (let round = 1; round <= 4 && violations.length; round++) {
+    const byPara = new Map(); const titleMsgs = []; const compMsgs = []; const generalMsgs = [];
+    for (const v of violations) {
+      if (v.scope === 'title') titleMsgs.push(v.msg);
+      else if (v.scope === 'comprehension') compMsgs.push(v.msg);
+      else if (v.scope === 'paragraph' && v.index) { if (!byPara.has(v.index)) byPara.set(v.index, []); byPara.get(v.index).push(v.msg); }
+      else generalMsgs.push(v.msg);
     }
-
+    const flagged = [...byPara.keys()].sort((a, b) => a - b);
+    let req = 'Fix ONLY the listed problems and return JSON with just the changed pieces:\n' +
+      '{ "title":"…" (only if a Title fix is listed), "paragraphs":[{"index":N,"jp":"…","en":"…"}] (only listed paragraphs), "comprehension":[{"q":"…","q_en":"…","answer":"…","explanation":"…"}] (ALL questions, only if a Comprehension fix is listed) }\n\nCURRENT STORY:\nTitle: ' + story.title + '\n' + story.paragraphs.map((p, i) => (i + 1) + '. ' + p.jp).join('\n') + '\n\nPROBLEMS TO FIX:\n';
+    if (titleMsgs.length) req += '- Title: ' + titleMsgs.join('; ') + '\n';
+    for (const idx of flagged) req += `- Paragraph ${idx}: ${byPara.get(idx).join('; ')}\n`;
+    if (generalMsgs.length) req += '- Overall (apply across the whole story): ' + generalMsgs.join('; ') + '\n';
+    if (compMsgs.length) req += `- Comprehension (return ALL ${params.numQuestions || (story.comprehension.questions || []).length} questions): ${compMsgs.join('; ')}\n`;
+    req += '\nKeep every unflagged paragraph EXACTLY as-is. Stay strictly in scope.';
+    try {
+      const fix = parseJsonObject(await call([{ role: 'user', content: req }], Math.min(8000, 1500 + flagged.length * 360 + (compMsgs.length ? (params.numQuestions || 3) * 220 : 0) + (titleMsgs.length ? 200 : 0))));
+      if (fix.title && titleMsgs.length) story.title = String(fix.title);
+      for (const fp of (fix.paragraphs || [])) { const i = (parseInt(fp.index, 10) || 0) - 1; if (i >= 0 && i < story.paragraphs.length && fp.jp) story.paragraphs[i] = bakeParagraph(fp.jp, fp.en || story.paragraphs[i].en, params, ctx); }
+      if (compMsgs.length && Array.isArray(fix.comprehension) && fix.comprehension.length) story.comprehension.questions = fix.comprehension.map(q => bakeQuestion(q, params, ctx));
+    } catch (e) { log(`finish ${round}: parse failed (${e.message})`); }
     violations = collectViolations(story, ctx, vopts);
-    log(`round ${round}: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
-    if (!violations.length) return { ok: true, story, usage, rounds: round, violations: [] };
+    log(`finish ${round}: ${violations.length} violation(s)`);
   }
 
-  return { ok: false, story, usage, rounds: maxRounds, violations: violations.map(v => v.msg) };
+  const ok = violations.length === 0;
+  log(`final: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
+  return { ok, story, usage, rounds: beats.length, violations: ok ? [] : violations.map(v => v.msg) };
 }

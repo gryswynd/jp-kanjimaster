@@ -32,7 +32,9 @@ export async function anthropicCall({ system, messages, maxTokens }) {
   const res = await anthropic().messages.create({
     model: env.model,
     max_tokens: maxTokens || 4000,
-    system,
+    // Cache the system prompt (author rules + per-story scope + vocab palette) —
+    // the incremental loop reuses it across ~30 small calls, so this slashes cost.
+    system: typeof system === 'string' ? [{ type: 'text', text: system, cache_control: { type: 'ephemeral' } }] : system,
     messages,
   });
   const text = (res.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
