@@ -49,6 +49,10 @@ export async function sendPush(tokens, notification, data) {
       tokens: list,
       notification,
       data: Object.fromEntries(Object.entries(data || {}).map(([k, v]) => [k, String(v)])),
+      // High-priority Android notification config — this is what reliably shows in
+      // the tray when the app is backgrounded (verified on device).
+      android: { priority: 'high', notification: { channelId: 'default', priority: 'max', defaultSound: true } },
+      apns: { payload: { aps: { sound: 'default' } } },
     };
     const res = await admin.messaging().sendEachForMulticast(msg);
     const dead = [];

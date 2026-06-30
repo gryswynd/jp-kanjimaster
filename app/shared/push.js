@@ -24,6 +24,13 @@
 
   var registered = false, listenersAdded = false;
 
+  // Route a tapped notification to the right place.
+  function routeTap(data) {
+    if (data && data.type === 'story' && data.storyId && window.JPApp && window.JPApp.launch) {
+      window.JPApp.launch('story', data.storyId, { category: 'custom' });
+    }
+  }
+
   async function init() {
     if (registered) return;
     var PN = cap('PushNotifications');
@@ -39,10 +46,28 @@
       });
       PN.addListener('registrationError', function (e) { console.warn('[push] registration error', e && (e.error || e)); });
       PN.addListener('pushNotificationActionPerformed', function (a) {
-        var data = a && a.notification && a.notification.data;
-        if (data && data.type === 'story' && data.storyId && window.JPApp && window.JPApp.launch) {
-          window.JPApp.launch('story', data.storyId, { category: 'custom' });
-        }
+        routeTap(a && a.notification && a.notification.data);
+      });
+      // Foreground arrival: the OS won't show it while the app is open, so mirror
+      // it as a local notification (and tap-route it) — covers the case where the
+      // user is elsewhere in the app when their story finishes.
+      PN.addListener('pushNotificationReceived', function (n) {
+        var LN = cap('LocalNotifications');
+        var nt = (n && n.notification) || n || {};
+        var data = nt.data || {};
+        if (!LN || !LN.schedule) return;
+        try {
+          LN.schedule({ notifications: [{
+            id: Math.floor(Date.now() % 2000000000),
+            title: nt.title || 'Rikizo',
+            body: nt.body || '',
+            extra: data,
+          }] });
+        } catch (e) {}
+      });
+      var LN0 = cap('LocalNotifications');
+      if (LN0 && LN0.addListener) LN0.addListener('localNotificationActionPerformed', function (a) {
+        routeTap(a && a.notification && a.notification.extra);
       });
     }
 
