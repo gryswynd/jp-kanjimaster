@@ -104,7 +104,11 @@
     //     so 金魚→きんぎょ while a standalone 魚→さかな. Add new flags here. ---
     ['金魚', 'きんぎょ'],
     ['人魚', 'にんぎょ'],
-    ['魚', 'さかな']
+    ['魚', 'さかな'],
+    // 町 standalone "town" is まち; Chirp defaults to the on-reading ちょう.
+    // 港町 (みなとまち) also reads まち, so the bare override is safe — no
+    // ちょう-compounds exist in content (verified: only 町 / 港町).
+    ['町', 'まち']
   ];
 
   // Build sorted-longest-first replacement pairs once. Literal string matching

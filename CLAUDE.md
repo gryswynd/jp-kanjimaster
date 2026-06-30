@@ -167,6 +167,79 @@ add MCQs to a specific story when explicitly asked to. When authoring, each is
 
 ---
 
+## Audio Dojo — listening exercises (audiostories)
+
+**Data lives in `data/<level>/audiostories/<slug>/audiostory.json`** (schema
+`1.0.0`); registry = `data/audiostories.index.json` (NOT manifest.json). One
+exercise per **2 lessons**, `unlocksAfter` = the 2nd lesson of the pair, length
+grows across the curriculum (2 seg early N5 → 6 seg N4 capstone). N5+N4 are
+complete (27 exercises); N3 (~86 lessons → ~43 exercises) is the next campaign.
+
+### The pipeline (the ONLY sanctioned path — same shape as stories)
+
+```bash
+node scripts/new-audiostory.mjs <slug> --level=N3 --title="…" --english="…" --order=<10K> --unlocks-after=N3.<2K>
+node scripts/tokenize-story-paragraph.mjs <slug> "<日本語(漢字)>" --en "<english>" --kind=audiostory   # × N segments
+#   …revise a segment in place: add --replace=<index>
+# hand-author comprehension.questions[] (NEVER auto-author MCQs — see stories rules)
+node scripts/qa-story.mjs <slug> --audiostories      # GATE: iterate to 0 violations BEFORE any TTS
+npm run gen:audio && npm run vendor:fonts && npm run build:www   # then sync + device
+```
+
+Author paragraphs in **kanji** (correct Chirp prosody + matches the gate's kanji
+surfaces). Never hand-write `tokens`. Get `qa-story` to **0 violations first** so
+TTS is only ever spent on verified content.
+
+### The gate (`qa-story.mjs --audiostories`) — what it does and does NOT cover
+
+For each exercise's `unlocksAfter` ceiling it checks prose **and** question text
+use only: vocab `lesson_ids` ≤ ceiling, particles `introducedIn` ≤ ceiling,
+conjugation FORMS `introducedIn` ≤ ceiling, kanji in the cumulative taught set.
+**Acceptance: 0 violations.** It is authoritative for **vocab + kanji**.
+
+> ⚠️ **N3 grammar is NOT auto-gated.** All 89 conjugation forms are tagged and top
+> out at **N4.33** (causative-passive, keigo-relevant forms, etc. are all ≤N4) — so
+> in any N3 exercise *every conjugation is already unlocked* and the FORM bucket
+> will never flag. N3 grammar (G32–G49) is **pattern grammar** (relative clauses,
+> はず/わけ, time clauses, quoting) that the conjugation gate structurally can't
+> see. **You MUST manually verify each N3 exercise's grammar against this map**
+> (feature one new point naturally, 1–2× per exercise, never drilled):
+
+| G | Point | ≤ | G | Point | ≤ |
+|--|--|--|--|--|--|
+| G32 | Relative clauses / noun modification | N3.2 | G41 | Time clauses (間/うちに/以来/とたん) | N3.38 |
+| G33 | Nominalizers の・こと | N3.4 | G42 | Perspective & relation particles | N3.42 |
+| G34 | Volitional & intentions | N3.6 | G43 | Causative-passive & advanced voice | N3.46 |
+| G35 | Inference (ようだ/みたいだ/らしい) | N3.10 | G44 | Suffixes (っぽい/がち/気味/～やか) | N3.50 |
+| G36 | はずだ / わけだ | N3.14 | G45 | Advanced conditionals & wishes | N3.54 |
+| G37 | ところだ / たばかり | N3.18 | G46 | Quoting & indirect speech | N3.58 |
+| G38 | Sentence-ending particles & register | N3.22 | G47 | Compound / set patterns | N3.64 |
+| G39 | Adverbs of degree | N3.26 | G48 | Advanced connectors | N3.72 |
+| G40 | Honorific & humble 敬語 | N3.34 | G49 | N3 grammar capstone | N3.84 |
+
+### Authoring rules (the quality bar — learned the hard way in N4)
+
+- **Author for the ear, not just the gate.** Don't tack a topic は where natural
+  speech drops it (`台風の時は` → `台風の時`). Avoid contrived scenes (no "running
+  in a shop"). Real, idiomatic sentences only.
+- **TTS misread kanji → fix in `app/shared/tts-normalize.js`.** Chirp synthesizes
+  raw kanji with *no* reading hints, so any kanji it misreads needs a
+  `staticOverrides` entry (this is how 町→まち was fixed; check no real
+  ちょう-compound exists first). **N3 has far more on/kun-ambiguous kanji — listen
+  to EVERY passage on device and add overrides as found.**
+- **Write-kanji trap.** A vocab word being in-scope does NOT mean its kanji is —
+  the gate flags kanji taught *later* than the exercise's lesson (and N2/N1 words
+  that "feel" N3). Use kana or a taught synonym; never assume — gate to 0.
+- **Kanji-only glossary entries don't tag as vocab** (e.g. 服 is a `type:kanji`
+  entry, no `lesson_ids`) — use the real vocab word (洋服).
+- **Orthography + question text are in scope:** pick kanji-or-kana per word and
+  keep it consistent across segments AND questions; split-kana chips (とき→時,
+  もの→物) must use the taught kanji.
+- **MCQs:** 3–5 per exercise (grows with length), hand-authored, options shuffled
+  at render, plausible in-scope distractors, avoid yes/no. Never auto-authored.
+
+---
+
 ## Glossary additions
 
 **The glossary is the source of truth for tagging + furigana.** When a word
