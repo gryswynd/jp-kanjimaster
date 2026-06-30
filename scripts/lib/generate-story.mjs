@@ -31,6 +31,19 @@ const INTERJECTION_OK = new Set([
   'ふう', 'ふうん', 'うーん', 'ええと', 'えっと', 'あのう', 'おおっ', 'はあ', 'ふふ', 'あはは',
 ]);
 
+// Grammatical helper verbs that are written in kana in their taught forms — the
+// ～てみる / ～てしまう / ～ておく / ～ていく / ～てくる auxiliaries (G24-era grammar).
+// They're short kana so the tokenizer doesn't resolve them, but they're correct
+// and render fine; don't make the author strip natural grammar (it can't win:
+// the kanji forms 見る/置く/etc. are a different meaning, and kana is "untagged").
+const GRAMMAR_KANA_OK = new Set([
+  'みる', 'みて', 'みた', 'みよう', 'みない', 'みなかった', 'みます', 'みました', 'みません', 'みる。',
+  'しまう', 'しまって', 'しまった', 'しまいます', 'しまいました', 'ちゃう', 'ちゃった', 'じゃう', 'じゃった',
+  'おく', 'おいて', 'おいた', 'おきます', 'おきました',
+  'いく', 'いって', 'いった', 'いきます', 'くる', 'きて', 'きた', 'きます',
+]);
+function isOkKana(k) { return INTERJECTION_OK.has(k) || GRAMMAR_KANA_OK.has(k); }
+
 // Out-of-curriculum words that the model reaches for in titles (mystery tropes
 // especially). They tokenize as bare kana / untaught kanji and slip the audit,
 // so gate them explicitly. Value = the suggested in-level replacement.
@@ -103,7 +116,7 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
   const q = qaStory(story, ctx, gateMeta);
   for (const k of dedupe(q.violations.kanji, x => x.ch).slice(0, 12)) out.push(`Untaught kanji 「${k.ch}」 (${k.paragraph}) — write that word in kana instead.`);
   for (const x of dedupe(q.violations.vocab, x => x.id).slice(0, 12)) out.push(`Out-of-scope word "${x.k}" (¶${x.p}) — use a simpler in-level word.`);
-  for (const x of q.violations.untagged.slice(0, 12)) if (!INTERJECTION_OK.has(x.k)) out.push(`"${x.k}" (¶${x.p}) isn't a recognized word — reword it.`);
+  for (const x of q.violations.untagged.slice(0, 12)) if (!isOkKana(x.k)) out.push(`"${x.k}" (¶${x.p}) isn't a recognized word — reword it (or use a simpler in-level word).`);
   for (const x of q.violations.split) out.push(`"${x.k}" (¶${x.p}) — ${x.fix}.`);
   for (const x of q.violations.form.slice(0, 8)) out.push(`Grammar form "${x.k}" (¶${x.p}) is taught later — use a simpler form.`);
   for (const x of q.violations.particle.slice(0, 8)) out.push(`Particle "${x.k}" (¶${x.p}) is taught later — rephrase.`);
@@ -220,7 +233,11 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   const messages = [{ role: 'user', content: buildBrief(params, ctx) }];
   let story = null, violations = [];
 
-  for (let round = 1; round <= MAX_ROUNDS; round++) {
+  // Longer stories have more surface area for scope edge-cases, so give them
+  // more repair rounds to converge.
+  const maxRounds = Math.min(9, MAX_ROUNDS + Math.floor((params.targetParagraphs || 8) / 8));
+
+  for (let round = 1; round <= maxRounds; round++) {
     const res = await anthropicCall({ system: authorSystem, messages, maxTokens: 4000 });
     usage.inputTokens += res.usage?.inputTokens || 0;
     usage.outputTokens += res.usage?.outputTokens || 0;
@@ -246,5 +263,5 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
       violations.map(v => '• ' + v).join('\n') });
   }
 
-  return { ok: false, story, usage, rounds: MAX_ROUNDS, violations };
+  return { ok: false, story, usage, rounds: maxRounds, violations };
 }
