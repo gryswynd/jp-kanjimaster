@@ -69,5 +69,6 @@
     addFriend: function (code) { return req('POST', '/v1/friends', { code: code }); },
     listFriends: function () { return req('GET', '/v1/friends'); },
     removeFriend: function (uid) { return req('DELETE', '/v1/friends/' + encodeURIComponent(uid)); },
+    shareStory: function (storyId, friendUid) { return req('POST', '/v1/stories/' + encodeURIComponent(storyId) + '/share', { friendUid: friendUid }); },
   };
 })();

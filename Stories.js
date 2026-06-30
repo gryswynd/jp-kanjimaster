@@ -708,6 +708,37 @@ window.StoriesModule = (function () {
     storyList = storyList.filter(s => s.id !== id);
   }
 
+  // Friend picker → share a generated story to a friend (Phase 4).
+  async function openFriendPicker(storyId) {
+    const sg = window.JPShared && window.JPShared.storyGen;
+    if (!sg || !sg.isConfigured || !sg.isConfigured() || !sg.isSignedIn || !sg.isSignedIn()) { alert('Sign in to share stories.'); return; }
+    let friends = [];
+    try { friends = (await sg.listFriends()).friends || []; } catch (e) {}
+    const ov = document.createElement('div');
+    ov.style.cssText = 'position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:20px;';
+    const rows = friends.length
+      ? friends.map(f => `<button class="jp-fp-friend" data-uid="${escAttr(f.uid)}" style="display:block;width:100%;text-align:left;padding:12px 14px;border:1px solid var(--hairline,rgba(0,0,0,.14));border-radius:10px;margin-bottom:8px;background:#fff;font:inherit;cursor:pointer;">${escHtml(f.name || 'Friend')} <span style="color:var(--ink-3,#8b8480);font-size:.8rem;">· ${escHtml(f.level || '')}</span></button>`).join('')
+      : '<div style="color:var(--ink-3,#8b8480);font-size:.9rem;margin:6px 0 12px;">No friends yet — add some in the Friends screen.</div>';
+    ov.innerHTML = `<div style="width:100%;max-width:340px;background:var(--washi,#f5f3f0);color:var(--ink,#323029);border-radius:16px;padding:18px;font-family:'Schibsted Grotesk','Work Sans',system-ui,sans-serif;">
+      <div style="font-family:'Noto Serif JP',serif;font-weight:700;font-size:1.1rem;">Send to a friend</div>
+      <div style="color:var(--ink-3,#8b8480);font-size:.82rem;margin:2px 0 12px;">They'll get a copy in their Stories.</div>
+      ${rows}
+      <button class="jp-fp-cancel" style="display:block;width:100%;padding:11px;border-radius:999px;border:1px solid var(--hairline,rgba(0,0,0,.14));background:transparent;color:var(--ink-2,#5d5852);font:inherit;cursor:pointer;margin-top:6px;">Cancel</button>
+    </div>`;
+    document.body.appendChild(ov);
+    const close = () => { if (ov.parentNode) ov.parentNode.removeChild(ov); };
+    ov.onclick = (e) => { if (e.target === ov) close(); };
+    ov.querySelector('.jp-fp-cancel').onclick = close;
+    ov.querySelectorAll('.jp-fp-friend').forEach(b => {
+      b.onclick = async () => {
+        const uid = b.getAttribute('data-uid');
+        b.disabled = true; const label = b.textContent; b.textContent = 'Sending…';
+        try { await sg.shareStory(storyId, uid); b.textContent = 'Sent ✓'; setTimeout(close, 700); }
+        catch (e) { b.disabled = false; b.textContent = ((e && e.code) === 'not_friends' ? 'Not friends anymore' : 'Failed — tap to retry'); }
+      };
+    });
+  }
+
   async function syncServerStories() {
     const sg = window.JPShared && window.JPShared.storyGen;
     if (!sg || !sg.isConfigured || !sg.isConfigured() || !sg.isSignedIn || !sg.isSignedIn()) return;
@@ -914,6 +945,14 @@ window.StoriesModule = (function () {
       const delBtn = s._userStory
         ? `<button class="jp-book-del" data-del="${escAttr(s.id)}" aria-label="Delete story" title="Delete (testing)" style="position:absolute;top:4px;left:4px;z-index:7;width:22px;height:22px;border-radius:50%;border:none;background:rgba(0,0,0,0.55);color:#fff;font-size:15px;line-height:20px;text-align:center;cursor:pointer;padding:0;">×</button>`
         : '';
+      // Send-to-a-friend on generated stories.
+      const sendBtn = s._userStory
+        ? `<button class="jp-book-send" data-send="${escAttr(s.id)}" aria-label="Send to a friend" title="Send to a friend" style="position:absolute;top:4px;right:4px;z-index:7;width:22px;height:22px;border-radius:50%;border:none;background:rgba(0,0,0,0.55);color:#fff;font-size:12px;line-height:22px;text-align:center;cursor:pointer;padding:0;">↗</button>`
+        : '';
+      // "Shared by …" provenance for stories a friend sent you.
+      const sharedTag = (s._userStory && s._sharedBy)
+        ? `<div style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:.6rem;color:rgba(255,255,255,.9);text-shadow:0 1px 2px rgba(0,0,0,.4);z-index:6;">↩ ${escHtml((s._sharedBy && s._sharedBy.name) || 'a friend')}</div>`
+        : '';
       html += `<div class="jp-book-cover" data-id="${escAttr(s.id)}">
         <div class="jp-book-cover-page"></div>
         <div class="jp-book-cover-face" style="background:${colorFromId(s.id)};">
@@ -921,7 +960,7 @@ window.StoriesModule = (function () {
           <div class="jp-book-cover-title">${escHtml(s.title || s.subtitle || s.id)}</div>
           <div class="jp-book-cover-en">${escHtml(s.subtitle || '')}</div>
         </div>
-        ${stamp}${unseenDot}${delBtn}
+        ${stamp}${unseenDot}${delBtn}${sendBtn}${sharedTag}
       </div>`;
     }
     html += '</div></div></div>';
@@ -937,6 +976,9 @@ window.StoriesModule = (function () {
         deleteUserStory(id);
         renderSelector();
       };
+    });
+    container.querySelectorAll('.jp-book-send').forEach(btn => {
+      btn.onclick = (e) => { e.stopPropagation(); openFriendPicker(btn.getAttribute('data-send')); };
     });
     const sk = window.JPShared && window.JPShared.sceneKit;
     container.querySelectorAll('.jp-book-cover').forEach(card => {

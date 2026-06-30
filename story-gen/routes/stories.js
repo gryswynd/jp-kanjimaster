@@ -10,8 +10,10 @@
  *   GET  /v1/stories/:id         → full story.json
  */
 import express from 'express';
+import { randomUUID } from 'node:crypto';
 import { requireUid } from '../lib/auth.js';
-import { reserveGeneration, createJob, getJob, listStories, getStory, getPricingFlags, savePushToken } from '../lib/store.js';
+import { reserveGeneration, createJob, getJob, listStories, getStory, saveStory, getPricingFlags, savePushToken, listFriendUids, friendSummary, getPushTokens, prunePushTokens } from '../lib/store.js';
+import { sendPush } from '../lib/firebase.js';
 import { toParams, runJob } from '../lib/generate-runner.js';
 import { httpError } from '../lib/errors.js';
 
@@ -59,5 +61,31 @@ storiesRouter.get('/v1/stories/:id', requireUid, async (req, res, next) => {
     const story = await getStory(req.uid, req.params.id);
     if (!story) throw httpError(404, 'story_not_found');
     res.json({ story });
+  } catch (e) { next(e); }
+});
+
+// Send a generated story to a friend — copies it into their library (with
+// provenance) and notifies them. Requires an existing mutual friendship.
+storiesRouter.post('/v1/stories/:storyId/share', requireUid, async (req, res, next) => {
+  try {
+    const friendUid = String((req.body || {}).friendUid || '');
+    if (!friendUid) throw httpError(400, 'missing_friend');
+    const friends = await listFriendUids(req.uid);
+    if (!friends.includes(friendUid)) throw httpError(403, 'not_friends');
+    const story = await getStory(req.uid, req.params.storyId);
+    if (!story) throw httpError(404, 'story_not_found');
+    const me = await friendSummary(req.uid);
+    const newId = randomUUID();
+    await saveStory(friendUid, { ...story, id: newId, sharedBy: { uid: req.uid, name: me.name } });
+    try {
+      const toks = await getPushTokens(friendUid);
+      if (toks.length) {
+        const dead = await sendPush(toks,
+          { title: 'A friend sent you a story! 📖', body: `${me.name} shared "${story.title}"` },
+          { type: 'story', storyId: newId });
+        if (dead.length) await prunePushTokens(friendUid, dead);
+      }
+    } catch (e) { /* push best-effort */ }
+    res.json({ ok: true });
   } catch (e) { next(e); }
 });
