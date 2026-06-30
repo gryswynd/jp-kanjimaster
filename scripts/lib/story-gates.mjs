@@ -93,6 +93,9 @@ export async function buildGateContext({ readFile, root }) {
     const cur = readingToEntry[reading];
     if (!cur || r < cur.rank) readingToEntry[reading] = { surface, rank: r };
   };
+  // Every vocab entry with its lesson — lets the generator build the exact
+  // in-scope WORD palette for a learner's ceiling (the "PM handoff").
+  const vocabEntries = [];
   for (let r = 0; r < LEVELS.length; r++) {
     for (const e of entriesOf(await load(`data/${LEVELS[r]}/glossary.${LEVELS[r]}.json`))) {
       if (!e) continue;
@@ -100,6 +103,7 @@ export async function buildGateContext({ readFile, root }) {
       noteSurface(e.surface, r);
       if (Array.isArray(e.tokens)) noteSurface(e.tokens.map(t => t.k).join(''), r);
       noteReading(e.reading, e.surface, r);
+      if (e.surface) vocabEntries.push({ surface: e.surface, reading: e.reading || '', meaning: e.meaning || '', lesson: parseLessonId(String(e.lesson_ids || e.lesson || '').split(/[,;\s]+/)[0]) });
     }
   }
   // Counter forms (一つ/ひとつ, 三本/さんぼん…) come from the engine, not the glossary —
@@ -154,7 +158,7 @@ export async function buildGateContext({ readFile, root }) {
     for (const g of (manifest.data[lvl].grammar || [])) if (g && g.id) grammarTitles[g.id] = g.title || g.titleJp || g.id;
   }
 
-  return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank, readingToEntry,
+  return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank, readingToEntry, vocabEntries,
            ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, loanwords, lessonVocab, grammarTitles };
 }
 

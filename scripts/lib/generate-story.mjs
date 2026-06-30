@@ -14,7 +14,7 @@
  */
 import {
   validateStory, auditStory, qaStory, deriveAnswerTerms,
-  buildTaughtKanji, parseLessonId, LEVELS, LEVEL_RANK,
+  buildTaughtKanji, parseLessonId, inScope, LEVELS, LEVEL_RANK,
 } from './story-gates.mjs';
 import { tokenizeText, reconstructFromTokens } from './tokenize.mjs';
 
@@ -216,6 +216,13 @@ function buildBrief(params, ctx) {
   const focusGrammar = (params.focusGrammar || [])
     .map(id => (ctx.grammarTitles && ctx.grammarTitles[id]) ? `${id} (${ctx.grammarTitles[id]})` : id)
     .join('; ');
+  // In-scope WORD palette (the PM handoff): the exact vocabulary the learner has
+  // been taught. The author composes within this; if a word isn't here, it's not
+  // taught yet and must be worked around.
+  const palette = [...new Set((ctx.vocabEntries || [])
+    .filter(e => e.surface && inScope(e.lesson, ceiling))
+    .map(e => e.surface))];
+
   const lines = [
     `Write a graded-reader story of ${params.targetParagraphs} paragraphs` +
       (params.minParagraphs ? ` (this is important: NO FEWER than ${params.minParagraphs} paragraphs)` : '') + '.',
@@ -232,6 +239,9 @@ function buildBrief(params, ctx) {
     '',
     `ALLOWED KANJI (use ONLY these; write every other word in kana):`,
     kanji.join(''),
+    '',
+    `ALLOWED VOCABULARY — the learner has been taught these ${palette.length} content words (plus particles, copula/polite endings, numbers/counters, and conjugations of these words). Build the story almost entirely from this list. If a word you want is NOT here, it is NOT taught yet — DO NOT use it; express the idea with words that ARE here (e.g. if 笑う isn't listed, write 「おもしろい」「うれしい」 or describe the action). Common basics like 思う/言う/見る are only allowed if they appear below:`,
+    palette.join('、'),
     '',
     focus ? `FOCUS WORDS (weave these in naturally, repeat where it fits): ${focus}` : '',
     focusGrammar ? `FOCUS GRAMMAR (make sure the story uses these patterns): ${focusGrammar}` : '',
@@ -276,15 +286,20 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   const maxRounds = Math.min(9, MAX_ROUNDS + Math.floor((params.targetParagraphs || 8) / 8));
 
   // ── Round 1: full generation ──────────────────────────────────────────────
+  // Scale the output budget with length — a long story's JSON easily exceeds a
+  // fixed cap and truncates into invalid JSON.
+  const genTokens = Math.min(8000, 2200 + (params.targetParagraphs || 8) * 280);
   let story;
   {
-    let text = await call([{ role: 'user', content: buildBrief(params, ctx) }], 4000);
-    let raw;
-    try { raw = parseJsonObject(text); }
-    catch (e) {
-      text = await call([{ role: 'user', content: buildBrief(params, ctx) }, { role: 'assistant', content: text }, { role: 'user', content: 'That was not valid JSON. Reply with ONLY the JSON object, no prose or fences.' }], 4000);
-      raw = parseJsonObject(text);
+    let raw = null;
+    for (let attempt = 0; attempt < 2 && !raw; attempt++) {
+      const msgs = attempt === 0
+        ? [{ role: 'user', content: buildBrief(params, ctx) }]
+        : [{ role: 'user', content: buildBrief(params, ctx) }, { role: 'user', content: 'Return ONLY the complete JSON object (no prose, no fences) and keep it within length.' }];
+      const text = await call(msgs, genTokens);
+      try { raw = parseJsonObject(text); } catch (e) { log(`round 1 parse failed (${e.message})`); }
     }
+    if (!raw) return { ok: false, story: null, usage, rounds: 1, violations: ['Could not produce valid story JSON (likely too long). Try a shorter length.'] };
     story = assembleStory(raw, params, ctx);
   }
   let violations = collectViolations(story, ctx, vopts);
@@ -302,7 +317,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
         const need = params.minParagraphs || (params.targetParagraphs || 8);
         const addN = Math.max(2, need - story.paragraphs.length + 1);
         const req = `The story is too short (${story.paragraphs.length} paragraphs; needs at least ${need}). Continue it with ${addN} MORE paragraphs that flow naturally from the current ending — same characters, theme, and scope (2–4 sentences each). Return ONLY {"paragraphs":[{"jp":"…","en":"…"}]} containing JUST the new paragraphs.\n\nCURRENT ENDING:\n` + story.paragraphs.slice(-4).map(p => p.jp).join('\n');
-        const fix = parseJsonObject(await call([{ role: 'user', content: req }], 2500));
+        const fix = parseJsonObject(await call([{ role: 'user', content: req }], Math.min(8000, 1200 + addN * 360)));
         for (const np of (fix.paragraphs || [])) if (np && np.jp) story.paragraphs.push(bakeParagraph(np.jp, np.en, params, ctx));
       } else {
         // Targeted splice: rewrite only flagged paragraphs / title / comprehension.
@@ -323,7 +338,9 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
         if (compMsgs.length) req += `- Comprehension (return ALL ${params.numQuestions || (story.comprehension.questions || []).length} questions): ${compMsgs.join('; ')}\n`;
         req += '\nKeep every unflagged paragraph EXACTLY as-is. Stay strictly in scope.';
 
-        const fix = parseJsonObject(await call([{ role: 'user', content: req }], 3000));
+        // Budget scales with how much is being rewritten so the JSON doesn't truncate.
+        const repairTokens = Math.min(8000, 1500 + flagged.length * 360 + (compMsgs.length ? (params.numQuestions || 3) * 220 : 0) + (titleMsgs.length ? 200 : 0));
+        const fix = parseJsonObject(await call([{ role: 'user', content: req }], repairTokens));
         if (fix.title && titleMsgs.length) story.title = String(fix.title);
         for (const fp of (fix.paragraphs || [])) {
           const i = (parseInt(fp.index, 10) || 0) - 1;
