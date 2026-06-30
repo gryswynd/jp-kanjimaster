@@ -10,13 +10,16 @@ window.CustomStoryBuilderModule = (function () {
   'use strict';
 
   var THEMES = ['Adventure', 'Slice of life', 'Sci-Fi', 'Horror', 'Mystery', 'Period Piece', 'Fantasy', 'Comedy', 'Travel'];
+  // n = target paragraphs. Pages depend on the reader (≈3 paras/page); the
+  // service enforces ~85% of n as a floor so the page count is reliable.
+  // Short 2-3pp · Medium 4-5pp · Long 7-8pp · Extra long 9-10pp (first-pass; tune from real page counts).
   var LENGTHS = [
-    { label: 'Short', n: 6 }, { label: 'Medium', n: 9 }, { label: 'Long', n: 12 },
-    { label: 'Extra long', n: 16 }
+    { label: 'Short', n: 8 }, { label: 'Medium', n: 14 }, { label: 'Long', n: 22 },
+    { label: 'Extra long', n: 28 }
   ];
 
   var container, config, onExit;
-  var selCast = {}, selThemes = {}, selLen = 9, useFlags = true;
+  var selCast = {}, selThemes = {}, selLen = 14, useFlags = true;
   var selLessons = {}, selGrammar = {};
   var pollTimer = null;
 
@@ -282,7 +285,11 @@ window.CustomStoryBuilderModule = (function () {
       idx = (Array.isArray(idx) ? idx : []).filter(function (m) { return m && m.id !== storyId; });
       idx.unshift({ id: storyId, title: story.title, englishTitle: story.englishTitle, createdAt: Date.now() });
       try { localStorage.setItem('k-user-stories', JSON.stringify(idx)); } catch (e) {}
-      if (window.JPApp && window.JPApp.launch) window.JPApp.launch('story', storyId, { category: 'custom' });
+      // Only auto-open if the user is still on the builder; if they navigated
+      // away, just leave it cached (it'll appear under Stories → Custom).
+      if (document.body.contains(container) && window.JPApp && window.JPApp.launch) {
+        window.JPApp.launch('story', storyId, { category: 'custom' });
+      }
     } catch (e) {
       fail('Story was created but could not be opened — find it under Stories → Custom.');
     }
@@ -290,7 +297,7 @@ window.CustomStoryBuilderModule = (function () {
 
   async function start(containerElement, repoConfig, exitCallback) {
     container = containerElement; config = repoConfig; onExit = exitCallback;
-    selCast = {}; selThemes = {}; selLen = 9; useFlags = true; selLessons = {}; selGrammar = {};
+    selCast = {}; selThemes = {}; selLen = 14; useFlags = true; selLessons = {}; selGrammar = {};
     styles();
     if (!CustomStoryBuilderModule._chars) {
       try {

@@ -27,7 +27,7 @@ export const DEFAULT_FLAGS = {
   killSwitch: false,
   maxDailyTotalUSD: 10,    // global circuit breaker across ALL users
   perUserPerDay: 5,        // soft per-user daily generation cap
-  maxParagraphs: 18,       // clamp the requested length ("Extra long" = 16)
+  maxParagraphs: 32,       // clamp the requested length ("Extra long" ≈ 28)
 };
 
 /** Per-token cost (USD) for the authoring model. Sonnet 4.6 list pricing. */

@@ -27,7 +27,8 @@ export function toParams(body, storyId, maxParagraphs) {
   const vocabLevel = gates.level === 'N4' ? 'N4' : (gates.level === 'N5' ? 'N5' : 'N4');
   const lid = parseLessonId(gates.furthestLesson || '');
   const ceiling = lid ? { lvl: lid.lvl, idx: lid.idx } : { lvl: vocabLevel, idx: Number.MAX_SAFE_INTEGER };
-  const want = Math.max(4, Math.min(maxParagraphs || DEFAULT_FLAGS.maxParagraphs, parseInt(body.targetParagraphs, 10) || 8));
+  const want = Math.max(4, Math.min(maxParagraphs || DEFAULT_FLAGS.maxParagraphs, parseInt(body.targetParagraphs, 10) || 12));
+  const minParagraphs = Math.max(4, Math.round(want * 0.85));   // enforced floor → reliable page count
   return {
     id: storyId,
     castIds: Array.isArray(body.castIds) ? body.castIds.slice(0, 5) : [],
@@ -41,6 +42,7 @@ export function toParams(body, storyId, maxParagraphs) {
     focusGrammar: Array.isArray(body.focusGrammar) ? body.focusGrammar.slice(0, 20).map(String) : [],
     grammarGate: typeof body.grammarGate === 'string' ? body.grammarGate.slice(0, 80) : 'the latest grammar taught',
     targetParagraphs: want,
+    minParagraphs: minParagraphs,
     includeComprehension: body.includeComprehension !== false,
     numQuestions: Math.max(0, Math.min(8, parseInt(body.numQuestions, 10) || 4)),
   };

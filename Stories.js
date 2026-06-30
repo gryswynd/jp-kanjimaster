@@ -566,6 +566,7 @@ window.StoriesModule = (function () {
     try {
       const manifest = await window.getManifest(config);
       await loadGlossariesAndCharacters(manifest);
+      if (!categoryOpt || categoryOpt === 'custom') await syncServerStories();
       buildStoryList(manifest);
       if (deepLinkStoryId) {
         const idx = storyList.findIndex(s => s.id === deepLinkStoryId);
@@ -682,6 +683,37 @@ window.StoriesModule = (function () {
         });
       };
     }
+  }
+
+  // Pull the user's server-generated stories into the local cache so they appear
+  // in Custom even if the builder's poll didn't cache them (e.g. the user left
+  // mid-generation). Best-effort: silent if offline / not signed in.
+  async function syncServerStories() {
+    const sg = window.JPShared && window.JPShared.storyGen;
+    if (!sg || !sg.isConfigured || !sg.isConfigured() || !sg.isSignedIn || !sg.isSignedIn()) return;
+    let list;
+    try { list = (await sg.list()).stories || []; } catch (e) { return; }
+    let index = [];
+    try { index = JSON.parse(localStorage.getItem('k-user-stories') || '[]'); } catch (e) {}
+    if (!Array.isArray(index)) index = [];
+    const have = {}; index.forEach(m => { if (m && m.id) have[m.id] = true; });
+    for (const meta of list) {
+      if (!meta || !meta.id) continue;
+      const bodyKey = 'k-user-story-' + meta.id;
+      let cached = null;
+      try { cached = localStorage.getItem(bodyKey); } catch (e) {}
+      if (!cached) {
+        try {
+          const r = await sg.getStory(meta.id);
+          if (r && r.story) localStorage.setItem(bodyKey, JSON.stringify(r.story));
+        } catch (e) { continue; }
+      }
+      if (!have[meta.id]) {
+        index.unshift({ id: meta.id, title: meta.title, englishTitle: meta.englishTitle, createdAt: meta.createdAt || Date.now(), sharedBy: meta.sharedBy || null });
+        have[meta.id] = true;
+      }
+    }
+    try { localStorage.setItem('k-user-stories', JSON.stringify(index)); } catch (e) {}
   }
 
   // Server-generated stories the user owns, cached locally by CustomStoryBuilder

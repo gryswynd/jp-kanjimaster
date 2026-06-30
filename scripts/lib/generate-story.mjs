@@ -18,7 +18,7 @@ import {
 } from './story-gates.mjs';
 import { tokenizeText, reconstructFromTokens } from './tokenize.mjs';
 
-const MAX_ROUNDS = 5;
+const MAX_ROUNDS = 6;
 
 // Common interjections / fillers that are natural in dialogue but aren't glossary
 // vocab — they render fine as plain kana, so don't make the author strip them
@@ -59,9 +59,16 @@ function parseJsonObject(text) {
 
 // Human-readable scope/level/structure problems for a candidate story, in the
 // terms the author prompt understands. Empty array = ships.
-function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingStr }) {
+function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingStr, minParagraphs }) {
   const out = [];
   const vocabRank = LEVELS.indexOf(vocabLevel) >= 0 ? LEVELS.indexOf(vocabLevel) : 1;
+
+  // Length floor — too-short is a violation so the repair loop EXPANDS the story
+  // (pages drive pricing, so the count must be reliable). Listed first/strongly.
+  const np = (story.paragraphs || []).length;
+  if (minParagraphs && np < minParagraphs) {
+    out.push(`The story is too short: it has ${np} paragraphs but needs at least ${minParagraphs}. Expand it by adding more scenes/beats and developing existing ones — keep everything in scope and the narrative coherent.`);
+  }
 
   // 0) title scope — the qa gate skips titles, but a title can smuggle in
   //    out-of-level vocab written in kana (e.g. なぞ = N3 謎). Gate it via a
@@ -167,7 +174,9 @@ function buildBrief(params, ctx) {
     .map(id => (ctx.grammarTitles && ctx.grammarTitles[id]) ? `${id} (${ctx.grammarTitles[id]})` : id)
     .join('; ');
   const lines = [
-    `Write a graded-reader story of about ${params.targetParagraphs} short paragraphs.`,
+    `Write a graded-reader story of ${params.targetParagraphs} paragraphs` +
+      (params.minParagraphs ? ` (this is important: NO FEWER than ${params.minParagraphs} paragraphs)` : '') + '.',
+    `Each paragraph should be a full beat of 2–4 sentences — not one-liners — so the story has real substance.`,
     '',
     `THEME(S): ${(params.themes || []).join(', ') || 'slice of life'}.`,
     params.tone ? `TONE: ${params.tone}.` : '',
@@ -226,7 +235,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
     }
 
     story = assembleStory(raw, params, ctx);
-    violations = collectViolations(story, ctx, { vocabLevel: params.vocabLevel, ceiling: params.ceiling, gateMeta, ceilingStr: params.ceilingStr });
+    violations = collectViolations(story, ctx, { vocabLevel: params.vocabLevel, ceiling: params.ceiling, gateMeta, ceilingStr: params.ceilingStr, minParagraphs: params.minParagraphs });
     log(`round ${round}: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
     if (violations.length === 0) return { ok: true, story, usage, rounds: round, violations: [] };
 
