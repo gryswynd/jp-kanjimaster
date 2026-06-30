@@ -118,6 +118,11 @@ export async function buildGateContext({ readFile, root }) {
   let characters = [];
   try { characters = (JSON.parse(await readFile(path.join(R, 'shared/characters.json'), 'utf8')).characters) || []; } catch {}
 
+  // Always-allowed gairaigo pool (katakana loanwords) — surfaced to the author
+  // for genre flavor (they're in-scope: indexed in surfaceIdx + approved).
+  let loanwords = [];
+  try { loanwords = (JSON.parse(await readFile(path.join(R, 'shared/loanwords.json'), 'utf8')).loanwords || []).map(e => e.surface).filter(Boolean); } catch {}
+
   // lesson id → vocab surfaces (for the "focus on these lessons" feature) and
   // grammar id → title (for "focus on this grammar"). Both feed the author brief.
   const lessonVocab = {};
@@ -135,7 +140,7 @@ export async function buildGateContext({ readFile, root }) {
   }
 
   return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank,
-           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, lessonVocab, grammarTitles };
+           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, loanwords, lessonVocab, grammarTitles };
 }
 
 // ── validateStory (← validate-stories.mjs) ───────────────────────────────────

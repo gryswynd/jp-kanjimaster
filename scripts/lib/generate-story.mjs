@@ -18,6 +18,15 @@ import {
 } from './story-gates.mjs';
 import { tokenizeText, reconstructFromTokens } from './tokenize.mjs';
 
+// Level rank of a token's group id (glossary entries only; particles/characters/
+// loanwords aren't ranked → in scope). Strips conjugation/counter suffixes.
+function gLevelRank(g, ctx) {
+  if (!g || g.startsWith('count_')) return null;
+  if (g in ctx.idRank) return ctx.idRank[g];
+  const base = ctx.ALL_IDS.find(id => g === id || g.startsWith(id + '_'));
+  return base != null ? ctx.idRank[base] : null;
+}
+
 const MAX_ROUNDS = 6;
 
 // Common interjections / fillers that are natural in dialogue but aren't glossary
@@ -41,6 +50,7 @@ const GRAMMAR_KANA_OK = new Set([
   'しまう', 'しまって', 'しまった', 'しまいます', 'しまいました', 'ちゃう', 'ちゃった', 'じゃう', 'じゃった',
   'おく', 'おいて', 'おいた', 'おきます', 'おきました',
   'いく', 'いって', 'いった', 'いきます', 'くる', 'きて', 'きた', 'きます',
+  'ろう', 'だろう', 'でしょう',   // copula conjecture / volitional tail (だろう→だ+ろう split)
 ]);
 function isOkKana(k) { return INTERJECTION_OK.has(k) || GRAMMAR_KANA_OK.has(k); }
 
@@ -121,6 +131,24 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
   for (const x of q.violations.form.slice(0, 8)) out.push(`Grammar form "${x.k}" (¶${x.p}) is taught later — use a simpler form.`);
   for (const x of q.violations.particle.slice(0, 8)) out.push(`Particle "${x.k}" (¶${x.p}) is taught later — rephrase.`);
   for (const x of q.violations.orthography) out.push(`Spelling inconsistency ${x.pair} — pick one spelling throughout.`);
+
+  // Out-of-level words the ceiling-biased tokenizer HID by splitting them into
+  // in-level kana pieces (e.g. ことば = N3 言葉 → こと+ば). Re-tokenize each
+  // paragraph WITHOUT the level bias; anything that resolves above the ceiling is
+  // an N3-or-higher word that must be reworded. This closes the split-evasion hole.
+  const ceilingRank = ceiling ? (LEVEL_RANK[ceiling.lvl] != null ? LEVEL_RANK[ceiling.lvl] : 1) : 1;
+  const seenOOL = new Set();
+  (story.paragraphs || []).forEach((p, i) => {
+    for (const t of tokenizeText(p.jp || '', ctx.surfaceIdx)) {
+      if (!t.g) continue;
+      const r = gLevelRank(t.g, ctx);
+      if (r == null || r <= ceilingRank) continue;
+      const key = t.k + ':' + t.g;
+      if (seenOOL.has(key)) continue;
+      seenOOL.add(key);
+      out.push(`Out-of-level word "${t.k}" (¶${i + 1}) is taught later (${LEVELS[r] || 'N3'}) — replace it with an in-level (${vocabLevel}-or-below) word.`);
+    }
+  });
 
   return out;
 }
@@ -205,6 +233,14 @@ function buildBrief(params, ctx) {
     '',
     focus ? `FOCUS WORDS (weave these in naturally, repeat where it fits): ${focus}` : '',
     focusGrammar ? `FOCUS GRAMMAR (make sure the story uses these patterns): ${focusGrammar}` : '',
+    (function () {
+      const genre = (params.themes || []).filter(t => /fantasy|sci-?fi|horror|adventure|period/i.test(t));
+      if (!genre.length) return '';
+      const pool = (ctx.loanwords || []);
+      const sample = ['ヒーロー', 'モンスター', 'レベル', 'ゲーム', 'ロボット', 'エネルギー', 'チーム', 'パワー', 'ドア', 'ベル']
+        .filter(w => pool.indexOf(w) >= 0);
+      return `GENRE FLAVOR: authentic Japanese katakana loanwords (gairaigo) are IN SCOPE and encouraged for ${genre.join('/')} — use real, common ones where they fit${sample.length ? ` (e.g. ${sample.join('、')})` : ''}. Write them in katakana.`;
+    })(),
     params.includeComprehension
       ? `\nEnd with ${params.numQuestions || 4} short-answer (written) comprehension questions.`
       : `\nNo comprehension questions (use an empty array).`,

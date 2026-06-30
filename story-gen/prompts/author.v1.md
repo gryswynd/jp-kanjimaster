@@ -41,7 +41,13 @@ Reply with **ONLY a single JSON object**, no prose, no markdown fences. Shape:
 3. **Grammar:** Use only grammar at or below the stated grammar gate. No conditionals,
    passives, causatives, or other forms beyond the gate unless the gate includes them.
 4. **Orthography consistency:** Spell each word ONE way throughout (don't mix 時/とき).
-5. **Particles:** Standard, in-level particles only.
+5. **Particles:** Standard, in-level particles only. **NEVER use 〜って anywhere** (not
+   even once, not in dialogue) — it is taught later and will be rejected. ALWAYS use
+   **〜と** for quotes and naming: 「…」と言いました / 〜と思いました / 〜という. Avoid casual
+   contractions in narration.
+6. **Gairaigo:** Authentic Japanese katakana loanwords (ゲーム, ロボット, ヒーロー, レベル,
+   モンスター, エネルギー…) ARE in scope — use real, common ones written in katakana,
+   especially for genre flavor. Do NOT invent katakana or use rare/contrived loanwords.
 
 ## Style
 
