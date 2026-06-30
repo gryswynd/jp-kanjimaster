@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#272320">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -456,8 +456,8 @@ window.JPApp = {
     //     so the bundled build and the hosted version.json can never drift.
     //   • The OTA updater compares this bundled buildNumber to the hosted one.
     // appVersion is the human-facing label (keep ~in sync with Xcode MARKETING_VERSION).
-    appVersion: "1.3.1",
-    buildNumber: 2,
+    appVersion: "1.3.2",
+    buildNumber: 4,
     // Where the OTA updater looks for newer builds. Empty = OTA disabled (app just
     // runs its bundled copy, fully offline). Set to the Firebase Hosting URL once
     // hosting is live, e.g. "https://rikizo-app.web.app".
@@ -482,7 +482,7 @@ window.JPApp = {
     if (cfg && cfg.mode === 'free') return true;
     // Custom-story builder + Friends — surfaced via their own entry points, so
     // they're always "visible" to the launcher when reached.
-    if (module === 'build' || module === 'friends') return true;
+    if (module === 'build' || module === 'friends' || module === 'gairaigo') return true;
     if (window.JPShared && window.JPShared.unlock) {
       return window.JPShared.unlock.isModuleVisible(module);
     }
@@ -1894,6 +1894,8 @@ window.JPApp = {
                         deps: ['app/shared/stroke-canvas.js'] },
       map:            { global: 'MapModule',                 file: 'Map.js' },
       glossary:       { global: 'GlossaryModule',            file: 'Glossary.js',
+                        deps: ['app/shared/kana-collate.js'] },
+      gairaigo:       { global: 'GairaigoModule',            file: 'Gairaigo.js',
                         deps: ['app/shared/kana-collate.js'] }
     };
     var entry = map[mode];

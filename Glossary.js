@@ -105,24 +105,8 @@ window.GlossaryModule = (function () {
       });
     });
 
-    // Always-allowed loanword pool + origins lookup (level-agnostic). Shown in
-    // their own ungated "Loan-Words" section (see buildLearnedView).
-    var lwPath = (manifest && manifest.shared && manifest.shared.loanwords) || 'shared/loanwords.json';
-    var orPath = (manifest && manifest.shared && manifest.shared.loanwordOrigins) || 'shared/loanword-origins.json';
-    var lwRes = await Promise.all([
-      fetch(getUrl(lwPath) + bust).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
-      fetch(getUrl(orPath) + bust).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
-    ]);
-    origins = (lwRes[1] && lwRes[1].origins) || {};
-    if (lwRes[0] && Array.isArray(lwRes[0].loanwords)) {
-      lwRes[0].loanwords.forEach(function (w) {
-        if (!w || !w.id || byId[w.id]) return;
-        w.type = 'loanword';
-        w._loanword = true;
-        byId[w.id] = w;
-        totalLearnable++;
-      });
-    }
+    // Loan-words (外来語) live in their OWN separate dictionary (Gairaigo.js),
+    // opened from the cover screen — intentionally NOT merged into this one.
   }
 
   function buildLessonMeta(manifest) {
@@ -223,6 +207,14 @@ window.GlossaryModule = (function () {
             (count ? '<span class="jp-gl-caption-hint">Tap the book to open</span>'
                    : '<span class="jp-gl-caption-hint">Clear lessons to fill these pages</span>') +
           '</div>' +
+          // A SEPARATE dictionary, sitting under My Dictionary — loan-words only,
+          // all unlocked from day 1 (launches Gairaigo.js).
+          '<button id="jp-gl-gairaigo" style="display:flex;align-items:center;gap:12px;width:min(94%,360px);margin:22px auto 0;padding:12px 14px;background:#fff;border:1px solid #e6dff5;border-left:6px solid #8e44ad;border-radius:10px;cursor:pointer;text-align:left;box-shadow:0 8px 18px -12px rgba(142,68,173,.55);">' +
+            '<span style="font-family:\'Noto Sans JP\',serif;font-size:1.45rem;font-weight:800;color:#8e44ad;width:38px;height:46px;display:flex;align-items:center;justify-content:center;background:#f4eefa;border-radius:6px;flex:0 0 auto;">外</span>' +
+            '<span style="display:flex;flex-direction:column;gap:2px;min-width:0;"><span style="font-weight:800;font-size:0.98rem;color:#2f3542;">外来語 Loan-Words</span>' +
+              '<span style="font-size:0.76rem;color:#8b8480;">A separate dictionary · browse by origin · all unlocked</span></span>' +
+            '<span style="margin-left:auto;color:#8e44ad;font-weight:800;font-size:1.1rem;">→</span>' +
+          '</button>' +
         '</div>' +
       '</div>';
 
@@ -239,6 +231,11 @@ window.GlossaryModule = (function () {
     };
     book.addEventListener('click', open);
     book.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(); } });
+
+    var ga = document.getElementById('jp-gl-gairaigo');
+    if (ga) ga.addEventListener('click', function () {
+      if (window.JPApp && window.JPApp.launch) window.JPApp.launch('gairaigo');
+    });
   }
 
   // ── Index (open book) ───────────────────────────────────────────────────────
