@@ -39,6 +39,7 @@ gcloud run deploy rikizo-story-gen \
   --allow-unauthenticated \
   --min-instances 1 --max-instances 2 \
   --memory 1Gi --cpu 1 --timeout 600 \
+  --no-cpu-throttling \
   --set-env-vars "GCLOUD_PROJECT=${PROJ},CONTENT_ROOT=/app/content,ADMIN_UIDS=${ADMIN_UIDS}" \
   --set-secrets "$SECRETS"
 

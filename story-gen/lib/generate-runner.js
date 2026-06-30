@@ -62,6 +62,7 @@ export async function runJob(uid, email, jobId, params) {
     if (!res.ok) {
       await releaseGeneration(uid);
       await updateJob(uid, jobId, { status: 'failed', error: 'scope_unmet', rounds: res.rounds, violations: res.violations.slice(0, 8) });
+      await notifyFailure(uid);
       return;
     }
     const storyId = await saveStory(uid, res.story);
@@ -82,5 +83,19 @@ export async function runJob(uid, email, jobId, params) {
   } catch (e) {
     await releaseGeneration(uid).catch(() => {});
     await updateJob(uid, jobId, { status: 'failed', error: String((e && e.reason) || (e && e.message) || 'error') }).catch(() => {});
+    await notifyFailure(uid).catch(() => {});
   }
+}
+
+// Push a "didn't work, try again" so the user is never left waiting on a failure.
+async function notifyFailure(uid) {
+  try {
+    const tokens = await getPushTokens(uid);
+    if (tokens.length) {
+      const dead = await sendPush(tokens,
+        { title: 'Story didn\'t finish', body: 'That one didn\'t come together — tap to try again.' },
+        { type: 'story_failed' });
+      if (dead.length) await prunePushTokens(uid, dead);
+    }
+  } catch (e) { /* best-effort */ }
 }
