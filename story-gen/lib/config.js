@@ -28,6 +28,9 @@ export const DEFAULT_FLAGS = {
   maxDailyTotalUSD: 10,    // global circuit breaker across ALL users
   perUserPerDay: 5,        // soft per-user daily generation cap
   maxParagraphs: 32,       // clamp the requested length ("Extra long" ≈ 28)
+  qualityJudge: true,      // run the silent post-gate quality judge on each story
+  autoRegen: true,         // regenerate once if the judge scores below threshold
+  qualityThreshold: 3,     // overall (1–5) below this triggers one regeneration
 };
 
 /** Per-token cost (USD) for the authoring model. Sonnet 4.6 list pricing. */

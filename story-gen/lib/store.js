@@ -28,7 +28,7 @@ async function db() {
 }
 
 // ── In-memory backend ────────────────────────────────────────────────────────
-const mem = { jobs: new Map(), stories: new Map(), quota: new Map(), flags: null, rollup: new Map(), codes: new Map(), userCode: new Map(), friends: new Map() };
+const mem = { jobs: new Map(), stories: new Map(), quota: new Map(), flags: null, rollup: new Map(), codes: new Map(), userCode: new Map(), friends: new Map(), generations: [] };
 const memKey = (uid, id) => `${uid}/${id}`;
 
 const MEMORY = env.useMemoryStore;
@@ -202,6 +202,25 @@ export async function recordCost(uid, email, totalCents, breakdown) {
 export async function getCostRollups(days = 7) {
   if (MEMORY) return [...mem.rollup.values()].sort((a, b) => (a.day < b.day ? 1 : -1)).slice(0, days);
   const snap = await (await db()).collection('storygen-cost-rollup').orderBy('day', 'desc').limit(days).get();
+  return snap.docs.map(d => d.data());
+}
+
+// ── Per-generation report log (storygen-generations/{id}) ────────────────────
+// One rich row per request (success OR failure) for the admin report: who, title,
+// theme/cast, level, length target→actual, rounds, latency, cost, quality scores.
+export async function recordGeneration(record) {
+  const rec = { ...record, createdAt: record.createdAt || Date.now() };
+  if (MEMORY) {
+    mem.generations.unshift(rec);
+    if (mem.generations.length > 500) mem.generations.length = 500;
+    return;
+  }
+  await (await db()).doc(`storygen-generations/${randomUUID()}`).set(rec);
+}
+
+export async function getRecentGenerations(limit = 50) {
+  if (MEMORY) return mem.generations.slice(0, limit);
+  const snap = await (await db()).collection('storygen-generations').orderBy('createdAt', 'desc').limit(limit).get();
   return snap.docs.map(d => d.data());
 }
 
