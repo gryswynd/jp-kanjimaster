@@ -20,6 +20,17 @@ const addUsage = (a, b) => ({
 });
 const round2 = (c) => Math.round((c || 0) * 100) / 100;
 
+// Turn a thrown API/transport error into a clean, legible report reason.
+function classifyError(e) {
+  const msg = String((e && e.message) || '');
+  const st = e && e.status;
+  if (/credit balance|too low|billing/i.test(msg)) return 'anthropic_out_of_credits';
+  if (st === 401 || st === 403) return 'anthropic_auth';
+  if (st === 429) return 'anthropic_rate_limited';
+  if (typeof st === 'number' && st >= 500) return 'anthropic_unavailable';
+  return (e && e.reason) || (msg ? msg.slice(0, 80) : 'error');
+}
+
 let _ctxPromise = null;
 let _authorPromise = null;
 export function warm() {
@@ -115,7 +126,7 @@ export async function runJob(uid, email, jobId, params) {
       }
     } catch (e) { /* push is best-effort */ }
   } catch (e) {
-    const reason = String((e && e.reason) || (e && e.message) || 'error');
+    const reason = classifyError(e);
     await releaseGeneration(uid).catch(() => {});
     await updateJob(uid, jobId, { status: 'failed', error: reason }).catch(() => {});
     await recordGeneration(genRecord({ uid, email, params, res: null, status: 'failed', error: reason, t0 })).catch(() => {});

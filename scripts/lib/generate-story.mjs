@@ -246,7 +246,7 @@ async function writeTitle(story, call, params, ctx, vopts) {
   const body = story.paragraphs.map(p => p.jp).join(' ').slice(0, 600);
   let msgs = [{ role: 'user', content: `Give this story a short Japanese title, STRICTLY in scope (only allowed vocab/kanji). STORY:\n${body}\nReturn ONLY {"title":"…","englishTitle":"…"}.` }];
   for (let attempt = 1; attempt <= 3; attempt++) {
-    let o; try { o = parseJsonObject(await call(msgs, 300)); } catch (e) { continue; }
+    let o; try { o = parseJsonObject(await call(msgs, 300)); } catch (e) { if (e && e.fatal) throw e; continue; }
     story.title = String(o.title || ''); story.englishTitle = String(o.englishTitle || story.englishTitle || '');
     const tv = collectViolations(story, ctx, { ...vopts, minParagraphs: 0 }).filter(v => v.scope === 'title').map(v => v.msg);
     if (!tv.length) return;
@@ -261,7 +261,7 @@ async function writeComprehension(story, call, params, ctx, vopts) {
   const body = story.paragraphs.map((p, i) => (i + 1) + '. ' + p.jp).join('\n');
   let msgs = [{ role: 'user', content: `Write ${n} short-answer (written) comprehension questions for this story, STRICTLY in scope. STORY:\n${body}\nEach question: {q (Japanese), q_en (English), answer (short Japanese), explanation (English)}. Return ONLY {"comprehension":[…]}.` }];
   for (let attempt = 1; attempt <= 3; attempt++) {
-    let o; try { o = parseJsonObject(await call(msgs, 1600)); } catch (e) { continue; }
+    let o; try { o = parseJsonObject(await call(msgs, 1600)); } catch (e) { if (e && e.fatal) throw e; continue; }
     story.comprehension.questions = (o.comprehension || []).map(q => bakeQuestion(q, params, ctx));
     const cv = collectViolations(story, ctx, { ...vopts, minParagraphs: 0 }).filter(v => v.scope === 'comprehension').map(v => v.msg);
     if (!cv.length) return;
@@ -287,7 +287,13 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   const usage = { inputTokens: 0, outputTokens: 0 };
   const sys = buildSystem(authorSystem, params, ctx);
   const call = async (msgs, maxTokens) => {
-    const r = await anthropicCall({ system: sys, messages: msgs, maxTokens });
+    let r;
+    // A throw HERE is a real API/transport failure (auth, billing/credits, rate
+    // limit, network) — NOT retryable bad-JSON. Tag it fatal so the call-site
+    // catches re-throw it and the job aborts fast with the true reason, instead
+    // of silently burning every retry and surfacing a misleading "scope_unmet".
+    try { r = await anthropicCall({ system: sys, messages: msgs, maxTokens }); }
+    catch (e) { if (e && typeof e === 'object') e.fatal = true; throw e; }
     usage.inputTokens += r.usage?.inputTokens || 0; usage.outputTokens += r.usage?.outputTokens || 0;
     return r.text;
   };
@@ -298,7 +304,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   try {
     const o = parseJsonObject(await call([{ role: 'user', content: `Plan a ${total}-beat outline (use the theme, cast, and scope above). Each beat = one short English sentence describing what happens in that paragraph. Return ONLY {"beats":["…"]} with exactly ${total} beats.` }], 1500));
     if (Array.isArray(o.beats)) beats = o.beats.map(String);
-  } catch (e) { log(`outline parse failed (${e.message})`); }
+  } catch (e) { if (e && e.fatal) throw e; log(`outline parse failed (${e.message})`); }
   while (beats.length < total) beats.push(`Continue the story (paragraph ${beats.length + 1}).`);
   beats = beats.slice(0, total);
 
@@ -311,7 +317,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
     for (let attempt = 1; attempt <= 3; attempt++) {
       let obj;
       try { obj = parseJsonObject(await call(msgs, 800)); }
-      catch (e) { msgs = [{ role: 'user', content: basePrompt }, { role: 'user', content: 'Return ONLY {"jp":"…","en":"…"} — valid JSON, no prose.' }]; continue; }
+      catch (e) { if (e && e.fatal) throw e; msgs = [{ role: 'user', content: basePrompt }, { role: 'user', content: 'Return ONLY {"jp":"…","en":"…"} — valid JSON, no prose.' }]; continue; }
       const cand = bakeParagraph(obj.jp, obj.en, params, ctx);
       para = cand;
       const v = paragraphViolations(cand, ctx, vopts);
@@ -355,7 +361,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
       if (fix.title && titleMsgs.length) story.title = String(fix.title);
       for (const fp of (fix.paragraphs || [])) { const i = (parseInt(fp.index, 10) || 0) - 1; if (i >= 0 && i < story.paragraphs.length && fp.jp) story.paragraphs[i] = bakeParagraph(fp.jp, fp.en || story.paragraphs[i].en, params, ctx); }
       if (compMsgs.length && Array.isArray(fix.comprehension) && fix.comprehension.length) story.comprehension.questions = fix.comprehension.map(q => bakeQuestion(q, params, ctx));
-    } catch (e) { log(`finish ${round}: parse failed (${e.message})`); }
+    } catch (e) { if (e && e.fatal) throw e; log(`finish ${round}: parse failed (${e.message})`); }
     violations = collectViolations(story, ctx, vopts);
     log(`finish ${round}: ${violations.length} violation(s)`);
   }
