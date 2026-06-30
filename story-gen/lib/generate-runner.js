@@ -37,6 +37,8 @@ export function toParams(body, storyId, maxParagraphs) {
     ceiling,
     ceilingStr: `${vocabLevel}.99`,
     focusWords: Array.isArray(body.focusWords) ? body.focusWords.slice(0, 40).map(String) : [],
+    focusLessons: Array.isArray(body.focusLessons) ? body.focusLessons.slice(0, 20).map(String) : [],
+    focusGrammar: Array.isArray(body.focusGrammar) ? body.focusGrammar.slice(0, 20).map(String) : [],
     grammarGate: typeof body.grammarGate === 'string' ? body.grammarGate.slice(0, 80) : 'the latest grammar taught',
     targetParagraphs: want,
     includeComprehension: body.includeComprehension !== false,

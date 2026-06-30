@@ -1269,7 +1269,6 @@ window.JPApp = {
     try { customOn = localStorage.getItem('k-custom-enabled') === '1'; } catch (e) {}
     if (customOn) {
       mods.push({ key: 'custom', label: 'Custom', jp: 'カスタム', kanji: '創', accent: 'gold' });
-      mods.push({ key: 'build', label: 'Create', jp: 'つくる', kanji: '作', accent: 'gold' });
     }
     var cells = mods.map(function(m) {
       var color = self._accent(m.accent);

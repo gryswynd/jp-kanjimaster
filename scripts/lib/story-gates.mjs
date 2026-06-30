@@ -118,8 +118,24 @@ export async function buildGateContext({ readFile, root }) {
   let characters = [];
   try { characters = (JSON.parse(await readFile(path.join(R, 'shared/characters.json'), 'utf8')).characters) || []; } catch {}
 
+  // lesson id → vocab surfaces (for the "focus on these lessons" feature) and
+  // grammar id → title (for "focus on this grammar"). Both feed the author brief.
+  const lessonVocab = {};
+  for (const lvl of LEVELS) {
+    for (const e of entriesOf(await load(`data/${lvl}/glossary.${lvl}.json`))) {
+      if (!e || !e.surface || !e.lesson_ids) continue;
+      for (const lid of String(e.lesson_ids).split(/[,;\s]+/).filter(Boolean)) {
+        (lessonVocab[lid] = lessonVocab[lid] || []).push(e.surface);
+      }
+    }
+  }
+  const grammarTitles = {};
+  for (const lvl of Object.keys(manifest.data || {})) {
+    for (const g of (manifest.data[lvl].grammar || [])) if (g && g.id) grammarTitles[g.id] = g.title || g.titleJp || g.id;
+  }
+
   return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank,
-           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters };
+           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, lessonVocab, grammarTitles };
 }
 
 // ── validateStory (← validate-stories.mjs) ───────────────────────────────────

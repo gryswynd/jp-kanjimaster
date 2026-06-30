@@ -18,7 +18,18 @@ import {
 } from './story-gates.mjs';
 import { tokenizeText, reconstructFromTokens } from './tokenize.mjs';
 
-const MAX_ROUNDS = 4;
+const MAX_ROUNDS = 5;
+
+// Common interjections / fillers that are natural in dialogue but aren't glossary
+// vocab — they render fine as plain kana, so don't make the author strip them
+// (that hurt convergence: the model kept reaching for ねえ/ああ/etc.). The most
+// common ones (はい/ええ/うん/おい…) are real glossary entries; this covers the
+// long tail the glossary doesn't carry.
+const INTERJECTION_OK = new Set([
+  'ねえ', 'ねぇ', 'なあ', 'なぁ', 'ああ', 'あぁ', 'ううん', 'へえ', 'へぇ',
+  'わあ', 'わぁ', 'おお', 'あれ', 'あら', 'まあ', 'やあ', 'よし', 'うわ', 'うわあ', 'ほら', 'さあ',
+  'ふう', 'ふうん', 'うーん', 'ええと', 'えっと', 'あのう', 'おおっ', 'はあ', 'ふふ', 'あはは',
+]);
 
 // Out-of-curriculum words that the model reaches for in titles (mystery tropes
 // especially). They tokenize as bare kana / untaught kanji and slip the audit,
@@ -85,7 +96,7 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
   const q = qaStory(story, ctx, gateMeta);
   for (const k of dedupe(q.violations.kanji, x => x.ch).slice(0, 12)) out.push(`Untaught kanji 「${k.ch}」 (${k.paragraph}) — write that word in kana instead.`);
   for (const x of dedupe(q.violations.vocab, x => x.id).slice(0, 12)) out.push(`Out-of-scope word "${x.k}" (¶${x.p}) — use a simpler in-level word.`);
-  for (const x of q.violations.untagged.slice(0, 10)) out.push(`"${x.k}" (¶${x.p}) isn't a recognized word — reword it.`);
+  for (const x of q.violations.untagged.slice(0, 12)) if (!INTERJECTION_OK.has(x.k)) out.push(`"${x.k}" (¶${x.p}) isn't a recognized word — reword it.`);
   for (const x of q.violations.split) out.push(`"${x.k}" (¶${x.p}) — ${x.fix}.`);
   for (const x of q.violations.form.slice(0, 8)) out.push(`Grammar form "${x.k}" (¶${x.p}) is taught later — use a simpler form.`);
   for (const x of q.violations.particle.slice(0, 8)) out.push(`Particle "${x.k}" (¶${x.p}) is taught later — rephrase.`);
@@ -140,7 +151,21 @@ function buildBrief(params, ctx) {
     .filter(Boolean)
     .map(c => `- ${c.surface} (${c.meaning}): ${c.description}`)
     .join('\n');
-  const focus = (params.focusWords || []).slice(0, 40).join('、');
+  // Focus words = flagged words + vocab drawn from the lessons the learner chose
+  // to reinforce (capped so the brief stays lean).
+  const lessonWords = [];
+  for (const lid of (params.focusLessons || [])) {
+    for (const w of (ctx.lessonVocab && ctx.lessonVocab[lid]) || []) lessonWords.push(w);
+  }
+  const allFocus = [];
+  const seenF = new Set();
+  for (const w of [...(params.focusWords || []), ...lessonWords]) {
+    if (w && !seenF.has(w)) { seenF.add(w); allFocus.push(w); }
+  }
+  const focus = allFocus.slice(0, 50).join('、');
+  const focusGrammar = (params.focusGrammar || [])
+    .map(id => (ctx.grammarTitles && ctx.grammarTitles[id]) ? `${id} (${ctx.grammarTitles[id]})` : id)
+    .join('; ');
   const lines = [
     `Write a graded-reader story of about ${params.targetParagraphs} short paragraphs.`,
     '',
@@ -157,6 +182,7 @@ function buildBrief(params, ctx) {
     kanji.join(''),
     '',
     focus ? `FOCUS WORDS (weave these in naturally, repeat where it fits): ${focus}` : '',
+    focusGrammar ? `FOCUS GRAMMAR (make sure the story uses these patterns): ${focusGrammar}` : '',
     params.includeComprehension
       ? `\nEnd with ${params.numQuestions || 4} short-answer (written) comprehension questions.`
       : `\nNo comprehension questions (use an empty array).`,

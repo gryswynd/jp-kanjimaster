@@ -1249,7 +1249,7 @@
 
   var CUSTOM_FEATURES = [
     {
-      icon: '📖', name: 'Custom Stories',
+      icon: '📖', name: 'Custom Stories', action: 'build',
       body: 'Stories that weave in the vocab and grammar you\'ve struggled with — ' +
             'and star you, your town, and the people in your life along the way.'
     },
@@ -1283,13 +1283,16 @@
       '</div>';
 
     var featureCards = CUSTOM_FEATURES.map(function (f) {
+      var cta = (f.action === 'build' && on)
+        ? '<button class="jp-set-tier-cta jp-set-tier-cta-on" id="jp-set-custom-make">Make a story</button>'
+        : '<button class="jp-set-tier-cta" disabled>Coming soon</button>';
       return (
         '<div class="jp-set-tier">' +
           '<div class="jp-set-tier-top">' +
             '<div class="jp-set-tier-name">' + f.icon + ' ' + f.name + '</div>' +
           '</div>' +
           '<div class="jp-set-tier-tagline">' + f.body + '</div>' +
-          '<button class="jp-set-tier-cta" disabled>Coming soon</button>' +
+          cta +
         '</div>'
       );
     }).join('');
@@ -1341,6 +1344,15 @@
         } else {
           openCustomPanel(); // re-render to flip the button + badge
         }
+      });
+    }
+
+    // "Make a story" — launch the custom-story builder from inside this panel.
+    var makeBtn = document.getElementById('jp-set-custom-make');
+    if (makeBtn) {
+      makeBtn.addEventListener('click', function () {
+        close();
+        if (window.JPApp && typeof window.JPApp.launch === 'function') window.JPApp.launch('build');
       });
     }
   }
