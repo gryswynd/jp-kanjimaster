@@ -22,6 +22,8 @@
     'k-streak-history', 'k-streak-freezes',
     'k-keiko-earned', 'k-keiko-spent',
     'k-srs-items', 'k-srs-seeded',
+    'k-achievements', 'k-seal-ink', 'k-seal-ink-ts',
+    'k-inks-owned', 'k-stamps-owned', 'k-cast-unlocked',
     'k-user-first', 'k-user-last', 'k-user-email',
   ];
   // Web mini-game per-puzzle results (status:'complete' + stamp): scramble k-scr-,
@@ -162,6 +164,14 @@
       gamify: {
         keikoEarned: numOf('k-keiko-earned'),
         keikoSpent: numOf('k-keiko-spent'),
+        // Phase 3: achievement grants (earliest ts wins per id) + cosmetic
+        // ownership (OR) + active seal ink (later selection wins).
+        achievements: parseObj('k-achievements'),
+        inksOwned: parseObj('k-inks-owned'),
+        stampsOwned: parseObj('k-stamps-owned'),
+        castUnlocked: parseObj('k-cast-unlocked'),
+        sealInk: lsGet('k-seal-ink') || '',
+        sealInkTs: numOf('k-seal-ink-ts'),
       },
       // SRS review schedules: per-key {r, due, ts}. Merged per key by later
       // lastReviewed ts (a real review always beats a ts:0 seed).
@@ -181,6 +191,8 @@
 
   // ── client-side merge (mirror of server lib/merge-progress.js) ─────────────
   function maxMap(a, b) { var o = Object.assign({}, a || {}); var s = b || {}; for (var k in s) o[k] = Math.max(+o[k] || 0, +s[k] || 0); return o; }
+  // Achievement grants: union of ids, earliest positive grant timestamp wins.
+  function minTsMap(a, b) { var o = Object.assign({}, a || {}); var s = b || {}; for (var k in s) { var av = +o[k] || 0, bv = +s[k] || 0; o[k] = (av > 0 && bv > 0) ? Math.min(av, bv) : (av || bv); } return o; }
   function orMap(a, b) { var o = Object.assign({}, a || {}); var s = b || {}; for (var k in s) o[k] = !!o[k] || !!s[k]; return o; }
   function unionSorted(a, b) { var set = {}; (a || []).concat(b || []).forEach(function (x) { set[x] = 1; }); return Object.keys(set).sort(); }
 
@@ -211,10 +223,20 @@
         history: unionSorted(ls.history, rs.history),
         freezes: Math.max(+ls.freezes || 0, +rs.freezes || 0),
       },
-      gamify: {
-        keikoEarned: Math.max(+(local.gamify || {}).keikoEarned || 0, +(remote.gamify || {}).keikoEarned || 0),
-        keikoSpent: Math.max(+(local.gamify || {}).keikoSpent || 0, +(remote.gamify || {}).keikoSpent || 0),
-      },
+      gamify: (function () {
+        var lg = local.gamify || {}, rg = remote.gamify || {};
+        var inkNewer = (+rg.sealInkTs || 0) >= (+lg.sealInkTs || 0) ? rg : lg;
+        return {
+          keikoEarned: Math.max(+lg.keikoEarned || 0, +rg.keikoEarned || 0),
+          keikoSpent: Math.max(+lg.keikoSpent || 0, +rg.keikoSpent || 0),
+          achievements: minTsMap(lg.achievements, rg.achievements),
+          inksOwned: orMap(lg.inksOwned, rg.inksOwned),
+          stampsOwned: orMap(lg.stampsOwned, rg.stampsOwned),
+          castUnlocked: orMap(lg.castUnlocked, rg.castUnlocked),
+          sealInk: inkNewer.sealInk || lg.sealInk || rg.sealInk || '',
+          sealInkTs: Math.max(+lg.sealInkTs || 0, +rg.sealInkTs || 0),
+        };
+      })(),
       srs: {
         items: mergeSrsItems((local.srs || {}).items, (remote.srs || {}).items),
         seeded: !!(local.srs || {}).seeded || !!(remote.srs || {}).seeded,
@@ -256,6 +278,11 @@
       var G = merged.gamify || {};
       lsSet('k-keiko-earned', String(+G.keikoEarned || 0));
       lsSet('k-keiko-spent', String(+G.keikoSpent || 0));
+      if (G.achievements && Object.keys(G.achievements).length) lsSet('k-achievements', JSON.stringify(G.achievements));
+      if (G.inksOwned && Object.keys(G.inksOwned).length) lsSet('k-inks-owned', JSON.stringify(G.inksOwned));
+      if (G.stampsOwned && Object.keys(G.stampsOwned).length) lsSet('k-stamps-owned', JSON.stringify(G.stampsOwned));
+      if (G.castUnlocked && Object.keys(G.castUnlocked).length) lsSet('k-cast-unlocked', JSON.stringify(G.castUnlocked));
+      if (G.sealInk) { lsSet('k-seal-ink', G.sealInk); lsSet('k-seal-ink-ts', String(+G.sealInkTs || 0)); }
 
       var SR = merged.srs || {};
       if (SR.items && Object.keys(SR.items).length) lsSet('k-srs-items', JSON.stringify(SR.items));

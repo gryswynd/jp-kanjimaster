@@ -106,14 +106,33 @@ function mergeSrs(a, b) {
   };
 }
 
+// Achievement grants: union of ids, earliest positive grant timestamp wins.
+function minTsMap(a, b) {
+  const out = { ...(a || {}) };
+  const src = b || {};
+  for (const k of Object.keys(src)) {
+    const av = num(out[k]), bv = num(src[k]);
+    out[k] = (av > 0 && bv > 0) ? Math.min(av, bv) : (av || bv);
+  }
+  return out;
+}
+
 // Keiko currency counters are monotonic (earned/spent only ever increase on a
 // device), so max() per counter converges without ever "un-spending".
-// Mirror of app/shared/sync.js.
+// Phase 3 adds achievement grants (min-ts), cosmetic ownership (OR), and the
+// active seal ink (later selection wins). Mirror of app/shared/sync.js.
 function mergeGamify(a, b) {
   a = a || {}; b = b || {};
+  const inkNewer = num(b.sealInkTs) >= num(a.sealInkTs) ? b : a;
   return {
     keikoEarned: Math.max(num(a.keikoEarned), num(b.keikoEarned)),
     keikoSpent:  Math.max(num(a.keikoSpent), num(b.keikoSpent)),
+    achievements: minTsMap(a.achievements, b.achievements),
+    inksOwned:    orMap(a.inksOwned, b.inksOwned),
+    stampsOwned:  orMap(a.stampsOwned, b.stampsOwned),
+    castUnlocked: orMap(a.castUnlocked, b.castUnlocked),
+    sealInk:      inkNewer.sealInk || a.sealInk || b.sealInk || '',
+    sealInkTs:    Math.max(num(a.sealInkTs), num(b.sealInkTs)),
   };
 }
 

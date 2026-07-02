@@ -427,6 +427,7 @@
         case 'writing-kanji': return true;
         case 'writing-kana':  return true;
         case 'map':      return true;                       // progress view, always visible
+        case 'album':    return true;                       // stamp album — collection view, never gated
         case 'custom':   return true;                       // opt-in paid module — surfaced via k-custom-enabled; never re-locks
         default:         return false;
       }

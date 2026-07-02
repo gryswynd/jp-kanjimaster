@@ -403,7 +403,7 @@ window.StoriesModule = (function () {
       }
       .jp-book-cover-stamp.jp-stamp-fallback {
         display: flex; align-items: center; justify-content: center;
-        background: var(--moss, #5E8C5F); color: #fff; font-weight: 800; font-size: 15px;
+        background: var(--seal-ink, var(--moss, #5E8C5F)); color: #fff; font-weight: 800; font-size: 15px;
       }
 
       /* ── Paged book reader ────────────────────────────────────────────── */
@@ -492,7 +492,7 @@ window.StoriesModule = (function () {
       }
       .jp-flip-cover-stamp.jp-stamp-fallback {
         display: flex; align-items: center; justify-content: center;
-        background: var(--moss, #5E8C5F); color: #fff; font-weight: 800; font-size: 26px;
+        background: var(--seal-ink, var(--moss, #5E8C5F)); color: #fff; font-weight: 800; font-size: 26px;
       }
       .jp-page-face, .jp-page-back {
         position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden;

@@ -13,17 +13,51 @@
   window.JPShared = window.JPShared || {};
 
   var STORAGE_KEY = 'k-stamp-character';
+  var OWNED_KEY = 'k-stamps-owned';
   var DEFAULT_CHARACTER = 'char_rikizo';
   var POO_PATH = 'assets/ui/poo_stamp.png';
   var charactersCache = null;
   var _repoConfig = null;
 
+  // Grandfather migration: face stamps became keiko purchases in Phase 3, but
+  // whatever a user had already selected stays theirs (plus Rikizo, always
+  // free). Runs once — the absence of the owned map is the trigger. Lives
+  // HERE (not cosmetics.js) because this file is in every lazy sharedModules
+  // list, so the guard below can never observe an unseeded map.
+  function ownedMap() {
+    try { return JSON.parse(localStorage.getItem(OWNED_KEY) || 'null'); }
+    catch (e) { return null; }
+  }
+
+  (function grandfather() {
+    try {
+      if (ownedMap()) return;
+      var seed = {};
+      seed[DEFAULT_CHARACTER] = true;
+      var current = localStorage.getItem(STORAGE_KEY);
+      if (current) seed[current] = true;
+      localStorage.setItem(OWNED_KEY, JSON.stringify(seed));
+    } catch (e) {}
+  })();
+
+  function isOwned(id) {
+    if (id === DEFAULT_CHARACTER) return true;
+    var m = ownedMap();
+    return !!(m && m[id]);
+  }
+
   function getSelected() {
-    try { return localStorage.getItem(STORAGE_KEY) || DEFAULT_CHARACTER; }
+    try {
+      var id = localStorage.getItem(STORAGE_KEY) || DEFAULT_CHARACTER;
+      // Selection can outrun ownership (cloud merge order) — render the
+      // default rather than an unowned stamp; never rewrite the choice.
+      return isOwned(id) ? id : DEFAULT_CHARACTER;
+    }
     catch(e) { return DEFAULT_CHARACTER; }
   }
 
   function setSelected(id) {
+    if (!isOwned(id)) return;
     try { localStorage.setItem(STORAGE_KEY, id); } catch(e) {}
   }
 
@@ -92,6 +126,7 @@
   window.JPShared.stampSettings = {
     getSelected: getSelected,
     setSelected: setSelected,
+    isOwned: isOwned,
     getStampUrl: getStampUrl,
     getPooUrl: getPooUrl,
     setConfig: setConfig,

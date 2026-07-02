@@ -313,6 +313,8 @@
         .jp-stamp-option:hover { border-color: var(--vermilion, #c2410c); transform: scale(1.04); }
       }
       .jp-stamp-option:active { transform: scale(0.95); }
+      .jp-stamp-option.locked img { filter: grayscale(0.9); opacity: 0.55; }
+      .jp-stamp-option.locked .jp-stamp-name { color: var(--ink-3, #888); }
       .jp-stamp-name {
         position: absolute; bottom: 0; left: 0; right: 0;
         background: oklch(0.22 0.012 60 / 0.62);
@@ -793,11 +795,15 @@
       if (characters && characters.length > 0) {
         var selectedId = stampApi.getSelected();
         var resolveUrl = stampApi.resolveUrl || function (p) { return p; };
+        var cosmetics = window.JPShared.cosmetics;
         var grid = characters.filter(function (c) { return c.portrait; }).map(function (c) {
+          var owned = stampApi.isOwned ? stampApi.isOwned(c.id) : true;
           var sel = c.id === selectedId ? ' selected' : '';
-          return '<div class="jp-stamp-option' + sel + '" data-char-id="' + c.id + '" title="' + c.meaning + '">' +
+          var lock = owned ? '' : ' locked';
+          var price = (cosmetics && cosmetics.STAMP_PRICE) || 20;
+          return '<div class="jp-stamp-option' + sel + lock + '" data-char-id="' + c.id + '" data-owned="' + (owned ? '1' : '0') + '" title="' + c.meaning + (owned ? '' : ' · ' + price + ' けいこ') + '">' +
             '<img src="' + resolveUrl(c.portrait) + '" alt="' + c.meaning + '">' +
-            '<div class="jp-stamp-name">' + c.meaning + '</div>' +
+            '<div class="jp-stamp-name">' + (owned ? c.meaning : '🔒 ' + price) + '</div>' +
           '</div>';
         }).join('');
         var selectedChar = characters.find(function (c) { return c.id === selectedId; });
@@ -1720,15 +1726,45 @@
         var option = e.target.closest('.jp-stamp-option');
         if (!option) return;
         var charId = option.dataset.charId;
-        stampApi.setSelected(charId);
-        stampGrid.querySelectorAll('.jp-stamp-option').forEach(function (o) {
-          o.classList.toggle('selected', o.dataset.charId === charId);
-        });
         var characters = stampApi.getCharactersCache() || [];
         var ch = characters.find(function (c) { return c.id === charId; });
         var previewImg = document.getElementById('jp-stamp-preview-img');
         var previewText = document.getElementById('jp-stamp-preview-text');
         var resolveFn = stampApi.resolveUrl || function (p) { return p; };
+        var cosmetics = window.JPShared.cosmetics;
+
+        // Locked stamp → two-tap purchase: first tap arms the confirm in the
+        // preview row, second tap (within 4s) buys via keiko.
+        if (option.dataset.owned === '0') {
+          var price = (cosmetics && cosmetics.STAMP_PRICE) || 20;
+          if (option.dataset.confirm !== '1') {
+            stampGrid.querySelectorAll('.jp-stamp-option').forEach(function (o) { delete o.dataset.confirm; });
+            option.dataset.confirm = '1';
+            if (ch && previewImg) previewImg.src = resolveFn(ch.portrait);
+            if (ch && previewText) previewText.textContent = 'Unlock ' + ch.meaning + ' · ' + price + ' けいこ — tap again to buy';
+            setTimeout(function () { delete option.dataset.confirm; }, 4000);
+            return;
+          }
+          delete option.dataset.confirm;
+          var res = cosmetics ? cosmetics.buyStamp(charId) : { ok: false };
+          if (!res.ok) {
+            var bal = window.JPShared.keiko ? window.JPShared.keiko.getBalance() : 0;
+            if (previewText) previewText.textContent = 'Not enough keiko yet (' + bal + ' / ' + price + ')';
+            return;
+          }
+          try { window.JPShared.sfx && window.JPShared.sfx.stamp(); } catch (err) {}
+          try { window.JPShared.haptics && window.JPShared.haptics.success(); } catch (err) {}
+          option.dataset.owned = '1';
+          option.classList.remove('locked');
+          var nameEl = option.querySelector('.jp-stamp-name');
+          if (nameEl && ch) nameEl.textContent = ch.meaning;
+          // fall through to select the freshly-owned stamp
+        }
+
+        stampApi.setSelected(charId);
+        stampGrid.querySelectorAll('.jp-stamp-option').forEach(function (o) {
+          o.classList.toggle('selected', o.dataset.charId === charId);
+        });
         if (ch && previewImg) previewImg.src = resolveFn(ch.portrait);
         if (ch && previewText) previewText.textContent = ch.meaning + ' is your stamp!';
       });

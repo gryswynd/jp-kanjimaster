@@ -129,7 +129,7 @@ rt {
   font-family: var(--font-jp-display);
   font-weight: 700;
   color: #fff;
-  background: var(--vermilion);
+  background: var(--seal-ink, var(--vermilion));
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -362,7 +362,9 @@ window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
   } else if (scope === 'gamify') {
     remove(['k-quests-today', 'k-quests-history',
             'k-keiko-earned', 'k-keiko-spent', 'k-keiko-ledger', 'k-qa-date',
-            'k-srs-items', 'k-srs-seeded', 'k-srs-last-cleared', 'k-kotd-last-done']);
+            'k-srs-items', 'k-srs-seeded', 'k-srs-last-cleared', 'k-kotd-last-done',
+            'k-achievements', 'k-seal-ink', 'k-seal-ink-ts', 'k-inks-owned',
+            'k-stamps-owned', 'k-cast-unlocked', 'k-album-seen-count']);
   } else if (scope === 'grammar') {
     // Strip every G* key from completed + scores, AND guarantee N5.1 is
     // marked passed (≥60%) so Grammar module + G1 are unlocked. Net effect:
@@ -498,6 +500,7 @@ window.JPApp = {
     // Custom-story builder + Friends — surfaced via their own entry points, so
     // they're always "visible" to the launcher when reached.
     if (module === 'build' || module === 'friends' || module === 'gairaigo') return true;
+    if (module === 'album') return true; // the stamp album is never gated
     if (window.JPShared && window.JPShared.unlock) {
       return window.JPShared.unlock.isModuleVisible(module);
     }
@@ -615,8 +618,12 @@ window.JPApp = {
     // three before any feature module can emit.
     await this.loadModule('app/shared/events.js');
     await this.loadModule('app/shared/keiko.js');
+    await this.loadModule('app/shared/cosmetics.js');
     await this.loadModule('app/shared/quests.js');
     await this.loadModule('app/shared/srs.js');
+    // MUST load after srs.js: both subscribe to drill-answer, and achievements
+    // re-checks k-srs-items mastery counts that srs.js updates first.
+    await this.loadModule('app/shared/achievements.js');
     await this.loadModule('app/shared/scene-kit.js');
     await this.loadModule('app/shared/garden-stage.js'); // living koi ponds (Grammar Garden)
     await this.loadModule('app/shared/practice-helpers.js');
@@ -680,6 +687,11 @@ window.JPApp = {
       console.warn('[JPApp] manifest unavailable at boot:', e);
       this._manifest = null;
     }
+    // Achievements retro-scan needs the manifest (story/level checks) — run it
+    // now that _manifest is settled; grants storm-guard themselves.
+    try {
+      if (window.JPShared.achievements) window.JPShared.achievements.init(this._manifest);
+    } catch (e) {}
     // Load the unlock engine before the first home paint so new-unlock dots
     // render on boot, and seed "current state = seen" once (no retroactive dots).
     try {
@@ -728,6 +740,11 @@ window.JPApp = {
     // When the one-time SRS seed (async glossary fetch) or a lesson enrollment
     // lands, refresh Home so the "Reviews due" card appears/updates.
     window.addEventListener('jp-srs-changed', function () {
+      if (self._view === 'home') self.renderMenu();
+    });
+
+    // New achievement grants light the masthead seal's "new" dot.
+    window.addEventListener('jp-achievements-changed', function () {
       if (self._view === 'home') self.renderMenu();
     });
 
@@ -1093,10 +1110,31 @@ window.JPApp = {
         '</div>' +
         '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;">' +
           acctChip +
-          '<span class="hanko jp-serif" style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);">力</span>' +
+          this._mastheadHanko() +
         '</div>' +
       '</div>' +
     '</div>';
+  },
+
+  // The masthead 力 seal is the door to the stamp album (印帳). Shows a "new"
+  // dot when the collection has grown since the album was last opened.
+  _mastheadHanko: function() {
+    var earned = 0;
+    try {
+      var ach = window.JPShared && window.JPShared.achievements;
+      earned += ach ? ach.earnedCount() : 0;
+      var srsItems = JSON.parse(localStorage.getItem('k-srs-items') || '{}');
+      earned += Object.keys(srsItems).filter(function(k) { return /^N\d+:k_/.test(k) && srsItems[k] && srsItems[k].r === 5; }).length;
+      var done = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}');
+      earned += Object.keys(done).filter(function(k) { return done[k] && /^N\d\.\d+$/.test(k); }).length;
+    } catch (e) {}
+    var seen = 0;
+    try { seen = parseInt(localStorage.getItem('k-album-seen-count') || '0', 10) || 0; } catch (e) {}
+    var dot = earned > seen
+      ? '<span style="position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:999px;background:var(--gold);box-shadow:0 0 0 2px var(--washi);"></span>'
+      : '';
+    return '<button class="hanko jp-serif rk-press" onclick="JPApp.launch(\'album\')" aria-label="Open your stamp album" ' +
+      'style="width:52px;height:52px;font-size:25px;transform:rotate(-4deg);border:none;cursor:pointer;">力' + dot + '</button>';
   },
 
   // --- Streak card (replaces the old _buildStreakBar) ---
@@ -1507,11 +1545,65 @@ window.JPApp = {
         '<div class="jp-serif" style="font-size:1.15rem;color:var(--ink);font-weight:600;">' + this._esc(c.surface) + '</div>' +
         '<div style="font-size:0.8rem;color:var(--ink-3);margin-bottom:10px;">' + this._esc(c.meaning) + '</div>' +
         '<div style="font-size:0.92rem;color:var(--ink-2);line-height:1.55;margin-bottom:16px;">' + this._esc(c.description) + '</div>' +
-        '<div style="font-size:0.72rem;color:var(--ink-3);background:var(--washi-2);border:1px dashed var(--hairline);border-radius:10px;padding:8px 10px;margin-bottom:16px;">🔒 Relationship &amp; mood levels unlock when the Adventure game is linked</div>' +
+        this._castBioExtra(c) +
         '<button onclick="this.closest(\'.jp-return-overlay\').remove()" style="background:var(--vermilion);color:var(--washi);border:none;padding:9px 26px;border-radius:999px;font-size:0.95rem;font-weight:600;cursor:pointer;">Close</button>' +
       '</div>';
     overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
     document.body.appendChild(overlay);
+  },
+
+  // Extended bio block for the cast popup. Characters without authored
+  // bioLong content keep the old modal untouched. Locked = a teaser + a
+  // keiko unlock button; unlocked = reward art, the full bio, likes, fun fact.
+  _castBioExtra: function(c) {
+    if (!c.bioLong) {
+      return '<div style="font-size:0.72rem;color:var(--ink-3);background:var(--washi-2);border:1px dashed var(--hairline);border-radius:10px;padding:8px 10px;margin-bottom:16px;">🔒 Relationship &amp; mood levels unlock when the Adventure game is linked</div>';
+    }
+    var cos = window.JPShared && window.JPShared.cosmetics;
+    var unlocked = cos ? cos.isCastUnlocked(c.id) : false;
+    if (!unlocked) {
+      var price = (cos && cos.BIO_PRICE) || 15;
+      return '<div style="background:var(--washi-2);border:1px dashed var(--hairline);border-radius:12px;padding:12px;margin-bottom:16px;">' +
+        '<div style="font-size:0.75rem;color:var(--ink-3);margin-bottom:8px;">🔒 ' + this._esc(c.meaning) + '’s full story, likes, and a secret are sealed away…</div>' +
+        '<button onclick="JPApp._unlockCastBio(\'' + this._esc(c.id) + '\')" style="background:var(--ink);color:var(--washi);border:none;padding:8px 18px;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">Unlock full story · ' + price + ' けいこ</button>' +
+      '</div>';
+    }
+    var art = c.rewardArt
+      ? '<img src="' + this._esc(this._assetUrl(c.rewardArt)) + '" alt="" style="width:120px;height:auto;display:block;margin:0 auto 12px;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.15));" onerror="this.style.display=\'none\'">'
+      : '';
+    var likes = Array.isArray(c.likes) && c.likes.length
+      ? '<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;">' +
+          c.likes.map(function(l) {
+            return '<span style="font-size:0.72rem;background:var(--washi-2);border:1px solid var(--hairline);border-radius:999px;padding:3px 10px;color:var(--ink-2);">♡ ' + String(l).replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</span>';
+          }).join('') +
+        '</div>'
+      : '';
+    var fact = c.funFact
+      ? '<div style="font-size:0.78rem;color:var(--ink-2);background:var(--washi-2);border:1px solid var(--hairline);border-radius:10px;padding:8px 10px;margin-bottom:16px;"><span class="mono" style="font-size:0.62rem;letter-spacing:0.12em;color:var(--ink-3);">SECRET · </span>' + this._esc(c.funFact) + '</div>'
+      : '';
+    return '<div style="border-top:1px solid var(--hairline);padding-top:14px;margin-bottom:4px;">' +
+      art +
+      '<div style="font-size:0.88rem;color:var(--ink-2);line-height:1.6;text-align:left;margin-bottom:12px;">' + this._esc(c.bioLong) + '</div>' +
+      likes + fact +
+    '</div>';
+  },
+
+  _unlockCastBio: function(charId) {
+    var cos = window.JPShared && window.JPShared.cosmetics;
+    if (!cos) return;
+    var res = cos.unlockCast(charId);
+    if (!res.ok) {
+      var bal = window.JPShared.keiko ? window.JPShared.keiko.getBalance() : 0;
+      this._toast('Not enough keiko yet (' + bal + ' / ' + cos.BIO_PRICE + ')');
+      return;
+    }
+    try { window.JPShared.sfx && window.JPShared.sfx.stamp(); } catch (e) {}
+    try { window.JPShared.haptics && window.JPShared.haptics.success(); } catch (e) {}
+    // Re-open the modal in its unlocked state. _showCastBio takes the SHORT
+    // id ('rikizo') and prefixes 'char_' itself — strip ours.
+    var overlay = document.querySelector('.jp-return-overlay');
+    if (overlay) overlay.remove();
+    this._showCastBio(String(charId).replace(/^char_/, ''));
   },
 
   // --- Daily quests ("Today's Training") ---
@@ -2206,6 +2298,7 @@ window.JPApp = {
       custom:         { global: 'CustomStoriesModule',       file: 'Stories.js' },
       build:          { global: 'CustomStoryBuilderModule',  file: 'CustomStoryBuilder.js' },
       friends:        { global: 'FriendsModule',             file: 'Friends.js' },
+      album:          { global: 'AlbumModule',               file: 'Album.js' },
       'teacher-bingo':{ global: 'KanjiBingoGeneratorModule', file: 'KanjiBingoGenerator.js' },
       'writing-kanji':{ global: 'WritingKanjiModule',        file: 'WritingKanji.js',
                         deps: ['app/shared/stroke-canvas.js', 'app/shared/ink-morph.js'] },
