@@ -181,14 +181,14 @@
         {
           "k": "思",
           "r": "おも",
-          "g": "v_omou_te_form"
+          "g": "v_omou"
         },
         {
-          "k": "って",
-          "g": "v_omou_te_form"
+          "k": "っ",
+          "g": "v_omou"
         },
         {
-          "k": "いました"
+          "k": "ていました"
         },
         {
           "k": "。"
@@ -219,11 +219,11 @@
         {
           "k": "早",
           "r": "はや",
-          "g": "v_hayai_adverbial"
+          "g": "v_hayai"
         },
         {
           "k": "く",
-          "g": "v_hayai_adverbial"
+          "g": "v_hayai"
         },
         {
           "k": "起",
@@ -391,16 +391,13 @@
       "en": "Three hours later, Rikizo woke up. \"Where am I?!\" It was a station he didn't know.",
       "tokens": [
         {
-          "k": "三",
-          "r": "さん"
-        },
-        {
-          "k": "時間",
-          "r": "じかん"
+          "k": "三時間",
+          "r": "さんじかん",
+          "g": "count_3_jikan"
         },
         {
           "k": "後",
-          "r": "あと"
+          "r": "ご"
         },
         {
           "k": "、"
@@ -1436,11 +1433,11 @@
         {
           "k": "悪",
           "r": "わる",
-          "g": "v_warui_adverbial"
+          "g": "v_warui"
         },
         {
           "k": "く",
-          "g": "v_warui_adverbial"
+          "g": "v_warui"
         },
         {
           "k": "な"
@@ -1466,11 +1463,11 @@
         {
           "k": "悪",
           "r": "わる",
-          "g": "v_warui_adverbial"
+          "g": "v_warui"
         },
         {
           "k": "く",
-          "g": "v_warui_adverbial"
+          "g": "v_warui"
         },
         {
           "k": "なって",
@@ -1527,11 +1524,11 @@
         {
           "k": "近",
           "r": "ちか",
-          "g": "v_chikai_adverbial"
+          "g": "v_chikai"
         },
         {
           "k": "く",
-          "g": "v_chikai_adverbial"
+          "g": "v_chikai"
         },
         {
           "k": "の"
@@ -1774,14 +1771,14 @@
         {
           "k": "知",
           "r": "し",
-          "g": "v_shiru_te_form"
+          "g": "v_shiru"
         },
         {
-          "k": "って",
-          "g": "v_shiru_te_form"
+          "k": "っ",
+          "g": "v_shiru"
         },
         {
-          "k": "いました"
+          "k": "ていました"
         },
         {
           "k": "。"
@@ -2064,11 +2061,11 @@
         {
           "k": "近",
           "r": "ちか",
-          "g": "v_chikai_adverbial"
+          "g": "v_chikai"
         },
         {
           "k": "く",
-          "g": "v_chikai_adverbial"
+          "g": "v_chikai"
         },
         {
           "k": "に"
@@ -2163,11 +2160,11 @@
         {
           "k": "早",
           "r": "はや",
-          "g": "v_hayai_adverbial"
+          "g": "v_hayai"
         },
         {
           "k": "く",
-          "g": "v_hayai_adverbial"
+          "g": "v_hayai"
         },
         {
           "k": "食",
@@ -2606,10 +2603,13 @@
           "r": "わ"
         },
         {
-          "k": "走れ"
+          "k": "走",
+          "r": "はし",
+          "g": "v_hashiru_polite_potential_negative"
         },
         {
-          "k": "ません"
+          "k": "れません",
+          "g": "v_hashiru_polite_potential_negative"
         },
         {
           "k": "。"
@@ -2660,11 +2660,11 @@
         {
           "k": "近",
           "r": "ちか",
-          "g": "v_chikai_adverbial"
+          "g": "v_chikai"
         },
         {
           "k": "く",
-          "g": "v_chikai_adverbial"
+          "g": "v_chikai"
         },
         {
           "k": "を",
@@ -3249,11 +3249,15 @@
         },
         {
           "k": "好",
-          "r": "す"
+          "r": "す",
+          "g": "v_suki"
         },
         {
-          "k": "きに",
-          "g": "v_kuru_purpose_ni"
+          "k": "き",
+          "g": "v_suki"
+        },
+        {
+          "k": "に"
         },
         {
           "k": "なって",
