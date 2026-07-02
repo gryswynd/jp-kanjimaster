@@ -474,6 +474,7 @@
       if (solved.length === puzzle.groups.length) {
         // Full puzzle complete
         savePuzzleResult(puzzle.id, 'complete');
+        if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('minigame-complete', { game: 'connections4' });
         render();
         if (cfg.onComplete) cfg.onComplete();
       } else {

@@ -534,6 +534,7 @@
       if (curIdx < flatItems.length) { prepareItem(); }
       else {
         savePuzzleResult(curMarathon.id, 'complete');
+        if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('minigame-complete', { game: 'marathon' });
         if (cfg.onComplete) cfg.onComplete();
         showResult(true);
       }

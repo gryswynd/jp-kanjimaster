@@ -1586,6 +1586,7 @@ window.GrammarModule = {
 
         // Record streak activity on grammar completion (parallels Lesson.js).
         if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
+        if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('grammar-complete', { id: grammarId, pct: pct });
 
         // Build per-section breakdown, sorted worst-first for "needs work" emphasis.
         const breakdownEntries = allScores

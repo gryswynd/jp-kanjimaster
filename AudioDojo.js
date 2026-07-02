@@ -485,6 +485,9 @@ window.AudioDojoModule = (function () {
       if (!completedOnce && window.JPShared && window.JPShared.streak) {
         window.JPShared.streak.recordActivity();
       }
+      if (!completedOnce && window.JPShared && window.JPShared.events) {
+        window.JPShared.events.emit('audio-complete', { id: (currentInfo && currentInfo.id) || '' });
+      }
       completedOnce = true;
     }
 

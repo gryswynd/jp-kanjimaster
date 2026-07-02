@@ -13,12 +13,15 @@
  *   streak.best / freezes                     → max
  *   streak.history                            → union (deduped, sorted)
  *   streak.current / lastActive               → the side with the later lastActive
+ *   gamify.keikoEarned / keikoSpent           → max (monotonic lifetime counters)
+ *   srs.items                                 → per-key later-lastReviewed-ts wins; srs.seeded → OR
  *   composeDrafts / profile                   → last-write (side with newer updatedAt)
  *
  * Shape (both stored + incoming):
  *   { learning:{ lessonScores, lessonCompleted, reviewScores, flags, activeFlags,
  *                bestScores, composeDrafts, gameResults, n4Unlocked },
  *     streak:{ current, best, lastActive, history[], freezes },
+ *     gamify:{ keikoEarned, keikoSpent },
  *     profile:{ first, last, email },
  *     updatedAt: <ms epoch>, schemaVersion: 2 }
  */
@@ -79,6 +82,41 @@ function mergeLearning(a, b) {
   };
 }
 
+// SRS review items: { "<level>:<id>"|"G12": {r, due, ts} }. Per-key merge:
+// the side with the later lastReviewed ts wins (a real review, ts>0, always
+// beats a fresh seed at ts:0; ties resolve to the incoming/b side so two
+// same-day seeds converge deterministically). Mirror of app/shared/sync.js.
+function mergeSrsItems(a, b) {
+  const out = { ...(a || {}) };
+  const src = b || {};
+  for (const k of Object.keys(src)) {
+    const av = out[k], bv = src[k];
+    if (!av) { out[k] = bv; continue; }
+    if (!bv) continue;
+    out[k] = (num(bv && bv.ts) >= num(av && av.ts)) ? bv : av;
+  }
+  return out;
+}
+
+function mergeSrs(a, b) {
+  a = a || {}; b = b || {};
+  return {
+    items: mergeSrsItems(a.items, b.items),
+    seeded: !!a.seeded || !!b.seeded,
+  };
+}
+
+// Keiko currency counters are monotonic (earned/spent only ever increase on a
+// device), so max() per counter converges without ever "un-spending".
+// Mirror of app/shared/sync.js.
+function mergeGamify(a, b) {
+  a = a || {}; b = b || {};
+  return {
+    keikoEarned: Math.max(num(a.keikoEarned), num(b.keikoEarned)),
+    keikoSpent:  Math.max(num(a.keikoSpent), num(b.keikoSpent)),
+  };
+}
+
 function mergeStreak(a, b) {
   a = a || {}; b = b || {};
   const aDate = a.lastActive || '';
@@ -104,6 +142,8 @@ export function mergeProgress(stored, incoming, now) {
     return {
       learning: mergeLearning(null, incoming.learning),
       streak:   mergeStreak(null, incoming.streak),
+      gamify:   mergeGamify(null, incoming.gamify),
+      srs:      mergeSrs(null, incoming.srs),
       profile:  incoming.profile || {},
       updatedAt: now,
       schemaVersion: 2,
@@ -116,6 +156,8 @@ export function mergeProgress(stored, incoming, now) {
   const merged = {
     learning: mergeLearning(stored.learning, incoming.learning),
     streak:   mergeStreak(stored.streak, incoming.streak),
+    gamify:   mergeGamify(stored.gamify, incoming.gamify),
+    srs:      mergeSrs(stored.srs, incoming.srs),
     profile,
     updatedAt: Math.max(num(stored.updatedAt), num(incoming.updatedAt), num(now)),
     schemaVersion: 2,

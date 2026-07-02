@@ -1151,6 +1151,7 @@ window.LessonModule = {
 
         // Record streak activity on lesson completion
         if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
+        if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('lesson-complete', { id: lessonData && lessonData.id, pct: pct });
 
         const unlock = window.JPShared && window.JPShared.unlock;
         let result = null;

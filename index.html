@@ -249,6 +249,15 @@ body:not(.jp-tabbar-hidden) .gr-body { padding-bottom: calc(var(--tabbar-h) + en
 .jp-rankup-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .jp-rankup-particle { position: absolute; border-radius: 50%; opacity: 0; }
 
+/* Daily quest card ("Today's Training") */
+.rk-quest-burst { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 2; }
+.rk-quest-ring circle { transition: stroke-dashoffset 0.45s ease; }
+.rk-quest-row { width: 100%; text-align: left; background: transparent; border: none; padding: 10px 0; display: flex; align-items: center; gap: 12px; cursor: pointer; border-top: 1px solid var(--hairline); font-family: inherit; color: var(--ink); }
+.rk-quest-row.done { opacity: 0.55; cursor: default; }
+@media (prefers-reduced-motion: reduce) {
+  .rk-quest-ring circle { transition: none; }
+}
+
 .rk-loading {
   display: flex; align-items: center; justify-content: center;
   min-height: 60vh; flex-direction: column; gap: 14px;
@@ -320,6 +329,8 @@ window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
                            Unlocks Stories, Review, Compose, Game day 1, Dojo,
                            Scramble — full module surface for QA.
     ?reset=reading-aids — turn off Furigana + Romaji toggles
+    ?reset=gamify       — wipe daily quests + keiko balance/ledger + QA date
+                           override (streak/belts untouched)
     ?reset=all-content  — mark every N5+N4 lesson, grammar, and review
                            complete at 60%. Unlocks every story (curriculum +
                            custom). Use for full QA across all modules.
@@ -348,6 +359,10 @@ window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
             'k-rikizo-compose-tutorial-seen', 'k-rikizo-settings-tutorial-seen']);
   } else if (scope === 'progress') {
     remove(['k-lesson-completed', 'k-lesson-scores', 'k-lesson-resume']);
+  } else if (scope === 'gamify') {
+    remove(['k-quests-today', 'k-quests-history',
+            'k-keiko-earned', 'k-keiko-spent', 'k-keiko-ledger', 'k-qa-date',
+            'k-srs-items', 'k-srs-seeded', 'k-srs-last-cleared', 'k-kotd-last-done']);
   } else if (scope === 'grammar') {
     // Strip every G* key from completed + scores, AND guarantee N5.1 is
     // marked passed (≥60%) so Grammar module + G1 are unlocked. Net effect:
@@ -595,6 +610,13 @@ window.JPApp = {
     await this.loadModule('app/shared/streak.js');
     await this.loadModule('app/shared/haptics.js');
     await this.loadModule('app/shared/sfx.js');
+    // Gamification layer: typed activity events → daily quests → keiko points.
+    // events.js must load before quests.js (quests subscribes at load), and all
+    // three before any feature module can emit.
+    await this.loadModule('app/shared/events.js');
+    await this.loadModule('app/shared/keiko.js');
+    await this.loadModule('app/shared/quests.js');
+    await this.loadModule('app/shared/srs.js');
     await this.loadModule('app/shared/scene-kit.js');
     await this.loadModule('app/shared/garden-stage.js'); // living koi ponds (Grammar Garden)
     await this.loadModule('app/shared/practice-helpers.js');
@@ -701,6 +723,22 @@ window.JPApp = {
     // When a cloud pull merges in newer progress, refresh Home so it shows.
     window.addEventListener('jp-progress-synced', function () {
       if (self._view === 'home') self.renderMenu();
+    });
+
+    // When the one-time SRS seed (async glossary fetch) or a lesson enrollment
+    // lands, refresh Home so the "Reviews due" card appears/updates.
+    window.addEventListener('jp-srs-changed', function () {
+      if (self._view === 'home') self.renderMenu();
+    });
+
+    // Overnight-suspended app: when it returns to the foreground on a new day,
+    // the quest card is stale — re-render Home so today's quests generate.
+    // (Lives here, not in _nativeBoot, so plain browsers get it too.)
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible' && self._view === 'home' &&
+          window.JPShared && window.JPShared.quests && window.JPShared.quests.isStale()) {
+        self.renderMenu();
+      }
     });
 
     // When auth state changes (sign in / out / anonymous→linked), refresh Home —
@@ -934,6 +972,14 @@ window.JPApp = {
   },
 
   _kanjiOfDay: function() {
+    // Preferred: deterministic pick from the student's KNOWN kanji pool
+    // (quests.kanjiOfDay — shared with the Dojo's Daily drill).
+    var q = window.JPShared && window.JPShared.quests;
+    if (q && q.kanjiOfDay) {
+      var k = q.kanjiOfDay(this._manifest);
+      if (k) return k;
+    }
+    // Fallback (fresh student, nothing known yet): rotate over all N5 kanji.
     var m = this._manifest;
     if (!m || !m.data || !m.data.N5) return null;
     var all = [];
@@ -1468,7 +1514,268 @@ window.JPApp = {
     document.body.appendChild(overlay);
   },
 
-  // --- Daily challenge ---
+  // --- Daily quests ("Today's Training") ---
+  // Reads JPShared.quests (generated per-day) + keiko balance. Carries the
+  // data-tour="daily" onboarding anchor previously on _challengeCard — the
+  // kanji-of-day now lives as this card's footer row instead of its own card.
+  _questCard: function(prog) {
+    var q = window.JPShared && window.JPShared.quests;
+    var keikoApi = window.JPShared && window.JPShared.keiko;
+    if (!q) return '';
+    var state = null;
+    try { state = q.getToday(this._manifest); } catch (e) { state = null; }
+    if (!state || !state.quests.length) return '';
+    var self = this;
+    var I = this._ICONS;
+    var total = state.quests.length, done = state.doneCount;
+    var frac = total ? done / total : 0;
+
+    // 44px SVG progress ring with the fraction centered.
+    var R = 17, C = 2 * Math.PI * R;
+    var ring =
+      '<div style="position:relative;width:44px;height:44px;flex-shrink:0;">' +
+        '<svg class="rk-quest-ring" width="44" height="44" viewBox="0 0 44 44" style="transform:rotate(-90deg);display:block;">' +
+          '<circle cx="22" cy="22" r="' + R + '" fill="none" stroke="var(--hairline)" stroke-width="4"/>' +
+          '<circle cx="22" cy="22" r="' + R + '" fill="none" stroke="var(--vermilion)" stroke-width="4" stroke-linecap="round" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C * (1 - frac)).toFixed(1) + '"/>' +
+        '</svg>' +
+        '<div class="mono" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--ink);">' + done + '/' + total + '</div>' +
+      '</div>';
+
+    // Keiko chip: mon-coin (circle with a square hole — pure SVG, no font risk).
+    var coin = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>';
+    var chip = '<button onclick="JPApp._openKeikoSheet()" class="mono rk-press" style="display:inline-flex;align-items:center;gap:5px;border:1px solid var(--hairline);border-radius:999px;background:var(--washi-2);color:var(--ink-2);font-size:11px;font-weight:600;padding:5px 10px;cursor:pointer;">' +
+      coin + (keikoApi ? keikoApi.getBalance() : 0) + ' けいこ</button>';
+
+    var checkDone = '<svg width="20" height="20" viewBox="0 0 20 20" style="flex-shrink:0;"><circle cx="10" cy="10" r="9" fill="var(--vermilion)"/><path d="M6 10.2l2.6 2.6L14 7.5" stroke="var(--washi)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var checkTodo = '<svg width="20" height="20" viewBox="0 0 20 20" style="flex-shrink:0;"><circle cx="10" cy="10" r="8.6" fill="none" stroke="var(--hairline-2, var(--hairline))" stroke-width="1.8"/></svg>';
+
+    var rows = state.quests.map(function(item) {
+      var right = item.done
+        ? '<span class="mono" style="font-size:11px;color:var(--vermilion);font-weight:600;">+' + q.KEIKO_TABLE.quest + '</span>'
+        : (item.target > 1
+            ? '<span class="mono" style="font-size:11.5px;color:var(--ink-3);">' + item.progress + '/' + item.target + '</span>'
+            : I.chev);
+      var onclick = item.done ? '' : ' onclick="' + self._questLaunch(item, prog) + '"';
+      return '<button class="rk-quest-row' + (item.done ? ' done' : '') + '"' + onclick + '>' +
+        (item.done ? checkDone : checkTodo) +
+        '<div style="flex:1;min-width:0;">' +
+          '<div style="font-size:14px;font-weight:600;color:var(--ink);">' + item.icon + ' ' + self._esc(item.title) + '</div>' +
+          '<div style="font-size:11.5px;color:var(--ink-3);margin-top:1px;">' + self._esc(item.sub) + '</div>' +
+        '</div>' + right +
+      '</button>';
+    }).join('');
+
+    var allDoneLine = state.allDone
+      ? '<div style="padding:10px 0 2px;border-top:1px solid var(--hairline);display:flex;align-items:baseline;gap:8px;">' +
+          '<span class="jp-serif" style="font-size:15px;color:var(--ink);">よくできました</span>' +
+          '<span style="font-size:12px;color:var(--ink-3);">Training complete · +' + q.KEIKO_TABLE.dailyBonus + ' keiko bonus</span>' +
+        '</div>'
+      : '';
+
+    // Kanji-of-day footer (replaces the old standalone challenge card).
+    // A KNOWN-pool pick deep-links into the Dojo's Daily drill (meaning →
+    // readings → write); the fresh-student fallback stays a generic Dojo link.
+    var kKnown = q.kanjiOfDay ? q.kanjiOfDay(this._manifest) : null;
+    var k = kKnown || this._kanjiOfDay();
+    var kotdTap = kKnown ? "JPApp.launch('practice','daily')" : "JPApp.launch('practice')";
+    var kotdSub = kKnown ? ('Master ' + k + ' — meaning · readings · writing') : ('Practice ' + k + ' in the Dojo');
+    var kotd = k
+      ? '<button onclick="' + kotdTap + '" class="rk-quest-row" style="padding-bottom:2px;">' +
+          '<div style="width:30px;height:30px;flex-shrink:0;background:var(--washi-2);border:1px solid var(--hairline);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-jp-display);font-size:19px;color:var(--ink);">' + k + '</div>' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div class="mono" style="font-size:9.5px;color:var(--ink-3);letter-spacing:0.12em;text-transform:uppercase;">今日の漢字 · Kanji of the day</div>' +
+            '<div style="font-size:12.5px;color:var(--ink-2);margin-top:1px;">' + kotdSub + '</div>' +
+          '</div>' + I.chev +
+        '</button>'
+      : '';
+
+    return '<div data-tour="daily" style="margin:12px 16px 0;padding:16px 18px 12px;border-radius:var(--r-lg);background:var(--washi);border:1px solid var(--hairline);position:relative;overflow:hidden;">' +
+      '<div class="rk-quest-burst" id="rk-quest-burst"></div>' +
+      '<div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">' +
+        ring +
+        '<div style="flex:1;min-width:0;">' +
+          '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">今日のけいこ · Today’s Training</div>' +
+          '<div style="font-size:12px;color:var(--ink-2);margin-top:2px;">' + (state.allDone ? 'All goals cleared — see you tomorrow.' : (total - done) + ' goal' + (total - done > 1 ? 's' : '') + ' left today') + '</div>' +
+        '</div>' +
+        chip +
+      '</div>' +
+      rows + allDoneLine + kotd +
+    '</div>';
+  },
+
+  // --- Reviews due (SRS) card ---
+  // Storage-only reads (getDueCounts) — safe on every render. Until the one-time
+  // seed finishes (async glossary fetch) the card renders nothing; the
+  // jp-srs-changed listener re-renders Home when the map lands.
+  _srsCard: function() {
+    var srs = window.JPShared && window.JPShared.srs;
+    if (!srs) return '';
+    if (!srs.isSeeded()) {
+      try { srs.ensureSeeded(this._manifest); } catch (e) {}
+      return '';
+    }
+    var hasItems = false;
+    try { hasItems = localStorage.getItem('k-srs-items') !== null && localStorage.getItem('k-srs-items') !== '{}'; } catch (e) {}
+    if (!hasItems) return '';
+    var c = srs.getDueCounts();
+    var I = this._ICONS;
+    var self = this;
+
+    var grammarRows = (c.grammar || []).map(function(gid) {
+      var title = '';
+      try {
+        (self._manifest.levels || []).some(function(lvl) {
+          var g = ((self._manifest.data[lvl] || {}).grammar || []).find(function(e) { return e.id === gid; });
+          if (g) { title = g.title || ''; return true; }
+          return false;
+        });
+      } catch (e) {}
+      return '<button class="rk-quest-row" onclick="JPApp.launch(\'grammar\',\'' + self._esc(gid) + '\')" style="padding-bottom:4px;">' +
+        '<div style="width:30px;height:30px;flex-shrink:0;background:var(--washi-2);border:1px solid var(--hairline);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;">📐</div>' +
+        '<div style="flex:1;min-width:0;">' +
+          '<div style="font-size:13px;font-weight:600;color:var(--ink);">Review ' + self._esc(gid) + (title ? ' — ' + self._esc(title) : '') + '</div>' +
+          '<div style="font-size:11px;color:var(--ink-3);margin-top:1px;">Grammar refresh due</div>' +
+        '</div>' + I.chev +
+      '</button>';
+    }).join('');
+
+    if (c.items === 0 && !grammarRows) {
+      return '<div style="margin:12px 16px 0;padding:12px 18px;border-radius:var(--r-lg);background:var(--washi-2);border:1px solid var(--hairline);display:flex;align-items:center;gap:12px;">' +
+        '<div style="font-size:16px;">✓</div>' +
+        '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">ふくしゅう · Reviews — all clear</div>' +
+      '</div>';
+    }
+
+    var headline = c.items > 0
+      ? '<button onclick="JPApp.launch(\'practice\',\'reviews\')" class="rk-press" style="width:100%;text-align:left;background:transparent;border:none;padding:0;display:flex;align-items:center;gap:14px;cursor:pointer;font-family:inherit;">' +
+          '<div style="width:44px;height:44px;flex-shrink:0;border-radius:12px;background:var(--ink);color:var(--washi);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;">' + c.itemsSurfaced + (c.capped ? '⁺' : '') + '</div>' +
+          '<div style="flex:1;min-width:0;">' +
+            '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;">ふくしゅう · Reviews</div>' +
+            '<div style="font-size:14.5px;font-weight:600;color:var(--ink);margin-top:2px;">' + c.itemsSurfaced + (c.capped ? '+' : '') + ' due today — clear the queue</div>' +
+          '</div>' + I.chev +
+        '</button>'
+      : '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;padding:2px 0 4px;">ふくしゅう · Reviews</div>';
+
+    return '<div style="margin:12px 16px 0;padding:14px 18px;border-radius:var(--r-lg);background:var(--washi);border:1px solid var(--hairline);">' +
+      headline + grammarRows +
+    '</div>';
+  },
+
+  // Onclick string for a quest row. The 'path' quest re-resolves the user's
+  // current blocker at render time so it always deep-links to the live target.
+  _questLaunch: function(item, prog) {
+    var l = item.launch || {};
+    if (l.special === 'path') {
+      if (prog && prog.today && prog.today.entry) {
+        var kind = prog.today.kind === 'retake' ? 'lesson' : prog.today.kind;
+        return "JPApp.launch('" + this._esc(kind) + "','" + this._esc(prog.today.entry.id) + "')";
+      }
+      return "JPApp.launch('practice')";
+    }
+    if (l.arg) return "JPApp.launch('" + this._esc(l.mode || 'practice') + "','" + this._esc(l.arg) + "')";
+    return "JPApp.launch('" + this._esc(l.mode || 'practice') + "')";
+  },
+
+  // One-shot particle burst over the quest card when all quests complete.
+  // Skipped under reduced motion; `celebrated` persists so re-renders
+  // (sync/auth events re-run renderMenu) never re-fire it.
+  _maybeQuestBurst: function() {
+    var q = window.JPShared && window.JPShared.quests;
+    if (!q) return;
+    var state = null;
+    try { state = q.getToday(this._manifest); } catch (e) { return; }
+    if (!state || !state.allDone || state.celebrated) return;
+    q.markCelebrated();
+    var sk = window.JPShared.sceneKit;
+    if (sk && sk.prefersReducedMotion && sk.prefersReducedMotion()) return;
+    var container = document.getElementById('rk-quest-burst');
+    if (!container) return;
+    var colors = ['var(--vermilion)', '#FFD700', '#4ECDC4', '#A78BFA'];
+    for (var i = 0; i < 12; i++) {
+      var p = document.createElement('div');
+      p.className = 'jp-rankup-particle';
+      var angle = (Math.PI * 2 * i / 12) + (Math.random() * 0.4);
+      var dist = 30 + Math.random() * 60;
+      var size = 4 + Math.random() * 5;
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      var delay = Math.random() * 200;
+      var dx = Math.cos(angle) * dist, dy = Math.sin(angle) * dist;
+      p.style.cssText = 'left:24px;top:26px;width:' + size + 'px;height:' + size + 'px;background:' + color + ';transition:transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94),opacity 0.9s ease-out;transition-delay:' + delay + 'ms;';
+      container.appendChild(p);
+      (function(particle, tdx, tdy, tdelay) {
+        requestAnimationFrame(function() { requestAnimationFrame(function() {
+          particle.style.opacity = '1';
+          particle.style.transform = 'translate(' + tdx + 'px,' + tdy + 'px)';
+          setTimeout(function() { particle.style.opacity = '0'; }, tdelay + 400);
+        }); });
+      })(p, dx, dy, delay);
+    }
+    setTimeout(function() { if (container.parentNode) container.innerHTML = ''; }, 2400);
+  },
+
+  // --- Keiko spend sheet ---
+  _openKeikoSheet: function() {
+    var old = document.getElementById('rk-keiko-sheet');
+    if (old) old.remove();
+    var overlay = document.createElement('div');
+    overlay.className = 'jp-return-overlay';
+    overlay.id = 'rk-keiko-sheet';
+    overlay.innerHTML = this._keikoSheetHtml();
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.remove(); });
+    document.body.appendChild(overlay);
+  },
+
+  _keikoSheetHtml: function() {
+    var keiko = window.JPShared && window.JPShared.keiko;
+    var streak = window.JPShared && window.JPShared.streak;
+    if (!keiko) return '';
+    var bal = keiko.getBalance();
+    var freezes = streak ? streak.getState().freezes : 0;
+    var price = keiko.FREEZE_PRICE;
+    var btn;
+    if (freezes >= 2) {
+      btn = '<button disabled style="padding:9px 18px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--ink-3);font-size:13px;font-weight:600;">Full (2/2)</button>';
+    } else if (bal < price) {
+      btn = '<button disabled style="padding:9px 14px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--ink-3);font-size:12.5px;font-weight:600;white-space:nowrap;">' + bal + ' / ' + price + ' けいこ</button>';
+    } else {
+      btn = '<button onclick="JPApp._buyFreeze()" style="padding:9px 18px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Buy · ' + price + ' けいこ</button>';
+    }
+    var coin = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px;"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>';
+    return '<div class="jp-return-card" style="text-align:left;">' +
+      '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;">けいこ · Keiko points</div>' +
+      '<div style="font-size:26px;font-weight:700;color:var(--ink);margin-bottom:2px;">' + coin + ' ' + bal + '</div>' +
+      '<div style="font-size:12px;color:var(--ink-3);margin-bottom:16px;">Earned from daily training goals.</div>' +
+      '<div style="border:1px solid var(--hairline);border-radius:var(--r-md);padding:12px 14px;display:flex;align-items:center;gap:12px;">' +
+        '<div style="font-size:24px;flex-shrink:0;">❄️</div>' +
+        '<div style="flex:1;min-width:0;">' +
+          '<div style="font-size:14px;font-weight:600;color:var(--ink);">Streak freeze · <span class="mono" style="font-size:12px;color:var(--ink-2);">' + price + ' けいこ</span></div>' +
+          '<div style="font-size:11.5px;color:var(--ink-3);margin-top:1px;">Protects your streak for a missed day · ' + freezes + '/2 held</div>' +
+        '</div>' + btn +
+      '</div>' +
+      '<div style="text-align:center;margin-top:16px;">' +
+        '<button onclick="this.closest(\'.jp-return-overlay\').remove()" style="background:transparent;border:none;color:var(--ink-3);font-size:13px;cursor:pointer;">Close</button>' +
+      '</div>' +
+    '</div>';
+  },
+
+  _buyFreeze: function() {
+    var keiko = window.JPShared && window.JPShared.keiko;
+    if (!keiko) return;
+    var res = keiko.buyFreeze();
+    if (res.ok) {
+      try { window.JPShared.sfx && window.JPShared.sfx.stamp(); } catch (e) {}
+      try { window.JPShared.haptics && window.JPShared.haptics.success(); } catch (e) {}
+      this._toast('Streak freeze added ❄');
+    } else {
+      this._toast(res.reason === 'max' ? 'Freezes are full (2/2)' : 'Not enough keiko yet');
+    }
+    var sheet = document.getElementById('rk-keiko-sheet');
+    if (sheet) sheet.innerHTML = this._keikoSheetHtml();
+    if (this._view === 'home') this.renderMenu();
+  },
+
+  // --- Daily challenge (no longer rendered on Home — the kanji-of-day now
+  // lives as the quest card's footer row; kept for any future standalone use) ---
   _challengeCard: function() {
     var k = this._kanjiOfDay();
     if (!k) return '';
@@ -1553,6 +1860,8 @@ window.JPApp = {
         this._resumeCard() +
         this._sectionHeader('きょう · Today', prog && prog.today && prog.today.entry ? prog.today.entry.id : '') +
         this._todayCard(prog) +
+        this._questCard(prog) +
+        this._srsCard() +
         this._sectionHeader('けいこ · Practice', '7 paths') +
         this._moduleGrid() +
         this._sectionHeader('しんちょく · Progress') +
@@ -1563,11 +1872,10 @@ window.JPApp = {
         '</div>' +
         this._sectionHeader('とうじょう人物 · Cast') +
         this._castRow() +
-        this._sectionHeader('まいにち · Daily') +
-        this._challengeCard() +
         this._colophon() +
       '</div>';
     this.container.innerHTML = html;
+    this._maybeQuestBurst();
     this._rikizoGreet();
   },
 

@@ -860,6 +860,9 @@
   //   - source: 'dojo'   — payload { best, prevBest }
   //     Short congrats for a new personal-best streak (≥10) in the Dojo.
   //
+  //   - source: 'quests' — payload { keiko }
+  //     All of today's training goals completed (written by quests.js).
+  //
   // The function name is kept for backwards-compat — index.html's dispatcher
   // calls it for any pending celebration regardless of source.
   function runLessonCompleteCelebration(payload) {
@@ -867,7 +870,28 @@
     state.busy = true;
     ensureLayer();
     if (payload.source === 'dojo') return _runDojoCelebration(payload);
+    if (payload.source === 'quests') return _runQuestsCelebration(payload);
     return _runLessonCelebration(payload);
+  }
+
+  function _runQuestsCelebration(payload) {
+    return loadMessages().then(function (data) {
+      var pool = (data && data.questsComplete) || [];
+      // Fallback line works before the JSON pool is authored. Any Japanese in
+      // this celebration stays in KANA — kanji here would bypass the font gate.
+      var line = pick(pool) || { text: 'きょうのけいこ、ぜんぶかんりょう！ All of today’s training done — +{KEIKO} keiko!' };
+      var text = String(line.text || '').replace('{KEIKO}', String(payload.keiko || ''));
+      place(offscreenLeft(), restY());
+      show();
+      return walkTo(centerX(), { speed: 160 }).then(function () {
+        state.facing = 'down'; idle();
+        return speak(text);
+      }).then(function () {
+        clearBubble();
+        state.busy = false;
+        applyPresence();
+      });
+    }).catch(function () { state.busy = false; });
   }
 
   function _runDojoCelebration(payload) {

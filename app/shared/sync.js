@@ -20,6 +20,8 @@
     'k-flags', 'k-active-flags', 'k-n4-unlocked',
     'k-streak-current', 'k-streak-best', 'k-streak-last-active',
     'k-streak-history', 'k-streak-freezes',
+    'k-keiko-earned', 'k-keiko-spent',
+    'k-srs-items', 'k-srs-seeded',
     'k-user-first', 'k-user-last', 'k-user-email',
   ];
   // Web mini-game per-puzzle results (status:'complete' + stamp): scramble k-scr-,
@@ -77,6 +79,23 @@
         }
       }
     } catch (e) {}
+    return out;
+  }
+
+  // Merge two SRS item maps per key: later lastReviewed ts wins (a real review,
+  // ts>0, always beats a fresh ts:0 seed; ties → the b side, so two same-day
+  // seeds converge). Mirror of server lib/merge-progress.js mergeSrsItems.
+  function mergeSrsItems(a, b) {
+    var out = {}; var k;
+    a = a || {}; b = b || {};
+    for (k in a) if (Object.prototype.hasOwnProperty.call(a, k)) out[k] = a[k];
+    for (k in b) {
+      if (!Object.prototype.hasOwnProperty.call(b, k)) continue;
+      var av = out[k], bv = b[k];
+      if (!av) { out[k] = bv; continue; }
+      if (!bv) continue;
+      out[k] = ((+(bv && bv.ts) || 0) >= (+(av && av.ts) || 0)) ? bv : av;
+    }
     return out;
   }
 
@@ -138,6 +157,18 @@
         history: parseArr('k-streak-history'),
         freezes: numOf('k-streak-freezes'),
       },
+      // Keiko currency: two MONOTONIC counters (earned/spent only increase),
+      // so cross-device merge is a plain max() and never "un-spends".
+      gamify: {
+        keikoEarned: numOf('k-keiko-earned'),
+        keikoSpent: numOf('k-keiko-spent'),
+      },
+      // SRS review schedules: per-key {r, due, ts}. Merged per key by later
+      // lastReviewed ts (a real review always beats a ts:0 seed).
+      srs: {
+        items: parseObj('k-srs-items'),
+        seeded: lsGet('k-srs-seeded') === '1',
+      },
       profile: {
         first: lsGet('k-user-first') || '',
         last: lsGet('k-user-last') || '',
@@ -180,6 +211,14 @@
         history: unionSorted(ls.history, rs.history),
         freezes: Math.max(+ls.freezes || 0, +rs.freezes || 0),
       },
+      gamify: {
+        keikoEarned: Math.max(+(local.gamify || {}).keikoEarned || 0, +(remote.gamify || {}).keikoEarned || 0),
+        keikoSpent: Math.max(+(local.gamify || {}).keikoSpent || 0, +(remote.gamify || {}).keikoSpent || 0),
+      },
+      srs: {
+        items: mergeSrsItems((local.srs || {}).items, (remote.srs || {}).items),
+        seeded: !!(local.srs || {}).seeded || !!(remote.srs || {}).seeded,
+      },
       profile: remoteNewer ? (remote.profile || local.profile || {}) : (local.profile || {}),
       updatedAt: Math.max(+local.updatedAt || 0, +remote.updatedAt || 0),
     };
@@ -213,6 +252,14 @@
       if (S.lastActive) lsSet('k-streak-last-active', S.lastActive);
       lsSet('k-streak-history', JSON.stringify(S.history));
       lsSet('k-streak-freezes', String(S.freezes));
+
+      var G = merged.gamify || {};
+      lsSet('k-keiko-earned', String(+G.keikoEarned || 0));
+      lsSet('k-keiko-spent', String(+G.keikoSpent || 0));
+
+      var SR = merged.srs || {};
+      if (SR.items && Object.keys(SR.items).length) lsSet('k-srs-items', JSON.stringify(SR.items));
+      if (SR.seeded) lsSet('k-srs-seeded', '1'); // only ever sets — a device that seeded stays seeded
 
       var P = merged.profile || {};
       if (P.first) lsSet('k-user-first', P.first);

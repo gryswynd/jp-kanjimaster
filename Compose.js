@@ -1205,6 +1205,7 @@ window.ComposeModule = {
 
         // Record streak activity on compose completion
         if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
+        if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('compose-scored', { score: total });
     };
 
     // --- INIT & DATA FETCH ---

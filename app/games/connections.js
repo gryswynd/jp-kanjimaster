@@ -608,6 +608,7 @@
 
     // Persist result
     savePuzzleResult(currentPuzzle.id, allCorrect ? 'complete' : 'failed');
+    if (allCorrect && window.JPShared && window.JPShared.events) window.JPShared.events.emit('minigame-complete', { game: 'connections' });
 
     // Notify shell
     if (allCorrect && cfg.onComplete) cfg.onComplete();

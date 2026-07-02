@@ -99,6 +99,8 @@
       var active = this.getAllActiveFlags();
       active[key] = true;
       localStorage.setItem('k-active-flags', JSON.stringify(active));
+
+      if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('flag-added', { key: key });
     },
 
     /**
@@ -111,6 +113,8 @@
       var active = this.getAllActiveFlags();
       delete active[key];
       localStorage.setItem('k-active-flags', JSON.stringify(active));
+
+      if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('flag-cleared', { key: key });
     },
 
     // -------------------------------------------------------------------------

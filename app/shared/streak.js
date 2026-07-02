@@ -228,6 +228,18 @@
     getStage: getStage,
 
     /**
+     * Add one streak freeze (e.g. purchased with keiko).
+     * Respects the same max-2 stockpile cap as the milestone award.
+     * @returns {boolean} true if added, false if already at cap.
+     */
+    addFreeze: function () {
+      var freezes = getInt('k-streak-freezes', 0);
+      if (freezes >= 2) return false;
+      setInt('k-streak-freezes', freezes + 1);
+      return true;
+    },
+
+    /**
      * Consume and return a pending rank-up, if any.
      * Returns the new stage object or null. Clears the flag so it only fires once.
      */

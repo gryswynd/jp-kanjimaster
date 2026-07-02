@@ -129,16 +129,34 @@
     var st = window.JPShared.streak ? window.JPShared.streak.getState() : { daysAway: -1 };
     var base = st.daysAway < 0 ? 0 : st.daysAway;
 
+    // SRS due-counts per projected day, read straight off localStorage so this
+    // works whether or not srs.js is loaded. Counts every item whose due date
+    // has arrived by that day (reviews accumulate until cleared).
+    var srsItems = {};
+    try { srsItems = JSON.parse(localStorage.getItem('k-srs-items') || '{}') || {}; } catch (e) {}
+    var srsKeys = Object.keys(srsItems);
+    function dueByDate(dateStr) {
+      var n = 0;
+      for (var k = 0; k < srsKeys.length; k++) {
+        var it = srsItems[srsKeys[k]];
+        if (it && it.due && it.due <= dateStr) n++;
+      }
+      return Math.min(n, 99);
+    }
+
     var notifs = [];
     for (var i = 0; i < HORIZON; i++) {
       var at = new Date();
       at.setDate(at.getDate() + (i + 1)); // tomorrow .. +HORIZON
       at.setHours(prefs.hour, prefs.minute, 0, 0);
       var copy = pickCopy(base + (i + 1));
+      var body = copy.text + (copy.jp ? '  ' + copy.jp : '');
+      var due = dueByDate(at.toLocaleDateString('en-CA'));
+      if (due > 0) body += ' …and ' + due + ' review' + (due > 1 ? 's' : '') + ' waiting in the Dojo.';
       notifs.push({
         id: ID_BASE + i,
         title: 'Rikizo 🦝',
-        body: copy.text + (copy.jp ? '  ' + copy.jp : ''),
+        body: body,
         schedule: { at: at, allowWhileIdle: true }
       });
     }

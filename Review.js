@@ -1605,6 +1605,7 @@
 
       // Record streak activity on review completion
       if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
+      if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('review-complete', { id: reviewName, pct: pct });
 
       let bestHtml = '';
       if (isNewBest && prevBest !== undefined) {

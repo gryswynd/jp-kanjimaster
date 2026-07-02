@@ -1698,6 +1698,7 @@ window.StoriesModule = (function () {
     } catch (e) {}
     // Finishing a story counts toward the daily streak (parallels Lesson/Grammar).
     if (window.JPShared && window.JPShared.streak) window.JPShared.streak.recordActivity();
+    if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('story-complete', { id: id, pct: pct });
   }
 
   // A comprehension question is "written" (free-text) when it carries an answer

@@ -699,6 +699,7 @@
         prepareItem();
       } else {
         savePuzzleResult(currentSet.id, 'complete');
+        if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('minigame-complete', { game: 'scramble' });
         if (cfg.onComplete) cfg.onComplete();
         showResult(true);
       }

@@ -292,6 +292,7 @@ window.WritingKanaModule = (function () {
           if (window.JPShared && window.JPShared.streak && window.JPShared.streak.recordActivity) {
             try { window.JPShared.streak.recordActivity(); } catch (e) {}
           }
+          if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('writing-complete', { kind: 'kana' });
           playGoldFlash();
         }
       });

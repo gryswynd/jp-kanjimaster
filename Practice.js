@@ -1,5 +1,7 @@
 window.PracticeModule = {
-  start: function(container, sharedConfig, exitCallback) {
+  // initialView: optional deep-link ('daily' opens the Kanji-of-the-Day hub
+  // directly — used by the home quest card's 今日の漢字 row).
+  start: function(container, sharedConfig, exitCallback, initialView) {
     // --- 1. SETUP & STYLES ---
 
     window.KanjiApp = {};
@@ -920,7 +922,7 @@ window.PracticeModule = {
                         <div class="k-dojo-tile-foot" id="k-dojo-tile-games-foot">Open</div>
                     </button>
 
-                    <div class="k-dojo-tile k-dojo-tile--locked">
+                    <button class="k-dojo-tile k-dojo-tile--vermilion" id="k-dojo-tile-daily" onclick="KanjiApp.openDaily()">
                         <div class="k-dojo-tile-top">
                             <div>
                                 <div class="k-dojo-tile-label">Daily</div>
@@ -928,8 +930,8 @@ window.PracticeModule = {
                             </div>
                             <div class="k-dojo-tile-kanji">日</div>
                         </div>
-                        <div class="k-dojo-tile-foot">🔒 Coming soon</div>
-                    </div>
+                        <div class="k-dojo-tile-foot" id="k-dojo-tile-daily-foot">Open</div>
+                    </button>
 
                     <button class="k-dojo-tile k-dojo-tile--gold k-dojo-tile--flags" data-tour-dojo="flagged" onclick="KanjiApp.showHub('k-view-hub-flags')">
                         <div class="k-dojo-tile-top">
@@ -1041,12 +1043,12 @@ window.PracticeModule = {
                 <button class="k-hub-back" onclick="KanjiApp.showMenu()">← Dojo</button>
                 <h2 class="k-hub-title">Daily</h2>
                 <div class="k-hub-sub">A fresh challenge every day to keep your training sharp.</div>
+                <div id="k-kotd-hub-body"></div>
+            </div>
 
-                <div class="k-hub-coming-soon">
-                    <div class="glyph">日</div>
-                    <div class="copy">Daily challenges and streak-building drills are in development.</div>
-                    <div class="label">Coming soon</div>
-                </div>
+            <div id="k-view-kotd" class="k-hidden" style="width:100%">
+                <button class="k-hub-back" onclick="KanjiApp.openDaily()">← Daily</button>
+                <div id="k-kotd-stage" style="padding-top:6px;"></div>
             </div>
 
             <div id="k-view-hub-flags" class="k-hidden" style="width:100%">
@@ -1195,10 +1197,12 @@ window.PracticeModule = {
       window.JPShared.stampSettings.setConfig(REPO_CONFIG);
     }
 
-    const ALL_VIEWS = ['k-view-menu','k-view-hub-kanji','k-view-hub-vocab','k-view-hub-writing','k-view-hub-audio','k-view-hub-games','k-view-hub-daily','k-view-hub-flags','k-view-hub-flags-grammar','k-view-flash','k-view-quiz','k-view-conn','k-view-conn4','k-view-scr','k-view-mara','k-view-dojo','k-view-loanword'];
+    const ALL_VIEWS = ['k-view-menu','k-view-hub-kanji','k-view-hub-vocab','k-view-hub-writing','k-view-hub-audio','k-view-hub-games','k-view-hub-daily','k-view-hub-flags','k-view-hub-flags-grammar','k-view-flash','k-view-quiz','k-view-conn','k-view-conn4','k-view-scr','k-view-mara','k-view-dojo','k-view-loanword','k-view-kotd'];
     const DB = { kanji: [], verb: [], lessons: [], vocabMap: new Map(), grammarMap: new Map() };
+    let dojoManifest = null;   // stashed by the init fetch; needed by the Daily (KOTD) drill
     const activeLessons = new Set();
     let curSet=[], curIdx=0, curStreak=0, curBest=0, curMode='', curAns='', curType='', curSubMode='normal', curQItem=null, curCategory='';
+    let srsSession = null;   // bounded "reviews due" session state; null = normal endless quiz
     let quizPhase = 1;
 
     let flagCounts = window.JPShared.progress.getAllFlags();
@@ -1492,6 +1496,7 @@ window.PracticeModule = {
     }
 
     KanjiApp.showMenu = function() {
+        srsSession = null; // leaving mid-review must not poison the endless quizzes
         if (window.JPApp) window.JPApp.showTabBar();
         kUpdateStats();
         ALL_VIEWS.forEach(i => {
@@ -1501,6 +1506,7 @@ window.PracticeModule = {
         const menu = document.getElementById('k-view-menu');
         if(menu) menu.classList.remove('k-hidden');
         applyMenuGating();
+        kotdUpdateTileFoot();
     };
 
     // Kana Writing helper button — conditionally rendered into the Writing hub
@@ -1557,7 +1563,299 @@ window.PracticeModule = {
         }
     };
 
+    // ---- Daily: Kanji of the Day drill (app/games/kotd-dojo.js plugin) ----
+    // Selection is shared with the home card via JPShared.quests.kanjiOfDay —
+    // one deterministic pick per day from the student's KNOWN kanji pool.
+    let kotdScriptLoaded = false;
+    let kotdStrokes = null;
+    let kotdActive = null;
+
+    function kotdToday() {
+        try {
+            const qa = localStorage.getItem('k-qa-date');
+            if (qa && /^\d{4}-\d{2}-\d{2}$/.test(qa)) return qa;
+        } catch (e) {}
+        return new Date().toLocaleDateString('en-CA');
+    }
+
+    function kotdKanji() {
+        const q = window.JPShared && window.JPShared.quests;
+        return (q && q.kanjiOfDay) ? q.kanjiOfDay(dojoManifest) : null;
+    }
+
+    function kotdDoneToday() {
+        try { return localStorage.getItem('k-kotd-last-done') === kotdToday(); }
+        catch (e) { return false; }
+    }
+
+    function kotdUpdateTileFoot() {
+        const foot = document.getElementById('k-dojo-tile-daily-foot');
+        if (!foot) return;
+        let label = kotdDoneToday() ? '✓ Done today' : 'Open';
+        try {
+            const srs = window.JPShared && window.JPShared.srs;
+            if (srs && srs.isSeeded()) {
+                const n = srs.getDueCounts().itemsSurfaced;
+                if (n > 0) label += ' · ' + n + ' reviews';
+            }
+        } catch (e) {}
+        foot.textContent = label;
+    }
+
+    KanjiApp.openDaily = function() {
+        srsSession = null;
+        if (kotdActive && kotdActive.destroy) { try { kotdActive.destroy(); } catch (e) {} kotdActive = null; }
+        const body = document.getElementById('k-kotd-hub-body');
+        const k = kotdKanji();
+        // Reviews-due block sits ABOVE the kanji-of-the-day card.
+        let reviewsHtml = '';
+        const srsApi = window.JPShared && window.JPShared.srs;
+        if (srsApi && srsApi.isSeeded()) {
+            const dc = srsApi.getDueCounts();
+            const gRows = (dc.grammar || []).map(gid => {
+                const title = grammarTitle(gid);
+                return '<button class="k-btn" style="display:block;width:100%;margin-top:8px;" onclick="window.JPApp && JPApp.launch(\'grammar\',\'' + gid + '\')">📐 Review ' + gid + (title ? ' — ' + title : '') + '</button>';
+            }).join('');
+            if (dc.items > 0 || gRows) {
+                reviewsHtml =
+                    '<div style="max-width:420px;margin:8px auto 0;padding:18px 20px;border:1px solid var(--hairline);border-radius:var(--r-lg);background:var(--washi);text-align:center;">' +
+                        '<div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);">ふくしゅう · Reviews</div>' +
+                        (dc.items > 0
+                            ? '<div style="font-size:15px;font-weight:700;color:var(--ink);margin:8px 0 12px;">' + dc.itemsSurfaced + (dc.capped ? '+' : '') + ' due today</div>' +
+                              '<button class="kotd-btn" style="padding:11px 24px;border-radius:999px;border:none;background:var(--ink);color:var(--washi);font-size:14px;font-weight:600;cursor:pointer;" onclick="KanjiApp.srsStart()">Start reviews</button>'
+                            : '<div style="font-size:13px;color:var(--moss);font-weight:600;margin-top:8px;">✓ All caught up</div>') +
+                        gRows +
+                    '</div>';
+            }
+        }
+        if (body) {
+            if (!k) {
+                body.innerHTML = reviewsHtml +
+                    '<div class="k-hub-coming-soon">' +
+                        '<div class="glyph">日</div>' +
+                        '<div class="copy">Complete your first lesson to unlock the daily kanji drill — it draws from the kanji you\'ve learned.</div>' +
+                    '</div>';
+            } else {
+                const info = DB.kanji.find(x => x.kanji === k) || {};
+                const done = kotdDoneToday();
+                body.innerHTML = reviewsHtml +
+                    '<div style="max-width:420px;margin:8px auto 0;padding:22px 20px;border:1px solid var(--hairline);border-radius:var(--r-lg);background:var(--washi);text-align:center;">' +
+                        '<div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);">今日の漢字 · Kanji of the day</div>' +
+                        '<div style="font-family:var(--font-jp-display);font-size:84px;line-height:1.2;color:var(--ink);margin:6px 0 2px;">' + k + '</div>' +
+                        (done
+                            ? '<div style="font-size:13.5px;color:var(--moss);font-weight:600;margin:6px 0 2px;">✓ Mastered today — ' + (info.meaning || '') + '</div>' +
+                              '<div style="font-size:12px;color:var(--ink-3);margin-bottom:14px;">Come back tomorrow for a new one, or run it again.</div>'
+                            : '<div style="font-size:13px;color:var(--ink-2);margin:4px 0 14px;">Type its meaning, pick the readings, then write it once.</div>') +
+                        '<button class="kotd-btn kotd-btn--vermilion" style="padding:12px 26px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:14.5px;font-weight:600;cursor:pointer;" onclick="KanjiApp.kotdStart()">' +
+                            (done ? 'Practice again' : 'Begin the drill') + '</button>' +
+                    '</div>';
+            }
+        }
+        KanjiApp.showHub('k-view-hub-daily');
+    };
+
+    async function kotdLoadScript() {
+        if (kotdScriptLoaded) return true;
+        try {
+            const url = window.getAssetUrl(REPO_CONFIG, 'app/games/kotd-dojo.js') + '?t=' + Date.now();
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const script = document.createElement('script');
+            script.textContent = await res.text();
+            document.body.appendChild(script);
+            kotdScriptLoaded = true;
+            return true;
+        } catch (e) {
+            console.error('[Practice] Failed to load kotd-dojo.js:', e);
+            return false;
+        }
+    }
+
+    KanjiApp.kotdStart = async function() {
+        const k = kotdKanji();
+        if (!k) return;
+        if (!await kotdLoadScript()) return;
+        // Guided writing needs the shared stroke canvas + the KanjiVG glyph set.
+        if (!window.JPShared.strokeCanvas && window.JPApp && window.JPApp.loadModule) {
+            try { await window.JPApp.loadModule('app/shared/stroke-canvas.js'); } catch (e) {}
+        }
+        if (!kotdStrokes) {
+            try {
+                const res = await fetch(window.getAssetUrl(REPO_CONFIG, 'data/strokes/kanji.json') + '?t=' + Date.now());
+                if (res.ok) kotdStrokes = await res.json();
+            } catch (e) { kotdStrokes = null; }
+        }
+
+        const info = DB.kanji.find(x => x.kanji === k) || { kanji: k, on: '', kun: '', meaning: '' };
+        const distractors = {
+            on: DB.kanji.map(x => x.on).filter(Boolean),
+            kun: DB.kanji.map(x => x.kun).filter(Boolean)
+        };
+
+        ALL_VIEWS.forEach(i => {
+            const el = document.getElementById(i);
+            if (el) el.classList.add('k-hidden');
+        });
+        const view = document.getElementById('k-view-kotd');
+        if (view) view.classList.remove('k-hidden');
+
+        kotdActive = window.JPShared.kotdDojo.init(document.getElementById('k-kotd-stage'), {
+            kanji: k,
+            srsKey: (info.level && info.id) ? info.level + ':' + info.id : null,
+            info: { on: info.on, kun: info.kun, meaning: info.meaning },
+            distractors: distractors,
+            glyph: (kotdStrokes && kotdStrokes[k]) || null,
+            onComplete: function () {
+                try { localStorage.setItem('k-kotd-last-done', kotdToday()); } catch (e) {}
+                kotdUpdateTileFoot();
+            },
+            onExit: function () { KanjiApp.openDaily(); }
+        });
+    };
+
+    // Build the drillable vocab pool for a given lesson set.
+    // Iterates DB.allVocab directly (bypasses the 5-compound cap on
+    // DB.kanji[i].compounds, which would otherwise silently hide authored
+    // hybrids like 名まえ if 名 already has 5 cheaper compounds queued).
+    // evaluate() picks the right display form and decides eligibility: include
+    // a vocab if the picked form contains any active kanji (covers authored
+    // hybrids: 名まえ on N5.1, 月よう日 on N5.2), or if its lesson_ids is in
+    // active lessons. Non-authored compounds like 人見知り stay excluded
+    // because their matches[] has no hybrid form, so pick falls back to the
+    // reading.
+    function buildVocabPool(lessonSet) {
+        const tempMap = new Map();
+        const kanjiSet = new Set(
+            DB.kanji.filter(k => lessonSet.has(k.lesson)).map(k => k.kanji)
+        );
+        const vocabDisplay = window.JPShared && window.JPShared.vocabDisplay;
+        (DB.allVocab || []).forEach(v => {
+            if (!v || !v.surface || tempMap.has(v.surface)) return;
+            const res = vocabDisplay
+                ? vocabDisplay.evaluate(v, kanjiSet, lessonSet)
+                : { eligible: false, display: v.surface };
+            if (!res.eligible) return;
+            tempMap.set(v.surface, {
+                word: res.display, surface: v.surface,
+                reading: v.reading, meaning: v.meaning,
+                lesson: v.lesson_ids || '', gtype: v.gtype, notes: v.notes,
+                id: v.id, level: v._lvl
+            });
+        });
+        return Array.from(tempMap.values());
+    }
+
+    // ---- SRS due-review session (bounded; fed by app/shared/srs.js) ----
+    // Items come from COMPLETED lessons, so both the queue and the distractor
+    // pools are built against the completed-lesson set — displays match what
+    // the student has actually been taught.
+    function completedLessonSet() {
+        let done = {};
+        try { done = JSON.parse(localStorage.getItem('k-lesson-completed') || '{}'); } catch (e) {}
+        return new Set(Object.keys(done).filter(id => done[id] && /^N\d\.\d+$/.test(id)));
+    }
+
+    KanjiApp.srsStart = function() {
+        const srs = window.JPShared && window.JPShared.srs;
+        if (!srs) return;
+        const keys = srs.getDueKeys();
+        const lessons = completedLessonSet();
+        const kanjiPool = DB.kanji.filter(k => lessons.has(k.lesson));
+        const vocabPool = buildVocabPool(lessons);
+
+        const byKey = new Map();
+        kanjiPool.forEach(k => { if (k.level && k.id) byKey.set(k.level + ':' + k.id, Object.assign({ _qtype: 'quiz-meaning' }, k)); });
+        vocabPool.forEach(v => { if (v.level && v.id) byKey.set(v.level + ':' + v.id, Object.assign({ _qtype: 'quiz-vocab' }, v)); });
+
+        const queue = [];
+        keys.forEach(key => {
+            const item = byKey.get(key);
+            // Orphan (glossary entry removed / homograph shadowed): retire here,
+            // the one place the glossary demonstrably loaded.
+            if (!item) { srs.retireKey(key); return; }
+            item._srsKey = key;
+            queue.push(item);
+        });
+
+        if (!queue.length) { KanjiApp.openDaily(); return; }
+        queue.sort(() => Math.random() - 0.5);
+
+        srsSession = {
+            queue: queue, idx: 0, correct: 0, total: queue.length,
+            retry: [], inRetry: false,
+            pools: { kanji: kanjiPool, vocab: vocabPool }
+        };
+        curType = 'srs'; curSubMode = 'normal'; curStreak = 0; curBest = 0; curCategory = '';
+        quizPhase = 1;
+        if (window.JPShared.streak) window.JPShared.streak.recordActivity();
+        if (window.JPApp) window.JPApp.hideTabBar();
+
+        ALL_VIEWS.forEach(i => {
+            const el = document.getElementById(i);
+            if (el) el.classList.add('k-hidden');
+        });
+        const qv = document.getElementById('k-view-quiz');
+        if (qv) qv.classList.remove('k-hidden');
+        setTxt('k-streak', 0);
+        setTxt('k-best', '—');
+        KanjiApp.nextQ();
+    };
+
+    function srsShowSummary() {
+        const s = srsSession;
+        srsSession = null;
+        if (!s) return;
+        const srs = window.JPShared && window.JPShared.srs;
+        const willPay = srs && !srs.clearedToday();
+        if (window.JPShared && window.JPShared.events) {
+            window.JPShared.events.emit('srs-session-complete', { answered: s.total, correct: s.correct });
+        }
+        if (window.JPShared.sfx) { try { window.JPShared.sfx.unlock(); } catch (e) {} }
+        if (window.JPShared.haptics) { try { window.JPShared.haptics.success(); } catch (e) {} }
+
+        const counts = srs ? srs.getDueCounts() : { items: 0, grammar: [] };
+        const grammarRows = (counts.grammar || []).map(gid => {
+            const title = grammarTitle(gid);
+            return '<button class="k-btn" style="display:block;width:100%;margin-top:8px;" onclick="window.JPApp && JPApp.launch(\'grammar\',\'' + gid + '\')">📐 Review ' + gid + (title ? ' — ' + title : '') + '</button>';
+        }).join('');
+
+        setTxt('k-q-ask', 'ふくしゅう · Review session complete');
+        setTxt('k-q-main', '✓');
+        const mainEl = document.getElementById('k-q-main');
+        if (mainEl) mainEl.style.fontSize = '4rem';
+        const msg = document.getElementById('k-q-msg'); if (msg) msg.classList.add('k-hidden');
+        const nxt = document.getElementById('k-q-next'); if (nxt) nxt.classList.add('k-hidden');
+        const rev = document.getElementById('k-q-read-reveal'); if (rev) rev.classList.add('k-hidden');
+        const opts = document.getElementById('k-q-opts');
+        if (opts) {
+            opts.innerHTML =
+                '<div style="grid-column:1/-1;text-align:center;padding:8px 4px;">' +
+                    '<div style="font-size:1.05rem;font-weight:700;color:var(--ink,#2f3542);">' + s.correct + ' / ' + s.total + ' first try</div>' +
+                    (willPay ? '<div style="font-size:0.9rem;color:var(--vermilion,#c0392b);font-weight:600;margin-top:4px;">+' + ((window.JPShared.srs && window.JPShared.srs.KEIKO_CLEAR) || 5) + ' けいこ</div>' : '') +
+                    (counts.items > 0
+                        ? '<div style="font-size:0.85rem;color:#747d8c;margin-top:8px;">' + counts.items + ' more waiting — take a break or keep going.</div>' +
+                          '<button class="k-btn" style="margin-top:8px;" onclick="KanjiApp.srsStart()">Review ' + Math.min(counts.items, (window.JPShared.srs && window.JPShared.srs.DAILY_CAP) || 20) + ' more</button>'
+                        : '<div style="font-size:0.85rem;color:#2ed573;font-weight:600;margin-top:8px;">All reviews clear — よくできました！</div>') +
+                    grammarRows +
+                    '<button class="k-btn" style="display:block;width:100%;margin-top:12px;" onclick="KanjiApp.openDaily()">← Daily</button>' +
+                '</div>';
+        }
+    }
+
+    function grammarTitle(gid) {
+        try {
+            const m = window.JPApp && window.JPApp._manifest;
+            if (!m || !m.data) return '';
+            for (const lvl of (m.levels || [])) {
+                const g = ((m.data[lvl] || {}).grammar || []).find(e => e.id === gid);
+                if (g) return g.title || '';
+            }
+        } catch (e) {}
+        return '';
+    }
+
     KanjiApp.start = function(type, mode, subMode='normal') {
+        srsSession = null; // entering a normal endless quiz always clears any review session
         const _u = window.JPShared && window.JPShared.unlock;
         if (_u && _u.markSeen) {
             if (type === 'connections' || type === 'connections4') _u.markSeen('linkup');
@@ -1625,35 +1923,7 @@ window.PracticeModule = {
 
         if(type==='kanji') curSet = DB.kanji.filter(k => activeLessons.has(k.lesson));
         else if(type==='verb') curSet = [...DB.verb];
-        else if(type==='vocab') {
-            // Iterate DB.allVocab directly (bypasses the 5-compound cap on
-            // DB.kanji[i].compounds, which would otherwise silently hide
-            // authored hybrids like 名まえ if 名 already has 5 cheaper
-            // compounds queued). evaluate() picks the right display form and
-            // decides eligibility: include a vocab if the picked form contains
-            // any active kanji (covers authored hybrids: 名まえ on N5.1,
-            // 月よう日 on N5.2), or if its lesson_ids is in active lessons.
-            // Non-authored compounds like 人見知り stay excluded because their
-            // matches[] has no hybrid form, so pick falls back to the reading.
-            const tempMap = new Map();
-            const activeKanjiSet = new Set(
-                DB.kanji.filter(k => activeLessons.has(k.lesson)).map(k => k.kanji)
-            );
-            const vocabDisplay = window.JPShared && window.JPShared.vocabDisplay;
-            (DB.allVocab || []).forEach(v => {
-                if (!v || !v.surface || tempMap.has(v.surface)) return;
-                const res = vocabDisplay
-                    ? vocabDisplay.evaluate(v, activeKanjiSet, activeLessons)
-                    : { eligible: false, display: v.surface };
-                if (!res.eligible) return;
-                tempMap.set(v.surface, {
-                    word: res.display, surface: v.surface,
-                    reading: v.reading, meaning: v.meaning,
-                    lesson: v.lesson_ids || '', gtype: v.gtype, notes: v.notes
-                });
-            });
-            curSet = Array.from(tempMap.values());
-        }
+        else if(type==='vocab') curSet = buildVocabPool(activeLessons);
 
         if(curSet.length === 0) return alert("Please select at least one lesson.");
         curSet.sort(() => Math.random() - 0.5);
@@ -1961,6 +2231,8 @@ window.PracticeModule = {
                 var H = window.JPShared && window.JPShared.haptics;
                 if (H) H.success();
                 dojoStreak++;
+                // No srsKey on 'conj' answers — intentionally SRS-inert (conjugation grades verb FORMS, not the base word).
+                if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: 'conj', correct: true, streak: dojoStreak });
                 if (dojoStreak > dojoBest) {
                     var prevBest = dojoBest;
                     dojoBest = dojoStreak;
@@ -1992,6 +2264,7 @@ window.PracticeModule = {
                 var H = window.JPShared && window.JPShared.haptics;
                 if (H) H.warning();
                 dojoStreak = 0;
+                if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: 'conj', correct: false, streak: 0 });
                 setTxt('k-dojo-streak', 0);
             },
             onExit: function() { KanjiApp.showMenu(); },
@@ -2045,6 +2318,8 @@ window.PracticeModule = {
                 var H = window.JPShared && window.JPShared.haptics;
                 if (H) H.success();
                 lwStreak++;
+                // No srsKey on 'loanword' answers — intentionally SRS-inert (gairaigo pool is outside SRS scope).
+                if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: 'loanword', correct: true, streak: lwStreak });
                 if (lwStreak > lwBest) {
                     lwBest = lwStreak;
                     bestScores.loanword = lwBest;
@@ -2062,6 +2337,7 @@ window.PracticeModule = {
                 var H = window.JPShared && window.JPShared.haptics;
                 if (H) H.warning();
                 lwStreak = 0;
+                if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: 'loanword', correct: false, streak: 0 });
                 setTxt('k-loanword-streak', 0);
             },
             onExit: function() { KanjiApp.showMenu(); },
@@ -2118,6 +2394,8 @@ window.PracticeModule = {
                 var H = window.JPShared && window.JPShared.haptics;
                 if (H) H.success();
                 flashStreak++;
+                // No srsKey on 'flash' answers — intentionally SRS-inert (flashcards are self-graded flips).
+                if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: 'flash', correct: true, streak: flashStreak });
                 if (flashStreak > flashBest) {
                     flashBest = flashStreak;
                     bestScores.flash = flashBest;
@@ -2144,6 +2422,7 @@ window.PracticeModule = {
                 var H = window.JPShared && window.JPShared.haptics;
                 if (H) H.warning();
                 flashStreak = 0;
+                if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: 'flash', correct: false, streak: 0 });
                 setTxt('k-fc-streak', 0);
                 var card = document.getElementById('k-fc-card-obj');
                 if (card) { card.style.boxShadow = ''; card.style.borderColor = ''; }
@@ -2207,8 +2486,24 @@ window.PracticeModule = {
         quizPhase = 1;
 
         let q='', a='', m='', dists=[];
-        curQItem = curSet[Math.floor(Math.random()*curSet.length)];
-        let effectiveSubMode = curSubMode === 'mix' ? (Math.random() < 0.5 ? 'normal' : 'reverse') : curSubMode;
+        let effectiveSubMode;
+        if (srsSession) {
+            // Bounded review session: serve the due queue in order; when the
+            // first pass ends, run the missed items once more, then summarize.
+            const s = srsSession;
+            if (s.idx >= s.queue.length) {
+                if (s.retry.length && !s.inRetry) { s.queue = s.retry; s.retry = []; s.idx = 0; s.inRetry = true; }
+                else { srsShowSummary(); return; }
+            }
+            curQItem = s.queue[s.idx++];
+            curMode = curQItem._qtype;                    // 'quiz-meaning' | 'quiz-vocab'
+            // curSet doubles as the distractor pool for the builders below.
+            curSet = curQItem._qtype === 'quiz-vocab' ? s.pools.vocab : s.pools.kanji;
+            effectiveSubMode = 'normal';
+        } else {
+            curQItem = curSet[Math.floor(Math.random()*curSet.length)];
+            effectiveSubMode = curSubMode === 'mix' ? (Math.random() < 0.5 ? 'normal' : 'reverse') : curSubMode;
+        }
         curQItem.activeMode = effectiveSubMode;
 
         if(curMode==='quiz-meaning') {
@@ -2232,6 +2527,9 @@ window.PracticeModule = {
         }
 
         curAns = a;
+        if (srsSession) {
+            q += '  ·  ' + Math.min(srsSession.idx, srsSession.queue.length) + '/' + srsSession.queue.length + (srsSession.inRetry ? ' · retry' : '');
+        }
         setTxt('k-q-ask', q);
         setTxt('k-q-main', m);
         const isBig = (curMode.includes('quiz-meaning') && effectiveSubMode==='normal') || (curMode.includes('quiz-reading') && effectiveSubMode==='normal') || curMode==='quiz-vocab';
@@ -2277,6 +2575,7 @@ window.PracticeModule = {
         };
         if(sel===curAns) {
             btn.classList.add('correct'); curStreak++; updateStreakVisuals(curStreak);
+            if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: srsSession ? 'srs' : 'dojo', correct: true, streak: curStreak, item: (curQItem && (curQItem.kanji || curQItem.word || curQItem.surface)) || '', id: (curQItem && curQItem.id) || null, level: (curQItem && curQItem.level) || null, srsKey: (curQItem && curQItem.level && curQItem.id) ? curQItem.level + ':' + curQItem.id : null });
             if (haptics) haptics.success();
             if (sfx) sfx.success();
             const readEl = document.getElementById('k-q-read-reveal');
@@ -2292,7 +2591,10 @@ window.PracticeModule = {
                 else if (curMode === 'quiz-reading') { readEl.innerText = curQItem.meaning; readEl.classList.remove('k-hidden'); }
             }
 
-            if(curMode === 'quiz-vocab' && quizPhase === 1 && wordHasKanji(curQItem.word || curQItem.surface)) {
+            if (srsSession && !srsSession.inRetry) srsSession.correct++;
+            // Review sessions skip the bonus reading phase — one graded question
+            // per item keeps the session bounded and the ladder signal clean.
+            if(!srsSession && curMode === 'quiz-vocab' && quizPhase === 1 && wordHasKanji(curQItem.word || curQItem.surface)) {
                 setMsg('Correct! Bonus: select the reading.', 'is-correct');
                 setTimeout(() => {
                     quizPhase = 2;
@@ -2309,6 +2611,8 @@ window.PracticeModule = {
             setMsg('Correct! Streak: ' + curStreak + ' 🔥', 'is-correct');
         } else {
             btn.classList.add('wrong'); curStreak = 0; resetStreakVisuals();
+            if (srsSession && !srsSession.inRetry) srsSession.retry.push(curQItem);
+            if (window.JPShared && window.JPShared.events) window.JPShared.events.emit('drill-answer', { module: srsSession ? 'srs' : 'dojo', correct: false, streak: 0, item: (curQItem && (curQItem.kanji || curQItem.word || curQItem.surface)) || '', id: (curQItem && curQItem.id) || null, level: (curQItem && curQItem.level) || null, srsKey: (curQItem && curQItem.level && curQItem.id) ? curQItem.level + ':' + curQItem.id : null });
             if (haptics) haptics.warning();
             if (sfx) sfx.error();
             setMsg('Wrong! It was: ' + curAns, 'is-wrong');
@@ -2374,6 +2678,7 @@ window.PracticeModule = {
         try {
             await new Promise(r => setTimeout(r, 50));
             const manifest = await window.getManifest(REPO_CONFIG);
+            dojoManifest = manifest;
 
             // Build a lookup: lessonId → manifest entry (carries unlocksAfter)
             const manifestLessonMap = {};
@@ -2399,7 +2704,10 @@ window.PracticeModule = {
             const particleData = fetchedParts[manifest.levels.length];
             const loanwordData = fetchedParts[manifest.levels.length + 1];
             const originsData = fetchedParts[manifest.levels.length + 2];
-            const raw = glossParts.flatMap(g => g.entries);
+            // Tag every entry with its glossary-file level (levels is index-aligned
+            // with glossParts) — SRS identity is "<level>:<id>" and the level must
+            // survive into the DB projections.
+            const raw = glossParts.flatMap((g, gi) => g.entries.map(e => Object.assign({ _lvl: manifest.levels[gi] }, e)));
 
             // Index grammar (gtype-tagged) entries and particles by surface so the
             // Flagged Grammar screen can resolve flag keys without re-fetching.
@@ -2448,6 +2756,7 @@ window.PracticeModule = {
                 return {
                     class: k.lesson||"General", lesson: k.lesson||"Other", kanji: k.surface,
                     on: k.on||"", kun: k.kun||"", meaning: k.meaning,
+                    id: k.id, level: k._lvl,
                     compounds: compounds.join(';'), comp_readings: comp_readings.join(';'), comp_meanings: comp_meanings.join(';')
                 };
             });
@@ -2505,8 +2814,22 @@ window.PracticeModule = {
 
             kUpdateStats();
             applyMenuGating();
+            kotdUpdateTileFoot();
             const loader = document.getElementById('k-loader');
             if(loader) loader.classList.add('k-hidden');
+
+            // Deep link (e.g. home card's 今日の漢字 row) — jump straight to
+            // the Daily hub; skip the menu tutorial for this entry.
+            if (initialView === 'daily') {
+                KanjiApp.openDaily();
+                return;
+            }
+            // Deep link from the home "Reviews due" card — straight into the
+            // bounded review session (DB is built by this point).
+            if (initialView === 'reviews') {
+                KanjiApp.srsStart();
+                return;
+            }
 
             // First-time Dojo tutorial — Rikizo walks the user through each
             // section. Per-section memory persisted; safe to call again if
