@@ -409,9 +409,14 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "カレーは いくらですか。",
-          "en": "How much is the curry?",
+          "jp": "はい、食べます。カレーは いくらですか。",
+          "en": "Yes, I will. How much is the curry?",
           "terms": [
+            "p_hai",
+            {
+              "id": "v_taberu",
+              "form": "polite_masu"
+            },
             "v_karee",
             "p_wa",
             "v_ikura",
@@ -421,12 +426,12 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "千円です。ここに サラダも あります。",
+          "jp": "千円ですよ。ここに サラダも あります。",
           "en": "It's 1000 yen. There is also salad here.",
           "terms": [
-            "v_sen",
-            "v_en",
+            "v_senen",
             "g_desu",
+            "p_yo",
             "v_koko",
             "p_ni",
             "v_sarada",
@@ -439,14 +444,12 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "はい、食べます。いただきます。",
-          "en": "Yes, I will eat. Bon appétit!",
+          "jp": "いいですね。いただきます。",
+          "en": "Sounds good. Bon appétit!",
           "terms": [
-            "p_hai",
-            {
-              "id": "v_taberu",
-              "form": "polite_masu"
-            },
+            "v_ii",
+            "g_desu",
+            "p_ne",
             "p_itadakimasu"
           ]
         }
@@ -458,7 +461,7 @@
       "context": "Yamamoto-sensei and Rikizo talk about food preferences.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん、何を 飲みますか。",
           "en": "Rikizo-san, what do you drink?",
           "terms": [
@@ -496,7 +499,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "サラダを 食べます。サラダは 小さいですよ。",
           "en": "I eat salad. The salad is small, you know.",
           "terms": [
@@ -530,7 +533,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "一時に 食べます。サラダが 大すきです。",
           "en": "I eat at one o'clock. I love salad.",
           "terms": [
@@ -568,7 +571,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "はい、レストランで 食べます。パンも 食べてください。",
           "en": "Yes, I eat at the restaurant. Please eat the bread too.",
           "terms": [
@@ -670,13 +673,13 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "はい、飲みました。レストランは 大きいですね。",
-          "en": "Yes, I did. The restaurant is big, isn't it.",
+          "jp": "いいえ、飲みませんでした。レストランは 大きいですね。",
+          "en": "No, I didn't. The restaurant is big, isn't it.",
           "terms": [
-            "p_hai",
+            "p_iie",
             {
               "id": "v_nomu",
-              "form": "polite_mashita"
+              "form": "polite_past_negative"
             },
             "v_resutoran",
             "p_wa",
@@ -1333,7 +1336,7 @@
             "は",
             "を",
             "で",
-            "が"
+            "を"
           ],
           "answer": "は",
           "terms": [
@@ -1349,7 +1352,7 @@
           "q": "コーヒーは 飲みません。ジュース _______ 飲みます。",
           "choices": [
             "を",
-            "は",
+            "へ",
             "に",
             "で"
           ],

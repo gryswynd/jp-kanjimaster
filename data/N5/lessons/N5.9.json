@@ -341,7 +341,7 @@
       "context": "Yamamoto-sensei and Rikizo plan to eat out together.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん、今日 外食を しますか。",
           "en": "Rikizo-san, will you eat out today?",
           "terms": [
@@ -377,7 +377,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "あの レストランは 駅の 前に ありますね。",
           "en": "That restaurant is in front of the station, isn't it.",
           "terms": [
@@ -418,7 +418,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "いいですね。中が いいですか、外が いいですか。",
           "en": "That sounds great. Is inside better, or outside better?",
           "terms": [
@@ -456,7 +456,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "そうですね。レストランは 高いですけど、おいしいですよ。",
           "en": "That's right. The restaurant is expensive, but it's delicious, you know.",
           "terms": [
@@ -477,10 +477,10 @@
     {
       "type": "conversation",
       "title": "かいわ 3: こちらへ どうぞ（This Way, Please）",
-      "context": "A foreign visitor asks Rikizo for directions to the department store.",
+      "context": "Joel, visiting from abroad, asks Rikizo for directions to the department store.",
       "lines": [
         {
-          "spk": "がいじん",
+          "spk": "ジョエル",
           "jp": "すみません。デパートは どちら ですか。",
           "en": "Excuse me. Which way is the department store?",
           "terms": [
@@ -510,7 +510,7 @@
           ]
         },
         {
-          "spk": "がいじん",
+          "spk": "ジョエル",
           "jp": "あの 大きい 店ですか。",
           "en": "Is it that big store?",
           "terms": [
@@ -538,28 +538,26 @@
           ]
         },
         {
-          "spk": "がいじん",
-          "jp": "お名前は？ わたしは 外人です。",
-          "en": "What is your name? I am a foreigner.",
+          "spk": "ジョエル",
+          "jp": "お名前は？ わたしは ジョエルです。",
+          "en": "What's your name? I'm Joel.",
           "terms": [
-            "v_onamae",
+            "v_namae",
             "p_wa",
             "v_watashi",
             "p_wa",
-            "v_gaijin",
+            "char_joel",
             "g_desu"
           ]
         },
         {
           "spk": "りきぞう",
-          "jp": "りきぞうです。だいじょうぶですよ。",
-          "en": "I'm Rikizo. No problem, you know.",
+          "jp": "りきぞうです。よろしく おねがいします。",
+          "en": "I'm Rikizo. Nice to meet you.",
           "terms": [
             "char_rikizo",
             "g_desu",
-            "v_daijoubu",
-            "g_desu",
-            "p_yo"
+            "p_yoroshiku_onegaishimasu"
           ]
         }
       ]
@@ -588,8 +586,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "友だちが 来ます。外で 飲んでいます。",
-          "en": "A friend is coming. I am drinking outside.",
+          "jp": "友だちが 来ます。外で 飲んでいます。コーヒーが 安いから、外で 飲みます。中は 高いので、外が いいんです。",
+          "en": "A friend is coming. I am drinking outside. Because the coffee is cheap, I drink it outside. The inside is expensive, so outside is better, you see.",
           "terms": [
             "v_tomodachi_hybrid",
             "p_ga",
@@ -606,14 +604,7 @@
             {
               "id": "v_iru",
               "form": "polite_masu"
-            }
-          ]
-        },
-        {
-          "spk": "りきぞう",
-          "jp": "コーヒーが 安いから、外で 飲みます。中は 高いので、外が いいんです。",
-          "en": "Because the coffee is cheap, I drink it outside. The inside is expensive, so outside is better, you see.",
-          "terms": [
+            },
             "v_koohii",
             "p_ga",
             {
@@ -662,19 +653,12 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "先生は 中に います。前に 外に いましたよ。",
-          "en": "The teacher is inside. She was outside before, you know.",
+          "jp": "そうですか。前は 外に いましたよ。",
+          "en": "Oh really? She was outside earlier.",
           "terms": [
-            "v_sensei",
-            "p_wa",
-            "v_naka",
-            "p_ni",
-            {
-              "id": "v_iru",
-              "form": "polite_masu"
-            },
+            "p_soudesuka",
             "v_mae",
-            "p_ni",
+            "p_wa",
             "v_soto",
             "p_ni",
             {
@@ -933,19 +917,18 @@
           ]
         },
         {
-          "jp": "駅の 前に ある レストランへ 行きました。",
-          "en": "She went to the restaurant that is in front of the station.",
+          "jp": "レストランは 駅の 前に あります。",
+          "en": "The restaurant is in front of the station.",
           "terms": [
+            "v_resutoran",
+            "p_wa",
             "v_eki",
             "p_no",
             "v_mae",
             "p_ni",
-            "v_aru",
-            "v_resutoran",
-            "p_e",
             {
-              "id": "v_iku",
-              "form": "polite_mashita"
+              "id": "v_aru",
+              "form": "polite_masu"
             }
           ]
         },
@@ -1008,20 +991,20 @@
           ]
         },
         {
-          "jp": "やまかわは コーヒーが ほしいです。",
-          "en": "Yamakawa wants coffee.",
+          "jp": "やまかわは カレーが 大すきです。",
+          "en": "Yamakawa loves curry.",
           "terms": [
             "char_yamakawa",
             "p_wa",
-            "v_koohii",
+            "v_karee",
             "p_ga",
-            "v_hoshii",
+            "v_daisuki",
             "g_desu"
           ]
         },
         {
           "jp": "来週も とても おいしい でしょう。",
-          "en": "Next week will probably be very delicious too.",
+          "en": "The curry will probably be delicious next week too.",
           "terms": [
             "v_raishuu",
             "p_mo",
@@ -1333,7 +1316,7 @@
         },
         {
           "kind": "mcq",
-          "q": "お _______ は やまかわです。",
+          "q": "わたしの _______ は やまかわです。",
           "choices": [
             "名前",
             "外食",
@@ -1345,7 +1328,7 @@
             "v_namae",
             "g_desu"
           ],
-          "explanation": "Correct: お 名前 は やまかわです。 — 「名前」 (なまえ) means \"name\"."
+          "explanation": "Correct: わたしの 名前 は やまかわです。 — 「名前」 (なまえ) means \"name\"."
         },
         {
           "kind": "mcq",

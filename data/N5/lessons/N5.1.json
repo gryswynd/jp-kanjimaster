@@ -598,56 +598,30 @@
         },
         {
           "spk": "A",
-          "jp": "そうですか。お父さんの パソコンは いいですか。",
-          "en": "I see. Is your father's computer good?",
+          "jp": "子どもが いますか。",
+          "en": "Do you have children?",
           "terms": [
-            "p_soudesuka",
-            "v_otousan",
-            "p_no",
-            "v_pasokon",
-            "p_wa",
-            "v_ii",
-            "g_desu",
+            "v_kodomo",
+            "p_ga",
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
             "p_ka"
           ]
         },
         {
           "spk": "B",
-          "jp": "はい、とても いいですよ。",
-          "en": "Yes, it's really good.",
+          "jp": "はい、男の子です。とても いい 子どもですよ。",
+          "en": "Yes, a boy. He's a really nice kid.",
           "terms": [
             "p_hai",
-            "v_totemo",
-            "v_ii",
-            "g_desu",
-            "p_yo"
-          ]
-        },
-        {
-          "spk": "A",
-          "jp": "ともだちの 子どもは 男の子ですか、女の子ですか。",
-          "en": "Is your friend's child a boy or a girl?",
-          "terms": [
-            "v_tomodachi",
-            "p_no",
-            "v_kodomo",
-            "p_wa",
-            "v_otokonoko",
-            "g_desu",
-            "p_ka",
-            "v_onnanoko"
-          ]
-        },
-        {
-          "spk": "B",
-          "jp": "男の子です。とても いい 子どもですよ。",
-          "en": "A boy. He's a really nice kid.",
-          "terms": [
             "v_otokonoko",
             "g_desu",
             "v_totemo",
             "v_ii",
             "v_kodomo",
+            "g_desu",
             "p_yo"
           ]
         }
@@ -921,16 +895,14 @@
           ]
         },
         {
-          "jp": "父母は いっしょに 生きます。",
-          "en": "My parents live together.",
+          "jp": "父母は いい 人です。",
+          "en": "My parents are good people.",
           "terms": [
             "v_fubo",
             "p_wa",
-            "v_issho",
-            {
-              "id": "v_ikiru",
-              "form": "polite_masu"
-            }
+            "v_ii",
+            "v_hito",
+            "g_desu"
           ]
         },
         {

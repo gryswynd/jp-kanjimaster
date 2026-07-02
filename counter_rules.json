@@ -1,22 +1,70 @@
 {
   "digits": {
-    "1": { "surface": "一", "reading": "いち" },
-    "2": { "surface": "二", "reading": "に" },
-    "3": { "surface": "三", "reading": "さん" },
-    "4": { "surface": "四", "reading": "よん" },
-    "5": { "surface": "五", "reading": "ご" },
-    "6": { "surface": "六", "reading": "ろく" },
-    "7": { "surface": "七", "reading": "なな" },
-    "8": { "surface": "八", "reading": "はち" },
-    "9": { "surface": "九", "reading": "きゅう" }
+    "1": {
+      "surface": "一",
+      "reading": "いち"
+    },
+    "2": {
+      "surface": "二",
+      "reading": "に"
+    },
+    "3": {
+      "surface": "三",
+      "reading": "さん"
+    },
+    "4": {
+      "surface": "四",
+      "reading": "よん"
+    },
+    "5": {
+      "surface": "五",
+      "reading": "ご"
+    },
+    "6": {
+      "surface": "六",
+      "reading": "ろく"
+    },
+    "7": {
+      "surface": "七",
+      "reading": "なな"
+    },
+    "8": {
+      "surface": "八",
+      "reading": "はち"
+    },
+    "9": {
+      "surface": "九",
+      "reading": "きゅう"
+    }
   },
   "places": {
-    "10":    { "surface": "十",  "reading": "じゅう", "euphonics": {} },
-    "100":   { "surface": "百",  "reading": "ひゃく", "euphonics": {
-                 "3": "さんびゃく", "6": "ろっぴゃく", "8": "はっぴゃく" } },
-    "1000":  { "surface": "千",  "reading": "せん",   "euphonics": {
-                 "3": "さんぜん",   "8": "はっせん" } },
-    "10000": { "surface": "万",  "reading": "まん",   "euphonics": {} }
+    "10": {
+      "surface": "十",
+      "reading": "じゅう",
+      "euphonics": {}
+    },
+    "100": {
+      "surface": "百",
+      "reading": "ひゃく",
+      "euphonics": {
+        "3": "さんびゃく",
+        "6": "ろっぴゃく",
+        "8": "はっぴゃく"
+      }
+    },
+    "1000": {
+      "surface": "千",
+      "reading": "せん",
+      "euphonics": {
+        "3": "さんぜん",
+        "8": "はっせん"
+      }
+    },
+    "10000": {
+      "surface": "万",
+      "reading": "まん",
+      "euphonics": {}
+    }
   },
   "counters": {
     "ji": {
@@ -24,23 +72,61 @@
       "reading": "じ",
       "meaning": "o'clock",
       "learnedAt": "N5",
-      "prefix_overrides": { "4": "よ", "7": "しち", "9": "く" }
+      "prefix_overrides": {
+        "4": "よ",
+        "7": "しち",
+        "9": "く"
+      }
+    },
+    "jikan": {
+      "surface": "時間",
+      "reading": "じかん",
+      "meaning": "hours (duration)",
+      "learnedAt": "N5",
+      "prefix_overrides": {
+        "4": "よ",
+        "7": "なな",
+        "9": "く"
+      }
     },
     "fun": {
       "surface": "分",
       "reading": "ふん",
       "meaning": "minutes",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" },
-      "counter_overrides": { "1": "ぷん", "3": "ぷん", "4": "ぷん", "6": "ぷん", "8": "ぷん", "10": "ぷん" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      },
+      "counter_overrides": {
+        "1": "ぷん",
+        "3": "ぷん",
+        "4": "ぷん",
+        "6": "ぷん",
+        "8": "ぷん",
+        "10": "ぷん"
+      }
     },
     "hon": {
       "surface": "本",
       "reading": "ほん",
       "meaning": "long cylindrical objects",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" },
-      "counter_overrides": { "1": "ぽん", "3": "ぼん", "6": "ぽん", "8": "ぽん", "10": "ぽん" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      },
+      "counter_overrides": {
+        "1": "ぽん",
+        "3": "ぼん",
+        "6": "ぽん",
+        "8": "ぽん",
+        "10": "ぽん"
+      }
     },
     "mai": {
       "surface": "枚",
@@ -53,30 +139,61 @@
       "reading": "こ",
       "meaning": "small objects",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      }
     },
     "hiki": {
       "surface": "匹",
       "reading": "ひき",
       "meaning": "small animals",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" },
-      "counter_overrides": { "1": "ぴき", "3": "びき", "6": "ぴき", "8": "ぴき", "10": "ぴき" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      },
+      "counter_overrides": {
+        "1": "ぴき",
+        "3": "びき",
+        "6": "ぴき",
+        "8": "ぴき",
+        "10": "ぴき"
+      }
     },
     "hai": {
       "surface": "杯",
       "reading": "はい",
       "meaning": "cups/glasses/bowls",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" },
-      "counter_overrides": { "1": "ぱい", "3": "ばい", "6": "ぱい", "8": "ぱい", "10": "ぱい" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      },
+      "counter_overrides": {
+        "1": "ぱい",
+        "3": "ばい",
+        "6": "ぱい",
+        "8": "ぱい",
+        "10": "ぱい"
+      }
     },
     "satsu": {
       "surface": "冊",
       "reading": "さつ",
       "meaning": "bound books",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "8": "はっ", "10": "じゅっ" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      }
     },
     "nin": {
       "surface": "人",
@@ -84,10 +201,22 @@
       "meaning": "people",
       "learnedAt": "N5",
       "special": {
-        "1": { "surface": "一人", "reading": "ひとり" },
-        "2": { "surface": "二人", "reading": "ふたり" },
-        "3": { "surface": "三人", "reading": "さんにん" },
-        "4": { "surface": "四人", "reading": "よにん" }
+        "1": {
+          "surface": "一人",
+          "reading": "ひとり"
+        },
+        "2": {
+          "surface": "二人",
+          "reading": "ふたり"
+        },
+        "3": {
+          "surface": "三人",
+          "reading": "さんにん"
+        },
+        "4": {
+          "surface": "四人",
+          "reading": "よにん"
+        }
       }
     },
     "dai": {
@@ -101,14 +230,23 @@
       "reading": "かい",
       "meaning": "times (occurrences)",
       "learnedAt": "N4",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      }
     },
     "sai": {
       "surface": "歳",
       "reading": "さい",
       "meaning": "years old",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "8": "はっ", "10": "じゅっ" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      }
     },
     "nen": {
       "surface": "年",
@@ -121,7 +259,12 @@
       "reading": "かげつ",
       "meaning": "month(s)",
       "learnedAt": "N5",
-      "prefix_overrides": { "1": "いっ", "6": "ろっ", "8": "はっ", "10": "じゅっ" }
+      "prefix_overrides": {
+        "1": "いっ",
+        "6": "ろっ",
+        "8": "はっ",
+        "10": "じゅっ"
+      }
     },
     "shu": {
       "surface": "週",
@@ -134,7 +277,11 @@
       "reading": "がつ",
       "meaning": "month (calendar month name)",
       "learnedAt": "N5",
-      "prefix_overrides": { "4": "し", "7": "しち", "9": "く" }
+      "prefix_overrides": {
+        "4": "し",
+        "7": "しち",
+        "9": "く"
+      }
     },
     "en": {
       "surface": "円",
@@ -148,16 +295,46 @@
       "meaning": "general counter (native Japanese)",
       "learnedAt": "N5",
       "special": {
-        "1": { "surface": "一つ", "reading": "ひとつ" },
-        "2": { "surface": "二つ", "reading": "ふたつ" },
-        "3": { "surface": "三つ", "reading": "みっつ" },
-        "4": { "surface": "四つ", "reading": "よっつ" },
-        "5": { "surface": "五つ", "reading": "いつつ" },
-        "6": { "surface": "六つ", "reading": "むっつ" },
-        "7": { "surface": "七つ", "reading": "ななつ" },
-        "8": { "surface": "八つ", "reading": "やっつ" },
-        "9": { "surface": "九つ", "reading": "ここのつ" },
-        "10": { "surface": "十", "reading": "とお" }
+        "1": {
+          "surface": "一つ",
+          "reading": "ひとつ"
+        },
+        "2": {
+          "surface": "二つ",
+          "reading": "ふたつ"
+        },
+        "3": {
+          "surface": "三つ",
+          "reading": "みっつ"
+        },
+        "4": {
+          "surface": "四つ",
+          "reading": "よっつ"
+        },
+        "5": {
+          "surface": "五つ",
+          "reading": "いつつ"
+        },
+        "6": {
+          "surface": "六つ",
+          "reading": "むっつ"
+        },
+        "7": {
+          "surface": "七つ",
+          "reading": "ななつ"
+        },
+        "8": {
+          "surface": "八つ",
+          "reading": "やっつ"
+        },
+        "9": {
+          "surface": "九つ",
+          "reading": "ここのつ"
+        },
+        "10": {
+          "surface": "十",
+          "reading": "とお"
+        }
       }
     }
   }

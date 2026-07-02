@@ -381,7 +381,11 @@
         for (const id in m) {
           const e = m[id];
           const k = e && (e.surface || e.particle);
-          if (k && !this._surfaceIdx.has(k)) this._surfaceIdx.set(k, e);
+          if (!k) continue;
+          // vocab beats kanji "cards" — cards carry on/kun memos, not the
+          // sentence reading (two-tier rule, see CLAUDE.md).
+          const prev = this._surfaceIdx.get(k);
+          if (!prev || (prev.type === 'kanji' && e.type !== 'kanji')) this._surfaceIdx.set(k, e);
         }
       }
       const entry = this._surfaceIdx.get(surface);

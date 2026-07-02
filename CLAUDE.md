@@ -38,6 +38,11 @@ Read before editing.
 
 ## Stories — authoring rules
 
+> 🛠️ **Guided skill: `/author-story`** runs this whole pipeline (agents 1→4 + QA
+> 3.5) with the gates enforced as hard stops. Prefer it when authoring/editing a
+> bundled story. It's Opus hand-authoring premium content — NOT the `story-gen/`
+> Sonnet service.
+
 **Story data lives in `data/<level>/stories/<slug>/story.json`** at schema
 version `2.0.0`. The MD source files (`story.md`, `terms.json`) are
 **reference-only** during transition — do not edit them, do not re-introduce
@@ -169,6 +174,10 @@ add MCQs to a specific story when explicitly asked to. When authoring, each is
 
 ## Audio Dojo — listening exercises (audiostories)
 
+> 🛠️ **Guided skill: `/author-audiostory`** runs this pipeline including the two
+> steps the automated gates can't cover — the manual N3 grammar (G32–G49) check
+> and the TTS-misread override loop. Prefer it when authoring/editing an exercise.
+
 **Data lives in `data/<level>/audiostories/<slug>/audiostory.json`** (schema
 `1.0.0`); registry = `data/audiostories.index.json` (NOT manifest.json). One
 exercise per **2 lessons**, `unlocksAfter` = the 2nd lesson of the pair, length
@@ -264,6 +273,21 @@ node scripts/migrate-stories-to-json.mjs --force   # if you need to re-tokenize 
 - **One-off** (a specific paragraph needs a non-standard reading of a kanji):
   edit `tokens[]` for just that paragraph; document why in the en-translation
   or a comment.
+- **One-off in GRAMMAR files**: `derive-content-tokens.mjs` re-bakes `tokens`
+  on every run, so hand edits there don't survive. Author a `tokensOverride`
+  array on the part instead — it must reconstruct to `part.text` and is copied
+  to `tokens` at bake time.
+
+### Kanji "cards" vs vocab (the k_/v_ two-tier rule)
+
+- `type:"kanji"` entries (ids `k_*`) are taught-kanji metadata: `on`/`kun`
+  feed the lesson New-Kanji grid and kanji pages. They are **NOT** sentence
+  words: the tokenizer ignores them entirely and they carry no `tokens`.
+- Sentence readings come from `v_*` vocab entries (後=あと via v_ato), the
+  conjugation/counter engines, and a small curated suffix table in
+  `scripts/lib/tokenize.mjs` (`SUFFIX_READINGS`: 三時間後=ご, 世界中=じゅう).
+  If a single kanji shows the wrong reading in prose, fix it at one of those
+  three layers — never by re-indexing kanji cards.
 
 ---
 

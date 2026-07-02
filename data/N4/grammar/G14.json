@@ -33,7 +33,7 @@
         "もらう — receive (I receive FROM someone): 友だちにプレゼントをもらいました (I received a present from my friend)",
         "Key rule: The same gift event seen from three angles — あげる is the giver's outward action; くれる is the receiver's inward perspective (benefiting me); もらう is the receiver actively acquiring something",
         "Te-form extensions for favors: てあげる (I do X for you), てくれる (you/they do X for me), てもらう (I have someone do X for me)",
-        "Honorific/humble reference: さしあげる (humble あげる), いただく (humble もらう), くださる → ください (honorific くれる — already known from G7)"
+        "Honorific/humble reference: さしあげる (humble あげる), いただく (humble もらう), くださる → ください (honorific くれる — already known from G8)"
       ]
     },
     {
@@ -243,7 +243,7 @@
       "notes": [
         "The biggest confusion point: あげる and くれる describe the SAME physical transfer but from different perspectives. 「友だちにプレゼントをあげた」= I gave my friend a present (my action). 「友だちがプレゼントをくれた」= My friend gave me a present (their kindness).",
         "You CANNOT say ×わたしはあなたにプレゼントをくれました (using くれる with わたし as the subject). くれる always has someone OTHER than the speaker as the giver. The speaker receives but does not くれる.",
-        "くれる is related to ください (please give me) — ください is actually the request form of くださる, the honorific of くれる. You already know this form from G7."
+        "くれる is related to ください (please give me) — ください is actually the request form of くださる, the honorific of くれる. You already know this form from G8."
       ],
       "examples": [
         {
@@ -779,7 +779,7 @@
             "くださいます / ください",
             "くださった"
           ],
-          "meaning": "give (honorific くれる); ください = please give me (already known from G7)"
+          "meaning": "give (honorific くれる); ください = please give me (already known from G8)"
         }
       ]
     },
@@ -803,7 +803,7 @@
       "notes": [
         "てあげる can sometimes sound condescending — like you're doing someone a favour they didn't ask for. Use it carefully in polite contexts. Between friends it's natural; with superiors, てさしあげます is more appropriate.",
         "The te-form of くれる for requests is already part of your vocabulary: 書いてください (please write). This is the request form of 書いてくださる. This lesson shows you where ください actually comes from.",
-        "てもらえますか / てもらえませんか — potential + もらう — is a very polite request pattern: 書いてもらえますか (could you write it for me?). This combines potential form (G12) with てもらう."
+        "てもらえますか / てもらえませんか — potential + もらう — is a very polite request pattern: 書いてもらえますか (could you write it for me?). This combines potential form (G13) with てもらう."
       ],
       "examples": [
         {
@@ -1417,25 +1417,20 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "わあ！ありがとうございます。けんさんがくれましたか。",
-          "en": "Wow! Thank you so much. Did you give this to me, Ken?",
+          "jp": "わあ、本ですね！ありがとうございます。",
+          "en": "Wow, a book! Thank you!",
           "terms": [
             "v_waa",
-            "p_arigatou_gozaimasu",
-            "char_ken",
-            "v_san",
-            "p_ga",
-            {
-              "id": "v_kureru",
-              "form": "polite_mashita"
-            },
-            "p_ka"
+            "v_hon",
+            "g_desu",
+            "p_ne",
+            "p_arigatou_gozaimasu"
           ]
         },
         {
           "spk": "けん",
-          "jp": "はい！りきぞうさんにあげたいです。",
-          "en": "Yes! I want to give it to you, Rikizo.",
+          "jp": "はい！りきぞうさんにあげたかったんです。",
+          "en": "Yes! I really wanted to give you one.",
           "terms": [
             "p_hai",
             "char_rikizo",
@@ -1443,25 +1438,26 @@
             "p_ni",
             {
               "id": "v_ageru",
-              "form": "plain_desire_tai"
+              "form": "plain_desire_tai_past"
             },
-            "g_desu"
+            "p_ndesu"
           ]
         },
         {
           "spk": "りきぞう",
-          "jp": "うれしいです！本をもらいました。毎日読みます。",
-          "en": "I'm so happy! I received a book. I'll read it every day.",
+          "jp": "いい本をもらって、うれしいです。毎日読みます。",
+          "en": "I'm so happy to get such a nice book. I'll read it every day.",
           "terms": [
-            {
-              "id": "v_ureshii",
-              "form": "polite_adj"
-            },
+            "v_ii",
             "v_hon",
             "p_wo",
             {
               "id": "v_morau",
-              "form": "polite_mashita"
+              "form": "te_form"
+            },
+            {
+              "id": "v_ureshii",
+              "form": "polite_adj"
             },
             "v_mainichi",
             {
@@ -1472,22 +1468,20 @@
         },
         {
           "spk": "けん",
-          "jp": "よかった！読んでくれてありがとう。",
-          "en": "Great! Thanks for reading it.",
+          "jp": "よかった！たくさん読んでくださいね。",
+          "en": "Great! Enjoy reading it!",
           "terms": [
             {
               "id": "v_ii",
               "form": "plain_past_adj"
             },
+            "v_takusan",
             {
               "id": "v_yomu",
               "form": "te_form"
             },
-            {
-              "id": "v_kureru",
-              "form": "te_form"
-            },
-            "p_arigatou"
+            "v_kudasai",
+            "p_ne"
           ]
         }
       ]
@@ -1535,22 +1529,15 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "ありがとう！読んでくれてよかった。",
-          "en": "Thanks! I'm glad you read it for me.",
+          "jp": "ありがとう！読んでくれる？",
+          "en": "Thanks! Will you read it for me?",
           "terms": [
             "p_arigatou",
             {
               "id": "v_yomu",
               "form": "te_form"
             },
-            {
-              "id": "v_kureru",
-              "form": "te_form"
-            },
-            {
-              "id": "v_ii",
-              "form": "plain_past_adj"
-            }
+            "v_kureru"
           ]
         },
         {
@@ -1602,7 +1589,7 @@
       "items": [
         {
           "before": "わたしは母に花を",
-          "after": "。",
+          "after": "。(the flowers are FOR her)",
           "translation": "I gave flowers to my mother.",
           "choices": [
             "あげました",
@@ -1627,7 +1614,7 @@
           "explanation": "Someone else (先生) gives to the speaker (わたし) → くれる. The teacher is the subject (が), the speaker receives."
         },
         {
-          "before": "わたしは友だちにプレゼントを",
+          "before": "わたしは友だちからプレゼントを",
           "after": "。",
           "translation": "I received a present from my friend.",
           "choices": [
@@ -1637,7 +1624,7 @@
             "くれてもらいました"
           ],
           "answer": "もらいました",
-          "explanation": "The speaker (わたし) is the receiver; the friend is the source (に) → もらう. Focus is on the speaker getting something."
+          "explanation": "The speaker (わたし) is the receiver; から marks the friend as the SOURCE → もらう. (から can only mark a source — あげる would need に for a recipient, so から forces the receiving reading.)"
         },
         {
           "before": "りきぞうさんが本を",
@@ -1693,7 +1680,7 @@
           "choices": [
             "友だちが私にプレゼントをくれました。",
             "友だちが私にプレゼントをあげました。",
-            "私が友だちにプレゼントをもらいました。",
+            "私は友だちにプレゼントをくれました。",
             "友だちが私にプレゼントをもらいました。"
           ],
           "answer": "友だちが私にプレゼントをくれました。",
@@ -1709,7 +1696,7 @@
               "form": "polite_mashita"
             }
           ],
-          "explanation": "When someone gives TO you (the speaker), use くれる. The friend (subject: が) gives to me (に) → くれました. あげました would mean the friend gave to a third party, not you."
+          "explanation": "When someone gives TO you (the speaker), use くれる. The friend (subject: が) gives to me (に) → くれました. あげました would mean the friend gave to a third party. ×私は…くれました is impossible — くれる NEVER takes the speaker as the giver. (私は友だちにもらいました would also describe this event, but from the receiving side.)"
         },
         {
           "kind": "mcq",

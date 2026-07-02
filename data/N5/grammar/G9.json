@@ -457,7 +457,8 @@
               "gloss": "my younger brother (topic)",
               "tokens": [
                 {
-                  "k": "弟"
+                  "k": "弟",
+                  "r": "おとうと"
                 },
                 {
                   "k": "は",
@@ -505,10 +506,13 @@
               "gloss": "is showing desire to (たがる progressive)",
               "tokens": [
                 {
-                  "k": "たがっ"
+                  "k": "たが"
                 },
                 {
-                  "k": "ています"
+                  "k": "って"
+                },
+                {
+                  "k": "います"
                 },
                 {
                   "k": "。"
@@ -572,10 +576,13 @@
               "gloss": "is showing desire to",
               "tokens": [
                 {
-                  "k": "たがっ"
+                  "k": "たが"
                 },
                 {
-                  "k": "ています"
+                  "k": "って"
+                },
+                {
+                  "k": "います"
                 },
                 {
                   "k": "。"
@@ -691,7 +698,8 @@
                 "gloss": "younger brother (topic)",
                 "tokens": [
                   {
-                    "k": "弟"
+                    "k": "弟",
+                    "r": "おとうと"
                   },
                   {
                     "k": "は",
@@ -739,10 +747,13 @@
                 "gloss": "is showing desire to",
                 "tokens": [
                   {
-                    "k": "たがっ"
+                    "k": "たが"
                   },
                   {
-                    "k": "ています"
+                    "k": "って"
+                  },
+                  {
+                    "k": "います"
                   },
                   {
                     "k": "。"
@@ -1186,7 +1197,7 @@
           "cells": [
             "行っています",
             "食べています",
-            "is going / is eating"
+            "has gone (is there) / is eating"
           ],
           "meaning": "Ongoing action or resultant state"
         },
@@ -1195,7 +1206,7 @@
           "cells": [
             "行っていません",
             "食べていません",
-            "is not going / is not eating"
+            "hasn't gone / is not eating"
           ],
           "meaning": "Negation of ている"
         },
@@ -1238,6 +1249,7 @@
       ],
       "notes": [
         "ている uses the て-form (G8 rules apply: 行く→行って, 食べる→食べて). Then add います.",
+        "Motion verbs like 行く in ている describe the resulting state — 行っています = has gone / is there now, NOT 'is going'. (Same for 来ています = has come / is here.)",
         "たいです and ましょう both use the ます-stem (same stem as ます-form minus ます): 行き, 食べ, 飲み, 買い.",
         "来る (irregular): 来ています (きています), 来たいです (きたいです), 来ましょう (きましょう).",
         "する (irregular): しています, したいです, しましょう."
@@ -1588,12 +1600,12 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "プレゼントです。もう 買っています。",
-          "en": "A present. I'm already buying one.",
+          "jp": "プレゼントです。今 買っています。",
+          "en": "A present. I'm buying one right now.",
           "terms": [
             "v_purezento",
             "g_desu",
-            "v_mou",
+            "v_ima",
             {
               "id": "v_kau",
               "form": "te_form"

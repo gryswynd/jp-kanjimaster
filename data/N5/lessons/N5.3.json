@@ -408,10 +408,10 @@
     {
       "type": "conversation",
       "title": "かいわ 1: クラスのグループ（The Class Group）",
-      "context": "Yamakawa asks Rikizo about how many friends and teachers are in their group.",
+      "context": "Rikizo asks Yamakawa about how many friends and teachers are in their group.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "やまかわさん、友だちは 何人 いますか。",
           "en": "Yamakawa-san, how many friends are there?",
           "terms": [
@@ -428,7 +428,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "三人 います。",
           "en": "There are three.",
           "terms": [
@@ -443,7 +443,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "先生は 何人 いますか。",
           "en": "How many teachers are there?",
           "terms": [
@@ -458,7 +458,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "一人 います。やまもと先生です。",
           "en": "There is one. It is Yamamoto-sensei.",
           "terms": [
@@ -476,7 +476,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "クラスに 何が ありますか。",
           "en": "What is in the class?",
           "terms": [
@@ -492,7 +492,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "パソコンや テレビが あります。",
           "en": "There are computers, TVs, and so on.",
           "terms": [
@@ -507,7 +507,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "毎日 一人 いますか。",
           "en": "Is there one teacher every day?",
           "terms": [
@@ -524,7 +524,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "そうです。毎日 います。",
           "en": "That's right. She is here every day.",
           "terms": [
@@ -544,7 +544,7 @@
       "context": "Yamamoto-sensei and Rikizo talk about the date and how many friends come this month.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "りきぞうさん、今月は 三月ですね。",
           "en": "Rikizo-san, this month is March, right?",
           "terms": [
@@ -561,7 +561,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "そうです。今日は 三日です。",
           "en": "That's right. Today is the third.",
           "terms": [
@@ -573,7 +573,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "今月 友だちは 何人 いますか。",
           "en": "How many friends are here this month?",
           "terms": [
@@ -589,7 +589,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "五人 います。",
           "en": "There are five.",
           "terms": [
@@ -604,7 +604,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "友だちは いつから いつまで いますか。",
           "en": "From when until when are your friends here?",
           "terms": [
@@ -622,9 +622,9 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "二日から 七日まで います。それから、お金も あります。",
-          "en": "They are here from the second to the seventh. Also, I have money too.",
+          "spk": "りきぞう",
+          "jp": "二日から 七日まで います。",
+          "en": "They are here from the second to the seventh.",
           "terms": [
             "v_futsuka",
             "p_kara",
@@ -635,8 +635,6 @@
               "form": "polite_masu"
             },
             "v_sorekara",
-            "v_okane",
-            "p_mo",
             {
               "id": "v_aru",
               "form": "polite_masu"
@@ -644,25 +642,23 @@
           ]
         },
         {
-          "spk": "A",
-          "jp": "毎月 三日に 五人 います。",
-          "en": "Every month on the third, five people come.",
+          "spk": "やまもと",
+          "jp": "今月 三日に 五人 いますね。",
+          "en": "So on the third this month, five people are here.",
           "terms": [
-            "v_maigetsu",
+            "v_kongetsu",
             "v_mikka",
             "p_ni",
-            {
-              "counter": "nin",
-              "n": 5
-            },
+            "v_gonin",
             {
               "id": "v_iru",
               "form": "polite_masu"
-            }
+            },
+            "p_ne"
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "とても いいですね。",
           "en": "That's really nice, isn't it!",
           "terms": [
@@ -680,7 +676,7 @@
       "context": "Yamakawa asks Rikizo about when he gets his monthly allowance.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "りきぞうさん、お金が ありますか。",
           "en": "Rikizo-san, do you have money?",
           "terms": [
@@ -696,7 +692,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "今日は ありません。毎月 一日に あります。",
           "en": "Not today. I have some on the first of every month.",
           "terms": [
@@ -716,7 +712,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "一日ですか。いいですね。",
           "en": "The first? That's nice!",
           "terms": [
@@ -729,7 +725,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "はい。お父さんも 一日に あります。",
           "en": "Yes. My father also has money on the first.",
           "terms": [
@@ -745,7 +741,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "お母さんも ですか。",
           "en": "And your mother too?",
           "terms": [
@@ -756,7 +752,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "そうです。一日は いい 日ですね。",
           "en": "That's right. The first is a great day, isn't it!",
           "terms": [
@@ -770,7 +766,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "これは お金ですか。",
           "en": "Is this money?",
           "terms": [
@@ -782,7 +778,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "そうです。それも あれも お金です。",
           "en": "That's right. That and that over there are also money.",
           "terms": [
@@ -795,7 +791,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "いくら ありますか。",
           "en": "How much is there?",
           "terms": [
@@ -808,7 +804,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "千円 あります。",
           "en": "There is one thousand yen.",
           "terms": [
@@ -821,7 +817,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "今月、いつまでに ゲームを しますか。",
           "en": "This month, by when will you do (play) the game?",
           "terms": [
@@ -838,7 +834,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "九日までに ゲームを します。",
           "en": "I will do (play) the game by the 9th.",
           "terms": [
@@ -860,7 +856,7 @@
       "context": "Rikizo and Yamakawa share their birthday months and days.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "やまかわさん、たんじょうびは 三月ですか。",
           "en": "Yamakawa-san, is your birthday in March?",
           "terms": [
@@ -877,7 +873,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "そうです。三月 三日です。",
           "en": "That's right. It's March 3rd.",
           "terms": [
@@ -891,7 +887,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "わたしは 五月 五日です。",
           "en": "Mine is May 5th.",
           "terms": [
@@ -906,7 +902,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "五月は いいですね。お金が たくさん ありますか。",
           "en": "May is nice! Do you have lots of money?",
           "terms": [
@@ -929,7 +925,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "今日は ありません。五日に あります。",
           "en": "Not today. I have some on the fifth.",
           "terms": [
@@ -948,7 +944,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "五日は お金の 日ですね。",
           "en": "The fifth is a money day, isn't it!",
           "terms": [
@@ -1570,7 +1566,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "Correct: 毎月 一日 に 友だちが います。 — 「一日」 (いちにち) means \"one day\"."
+          "explanation": "Correct: 毎月 一日 に 友だちが います。 — 「一日」 here is read ついたち, the first of the month. (The same kanji read いちにち means \"one day\".)"
         },
         {
           "kind": "mcq",
@@ -1661,7 +1657,7 @@
           "q": "友だち _______ 三人 います。",
           "choices": [
             "は",
-            "が",
+            "を",
             "を",
             "の"
           ],
@@ -1706,7 +1702,7 @@
           "q": "一日 _______ お金が あります。",
           "choices": [
             "に",
-            "は",
+            "へ",
             "が",
             "と"
           ],
@@ -1753,7 +1749,7 @@
           "q": "今月 _______ 友だちが います。",
           "choices": [
             "も",
-            "は",
+            "を",
             "が",
             "を"
           ],
@@ -1800,7 +1796,7 @@
           "q": "あれ _______ いいですか。",
           "choices": [
             "が",
-            "は",
+            "を",
             "を",
             "も"
           ],
@@ -1819,7 +1815,7 @@
           "q": "テレビ _______ いくつ ありますか。",
           "choices": [
             "は",
-            "が",
+            "を",
             "を",
             "に"
           ],

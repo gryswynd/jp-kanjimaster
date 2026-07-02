@@ -45,15 +45,18 @@
       "pattern": [
         {
           "text": "[plain form]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "CLAUSE"
         },
         {
           "text": "のに",
-          "color": "connector"
+          "color": "connector",
+          "label": "CONCESSION"
         },
         {
           "text": "[contrasting result]",
-          "color": "modifier"
+          "color": "modifier",
+          "label": "RESULT"
         }
       ],
       "meaning": "even though ~ / despite ~",
@@ -62,7 +65,7 @@
         "Before のに, use plain form rules: verb (dictionary, past, negative), i-adjective (plain form), な-adjective + な, noun + な.",
         "Noun + なのに: 先生なのに (even though he's a teacher). Na-adjective + なのに: 大切なのに (even though it's important).",
         "のに expresses the speaker's emotional reaction — surprise, disappointment, or frustration. It is less common in neutral factual statements.",
-        "Compare with ので (G17): ので explains the reason FOR something; のに shows that the actual result was contrary to what was expected."
+        "Compare with ので (G10): ので explains the reason FOR something; のに shows that the actual result was contrary to what was expected."
       ],
       "examples": [
         {
@@ -115,8 +118,11 @@
               "gloss": "didn't pass (plain negative past)",
               "tokens": [
                 {
-                  "k": "合格",
-                  "r": "ごうかく"
+                  "k": "合",
+                  "r": "あ"
+                },
+                {
+                  "k": "格"
                 },
                 {
                   "k": "しなかった",
@@ -262,15 +268,18 @@
       "pattern": [
         {
           "text": "[te-form]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "VERB"
         },
         {
           "text": "も",
-          "color": "connector"
+          "color": "connector",
+          "label": "CONCESSION"
         },
         {
           "text": "[outcome holds regardless]",
-          "color": "modifier"
+          "color": "modifier",
+          "label": "RESULT"
         }
       ],
       "meaning": "even if ~ / even though ~",
@@ -286,27 +295,26 @@
         {
           "parts": [
             {
-              "text": "食べ",
+              "text": "食べて",
               "role": "predicate",
-              "gloss": "eat (masu-stem)",
+              "gloss": "eat (te-form of 食べる)",
               "tokens": [
                 {
                   "k": "食",
-                  "r": "た"
+                  "r": "た",
+                  "g": "v_taberu_te_form"
                 },
                 {
-                  "k": "べ"
+                  "k": "べて",
+                  "g": "v_taberu_te_form"
                 }
               ]
             },
             {
-              "text": "ても、",
+              "text": "も、",
               "role": "connector",
-              "gloss": "even if",
+              "gloss": "even (ても = te-form + も)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },
@@ -331,13 +339,7 @@
               "gloss": "stomach (が)",
               "tokens": [
                 {
-                  "k": "お",
-                  "g": "v_onaka"
-                },
-                {
-                  "k": "腹",
-                  "r": "なか",
-                  "g": "v_onaka"
+                  "k": "お腹"
                 },
                 {
                   "k": "が"
@@ -392,10 +394,7 @@
               "gloss": "even if",
               "tokens": [
                 {
-                  "k": "て"
-                },
-                {
-                  "k": "も"
+                  "k": "ても"
                 },
                 {
                   "k": "、"
@@ -479,23 +478,28 @@
       "pattern": [
         {
           "text": "[clause A]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "REASON"
         },
         {
           "text": "し、",
-          "color": "connector"
+          "color": "connector",
+          "label": "LIST"
         },
         {
           "text": "[clause B]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "REASON"
         },
         {
           "text": "し、",
-          "color": "connector"
+          "color": "connector",
+          "label": "LIST"
         },
         {
           "text": "[conclusion]",
-          "color": "modifier"
+          "color": "modifier",
+          "label": "CONCLUSION"
         }
       ],
       "meaning": "and also ~ / not only X but also Y (listing reasons)",
@@ -999,10 +1003,7 @@
                 "gloss": "even if",
                 "tokens": [
                   {
-                    "k": "て"
-                  },
-                  {
-                    "k": "も"
+                    "k": "ても"
                   },
                   {
                     "k": "、"
@@ -1057,23 +1058,23 @@
                 ]
               },
               {
-                "text": "座っ",
+                "text": "座って",
                 "role": "predicate",
-                "gloss": "sit (masu-stem)",
+                "gloss": "sit (te-form of 座る)",
                 "tokens": [
                   {
-                    "k": "座っ"
+                    "k": "座"
+                  },
+                  {
+                    "k": "って"
                   }
                 ]
               },
               {
-                "text": "てもいいです。",
+                "text": "もいいです。",
                 "role": "predicate",
                 "gloss": "it's okay to / you may sit",
                 "tokens": [
-                  {
-                    "k": "て"
-                  },
                   {
                     "k": "も"
                   },
@@ -1160,10 +1161,7 @@
               "gloss": "the whole time",
               "tokens": [
                 {
-                  "k": "ずっ"
-                },
-                {
-                  "k": "と"
+                  "k": "ずっと"
                 }
               ]
             },
@@ -1223,10 +1221,7 @@
               "gloss": "even if",
               "tokens": [
                 {
-                  "k": "て"
-                },
-                {
-                  "k": "も"
+                  "k": "ても"
                 },
                 {
                   "k": "、"
@@ -1336,8 +1331,7 @@
               "gloss": "service too (も)",
               "tokens": [
                 {
-                  "k": "サービス",
-                  "r": "さーびす"
+                  "k": "サービス"
                 },
                 {
                   "k": "も"
@@ -1577,7 +1571,7 @@
           ],
           "answer": "のに contrasts expected vs actual outcomes with emotional nuance; ので gives a neutral reason.",
           "terms": [],
-          "explanation": "ので (G17) neutrally explains a cause. のに adds emotional weight — the result was unexpected or felt unfair. 疲れたので帰ります (I'm going home because I'm tired) vs 疲れたのに帰れない (Even though I'm tired, I can't go home — frustrating!)."
+          "explanation": "ので (G10) neutrally explains a cause. のに adds emotional weight — the result was unexpected or felt unfair. 疲れたので帰ります (I'm going home because I'm tired) vs 疲れたのに帰れない (Even though I'm tired, I can't go home — frustrating!)."
         },
         {
           "kind": "mcq",

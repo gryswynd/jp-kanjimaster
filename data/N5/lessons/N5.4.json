@@ -252,7 +252,7 @@
       "context": "Yamakawa asks Rikizo what time he is here, then asks when Yamamoto-sensei arrives.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "りきぞうさん、今日 何時に いますか。",
           "en": "Rikizo-san, what time are you here today?",
           "terms": [
@@ -269,7 +269,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "三時に います。",
           "en": "I am here at three o'clock.",
           "terms": [
@@ -285,7 +285,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "何時から 何時まで いますか。",
           "en": "From what time until what time are you here?",
           "terms": [
@@ -301,7 +301,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "一時から 三時まで います。",
           "en": "I am here from one o'clock until three o'clock.",
           "terms": [
@@ -322,7 +322,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "先生は 何時に いますか。",
           "en": "What time is the teacher here?",
           "terms": [
@@ -338,7 +338,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "先生は 四時に います。",
           "en": "The teacher is here at four o'clock.",
           "terms": [
@@ -356,7 +356,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまかわ",
           "jp": "毎日 四時ですか。",
           "en": "Every day at four o'clock?",
           "terms": [
@@ -370,7 +370,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "はい、毎日 四時に います。",
           "en": "Yes, every day at four o'clock.",
           "terms": [
@@ -395,7 +395,7 @@
       "context": "Yamamoto-sensei asks Rikizo about his attendance this week compared to last week.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "りきぞうさん、今週は いますか。",
           "en": "Rikizo-san, are you here this week?",
           "terms": [
@@ -411,7 +411,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "はい、今週は 毎日 います。",
           "en": "Yes, I am here every day this week.",
           "terms": [
@@ -426,7 +426,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "先週も 毎日 いましたか。",
           "en": "Were you here every day last week too?",
           "terms": [
@@ -441,7 +441,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "いいえ、先週は 月よう日と 水よう日に いました。",
           "en": "No, last week I was here on Monday and Wednesday.",
           "terms": [
@@ -459,7 +459,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "先月も いましたか。",
           "en": "Were you here last month too?",
           "terms": [
@@ -473,7 +473,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "先月は 火よう日と 木よう日に いました。",
           "en": "Last month I was here on Tuesdays and Thursdays.",
           "terms": [
@@ -490,7 +490,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "そうですか。毎週 います ね。",
           "en": "I see. You come every week, don't you.",
           "terms": [
@@ -504,19 +504,16 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "はい、毎週 います。いいですね。",
-          "en": "Yes, I am here every week. That's great!",
+          "spk": "りきぞう",
+          "jp": "はい、毎週 います。",
+          "en": "Yes, I am here every week.",
           "terms": [
             "p_hai",
             "v_maishuu",
             {
               "id": "v_iru",
               "form": "polite_masu"
-            },
-            "v_ii",
-            "g_desu",
-            "p_ne"
+            }
           ]
         }
       ]
@@ -527,7 +524,7 @@
       "context": "Yamamoto-sensei checks if Rikizo understands Japanese, and encourages him.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "りきぞうさん、にほんごは 分かりますか。",
           "en": "Rikizo-san, do you understand Japanese?",
           "terms": [
@@ -543,7 +540,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "時々 分かります。",
           "en": "I understand sometimes.",
           "terms": [
@@ -555,7 +552,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "そうですか。半分 分かりますか。",
           "en": "I see. Do you understand about half of it?",
           "terms": [
@@ -569,7 +566,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "はい、半分 分かります。",
           "en": "Yes, I understand about half of it.",
           "terms": [
@@ -582,7 +579,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "やまもと",
           "jp": "毎週 います ね。すぐ 分かりますよ。",
           "en": "You are here every week. You will understand right away!",
           "terms": [
@@ -601,13 +598,14 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "いいです。毎週 分かります。",
-          "en": "That's good. I understand more every week.",
+          "spk": "りきぞう",
+          "jp": "はい。今週は 半分 分かります。",
+          "en": "Yes. This week I understand half of it.",
           "terms": [
-            "v_ii",
-            "g_desu",
-            "v_maishuu",
+            "p_hai",
+            "v_konshuu",
+            "p_wa",
+            "v_hanbun",
             {
               "id": "v_wakaru",
               "form": "polite_masu"
@@ -619,10 +617,10 @@
     {
       "type": "conversation",
       "title": "かいわ 4: このケーキ（This Cake）",
-      "context": "Rikizo and Yamakawa spot cake at a shop and talk about it using demonstratives.",
+      "context": "Rikizo asks the shop staff about the cakes on display.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "いらっしゃいませ。",
           "en": "Welcome!",
           "terms": [
@@ -630,7 +628,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "このケーキは いいですか。",
           "en": "Is this cake good?",
           "terms": [
@@ -645,7 +643,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "はい、このケーキは とても いいです。",
           "en": "Yes, this cake is very good.",
           "terms": [
@@ -661,7 +659,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "そのケーキも いいですか。",
           "en": "Is that cake also good?",
           "terms": [
@@ -676,7 +674,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "そうですね。 そのケーキも いいです。",
           "en": "That's right. That cake is also good.",
           "terms": [
@@ -692,7 +690,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "きのう ケーキが ありましたか。",
           "en": "Was there cake yesterday?",
           "terms": [
@@ -707,7 +705,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "はい、きのうも ちょっと ありました。",
           "en": "Yes, there was a little yesterday too.",
           "terms": [
@@ -1064,8 +1062,8 @@
           ]
         },
         {
-          "jp": "つぎの たんじょうびまでに、 にほんごが すぐ 分かります。",
-          "en": "By my next birthday, I will understand Japanese right away.",
+          "jp": "つぎの たんじょうびまでに、 にほんごが 分かります。",
+          "en": "By my next birthday, I will understand Japanese.",
           "terms": [
             "v_tsugi",
             "p_no",
@@ -1073,7 +1071,6 @@
             "p_made_ni",
             "v_nihongo",
             "p_ga",
-            "v_sugu",
             {
               "id": "v_wakaru",
               "form": "polite_masu"
@@ -1382,7 +1379,7 @@
         },
         {
           "kind": "mcq",
-          "q": "_______ スマホは 先生のですか。",
+          "q": "_______ スマホが 先生のですか。",
           "choices": [
             "どの",
             "この",
@@ -1399,7 +1396,7 @@
             "g_desu",
             "p_ka"
           ],
-          "explanation": "Correct: どの スマホは 先生のですか。 — 「どの」 (どの) means \"which\"."
+          "explanation": "Correct: どの スマホが 先生のですか。 — 「どの」 (どの) means \"which\"."
         },
         {
           "kind": "mcq",
@@ -1520,7 +1517,7 @@
           "q": "きのう ケーキ _______ ありましたか。",
           "choices": [
             "が",
-            "は",
+            "へ",
             "を",
             "も"
           ],
@@ -1542,7 +1539,7 @@
           "q": "この スマホ _______ 先生のです。",
           "choices": [
             "は",
-            "が",
+            "を",
             "を",
             "に"
           ],
@@ -1610,7 +1607,7 @@
             "に",
             "は",
             "を",
-            "も"
+            "を"
           ],
           "answer": "に",
           "terms": [

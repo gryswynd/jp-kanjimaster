@@ -146,8 +146,11 @@
               "gloss": "after doing homework (した = plain past of する + あとで)",
               "tokens": [
                 {
-                  "k": "宿題",
-                  "r": "しゅくだい"
+                  "k": "宿"
+                },
+                {
+                  "k": "題",
+                  "r": "だい"
                 },
                 {
                   "k": "を",
@@ -158,13 +161,7 @@
                   "g": "v_suru_plain_past"
                 },
                 {
-                  "k": "あ"
-                },
-                {
-                  "k": "と"
-                },
-                {
-                  "k": "で"
+                  "k": "あとで"
                 },
                 {
                   "k": "、"
@@ -177,8 +174,7 @@
               "gloss": "TV (object: を)",
               "tokens": [
                 {
-                  "k": "テレビ",
-                  "r": "てれび"
+                  "k": "テレビ"
                 },
                 {
                   "k": "を",
@@ -273,10 +269,14 @@
               "gloss": "brush (my) teeth (polite)",
               "tokens": [
                 {
-                  "k": "歯をみ"
+                  "k": "歯"
                 },
                 {
-                  "k": "が"
+                  "k": "を",
+                  "r": "お"
+                },
+                {
+                  "k": "みが"
                 },
                 {
                   "k": "きます",
@@ -1204,8 +1204,7 @@
               "gloss": "walk in the park (歩く → 歩いた → 歩いたり) + します",
               "tokens": [
                 {
-                  "k": "公園",
-                  "r": "こうえん"
+                  "k": "公園"
                 },
                 {
                   "k": "を",
@@ -1343,16 +1342,15 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "私も！映画を見てから、帰りましょう。",
-          "en": "Me too! After watching the movie, let's head home.",
+          "jp": "私も！じゃ、食べてから、帰りましょう。",
+          "en": "Me too! Then after we eat, let's head home.",
           "terms": [
             "char_rikizo",
             "v_watashi",
             "p_mo",
-            "v_eiga",
-            "p_wo",
+            "p_ja",
             {
-              "id": "v_miru",
+              "id": "v_taberu",
               "form": "te_form"
             },
             "p_tekara",
@@ -1475,7 +1473,7 @@
               "form": "te_form"
             }
           ],
-          "explanation": "てから uses the <b>て-form</b>. 見る → て-form <b>見て</b> + から → 見てから. The other options use the dictionary form (見る), plain past (見た), or ながら (simultaneous action — wrong meaning here)."
+          "explanation": "てから uses the て-form. 見る → て-form 見て + から → 見てから. The other options use the dictionary form (見る), plain past (見た), or ながら (simultaneous action — wrong meaning here)."
         },
         {
           "kind": "mcq",
@@ -1506,7 +1504,7 @@
               "form": "polite_volitional_mashou"
             }
           ],
-          "explanation": "<b>まえに</b> means 'before'. The verb 始まる stays in <b>dictionary form</b> before まえに — this is the key rule. あとで means 'after', から can mean 'because/from', ため means 'purpose'."
+          "explanation": "まえに means 'before'. The verb 始まる stays in dictionary form before まえに — this is the key rule. あとで means 'after', から can mean 'because/from', ため means 'purpose'."
         },
         {
           "kind": "mcq",
@@ -1529,7 +1527,7 @@
               "form": "polite_volitional_mashou"
             }
           ],
-          "explanation": "<b>ながら</b> attaches to the ます-stem to express simultaneous actions. 歩く → masu-stem <b>歩き</b> + ながら → 歩きながら. The other connectors express time sequence or purpose, not simultaneity."
+          "explanation": "ながら attaches to the ます-stem to express simultaneous actions. 歩く → masu-stem 歩き + ながら → 歩きながら. The other connectors express time sequence or purpose, not simultaneity."
         },
         {
           "kind": "mcq",
@@ -1557,7 +1555,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "<b>ために</b> expresses deliberate <b>purpose</b>: 'for the sake of' or 'in order to'. Here: 日本語のために = 'for the sake of (my) Japanese / in order to improve my Japanese'. Contrast with てから (after), まえに (before), and ながら (while)."
+          "explanation": "ために expresses deliberate purpose: 'for the sake of' or 'in order to'. Here: 日本語のために = 'for the sake of (my) Japanese / in order to improve my Japanese'. Contrast with てから (after), まえに (before), and ながら (while)."
         },
         {
           "kind": "mcq",
@@ -1587,7 +1585,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "～たり～たりする closes with <b>する</b> (or <b>します</b> in polite speech). The full pattern is [verb-たり] [verb-たり] <b>します</b>. Using ながら, てから, or まえに at the end breaks the grammatical pattern entirely."
+          "explanation": "～たり～たりする closes with する (or します in polite speech). The full pattern is [verb-たり] [verb-たり] します. Using ながら, てから, or まえに at the end breaks the grammatical pattern entirely."
         }
       ]
     }

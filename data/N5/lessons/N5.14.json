@@ -449,7 +449,7 @@
       "context": "The teacher asks Miki about her Japanese study habits. They discuss how often she speaks and whether she has enough time.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "ミキさんは たいてい 日本語を 話しますか。",
           "en": "Miki, do you usually speak Japanese?",
           "terms": [
@@ -486,7 +486,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "時間が 多いですか。",
           "en": "Do you have a lot of time?",
           "terms": [
@@ -518,7 +518,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "ぜんぜん 話さない とき は ありますか。",
           "en": "Are there times when you don't speak at all?",
           "terms": [
@@ -939,15 +939,15 @@
           ]
         },
         {
-          "jp": "ケンさんの お母さんは 白人です。お父さんは 日本人です。",
-          "en": "Ken's mother is Caucasian. His father is Japanese.",
+          "jp": "ケンさんの お母さんは 外国人です。お父さんは 日本人です。",
+          "en": "Ken's mother is from another country. His father is Japanese.",
           "terms": [
             "char_ken",
             "v_san",
             "p_no",
             "v_okaasan",
             "p_wa",
-            "v_hakujin",
+            "v_gaikokujin",
             "g_desu",
             "v_otousan",
             "p_wa",
@@ -1248,7 +1248,7 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "外に 花が 多く___。（There are many flowers outside.）",
+          "q": "外に 花が たくさん ___。（There are many flowers outside.）",
           "choices": [
             "あります",
             "います",
@@ -1270,11 +1270,11 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "Correct: 外に 花が 多くあります。（There are many flowers outside.） — 「あります」 (あります) means \"to exist / to have (inanimate, polite form of ある)\"."
+          "explanation": "Correct: 外に 花が たくさん あります。（There are many flowers outside.） — flowers are inanimate, so use あります (not います)."
         },
         {
           "kind": "mcq",
-          "q": "白い 花が 多い 学校の 外に___。（I came outside the school where there are many white flowers.）",
+          "q": "今日は 学校の 外に ___。白い 花が 多いです。（I came outside the school today.）",
           "choices": [
             "来ました",
             "行きました",
@@ -1296,7 +1296,7 @@
               "form": "polite_mashita"
             }
           ],
-          "explanation": "Correct: 白い 花が 多い 学校の 外に来ました。（I came outside the school where there are many white flowers.）"
+          "explanation": "Correct: 今日は 学校の 外に 来ました。（I came outside the school today — and I am here now.） 白い 花が 多いです。"
         },
         {
           "kind": "mcq",

@@ -161,6 +161,12 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
 
     if (Array.isArray(data.entries)) {
       for (const e of data.entries) {
+        // Kanji "cards" (type:"kanji") are taught-kanji metadata — on/kun for
+        // the lesson New-Kanji grid and kanji pages — NOT sentence words.
+        // Their reading is context-blind (後→あと even in 三時間後=ご), so
+        // they never enter the tokenizer index; v_ vocab entries own the
+        // sentence readings, stems/counters/suffix rules cover the rest.
+        if (e.type === 'kanji') continue;
         // Skip entries with template-style readings — kun-form memos like
         // "おも(う)", "い/はい", "で;だ". They produce nonsense furigana
         // when leaked into prose. The intended reading lives in a sibling
@@ -211,7 +217,18 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
         if (Array.isArray(c.matches)) for (const m of c.matches) variants.add(m);
         for (const k of variants) {
           if (k && !idx.has(k)) {
-            idx.set(k, adapted);
+            let entryForKey = adapted;
+            // Non-primary kanji-bearing variants need their OWN reading so the
+            // alias emit path can derive per-char furigana: すずき先生 must
+            // read すずきせんせい, not the primary surface's すずき (which
+            // leaves 先生 bare). Covers `<name>+先生`-style aliases.
+            if (/[一-鿿]/.test(k) && k !== adapted.surface && adapted.reading && k.startsWith(adapted.surface)) {
+              const suffix = k.slice(adapted.surface.length);
+              const CHAR_KANJI_SUFFIXES = { '先生': 'せんせい', '君': 'くん' };
+              const sufReading = CHAR_KANJI_SUFFIXES[suffix] || (/^[぀-ヿー]+$/.test(suffix) ? suffix : null);
+              if (sufReading != null) entryForKey = { ...adapted, surface: k, reading: adapted.reading + sufReading };
+            }
+            idx.set(k, entryForKey);
             if (/[一-鿿]/.test(k)) characterKanjiKeys.add(k);
           }
         }
@@ -270,6 +287,19 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
       return MULTI_STEP_PREFIXES.some(p => ruleKey === p || ruleKey.startsWith(p + '_'));
     }
 
+    // Inflection STEMS: conjugation tables and drills show bare stems
+    // (行き / 飲ま / 行っ / 走れ / 高) that no full-form surface covers.
+    // Slice them off the generated forms so they carry the root's reading
+    // instead of falling back bare. Kanji-bearing stems only; authored
+    // vocab always wins on collision (!idx.has).
+    const STEM_SLICES = {
+      polite_masu:      ['ます'],
+      plain_negative:   ['ない'],
+      te_form:          ['て', 'で'],
+      polite_potential: ['ます'],
+      adverbial:        ['く']
+    };
+
     let conjugated = 0;
     for (const { entry, forms } of roots) {
       for (const form of forms) {
@@ -302,10 +332,36 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
         // (e.g. prose has "ほしくない" not "欲しくない"). EXCEPTION: multi-step
         // forms (passive/causative chains) don't auto-index by reading, to
         // avoid kana-collision with single-step forms of other roots.
-        if (opts.includeReadings && synth.reading && synth.reading !== synth.surface && !idx.has(synth.reading) && !isMultiStep(form)) {
+        // Curated suppressions: kana readings of synths that collide with a
+        // particle sequence in prose. でなければ (copula で + なければ) must
+        // NOT be claimed by v_deru's 出なければ reading — the copula split is
+        // the correct chip for kana prose.
+        const READING_INDEX_BLOCKLIST = new Set(['でなければ']);
+        if (opts.includeReadings && synth.reading && synth.reading !== synth.surface && !idx.has(synth.reading) && !isMultiStep(form) && !READING_INDEX_BLOCKLIST.has(synth.reading)) {
           idx.set(synth.reading, synth);
           readingOnlyKeys.add(synth.reading);
           conjugated++;
+        }
+        // Slice + index the bare stem (行きます → 行き). Surface AND reading
+        // must share the suffix; the stem must still contain kanji (kana
+        // stems would collide with real words). Never index stems by reading.
+        const sufs = STEM_SLICES[form];
+        if (sufs && synth.reading) {
+          for (const suf of sufs) {
+            if (!synth.surface.endsWith(suf) || !synth.reading.endsWith(suf)) continue;
+            const stemS = synth.surface.slice(0, -suf.length);
+            const stemR = synth.reading.slice(0, -suf.length);
+            if (!stemS || stemS === stemR || !/[一-鿿]/.test(stemS)) break;
+            if (idx.has(stemS)) break;
+            idx.set(stemS, {
+              id: entry.id, surface: stemS, reading: stemR,
+              meaning: entry.meaning, type: 'inflected',
+              _ruleKey: form + '_stem', _rootRank: lessonRank(entry),
+              tokens: deriveTokens(stemS, stemR) || [{ k: stemS, r: stemR }]
+            });
+            conjugated++;
+            break;
+          }
         }
       }
     }
@@ -350,6 +406,7 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
       // Vocab/grammar entries: e.matches[] — kana-hybrid spelling alternates.
       if (Array.isArray(data.entries)) {
         for (const e of data.entries) {
+          if (e.type === 'kanji') continue;   // cards never index (see PASS 1)
           if (isTemplateReading(e.reading)) continue;
           if (!Array.isArray(e.matches)) continue;
           // Collect the kanji set of the entry's surface — used to filter
@@ -746,7 +803,10 @@ export function tokenizeTextLattice(text, glossaryIndex, opts = {}) {
   // splits of unglossaried kana therefore stay as greedy emits them — those are
   // a glossary/orthography concern that qa-story's SPLIT-KANA check already flags
   // (→ 時). The lattice's win here is out-of-level disambiguation, not coverage.
-  const FB0 = 20, FB1 = 13;
+  // FB1_KANJI > W_WORD + W_OUTLEVEL − FB0 so an out-of-level single-kanji vocab
+  // edge (10+30=40) still beats a bare 1-kanji fallback (20+30=50): 猫/弟/窓
+  // keep their readings at any ceiling instead of falling back reading-less.
+  const FB0 = 20, FB1 = 13, FB1_KANJI = 30;
 
   const rankOf = (entry) => {
     if (!entry) return 998;
@@ -776,8 +836,10 @@ export function tokenizeTextLattice(text, glossaryIndex, opts = {}) {
     for (const s of (byFirstChar.get(ch) || [])) {
       if (text.startsWith(s, i)) relax(i, i + s.length, { surface: s }, edgeCost(s, glossaryIndex.get(s)));
     }
+    let runCost = FB0;
     for (let j = i; j < n && (j - i) < MAXRUN && !PUNCT.test(text[j]); j++) {
-      relax(i, j + 1, { fallback: true }, FB0 + FB1 * (j + 1 - i));
+      runCost += /[一-鿿]/.test(text[j]) ? FB1_KANJI : FB1;
+      relax(i, j + 1, { fallback: true }, runCost);
     }
   }
   if (best[n] === Infinity) return tokenizeTextGreedy(text, glossaryIndex);   // safety net
@@ -794,12 +856,89 @@ export function tokenizeTextLattice(text, glossaryIndex, opts = {}) {
   return out;
 }
 
+// ── Instance-dependent readings for suffix kanji ─────────────────────────────
+// A handful of single kanji read differently when suffixed to what precedes
+// them (三時間後=ご not あと, 世界中=じゅう not なか). The glossary can't
+// encode this (entries are context-free), so a small curated post-pass
+// rewrites the reading based on the preceding tokens. Bake-time only,
+// deterministic; extend the table (and validate-tokens' blacklist) as new
+// cases surface in content.
+const NUMLIKE = '0-9０-９一二三四五六七八九十百千何数';
+const SUFFIX_READINGS = [
+  // duration + 後 → ご (一時間後, 二日後, 十分後, 三年後, 二週間後)
+  { k: '後', from: 'あと', to: 'ご',
+    prev: (txt, g) => /^count_/.test(g || '') ||
+      new RegExp(`[${NUMLIKE}](時間|分|秒|日|週間|か月|ヶ月|月|年)$`).test(txt) },
+  // 〜中 → じゅう ("throughout"), ちゅう ("during") — protective; the common
+  // compounds (世界中, 午前中) are glossaried words and never reach here.
+  { k: '中', from: 'なか', to: 'じゅう',
+    prev: (txt) => /(世界|一日|一晩|一年)$/.test(txt) },
+  { k: '中', from: 'なか', to: 'ちゅう',
+    prev: (txt) => /(午前|午後|今週|授業)$/.test(txt) },
+  // digit + 時 → じ (backstop; counter engine covers almost all of these)
+  { k: '時', from: 'とき', to: 'じ',
+    prev: (txt) => new RegExp(`[${NUMLIKE}]$`).test(txt) },
+  // counter + 目 → ordinal sense (一つ目, 十五まい目, 三ばん目). Reading stays
+  // め; what changes is the TERM TAG so a tap opens v_me_ordinal ("-th"),
+  // not v_me ("eye") — surface-keyed fallback can only hold one sense.
+  { k: '目', from: 'め', to: 'め', g: 'v_me_ordinal',
+    prev: (txt, g) => /^count_/.test(g || '') ||
+      new RegExp(`[${NUMLIKE}](つ|まい|枚|ばん|番|回|人|日|行|ページ)$`).test(txt) },
+  // 何: default reading is なに (v_nani wins the index); it becomes なん before
+  // the copula, で/と/の, and counters (何ですか, 何でも, 何時, 何まい).
+  // Particles を/が/も/か keep なに (何を, 何か, 何も).
+  { k: '何', from: 'なに', to: 'なん',
+    next: (txt, g) => /^count_/.test(g || '') ||
+      /^(です|だ|でも|で|と|の|時|人|回|年|月|日|週|分|度|番|枚|まい|冊|本|匹|台|歳|階|個|色)/.test(txt) },
+  // 開く homograph: passive 開かれる is ひらく's territory (あく is
+  // intransitive), and を…開いた is transitive ひらいた. Retag the whole
+  // conjugation group from v_aku_2 to v_hiraku so taps open the right verb.
+  { k: '開', from: 'あ', to: 'ひら', gsub: ['v_aku_2', 'v_hiraku'],
+    next: (txt) => /^かれ/.test(txt) },
+  { k: '開', from: 'あ', to: 'ひら', gsub: ['v_aku_2', 'v_hiraku'],
+    prev: (txt) => /を$/.test(txt), next: (txt) => /^い/.test(txt) }
+];
+
+function applySuffixReadings(tokens) {
+  for (let i = 0; i < tokens.length; i++) {
+    const t = tokens[i];
+    if (!t || typeof t !== 'object') continue;
+    for (const rule of SUFFIX_READINGS) {
+      if (t.k !== rule.k) continue;
+      if (t.r != null && t.r !== rule.from) continue;
+      if (rule.prev) {
+        if (i === 0) continue;
+        let ctx = '';
+        for (let j = Math.max(0, i - 3); j < i; j++) ctx += (tokens[j] && tokens[j].k) || '';
+        if (!rule.prev(ctx, tokens[i - 1] && tokens[i - 1].g)) continue;
+      }
+      if (rule.next) {
+        let ctx = '';
+        for (let j = i + 1; j < Math.min(tokens.length, i + 3); j++) ctx += (tokens[j] && tokens[j].k) || '';
+        if (!rule.next(ctx, tokens[i + 1] && tokens[i + 1].g)) continue;
+      }
+      t.r = rule.to;
+      // A rule may also retag the token's term id (sense homographs like
+      // ordinal 目) — but never clobber an existing group membership.
+      if (rule.g && !t.g) t.g = rule.g;
+      // …or rename the whole conjugation group's root (開かれた:
+      // v_aku_2_passive → v_hiraku_passive; both roots share rule keys).
+      if (rule.gsub && t.g && t.g.startsWith(rule.gsub[0])) {
+        const oldG = t.g, newG = rule.gsub[1] + t.g.slice(rule.gsub[0].length);
+        for (const tk of tokens) if (tk && tk.g === oldG) tk.g = newG;
+      }
+      break;
+    }
+  }
+  return tokens;
+}
+
 // Canonical tokenizer entry point. As of the lattice migration this delegates
 // to the min-cost segmenter; the greedy implementation is kept as
 // tokenizeTextGreedy (reference + lattice safety net). Callers pass
 // opts.ceiling (a lessonId like "N4.99") to enable out-of-level disambiguation.
 export function tokenizeText(text, glossaryIndex, opts) {
-  return tokenizeTextLattice(text, glossaryIndex, opts || {});
+  return applySuffixReadings(tokenizeTextLattice(text, glossaryIndex, opts || {}));
 }
 
 // ── Sanity: tokens concatenated must reconstruct the original text ──────────

@@ -343,7 +343,7 @@
       "context": "Yamamoto-sensei meets Rikizo at the convenience store near the station.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん！今日 コンビニに 来ましたか。",
           "en": "Rikizo-san! Did you come to the convenience store today?",
           "terms": [
@@ -383,7 +383,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "はい、毎週 来ます。スーパーにも 行きますか。",
           "en": "Yes, I come every week. Do you also go to the supermarket?",
           "terms": [
@@ -419,7 +419,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "いいですね。バスで 行きますか。",
           "en": "That's nice. Are you going by bus?",
           "terms": [
@@ -598,7 +598,7 @@
       "context": "Yamamoto-sensei asks Rikizo about his plans for next week.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん、来週 どこに 行きますか。",
           "en": "Rikizo-san, where are you going next week?",
           "terms": [
@@ -636,7 +636,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "かぞくと 行きますか。",
           "en": "Are you going with your family?",
           "terms": [
@@ -664,7 +664,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "いいですね。どこの スーパーですか。",
           "en": "That's nice. Which supermarket is it?",
           "terms": [
@@ -690,7 +690,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "来月も 行きますか。",
           "en": "Will you also go next month?",
           "terms": [
@@ -730,12 +730,12 @@
       "title": "よむ れんしゅう 1: りきぞうのいっしゅう（Rikizo's Week）",
       "passage": [
         {
-          "jp": "りきぞうは 毎日 バスで 来ます。",
-          "en": "Rikizo comes by bus every day.",
+          "jp": "りきぞうは いつも バスで 来ます。",
+          "en": "Rikizo always comes by bus.",
           "terms": [
             "char_rikizo",
             "p_wa",
-            "v_mainichi",
+            "v_itsumo",
             "v_basu",
             "p_de",
             {
@@ -788,7 +788,7 @@
         },
         {
           "jp": "また コンビニへ 行きました。",
-          "en": "He also went to the convenience store again.",
+          "en": "He went to the convenience store again.",
           "terms": [
             "v_mata",
             "v_konbini",
@@ -937,8 +937,8 @@
       "title": "よむ れんしゅう 2: やまかわのおでかけ（Yamakawa's Outing）",
       "passage": [
         {
-          "jp": "やまかわは 家から 駅まで バスで 来ます。",
-          "en": "Yamakawa comes from home to the station by bus.",
+          "jp": "やまかわは 家から 駅まで バスで 行きます。",
+          "en": "Yamakawa goes from home to the station by bus.",
           "terms": [
             "char_yamakawa",
             "p_wa",
@@ -949,7 +949,7 @@
             "v_basu",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_masu"
             }
           ]
@@ -970,15 +970,15 @@
           ]
         },
         {
-          "jp": "うちから バスで 来ました。",
-          "en": "He came from home by bus.",
+          "jp": "うちから バスで 行きました。",
+          "en": "He went from home by bus.",
           "terms": [
             "v_uchi",
             "p_kara",
             "v_basu",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             }
           ]
@@ -1017,15 +1017,15 @@
           ]
         },
         {
-          "jp": "先週は スーパーへ 来ませんでした。",
-          "en": "Last week he did not come to the supermarket.",
+          "jp": "先週は スーパーへ 行きませんでした。",
+          "en": "Last week he did not go to the supermarket.",
           "terms": [
             "v_senshuu",
             "p_wa",
             "v_suupaa",
             "p_e",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_past_negative"
             }
           ]
@@ -1045,13 +1045,13 @@
           ]
         },
         {
-          "jp": "来月も 来ます。",
-          "en": "He will come next month too.",
+          "jp": "来月も 行きます。",
+          "en": "He will go next month too.",
           "terms": [
             "v_raigetsu",
             "p_mo",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_masu"
             }
           ]
@@ -1085,15 +1085,15 @@
           ]
         },
         {
-          "q": "バスで 来ましたか。",
+          "q": "バスで 行きましたか。",
           "q_en": "Did you come by bus?",
-          "a": "はい、バスで 来ました。",
+          "a": "はい、バスで 行きました。",
           "a_en": "Yes, I came by bus.",
           "terms": [
             "v_basu",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             },
             "p_ka"
@@ -1103,22 +1103,22 @@
             "v_basu",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             }
           ]
         },
         {
-          "q": "先週 スーパーへ 来ましたか。",
+          "q": "先週 スーパーへ 行きましたか。",
           "q_en": "Did you come to the supermarket last week?",
-          "a": "いいえ、来ませんでした。",
+          "a": "いいえ、行きませんでした。",
           "a_en": "No, I did not come.",
           "terms": [
             "v_senshuu",
             "v_suupaa",
             "p_e",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             },
             "p_ka"
@@ -1126,7 +1126,7 @@
           "a_terms": [
             "v_iie",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_past_negative"
             }
           ]
@@ -1581,7 +1581,7 @@
           "q": "きのう スーパー _______ 行きましたか。",
           "choices": [
             "に",
-            "は",
+            "を",
             "の",
             "と"
           ],

@@ -156,6 +156,7 @@
       if (vClass === 'u')    vClass = 'godan';
       if (vClass === 'ru')   vClass = 'ichidan';
       if (vClass === 'verb') vClass = 'godan';
+      if (vClass === 'godan_ru') vClass = 'godan';  // る-ending godan (座る, 帰る)
       if (!vClass)           vClass = 'godan';
       // irr_iku: uses godan rules for most forms; conjugation_rules.json
       // provides replace overrides for the four euphonic forms (te/ta/tari/tara)

@@ -152,6 +152,16 @@ const idIdx = new Map();
 for (const [, e] of surfaceIdx) {
   if (e && e.id && !idIdx.has(e.id)) idIdx.set(e.id, e);
 }
+// ALSO index every raw glossary entry by id: homograph "losers" that share a
+// surface with another entry (v_me_ordinal vs v_me on 目) never occupy a
+// surface slot, but suffix rules / hand tags may still reference them by id.
+for (const p of GLOSSARY_PATHS) {
+  let data;
+  try { data = JSON.parse(await fs.readFile(p, 'utf8')); } catch { continue; }
+  for (const e of (data.entries || [])) {
+    if (e && e.id && e.type !== 'kanji' && !idIdx.has(e.id)) idIdx.set(e.id, e);
+  }
+}
 // Particles also have an `id` but their surface is keyed under `particle`.
 // They're already in surfaceIdx via the buildGlossaryIndex particle branch.
 
@@ -173,12 +183,20 @@ function classifyToken(t) {
   if (t.g) {
     const entry = idIdx.get(t.g);
     if (!entry) {
-      // Could be a synth not in idx (shouldn't happen; we built idx with
-      // synths). Try parsing as <root>_<formKey>.
-      const m = t.g.match(/^(.+?)_(.+)$/);
-      const rootId = m && m[1];
-      const root = rootId && idIdx.get(rootId);
-      return { kind: 'g-unknown', g: t.g, root };
+      // A synth id that lost its surface slot to a homograph sibling
+      // (v_hiraku_te_form loses 開いて to v_aku_2_te_form) is still a legal
+      // tag. Parse as <root>_<formKey> by trying every prefix that is a
+      // known id, longest first (ids themselves contain underscores).
+      const parts = t.g.split('_');
+      for (let n = parts.length - 1; n >= 1; n--) {
+        const rootId = parts.slice(0, n).join('_');
+        const root = idIdx.get(rootId);
+        if (root) {
+          const formKey = parts.slice(n).join('_');
+          return { kind: 'g', g: t.g, entry: { ...root, _ruleKey: formKey, original_id: rootId } };
+        }
+      }
+      return { kind: 'g-unknown', g: t.g, root: null };
     }
     return { kind: 'g', g: t.g, entry };
   }

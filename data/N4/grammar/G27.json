@@ -337,10 +337,7 @@
               "gloss": "have always thought (ずっと = always/continuously + 思っています)",
               "tokens": [
                 {
-                  "k": "ずっ"
-                },
-                {
-                  "k": "と"
+                  "k": "ずっと"
                 },
                 {
                   "k": " "
@@ -603,10 +600,7 @@
               "gloss": "sushi (を — object)",
               "tokens": [
                 {
-                  "k": "す"
-                },
-                {
-                  "k": "し"
+                  "k": "すし"
                 },
                 {
                   "k": "を",
@@ -1366,11 +1360,13 @@
         },
         {
           "spk": "けん",
-          "jp": "いいね。旅行に 行くことが あるよ。",
-          "en": "Nice. I go on trips sometimes.",
+          "jp": "いいね。私も 旅行に 行くことが あるよ。日本語の 勉強は むずかしいと 思う？",
+          "en": "Nice — I go on trips sometimes too. Do you think studying Japanese is hard?",
           "terms": [
             "v_ii",
             "p_ne",
+            "v_watashi",
+            "p_mo",
             "v_ryokou",
             "p_ni",
             {
@@ -1383,17 +1379,7 @@
               "id": "v_aru",
               "form": "plain_form"
             },
-            "p_yo"
-          ]
-        },
-        {
-          "spk": "けん",
-          "jp": "そう だね。日本語の 勉強は むずかしいと 思う？",
-          "en": "Right. Do you think studying Japanese is difficult?",
-          "terms": [
-            "v_sou",
-            "p_ne",
-            "g_da",
+            "p_yo",
             "v_nihongo",
             "p_no",
             "v_benkyou",
@@ -1452,7 +1438,7 @@
       "items": [
         {
           "before": "日本 料理を 食べ",
-          "after": "ありますか？",
+          "after": "ありますか？ (asking about a life experience)",
           "translation": "Have you ever eaten Japanese food?",
           "choices": [
             "たことが",
@@ -1461,7 +1447,10 @@
             "ることは"
           ],
           "answer": "たことが",
-          "explanation": "食べた (た-form of 食べる) + ことが + あります = 'have eaten Japanese food' (past experience). The question asks about a life experience. ることがある would mean 'do you sometimes eat Japanese food?' — a different question about habits, not experience."
+          "explanation": "食べた (た-form of 食べる) + ことが + あります = 'have eaten Japanese food' (past experience). The question asks about a life experience. ることがある would mean 'do you sometimes eat Japanese food?' — a different question about habits, not experience.",
+          "also_accept": [
+            "たことは"
+          ]
         },
         {
           "before": "いそがしい 日は 朝 ご飯を 食べない",
@@ -1477,8 +1466,8 @@
           "explanation": "食べない (plain negative dictionary form) + ことがある = 'there are times I don't eat breakfast' (an occasional pattern). たことがある would mean 'I have had the experience of not eating breakfast' — less natural here because this is clearly a recurring situation, not a single memorable past event."
         },
         {
-          "before": "田中さんは 日本語が 上手に なれる",
-          "after": "よ。毎日 一生けんめい 勉強 して いるから。",
+          "before": "田中さんは 日本語の 先生に なりたい",
+          "after": "よ。(reporting Tanaka’s own ongoing wish)",
           "translation": "Tanaka thinks she can become good at Japanese, you know. Because she always practices hard.",
           "choices": [
             "と 思っている",
@@ -1487,7 +1476,7 @@
             "と 思えば"
           ],
           "answer": "と 思っている",
-          "explanation": "と思っている = her ongoing belief about her own ability — a sustained inner conviction. と思う would express my current opinion about her (not her own view). The context ('She...') and the explanation ('because she always practices hard') both point to a held belief, not a snap judgment."
+          "explanation": "なりたいと思っている reports Tanaka’s own held aspiration — a third person’s inner state is always an ongoing belief from the outside, so と思っている is required. と思う would make it YOUR momentary opinion instead."
         },
         {
           "before": "この 映画、すごく おもしろい",
@@ -1502,7 +1491,8 @@
           "answer": "と 思う",
           "explanation": "と思う = current reaction to the movie just watched or just discussed. This is a direct, in-the-moment recommendation. と思っている would suggest a long-held opinion about the movie, which is unusual for something you just saw. と思った would make this a past thought rather than a current one."
         }
-      ]
+      ],
+      "title": "た-form or Dictionary Form? と思う or と思っている?"
     },
     {
       "type": "drills",

@@ -532,7 +532,7 @@
             {
               "text": "聞こえるように",
               "role": "connector",
-              "gloss": "be audible / can be heard (potential of 聞こえる) + ように",
+              "gloss": "be audible / can be heard (a built-in potential verb — 'be audible') + ように",
               "tokens": [
                 {
                   "k": "聞",
@@ -605,7 +605,7 @@
             }
           ],
           "en": "Please speak in a loud voice so that it can be heard.",
-          "breakdown": "聞こえる (potential of 聞こえる — spontaneous potential) + ように + 大きい声で話してください. The action (speaking loudly) is taken so the result (being heard) is possible."
+          "breakdown": "聞こえる (a built-in potential verb — 'be audible'; see G13) + ように + 大きい声で話してください. The action (speaking loudly) is taken so the result (being heard) is possible."
         }
       ]
     },
@@ -933,22 +933,22 @@
         },
         {
           "spk": "けん",
-          "jp": "毎朝 早起き すれば、日本語 が もっと 上手に なる よ。",
-          "en": "If you wake up early every morning, your Japanese will get even better.",
+          "jp": "毎朝 早起きして 勉強すれば、もっと 上手に なる よ。",
+          "en": "If you get up early and study every morning, you'll get even better.",
           "terms": [
             "v_maiasa",
-            "v_hayaoki",
+            {
+              "id": "v_hayaoki",
+              "form": "te_form"
+            },
+            "v_benkyou",
             {
               "id": "v_suru",
               "form": "conditional_ba"
             },
-            "v_nihongo",
-            "p_ga",
             "v_motto",
-            {
-              "id": "v_jouzu",
-              "form": "adverbial"
-            },
+            "v_jouzu",
+            "p_ni",
             {
               "id": "v_naru",
               "form": "plain_form"
@@ -1055,28 +1055,28 @@
         },
         {
           "kind": "mcq",
-          "q": "野菜を 食べるように 書きます。— What is the function of ように here?",
+          "q": "忘れないように、メモに 書きます。— What is the function of ように here?",
           "choices": [
-            "Purpose clause — 'so that I eat vegetables'",
+            "Purpose clause — 'so that I don't forget'",
             "Gradual change — 'I came to eat vegetables'",
             "Deliberate effort — 'I'm trying to eat vegetables'",
             "Comparison — 'just like eating vegetables'"
           ],
-          "answer": "Purpose clause — 'so that I eat vegetables'",
-          "explanation": "食べる (dictionary form) + ように + 書く = 'I write so that I eat vegetables.' This is the purpose-clause use of ように: the ように clause states the desired outcome; the main clause (書く) is the action taken to achieve it.",
+          "answer": "Purpose clause — 'so that I don't forget'",
+          "explanation": "忘れない (ない form) + ように + 書く = 'I write it in a memo so that I don't forget.' This is the purpose-clause use of ように: the ように clause states the desired outcome; the main clause (書く) is the action taken to achieve it.",
           "terms": []
         },
         {
           "kind": "mcq",
-          "q": "Which sentence uses ようになる correctly?",
+          "q": "りきぞう has just decided to start going home early from now on. Which sentence fits his declaration?",
           "choices": [
-            "毎日 運動する ように なって、体が 元気に なった。",
-            "毎日 運動する ように なって ください。",
-            "もっと 勉強 する ように なって いる。",
-            "早く 帰る ように なります。"
+            "明日から 早く 帰る ように します。",
+            "明日から 早く 帰る ように なります。",
+            "明日から 早く 帰る ように なって ください。",
+            "明日から 早く 帰る ように なった。"
           ],
-          "answer": "毎日 運動する ように なって、体が 元気に なった。",
-          "explanation": "毎日 運動するようになって = having come to exercise every day (gradual change) → 体が 元気になった = the body became energetic. This natural cause-effect chain using ようになる is correct. The other options either mix up ようにする/ようになる or use unnatural constructions.",
+          "answer": "明日から 早く 帰る ように します。",
+          "explanation": "A deliberate resolution is ようにする — effort under your own control: 帰るようにします. ようになります would treat your own decision as a natural change that happens to you. ようになってください wrongly requests an organic change (a request for effort is ようにしてください). ようになった says the change already happened — not a declaration.",
           "terms": []
         },
         {

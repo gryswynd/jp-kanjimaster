@@ -48,7 +48,17 @@ async function processGlossary(file) {
   }
   let added = 0;
   let unchanged = 0;
+  let cardsStripped = 0;
   for (const entry of data.entries) {
+    // Kanji "cards" (type:"kanji") never carry tokens: their reading is a
+    // display memo (often slash-joined on/kun like "うしろ/あと") that would
+    // render as literal-slash ruby in the glossary view. Cards show on/kun
+    // via the kanji grid; the tokenizer ignores them entirely.
+    if (entry.type === 'kanji') {
+      if (entry.tokens) { delete entry.tokens; cardsStripped++; }
+      else unchanged++;
+      continue;
+    }
     if (entry.tokens) { unchanged++; continue; }  // preserve manual edits
     const tokens = deriveTokens(entry.surface, entry.reading);
     if (tokens) {
@@ -58,7 +68,8 @@ async function processGlossary(file) {
       unchanged++;
     }
   }
-  if (added > 0) {
+  if (cardsStripped > 0) console.log(`[${file}] stripped stale tokens from ${cardsStripped} kanji cards`);
+  if (added > 0 || cardsStripped > 0) {
     // Keep 2-space indent + trailing newline to match existing files.
     await writeFile(fullPath, JSON.stringify(data, null, 2) + '\n', 'utf8');
   }

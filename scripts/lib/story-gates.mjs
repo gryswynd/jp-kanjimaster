@@ -69,6 +69,15 @@ export async function buildGateContext({ readFile, root }) {
   // id → entry (for token.g lookups)
   const idIdx = new Map();
   for (const [, e] of surfaceIdx) if (e && e.id && !idIdx.has(e.id)) idIdx.set(e.id, e);
+  // ALSO index raw entries by id: homograph "losers" (v_me_ordinal vs v_me on
+  // 目) never win a surface slot but are legal token.g targets via suffix
+  // rules and hand tags.
+  for (const gf of GLOSSARY_PATHS) {
+    let data; try { data = JSON.parse(await readFile(gf, 'utf8')); } catch { continue; }
+    for (const e of (data.entries || [])) {
+      if (e && e.id && e.type !== 'kanji' && !idIdx.has(e.id)) idIdx.set(e.id, e);
+    }
+  }
 
   // validate: set of resolvable ids (vocab/particle/loanword — NOT characters,
   // matching validate-stories.mjs exactly).
@@ -306,9 +315,17 @@ export function qaStory(story, ctx, meta) {
     if (t.g) {
       const entry = idIdx.get(t.g);
       if (!entry) {
-        const m = t.g.match(/^(.+?)_(.+)$/);
-        const root = m && idIdx.get(m[1]);
-        return { kind: 'g-unknown', g: t.g, root };
+        // Homograph-loser synth (v_hiraku_te_form lost 開いて's surface slot
+        // to v_aku_2_te_form): resolve <root>_<formKey> by trying every
+        // known-id prefix, longest first.
+        const parts = t.g.split('_');
+        for (let n = parts.length - 1; n >= 1; n--) {
+          const root = idIdx.get(parts.slice(0, n).join('_'));
+          if (root) {
+            return { kind: 'g', g: t.g, entry: { ...root, _ruleKey: parts.slice(n).join('_'), original_id: root.id } };
+          }
+        }
+        return { kind: 'g-unknown', g: t.g, root: null };
       }
       return { kind: 'g', g: t.g, entry };
     }

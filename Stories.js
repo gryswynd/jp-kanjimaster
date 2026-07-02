@@ -603,15 +603,22 @@ window.StoriesModule = (function () {
 
     termMapData = {};
     surfaceIdx = new Map();
+    // Two-tier rule (mirrors scripts/lib/tokenize.mjs): kanji "cards"
+    // (type:"kanji") are taught-kanji metadata, NOT sentence words. A tapped
+    // word in prose must resolve to the vocab entry (後→v_ato あと), never the
+    // card's context-blind on/kun sheet. Cards stay in the index only as a
+    // last resort for surfaces no vocab entry covers.
+    const setSurface = (k, e) => {
+      const prev = surfaceIdx.get(k);
+      if (!prev || (prev.type === 'kanji' && e.type !== 'kanji')) surfaceIdx.set(k, e);
+    };
     for (const g of glossaries) {
       for (const e of (g.entries || [])) {
         if (e.id) termMapData[e.id] = e;
-        if (e.surface && !surfaceIdx.has(e.surface)) surfaceIdx.set(e.surface, e);
+        if (e.surface) setSurface(e.surface, e);
         // ALSO index by reading so kana-form spellings of kanji words (わたし
         // for 私, かぞく for 家族) get tagged via the renderer.
-        if (e.reading && e.reading !== e.surface && !surfaceIdx.has(e.reading)) {
-          surfaceIdx.set(e.reading, e);
-        }
+        if (e.reading && e.reading !== e.surface) setSurface(e.reading, e);
       }
     }
     for (const p of (particles.particles || [])) {

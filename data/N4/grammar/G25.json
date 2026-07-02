@@ -63,7 +63,7 @@
         }
       ],
       "meaning": "must / have to ~ (obligation)",
-      "explanation": "なければいけない is the standard obligation construction: 'must do ~'. It's formed by taking a verb's negative stem (the same stem used for plain_negative) and replacing ない with なければ, then adding いけない or なりません. The alternative ないといけない uses the plain negative + と + いけない and carries the same meaning with a slightly more casual feel.",
+      "explanation": "なければいけない is the standard obligation construction: 'must do ~'. It's formed by taking a verb's negative stem (the same stem used for the plain negative) and replacing ない with なければ, then adding いけない or なりません. The alternative ないといけない uses the plain negative + と + いけない and carries the same meaning with a slightly more casual feel.",
       "notes": [
         "Formation (なければ form): Godan verbs — same stem as plain_negative (u→a) + なければ: 帰る→帰らなければ, 飲む→飲まなければ. Ichidan verbs — drop る + なければ: 食べる→食べなければ. Irregular: する→しなければ, くる→来なければ.",
         "Politeness: casual = なければいけない; formal = なければなりません. Both express obligation.",
@@ -137,7 +137,7 @@
             }
           ],
           "en": "I must go home early today.",
-          "breakdown": "帰る (godan, -ru) → u_to_a stem 帰ら + なければ = 帰らなければ. Full construction: 帰らなければ いけない = must go home."
+          "breakdown": "帰る (godan, -ru) → あ-row stem 帰ら + なければ = 帰らなければ. Full construction: 帰らなければ いけない = must go home."
         },
         {
           "parts": [
@@ -187,7 +187,7 @@
             }
           ],
           "en": "I must take medicine. (polite)",
-          "breakdown": "飲む (godan) → u_to_a stem 飲ま + なければ = 飲まなければ. なりません (polite) is more formal than いけない (casual)."
+          "breakdown": "飲む (godan) → あ-row stem 飲ま + なければ = 飲まなければ. なりません (polite) is more formal than いけない (casual)."
         },
         {
           "parts": [
@@ -263,12 +263,13 @@
       "meaning": "if ~ (general hypothetical condition)",
       "explanation": "The ば conditional expresses a general 'if' — if this condition holds, then that result follows. It is hypothetical and open-ended, often used for advice, general truths, or speaker wishes. Unlike たら, the result does not need to be a completed event. Unlike と, the result is not automatic or inevitable.",
       "notes": [
-        "Formation — Godan verbs: u_to_e stem + ば: 行く→行けば, 話す→話せば, 飲む→飲めば, 帰る→帰れば.",
+        "Formation — Godan verbs: え-row stem + ば: 行く→行けば, 話す→話せば, 飲む→飲めば, 帰る→帰れば.",
         "Formation — Ichidan verbs: drop る + れば: 食べる→食べれば, 起きる→起きれば.",
         "Formation — Irregular: する→すれば, くる→来れば, ある→あれば.",
         "Formation — い-adjectives: drop い + ければ: 早い→早ければ, 高い→高ければ.",
         "Use ば for general advice or open hypotheticals: 毎日 練習すれば、上手になる (if you practice every day, you'll get better). The speaker doesn't know if you will practice — it's a general condition.",
-        "ば is NOT used for one-time past events as triggers. Use たら for completed-event triggers: ✗ 試験が 終われば instead use ✓ 試験が 終わったら。"
+        "ば is NOT used for one-time past events as triggers. Use たら for completed-event triggers: ✗ 試験が 終われば instead use ✓ 試験が 終わったら。",
+        "ば + a volitional/request result is fine when the condition is stative (時間があれば、見よう) but unnatural when the condition is an action verb (✗終われば遊ぼう → ✓終わったら遊ぼう)."
       ],
       "examples": [
         {
@@ -332,7 +333,7 @@
             }
           ],
           "en": "If you speak every day, you'll get better.",
-          "breakdown": "話す (godan) → u_to_e stem 話せ + ば = 話せば. Open hypothetical: the condition is general advice, not tied to a specific completed event."
+          "breakdown": "話す (godan) → え-row stem 話せ + ば = 話せば. Open hypothetical: the condition is general advice, not tied to a specific completed event."
         },
         {
           "parts": [
@@ -400,7 +401,7 @@
             }
           ],
           "en": "If there's time, let's watch a movie.",
-          "breakdown": "ある (irr_aru) → irregular ば form あれば. The condition (having time) is hypothetical — the speaker doesn't know yet if time will exist."
+          "breakdown": "ある (irregular) → irregular ば form あれば. The condition (having time) is hypothetical — the speaker doesn't know yet if time will exist."
         }
       ]
     },
@@ -649,12 +650,16 @@
               "gloss": "call (te-form of 電話する — request)",
               "tokens": [
                 {
-                  "k": "電話",
-                  "r": "でんわ"
+                  "k": "電"
+                },
+                {
+                  "k": "話",
+                  "r": "はな",
+                  "g": "v_hanasu_te_form"
                 },
                 {
                   "k": "して",
-                  "g": "v_suru_te_form"
+                  "g": "v_hanasu_te_form"
                 },
                 {
                   "k": "。"
@@ -706,10 +711,7 @@
               "gloss": "sushi (を)",
               "tokens": [
                 {
-                  "k": "す"
-                },
-                {
-                  "k": "し"
+                  "k": "すし"
                 },
                 {
                   "k": "を",
@@ -768,7 +770,7 @@
         "Formation: plain form verb/noun/adjective + なら. 行く→行くなら, 学生→学生なら, 上手→上手なら.",
         "なら responds to established context. If someone says 東京に 行く, you respond: 東京に 行くなら、渋谷に 寄ってみて (if you're going to Tokyo [as you just said], try stopping by Shibuya).",
         "Do not use なら for brand-new hypotheticals. Use ば or たら: ✗ 時間が あるなら (introducing new info) → ✓ 時間が あれば / あったら.",
-        "なら is also the ば-conditional form of な-adjectives (from conditional_ba rules for na_adj: add なら). Context usually makes the meaning clear.",
+        "なら also serves as the ば-conditional form of な-adjectives (the rule is simply: stem + なら). Context usually makes the meaning clear.",
         "Common pattern: noun + なら for topic-based conditions — 東京なら (if it's Tokyo / speaking of Tokyo). This carries a strong sense of 'given this topic'."
       ],
       "examples": [
@@ -1131,12 +1133,16 @@
                 "gloss": "give me a call (request)",
                 "tokens": [
                   {
-                    "k": "電話",
-                    "r": "でんわ"
+                    "k": "電"
+                  },
+                  {
+                    "k": "話",
+                    "r": "はな",
+                    "g": "v_hanasu_te_form"
                   },
                   {
                     "k": "して",
-                    "g": "v_suru_te_form"
+                    "g": "v_hanasu_te_form"
                   },
                   {
                     "k": "。"
@@ -1257,7 +1263,7 @@
         "The verb repeats: ば form + plain form + ほど. Both uses of the verb refer to the same action increasing in frequency or degree.",
         "The result clause often uses adjective adverbial forms with なる: おもしろく なる (becomes more interesting), 上手に なる (becomes more skilled).",
         "い-adjective pattern: 早ければ 早いほど、いい (the earlier the better). The adjective appears in ければ form then its plain form.",
-        "ほど here is the degree particle (p_hodo) meaning 'to the extent of'. It marks the proportional degree to which the result follows."
+        "ほど here is the degree particle meaning 'to the extent of'. It marks the proportional degree to which the result follows."
       ],
       "examples": [
         {
@@ -1431,8 +1437,8 @@
         },
         {
           "spk": "けん",
-          "jp": "そうか。毎日 勉強 すれば、試験は よく 分かるよ。",
-          "en": "Is that so. If you study every day, you'll understand the material well.",
+          "jp": "そうか。毎日 勉強 すれば、よく 分かるよ。",
+          "en": "Is that so. If you study every day, you'll understand it well.",
           "terms": [
             "char_ken",
             "v_sou",
@@ -1443,8 +1449,6 @@
               "id": "v_suru",
               "form": "conditional_ba"
             },
-            "v_shiken",
-            "p_wa",
             "v_yoku",
             {
               "id": "v_wakaru",
@@ -1530,7 +1534,7 @@
       "items": [
         {
           "before": "右に 行く",
-          "after": "、駅が ある。",
+          "after": "、駅が ある。 (always true — giving directions)",
           "translation": "Go right and the station is there (automatic result).",
           "choices": [
             "と",
@@ -1580,7 +1584,8 @@
           "answer": "ほど",
           "explanation": "ば〜ほど is the 'the more ~, the more ~' pattern. すれば する ほど = the more you do (study), the [more you understand]. ほど marks the proportional degree."
         }
-      ]
+      ],
+      "title": "Choose the Right Conditional"
     },
     {
       "type": "drills",
@@ -1610,7 +1615,7 @@
             "Conditional ば form (帰れば)"
           ],
           "answer": "Nakereba form (obligation stem — 帰ら + なければ)",
-          "explanation": "帰る (godan) → u_to_a stem 帰ら + なければ = 帰らなければ. This is the nakereba form, used in obligation constructions なければいけない and なければなりません. The stem is identical to the plain_negative stem (帰ら), but adds なければ instead of ない.",
+          "explanation": "帰る (godan) → あ-row stem 帰ら + なければ = 帰らなければ. This is the nakereba form, used in obligation constructions なければいけない and なければなりません. The stem is identical to the plain-negative stem (帰ら), but adds なければ instead of ない.",
           "terms": []
         },
         {

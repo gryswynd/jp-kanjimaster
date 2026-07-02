@@ -44,11 +44,13 @@
       "pattern": [
         {
           "text": "[VERB STEM / ADJ STEM]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "STEM"
         },
         {
           "text": "そうだ",
-          "color": "connector"
+          "color": "connector",
+          "label": "APPEARANCE"
         }
       ],
       "meaning": "looks like ~ / seems like ~",
@@ -162,10 +164,7 @@
               "gloss": "stem of おいしい (drop い)",
               "tokens": [
                 {
-                  "k": "おい"
-                },
-                {
-                  "k": "し"
+                  "k": "おいし"
                 }
               ]
             },
@@ -307,11 +306,13 @@
       "pattern": [
         {
           "text": "[PLAIN FORM]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "PLAIN FORM"
         },
         {
           "text": "そうだ",
-          "color": "connector"
+          "color": "connector",
+          "label": "HEARSAY"
         }
       ],
       "meaning": "I heard that ~ / apparently ~ / they say ~",
@@ -609,19 +610,22 @@
       "pattern": [
         {
           "text": "[adj stem + くなさそう]",
-          "color": "predicate"
+          "color": "predicate",
+          "label": "APPEARANCE NEG"
         },
         {
           "text": "vs",
-          "color": "adverb"
+          "color": "adverb",
+          "label": "VS"
         },
         {
           "text": "[～ないそうだ]",
-          "color": "connector"
+          "color": "connector",
+          "label": "HEARSAY NEG"
         }
       ],
       "meaning": "Negative forms diverge — this is the hardest part",
-      "explanation": "Negatives are where students most often make errors, because the two patterns use completely different constructions:\n\n• Appearance negative (い-adj): drop い → add くなさそう\n  Example: おいしい → おいしくなさそう ('doesn't look delicious')\n\n• Hearsay negative: the negation is INSIDE the reported clause, before そうだ\n  Example: おいしくないそうだ ('I heard it's not delicious')\n\nCRITICAL: Do NOT mix them. おいしくなさそうだ is WRONG — it tries to be both patterns at once.",
+      "explanation": "Negatives are where students most often make errors, because the two patterns use completely different constructions:\n\n• Appearance negative (い-adj): drop い → add くなさそう\n  Example: おいしい → おいしくなさそう ('doesn't look delicious')\n\n• Hearsay negative: the negation is INSIDE the reported clause, before そうだ\n  Example: おいしくないそうだ ('I heard it's not delicious')\n\nCRITICAL: Do not mix them. おいしくなさそうだ is APPEARANCE only ('doesn't look delicious') — it can never mean 'I heard it's not delicious.' For hearsay, the negation stays inside the reported clause: おいしくないそうだ.",
       "notes": [
         "Memory trick: In hearsay, you are reporting exactly what you heard — including the negative. So ない comes first: おいしくない + そうだ.",
         "Appearance negative for な-adj: stem + じゃなさそう (e.g. 元気じゃなさそう).",
@@ -913,8 +917,7 @@
                   "k": "この"
                 },
                 {
-                  "k": "ラーメン",
-                  "r": "らーめん"
+                  "k": "ラーメン"
                 },
                 {
                   "k": "は",
@@ -928,10 +931,7 @@
               "gloss": "stem of おいしい (drop い)",
               "tokens": [
                 {
-                  "k": "おい"
-                },
-                {
-                  "k": "し"
+                  "k": "おいし"
                 }
               ]
             },
@@ -1051,7 +1051,7 @@
         {
           "spk": "けん",
           "jp": "空が暗くなって、雨になりそうですね。",
-          "en": "The sky has gotten dark — it looks like it might become rain, doesn't it.",
+          "en": "The sky has gotten dark — looks like rain, doesn’t it.",
           "terms": [
             "char_ken",
             "v_sora",
@@ -1117,8 +1117,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "あの店ですか。友だちが、あそこはおいしいそうですよ。",
-          "en": "That shop? My friend said that place is delicious.",
+          "jp": "あの店ですか。友だちの話では、あそこはおいしいそうですよ。",
+          "en": "That shop? According to my friend, that place is delicious.",
           "terms": [
             "char_rikizo",
             "v_ano",
@@ -1126,7 +1126,9 @@
             "g_desu",
             "p_ka",
             "v_tomodachi",
-            "p_ga",
+            "p_no",
+            "v_hanashi",
+            "p_dewa",
             "v_asoko",
             "p_wa",
             {

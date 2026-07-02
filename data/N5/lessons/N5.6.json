@@ -309,7 +309,7 @@
       "context": "Yamamoto-sensei asks Rikizo about his trip to the mountain last week.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん、先週 山へ 行きましたか。",
           "en": "Rikizo-san, did you go to the mountain last week?",
           "terms": [
@@ -340,7 +340,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "山の 道は どうですか。",
           "en": "How is the mountain road?",
           "terms": [
@@ -370,7 +370,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "車で 川まで 行きましたか。",
           "en": "Did you go to the river by car?",
           "terms": [
@@ -536,7 +536,7 @@
       "context": "Yamamoto-sensei asks Rikizo about his plans for next week.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん、来週 どこへ 行きますか。",
           "en": "Rikizo-san, where are you going next week?",
           "terms": [
@@ -568,7 +568,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "車で 行きますか。",
           "en": "Are you going by car?",
           "terms": [
@@ -601,7 +601,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "山の 道は とても いいですよ。駅から 行きますか。",
           "en": "The mountain road is very nice, you know. Are you going from the station?",
           "terms": [
@@ -736,12 +736,12 @@
           ]
         },
         {
-          "jp": "山に 友だちが います。",
-          "en": "A friend is at the mountain.",
+          "jp": "駅に 友だちが います。",
+          "en": "A friend is at the station.",
           "terms": [
-            "v_yama",
+            "v_eki",
             "p_ni",
-            "v_tomodachi_hybrid",
+            "v_tomodachi",
             "p_ga",
             {
               "id": "v_iru",
@@ -750,15 +750,15 @@
           ]
         },
         {
-          "jp": "友だちと 車で 来ます。",
-          "en": "He will come by car with a friend.",
+          "jp": "友だちと 車で 行きます。",
+          "en": "He will go by car with his friend.",
           "terms": [
-            "v_tomodachi_hybrid",
+            "v_tomodachi",
             "p_to",
             "v_kuruma",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_masu"
             }
           ]
@@ -843,16 +843,16 @@
           ]
         },
         {
-          "q": "来週 だれと 来ますか。",
+          "q": "来週 だれと 行きますか。",
           "q_en": "Who will come with him next week?",
-          "a": "友だちと 来ます。",
+          "a": "友だちと 行きます。",
           "a_en": "He will come with his friends.",
           "terms": [
             "v_raishuu",
             "v_dare",
             "p_to",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_masu"
             },
             "p_ka"
@@ -861,7 +861,7 @@
             "v_tomodachi",
             "p_to",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_masu"
             }
           ]
@@ -1319,7 +1319,7 @@
             "に",
             "を",
             "が",
-            "は"
+            "で"
           ],
           "answer": "に",
           "terms": [
@@ -1452,7 +1452,7 @@
           "choices": [
             "は",
             "に",
-            "が",
+            "を",
             "を"
           ],
           "answer": "は",

@@ -890,11 +890,14 @@
               "gloss": "can't be helped (plain)",
               "tokens": [
                 {
-                  "k": "し"
+                  "k": "しか"
                 },
                 {
-                  "k": "かたない",
-                  "g": "v_katsu_plain_negative"
+                  "k": "た"
+                },
+                {
+                  "k": "ない",
+                  "g": "v_aru_plain_negative"
                 }
               ]
             },
@@ -1267,8 +1270,7 @@
               "gloss": "this weekend (に)",
               "tokens": [
                 {
-                  "k": "今",
-                  "r": "いま"
+                  "k": "今"
                 },
                 {
                   "k": "週",
@@ -1351,8 +1353,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "えーと、じつは来週は仕事がいそがしいし、仕事が多いのに休めないから、週まつは外に出たい。",
-          "en": "Um… actually, next week work is busy and there's a lot of it — even though I can't rest, I want to get out this weekend.",
+          "jp": "えーと、じつは来週は仕事がいそがしいし、休めないから、週まつは外に出たい。",
+          "en": "Um… actually, next week work is busy and I can’t take time off, so I want to get out this weekend.",
           "terms": [
             "v_eto",
             "v_jitsuwa",
@@ -1362,10 +1364,6 @@
             "p_ga",
             "v_isogashii",
             "p_shi",
-            "v_shigoto",
-            "p_ga",
-            "v_ooi",
-            "p_noni",
             {
               "id": "v_yasumu",
               "form": "plain_potential_negative"
@@ -1383,8 +1381,8 @@
         },
         {
           "spk": "けん",
-          "jp": "へえ！ほんとうに？つかれても、出たいよ。",
-          "en": "Wow! Really? Even though you're tired, you want to get out?",
+          "jp": "へえ！ほんとうに？つかれても、出たいんだね。",
+          "en": "Wow! Really? Even tired, you still want to get out, huh.",
           "terms": [
             "v_hee",
             "p_hontou",
@@ -1397,7 +1395,8 @@
               "id": "v_deru",
               "form": "plain_desire_tai"
             },
-            "p_yo"
+            "p_nda",
+            "p_ne"
           ]
         },
         {
@@ -1452,15 +1451,14 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "うん、いいね！あのう、つまり、なんか見たい映画があるけど、どこで食べるかはまだわからない。",
-          "en": "Yeah, sounds great! Um, well — like, there's a movie I want to see, but I still don't know where to eat.",
+          "jp": "うん、いいね！あのう、じつは、見たい映画があるけど、どこで食べるかはまだわからない。",
+          "en": "Yeah, sounds great! Um — actually, there's a movie I want to see, but I still don't know where to eat.",
           "terms": [
             "v_un",
             "v_ii",
             "p_ne",
             "v_anou",
-            "v_tsumari",
-            "v_nanka",
+            "v_jitsuwa",
             {
               "id": "v_miru",
               "form": "plain_desire_tai"
@@ -1489,18 +1487,15 @@
         },
         {
           "spk": "けん",
-          "jp": "そうですね。映画を見ながら、どこで食べるか話そう。",
-          "en": "Right. Let's talk about where to eat while we watch the movie.",
+          "jp": "そうだね。映画の前に、どこで食べるか話そう。",
+          "en": "Right. Let's figure out where to eat before the movie.",
           "terms": [
             "v_sou",
-            "g_desu",
             "p_ne",
             "v_eiga",
-            "p_wo",
-            {
-              "id": "v_miru",
-              "form": "nagara_form"
-            },
+            "p_no",
+            "v_mae",
+            "p_ni",
             "v_doko",
             "p_de",
             {

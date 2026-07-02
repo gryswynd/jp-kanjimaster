@@ -222,8 +222,7 @@
         "Action location: コンビニで — doing something AT the convenience store (an active event at a place).",
         "Means / method: バスで来ます — coming BY bus. タクシーで行きます — going BY taxi.",
         "Key contrast with に: に marks where something EXISTS or ARRIVES; で marks where an action HAPPENS.",
-        "Example: うちにいます (I am at home — existence). Action-at-location uses of で (e.g. doing something at a place) will be reinforced in later lessons when more action verbs are available.",
-        "で is introduced in N5.5 — it only appears in content from this point onward."
+        "Example: うちにいます (I am at home — existence). Action-at-location uses of で (e.g. doing something at a place) will be reinforced in later lessons when more action verbs are available."
       ],
       "examples": [
         {
@@ -506,8 +505,8 @@
               ]
             }
           ],
-          "en": "I am coming toward home.",
-          "breakdown": "へ with 来る — heading in the direction of home"
+          "en": "(Someone) is coming to my house.",
+          "breakdown": "へ with 来る — someone else heading toward the speaker's home. (For going home yourself, use 帰ります.)"
         }
       ]
     },
@@ -824,7 +823,8 @@
               "gloss": "cat",
               "tokens": [
                 {
-                  "k": "猫"
+                  "k": "猫",
+                  "r": "ねこ"
                 }
               ]
             },
@@ -1535,8 +1535,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "わたしは タクシーで 行きます。バスでは 来ません。",
-          "en": "I will go by taxi. I won't come by bus.",
+          "jp": "わたしは タクシーで 行きます。バスでは 行きません。",
+          "en": "I will go by taxi. I won't go by bus.",
           "terms": [
             "v_watashi",
             "p_wa",
@@ -1550,7 +1550,7 @@
             "p_wa",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_negative"
             }
           ]
@@ -1738,7 +1738,7 @@
         },
         {
           "kind": "mcq",
-          "q": "コンビニ ______ 行きます。(I am heading TOWARD the convenience store.)",
+          "q": "コンビニ ______ 行きます。(emphasising the direction — heading that way)",
           "choices": [
             "へ",
             "に",

@@ -81,7 +81,7 @@
       "notes": [
         "I-adjective adverbial: drop い, add く. Examples: 高い→高く、寒い→寒く、楽しい→楽しく、むずかしい→むずかしく",
         "Na-adjective adverbial: bare stem + に. Examples: 元気→元気に、有名→有名に、大切→大切に、きれい→きれいに",
-        "Irregular: いい→よくなる (not いくなる) — the irr_ii rule applies to all adverbial derivations",
+        "Irregular: いい→よくなる (not いくなる) — the irregular よ- stem applies to all adverbial derivations",
         "With てくる: 寒くなってきた — 'It has been getting cold (and I feel it now)'. Signals gradual change toward the present.",
         "With ていく: もっと暗くなっていく — 'It will keep getting darker (into the future)'. Signals ongoing/future progression.",
         "Desire form: 上手になりたい (want to become skilled at ~) — 上手 is na-adj, so: 上手に + なりたい",
@@ -224,7 +224,7 @@
             }
           ],
           "en": "If you study every day, you can become skilled at it.",
-          "breakdown": "上手 is a na-adjective (na_adj). Adverbial: 上手 + に. Potential: なれる → なれます. The ば conditional sets the condition."
+          "breakdown": "上手 is a na-adjective. Adverbial: 上手 + に. Potential: なれる → なれます. The ば conditional sets the condition."
         },
         {
           "parts": [
@@ -479,10 +479,11 @@
                   "k": "ら"
                 },
                 {
-                  "k": "え"
+                  "k": "えません",
+                  "g": "v_eru_polite_negative"
                 },
                 {
-                  "k": "ませんか"
+                  "k": "か"
                 },
                 {
                   "k": "。"
@@ -1075,7 +1076,7 @@
         }
       ],
       "meaning": "must be ~ / if not ~ (adjective conditional/obligation)",
-      "explanation": "The pattern ～くなければ (i-adjectives) and ～でなければ (na-adjectives) sets a required minimum condition, often paired with いけない or ならない to express obligation ('must be ~'), or used alone as a negative conditional ('if it is not ~'). For i-adjectives: drop い, add くなければ. For na-adjectives: stem + でなければ. This pattern parallels the verb obligation form ～なければいけない (G22) and the ば conditional (also G22).",
+      "explanation": "The pattern ～くなければ (i-adjectives) and ～でなければ (na-adjectives) sets a required minimum condition, often paired with いけない or ならない to express obligation ('must be ~'), or used alone as a negative conditional ('if it is not ~'). For i-adjectives: drop い, add くなければ. For na-adjectives: stem + でなければ. This pattern parallels the verb obligation form ～なければいけない (G25) and the ば conditional (also G25).",
       "notes": [
         "I-adjective: drop い, add くなければ. 安い→安くなければ、大きい→大きくなければ、いい→よくなければ (irregular — stem is よ-)",
         "Na-adjective: stem + でなければ. 有名→有名でなければ、元気→元気でなければ",
@@ -1083,7 +1084,7 @@
         "Paired with ならない (stricter/written): 元気でなければならない (must be healthy — more formal tone)",
         "Standalone conditional: 有名でなければ、知らない — 'if they're not famous, I won't know them'",
         "Casual spoken contraction: ～くなきゃ / ～でなきゃ — 安くなきゃ (if it's not cheap, I won't [buy it])",
-        "This pattern is the adjective equivalent of verb 〜なければいけない (taught in G22)"
+        "This pattern is the adjective equivalent of verb 〜なければいけない (taught in G25)"
       ],
       "examples": [
         {
@@ -1155,8 +1156,7 @@
                   "k": "この"
                 },
                 {
-                  "k": "ドア",
-                  "r": "どあ"
+                  "k": "ドア"
                 },
                 {
                   "k": "は",
@@ -1230,11 +1230,7 @@
                   "k": "この"
                 },
                 {
-                  "k": "イベント",
-                  "r": "いべんと"
-                },
-                {
-                  "k": "に"
+                  "k": "イベントに"
                 },
                 {
                   "k": "は",
@@ -1435,7 +1431,7 @@
           "meaning": "negative conditional (must be ~)"
         },
         {
-          "label": "～すぎる (G25 reinforcement)",
+          "label": "～すぎる (G15/G30 reinforcement)",
           "cells": [
             "高すぎる",
             "有名すぎる",
@@ -1446,7 +1442,7 @@
       ],
       "notes": [
         "Irregular いい: adverbial = よく. All patterns follow: よくなる、よくする、よくても、よくなければ",
-        "～すぎる for adjectives: i-adj drops い before すぎる (高すぎる). Na-adj uses bare stem (有名すぎる). Both use sugiru_form.",
+        "～すぎる for adjectives: i-adj drops い before すぎる (高すぎる). Na-adj uses bare stem (有名すぎる). Both attach directly to the stem.",
         "The adverbial stem (く/に) is the foundation — all four patterns add different endings to the same base.",
         "大切にする is a fixed expression: 'to take care of / treat with care' — not simply 'make it important'"
       ]
@@ -1610,10 +1606,11 @@
                   "k": "ら"
                 },
                 {
-                  "k": "え"
+                  "k": "えません",
+                  "g": "v_eru_polite_negative"
                 },
                 {
-                  "k": "ませんか"
+                  "k": "か"
                 },
                 {
                   "k": "。"
@@ -1661,10 +1658,7 @@
               "gloss": "without giving up (あきらめる → negative te-form あきらめず + に)",
               "tokens": [
                 {
-                  "k": "あきらめず"
-                },
-                {
-                  "k": "に"
+                  "k": "あきらめずに"
                 }
               ]
             },
@@ -1788,13 +1782,7 @@
               "gloss": "too difficult (むずかしい → むずかしすぎる → te-form)",
               "tokens": [
                 {
-                  "k": "むず"
-                },
-                {
-                  "k": "か"
-                },
-                {
-                  "k": "し"
+                  "k": "むずかし"
                 },
                 {
                   "k": "すぎて",
@@ -1841,10 +1829,10 @@
             }
           ],
           "en": "The exam was too difficult, and I couldn't write anything.",
-          "note": "i-adj すぎる: drop い → むずかしすぎる. Then te-form: むずかしすぎて (connector). G25 pattern reinforced here."
+          "note": "i-adj すぎる: drop い → むずかしすぎる. Then te-form: むずかしすぎて (connector). G15/G30 pattern reinforced here."
         },
         {
-          "context": "Reinforcement: になれる (potential of なる) with たら conditional (G22) and と思います (G27)",
+          "context": "Reinforcement: になれる (potential of なる) with たら conditional (G25) and と思います (G27)",
           "parts": [
             {
               "text": "毎日 勉強したら、",
@@ -1894,7 +1882,7 @@
             {
               "text": "なれると",
               "role": "connector",
-              "gloss": "if you can become (なれる + と conditional — natural result)",
+              "gloss": "if you can become (なれる + と (quotation marker for 思います))",
               "tokens": [
                 {
                   "k": "なれる",

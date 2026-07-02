@@ -225,7 +225,7 @@
       "context": "The teacher starts a Japanese speaking activity. Miki asks the teacher to speak slowly.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "今日は 日本語で 話しましょう。日本語で 言ってください。",
           "en": "Today let's speak in Japanese. Please say it in Japanese.",
           "terms": [
@@ -261,7 +261,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "分かりました。ゆっくり 話します。",
           "en": "Understood. I will speak slowly.",
           "terms": [
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "いいですね。毎日 本を 読んで、書いてください。",
           "en": "That's great. Please read and write books every day.",
           "terms": [
@@ -334,7 +334,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "「ありがとう」と 言ってください。",
           "en": "Please say \"thank you\".",
           "terms": [
@@ -352,7 +352,7 @@
     {
       "type": "conversation",
       "title": "Conversation 2: A Phone Call",
-      "context": "Miki calls Ren to chat about a Japanese book they want to read together.",
+      "context": "At school, Miki suggests chatting by phone later about a Japanese book she is reading.",
       "lines": [
         {
           "spk": "ミキ",
@@ -440,16 +440,13 @@
         },
         {
           "spk": "ミキ",
-          "jp": "その 本は おもしろそうですよ。日本語の 本です。",
-          "en": "That book looks interesting. It's a Japanese book.",
+          "jp": "その 本は おもしろいですよ。日本語の 本です。",
+          "en": "That book is interesting. It's a Japanese book.",
           "terms": [
             "v_sono",
             "v_hon",
             "p_wa",
-            {
-              "id": "v_omoshiroi",
-              "form": "appearance_sou_stem"
-            },
+            "v_omoshiroi",
             "g_desu",
             "p_yo",
             "v_nihongo",
@@ -483,14 +480,20 @@
         },
         {
           "spk": "ミキ",
-          "jp": "その 本は おもしろいでしょう。",
-          "en": "That book's probably interesting.",
+          "jp": "レンさんも 読んでください。おもしろいですよ。",
+          "en": "You should read it too, Ren. It's interesting!",
           "terms": [
-            "v_sono",
-            "v_hon",
-            "p_wa",
+            "char_ren",
+            "v_san",
+            "p_mo",
+            {
+              "id": "v_yomu",
+              "form": "te_form"
+            },
+            "v_kudasai",
             "v_omoshiroi",
-            "g_deshou"
+            "g_desu",
+            "p_yo"
           ]
         }
       ]
@@ -574,16 +577,13 @@
         },
         {
           "spk": "ミキ",
-          "jp": "その 本は おもしろそうですよ。読んでください。",
-          "en": "That book looks interesting. Please read it.",
+          "jp": "この 本は おもしろいですよ。読んでください。",
+          "en": "This book is interesting. Please read it.",
           "terms": [
-            "v_sono",
+            "v_kono",
             "v_hon",
             "p_wa",
-            {
-              "id": "v_omoshiroi",
-              "form": "appearance_sou_stem"
-            },
+            "v_omoshiroi",
             "g_desu",
             "p_yo",
             {
@@ -650,13 +650,13 @@
         },
         {
           "spk": "ミキ",
-          "jp": "毎日 たくさん 読むんです。",
-          "en": "I read a lot every day, you see.",
+          "jp": "毎日 たくさん 書くんです。",
+          "en": "I write a lot every day, you see.",
           "terms": [
             "v_mainichi",
             "v_takusan",
             {
-              "id": "v_yomu",
+              "id": "v_kaku",
               "form": "plain_form"
             },
             "p_ndesu"
@@ -736,23 +736,19 @@
         },
         {
           "spk": "レン",
-          "jp": "じゃ、電話で 話そうよ。空手を しよう！",
-          "en": "Then let's talk on the phone. Let's do karate!",
+          "jp": "じゃ、いっしょに 空手を しようよ！",
+          "en": "Then let's do karate together!",
           "terms": [
             "p_ja",
-            "v_denwa",
-            "p_de",
-            {
-              "id": "v_hanasu",
-              "form": "plain_volitional"
-            },
-            "p_yo",
+            "v_issho",
+            "p_ni",
             "v_karate",
             "p_wo",
             {
               "id": "v_suru",
               "form": "plain_volitional"
-            }
+            },
+            "p_yo"
           ]
         },
         {
@@ -777,14 +773,19 @@
         },
         {
           "spk": "レン",
-          "jp": "その 本も おもしろいだろう。",
-          "en": "That book's probably interesting too.",
+          "jp": "わたしも その 本を 読みたいな。",
+          "en": "I want to read that book too.",
           "terms": [
+            "v_watashi",
+            "p_mo",
             "v_sono",
             "v_hon",
-            "p_mo",
-            "v_omoshiroi",
-            "g_darou"
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "plain_desire_tai"
+            },
+            "p_na"
           ]
         }
       ]
@@ -1067,19 +1068,13 @@
           ]
         },
         {
-          "jp": "友だちに 電話で 話して、日本語を 言います。",
-          "en": "He calls friends, talks to them, and speaks Japanese.",
+          "jp": "「ありがとう」と 友だちに 言います。",
+          "en": "He says \"thank you\" to his friends.",
           "terms": [
-            "v_tomodachi_hybrid",
+            "v_arigatou",
+            "p_to_quote",
+            "v_tomodachi",
             "p_ni",
-            "v_denwa",
-            "p_de",
-            {
-              "id": "v_hanasu",
-              "form": "te_form"
-            },
-            "v_nihongo",
-            "p_wo",
             {
               "id": "v_iu",
               "form": "polite_masu"
@@ -1436,7 +1431,7 @@
             },
             "g_desu"
           ],
-          "explanation": "Correct: この 本は おもしろそうです。（This book looks interesting.） — 「そうです」 (そうです) means \"that's right / that's correct\"."
+          "explanation": "Correct: この 本は おもしろそうです。（This book looks interesting.） — おもしろ (stem of おもしろい) + そうです = appearance: looks interesting."
         },
         {
           "kind": "mcq",

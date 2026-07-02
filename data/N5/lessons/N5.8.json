@@ -472,7 +472,7 @@
       "context": "Yamamoto-sensei and Rikizo talk about what they want to buy.",
       "lines": [
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "りきぞうさん、何が ほしいですか。",
           "en": "Rikizo-san, what do you want?",
           "terms": [
@@ -487,33 +487,35 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "プレゼントが ほしいです。新しいですよ。",
-          "en": "I want a gift. A new one, you know.",
+          "jp": "プレゼントが ほしいです。新しい プレゼントが いいです。",
+          "en": "I want a gift. A new one would be good.",
           "terms": [
             "v_purezento",
             "p_ga",
             "v_hoshii",
             "g_desu",
             "v_atarashii",
-            "g_desu",
-            "p_yo"
+            "v_purezento",
+            "p_ga",
+            "v_ii",
+            "g_desu"
           ]
         },
         {
-          "spk": "先生",
-          "jp": "りきぞうさんは 新しい プレゼントを 買いたがります。",
-          "en": "Rikizo wants to buy a new present (it seems).",
+          "spk": "やまもと先生",
+          "jp": "そうですか。新しい プレゼントを 買いたいですか。",
+          "en": "I see. Do you want to buy a new present?",
           "terms": [
-            "char_rikizo",
-            "v_san",
-            "p_wa",
+            "p_soudesuka",
             "v_atarashii",
             "v_purezento",
             "p_wo",
             {
               "id": "v_kau",
-              "form": "polite_tagaru"
-            }
+              "form": "plain_desire_tai"
+            },
+            "g_desu",
+            "p_ka"
           ]
         },
         {
@@ -534,7 +536,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "高いですか。",
           "en": "Is it expensive?",
           "terms": [
@@ -558,7 +560,7 @@
           ]
         },
         {
-          "spk": "先生",
+          "spk": "やまもと先生",
           "jp": "そうですね。わたしも 買います。",
           "en": "I see. I will also buy one.",
           "terms": [
@@ -668,18 +670,19 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "あまり 高くないです。もう 買いましたよ。",
-          "en": "It is not very expensive. I already bought it, you know.",
+          "jp": "あまり 高くないです。今日 買いますよ。",
+          "en": "It's not very expensive. I'll buy it today.",
           "terms": [
             "v_amari",
             {
               "id": "v_takai",
-              "form": "polite_negative"
+              "form": "plain_negative"
             },
-            "v_mou",
+            "g_desu",
+            "v_kyou",
             {
               "id": "v_kau",
-              "form": "polite_mashita"
+              "form": "polite_masu"
             },
             "p_yo"
           ]
@@ -939,17 +942,18 @@
           ]
         },
         {
-          "jp": "友だちの プレゼントを 買います。",
-          "en": "The station master buys a gift for a friend.",
+          "jp": "友だちの プレゼントを 買いたいです。",
+          "en": "He wants to buy a gift for his friend.",
           "terms": [
-            "v_tomodachi_hybrid",
+            "v_tomodachi",
             "p_no",
             "v_purezento",
             "p_wo",
             {
               "id": "v_kau",
-              "form": "polite_masu"
-            }
+              "form": "plain_desire_tai"
+            },
+            "g_desu"
           ]
         },
         {
@@ -1175,7 +1179,7 @@
           "q": "プレゼント _______ 買います。",
           "choices": [
             "を",
-            "は",
+            "へ",
             "が",
             "に"
           ],

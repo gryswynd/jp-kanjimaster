@@ -30,7 +30,11 @@ window.FinalReviewModule = (function () {
       for (const id in termMap) {
         const e = termMap[id];
         const k = e && (e.surface || e.particle);
-        if (k && !_surfaceIdx.has(k)) _surfaceIdx.set(k, e);
+        if (!k) continue;
+        // vocab beats kanji "cards" — cards carry on/kun memos, not the
+        // sentence reading (two-tier rule, see CLAUDE.md).
+        const prev = _surfaceIdx.get(k);
+        if (!prev || (prev.type === 'kanji' && e.type !== 'kanji')) _surfaceIdx.set(k, e);
       }
     }
     const entry = _surfaceIdx.get(surface);

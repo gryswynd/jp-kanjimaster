@@ -35,7 +35,7 @@
         "てはいけない — 'must not / it is not okay to' for stating prohibitions",
         "なくてもいい — 'don't have to / it's not necessary to' for removing obligation",
         "Informal variants: ていい / ちゃいけない / ちゃだめ",
-        "The full permission/obligation quadrant (preview of G22: なければいけない)"
+        "The full permission/obligation quadrant (preview of G25: なければいけない)"
       ]
     },
     {
@@ -63,7 +63,7 @@
       "notes": [
         "Formation: conjugate the verb to its て-form, then add もいい. 食べる → 食べて + もいい → 食べてもいい.",
         "Polite permission: 食べてもいいです (it's okay to eat). Asking: 食べてもいいですか (may I eat?).",
-        "Informal: drop the い → ていい is a casual shorthand. 食べていい？ is natural in casual speech between friends.",
+        "Informal: drop the も → ていい is a casual shorthand. 食べてもいい → 食べていい. 食べていい？ is natural in casual speech between friends.",
         "The construction literally reads 'even if [you do X], it is good' — the もいい frames the action as acceptable regardless.",
         "To grant enthusiastic permission: てもいいですよ (you're welcome to / of course you can)."
       ],
@@ -84,23 +84,21 @@
               ]
             },
             {
-              "text": "すわっ",
+              "text": "すわって",
               "role": "predicate",
               "gloss": "sit (te-form of すわる)",
               "tokens": [
                 {
-                  "k": "すわっ"
+                  "k": "すわって",
+                  "g": "v_suwaru_te_form"
                 }
               ]
             },
             {
-              "text": "てもいいですか。",
+              "text": "もいいですか。",
               "role": "connector",
               "gloss": "may I ~ / is it okay to ~? (permission question)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },
@@ -139,23 +137,21 @@
               ]
             },
             {
-              "text": "あけ",
+              "text": "あけて",
               "role": "predicate",
               "gloss": "open (te-form of あける)",
               "tokens": [
                 {
-                  "k": "あけ"
+                  "k": "あけて",
+                  "g": "v_akeru_te_form"
                 }
               ]
             },
             {
-              "text": "てもいいですよ。",
+              "text": "もいいですよ。",
               "role": "connector",
               "gloss": "it's okay to ~ / please feel free to ~ (permission granted)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },
@@ -180,27 +176,26 @@
         {
           "parts": [
             {
-              "text": "帰っ",
+              "text": "帰って",
               "role": "predicate",
               "gloss": "go home (te-form)",
               "tokens": [
                 {
                   "k": "帰",
-                  "r": "かえ"
+                  "r": "かえ",
+                  "g": "v_kaeru_te_form"
                 },
                 {
-                  "k": "っ"
+                  "k": "って",
+                  "g": "v_kaeru_te_form"
                 }
               ]
             },
             {
-              "text": "ていい",
+              "text": "いい",
               "role": "connector",
-              "gloss": "it's fine to ~ (casual: drop the い from いい)",
+              "gloss": "it's fine to ~ (casual: drop the も from てもいい)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "いい"
                 }
@@ -221,7 +216,7 @@
             }
           ],
           "en": "You can go home. (casual)",
-          "breakdown": "帰る (godan: to go home) → te-form 帰って + ていい (casual shorthand of てもいい) + よ for light emphasis."
+          "breakdown": "帰る (godan: to go home) → te-form 帰って + いい (casual shorthand of てもいい with the も dropped) + よ for light emphasis."
         }
       ]
     },
@@ -291,26 +286,21 @@
               ]
             },
             {
-              "text": "とっ",
+              "text": "とって",
               "role": "predicate",
               "gloss": "take (te-form of とる)",
               "tokens": [
                 {
-                  "k": "と"
-                },
-                {
-                  "k": "っ"
+                  "k": "とって",
+                  "g": "v_toru_te_form"
                 }
               ]
             },
             {
-              "text": "てはいけません。",
+              "text": "はいけません。",
               "role": "connector",
               "gloss": "must not ~ / not allowed to ~ (polite prohibition)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "は",
                   "r": "わ"
@@ -336,10 +326,13 @@
               "gloss": "during class (に)",
               "tokens": [
                 {
-                  "k": "じゅぎょうちゅう"
+                  "k": "じゅぎょ"
                 },
                 {
-                  "k": "に"
+                  "k": "うち"
+                },
+                {
+                  "k": "ゅうに"
                 }
               ]
             },
@@ -359,27 +352,26 @@
               ]
             },
             {
-              "text": "使っ",
+              "text": "使って",
               "role": "predicate",
               "gloss": "use (te-form of 使う)",
               "tokens": [
                 {
                   "k": "使",
-                  "r": "つか"
+                  "r": "つか",
+                  "g": "v_tsukau_te_form"
                 },
                 {
-                  "k": "っ"
+                  "k": "って",
+                  "g": "v_tsukau_te_form"
                 }
               ]
             },
             {
-              "text": "てはいけません。",
+              "text": "はいけません。",
               "role": "connector",
               "gloss": "must not ~ (polite prohibition)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "は",
                   "r": "わ"
@@ -413,23 +405,20 @@
               ]
             },
             {
-              "text": "入っ",
+              "text": "入っちゃ",
               "role": "predicate",
-              "gloss": "enter (te-form of 入る)",
+              "gloss": "enter (te-form 入って + は, contracted to 入っちゃ)",
               "tokens": [
                 {
-                  "k": "入っ"
+                  "k": "入っちゃ"
                 }
               ]
             },
             {
-              "text": "ちゃいけない",
+              "text": "いけない",
               "role": "connector",
               "gloss": "must not ~ (casual: てはいけない → ちゃいけない)",
               "tokens": [
-                {
-                  "k": "ちゃ"
-                },
                 {
                   "k": "いけない",
                   "g": "v_iku_plain_potential_negative"
@@ -462,12 +451,12 @@
         {
           "label": "VERB",
           "color": "predicate",
-          "text": "[plain negative stem]"
+          "text": "[ない → なくて]"
         },
         {
-          "label": "CONJ",
+          "label": "PERMISSION",
           "color": "connector",
-          "text": "くてもいい"
+          "text": "もいい"
         },
         {
           "label": "COPULA",
@@ -503,23 +492,23 @@
               ]
             },
             {
-              "text": "来なく",
+              "text": "来なくて",
               "role": "predicate",
-              "gloss": "not come (stem of 来ない — plain negative of 来る)",
+              "gloss": "not come (negative て-form: 来ない → 来なくて)",
               "tokens": [
                 {
-                  "k": "来なく"
+                  "k": "来"
+                },
+                {
+                  "k": "なくて"
                 }
               ]
             },
             {
-              "text": "てもいいですよ。",
+              "text": "もいいですよ。",
               "role": "connector",
               "gloss": "it's fine even without ~ / don't have to ~ (permission to skip)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },
@@ -539,7 +528,7 @@
             }
           ],
           "en": "You don't have to come today.",
-          "breakdown": "来る (irregular) → plain negative 来ない → remove い → 来なく + てもいいですよ = it's fine if you don't come."
+          "breakdown": "来る (irregular) → plain negative 来ない → negative て-form 来なくて + もいいですよ = it's fine if you don't come."
         },
         {
           "parts": [
@@ -554,27 +543,27 @@
               ]
             },
             {
-              "text": "食べなく",
+              "text": "食べなくて",
               "role": "predicate",
-              "gloss": "not eat (stem of 食べない — plain negative of 食べる)",
+              "gloss": "not eat (negative て-form: 食べない → 食べなくて)",
               "tokens": [
                 {
                   "k": "食",
                   "r": "た"
                 },
                 {
-                  "k": "べなく"
+                  "k": "べ"
+                },
+                {
+                  "k": "なくて"
                 }
               ]
             },
             {
-              "text": "てもいいです。",
+              "text": "もいいです。",
               "role": "connector",
               "gloss": "it's okay even without ~ / don't have to ~",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },
@@ -591,7 +580,7 @@
             }
           ],
           "en": "You don't have to eat everything.",
-          "breakdown": "食べる (ichidan) → plain negative 食べない → remove い → 食べなく + てもいいです."
+          "breakdown": "食べる (ichidan) → plain negative 食べない → negative て-form 食べなくて + もいいです."
         },
         {
           "parts": [
@@ -616,27 +605,27 @@
               ]
             },
             {
-              "text": "はらわなく",
+              "text": "はらわなくて",
               "role": "predicate",
-              "gloss": "not pay (stem of はらわない — plain negative of はらう)",
+              "gloss": "not pay (negative て-form: はらわない → はらわなくて)",
               "tokens": [
                 {
                   "k": "は",
                   "r": "わ"
                 },
                 {
-                  "k": "らわなく"
+                  "k": "らわ"
+                },
+                {
+                  "k": "なくて"
                 }
               ]
             },
             {
-              "text": "ていい",
+              "text": "いい",
               "role": "connector",
-              "gloss": "it's fine without ~ (casual shorthand of なくてもいい)",
+              "gloss": "it's fine without ~ (casual: drop the も from なくてもいい)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "いい"
                 }
@@ -657,7 +646,7 @@
             }
           ],
           "en": "You don't have to pay. (casual)",
-          "breakdown": "はらう (godan: to pay) → plain negative はらわない → はらわなく + ていいよ (casual shorthand)."
+          "breakdown": "はらう (godan: to pay) → plain negative はらわない → はらわなくて + いいよ (casual shorthand of なくてもいいよ)."
         }
       ]
     },
@@ -691,23 +680,21 @@
                 ]
               },
               {
-                "text": "すわっ",
+                "text": "すわって",
                 "role": "predicate",
                 "gloss": "sit",
                 "tokens": [
                   {
-                    "k": "すわっ"
+                    "k": "すわって",
+                    "g": "v_suwaru_te_form"
                   }
                 ]
               },
               {
-                "text": "てもいいですか。",
+                "text": "もいいですか。",
                 "role": "connector",
                 "gloss": "May I sit here?",
                 "tokens": [
-                  {
-                    "k": "て"
-                  },
                   {
                     "k": "も"
                   },
@@ -755,23 +742,21 @@
                 ]
               },
               {
-                "text": "すわっ",
+                "text": "すわって",
                 "role": "predicate",
                 "gloss": "sit",
                 "tokens": [
                   {
-                    "k": "すわっ"
+                    "k": "すわって",
+                    "g": "v_suwaru_te_form"
                   }
                 ]
               },
               {
-                "text": "てはいけません。",
+                "text": "はいけません。",
                 "role": "connector",
                 "gloss": "You must not sit here.",
                 "tokens": [
-                  {
-                    "k": "て"
-                  },
                   {
                     "k": "は",
                     "r": "わ"
@@ -794,9 +779,9 @@
     },
     {
       "type": "grammarTable",
+      "layout": "quadrant",
       "title": "The Permission & Obligation Quadrant",
-      "description": "Japanese expresses four positions in a permission/obligation grid. G21 teaches the left column and the upper right. G22 will complete the lower right.",
-      "tableType": "conjugation",
+      "description": "Japanese expresses four positions in a permission/obligation grid. This lesson (G23) teaches the top row plus てはいけない. G25 will complete the grid with なければいけない.",
       "headers": [
         "",
         "Positive (do the action)",
@@ -806,18 +791,99 @@
         {
           "label": "PERMITTED / OKAY",
           "cells": [
-            "てもいい — May do / It's okay to do\n食べてもいいです (You may eat.)",
-            "なくてもいい — Don't have to / Not necessary\n食べなくてもいいです (You don't have to eat.)"
+            {
+              "form": "てもいい",
+              "gloss": "May do / It's okay to do",
+              "tone": "ok",
+              "example": {
+                "parts": [
+                  {
+                    "text": "食べてもいいです。",
+                    "gloss": "You may eat.",
+                    "tokens": [
+                      { "k": "食", "r": "た", "g": "qte1" },
+                      { "k": "べて", "g": "qte1" },
+                      { "k": "も" },
+                      { "k": "いい" },
+                      { "k": "です" },
+                      { "k": "。" }
+                    ]
+                  }
+                ],
+                "en": "You may eat."
+              }
+            },
+            {
+              "form": "なくてもいい",
+              "gloss": "Don't have to / Not necessary",
+              "tone": "ok",
+              "example": {
+                "parts": [
+                  {
+                    "text": "食べなくてもいいです。",
+                    "gloss": "You don't have to eat.",
+                    "tokens": [
+                      { "k": "食", "r": "た", "g": "qte2" },
+                      { "k": "べなくて", "g": "qte2" },
+                      { "k": "も" },
+                      { "k": "いい" },
+                      { "k": "です" },
+                      { "k": "。" }
+                    ]
+                  }
+                ],
+                "en": "You don't have to eat."
+              }
+            }
           ],
           "meaning": "Both express acceptance — one for doing, one for not doing."
         },
         {
           "label": "REQUIRED / FORBIDDEN",
           "cells": [
-            "なければいけない — Must do (G22)\n食べなければいけません (You must eat.)",
-            "てはいけない — Must not do\n食べてはいけません (You must not eat.)"
+            {
+              "form": "なければいけない",
+              "gloss": "Must do (taught in G25)",
+              "tone": "forbidden",
+              "example": {
+                "parts": [
+                  {
+                    "text": "食べなければいけません。",
+                    "gloss": "You must eat.",
+                    "tokens": [
+                      { "k": "食", "r": "た", "g": "qte3" },
+                      { "k": "べなければ", "g": "qte3" },
+                      { "k": "いけません" },
+                      { "k": "。" }
+                    ]
+                  }
+                ],
+                "en": "You must eat."
+              }
+            },
+            {
+              "form": "てはいけない",
+              "gloss": "Must not do",
+              "tone": "forbidden",
+              "example": {
+                "parts": [
+                  {
+                    "text": "食べてはいけません。",
+                    "gloss": "You must not eat.",
+                    "tokens": [
+                      { "k": "食", "r": "た", "g": "qte4" },
+                      { "k": "べて", "g": "qte4" },
+                      { "k": "は", "r": "わ" },
+                      { "k": "いけません" },
+                      { "k": "。" }
+                    ]
+                  }
+                ],
+                "en": "You must not eat."
+              }
+            }
           ],
-          "meaning": "Both express requirement — one to act, one to refrain. なければいけない is taught in G22."
+          "meaning": "Both express requirement — one to act, one to refrain. なければいけない is taught in G25."
         }
       ],
       "notes": [
@@ -865,27 +931,26 @@
               ]
             },
             {
-              "text": "飲ん",
+              "text": "飲んで",
               "role": "predicate",
               "gloss": "drink (te-form of 飲む)",
               "tokens": [
                 {
                   "k": "飲",
-                  "r": "の"
+                  "r": "の",
+                  "g": "v_nomu_te_form"
                 },
                 {
-                  "k": "ん"
+                  "k": "んで",
+                  "g": "v_nomu_te_form"
                 }
               ]
             },
             {
-              "text": "てはいけません。",
+              "text": "はいけません。",
               "role": "connector",
               "gloss": "must not ~ (polite prohibition)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "は",
                   "r": "わ"
@@ -917,7 +982,7 @@
               ]
             },
             {
-              "text": "運動し",
+              "text": "運動して",
               "role": "predicate",
               "gloss": "exercise (te-form of 運動する)",
               "tokens": [
@@ -926,18 +991,16 @@
                   "r": "うんどう"
                 },
                 {
-                  "k": "し"
+                  "k": "して",
+                  "g": "v_suru_te_form"
                 }
               ]
             },
             {
-              "text": "てもいいですよ。",
+              "text": "もいいですよ。",
               "role": "connector",
               "gloss": "it's okay to ~ now / you may ~ (permission granted)",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },
@@ -968,8 +1031,10 @@
               "gloss": "homework (は — topic)",
               "tokens": [
                 {
-                  "k": "しゅくだい",
-                  "g": "v_shukudai"
+                  "k": "し"
+                },
+                {
+                  "k": "ゅくだい"
                 },
                 {
                   "k": "は",
@@ -988,29 +1053,23 @@
               ]
             },
             {
-              "text": "しなく",
+              "text": "しなくて",
               "role": "predicate",
-              "gloss": "not do (stem of しない — plain negative of する)",
+              "gloss": "not do (negative て-form: しない → しなくて)",
               "tokens": [
                 {
                   "k": "し"
                 },
                 {
-                  "k": "な"
-                },
-                {
-                  "k": "く"
+                  "k": "なくて"
                 }
               ]
             },
             {
-              "text": "てもいいです。",
+              "text": "もいいです。",
               "role": "connector",
               "gloss": "it's fine without ~ / don't have to ~",
               "tokens": [
-                {
-                  "k": "て"
-                },
                 {
                   "k": "も"
                 },

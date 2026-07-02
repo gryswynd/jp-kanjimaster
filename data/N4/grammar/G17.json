@@ -453,8 +453,7 @@
               "gloss": "nothing but games (ゲーム + ばかり — excessive habit)",
               "tokens": [
                 {
-                  "k": "ゲーム",
-                  "r": "げーむ"
+                  "k": "ゲーム"
                 },
                 {
                   "k": "ばかり"
@@ -550,11 +549,11 @@
         }
       ],
       "meaning": "even X / any~ (inclusive particle)",
-      "explanation": "でも after a noun means 'even X' — including the least expected or most minimal case still applies. When combined with question words (何, いつ, どこ, 誰), it creates open-ended 'any~' expressions: 何でも (anything), いつでも (anytime), どこでも (anywhere), 誰でも (anyone). Important: sentence-initial でも (p_demo_but) means 'but/however' and is a completely different usage.",
+      "explanation": "でも after a noun means 'even X' — including the least expected or most minimal case still applies. When combined with question words (何, いつ, どこ, 誰), it creates open-ended 'any~' expressions: 何でも (anything), いつでも (anytime), どこでも (anywhere), 誰でも (anyone). Important: sentence-initial でも means 'but/however' and is a completely different usage.",
       "notes": [
         "After a noun: [Noun]でも = 'even X.' 子どもでも = even a child; 一人でも = even one person.",
         "With question words: 何でも (anything), いつでも (anytime), どこでも (anywhere), 誰でも (anyone).",
-        "Do not confuse with sentence-initial でも (= 'but/however', p_demo_but). でも、行きます = 'But I'll go.' The particle でも (p_demo) comes after a noun; the conjunction でも (p_demo_but) starts a sentence."
+        "Do not confuse with sentence-initial でも (= 'but/however'). でも、行きます = 'But I'll go.' The particle でも comes after a noun; the conjunction でも starts a sentence."
       ],
       "examples": [
         {
@@ -760,7 +759,7 @@
             }
           ],
           "en": "During the trip I only spoke Japanese.",
-          "note": "しか + negative verb = exclusive restriction. This implies a deliberate challenge — speaking only Japanese even when another language was available."
+          "note": "しか + negative verb = exclusive restriction. Here the context suggests a deliberate challenge — but しか itself only marks the restriction; the reason comes from context."
         },
         {
           "context": "ばかり — excessive ongoing habit (critical tone)",
@@ -786,8 +785,7 @@
               "gloss": "nothing but games (ゲーム + ばかり)",
               "tokens": [
                 {
-                  "k": "ゲーム",
-                  "r": "げーむ"
+                  "k": "ゲーム"
                 },
                 {
                   "k": "ばかり"
@@ -1004,7 +1002,7 @@
       "items": [
         {
           "before": "コーヒー",
-          "after": "飲みます。",
+          "after": "飲みます。(a plain fact — no complaint)",
           "translation": "I only drink coffee. (neutral choice)",
           "choices": [
             "だけ",
@@ -1017,7 +1015,7 @@
         },
         {
           "before": "野菜",
-          "after": "食べません。",
+          "after": "食べません。(vegetables are the only thing I eat)",
           "translation": "I don't eat anything except vegetables.",
           "choices": [
             "だけ",
@@ -1030,7 +1028,7 @@
         },
         {
           "before": "ゲーム",
-          "after": "しています。",
+          "after": "しています。(an excessive habit — critical tone)",
           "translation": "All (you) do is play games.",
           "choices": [
             "だけ",
@@ -1043,7 +1041,7 @@
         },
         {
           "before": "子ども",
-          "after": "分かります。",
+          "after": "分かります。(even the least expected person)",
           "translation": "Even a child understands.",
           "choices": [
             "だけ",
@@ -1052,11 +1050,11 @@
             "でも"
           ],
           "answer": "でも",
-          "explanation": "でも after a noun means 'even X.' 子どもでも = even a child. This is p_demo (inclusive particle) — distinct from sentence-initial でも (p_demo_but) which means 'but/however.'"
+          "explanation": "でも after a noun means 'even X.' 子どもでも = even a child. This is the inclusive particle でも — distinct from sentence-initial でも which means 'but/however.'"
         },
         {
           "before": "食べた",
-          "after": "です。",
+          "after": "です。(finished eating moments ago)",
           "translation": "I just ate.",
           "choices": [
             "だけ",
@@ -1108,7 +1106,7 @@
             "何ばかり食べています。"
           ],
           "answer": "何でも食べます。",
-          "explanation": "Question word + でも = any~: 何でも = anything, いつでも = anytime, どこでも = anywhere. 何でも食べます = 'I eat anything / whatever.' The でも here is the inclusive particle (p_demo), not the 'but' conjunction."
+          "explanation": "Question word + でも = any~: 何でも = anything, いつでも = anytime, どこでも = anywhere. 何でも食べます = 'I eat anything / whatever.' The でも here is the inclusive particle, not the 'but' conjunction."
         },
         {
           "kind": "mcq",
@@ -1132,7 +1130,7 @@
             "One person came many times."
           ],
           "answer": "Only one person came.",
-          "explanation": "一人 (one person) + しか + 来ませんでした (did not come — polite past negative). しか + negative verb = 'only/nothing but': only one person came (and the speaker implies that was not many enough)."
+          "explanation": "一人 (one person) + しか + 来ませんでした (did not come — polite past negative). しか + negative verb = 'only/nothing but': only one person came (and the speaker implies that was fewer than hoped)."
         }
       ]
     }

@@ -233,8 +233,8 @@
         },
         {
           "spk": "ミキ",
-          "jp": "川に 花が たくさん あります。きれいそうですね。",
-          "en": "There are many flowers by the river. They look beautiful, don't they.",
+          "jp": "川に 花が たくさん あります。とても きれいですね。",
+          "en": "There are many flowers by the river. They're so beautiful.",
           "terms": [
             "v_kawa",
             "p_ni",
@@ -245,10 +245,8 @@
               "id": "v_aru",
               "form": "polite_masu"
             },
-            {
-              "id": "v_kirei",
-              "form": "appearance_sou_stem"
-            },
+            "v_totemo",
+            "v_kirei",
             "g_desu",
             "p_ne"
           ]
@@ -552,7 +550,7 @@
         {
           "spk": "レン",
           "jp": "そうですね。家で 休みたいですね。",
-          "en": "Yes. I want to rest at home, don't I.",
+          "en": "Yes. Resting at home sounds nice, doesn’t it.",
           "terms": [
             "p_soudesu",
             "p_ne",
@@ -588,7 +586,7 @@
         {
           "spk": "レン",
           "jp": "そうですね。きのうの 雨の 後も、花が きれいに なりましたよ。",
-          "en": "Yes. Even after yesterday's rain, the flowers became beautiful.",
+          "en": "Yes. And after yesterday’s rain, the flowers became beautiful.",
           "terms": [
             "p_soudesu",
             "p_ne",
@@ -755,22 +753,19 @@
         },
         {
           "spk": "レン",
-          "jp": "うん、川の 中に 大きい 魚も いるだろう。",
-          "en": "Yeah, there are probably big fish in the river too.",
+          "jp": "うん、金魚は 人気が あるよ。",
+          "en": "Yeah, goldfish are popular.",
           "terms": [
             "v_un",
-            "v_kawa",
-            "p_no",
-            "v_naka",
-            "p_ni",
-            "v_ookii",
-            "v_sakana",
-            "p_mo",
+            "v_kingyo",
+            "p_wa",
+            "v_ninki",
+            "p_ga",
             {
-              "id": "v_iru",
+              "id": "v_aru",
               "form": "plain_form"
             },
-            "g_darou"
+            "p_yo"
           ]
         }
       ]

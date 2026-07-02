@@ -216,10 +216,7 @@
               "gloss": "all along / the whole time (up to now)",
               "tokens": [
                 {
-                  "k": "ずっ"
-                },
-                {
-                  "k": "と"
+                  "k": "ずっと"
                 }
               ]
             },
@@ -414,10 +411,7 @@
               "gloss": "little by little",
               "tokens": [
                 {
-                  "k": "すこ"
-                },
-                {
-                  "k": "し"
+                  "k": "すこし"
                 },
                 {
                   "k": "ずつ"
@@ -653,10 +647,7 @@
               "gloss": "window (が — affected object)",
               "tokens": [
                 {
-                  "k": "まど"
-                },
-                {
-                  "k": "が"
+                  "k": "まどが"
                 }
               ]
             },
@@ -769,10 +760,7 @@
                 "gloss": "window (が — subject of intransitive verb)",
                 "tokens": [
                   {
-                    "k": "まど"
-                  },
-                  {
-                    "k": "が"
+                    "k": "まどが"
                   }
                 ]
               },
@@ -821,10 +809,7 @@
                 "gloss": "window (が — affected object, shifted from を)",
                 "tokens": [
                   {
-                    "k": "まど"
-                  },
-                  {
-                    "k": "が"
+                    "k": "まどが"
                   }
                 ]
               },
@@ -872,10 +857,7 @@
               "gloss": "all along / the whole time",
               "tokens": [
                 {
-                  "k": "ずっ"
-                },
-                {
-                  "k": "と"
+                  "k": "ずっと"
                 }
               ]
             },
@@ -936,13 +918,7 @@
               "gloss": "child (が)",
               "tokens": [
                 {
-                  "k": "こど"
-                },
-                {
-                  "k": "も"
-                },
-                {
-                  "k": "が"
+                  "k": "こどもが"
                 }
               ]
             },
@@ -952,10 +928,7 @@
               "gloss": "from outside (から)",
               "tokens": [
                 {
-                  "k": "そ"
-                },
-                {
-                  "k": "と"
+                  "k": "そと"
                 },
                 {
                   "k": "から"
@@ -1111,11 +1084,7 @@
               "gloss": "on the door (に)",
               "tokens": [
                 {
-                  "k": "ドア",
-                  "r": "どあ"
-                },
-                {
-                  "k": "に"
+                  "k": "ドアに"
                 }
               ]
             },
@@ -1128,10 +1097,7 @@
                   "k": "か"
                 },
                 {
-                  "k": "ぎ"
-                },
-                {
-                  "k": "が"
+                  "k": "ぎが"
                 }
               ]
             },
@@ -1293,7 +1259,7 @@
       "items": [
         {
           "before": "秋に なっ",
-          "after": "ね。",
+          "after": "ね。 (the change has already arrived)",
           "translation": "Autumn has come (arrived), hasn't it.",
           "choices": [
             "てきた",
@@ -1305,7 +1271,7 @@
         },
         {
           "before": "食べ物を 持っ",
-          "after": "よ。",
+          "after": "よ。 (taking it along when I leave)",
           "translation": "I'll take food along.",
           "choices": [
             "ていく",
@@ -1317,7 +1283,7 @@
         },
         {
           "before": "お茶は もう 入れ",
-          "after": "よ。",
+          "after": "よ。 (the prepared state is still there)",
           "translation": "The tea has already been prepared.",
           "choices": [
             "てある",
@@ -1327,7 +1293,8 @@
           "answer": "てある",
           "explanation": "てある expresses a state resulting from intentional action: 入れてある (was poured/prepared, and the result remains)。"
         }
-      ]
+      ],
+      "title": "Choose てくる / ていく / てある"
     },
     {
       "type": "drills",

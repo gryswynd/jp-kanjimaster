@@ -607,7 +607,7 @@
       "explanation": "The て-form's core use is connecting two actions by the same subject in sequence. The first verb takes the て-form, and the second verb carries the tense for the whole sentence. Both actions happened (or will happen) in order.",
       "notes": [
         "Tense is determined only by the FINAL verb. て-form itself is tenseless.",
-        "駅へ行って、コンビニに来ました = Went to the station, then came to the convenience store (both past).",
+        "駅へ行って、コンビニに行きました = Went to the station, then went to the convenience store (both past).",
         "In basic AてB sequences, the subject is usually the same person performing both actions. However, different subjects are possible when describing a sequence of events (うちにいて、友だちが来ました — I was at home, and my friend came).",
         "You can chain more than two actions: AてBてC = 'did A, then B, then C'.",
         "て-form also underlies other patterns (～てください, ～ています) taught in later lessons."
@@ -682,12 +682,12 @@
               ]
             },
             {
-              "text": "来",
+              "text": "行き",
               "role": "verb",
-              "gloss": "come",
+              "gloss": "go-",
               "tokens": [
                 {
-                  "k": "来"
+                  "k": "行き"
                 }
               ]
             },
@@ -702,8 +702,8 @@
               ]
             }
           ],
-          "en": "I went to the station and then came to the convenience store.",
-          "breakdown": "行く→行って (て-form, exception); 来ました sets past tense for both actions. Particles: へ marks the station as a direction (heading toward it), while に marks the convenience store as a destination (arriving there). Both work with movement verbs, but へ emphasises the journey and に emphasises the arrival point (G5). You could swap them — 駅に行って、コンビニへ来ました would also be correct."
+          "en": "I went to the station and then went to the convenience store.",
+          "breakdown": "行く→行って (て-form, exception); 行きました sets past tense for both actions. Particles: へ marks the station as a direction (heading toward it), while に marks the convenience store as a destination (arriving there). Both work with movement verbs, but へ emphasises the journey and に emphasises the arrival point (G5). You could swap them — 駅に行って、コンビニへ行きました would also be correct."
         },
         {
           "parts": [
@@ -908,7 +908,7 @@
         "行かないでください — Please don't go. (行く: godan → あ-shift → 行か + ないでください)",
         "話さないでください — Please don't speak. (話す: godan → あ-shift → 話さ + ないでください)",
         "ないでください attaches to the plain negative stem (あ-column for godan, drop る for ichidan), NOT to the て-form.",
-        "てください is polite but direct. Adding お願いします at the end makes it warmer: 来てください、お願いします."
+        "てください is polite but direct. Adding お願いします at the end makes it warmer: 来てください。お願いします。"
       ],
       "examples": [
         {
@@ -1353,7 +1353,7 @@
         "Godan る verbs (like 分かる where the vowel before る is not い/え) always follow る→って/った.",
         "来る is fully irregular — て-form is 来て (きて), た-form is 来た (きた).",
         "ある て-form: あって, た-form: あった — regular godan る→って/った rule (ある's irregularity is its negative form ない, not its て/た forms).",
-        "The た-form (plain past) is covered in depth in G9. Here, learn the sound-change rules — they are identical to て-form."
+        "The た-form (plain past) is covered in depth in G10. Here, learn the sound-change rules — they are identical to て-form."
       ]
     },
     {
@@ -1440,12 +1440,12 @@
               ]
             },
             {
-              "text": "来",
+              "text": "行き",
               "role": "verb",
-              "gloss": "come",
+              "gloss": "go-",
               "tokens": [
                 {
-                  "k": "来"
+                  "k": "行き"
                 }
               ]
             },
@@ -1460,7 +1460,7 @@
               ]
             }
           ],
-          "en": "Yesterday I went to the station and then came to the convenience store.",
+          "en": "Yesterday I went to the station and then went to the convenience store.",
           "note": "行く→行って (exception!). ました on the final verb sets the past tense for both actions. Both に particles mark destinations (G5). きのう takes no particle because it is a relative time word (G4)."
         },
         {
@@ -1548,12 +1548,12 @@
               ]
             },
             {
-              "text": "来",
+              "text": "行き",
               "role": "verb",
-              "gloss": "come",
+              "gloss": "go-",
               "tokens": [
                 {
-                  "k": "来"
+                  "k": "行き"
                 }
               ]
             },
@@ -1568,12 +1568,23 @@
               ]
             }
           ],
-          "en": "Next week I will go to the convenience store and then come to the supermarket.",
-          "note": "来ます (present/future) shows this hasn't happened yet. The て-form itself has no tense. Particles: both に mark destinations (G5). 来週 is relative time, so no particle (G4)."
+          "en": "Next week I will go to the convenience store and then go to the supermarket.",
+          "note": "行きます (present/future) shows this hasn’t happened yet. The て-form itself has no tense. Particles: both に mark destinations (G5). 来週 is relative time, so no particle (G4)."
         },
         {
           "context": "Ichidan て-form — に marks existence location (not destination!)",
           "parts": [
+            {
+              "text": "毎日",
+              "role": "time",
+              "gloss": "every day (relative time, no particle)",
+              "tokens": [
+                {
+                  "k": "毎日",
+                  "r": "まいにち"
+                }
+              ]
+            },
             {
               "text": "うち",
               "role": "object",
@@ -1618,23 +1629,23 @@
               ]
             },
             {
-              "text": "毎日",
-              "role": "time",
-              "gloss": "every day (relative time, no particle)",
+              "text": "勉強",
+              "role": "object",
+              "gloss": "studying",
               "tokens": [
                 {
-                  "k": "毎日",
-                  "r": "まいにち"
+                  "k": "勉強",
+                  "r": "べんきょう"
                 }
               ]
             },
             {
-              "text": "来",
+              "text": "し",
               "role": "verb",
-              "gloss": "come",
+              "gloss": "do-",
               "tokens": [
                 {
-                  "k": "来"
+                  "k": "し"
                 }
               ]
             },
@@ -1649,8 +1660,8 @@
               ]
             }
           ],
-          "en": "Being at home, and coming every day.",
-          "note": "いる→いて (ichidan): drop る, add て. Particles: に here marks existence location (WHERE I am, with いる) — different from the destination に in the examples above (G5). Same particle, different role!"
+          "en": "Every day I stay home and study.",
+          "note": "いる→いて (ichidan): drop る, add て. Particles: に here marks existence location (WHERE I am, with いる) — different from the destination に in the examples above (G5). Same particle, different role! 毎日 is a relative time word — no particle (G4)."
         },
         {
           "context": "Polite request with てください — に marks destination",
@@ -1834,8 +1845,8 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "駅に 行って、コンビニに 来ました。",
-          "en": "I went to the station and then came to the convenience store.",
+          "jp": "駅に 行って、コンビニに 行きました。",
+          "en": "I went to the station and then went to the convenience store.",
           "terms": [
             "v_eki",
             "p_ni",
@@ -1846,7 +1857,7 @@
             "v_konbini",
             "p_ni",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             }
           ]
@@ -1868,8 +1879,8 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "はい、バスで 行って、駅に 来ました。",
-          "en": "Yes, I went by bus and came to the station.",
+          "jp": "はい、バスで 行って、バスで 来ました。",
+          "en": "Yes, I went by bus and came back by bus.",
           "terms": [
             "p_hai",
             "v_basu",
@@ -1878,8 +1889,8 @@
               "id": "v_iku",
               "form": "te_form"
             },
-            "v_eki",
-            "p_ni",
+            "v_basu",
+            "p_de",
             {
               "id": "v_kuru",
               "form": "polite_mashita"
@@ -1959,8 +1970,8 @@
         },
         {
           "spk": "先生",
-          "jp": "きいてください。駅に 行って、コンビニに 来ました。",
-          "en": "Please listen. I went to the station and then came to the convenience store.",
+          "jp": "きいてください。駅に 行って、コンビニに 行きました。",
+          "en": "Please listen. I went to the station and then went to the convenience store.",
           "terms": [
             {
               "id": "v_kiku",
@@ -1976,7 +1987,7 @@
             "v_konbini",
             "p_ni",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             }
           ]
@@ -2082,16 +2093,16 @@
         },
         {
           "kind": "mcq",
-          "q": "Which sentence correctly means 'I went to the station and then came to the store'?",
+          "q": "Which sentence correctly means 'I went to the station and then went to the store'?",
           "choices": [
-            "駅に 行って、店に 来ました。",
-            "駅に 行きました、店に 来ました。",
-            "駅に 行いて、店に 来ました。",
-            "駅に 行って、店に 来て。"
+            "駅に 行って、店に 行きました。",
+            "駅に 行きました、店に 行きました。",
+            "駅に 行いて、店に 行きました。",
+            "駅に 行って、店に 行って。"
           ],
-          "answer": "駅に 行って、店に 来ました。",
+          "answer": "駅に 行って、店に 行きました。",
           "terms": [],
-          "explanation": "て-form connects sequential actions: 行って (go + connector). The final verb 来ました carries the past tense for both. 行いて is wrong (行く exception). Ending with 来て would leave the sentence unfinished."
+          "explanation": "て-form connects sequential actions: 行って (go + connector). The final verb 行きました carries the past tense for both. 行いて is wrong (行く exception). Ending with 行って would leave the sentence unfinished."
         },
         {
           "kind": "mcq",

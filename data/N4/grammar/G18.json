@@ -646,10 +646,10 @@
               "gloss": "soon / shortly",
               "tokens": [
                 {
-                  "k": "もう"
+                  "k": "もうす"
                 },
                 {
-                  "k": "すぐ"
+                  "k": "ぐ"
                 }
               ]
             },
@@ -838,11 +838,7 @@
               "gloss": "into the pocket (に = destination)",
               "tokens": [
                 {
-                  "k": "ポケット",
-                  "r": "ぽけっと"
-                },
-                {
-                  "k": "に"
+                  "k": "ポケットに"
                 }
               ]
             },
@@ -944,8 +940,7 @@
               "gloss": "from the pocket (から = source)",
               "tokens": [
                 {
-                  "k": "ポケット",
-                  "r": "ぽけっと"
+                  "k": "ポケット"
                 },
                 {
                   "k": "から"
@@ -1087,15 +1082,20 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "映画が終わりました。外に出ましょう。",
-          "en": "The movie ended. Let's go outside.",
+          "jp": "ああ、楽しかったです。映画が終わりましたね。外に出ましょう。",
+          "en": "That was fun! The movie's over. Let's go outside.",
           "terms": [
+            {
+              "id": "v_tanoshii",
+              "form": "polite_past_adj"
+            },
             "v_eiga",
             "p_ga",
             {
               "id": "v_owaru",
               "form": "polite_mashita"
             },
+            "p_ne",
             "v_soto",
             "p_ni",
             {
@@ -1107,7 +1107,7 @@
         {
           "spk": "ゆき",
           "jp": "分かりました。メモを中に入れて、出ましょう！",
-          "en": "Got it. Let me put my notes inside, and let's go!",
+          "en": "Got it. Put your notes away, and let’s go!",
           "terms": [
             {
               "id": "v_wakaru",
@@ -1141,8 +1141,8 @@
           "choices": [
             "始まります",
             "始めます",
-            "始まりました",
-            "始めました"
+            "出ます",
+            "入ります"
           ],
           "answer": "始まります",
           "explanation": "映画が = the movie (が = subject marker). The movie starts on its own — no external agent. Use the INTRANSITIVE 始まる. 始める (transitive) would be wrong: ×映画が始めます is ungrammatical — 映画 cannot be the agent of a transitive verb acting on itself."
@@ -1152,10 +1152,10 @@
           "after": "。",
           "translation": "The theater staff started the movie.",
           "choices": [
-            "始まりました",
             "始めました",
-            "始まります",
-            "始めます"
+            "始まりました",
+            "出しました",
+            "入れました"
           ],
           "answer": "始めました",
           "explanation": "映画を = the movie (を = direct object). There is an agent (映画館の人) acting on an object (映画). Use the TRANSITIVE 始める (polite past: 始めました). 始まりました is intransitive and cannot take を: ×映画館の人が映画を始まりました is ungrammatical."
@@ -1228,7 +1228,7 @@
             "から"
           ],
           "answer": "を",
-          "explanation": "入れる is a transitive verb (他動詞) — it takes を for its direct object. メモを入れました = put the notes in. が marks the subject (not the object here), に marks the destination (where something is put — also used, but comes AFTER を in this sentence), から marks the source. を directly before the verb is the key signal that 入れる is transitive."
+          "explanation": "入れる is a transitive verb (他動詞) — it takes を for its direct object. メモを入れました = put the notes in. が marks the subject, から marks a source, and に would mark a destination (ポケットに) — but the blank marks the thing being put in, so を is required. を directly before the verb is the key signal that 入れる is transitive."
         },
         {
           "kind": "mcq",

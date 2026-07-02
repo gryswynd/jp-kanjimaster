@@ -1058,8 +1058,8 @@
           ]
         },
         {
-          "jp": "電気が ありません。電車も 来ません。",
-          "en": "There is no electricity. The trains won't come either.",
+          "jp": "電気が ありませんから、電車も 来ません。",
+          "en": "When there's no electricity, the trains don't come either.",
           "terms": [
             "v_denki",
             "p_ga",
@@ -1067,6 +1067,7 @@
               "id": "v_aru",
               "form": "polite_negative"
             },
+            "p_kara_because",
             "v_densha",
             "p_mo",
             {
@@ -1460,7 +1461,7 @@
             },
             "g_desu"
           ],
-          "explanation": "Correct: 休日に 休み たいです。（I want to rest on the holiday.） — 「休み」 (やすみ) means \"rest / holiday / day off\"."
+          "explanation": "Correct: 休日に 休みたいです。（I want to rest on the holiday.） — 休み here is the ます-stem of 休む (やすむ); stem + たい = want to rest."
         },
         {
           "kind": "mcq",

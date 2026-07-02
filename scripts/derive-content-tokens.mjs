@@ -60,6 +60,18 @@ function deriveOnParts(node, file, ceiling) {
     if (Array.isArray(node.parts)) {
       for (const part of node.parts) {
         if (part && typeof part === 'object' && typeof part.text === 'string' && part.text) {
+          // Authored escape hatch: a hand-written `tokensOverride` wins over
+          // the tokenizer (per-instance readings the glossary can't encode).
+          // It must still reconstruct to the text, else it's ignored.
+          if (Array.isArray(part.tokensOverride)) {
+            if (reconstructFromTokens(part.tokensOverride) === part.text) {
+              part.tokens = part.tokensOverride;
+              stats.parts++;
+              if (part.tokens.some(t => t && t.r)) stats.withReading++;
+              continue;
+            }
+            stats.mismatches.push(`${file}: tokensOverride drift for "${part.text}"`);
+          }
           const tokens = tokenizeText(part.text, glossaryIndex, { ceiling });
           const reconstructed = reconstructFromTokens(tokens);
           if (reconstructed !== part.text) {

@@ -31,6 +31,7 @@ export function conjugate(term, ruleKey, conjugationRules) {
   if (vClass === 'u')    vClass = 'godan';
   if (vClass === 'ru')   vClass = 'ichidan';
   if (vClass === 'verb') vClass = 'godan';
+  if (vClass === 'godan_ru') vClass = 'godan';   // る-ending godan (座る, 帰る)
   if (['adjective', 'adjective_i', 'i-adj', 'i-adjective'].includes(vClass)) vClass = 'i_adj';
   if (['na-adjective', 'na-adj', 'adjective_na', 'na_adjective'].includes(vClass)) vClass = 'na_adj';
   if (vClass === 'irr_ii') vClass = 'irr_ii';   // いい has its own rule chain
@@ -127,8 +128,10 @@ export const VERB_FORMS = [
   'polite_potential',          // 学べます "can study", 作れます
   'potential_te',              // もらえて、できて "able to receive / do" (te-form)
   'plain_potential_negative',  // 作れない "can't make", 来られない
+  'polite_potential_negative', // 走れません, 来られません "can't run / come" (polite)
   'polite_potential_past',     // 作れました, 来られました
   'plain_potential_past',      // 売れた, 作れた "could sell / make" (plain past)
+  'imperative',                // 食べろ、行け "do it!" (plain command)
   'tari_form',                 // 入ったり、見たり "doing things like A, B..."
   'purpose_ni',                // 会いに、走りに (V-stem + に, pairs with 行く/来る)
   'nagara_form',               // 話しながら "while talking"

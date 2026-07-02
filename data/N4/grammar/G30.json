@@ -71,7 +71,7 @@
       "notes": [
         "Formation: conjugate the main verb to its て-form, then add みる (the auxiliary 見る written in hiragana OR kanji depending on how you write it in context). Example: 食べる → 食べて + みる = 食べてみる (try eating it).",
         "Past tense: てみた (plain) / てみました (polite). 食べてみた = I tried eating it. 食べてみましたか = Did you try eating it?",
-        "In jp fields, write the auxiliary as 見る (kanji) so the text processor can recognize v_miru: 食べて見ます, 食べて見た.",
+        "The auxiliary みる is usually written in hiragana (食べてみる), distinguishing it from the main verb 見る ('to see').",
         "Contrast with とする: てみる = actually try and see the result; とする = attempt/be on the verge of (often interrupted before completion).",
         "てみる can be used for suggestions: やってみてください (please try doing it) or やってみたらどう？ (why don't you try?)."
       ],
@@ -527,10 +527,10 @@
       "notes": [
         "Formation: [verb て-form] + しまう. Example: 食べる → 食べて + しまう = 食べてしまう (eat it all / accidentally eat it). 飲む → 飲んで + しまう = 飲んでしまう.",
         "Polite past: 食べてしまいました. Plain past: 食べてしまった.",
-        "Casual contractions (spoken only — NOT used in tagged jp fields): てしまった → ちゃった. でしまった → じゃった. Example: 食べちゃった (I accidentally ate it!). 飲んじゃった (I drank it all!).",
+        "Casual contractions (spoken only — this course always writes the full form): てしまった → ちゃった. でしまった → じゃった. Example: 食べちゃった (I accidentally ate it!). 飲んじゃった (I drank it all!).",
         "Completion nuance (neutral or positive): レポートを 書いてしまった (I finished writing the report — all done!).",
         "Regret/accident nuance: 財布を 忘れてしまいました (I accidentally forgot my wallet — ugh). The speaker did not intend this outcome.",
-        "In polite content and jp-tagged fields, always write the full form: てしまいました / てしまった. Never write ちゃった in jp fields that require term tagging."
+        "In writing, use the full form てしまいました / てしまった. ちゃった belongs to casual speech only."
       ],
       "examples": [
         {
@@ -667,8 +667,11 @@
               "gloss": "homework (を — object)",
               "tokens": [
                 {
-                  "k": "宿題",
-                  "r": "しゅくだい"
+                  "k": "宿"
+                },
+                {
+                  "k": "題",
+                  "r": "だい"
                 },
                 {
                   "k": "を",
@@ -970,7 +973,13 @@
               "gloss": "go out (masu-stem of 出かける)",
               "tokens": [
                 {
-                  "k": "出かけ"
+                  "k": "出"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "け"
                 }
               ]
             },
@@ -1059,8 +1068,7 @@
               "gloss": "door (を — object)",
               "tokens": [
                 {
-                  "k": "ドア",
-                  "r": "どあ"
+                  "k": "ドア"
                 },
                 {
                   "k": "を",
@@ -1198,7 +1206,7 @@
             {
               "text": "すると、",
               "role": "predicate",
-              "gloss": "assuming (すると — te-form of とする, expressing hypothesis)",
+              "gloss": "assuming (すると — する + conditional と ('if we take it as…'))",
               "tokens": [
                 {
                   "k": "する"
@@ -1475,16 +1483,7 @@
               "gloss": "to the party (に — direction/target)",
               "tokens": [
                 {
-                  "k": "パーティ",
-                  "r": "ぱーてぃ",
-                  "g": "lw_paatii"
-                },
-                {
-                  "k": "ー",
-                  "g": "lw_paatii"
-                },
-                {
-                  "k": "に"
+                  "k": "パーティーに"
                 }
               ]
             },
@@ -1824,8 +1823,10 @@
               "gloss": "documents/materials (を — object)",
               "tokens": [
                 {
-                  "k": "資料",
-                  "r": "しりょう"
+                  "k": "資"
+                },
+                {
+                  "k": "料"
                 },
                 {
                   "k": "を",
@@ -1886,7 +1887,11 @@
               "gloss": "oversleep (te-form of 寝坊する — sleep in)",
               "tokens": [
                 {
-                  "k": "寝坊"
+                  "k": "寝",
+                  "r": "ね"
+                },
+                {
+                  "k": "坊"
                 },
                 {
                   "k": "して",
@@ -1962,8 +1967,11 @@
               "gloss": "I'm worried (心配 + です — na-adjective predicate)",
               "tokens": [
                 {
-                  "k": "心配",
-                  "r": "しんぱい"
+                  "k": "心",
+                  "r": "こころ"
+                },
+                {
+                  "k": "配"
                 },
                 {
                   "k": " "
@@ -1989,7 +1997,11 @@
               "gloss": "run away (masu-stem of 逃げる)",
               "tokens": [
                 {
-                  "k": "逃げ"
+                  "k": "逃",
+                  "r": "に"
+                },
+                {
+                  "k": "げ"
                 }
               ]
             },
@@ -2068,7 +2080,8 @@
               "gloss": "he (が — subject)",
               "tokens": [
                 {
-                  "k": "彼"
+                  "k": "彼",
+                  "r": "かれ"
                 },
                 {
                   "k": "が"
@@ -2520,8 +2533,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "そう。 帰ろうと したが、 帰らなかった んだ。",
-          "en": "Yeah. I tried to go home, but I didn't end up going.",
+          "jp": "そう。 帰ろうと したが、 帰れなかった んだ。",
+          "en": "Yeah. I tried to go home, but I couldn't.",
           "terms": [
             "v_sou",
             {
@@ -2536,7 +2549,7 @@
             "p_ga_but",
             {
               "id": "v_kaeru",
-              "form": "plain_past_negative"
+              "form": "plain_potential_past_negative"
             },
             "p_nda"
           ]
@@ -2739,7 +2752,7 @@
             "新しい 料理を 食べようと しました。"
           ],
           "answer": "新しい 料理を 食べて みました。",
-          "explanation": "<b>食べてみました</b> = tried eating (てみる — experimental try). <b>ておきました</b> = did in advance. <b>てしまいました</b> = accidentally/fully ate. <b>食べようとしました</b> = attempted but often implies interruption."
+          "explanation": "食べてみました = tried eating (てみる — experimental try). ておきました = did in advance. てしまいました = accidentally/fully ate. 食べようとしました = attempted but often implies interruption."
         },
         {
           "kind": "mcq",
@@ -2751,7 +2764,7 @@
             "レポートを 書こうと しました。"
           ],
           "answer": "レポートを 書いて しまいました。",
-          "explanation": "<b>書いてしまいました</b> = finished writing completely (てしまう — completion, often with relief or regret). Here it expresses completion. <b>書いてみました</b> = tried writing. <b>書いておきました</b> = wrote in advance (for a purpose). <b>書こうとした</b> = attempted to write (suggests interruption)."
+          "explanation": "書いてしまいました = finished writing completely (てしまう — completion, often with relief or regret). Here it expresses completion. 書いてみました = tried writing. 書いておきました = wrote in advance (for a purpose). 書こうとした = attempted to write (suggests interruption)."
         },
         {
           "kind": "mcq",
@@ -2763,7 +2776,7 @@
             "本を 読もうと します。"
           ],
           "answer": "本を 読んで おきます。",
-          "explanation": "<b>読んでおきます</b> = will read in advance (ておく — do ahead of time for future readiness). This is the classic ておく context: deliberate preparation."
+          "explanation": "読んでおきます = will read in advance (ておく — do ahead of time for future readiness). This is the classic ておく context: deliberate preparation."
         },
         {
           "kind": "mcq",
@@ -2775,7 +2788,7 @@
             "高さ すぎます"
           ],
           "answer": "高 すぎます",
-          "explanation": "For い-adjectives: remove the い and add すぎます. <b>高い → 高 + すぎます = 高すぎます</b>. Never attach すぎる to the full form 高い or the adverbial 高く."
+          "explanation": "For い-adjectives: remove the い and add すぎます. 高い → 高 + すぎます = 高すぎます. Never attach すぎる to the full form 高い or the adverbial 高く."
         },
         {
           "kind": "mcq",
@@ -2787,7 +2800,7 @@
             "出かけて しまったら、電話が 来た。"
           ],
           "answer": "出かけようと したら、電話が 来た。",
-          "explanation": "<b>出かけようとしたら</b> = just as I was about to go out (volitional 出かけよう + と + したら). This is とする expressing an attempt that was interrupted. <b>てみたら</b> = tried and found out. <b>ておいたら</b> = did in advance. <b>てしまったら</b> = completely did / accidentally did."
+          "explanation": "出かけようとしたら = just as I was about to go out (volitional 出かけよう + と + したら). This is とする expressing an attempt that was interrupted. てみたら = tried and found out. ておいたら = did in advance. てしまったら = completely did / accidentally did."
         },
         {
           "kind": "mcq",
@@ -2799,7 +2812,7 @@
             "かどうか must be followed by a question-form predicate like 〜ますか"
           ],
           "answer": "かどうか can follow both plain present (〜する) and plain past (〜した)",
-          "explanation": "<b>かどうか</b> follows the plain form and accepts both tenses: 「勉強する かどうか」 = whether she studies/will study; 「勉強した かどうか」 = whether she studied. Choices B–D are wrong: B incorrectly limits it to present tense only; C is wrong because かどうか creates an indirect (embedded) question, not a direct one; D is wrong because no special predicate is required."
+          "explanation": "かどうか follows the plain form and accepts both tenses: 「勉強する かどうか」 = whether she studies/will study; 「勉強した かどうか」 = whether she studied. Choices B–D are wrong: B incorrectly limits it to present tense only; C is wrong because かどうか creates an indirect (embedded) question, not a direct one; D is wrong because no special predicate is required."
         },
         {
           "kind": "mcq",
@@ -2811,7 +2824,7 @@
             "料理で について 話す"
           ],
           "answer": "料理に ついて 話す",
-          "explanation": "<b>〜について</b> is a compound postposition that attaches directly to the noun without any intervening particle. <b>料理について話す</b> = talk about cooking. Never insert を, が, or で between the noun and について."
+          "explanation": "〜について is a compound postposition that attaches directly to the noun without any intervening particle. 料理について話す = talk about cooking. Never insert を, が, or で between the noun and について."
         },
         {
           "kind": "mcq",
@@ -2823,7 +2836,7 @@
             "この 音楽は きれいさ すぎます。"
           ],
           "answer": "この 音楽は きれい すぎます。",
-          "explanation": "For な-adjectives: use the stem (no な) + すぎます. <b>きれい + すぎます = きれいすぎます</b>. Never add な or く before すぎる when working with な-adjectives. The な is only used in attributive position before a noun."
+          "explanation": "For な-adjectives: use the stem (no な) + すぎます. きれい + すぎます = きれいすぎます. Never add な or く before すぎる when working with な-adjectives. The な is only used in attributive position before a noun."
         }
       ]
     }

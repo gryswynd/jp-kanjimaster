@@ -706,8 +706,7 @@
               "gloss": "computer",
               "tokens": [
                 {
-                  "k": "パソコン",
-                  "r": "ぱそこん"
+                  "k": "パソコン"
                 }
               ]
             },
@@ -1378,12 +1377,12 @@
     {
       "type": "conversation",
       "title": "Getting to Know Each Other",
-      "context": "Yuki and Kenji chat after class, learning about each other's families and interests.",
+      "context": "Yuki and Ken chat after class, learning about each other's families and interests.",
       "lines": [
         {
           "spk": "ゆき",
           "jp": "けんさんの お母さんは 先生ですか。",
-          "en": "Is your mother a teacher, Kenji?",
+          "en": "Is your mother a teacher, Ken?",
           "terms": [
             "char_ken",
             "v_san",
@@ -1494,9 +1493,9 @@
           "explanation": "の connects two nouns: 先生の名前 = the teacher's name."
         },
         {
-          "before": "あなたは がくせい",
+          "before": "あなたは がくせいです",
           "slot": true,
-          "after": "",
+          "after": "。",
           "choices": [
             "か",
             "は",

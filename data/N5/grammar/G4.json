@@ -1219,7 +1219,7 @@
       "context": "Rikizo asks Yamakawa which days their teacher is available.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "やまもと先生は 何よう日に いますか。",
           "en": "On which day is Yamamoto-sensei here?",
           "terms": [
@@ -1236,7 +1236,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "月よう日から 金よう日まで います。",
           "en": "She is here Monday through Friday.",
           "terms": [
@@ -1251,7 +1251,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "土よう日と 日よう日も いますか。",
           "en": "Is she also here Saturday and Sunday?",
           "terms": [
@@ -1267,7 +1267,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "やまかわ",
           "jp": "いいえ。先生や 友だちは 毎日は いません。",
           "en": "No. People like teachers and friends are not here every day.",
           "terms": [
@@ -1306,7 +1306,7 @@
         {
           "before": "母",
           "slot": true,
-          "after": "父は 先生です。",
+          "after": "父は 先生です。(both of them — a complete list)",
           "choices": [
             "と",
             "や",
@@ -1319,7 +1319,7 @@
         {
           "before": "先生",
           "slot": true,
-          "after": "友だちが います。",
+          "after": "友だちが います。(giving examples — there are others too)",
           "choices": [
             "や",
             "と",
@@ -1345,7 +1345,7 @@
         {
           "before": "今月",
           "slot": true,
-          "after": "です。",
+          "after": "です。(saying when it ends)",
           "choices": [
             "まで",
             "から",
@@ -1358,7 +1358,7 @@
         {
           "before": "金よう日",
           "slot": true,
-          "after": "お金が あります。",
+          "after": "お金が あります。(pinpointing the day it happens)",
           "choices": [
             "に",
             "は",

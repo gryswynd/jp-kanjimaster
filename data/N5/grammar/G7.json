@@ -57,7 +57,7 @@
         "Godan verb rule: 行く → 行き + ます = 行きます (く→き shift).",
         "Ichidan verb rule: いる → い + ます = います (drop る, add ます).",
         "Irregular 来る → 来ます (reading: きます). The kanji stays but the reading changes completely.",
-        "Irregular ある → あります (special irregular form)."
+        "ある → あります — the polite forms follow the regular godan る→り shift; ある's irregularity is its plain negative ない (taught later)."
       ],
       "examples": [
         {
@@ -1162,20 +1162,20 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "バスで 来ましたか、タクシーで 来ましたか。",
-          "en": "Did you come by bus, or did you come by taxi?",
+          "jp": "バスで 行きましたか、タクシーで 行きましたか。",
+          "en": "Did you go by bus, or did you go by taxi?",
           "terms": [
             "v_basu",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             },
             "p_ka",
             "v_takushii",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             },
             "p_ka"
@@ -1183,20 +1183,20 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "バスで 来ました。タクシーでは 来ません。",
-          "en": "I came by bus. I don't come by taxi.",
+          "jp": "バスで 行きました。タクシーでは 行きません。",
+          "en": "I went by bus. I don't go by taxi.",
           "terms": [
             "v_basu",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_mashita"
             },
             "v_takushii",
             "p_wa",
             "p_de",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_negative"
             }
           ]
@@ -1256,8 +1256,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "はい、バスで 行きます。うちから 来ます。",
-          "en": "Yes, I will go by bus. I will come from home.",
+          "jp": "はい、バスで 行きます。うちから 行きます。",
+          "en": "Yes, I will go by bus. I will leave from home.",
           "terms": [
             "p_hai",
             "v_basu",
@@ -1269,18 +1269,20 @@
             "v_uchi",
             "p_kara",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "polite_masu"
             }
           ]
         },
         {
           "spk": "先生",
-          "jp": "先週も 来ましたか。",
-          "en": "Did you also come last week?",
+          "jp": "先週も ここに 来ましたか。",
+          "en": "Did you come here last week too?",
           "terms": [
             "v_senshuu",
             "p_mo",
+            "v_koko",
+            "p_ni",
             {
               "id": "v_kuru",
               "form": "polite_mashita"

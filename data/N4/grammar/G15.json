@@ -392,11 +392,16 @@
               "tokens": [
                 {
                   "k": "三",
-                  "r": "さん"
+                  "r": "さん",
+                  "g": "v_sanji"
                 },
                 {
-                  "k": "時間",
-                  "r": "じかん"
+                  "k": "時",
+                  "r": "じ",
+                  "g": "v_sanji"
+                },
+                {
+                  "k": "間"
                 }
               ]
             },
@@ -559,7 +564,7 @@
         }
       ],
       "meaning": "～さ — noun form of adjectives (abstract quality)",
-      "explanation": "The suffix ～さ turns an adjective into a noun representing the abstract quality itself. Use it when the quality — not the thing having the quality — is the subject of discussion.\n\n**Formation:**\n- い-adjectives: drop い + さ → 大きい → 大きさ (size), 高い → 高さ (height/price level), 長い → 長さ (length)\n- な-adjectives: drop な/だ + さ → 好きだ → 好きさ (degree of liking, informal)\n\n**When to use ～さ:**\n- When comparing the abstract quality directly: 川の長さを知りたいです (I want to know the length of the river)\n- When the quality is a subject or object: 山の大きさが好きです (I like the size of the mountain)\n- Naturally arises with どのくらいの大きさ (about what size?)\n\n**Note:** ～さ is a productive word-formation suffix, not a conjugation. Common ～さ forms: 大きさ (size), 長さ (length), 高さ (height).",
+      "explanation": "The suffix ～さ turns an adjective into a noun representing the abstract quality itself. Use it when the quality — not the thing having the quality — is the subject of discussion.\n\n**Formation:**\n- い-adjectives: drop い + さ → 大きい → 大きさ (size), 高い → 高さ (height/price level), 長い → 長さ (length)\n- な-adjectives: drop な/だ + さ → 静かだ → 静かさ (quietness)\n\n**When to use ～さ:**\n- When comparing the abstract quality directly: 川の長さを知りたいです (I want to know the length of the river)\n- When the quality is a subject or object: 山の大きさが好きです (I like the size of the mountain)\n- Naturally arises with どのくらいの大きさ (about what size?)\n\n**Note:** ～さ is a productive word-formation suffix, not a conjugation. Common ～さ forms: 大きさ (size), 長さ (length), 高さ (height).",
       "notes": [
         "～さ gives you a noun you can attach の to: 川の長さ (the length of the river), 山の高さ (the height of the mountain).",
         "Not all adjectives form natural ～さ words. The most reliable ones at N4 are size/measurement adjectives: 大きさ, 長さ, 高さ."
@@ -985,7 +990,7 @@
     {
       "type": "conversation",
       "title": "かいわ 1: 好きな料理 — Favourite Dishes",
-      "context": "りきぞう and ミキ are at school talking about their food preferences.",
+      "context": "りきぞう and ミキ are buying fish at a neighbourhood store.",
       "lines": [
         {
           "spk": "ミキ",
@@ -1035,12 +1040,14 @@
         },
         {
           "spk": "ミキ",
-          "jp": "そうですね。駅のほうが安いですよ。",
-          "en": "I see. The station area is cheaper.",
+          "jp": "そうですね。駅の店のほうが安いですよ。",
+          "en": "True. The station store is cheaper.",
           "terms": [
             "p_soudesu",
             "p_ne",
             "v_eki",
+            "p_no",
+            "v_mise",
             "v_hou",
             "p_ga",
             {
@@ -1052,43 +1059,36 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "あの店は駅ほど近くないです。料理はいちばんおいしいですが。",
-          "en": "That store is not as close as the station. Though its food is the most delicious.",
+          "jp": "でも、駅の店はこの店ほど近くないです。",
+          "en": "But the station store isn't as close as this one.",
           "terms": [
-            "v_ano",
+            "p_demo",
+            "v_eki",
+            "p_no",
             "v_mise",
             "p_wa",
-            "v_eki",
+            "v_kono",
+            "v_mise",
             "p_hodo",
             {
               "id": "v_chikai",
               "form": "plain_negative"
             },
-            "g_desu",
-            "v_ryouri",
-            "p_wa",
-            "v_ichiban",
-            {
-              "id": "v_oishii",
-              "form": "polite_adj"
-            },
-            "p_ga_but"
+            "g_desu"
           ]
         },
         {
           "spk": "ミキ",
-          "jp": "いいですね！またいっしょに行きましょう。",
-          "en": "That sounds great! Let's go there together again.",
+          "jp": "そうですね。じゃ、ここで買いましょう。",
+          "en": "True. Then let's buy here.",
           "terms": [
-            {
-              "id": "v_ii",
-              "form": "polite_adj"
-            },
+            "p_soudesu",
             "p_ne",
-            "v_mata",
-            "v_issho",
+            "p_ja",
+            "v_koko",
+            "p_de",
             {
-              "id": "v_iku",
+              "id": "v_kau",
               "form": "polite_volitional_mashou"
             }
           ]
@@ -1162,19 +1162,24 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "いいね！食べすぎたよ。読めないよ。",
-          "en": "Nice! I ate too much though. I can't read it.",
+          "jp": "いいね！でも、食べすぎて、気分が悪いよ。明日読むよ。",
+          "en": "Nice! But I ate too much and feel awful. I'll read it tomorrow.",
           "terms": [
             "v_ii",
             "p_ne",
+            "p_demo",
             {
               "id": "v_taberu",
-              "form": "sugiru_past"
+              "form": "sugiru_form"
             },
+            "v_kibun",
+            "p_ga",
+            "v_warui",
             "p_yo",
+            "v_ashita",
             {
               "id": "v_yomu",
-              "form": "plain_potential_negative"
+              "form": "plain_form"
             },
             "p_yo"
           ]
@@ -1204,7 +1209,7 @@
           "after": "おもしろくないです。",
           "translation": "This book is not as interesting as that book.",
           "choices": [
-            "より",
+            "のほうが",
             "ほど",
             "くらい",
             "のほうが"
@@ -1223,7 +1228,10 @@
             "のほうが"
           ],
           "answer": "くらい",
-          "explanation": "くらい/ぐらい follows quantities to mean 'about / approximately.' 三時間くらい = about three hours. It gives a rough, non-exact duration."
+          "explanation": "くらい (or ぐらい) after a quantity means 'about': 三時間くらい = about three hours. ほど also earns credit — 三時間ほど is equally correct, with a slightly more formal 'to that extent' nuance.",
+          "also_accept": [
+            "ほど"
+          ]
         },
         {
           "before": "食べ",

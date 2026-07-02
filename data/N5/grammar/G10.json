@@ -48,7 +48,7 @@
     {
       "type": "grammarTable",
       "title": "The Four Plain Forms — Complete Verb Chart",
-      "description": "Every Japanese verb has four plain forms. You already know the plain present (dictionary form) and plain past (た-form from G7). This lesson adds the plain negative (ない) and plain past negative (なかった).",
+      "description": "Every Japanese verb has four plain forms. You already know the plain present (dictionary form) and plain past (た-form from G8). This lesson adds the plain negative (ない) and plain past negative (なかった).",
       "tableType": "conjugation",
       "headers": [
         "Form",
@@ -341,44 +341,6 @@
                     "k": "ません"
                   }
                 ]
-              },
-              {
-                "text": " → food は 食べません",
-                "role": "modifier",
-                "gloss": "formal: I don't eat...",
-                "tokens": [
-                  {
-                    "k": " "
-                  },
-                  {
-                    "k": "→"
-                  },
-                  {
-                    "k": " "
-                  },
-                  {
-                    "k": "food"
-                  },
-                  {
-                    "k": " "
-                  },
-                  {
-                    "k": "は",
-                    "r": "わ"
-                  },
-                  {
-                    "k": " "
-                  },
-                  {
-                    "k": "食",
-                    "r": "た",
-                    "g": "v_taberu_polite_negative"
-                  },
-                  {
-                    "k": "べません",
-                    "g": "v_taberu_polite_negative"
-                  }
-                ]
               }
             ],
             "en": "食べません (polite) — I don't eat."
@@ -482,7 +444,7 @@
         }
       ],
       "meaning": "が / けど — 'but / however' (clause connector)",
-      "explanation": "が and けど both mean 'but' when connecting two clauses with a contrasting or softening relationship. They differ in register:\n\n**が (formal/neutral):** Attaches directly to the end of a clause in polite or plain form. Common in formal speech, writing, and polite conversation.\n行きたいですが、お金がありません。(I want to go, but I have no money.)\n\n**けど / けれど (casual/softer):** The informal equivalent of が. Attaches to plain form. Common in conversation with friends and family. けれど is slightly more formal than けど.\n行きたいけど、お金がない。(I want to go but I have no money.) — casual\n\n⚠️ **Important: do not confuse clause-linking が with subject-marker が (G2).** They use the same particle but have completely different functions.\n- Subject marker: カレーが おいしい (curry is delicious) — が marks the subject\n- Clause connector: 行きたいですが、… (I want to go, but…) — が links two clauses mid-sentence",
+      "explanation": "が and けど both mean 'but' when connecting two clauses with a contrasting or softening relationship. They differ in register:\n\n**が (formal/neutral):** Attaches directly to the end of a clause in polite or plain form. Common in formal speech, writing, and polite conversation.\n行きたいですが、お金がありません。(I want to go, but I have no money.)\n\n**けど / けれど (casual/softer):** The informal equivalent of が. Attaches to plain form. Common in conversation with friends and family. けれど is slightly more formal than けど.\n行きたいけど、お金がない。(I want to go but I have no money.) — casual\n\n⚠️ **Important: do not confuse clause-linking が with subject-marker が (G3).** They use the same particle but have completely different functions.\n- Subject marker: カレーが おいしい (curry is delicious) — が marks the subject\n- Clause connector: 行きたいですが、… (I want to go, but…) — が links two clauses mid-sentence",
       "notes": [
         "が as clause connector attaches mid-sentence. It does NOT start a new sentence. 行きたいですが、… is one sentence.",
         "Both が and けど can soften a statement by leaving the second clause implicit: 行きたいですが… (I want to go, but [implied: I can't]). Trailing が/けど is very common in polite requests.",
@@ -1397,7 +1359,7 @@
         {
           "spk": "やまかわ",
           "jp": "今日、外食、しない？",
-          "en": "Today — going out to eat, right? (casual invitation)",
+          "en": "Want to eat out today? (casual invitation)",
           "terms": [
             "v_kyou",
             "v_gaishoku",
@@ -1410,14 +1372,13 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "行きたいですけど、お金が ない。",
+          "jp": "行きたいけど、お金が ない。",
           "en": "I want to go, but I have no money.",
           "terms": [
             {
               "id": "v_iku",
               "form": "plain_desire_tai"
             },
-            "g_desu",
             "p_kedo",
             "v_okane",
             "p_ga",
@@ -1456,21 +1417,21 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "おいしいから、行きましょう。",
-          "en": "Since it's delicious, let's go.",
+          "jp": "おいしいから、行こう！",
+          "en": "Since it's delicious, let's go!",
           "terms": [
             "v_oishii",
             "p_kara_because",
             {
               "id": "v_iku",
-              "form": "polite_volitional_mashou"
+              "form": "plain_volitional"
             }
           ]
         },
         {
           "spk": "りきぞう",
           "jp": "行く！",
-          "en": "Let's go! (casual affirmative)",
+          "en": "I'm in! (casual affirmative)",
           "terms": [
             "v_iku"
           ]
@@ -1678,7 +1639,10 @@
             "けど"
           ],
           "answer": "から",
-          "explanation": "Plain adjective (おいしい) + から = 'because it's delicious'. The reason clause comes FIRST in Japanese. から is direct and natural in personal contexts. ので is also 'because' but more formal/objective."
+          "explanation": "Plain adjective (おいしい) + から = 'because it's delicious'. ので also attaches to the plain form and earns credit — it sounds softer and more objective, while から is direct and personal. The reason clause comes FIRST in Japanese.",
+          "also_accept": [
+            "ので"
+          ]
         },
         {
           "before": "コンビニへ 行きたい",
@@ -1691,7 +1655,7 @@
             "ので"
           ],
           "answer": "けど",
-          "explanation": "Plain form (行きたい) + けど = casual 'but'. The plain form ending signals casual register — use けど, not formal が. が requires polite forms. から/ので = because."
+          "explanation": "Plain form (行きたい) + けど = casual 'but'. が usually pairs with polite forms (行きたいですが); with a plain clause in casual speech, けど is the natural choice. から/ので = because."
         },
         {
           "before": "コーヒーが すきです",
@@ -1733,7 +1697,10 @@
             "けど"
           ],
           "answer": "が",
-          "explanation": "Polite form (おいしいです) + が = formal 'but'. The sentence contrasts two facts: delicious but expensive. けど also means 'but' but pairs with plain form in careful speech. から/ので = 'because', wrong meaning."
+          "explanation": "Polite form (おいしいです) + が = formal 'but'. ですけど also earns credit — it is very common in everyday speech, just a notch less formal than ですが. から/ので = 'because', wrong meaning.",
+          "also_accept": [
+            "けど"
+          ]
         }
       ]
     },
@@ -1774,12 +1741,12 @@
           "choices": [
             "行きたいですが、お金が ありません。",
             "行きたいますが、お金が ありません。",
-            "行きたいですが お金が ありません",
+            "行きたいです、がお金が ありません。",
             "行きたいが、ですがお金が ありません。"
           ],
           "answer": "行きたいですが、お金が ありません。",
           "terms": [],
-          "explanation": "が attaches directly to the end of the first clause: 行きたいですが. There must be a comma before the second clause. The first clause uses polite form (たいです) — this is the formal register for が."
+          "explanation": "が attaches directly to the END of the first clause: 行きたいですが、…. It cannot begin the second clause — 行きたいです、がお金がありません is wrong because が is a connector, not a sentence-starter. The first clause uses polite form (たいです) — this is the formal register for が."
         },
         {
           "kind": "mcq",
