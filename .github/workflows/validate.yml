@@ -1,0 +1,39 @@
+name: validate-content
+
+# Runs the full validator suite on every push and nightly — catches content
+# regressions (token readings, story gates, audio/font coverage, manifest
+# cycles) even when no local build was run. No secrets needed: validators
+# only READ committed data (audio clips are committed, keys re-derived).
+on:
+  push:
+    branches: ['**']
+  schedule:
+    - cron: '0 9 * * *'   # nightly, 09:00 UTC ≈ 2am PT
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: validate manifest
+        run: node scripts/validate-manifest.mjs
+      - name: validate lessons
+        run: node scripts/validate-lessons.mjs
+      - name: validate stories
+        run: node scripts/validate-stories.mjs
+      - name: validate tokens (readings)
+        run: node scripts/validate-tokens.mjs
+      - name: qa custom stories
+        run: node scripts/qa-story.mjs --level=custom
+      - name: validate audiostories
+        run: node scripts/validate-audiostories.mjs
+      - name: validate audio coverage
+        run: node scripts/validate-audio.mjs
+      - name: validate font coverage
+        run: node scripts/validate-fonts.mjs
+      - name: validate particle senses
+        run: node scripts/validate-particle-senses.mjs
