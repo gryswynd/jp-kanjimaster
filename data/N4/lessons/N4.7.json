@@ -313,8 +313,8 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "そうですか。私の 家族は 五人です。親と 姉と 弟が います。",
-          "en": "I see. My family has five people. I have parents, an older sister, and a younger brother.",
+          "jp": "そうですか。私の 家族は 四人です。親と 姉が います。",
+          "en": "I see. My family has four people. I have my parents and an older sister.",
           "terms": [
             "p_soudesuka",
             "v_watashi",
@@ -323,14 +323,12 @@
             "p_wa",
             {
               "counter": "nin",
-              "n": 5
+              "n": 4
             },
             "g_desu",
             "v_oya",
             "p_to",
             "v_ane",
-            "p_to",
-            "v_otouto",
             "p_ga",
             {
               "id": "v_iru",
@@ -340,7 +338,7 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "きょうだいが いますね！",
+          "jp": "兄弟が いますね！",
           "en": "You have siblings!",
           "terms": [
             "v_kyoudai",
@@ -536,48 +534,21 @@
         },
         {
           "spk": "B",
-          "jp": "そうですか。私の 妹は まだ 小さいですよ。私の 半分 くらい 小さいです。",
-          "en": "I see. My younger sister is still small. About half my size.",
+          "jp": "そうですか。おもしろい お兄さんですね。",
+          "en": "I see. Your brother sounds fun.",
           "terms": [
             "p_soudesuka",
-            "v_watashi",
-            "p_no",
-            "v_imouto",
-            "p_wa",
-            "v_mada",
-            {
-              "id": "v_chiisai",
-              "form": "polite_adj"
-            },
-            "p_yo",
-            "v_watashi",
-            "p_no",
-            "v_hanbun",
-            "p_kurai",
-            {
-              "id": "v_chiisai",
-              "form": "polite_adj"
-            }
-          ]
-        },
-        {
-          "spk": "char_rikizo",
-          "jp": "先生も いつも 料理を 作って くださいます。",
-          "en": "My teacher also always makes food for me.",
-          "terms": [
-            "v_sensei",
-            "p_mo",
-            "v_itsumo",
-            "v_ryouri",
-            "p_wo",
-            {
-              "id": "v_tsukuru",
-              "form": "te_form"
-            },
-            "v_kudasaru"
+            "v_omoshiroi",
+            "v_oniisan",
+            "g_desu",
+            "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "lee",
+        "B": "nana"
+      }
     },
     {
       "type": "conversation",
@@ -732,7 +703,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
@@ -980,8 +955,8 @@
           ]
         },
         {
-          "jp": "妹は とても かわいいですから、私は 弟も ほしいです。",
-          "en": "Because my younger sister is very cute, I want a younger brother too.",
+          "jp": "妹は とても かわいいですから、みんな 妹が 大好きです。",
+          "en": "Because my younger sister is so cute, everyone loves her.",
           "terms": [
             "v_imouto",
             "p_wa",
@@ -991,11 +966,10 @@
               "form": "polite_adj"
             },
             "p_kara_because",
-            "v_watashi",
-            "p_wa",
-            "v_otouto",
-            "p_mo",
-            "v_hoshii",
+            "v_minna",
+            "v_imouto",
+            "p_ga",
+            "v_daisuki",
             "g_desu"
           ]
         }
@@ -1392,7 +1366,7 @@
           "terms": [
             "v_oya"
           ],
-          "explanation": "Correct: 父と 母は 私の 親 です。 — 「親」 (おや / した(しい)) means \"parent / intimacy\"."
+          "explanation": "Correct: 父と 母は 私の 親 です。 — 「親」 (おや) means \"parent(s)\"."
         },
         {
           "kind": "mcq",
@@ -1411,7 +1385,7 @@
         },
         {
           "kind": "mcq",
-          "q": "中川さんは とても _______ な 人です。",
+          "q": "やまかわさんは とても _______ な 人です。",
           "choices": [
             "親切",
             "家族",
@@ -1425,7 +1399,7 @@
               "form": "attributive_na"
             }
           ],
-          "explanation": "Correct: 中川さんは とても 親切 な 人です。 — 「親切」 (しんせつ) means \"kind\"."
+          "explanation": "Correct: やまかわさんは とても 親切 な 人です。 — 「親切」 (しんせつ) means \"kind\"."
         }
       ]
     },
@@ -1501,7 +1475,7 @@
         },
         {
           "kind": "mcq",
-          "q": "カレーは ご飯 ______ 好きです。",
+          "q": "カレーは ご飯 ______ 好きじゃありません。（I don't like curry as much as rice.）",
           "choices": [
             "ほど",
             "より",
@@ -1517,7 +1491,7 @@
             "v_suki",
             "g_desu"
           ],
-          "explanation": "Correct: カレーは ご飯 ほど 好きです。"
+          "explanation": "Correct: カレーは ご飯 ほど 好きじゃありません。（I don't like curry as much as rice.） — ほど is used with a negative to say \"not as ... as\"."
         }
       ]
     }

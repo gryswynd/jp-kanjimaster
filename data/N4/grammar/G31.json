@@ -138,11 +138,11 @@
                 {
                   "k": "寒",
                   "r": "さむ",
-                  "g": "v_samui_adverbial"
+                  "g": "v_samui"
                 },
                 {
                   "k": "く",
-                  "g": "v_samui_adverbial"
+                  "g": "v_samui"
                 }
               ]
             },
@@ -347,11 +347,11 @@
                 {
                   "k": "暑",
                   "r": "あつ",
-                  "g": "v_atsui_adverbial"
+                  "g": "v_atsui"
                 },
                 {
                   "k": "く",
-                  "g": "v_atsui_adverbial"
+                  "g": "v_atsui"
                 }
               ]
             },
@@ -452,11 +452,11 @@
                 {
                   "k": "安",
                   "r": "やす",
-                  "g": "v_yasui_adverbial"
+                  "g": "v_yasui"
                 },
                 {
                   "k": "く",
-                  "g": "v_yasui_adverbial"
+                  "g": "v_yasui"
                 }
               ]
             },
@@ -473,17 +473,11 @@
                   "k": " "
                 },
                 {
-                  "k": "も"
+                  "k": "もらえ",
+                  "g": "v_morau_imperative"
                 },
                 {
-                  "k": "ら"
-                },
-                {
-                  "k": "えません",
-                  "g": "v_eru_polite_negative"
-                },
-                {
-                  "k": "か"
+                  "k": "ませんか"
                 },
                 {
                   "k": "。"
@@ -519,11 +513,11 @@
                 {
                   "k": "明",
                   "r": "あか",
-                  "g": "v_akarui_adverbial"
+                  "g": "v_akarui"
                 },
                 {
                   "k": "るく",
-                  "g": "v_akarui_adverbial"
+                  "g": "v_akarui"
                 }
               ]
             },
@@ -690,11 +684,11 @@
                   {
                     "k": "寒",
                     "r": "さむ",
-                    "g": "v_samui_adverbial"
+                    "g": "v_samui"
                   },
                   {
                     "k": "く",
-                    "g": "v_samui_adverbial"
+                    "g": "v_samui"
                   }
                 ]
               },
@@ -749,11 +743,11 @@
                   {
                     "k": "明",
                     "r": "あか",
-                    "g": "v_akarui_adverbial"
+                    "g": "v_akarui"
                   },
                   {
                     "k": "るく",
-                    "g": "v_akarui_adverbial"
+                    "g": "v_akarui"
                   }
                 ]
               },
@@ -1111,11 +1105,11 @@
                 {
                   "k": "安",
                   "r": "やす",
-                  "g": "v_yasui_adverbial"
+                  "g": "v_yasui"
                 },
                 {
                   "k": "く",
-                  "g": "v_yasui_adverbial"
+                  "g": "v_yasui"
                 },
                 {
                   "k": "なければ"
@@ -1156,7 +1150,8 @@
                   "k": "この"
                 },
                 {
-                  "k": "ドア"
+                  "k": "ドア",
+                  "r": "どあ"
                 },
                 {
                   "k": "は",
@@ -1172,11 +1167,11 @@
                 {
                   "k": "大",
                   "r": "おお",
-                  "g": "v_ookii_adverbial"
+                  "g": "v_ookii"
                 },
                 {
                   "k": "きく",
-                  "g": "v_ookii_adverbial"
+                  "g": "v_ookii"
                 },
                 {
                   "k": "なければ"
@@ -1190,7 +1185,7 @@
               "tokens": [
                 {
                   "k": "いけません",
-                  "g": "v_ikeru_polite_negative"
+                  "g": "v_iku_polite_potential_negative"
                 },
                 {
                   "k": "。"
@@ -1213,8 +1208,10 @@
                   "r": "ゆうめい"
                 },
                 {
-                  "k": "でなければ",
-                  "g": "v_deru_nakereba"
+                  "k": "で"
+                },
+                {
+                  "k": "なければ"
                 },
                 {
                   "k": "、"
@@ -1230,7 +1227,11 @@
                   "k": "この"
                 },
                 {
-                  "k": "イベントに"
+                  "k": "イベント",
+                  "r": "いべんと"
+                },
+                {
+                  "k": "に"
                 },
                 {
                   "k": "は",
@@ -1245,12 +1246,12 @@
               "tokens": [
                 {
                   "k": "入",
-                  "r": "い",
-                  "g": "v_ireru_polite_negative"
+                  "r": "はい",
+                  "g": "v_hairu_polite_potential_negative"
                 },
                 {
                   "k": "れません",
-                  "g": "v_ireru_polite_negative"
+                  "g": "v_hairu_polite_potential_negative"
                 },
                 {
                   "k": "。"
@@ -1287,8 +1288,10 @@
                   "r": "げんき"
                 },
                 {
-                  "k": "でなければ",
-                  "g": "v_deru_nakereba"
+                  "k": "で"
+                },
+                {
+                  "k": "なければ"
                 },
                 {
                   "k": "、"
@@ -1302,7 +1305,7 @@
               "tokens": [
                 {
                   "k": "何",
-                  "r": "なん"
+                  "r": "なに"
                 },
                 {
                   "k": "も"
@@ -1504,11 +1507,11 @@
                 {
                   "k": "寒",
                   "r": "さむ",
-                  "g": "v_samui_adverbial"
+                  "g": "v_samui"
                 },
                 {
                   "k": "く",
-                  "g": "v_samui_adverbial"
+                  "g": "v_samui"
                 }
               ]
             },
@@ -1579,11 +1582,11 @@
                 {
                   "k": "明",
                   "r": "あか",
-                  "g": "v_akarui_adverbial"
+                  "g": "v_akarui"
                 },
                 {
                   "k": "るく",
-                  "g": "v_akarui_adverbial"
+                  "g": "v_akarui"
                 }
               ]
             },
@@ -1600,17 +1603,11 @@
                   "k": " "
                 },
                 {
-                  "k": "も"
+                  "k": "もらえ",
+                  "g": "v_morau_imperative"
                 },
                 {
-                  "k": "ら"
-                },
-                {
-                  "k": "えません",
-                  "g": "v_eru_polite_negative"
-                },
-                {
-                  "k": "か"
+                  "k": "ませんか"
                 },
                 {
                   "k": "。"
@@ -1658,7 +1655,10 @@
               "gloss": "without giving up (あきらめる → negative te-form あきらめず + に)",
               "tokens": [
                 {
-                  "k": "あきらめずに"
+                  "k": "あきらめず"
+                },
+                {
+                  "k": "に"
                 }
               ]
             },
@@ -1668,7 +1668,13 @@
               "gloss": "I'll do my best (頑張る → 頑張ります — polite)",
               "tokens": [
                 {
-                  "k": "頑張ります"
+                  "k": "頑張",
+                  "r": "がんば",
+                  "g": "v_ganbaru_polite_masu"
+                },
+                {
+                  "k": "ります",
+                  "g": "v_ganbaru_polite_masu"
                 },
                 {
                   "k": "。"
@@ -1730,8 +1736,10 @@
                   "r": "げんき"
                 },
                 {
-                  "k": "でなければ",
-                  "g": "v_deru_nakereba"
+                  "k": "で"
+                },
+                {
+                  "k": "なければ"
                 }
               ]
             },
@@ -1782,7 +1790,13 @@
               "gloss": "too difficult (むずかしい → むずかしすぎる → te-form)",
               "tokens": [
                 {
-                  "k": "むずかし"
+                  "k": "むず"
+                },
+                {
+                  "k": "か"
+                },
+                {
+                  "k": "し"
                 },
                 {
                   "k": "すぎて",
@@ -1800,7 +1814,7 @@
               "tokens": [
                 {
                   "k": "何",
-                  "r": "なん"
+                  "r": "なに"
                 },
                 {
                   "k": "も"
@@ -1814,10 +1828,12 @@
               "tokens": [
                 {
                   "k": "書",
-                  "r": "か"
+                  "r": "か",
+                  "g": "v_kaku"
                 },
                 {
-                  "k": "け"
+                  "k": "け",
+                  "g": "v_kaku"
                 },
                 {
                   "k": "ませんでした"

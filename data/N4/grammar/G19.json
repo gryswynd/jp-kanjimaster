@@ -123,11 +123,13 @@
               "gloss": "will go out (polite)",
               "tokens": [
                 {
-                  "k": "出"
+                  "k": "出",
+                  "r": "で",
+                  "g": "v_dekakeru_2_polite_masu"
                 },
                 {
                   "k": "かけます",
-                  "g": "v_kaku_polite_potential"
+                  "g": "v_dekakeru_2_polite_masu"
                 },
                 {
                   "k": "。"
@@ -146,11 +148,8 @@
               "gloss": "after doing homework (した = plain past of する + あとで)",
               "tokens": [
                 {
-                  "k": "宿"
-                },
-                {
-                  "k": "題",
-                  "r": "だい"
+                  "k": "宿題",
+                  "r": "しゅくだい"
                 },
                 {
                   "k": "を",
@@ -161,7 +160,13 @@
                   "g": "v_suru_plain_past"
                 },
                 {
-                  "k": "あとで"
+                  "k": "あ"
+                },
+                {
+                  "k": "と"
+                },
+                {
+                  "k": "で"
                 },
                 {
                   "k": "、"
@@ -174,7 +179,8 @@
               "gloss": "TV (object: を)",
               "tokens": [
                 {
-                  "k": "テレビ"
+                  "k": "テレビ",
+                  "r": "てれび"
                 },
                 {
                   "k": "を",
@@ -269,18 +275,16 @@
               "gloss": "brush (my) teeth (polite)",
               "tokens": [
                 {
-                  "k": "歯"
+                  "k": "歯",
+                  "r": "は"
                 },
                 {
                   "k": "を",
                   "r": "お"
                 },
                 {
-                  "k": "みが"
-                },
-                {
-                  "k": "きます",
-                  "g": "v_kuru_polite_masu"
+                  "k": "みがきます",
+                  "g": "v_migaku_polite_masu"
                 },
                 {
                   "k": "。"
@@ -488,7 +492,8 @@
               "gloss": "for the sake of health (健康 = noun + の + ために)",
               "tokens": [
                 {
-                  "k": "健康"
+                  "k": "健康",
+                  "r": "けんこう"
                 },
                 {
                   "k": "の"
@@ -1059,7 +1064,8 @@
               "gloss": "practice (polite)",
               "tokens": [
                 {
-                  "k": "練習"
+                  "k": "練習",
+                  "r": "れんしゅう"
                 },
                 {
                   "k": "します"
@@ -1204,7 +1210,8 @@
               "gloss": "walk in the park (歩く → 歩いた → 歩いたり) + します",
               "tokens": [
                 {
-                  "k": "公園"
+                  "k": "公園",
+                  "r": "こうえん"
                 },
                 {
                   "k": "を",

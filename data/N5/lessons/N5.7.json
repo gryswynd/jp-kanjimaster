@@ -429,7 +429,10 @@
           "jp": "千円ですよ。ここに サラダも あります。",
           "en": "It's 1000 yen. There is also salad here.",
           "terms": [
-            "v_senen",
+            {
+              "counter": "en",
+              "n": 1000
+            },
             "g_desu",
             "p_yo",
             "v_koko",
@@ -676,7 +679,7 @@
           "jp": "いいえ、飲みませんでした。レストランは 大きいですね。",
           "en": "No, I didn't. The restaurant is big, isn't it.",
           "terms": [
-            "p_iie",
+            "v_iie",
             {
               "id": "v_nomu",
               "form": "polite_past_negative"

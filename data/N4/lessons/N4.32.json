@@ -327,7 +327,11 @@
             "p_ka"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "suzuki",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -383,8 +387,8 @@
         },
         {
           "spk": "A",
-          "jp": "急用が できたら、市長に 電話して ください。",
-          "en": "If urgent business comes up, please call the mayor.",
+          "jp": "急用が できたら、私に 電話して ください。",
+          "en": "If urgent business comes up, please call me.",
           "terms": [
             "v_kyuuyou",
             "p_ga",
@@ -392,7 +396,7 @@
               "id": "v_dekiru",
               "form": "conditional_tara"
             },
-            "v_shichou",
+            "v_watashi",
             "p_ni",
             "v_denwa",
             {
@@ -425,7 +429,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "taro"
+      }
     },
     {
       "type": "conversation",
@@ -536,7 +544,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "nana",
+        "B": "yuki"
+      }
     },
     {
       "type": "conversation",
@@ -635,28 +647,32 @@
         },
         {
           "spk": "B",
-          "jp": "そうだね。もっと 多くの 人に 使わせるよ。",
-          "en": "That's right. They will make more people use it.",
+          "jp": "そうだね。みんな もっと 使う ように なるね。",
+          "en": "Yeah. Everyone will come to use it more.",
           "terms": [
             "v_sou",
-            "p_ne",
             "g_da",
+            "p_ne",
+            "v_minna",
             "v_motto",
             {
-              "id": "v_ooi",
-              "form": "adverbial"
+              "id": "v_tsukau",
+              "form": "plain_form"
             },
-            "p_no",
-            "v_hito",
+            "v_you_manner",
             "p_ni",
             {
-              "id": "v_tsukau",
-              "form": "causative"
+              "id": "v_naru",
+              "form": "plain_form"
             },
-            "p_yo"
+            "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ken",
+        "B": "rikizo"
+      }
     },
     {
       "type": "reading",
@@ -1288,7 +1304,7 @@
         },
         {
           "kind": "mcq",
-          "q": "手引書は どう ______。",
+          "q": "分からない 時は、手引書を ______。",
           "choices": [
             "引いて ください",
             "引き出して ください",
@@ -1306,7 +1322,7 @@
             },
             "v_kudasai"
           ],
-          "explanation": "Correct: 手引書は どう 引いて ください。"
+          "explanation": "Correct: 分からない 時は、手引書を 引いて ください。 — when you don't understand, consult the manual."
         }
       ]
     }

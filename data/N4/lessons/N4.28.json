@@ -316,7 +316,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
@@ -416,9 +420,12 @@
         },
         {
           "spk": "A",
-          "jp": "山村に 住んで いる ように なりたいです。",
-          "en": "I want to come to live in a mountain village.",
+          "jp": "私も いつか 山村に 住んで みたいです。",
+          "en": "I'd like to try living in a mountain village someday.",
           "terms": [
+            "v_watashi",
+            "p_mo",
+            "v_itsuka",
             "v_sanson",
             "p_ni",
             {
@@ -426,19 +433,17 @@
               "form": "te_form"
             },
             {
-              "id": "v_iru",
-              "form": "plain_form"
-            },
-            "v_you_manner",
-            "p_ni",
-            {
-              "id": "v_naru",
+              "id": "v_miru",
               "form": "plain_desire_tai"
             },
             "g_desu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "suzuki"
+      }
     },
     {
       "type": "conversation",
@@ -537,7 +542,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "ren"
+      }
     },
     {
       "type": "conversation",
@@ -639,7 +648,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "nana"
+      }
     },
     {
       "type": "reading",
@@ -717,11 +730,12 @@
           ]
         },
         {
-          "jp": "村人は 池の 近くを 歩ける ように なりました。",
-          "en": "The villagers have come to be able to walk near the pond.",
+          "jp": "村人は 毎日 池の 近くを 歩く ように して います。",
+          "en": "The villagers make a habit of walking near the pond every day.",
           "terms": [
             "v_murabito",
             "p_wa",
+            "v_mainichi",
             "v_ike",
             "p_no",
             {
@@ -731,13 +745,17 @@
             "p_wo",
             {
               "id": "v_aruku",
-              "form": "potential"
+              "form": "plain_form"
             },
             "v_you_manner",
             "p_ni",
             {
-              "id": "v_naru",
-              "form": "polite_mashita"
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
             }
           ]
         },
@@ -968,17 +986,18 @@
           ]
         },
         {
-          "jp": "学校の 正門より 校門の 方が 大きいです。",
-          "en": "The school gate is larger than the main gate.",
+          "jp": "学校の 門の 中で、正門が いちばん 大きいです。",
+          "en": "Among the school's gates, the main gate is the largest.",
           "terms": [
             "v_gakkou",
             "p_no",
-            "v_seimon",
-            "p_yori",
-            "v_koumon",
+            "v_mon",
             "p_no",
-            "v_hou",
+            "v_naka",
+            "p_de",
+            "v_seimon",
             "p_ga",
+            "v_ichiban",
             {
               "id": "v_ookii",
               "form": "polite_adj"
@@ -1040,10 +1059,10 @@
           ]
         },
         {
-          "q": "校門と 正門では、どちらの 方が 大きいですか。",
-          "q_en": "Between the school gate and the main gate, which is larger?",
-          "a": "校門の 方が 大きいです。",
-          "a_en": "The school gate is larger.",
+          "q": "学校の 門の 中で、どの 門が いちばん 大きいですか。",
+          "q_en": "Among the school's gates, which gate is the largest?",
+          "a": "正門が いちばん 大きいです。",
+          "a_en": "The main gate is the largest.",
           "terms": [
             "v_koumon",
             "p_to",
@@ -1060,10 +1079,9 @@
             "p_ka"
           ],
           "a_terms": [
-            "v_koumon",
-            "p_no",
-            "v_hou",
+            "v_seimon",
             "p_ga",
+            "v_ichiban",
             {
               "id": "v_ookii",
               "form": "polite_adj"

@@ -504,7 +504,7 @@
     {
       "type": "conversation",
       "title": "Conversation 3: 日曜日の 予定",
-      "context": "Rikizo asks Miki about her Sunday plans; Miki mentions she only has a little time.",
+      "context": "Rikizo asks Miki about her Sunday plans and invites her to a meal after the event.",
       "lines": [
         {
           "spk": "りきぞう",
@@ -526,8 +526,8 @@
         },
         {
           "spk": "ミキ",
-          "jp": "はい、学校の 行事が あります。いそがしいのに、行きたいです。",
-          "en": "Yes, there is a school event. Even though I'm busy, I want to go.",
+          "jp": "はい、学校の 行事が あります。いそがしいけど、行きたいです。",
+          "en": "Yes, there is a school event. I'm busy, but I want to go.",
           "terms": [
             "p_hai",
             "v_gakkou",
@@ -542,7 +542,7 @@
               "id": "v_isogashii",
               "form": "plain_form"
             },
-            "p_noni",
+            "p_kedo",
             {
               "id": "v_iku",
               "form": "plain_desire_tai"
@@ -645,15 +645,15 @@
         },
         {
           "spk": "けん",
-          "jp": "私も 店員だから、週まつしか 休めない。",
-          "en": "I'm also a store clerk, so I can only rest on weekends.",
+          "jp": "私は 店員だから、日曜日しか 休めない。",
+          "en": "I'm a store clerk, so I can only rest on Sundays.",
           "terms": [
             "v_watashi",
-            "p_mo",
+            "p_wa",
             "v_tenin",
             "g_da",
             "p_kara_because",
-            "v_shuumatsu",
+            "v_nichiyoubi",
             "p_shika",
             {
               "id": "v_yasumu",
@@ -759,12 +759,12 @@
           ]
         },
         {
-          "jp": "早起きの こと を 大切に しています。",
-          "en": "He takes the matter of early rising seriously.",
+          "jp": "毎日の 早起きを 大切に しています。",
+          "en": "He makes a point of rising early every day.",
           "terms": [
-            "v_hayaoki",
+            "v_mainichi",
             "p_no",
-            "v_koto",
+            "v_hayaoki",
             "p_wo",
             {
               "id": "v_taisetsu",
@@ -939,16 +939,18 @@
           ]
         },
         {
-          "jp": "けんは 早口ですが、わかります。",
-          "en": "Ken speaks fast, but people can understand him.",
+          "jp": "けんは 少し 早口です。でも、みんな わかります。",
+          "en": "Ken speaks a little fast. But everyone understands him.",
           "terms": [
             "char_ken",
             "p_wa",
+            "v_sukoshi",
             {
               "id": "v_hayakuchi",
               "form": "polite_adj"
             },
-            "p_ga_but",
+            "p_demo_but",
+            "v_minna",
             {
               "id": "v_wakaru",
               "form": "polite_masu"
@@ -1400,7 +1402,7 @@
         },
         {
           "kind": "mcq",
-          "q": "駅員 ______ 道が わかります。",
+          "q": "子ども ______ 道が わかります。（Even a child knows the way.）",
           "choices": [
             "でも",
             "だけ",
@@ -1418,7 +1420,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "Correct: 駅員 でも 道が わかります。"
+          "explanation": "Correct: 子ども でも 道が わかります。（Even a child knows the way.）"
         },
         {
           "kind": "mcq",

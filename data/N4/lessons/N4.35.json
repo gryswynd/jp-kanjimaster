@@ -262,7 +262,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "主人",
           "jp": "私が 主人です。主に 野菜を 売って います。",
           "en": "I am the owner. I mainly sell vegetables.",
           "terms": [
@@ -307,14 +307,14 @@
           ]
         },
         {
-          "spk": "A",
-          "jp": "はい、大丈夫です。国民の 皆さんに いい 野菜を 食べてもらいたい んです。",
-          "en": "Yes, it's fine. I want the citizens to eat good vegetables, you see.",
+          "spk": "主人",
+          "jp": "はい、大丈夫です。町の 皆さんに いい 野菜を 食べてもらいたい んです。",
+          "en": "Yes, it's fine. I want everyone in town to eat good vegetables, you see.",
           "terms": [
             "p_hai",
             "v_daijoubu",
             "g_desu",
-            "v_kokumin",
+            "v_machi",
             "p_no",
             "v_minasan",
             "p_ni",
@@ -544,20 +544,18 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "いいよ。先に 手洗いを してから 始めようよ。",
-          "en": "Sure. Let's wash our hands first and then start.",
+          "jp": "いいよ。今日は 天気も いいし、始めようよ。",
+          "en": "Sure. The weather's nice today too — let's get started.",
           "terms": [
             "char_rikizo",
             "v_ii",
-            "v_saki",
-            "p_ni",
-            "v_tearai",
-            "p_wo",
-            {
-              "id": "v_suru",
-              "form": "te_form"
-            },
-            "p_tekara",
+            "p_yo",
+            "v_kyou",
+            "p_wa",
+            "v_tenki",
+            "p_mo",
+            "v_ii",
+            "p_shi",
             {
               "id": "v_hajimeru",
               "form": "plain_volitional"
@@ -594,12 +592,13 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "水を 使って しまった！もう 少し 買って おこう。",
-          "en": "Oh no, I used up the water! Let's buy a bit more in advance.",
+          "jp": "水を たくさん 使って しまった！後で 少し 休もう。",
+          "en": "We ended up using a lot of water! Let's take a short break afterwards.",
           "terms": [
             "char_rikizo",
             "v_mizu",
             "p_wo",
+            "v_takusan",
             {
               "id": "v_tsukau",
               "form": "te_form"
@@ -608,14 +607,11 @@
               "id": "v_shimau",
               "form": "plain_past"
             },
-            "v_mou",
+            "v_ato",
+            "p_de",
             "v_sukoshi",
             {
-              "id": "v_kau",
-              "form": "te_form"
-            },
-            {
-              "id": "v_oku",
+              "id": "v_yasumu",
               "form": "plain_volitional"
             }
           ]
@@ -655,8 +651,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "いいな。その 地区は 国民が 多く 住んで いるの？",
-          "en": "Nice. Do a lot of citizens live in that district?",
+          "jp": "いいな。その 地区は 人が 多く 住んで いるの？",
+          "en": "Nice. Do a lot of people live in that district?",
           "terms": [
             "char_rikizo",
             "v_ii",
@@ -664,7 +660,7 @@
             "v_sono",
             "v_chiku",
             "p_wa",
-            "v_kokumin",
+            "v_hito",
             "p_ga",
             {
               "id": "v_ooi",
@@ -832,12 +828,12 @@
           ]
         },
         {
-          "jp": "近所の 国民が よく 来て、野菜を 買って いきます。",
-          "en": "Citizens from the neighborhood often come and buy vegetables.",
+          "jp": "近所の 人が よく 来て、野菜を 買って いきます。",
+          "en": "People from the neighborhood often come and buy vegetables.",
           "terms": [
             "v_kinjo",
             "p_no",
-            "v_kokumin",
+            "v_hito",
             "p_ga",
             "v_yoku",
             {
@@ -880,12 +876,12 @@
           ]
         },
         {
-          "jp": "町の 民の ために 働く、いい 主人だと 思います。",
+          "jp": "町の 人々の ために 働く、いい 主人だと 思います。",
           "en": "I think they are a good owner who works for the people of the town.",
           "terms": [
             "v_machi",
             "p_no",
-            "v_tami",
+            "v_hitobito",
             "p_no",
             "v_tame",
             "p_ni",
@@ -943,8 +939,8 @@
         {
           "q": "だれが お店に 来ますか。",
           "q_en": "Who comes to the shop?",
-          "a": "近所の 国民が よく 来ます。",
-          "a_en": "Citizens from the neighborhood often come.",
+          "a": "近所の 人が よく 来ます。",
+          "a_en": "People from the neighborhood often come.",
           "terms": [
             "v_dare",
             "p_ga",
@@ -959,7 +955,7 @@
           "a_terms": [
             "v_kinjo",
             "p_no",
-            "v_kokumin",
+            "v_hito",
             "p_ga",
             "v_yoku",
             {
@@ -1248,7 +1244,7 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "この 店の ______は 野菜と 魚です。",
+          "q": "この 店では、______ 野菜と 魚を 売って います。",
           "choices": [
             "主に",
             "主語",
@@ -1267,7 +1263,7 @@
             "v_sakana",
             "g_desu"
           ],
-          "explanation": "Correct: この 店の 主には 野菜と 魚です。 — 「主に」 (おもに) means \"mainly / primarily\"."
+          "explanation": "Correct: この 店では、主に 野菜と 魚を 売って います。 — 「主に」 (おもに) means \"mainly / primarily\"."
         },
         {
           "kind": "mcq",

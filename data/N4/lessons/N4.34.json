@@ -303,8 +303,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "そうですか。むずかしい 発音は 何度も 聞かれましたか。",
-          "en": "Is that so? Were difficult pronunciations heard many times?",
+          "jp": "そうですか。むずかしい 発音は 何度も 言われましたか。",
+          "en": "I see. Were the difficult pronunciations said many times?",
           "terms": [
             "char_rikizo",
             "v_sou",
@@ -316,7 +316,7 @@
             "v_nando",
             "p_mo",
             {
-              "id": "v_kiku",
+              "id": "v_iu",
               "form": "polite_passive_past"
             },
             "p_ka"
@@ -532,24 +532,27 @@
         },
         {
           "spk": "リー",
-          "jp": "わかりました。県外から 来る 電車で 行きますね。",
-          "en": "Understood. Let's go on the train coming from outside the prefecture.",
+          "jp": "わかりました。じゃ、秋田県に 行きましょう。始発の 電車に 乗りますね。",
+          "en": "Understood — let's go to Akita, then. We'll take the first train.",
           "terms": [
             "char_lee",
             {
               "id": "v_wakaru",
               "form": "polite_mashita"
             },
-            "v_kengai",
-            "p_kara",
-            {
-              "id": "v_kuru",
-              "form": "plain_form"
-            },
-            "v_densha",
-            "p_de",
+            "p_jaa",
+            "v_akitaken",
+            "p_ni",
             {
               "id": "v_iku",
+              "form": "polite_volitional_mashou"
+            },
+            "v_shihatsu",
+            "p_no",
+            "v_densha",
+            "p_ni",
+            {
+              "id": "v_noru",
               "form": "polite_masu"
             },
             "p_ne"
@@ -837,8 +840,8 @@
           ]
         },
         {
-          "jp": "始発の 電車に 乗って から、電車は 長い 大通りを 通りました。",
-          "en": "After boarding the first train, the train passed along a long main street.",
+          "jp": "始発の 電車に 乗って から、電車は たくさんの 町を 通りました。",
+          "en": "After boarding the first train, the train passed through many towns.",
           "terms": [
             "v_shihatsu",
             "p_no",
@@ -851,8 +854,9 @@
             "p_tekara",
             "v_densha",
             "p_wa",
-            "v_nagai",
-            "v_oodoori",
+            "v_takusan",
+            "p_no",
+            "v_machi",
             "p_wo",
             {
               "id": "v_tooru",
@@ -892,14 +896,13 @@
           ]
         },
         {
-          "jp": "地区が 区別されて いて、広い 場所も 店も ありました。",
-          "en": "The districts were separated, and there were wide spaces and shops too.",
+          "jp": "地区が 区切られて いて、広い 場所も 店も ありました。",
+          "en": "The districts were divided up, and there were wide spaces and shops too.",
           "terms": [
             "v_chiku",
             "p_ga",
-            "v_kubetsu",
             {
-              "id": "v_suru",
+              "id": "v_kugiru",
               "form": "passive_te"
             },
             {
@@ -1064,20 +1067,19 @@
           ]
         },
         {
-          "jp": "友だちは 毎日 朝を 早く して、始発の 電車で 学校に 行きます。",
-          "en": "My friend makes their mornings early every day and goes to school on the first train.",
+          "jp": "友だちは 毎日 朝 早く 起きて、始発の 電車で 学校に 行きます。",
+          "en": "My friend gets up early every morning and goes to school on the first train.",
           "terms": [
             "v_tomodachi_hybrid",
             "p_wa",
             "v_mainichi",
             "v_asa",
-            "p_wo",
             {
               "id": "v_hayai",
               "form": "adverbial"
             },
             {
-              "id": "v_suru",
+              "id": "v_okiru",
               "form": "te_form"
             },
             "v_shihatsu",
@@ -1124,31 +1126,27 @@
           ]
         },
         {
-          "jp": "区別された 地区を 毎日 通って いくのは 遠いことだと 思います。",
-          "en": "I think going through the divided districts every day is a long way to go.",
+          "jp": "県外から 毎日 通うのは 遠くて、むずかしいと 思います。",
+          "en": "I think commuting every day from outside the prefecture is far and hard.",
           "terms": [
-            "v_kubetsu",
-            {
-              "id": "v_suru",
-              "form": "plain_passive_past"
-            },
-            "v_chiku",
-            "p_wo",
+            "v_kengai",
+            "p_kara",
             "v_mainichi",
             {
-              "id": "v_tooru",
+              "id": "v_kayou",
+              "form": "plain_form"
+            },
+            "p_no",
+            "p_wa",
+            {
+              "id": "v_tooi",
               "form": "te_form"
             },
             {
-              "id": "v_iku",
+              "id": "v_muzukashii",
               "form": "plain_form"
             },
-            "p_wa",
-            "p_no",
-            "v_tooi",
-            "v_koto",
             "p_to_quote",
-            "g_da",
             {
               "id": "v_omou",
               "form": "polite_masu"
@@ -1392,7 +1390,7 @@
         },
         {
           "kind": "mcq",
-          "q": "電車は 長い 大通りを ______。",
+          "q": "バスは 長い 大通りを ______。",
           "choices": [
             "通ります",
             "発見します",
@@ -1411,7 +1409,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "Correct: 電車は 長い 大通りを 通ります。"
+          "explanation": "Correct: バスは 長い 大通りを 通ります。"
         },
         {
           "kind": "mcq",

@@ -350,7 +350,7 @@
       "context": "A student visits a carpenter's workshop to ask about the work.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "ナナ",
           "jp": "大工さんは どんな 仕事を しますか。",
           "en": "What kinds of work does a carpenter do?",
           "terms": [
@@ -368,7 +368,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "大工",
           "jp": "木工を 使って、建物を 建てたり、作ったり します。",
           "en": "Using woodworking, I build and create structures, among other things.",
           "terms": [
@@ -395,7 +395,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "ナナ",
           "jp": "こんなに 広い 場所で 働いたことが ありますか。",
           "en": "Have you ever worked in such a wide place?",
           "terms": [
@@ -421,7 +421,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "大工",
           "jp": "はい。あの 広大な 会場で 建てさせて もらいました。",
           "en": "Yes. I was allowed to build at that vast venue.",
           "terms": [
@@ -559,7 +559,7 @@
       "context": "Two siblings talk about how their hometown has been changing.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "姉",
           "jp": "今、町に 新しい 建物が たくさん 建って きた ね。",
           "en": "Right now, many new buildings have been going up in town.",
           "terms": [
@@ -585,7 +585,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "弟",
           "jp": "うん。あの 広い 広場も できた みたいだよ。",
           "en": "Yeah. It looks like that wide square was also finished.",
           "terms": [
@@ -607,7 +607,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "姉",
           "jp": "人工の 川も できた って 聞いた。前より きれいに なった ね。",
           "en": "I heard an artificial river was also completed. It's gotten nicer than before.",
           "terms": [
@@ -638,17 +638,15 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "建国のように、この 場所が もっと 広く なって いく って 思う。楽しそうだね。",
-          "en": "Like building a nation, I think this place will keep getting wider. Sounds exciting.",
+          "spk": "弟",
+          "jp": "この 場所は これから もっと 広く なって いく って 思う。楽しそうだね。",
+          "en": "I think this place is going to keep getting bigger from here on. Sounds exciting!",
           "terms": [
-            "v_kenkoku",
-            "p_no",
-            "v_you_manner",
-            "p_ni",
             "v_kono",
             "v_basho",
-            "p_ga",
+            "p_wa",
+            "v_kore",
+            "p_kara",
             "v_motto",
             {
               "id": "v_hiroi",
@@ -700,8 +698,8 @@
           ]
         },
         {
-          "jp": "町の 大工さんたちが 一年で 建てさせられました。",
-          "en": "The town's carpenters were made to build it in a year.",
+          "jp": "町の 大工さんたちが 一年で 建てました。",
+          "en": "The town's carpenters built it in a year.",
           "terms": [
             "v_machi",
             "p_no",
@@ -716,7 +714,7 @@
             "p_de",
             {
               "id": "v_tateru",
-              "form": "polite_causative_passive_past"
+              "form": "polite_mashita"
             }
           ]
         },

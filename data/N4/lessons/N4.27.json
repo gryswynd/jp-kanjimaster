@@ -336,7 +336,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "yamakawa"
+      }
     },
     {
       "type": "conversation",
@@ -421,8 +425,8 @@
         },
         {
           "spk": "B",
-          "jp": "そうですね。何度も 運動 して、よく 待てる ように なりました。",
-          "en": "That's right. After exercising many times, I came to be able to wait well.",
+          "jp": "そうですね。何度も 運動 して、長く 走れる ように なりました。",
+          "en": "That's right. After exercising many times, I've become able to run for a long time.",
           "terms": [
             "p_soudesu",
             "p_ne",
@@ -433,9 +437,12 @@
               "id": "v_suru",
               "form": "te_form"
             },
-            "v_yoku",
             {
-              "id": "v_matsu",
+              "id": "v_nagai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_hashiru",
               "form": "potential"
             },
             "v_you_manner",
@@ -446,7 +453,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ken",
+        "B": "taro"
+      }
     },
     {
       "type": "conversation",
@@ -540,7 +551,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "nana"
+      }
     },
     {
       "type": "conversation",
@@ -626,12 +641,12 @@
         },
         {
           "spk": "B",
-          "jp": "うん、度重なる ほど 行って いる よ。一度に 食べられない けど、おいしい し。",
-          "en": "Yeah, I've been going over and over. You can't eat it all at once, but it's delicious.",
+          "jp": "うん、何度も 行って いる よ。夕飯の 時間は 人が 多い けど、おいしい し。",
+          "en": "Yeah, I've been there many times. It's crowded at dinnertime, but the food's great.",
           "terms": [
             "v_un",
-            "v_tabikasanaru",
-            "p_hodo",
+            "v_nando",
+            "p_mo",
             {
               "id": "v_iku",
               "form": "te_form"
@@ -641,17 +656,29 @@
               "form": "plain_form"
             },
             "p_yo",
-            "v_ichidoni",
+            "v_yuuhan",
+            "p_no",
+            "v_jikan",
+            "p_wa",
+            "v_hito",
+            "p_ga",
             {
-              "id": "v_taberu",
-              "form": "plain_potential_negative"
+              "id": "v_ooi",
+              "form": "plain_form"
             },
             "p_kedo",
-            "v_oishii",
+            {
+              "id": "v_oishii",
+              "form": "plain_form"
+            },
             "p_shi"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "ren"
+      }
     },
     {
       "type": "reading",
@@ -714,21 +741,20 @@
           ]
         },
         {
-          "jp": "先生の 考え方に 合う ように、みんなで 話しましょう。",
-          "en": "Let's all talk so that we can match the teacher's way of thinking.",
+          "jp": "みんなの 考えが 合う ように、よく 話しましょう。",
+          "en": "Let's talk it through so that everyone's ideas come together.",
           "terms": [
-            "v_sensei",
+            "v_minna",
             "p_no",
-            "v_kangaekata",
-            "p_ni",
+            "v_kangae",
+            "p_ga",
             {
               "id": "v_au_2",
               "form": "plain_form"
             },
             "v_you_manner",
             "p_ni",
-            "v_minna",
-            "p_de",
+            "v_yoku",
             {
               "id": "v_hanasu",
               "form": "polite_volitional_mashou"
@@ -903,13 +929,21 @@
           ]
         },
         {
-          "jp": "夕方までに 着ける ように、早く 出ます。",
-          "en": "So that I can arrive by evening, I leave early.",
+          "jp": "暗く なる 前に 帰れる ように、早く 出ます。",
+          "en": "I leave early so that I can get home before dark.",
           "terms": [
-            "v_yuugata",
-            "p_made_ni",
             {
-              "id": "v_tsuku",
+              "id": "v_kurai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
+            "v_mae",
+            "p_ni",
+            {
+              "id": "v_kaeru",
               "form": "potential"
             },
             "v_you_manner",

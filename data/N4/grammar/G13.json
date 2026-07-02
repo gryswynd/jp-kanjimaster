@@ -176,10 +176,13 @@
               "gloss": "cannot come (irregular: 来る → 来られる → 来られません, negative polite)",
               "tokens": [
                 {
-                  "k": "来られ"
+                  "k": "来",
+                  "r": "こ",
+                  "g": "v_kuru_polite_potential_negative"
                 },
                 {
-                  "k": "ません"
+                  "k": "られません",
+                  "g": "v_kuru_polite_potential_negative"
                 },
                 {
                   "k": "。"
@@ -455,7 +458,12 @@
               "gloss": "can you come? (colloquial: 来られる → 来れる)",
               "tokens": [
                 {
-                  "k": "来れる"
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru"
+                },
+                {
+                  "k": "れる"
                 },
                 {
                   "k": "？"
@@ -899,13 +907,12 @@
               "tokens": [
                 {
                   "k": "書",
-                  "r": "か"
+                  "r": "か",
+                  "g": "v_kaku_polite_potential_negative"
                 },
                 {
-                  "k": "け"
-                },
-                {
-                  "k": "ません"
+                  "k": "けません",
+                  "g": "v_kaku_polite_potential_negative"
                 },
                 {
                   "k": "。"

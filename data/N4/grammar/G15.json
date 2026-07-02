@@ -123,7 +123,8 @@
               "gloss": "than meat (より = than — the lesser)",
               "tokens": [
                 {
-                  "k": "肉"
+                  "k": "肉",
+                  "r": "にく"
                 },
                 {
                   "k": "より"
@@ -391,17 +392,9 @@
               "gloss": "three hours",
               "tokens": [
                 {
-                  "k": "三",
-                  "r": "さん",
-                  "g": "v_sanji"
-                },
-                {
-                  "k": "時",
-                  "r": "じ",
-                  "g": "v_sanji"
-                },
-                {
-                  "k": "間"
+                  "k": "三時間",
+                  "r": "さんじかん",
+                  "g": "count_3_jikan"
                 }
               ]
             },
@@ -472,10 +465,12 @@
               "tokens": [
                 {
                   "k": "食",
-                  "r": "た"
+                  "r": "た",
+                  "g": "v_taberu"
                 },
                 {
-                  "k": "べ"
+                  "k": "べ",
+                  "g": "v_taberu"
                 }
               ]
             },
@@ -524,7 +519,8 @@
               "tokens": [
                 {
                   "k": "高",
-                  "r": "たか"
+                  "r": "たか",
+                  "g": "v_takai"
                 }
               ]
             },
@@ -593,7 +589,8 @@
               "tokens": [
                 {
                   "k": "高",
-                  "r": "たか"
+                  "r": "たか",
+                  "g": "v_takai"
                 },
                 {
                   "k": "さ"
@@ -674,7 +671,8 @@
                 "gloss": "meat (の = classifier)",
                 "tokens": [
                   {
-                    "k": "肉"
+                    "k": "肉",
+                    "r": "にく"
                   },
                   {
                     "k": "の"
@@ -753,7 +751,8 @@
                 "gloss": "as much as meat (ほど = to that degree — sets the benchmark)",
                 "tokens": [
                   {
-                    "k": "肉"
+                    "k": "肉",
+                    "r": "にく"
                   },
                   {
                     "k": "ほど"
@@ -892,7 +891,8 @@
               "tokens": [
                 {
                   "k": "高",
-                  "r": "たか"
+                  "r": "たか",
+                  "g": "v_takai"
                 }
               ]
             },

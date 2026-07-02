@@ -351,22 +351,20 @@
         },
         {
           "spk": "A",
-          "jp": "鳥肉と 牛肉、どちらの ほうが 好きですか。",
-          "en": "Which do you prefer, chicken or beef?",
+          "jp": "そうですね。私も 鳥肉に します。",
+          "en": "Right. I'll have the chicken too.",
           "terms": [
-            "v_toriniku",
-            "p_to",
-            "v_gyuuniku",
-            "v_dochira",
-            "p_no",
-            "v_hou",
-            "p_ga",
-            {
-              "id": "v_suki",
-              "form": "polite_adj"
-            },
+            "v_sou",
             "g_desu",
-            "p_ka"
+            "p_ne",
+            "v_watashi",
+            "p_mo",
+            "v_toriniku",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -386,7 +384,11 @@
             "p_arigatou_gozaimasu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -518,12 +520,16 @@
             "g_desu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation Practice 3（会話）: What's for Lunch?",
-      "context": "Rikizo and Miku chat about lunch options during the school lunch break.",
+      "context": "Rikizo and Miki chat about lunch options during the school lunch break.",
       "lines": [
         {
           "spk": "A",
@@ -640,7 +646,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -669,12 +679,12 @@
         },
         {
           "spk": "B",
-          "jp": "うん。暗いけど、鳥肉の 料理が 食べたかった。",
-          "en": "Yeah. It's dark, but I wanted to eat chicken dishes.",
+          "jp": "うん。ここの 鳥肉の 料理が 食べたかったよ。",
+          "en": "Yeah. I'd been wanting to eat the chicken here.",
           "terms": [
             "v_un",
-            "v_kurai",
-            "p_kedo",
+            "v_koko",
+            "p_no",
             "v_toriniku",
             "p_no",
             "v_ryouri",
@@ -682,7 +692,8 @@
             {
               "id": "v_taberu",
               "form": "plain_desire_tai_past"
-            }
+            },
+            "p_yo"
           ]
         },
         {
@@ -737,7 +748,11 @@
             "p_na"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "ken"
+      }
     },
     {
       "type": "reading",
@@ -1015,13 +1030,13 @@
           ]
         },
         {
-          "jp": "やまかわさんは 毎日 昼ご飯を りきぞうに あげます。",
-          "en": "Yamakawa gives Rikizo lunch every day.",
+          "jp": "やまかわさんは 時々 昼ご飯を りきぞうに あげます。",
+          "en": "Yamakawa sometimes gives Rikizo lunch.",
           "terms": [
             "char_yamakawa",
             "v_san",
             "p_wa",
-            "v_mainichi",
+            "v_tokidoki",
             "v_hirugohan",
             "p_wo",
             "char_rikizo",
@@ -1060,8 +1075,8 @@
           ]
         },
         {
-          "jp": "晩ご飯の 前に 外が 暗く なります。鳥肉料理が いちばん 好きです。",
-          "en": "It gets dark outside before dinner. He likes chicken dishes the most.",
+          "jp": "晩ご飯の 前に 外が 暗く なります。家で 晩ご飯を 食べます。",
+          "en": "It gets dark outside before dinner. He eats dinner at home.",
           "terms": [
             "v_bangohan",
             "p_no",
@@ -1077,15 +1092,14 @@
               "id": "v_naru",
               "form": "polite_masu"
             },
-            "v_toriniku",
-            "v_ryouri",
-            "p_ga",
-            "v_ichiban",
+            "v_ie",
+            "p_de",
+            "v_bangohan",
+            "p_wo",
             {
-              "id": "v_suki",
-              "form": "polite_adj"
-            },
-            "g_desu"
+              "id": "v_taberu",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -1342,7 +1356,7 @@
         },
         {
           "kind": "mcq",
-          "q": "やまかわさんは りきぞうさんに 昼ご飯を______。",
+          "q": "やまかわさんは りきぞうさんに 昼ご飯を______。（Yamakawa gave Rikizo lunch.）",
           "choices": [
             "あげました",
             "もらいました",
@@ -1364,7 +1378,7 @@
               "form": "polite_mashita"
             }
           ],
-          "explanation": "Correct: やまかわさんは りきぞうさんに 昼ご飯をあげました。"
+          "explanation": "Correct: やまかわさんは りきぞうさんに 昼ご飯をあげました。（Yamakawa gave Rikizo lunch.）"
         },
         {
           "kind": "mcq",

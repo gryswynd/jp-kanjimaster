@@ -338,12 +338,16 @@
             "p_ka"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "yamakawa"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation 2: Studying Hard",
-      "context": "A student and teacher talking about study habits in the classroom.",
+      "context": "Two classmates talk about study habits in the classroom.",
       "lines": [
         {
           "spk": "A",
@@ -431,7 +435,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "nana",
+        "B": "lee"
+      }
     },
     {
       "type": "conversation",
@@ -522,7 +530,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "taro",
+        "B": "sakura"
+      }
     },
     {
       "type": "conversation",
@@ -530,7 +542,7 @@
       "context": "Two classmates walking home from school, talking about their study routines.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "けん",
           "jp": "田中くん、毎日 勉強して いる？",
           "en": "Hey Tanaka, are you studying every day?",
           "terms": [
@@ -550,7 +562,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "田中",
           "jp": "うん。まあ、むずかしいけど、楽しいよ。",
           "en": "Yeah. Well, it's difficult, but it's fun.",
           "terms": [
@@ -563,7 +575,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "けん",
           "jp": "ほんとう？ 私も 弱気に なるけど、力を 出して いる。",
           "en": "Really? I get faint-hearted too, but I'm putting in strength.",
           "terms": [
@@ -590,7 +602,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "田中",
           "jp": "だね。強気で 勉強したほうが いいよ。",
           "en": "Yeah. It's better to study with confidence!",
           "terms": [
@@ -698,11 +710,9 @@
           ]
         },
         {
-          "jp": "友だちが、来週も 天気が いいそうです。また 山へ 行けます。",
-          "en": "My friend says next week's weather will be good too. I can go to the mountain again.",
+          "jp": "来週も 天気が いいそうです。また 山へ 行けます。",
+          "en": "I hear the weather will be good next week too. I can go to the mountain again.",
           "terms": [
-            "v_tomodachi_hybrid",
-            "p_ga",
             "v_raishuu",
             "p_mo",
             "v_tenki",
@@ -889,30 +899,26 @@
           ]
         },
         {
-          "jp": "月光の 光は やさしいですが、勉強に 力を 使っています。",
-          "en": "The light of the moonlight is gentle, but I am using strength for my studies.",
+          "jp": "月光は やさしいですが、勉強には 少し 暗いです。",
+          "en": "Moonlight is gentle, but it's a little dark for studying.",
           "terms": [
             "v_gekkou",
-            "p_no",
-            "v_hikari",
             "p_wa",
             {
               "id": "v_yasashii",
               "form": "polite_adj"
             },
+            "g_desu",
             "p_ga_but",
             "v_benkyou",
             "p_ni",
-            "v_chikara",
-            "p_wo",
+            "p_wa",
+            "v_sukoshi",
             {
-              "id": "v_tsukau",
-              "form": "te_form"
+              "id": "v_kurai",
+              "form": "polite_adj"
             },
-            {
-              "id": "v_iru",
-              "form": "polite_masu"
-            }
+            "g_desu"
           ]
         }
       ],
@@ -1193,10 +1199,10 @@
         },
         {
           "kind": "mcq",
-          "q": "風が 強いですから、電車が ______。",
+          "q": "風が 強いですから、電車が ______。（Because of the strong wind, the trains aren't running right now.）",
           "choices": [
             "来ていません",
-            "来ません",
+            "来たいです",
             "来ました",
             "来ています"
           ],
@@ -1220,7 +1226,7 @@
               "form": "polite_negative"
             }
           ],
-          "explanation": "Correct: 風が 強いですから、電車が 来ていません。"
+          "explanation": "Correct: 風が 強いですから、電車が 来ていません。（Because of the strong wind, the trains aren't running right now.）"
         },
         {
           "kind": "mcq",

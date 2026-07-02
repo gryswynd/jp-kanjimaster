@@ -246,10 +246,13 @@
         },
         {
           "spk": "B",
-          "jp": "はい。今は 大きい まちに 住んで います。",
-          "en": "Sure. Right now I live in a big town.",
+          "jp": "はい、これですよ。今は 大きい まちに 住んで います。",
+          "en": "Sure, here it is. Right now I live in a big town.",
           "terms": [
             "p_hai",
+            "v_kore",
+            "g_desu",
+            "p_yo",
             "v_ima",
             "p_wa",
             "v_ookii",
@@ -294,15 +297,19 @@
             "g_desu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ken",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation Practice 2（会話）: Neighbourhood Walk",
-      "context": "りきぞう talks with his father about their neighbourhood.",
+      "context": "りきぞう is visiting his father's town and asks about the neighbourhood.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "お父さん、この 近所は どんな 所 ですか。",
           "en": "Father, what kind of place is this neighbourhood?",
           "terms": [
@@ -317,7 +324,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "お父さん",
           "jp": "しずかで いい まちですよ。毎日 川を 歩いて います。",
           "en": "It's a quiet, nice town. I walk along the river every day.",
           "terms": [
@@ -343,7 +350,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "近所に きれいな 川は ありますか。",
           "en": "Is there a nice river in the neighbourhood?",
           "terms": [
@@ -363,7 +370,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "お父さん",
           "jp": "あります。とても きれいな 所 ですよ。いっしょに 行きましょう。",
           "en": "There is. It's a very beautiful place. Let's go together.",
           "terms": [
@@ -483,7 +490,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "yamakawa"
+      }
     },
     {
       "type": "conversation",
@@ -552,13 +563,17 @@
         },
         {
           "spk": "B",
-          "jp": "別に。住みたいけど、まだ お金が ない。",
-          "en": "Not really. I want to, but I still don't have money.",
+          "jp": "住みたいと 思うけど、まだ お金が ないよ。",
+          "en": "I'd like to, but I still don't have the money.",
           "terms": [
-            "v_betsuni",
             {
               "id": "v_sumu",
               "form": "plain_desire_tai"
+            },
+            "p_to_quote",
+            {
+              "id": "v_omou",
+              "form": "plain_form"
             },
             "p_kedo",
             "v_mada",
@@ -567,10 +582,15 @@
             {
               "id": "v_aru",
               "form": "plain_negative"
-            }
+            },
+            "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "reading",
@@ -1086,7 +1106,7 @@
         },
         {
           "kind": "mcq",
-          "q": "______ は 2024年 でした。",
+          "q": "今年の 前の 年は ______ です。",
           "choices": [
             "去年",
             "来年",
@@ -1097,7 +1117,7 @@
           "terms": [
             "v_kyonen"
           ],
-          "explanation": "Correct: 去年 は 2024年 でした。 — 「去年」 (きょねん) means \"last year\"."
+          "explanation": "Correct: 今年の 前の 年は 去年 です。 — 「去年」 (きょねん) means \"last year\"."
         },
         {
           "kind": "mcq",

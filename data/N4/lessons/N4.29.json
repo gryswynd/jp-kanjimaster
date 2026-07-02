@@ -283,24 +283,22 @@
         },
         {
           "spk": "A",
-          "jp": "一台 いくらですか。一万円 以下の 時計は ありませんか。",
-          "en": "How much is one? Don't you have a clock that is 10,000 yen or less?",
+          "jp": "水と 食べ物も 買わなければ いけませんね。",
+          "en": "We also have to buy water and food.",
           "terms": [
-            "v_ichidai",
-            "v_ikura",
-            "g_desu",
-            "p_ka",
-            "v_man",
-            "v_en",
-            "v_ika",
-            "p_no",
-            "v_tokei",
-            "p_wa",
+            "v_mizu",
+            "p_to",
+            "v_tabemono",
+            "p_mo",
             {
-              "id": "v_aru",
+              "id": "v_kau",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
               "form": "polite_negative"
             },
-            "p_ka"
+            "p_ne"
           ]
         },
         {
@@ -327,7 +325,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -335,7 +337,7 @@
       "context": "A customer asks about clocks; the salesperson explains features and price.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "この 時計は いくらですか。",
           "en": "How much is this clock?",
           "terms": [
@@ -348,7 +350,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "この 時計は 高いですが、時間を よく 計る ことが できるんです。",
           "en": "This clock is expensive, but it can measure time well.",
           "terms": [
@@ -377,7 +379,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "一台 いくらですか。もっと 安い 時計は ありませんか。",
           "en": "How much is one? Don't you have a cheaper clock?",
           "terms": [
@@ -400,9 +402,9 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "安い 時計も ありますよ。でも、この 時計は 安い 時計 以上の 物が ありますね。",
-          "en": "We have cheaper clocks too. However, this clock has more going for it than a cheaper one.",
+          "spk": "店員",
+          "jp": "安い 時計も ありますよ。でも、この 時計は 安い 時計 以上の 物ですよ。",
+          "en": "We have cheaper clocks too. But this clock is worth more than a cheap one.",
           "terms": [
             "v_yasui",
             "v_tokei",
@@ -421,12 +423,8 @@
             "v_ijou",
             "p_no",
             "v_mono",
-            "p_ga",
-            {
-              "id": "v_aru",
-              "form": "polite_masu"
-            },
-            "p_ne"
+            "g_desu",
+            "p_yo"
           ]
         }
       ]
@@ -533,7 +531,11 @@
             "p_nda"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "nana"
+      }
     },
     {
       "type": "conversation",
@@ -541,7 +543,7 @@
       "context": "Two siblings at home make plans as a typhoon approaches.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "姉",
           "jp": "台風が 来る みたい だよ。計画は 考えた？",
           "en": "It looks like a typhoon is coming. Did you think about a plan?",
           "terms": [
@@ -564,9 +566,9 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "うん、食べ物と 水を 買いに 行ったり、台所の 物を 外に 出したり したよ。",
-          "en": "Yeah, I went to buy food and water, took things from the kitchen outside, and stuff like that.",
+          "spk": "弟",
+          "jp": "うん、食べ物と 水を 買いに 行ったり、外の 物を 中に 入れたり したよ。",
+          "en": "Yeah, I went to buy food and water, brought the outdoor things inside, and stuff like that.",
           "terms": [
             "v_un",
             "v_tabemono",
@@ -582,14 +584,14 @@
               "id": "v_iku",
               "form": "tari_form"
             },
-            "v_daidokoro",
+            "v_soto",
             "p_no",
             "v_mono",
             "p_wo",
-            "v_soto",
+            "v_naka",
             "p_ni",
             {
-              "id": "v_dasu",
+              "id": "v_ireru",
               "form": "tari_form"
             },
             {
@@ -600,7 +602,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "姉",
           "jp": "風が とても 強かったら、外に 出ない 方が いいよ。",
           "en": "If the wind is really strong, it's better not to go outside.",
           "terms": [
@@ -627,7 +629,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "弟",
           "jp": "分かった。台風 以外の こと は 考えない ように しよう。",
           "en": "Got it. Let's try not to think about anything other than the typhoon.",
           "terms": [
@@ -699,8 +701,8 @@
           ]
         },
         {
-          "jp": "高台に 住んで いる 人は、川の 近くに 住んで いる 人より いいです。",
-          "en": "People living on high ground are better off than people living near the river.",
+          "jp": "高台に 住んで いる 人は、だいじょうぶだ そうです。",
+          "en": "I hear that people living on high ground are all right.",
           "terms": [
             "v_takadai",
             "p_ni",
@@ -714,27 +716,9 @@
             },
             "v_hito",
             "p_wa",
-            "v_kawa",
-            "p_no",
-            {
-              "id": "v_chikai",
-              "form": "adverbial"
-            },
-            "p_ni",
-            {
-              "id": "v_sumu",
-              "form": "te_form"
-            },
-            {
-              "id": "v_iru",
-              "form": "plain_form"
-            },
-            "v_hito",
-            "p_yori",
-            {
-              "id": "v_ii",
-              "form": "polite_adj"
-            }
+            "v_daijoubu",
+            "g_da",
+            "p_sou_da_hearsay"
           ]
         },
         {

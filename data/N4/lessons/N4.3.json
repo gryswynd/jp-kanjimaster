@@ -287,18 +287,21 @@
         },
         {
           "spk": "B",
-          "jp": "そうですね。明日 も 学校に 来られますか。",
-          "en": "You're right. Can you come to school tomorrow too?",
+          "jp": "そうですね。明日も 六時に 起きられますか。",
+          "en": "Right. Can you get up at six tomorrow too?",
           "terms": [
             "v_sou",
             "g_desu",
             "p_ne",
             "v_ashita",
             "p_mo",
-            "v_gakkou",
+            {
+              "counter": "ji",
+              "n": 6
+            },
             "p_ni",
             {
-              "id": "v_kuru",
+              "id": "v_okiru",
               "form": "polite_potential"
             },
             "p_ka"
@@ -306,14 +309,12 @@
         },
         {
           "spk": "A",
-          "jp": "はい、明日 も 来られます。朝ごはんを 食べて 来ます。",
-          "en": "Yes, I can come tomorrow too. I'll eat breakfast and come.",
+          "jp": "はい、起きられます。朝ごはんを 食べて 来ます。",
+          "en": "Yes, I can get up. I'll eat breakfast and come.",
           "terms": [
             "p_hai",
-            "v_ashita",
-            "p_mo",
             {
-              "id": "v_kuru",
+              "id": "v_okiru",
               "form": "polite_potential"
             },
             "v_asagohan",
@@ -373,12 +374,16 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "yamakawa"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation Practice 2（会話）: This Evening's Plans",
-      "context": "Two colleagues in the office discuss their evening plans and mention くれる.",
+      "context": "Two colleagues in the office discuss their evening plans.",
       "lines": [
         {
           "spk": "A",
@@ -493,7 +498,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "suzuki",
+        "B": "taro"
+      }
     },
     {
       "type": "conversation",
@@ -606,7 +615,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "nana"
+      }
     },
     {
       "type": "conversation",
@@ -698,7 +711,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ken",
+        "B": "rikizo"
+      }
     },
     {
       "type": "reading",
@@ -774,8 +791,8 @@
           ]
         },
         {
-          "jp": "りきぞう は 毎朝 朝ごはんを 食べて 学校に 来られます。",
-          "en": "Rikizo eats breakfast and can come to school every morning.",
+          "jp": "りきぞう は 毎朝 朝ごはんを 食べて、学校へ 行きます。",
+          "en": "Rikizo eats breakfast every morning and goes to school.",
           "terms": [
             "char_rikizo",
             "p_wa",
@@ -787,10 +804,10 @@
               "form": "te_form"
             },
             "v_gakkou",
-            "p_ni",
+            "p_e",
             {
-              "id": "v_kuru",
-              "form": "polite_potential"
+              "id": "v_iku",
+              "form": "polite_masu"
             }
           ]
         },
@@ -1010,8 +1027,8 @@
           ]
         },
         {
-          "jp": "晩ごはんを 食べて、いっしょに 帰ります。",
-          "en": "We eat dinner and go home together.",
+          "jp": "晩ごはんを 食べて、九時に 帰ります。",
+          "en": "I eat dinner and go home at nine.",
           "terms": [
             "v_bangohan",
             "p_wo",
@@ -1019,7 +1036,11 @@
               "id": "v_taberu",
               "form": "te_form"
             },
-            "v_issho",
+            {
+              "counter": "ji",
+              "n": 9
+            },
+            "p_ni",
             {
               "id": "v_kaeru",
               "form": "polite_masu"
@@ -1281,7 +1302,7 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "明日 の 朝 も ______ か。",
+          "q": "明日 の 朝 も ______ か。（Can you come tomorrow morning too?）",
           "choices": [
             "来られます",
             "来ます",
@@ -1300,7 +1321,7 @@
             },
             "p_ka"
           ],
-          "explanation": "Correct: 明日 の 朝 も 来られます か。"
+          "explanation": "Correct: 明日 の 朝 も 来られます か。（Can you come tomorrow morning too?）"
         },
         {
           "kind": "mcq",

@@ -490,9 +490,16 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "夜空が 好きなので、よく 屋上に 来ます。",
-          "en": "Because I like the night sky, I often come to the rooftop.",
+          "jp": "今夜は 来ませんでした。でも、夜空が 好きなので、よく この 屋上に 来ますよ。",
+          "en": "He didn't come tonight. But he loves the night sky, so he often comes up to this rooftop.",
           "terms": [
+            "v_konya",
+            "p_wa",
+            {
+              "id": "v_kuru",
+              "form": "polite_past_negative"
+            },
+            "p_demo_but",
             "v_yozora",
             "p_ga",
             {
@@ -501,12 +508,14 @@
             },
             "p_node",
             "v_yoku",
+            "v_kono",
             "v_okujou",
             "p_ni",
             {
               "id": "v_kuru",
               "form": "polite_masu"
-            }
+            },
+            "p_yo"
           ]
         }
       ]

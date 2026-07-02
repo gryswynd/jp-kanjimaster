@@ -385,12 +385,11 @@
       "lines": [
         {
           "spk": "りきぞう",
-          "jp": "スミスさんに 手紙を 書きたいです。",
-          "en": "I want to write a letter to Smith-san.",
+          "jp": "母に 手紙を 書きたいです。",
+          "en": "I want to write a letter to my mother.",
           "terms": [
             "char_rikizo",
-            "v_sumisu",
-            "v_san",
+            "v_haha",
             "p_ni",
             "v_tegami",
             "p_wo",
@@ -419,7 +418,7 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "この 紙を つかいます。ペンを 貸しても いいですか。",
+          "jp": "この 紙を つかいます。ペンを 借りても いいですか。",
           "en": "I will use this paper. May I borrow a pen?",
           "terms": [
             "char_rikizo",
@@ -433,7 +432,7 @@
             "v_pen",
             "p_wo",
             {
-              "id": "v_kasu",
+              "id": "v_kariru",
               "form": "te_form"
             },
             "p_mo",
@@ -567,8 +566,8 @@
         },
         {
           "spk": "リー",
-          "jp": "でも、意味が 同じでは ない 漢字も あります。それが 私の 意見です。",
-          "en": "But there are also kanji where the meaning is not the same. That is my opinion.",
+          "jp": "でも、意味が 同じでは ない 漢字も ありますよ。",
+          "en": "But there are also kanji whose meanings are not the same.",
           "terms": [
             "char_lee",
             "p_demo_but",
@@ -586,12 +585,7 @@
               "id": "v_aru",
               "form": "polite_masu"
             },
-            "v_sore",
-            "p_ga",
-            "v_watashi",
-            "p_no",
-            "v_iken",
-            "g_desu"
+            "p_yo"
           ]
         },
         {
@@ -622,21 +616,29 @@
         },
         {
           "spk": "リー",
-          "jp": "そうです。日本語の 漢字は おもしろいですよ。",
-          "en": "That's right. Japanese kanji is interesting.",
+          "jp": "そうです。日本の 漢字の ほうが おもしろいです。それが 私の 意見です。",
+          "en": "That's right. Japanese kanji are more interesting — that's my opinion!",
           "terms": [
             "char_lee",
             "v_sou",
             "g_desu",
-            "v_nihongo",
+            "v_nihon",
             "p_no",
             "v_kanji",
-            "p_wa",
+            "p_no",
+            "v_hou",
+            "p_ga",
             {
               "id": "v_omoshiroi",
               "form": "polite_adj"
             },
-            "p_yo"
+            "g_desu",
+            "v_sore",
+            "p_ga",
+            "v_watashi",
+            "p_no",
+            "v_iken",
+            "g_desu"
           ]
         }
       ]
@@ -764,11 +766,11 @@
         },
         {
           "spk": "けん",
-          "jp": "では、いっしょに 勉強しよう。",
+          "jp": "じゃあ、いっしょに 勉強しよう。",
           "en": "Then let's study together.",
           "terms": [
             "char_ken",
-            "p_dewa",
+            "p_jaa",
             "v_issho",
             "p_ni",
             "v_benkyou",

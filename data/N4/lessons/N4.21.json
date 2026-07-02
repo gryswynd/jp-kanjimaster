@@ -367,10 +367,17 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "いいえ、外へ 持ち出しては だめです。ここは 学校ですから、中で 使って ください。",
-          "en": "No, you must not take it outside. Since this is school, please use it inside.",
+          "jp": "いいえ、それは 学校の ペンですから、外へ 持ち出しては だめです。中で 使って ください。",
+          "en": "No — that's a school pen, so you must not take it outside. Please use it inside.",
           "terms": [
             "v_iie",
+            "v_sore",
+            "p_wa",
+            "v_gakkou",
+            "p_no",
+            "v_pen",
+            "g_desu",
+            "p_kara_because",
             "v_soto",
             "p_e",
             {
@@ -382,11 +389,6 @@
               "id": "v_dame",
               "form": "polite_adj"
             },
-            "v_koko",
-            "p_wa",
-            "v_gakkou",
-            "g_desu",
-            "p_kara_because",
             "v_naka",
             "p_de",
             {
@@ -468,13 +470,16 @@
         },
         {
           "spk": "店員",
-          "jp": "洋風の 料理です。食べた あと、いい 気持ちに なりますよ。",
-          "en": "Western-style cooking. After eating, you will feel good.",
+          "jp": "いいえ、今 出して ください。食べた あと、いい 気持ちに なりますよ。",
+          "en": "No, please pay now. After eating, you'll feel great.",
           "terms": [
-            "v_youfuu",
-            "p_no",
-            "v_ryouri",
-            "g_desu",
+            "v_iie",
+            "v_ima",
+            {
+              "id": "v_dasu",
+              "form": "te_form"
+            },
+            "v_kudasai",
             {
               "id": "v_taberu",
               "form": "plain_past"

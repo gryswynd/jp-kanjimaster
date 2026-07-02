@@ -307,7 +307,7 @@
                 },
                 {
                   "k": "いけません",
-                  "g": "v_ikeru_polite_negative"
+                  "g": "v_iku_polite_potential_negative"
                 },
                 {
                   "k": "。"
@@ -326,13 +326,14 @@
               "gloss": "during class (に)",
               "tokens": [
                 {
-                  "k": "じゅぎょ"
+                  "k": "じゅぎょう",
+                  "g": "v_jugyou"
                 },
                 {
-                  "k": "うち"
+                  "k": "ちゅう"
                 },
                 {
-                  "k": "ゅうに"
+                  "k": "に"
                 }
               ]
             },
@@ -378,7 +379,7 @@
                 },
                 {
                   "k": "いけません",
-                  "g": "v_ikeru_polite_negative"
+                  "g": "v_iku_polite_potential_negative"
                 },
                 {
                   "k": "。"
@@ -410,7 +411,16 @@
               "gloss": "enter (te-form 入って + は, contracted to 入っちゃ)",
               "tokens": [
                 {
-                  "k": "入っちゃ"
+                  "k": "入",
+                  "r": "はい",
+                  "g": "v_hairu"
+                },
+                {
+                  "k": "っ",
+                  "g": "v_hairu"
+                },
+                {
+                  "k": "ちゃ"
                 }
               ]
             },
@@ -497,7 +507,9 @@
               "gloss": "not come (negative て-form: 来ない → 来なくて)",
               "tokens": [
                 {
-                  "k": "来"
+                  "k": "来",
+                  "r": "き",
+                  "g": "v_kuru"
                 },
                 {
                   "k": "なくて"
@@ -549,10 +561,12 @@
               "tokens": [
                 {
                   "k": "食",
-                  "r": "た"
+                  "r": "た",
+                  "g": "v_taberu"
                 },
                 {
-                  "k": "べ"
+                  "k": "べ",
+                  "g": "v_taberu"
                 },
                 {
                   "k": "なくて"
@@ -614,7 +628,10 @@
                   "r": "わ"
                 },
                 {
-                  "k": "らわ"
+                  "k": "ら"
+                },
+                {
+                  "k": "わ"
                 },
                 {
                   "k": "なくて"
@@ -763,7 +780,7 @@
                   },
                   {
                     "k": "いけません",
-                    "g": "v_ikeru_polite_negative"
+                    "g": "v_iku_polite_potential_negative"
                   },
                   {
                     "k": "。"
@@ -801,12 +818,27 @@
                     "text": "食べてもいいです。",
                     "gloss": "You may eat.",
                     "tokens": [
-                      { "k": "食", "r": "た", "g": "qte1" },
-                      { "k": "べて", "g": "qte1" },
-                      { "k": "も" },
-                      { "k": "いい" },
-                      { "k": "です" },
-                      { "k": "。" }
+                      {
+                        "k": "食",
+                        "r": "た",
+                        "g": "v_taberu_te_form"
+                      },
+                      {
+                        "k": "べて",
+                        "g": "v_taberu_te_form"
+                      },
+                      {
+                        "k": "も"
+                      },
+                      {
+                        "k": "いい"
+                      },
+                      {
+                        "k": "です"
+                      },
+                      {
+                        "k": "。"
+                      }
                     ]
                   }
                 ],
@@ -823,12 +855,30 @@
                     "text": "食べなくてもいいです。",
                     "gloss": "You don't have to eat.",
                     "tokens": [
-                      { "k": "食", "r": "た", "g": "qte2" },
-                      { "k": "べなくて", "g": "qte2" },
-                      { "k": "も" },
-                      { "k": "いい" },
-                      { "k": "です" },
-                      { "k": "。" }
+                      {
+                        "k": "食",
+                        "r": "た",
+                        "g": "v_taberu"
+                      },
+                      {
+                        "k": "べ",
+                        "g": "v_taberu"
+                      },
+                      {
+                        "k": "なくて"
+                      },
+                      {
+                        "k": "も"
+                      },
+                      {
+                        "k": "いい"
+                      },
+                      {
+                        "k": "です"
+                      },
+                      {
+                        "k": "。"
+                      }
                     ]
                   }
                 ],
@@ -851,10 +901,22 @@
                     "text": "食べなければいけません。",
                     "gloss": "You must eat.",
                     "tokens": [
-                      { "k": "食", "r": "た", "g": "qte3" },
-                      { "k": "べなければ", "g": "qte3" },
-                      { "k": "いけません" },
-                      { "k": "。" }
+                      {
+                        "k": "食",
+                        "r": "た",
+                        "g": "v_taberu_nakereba"
+                      },
+                      {
+                        "k": "べなければ",
+                        "g": "v_taberu_nakereba"
+                      },
+                      {
+                        "k": "いけません",
+                        "g": "v_iku_polite_potential_negative"
+                      },
+                      {
+                        "k": "。"
+                      }
                     ]
                   }
                 ],
@@ -871,11 +933,26 @@
                     "text": "食べてはいけません。",
                     "gloss": "You must not eat.",
                     "tokens": [
-                      { "k": "食", "r": "た", "g": "qte4" },
-                      { "k": "べて", "g": "qte4" },
-                      { "k": "は", "r": "わ" },
-                      { "k": "いけません" },
-                      { "k": "。" }
+                      {
+                        "k": "食",
+                        "r": "た",
+                        "g": "v_taberu_te_form"
+                      },
+                      {
+                        "k": "べて",
+                        "g": "v_taberu_te_form"
+                      },
+                      {
+                        "k": "は",
+                        "r": "わ"
+                      },
+                      {
+                        "k": "いけません",
+                        "g": "v_iku_polite_potential_negative"
+                      },
+                      {
+                        "k": "。"
+                      }
                     ]
                   }
                 ],
@@ -957,7 +1034,7 @@
                 },
                 {
                   "k": "いけません",
-                  "g": "v_ikeru_polite_negative"
+                  "g": "v_iku_polite_potential_negative"
                 },
                 {
                   "k": "。"
@@ -1031,10 +1108,8 @@
               "gloss": "homework (は — topic)",
               "tokens": [
                 {
-                  "k": "し"
-                },
-                {
-                  "k": "ゅくだい"
+                  "k": "しゅくだい",
+                  "g": "v_shukudai"
                 },
                 {
                   "k": "は",

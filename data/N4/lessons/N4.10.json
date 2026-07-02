@@ -469,17 +469,19 @@
         },
         {
           "spk": "コナー",
-          "jp": "はい。英語の メモを 出しますね。映画は 何時ごろに 終わりますか。",
-          "en": "Okay. I'll take out my English notes. About what time does the movie end?",
+          "jp": "はい。映画館で 英語の メモを 書きますね。映画は 何時ごろに 終わりますか。",
+          "en": "Okay. I'll write English notes at the theater. About what time does the movie end?",
           "terms": [
             "char_conor",
             "p_hai",
+            "v_eigakan",
+            "p_de",
             "v_eigo",
             "p_no",
             "v_memo",
             "p_wo",
             {
-              "id": "v_dasu",
+              "id": "v_kaku",
               "form": "polite_masu"
             },
             "p_ne",
@@ -852,6 +854,36 @@
           ]
         },
         {
+          "jp": "コナーさんは 映画を 見ながら、英語の メモを 書いて、ノートに 入れました。",
+          "en": "While watching the movie, Conor wrote English notes and put them in his notebook.",
+          "terms": [
+            "char_conor",
+            "v_san",
+            "p_wa",
+            "v_eiga",
+            "p_wo",
+            {
+              "id": "v_miru",
+              "form": "nagara_form"
+            },
+            "p_nagara",
+            "v_eigo",
+            "p_no",
+            "v_memo",
+            "p_wo",
+            {
+              "id": "v_kaku",
+              "form": "te_form"
+            },
+            "v_nooto",
+            "p_ni",
+            {
+              "id": "v_ireru",
+              "form": "polite_mashita"
+            }
+          ]
+        },
+        {
           "jp": "映画は 午後 三時に 始まって、五時に 終わりました。コナーさんは 映画館を 出ました。",
           "en": "The movie started at 3 PM and ended at 5. Conor exited the movie theater.",
           "terms": [
@@ -888,38 +920,8 @@
           ]
         },
         {
-          "jp": "コナーさんは 映画を 見ながら、英語の メモを 書いて、ノートに 入れました。",
-          "en": "While watching the movie, Conor wrote English notes and put them in his notebook.",
-          "terms": [
-            "char_conor",
-            "v_san",
-            "p_wa",
-            "v_eiga",
-            "p_wo",
-            {
-              "id": "v_miru",
-              "form": "nagara_form"
-            },
-            "p_nagara",
-            "v_eigo",
-            "p_no",
-            "v_memo",
-            "p_wo",
-            {
-              "id": "v_kaku",
-              "form": "te_form"
-            },
-            "v_nooto",
-            "p_ni",
-            {
-              "id": "v_ireru",
-              "form": "polite_mashita"
-            }
-          ]
-        },
-        {
-          "jp": "映画が 好きなので、英語を 学ぶのが 好きです。",
-          "en": "Because he loves movies, he loves learning English.",
+          "jp": "映画が 好きなので、映画で 英語を 学ぶのが 好きです。",
+          "en": "Because he loves movies, he likes learning English through them.",
           "terms": [
             "v_eiga",
             "p_ga",
@@ -928,6 +930,8 @@
               "form": "attributive_na"
             },
             "p_node",
+            "v_eiga",
+            "p_de",
             "v_eigo",
             "p_wo",
             {

@@ -321,7 +321,7 @@
           ]
         },
         {
-          "spk": "りきぞう",
+          "spk": "やまかわ",
           "jp": "秋の 山は 春の 山より きれいですよ。",
           "en": "Autumn mountains are more beautiful than spring mountains.",
           "terms": [
@@ -407,8 +407,8 @@
         },
         {
           "spk": "A",
-          "jp": "夏は 暑いですが、夏休みが あります。冬は ゆきだけ きれいです。",
-          "en": "Summer is hot, but there is summer vacation. In winter, only the snow is pretty.",
+          "jp": "夏は 暑いですが、夏休みが あります。冬は ゆきが きれいですよ。",
+          "en": "Summer is hot, but there is summer vacation. In winter, the snow is beautiful.",
           "terms": [
             "v_natsu",
             "p_wa",
@@ -426,11 +426,10 @@
             "v_fuyu",
             "p_wa",
             "v_yuki",
-            "p_dake",
-            {
-              "id": "v_kirei",
-              "form": "polite_adj"
-            }
+            "p_ga",
+            "v_kirei",
+            "g_desu",
+            "p_yo"
           ]
         },
         {
@@ -476,7 +475,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "nana",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
@@ -610,6 +613,19 @@
               "id": "v_ureshii",
               "form": "polite_adj"
             }
+          ]
+        },
+        {
+          "spk": "リー",
+          "jp": "そうですか。冬は どうですか。",
+          "en": "I see. What about winter?",
+          "terms": [
+            "p_soudesuka",
+            "v_fuyu",
+            "p_wa",
+            "v_dou",
+            "g_desu",
+            "p_ka"
           ]
         },
         {
@@ -765,7 +781,11 @@
             "g_da"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "ren"
+      }
     },
     {
       "type": "reading",

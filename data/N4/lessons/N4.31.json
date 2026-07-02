@@ -330,7 +330,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -408,7 +412,11 @@
             "p_ka"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "suzuki",
+        "B": "taro"
+      }
     },
     {
       "type": "conversation",
@@ -517,7 +525,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ken",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -605,7 +617,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "ren"
+      }
     },
     {
       "type": "reading",
@@ -704,26 +720,15 @@
           ]
         },
         {
-          "jp": "私は 前に この おてらに 来たことが ありました。",
-          "en": "I had been to this temple before.",
+          "jp": "また 行きたいです。",
+          "en": "I want to go again.",
           "terms": [
-            "v_watashi",
-            "p_wa",
-            "v_mae",
-            "p_ni",
-            "v_kono",
-            "v_otera",
-            "p_ni",
+            "v_mata",
             {
-              "id": "v_kuru",
-              "form": "plain_past"
+              "id": "v_iku",
+              "form": "plain_desire_tai"
             },
-            "v_koto",
-            "p_ga",
-            {
-              "id": "v_aru",
-              "form": "polite_mashita"
-            }
+            "g_desu"
           ]
         }
       ],

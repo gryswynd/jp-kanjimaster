@@ -267,18 +267,15 @@
         },
         {
           "spk": "やまもとせんせい",
-          "jp": "学校の 中に あります。試験の 問題が 紙に 書いて ありますよ。今日は よく 勉強して きましたか。",
-          "en": "It is inside the school. The exam questions are written on the paper. Have you been studying well up until today?",
+          "jp": "いつもの 教室ですよ。試験の 問題が 紙に 書いて ありますよ。今日は よく 勉強して きましたか。",
+          "en": "Your usual classroom. The exam questions are written on the paper. Have you been studying well up until today?",
           "terms": [
             "char_yamamoto",
-            "v_gakkou",
+            "v_itsumo",
             "p_no",
-            "v_naka",
-            "p_ni",
-            {
-              "id": "v_aru",
-              "form": "polite_masu"
-            },
+            "v_kyoushitsu",
+            "g_desu",
+            "p_yo",
             "v_shiken",
             "p_no",
             "v_mondai",
@@ -585,33 +582,41 @@
         },
         {
           "spk": "けん",
-          "jp": "すごいね。試食の 体験も あったの？",
-          "en": "Impressive! You had a food tasting experience too?",
+          "jp": "すごいね。ほかに 何か あった？",
+          "en": "Nice! Did anything else happen?",
           "terms": [
             "char_ken",
             "v_sugoi",
             "p_ne",
-            "v_shishoku",
-            "p_no",
-            "v_taiken",
-            "p_mo",
+            "v_hoka",
+            "p_ni",
+            "v_nani",
+            "p_ka",
             {
               "id": "v_aru",
               "form": "plain_past"
-            },
-            "p_no_question"
+            }
           ]
         },
         {
           "spk": "りきぞう",
-          "jp": "うん。むずかしいのに、楽しい 一日だったよ。",
-          "en": "Yeah. Even though it was tough, it was a fun day.",
+          "jp": "うん、試食を したよ。試験は むずかしかったのに、楽しい 一日だった。",
+          "en": "Yeah, I did a food tasting. Even though the exam was hard, it was a fun day.",
           "terms": [
             "char_rikizo",
             "v_un",
+            "v_shishoku",
+            "p_wo",
+            {
+              "id": "v_suru",
+              "form": "plain_past"
+            },
+            "p_yo",
+            "v_shiken",
+            "p_wa",
             {
               "id": "v_muzukashii",
-              "form": "plain_form"
+              "form": "plain_past_adj"
             },
             "p_noni",
             "v_tanoshii",
@@ -619,8 +624,7 @@
             {
               "id": "g_da",
               "form": "da_past"
-            },
-            "p_yo"
+            }
           ]
         }
       ]
@@ -668,22 +672,20 @@
           ]
         },
         {
-          "jp": "大切ですから、よく 勉強して いきます。",
-          "en": "Because it is important, I will go on studying well.",
+          "jp": "試験の 問題を たくさん 試して みます。",
+          "en": "I will try lots of exam problems.",
           "terms": [
+            "v_shiken",
+            "p_no",
+            "v_mondai",
+            "p_wo",
+            "v_takusan",
             {
-              "id": "v_taisetsu",
-              "form": "polite_adj"
-            },
-            "p_kara_because",
-            "v_yoku",
-            "v_benkyou",
-            {
-              "id": "v_suru",
+              "id": "v_tamesu",
               "form": "te_form"
             },
             {
-              "id": "v_iku",
+              "id": "v_miru",
               "form": "polite_masu"
             }
           ]
@@ -822,8 +824,8 @@
           ]
         },
         {
-          "jp": "先生の 教えは やさしくて、とても 分かりました。",
-          "en": "The teacher's instruction was gentle, and I understood very well.",
+          "jp": "先生の 教えは やさしくて、よく 分かりました。",
+          "en": "The teacher's instruction was gentle, and I understood it well.",
           "terms": [
             "v_sensei",
             "p_no",
@@ -833,7 +835,7 @@
               "id": "v_yasashii",
               "form": "te_form"
             },
-            "v_totemo",
+            "v_yoku",
             {
               "id": "v_wakaru",
               "form": "polite_mashita"
@@ -1114,7 +1116,7 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "毎日 少しずつ 上手に なって ______ 。",
+          "q": "毎日 少しずつ 上手に なって ______ 。（I have gradually been getting better, up to now.）",
           "choices": [
             "きました",
             "いきました",
@@ -1137,7 +1139,7 @@
               "form": "polite_mashita"
             }
           ],
-          "explanation": "Correct: 毎日 少しずつ 上手に なって きました 。 — 「きました」 (きました) means \"came (polite past, kana)\"."
+          "explanation": "Correct: 毎日 少しずつ 上手に なって きました 。（…up to now — てくる looks back toward the present.）"
         },
         {
           "kind": "mcq",

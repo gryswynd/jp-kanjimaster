@@ -201,7 +201,7 @@
     {
       "type": "conversation",
       "title": "Conversation Practice 1（会話）: Morning Commute",
-      "context": "Two colleagues at the train station in the morning, discussing how they get to school.",
+      "context": "Two classmates at the train station in the morning, discussing how they get to school.",
       "lines": [
         {
           "spk": "A",
@@ -288,7 +288,11 @@
             "p_ka"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "lee",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -373,7 +377,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamamoto",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -451,26 +459,21 @@
         },
         {
           "spk": "B",
-          "jp": "電車に 乗りますか。わたしも 乗りたいです。",
-          "en": "You ride the train? I want to ride too.",
+          "jp": "電車も いいですね。",
+          "en": "The train is nice too.",
           "terms": [
             "v_densha",
-            "p_ni",
-            {
-              "id": "v_noru",
-              "form": "polite_masu"
-            },
-            "p_ka",
-            "v_watashi",
             "p_mo",
-            {
-              "id": "v_noru",
-              "form": "plain_desire_tai"
-            },
-            "g_desu"
+            "v_ii",
+            "g_desu",
+            "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "nana",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
@@ -479,11 +482,10 @@
       "lines": [
         {
           "spk": "A",
-          "jp": "ゆきと いっしょに 遠足に 行かない？",
+          "jp": "ゆき、いっしょに 遠足に 行かない？",
           "en": "Want to go on a hike together with me, Yuki?",
           "terms": [
             "char_yuki",
-            "p_to",
             "v_issho",
             "p_ni",
             "v_ensoku",
@@ -557,7 +559,11 @@
             "p_ka"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "yuki"
+      }
     },
     {
       "type": "reading",
@@ -824,11 +830,13 @@
           ]
         },
         {
-          "jp": "電車で 乗りました。山は 遠かったですが、電車で 行きました。",
-          "en": "We rode the train. The mountain was far, but we went by train.",
+          "jp": "駅から 電車に 乗りました。山は 遠かったですが、電車で 行きました。",
+          "en": "We boarded the train at the station. The mountain was far, but we went by train.",
           "terms": [
+            "v_eki",
+            "p_kara",
             "v_densha",
-            "p_de",
+            "p_ni",
             {
               "id": "v_noru",
               "form": "polite_mashita"

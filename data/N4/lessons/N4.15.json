@@ -253,7 +253,7 @@
       "context": "A patient visits a doctor at a hospital.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "医者",
           "jp": "今日は どう しましたか。",
           "en": "What seems to be the problem today?",
           "terms": [
@@ -268,7 +268,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "先生、頭が いたいですし、少し つかれていますし、休みたいです。",
           "en": "Doctor, my head hurts, and I'm a little tired, so I want to rest.",
           "terms": [
@@ -298,7 +298,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "医者",
           "jp": "体の どこが いたいですか。首も いたいですか。",
           "en": "Where on your body does it hurt? Does your neck hurt too?",
           "terms": [
@@ -321,7 +321,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "はい、首も いたいです。",
           "en": "Yes, my neck hurts too.",
           "terms": [
@@ -335,7 +335,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "医者",
           "jp": "病気ですね。この 薬を 飲んで ください。",
           "en": "It is an illness. Please take this medicine.",
           "terms": [
@@ -353,7 +353,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "分かりました。ありがとうございます。",
           "en": "I understand. Thank you very much.",
           "terms": [
@@ -417,8 +417,8 @@
         },
         {
           "spk": "A",
-          "jp": "すごいですね。有名な 学者に なれますよ。",
-          "en": "That is amazing. You can become a famous scholar.",
+          "jp": "すごいですね。有名な 医者に なれますよ。",
+          "en": "That is amazing. You can become a famous doctor.",
           "terms": [
             {
               "id": "v_sugoi",
@@ -429,7 +429,7 @@
               "id": "v_yuumei",
               "form": "attributive_na"
             },
-            "v_gakusha",
+            "v_isha",
             "p_ni",
             {
               "id": "v_naru",
@@ -458,7 +458,11 @@
             "g_desu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "nana",
+        "B": "lee"
+      }
     },
     {
       "type": "conversation",
@@ -466,7 +470,7 @@
       "context": "A customer asks about medicine at a pharmacy.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "すみません。目薬は ありますか。",
           "en": "Excuse me. Do you have eye drops?",
           "terms": [
@@ -481,7 +485,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "はい、あります。飲み薬も ありますよ。",
           "en": "Yes, we do. We also have oral medicine.",
           "terms": [
@@ -500,7 +504,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "目薬を 使っても、目が 赤いです。飲み薬も 使いたいです。",
           "en": "Even if I use eye drops, my eyes are red. I want to use oral medicine too.",
           "terms": [
@@ -527,7 +531,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "分かりました。これを 使って ください。毎日 使って ください。",
           "en": "I understand. Please use this. Please use it every day.",
           "terms": [
@@ -551,7 +555,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "薬だけで いいですか。",
           "en": "Is medicine alone sufficient?",
           "terms": [
@@ -566,7 +570,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "はい、薬だけで いいですよ。",
           "en": "Yes, medicine alone is sufficient.",
           "terms": [
@@ -696,7 +700,11 @@
             "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "sakura",
+        "B": "taro"
+      }
     },
     {
       "type": "reading",
@@ -770,8 +778,8 @@
           ]
         },
         {
-          "jp": "病死では ありませんでした。古くて 長い 人生でした。",
-          "en": "It was not death from illness. It was an old and long life.",
+          "jp": "病死では ありませんでした。とても 長い 人生でした。",
+          "en": "It was not death from illness. It was a very long life.",
           "terms": [
             "v_byoushi",
             "p_dewa",
@@ -779,10 +787,7 @@
               "id": "v_aru",
               "form": "polite_past_negative"
             },
-            {
-              "id": "v_furui",
-              "form": "te_form"
-            },
+            "v_totemo",
             "v_nagai",
             "v_jinsei",
             {
@@ -792,16 +797,16 @@
           ]
         },
         {
-          "jp": "死者ですが、本は 今でも あります。",
-          "en": "He is a deceased person, but his books are here even now.",
+          "jp": "学者の 本は、今でも たくさん あります。",
+          "en": "The scholar's books are still here today.",
           "terms": [
-            "v_shisha",
-            "g_desu",
-            "p_ga_but",
+            "v_gakusha",
+            "p_no",
             "v_hon",
             "p_wa",
             "v_ima",
             "p_demo",
+            "v_takusan",
             {
               "id": "v_aru",
               "form": "polite_masu"
@@ -967,8 +972,8 @@
           ]
         },
         {
-          "jp": "兄は いつも つかれていますが、入院より 仕事の ほうが 楽しいと 言っています。",
-          "en": "My brother is always tired, but he says work is more enjoyable than being hospitalized.",
+          "jp": "兄は いつも つかれていますが、仕事は 楽しいと 言っています。",
+          "en": "My brother is always tired, but he says his work is enjoyable.",
           "terms": [
             "v_ani",
             "p_wa",
@@ -982,12 +987,8 @@
               "form": "polite_masu"
             },
             "p_ga_but",
-            "v_nyuuin",
-            "p_yori",
             "v_shigoto",
-            "p_no",
-            "v_hou",
-            "p_ga",
+            "p_wa",
             {
               "id": "v_tanoshii",
               "form": "plain_form"
@@ -1078,7 +1079,7 @@
           "q": "兄は 仕事が 楽しいと 言っていますか。",
           "q_en": "Does the older brother say work is enjoyable?",
           "a": "はい、仕事が 楽しいと 言っています。",
-          "a_en": "Yes, he says work is more enjoyable than being in the hospital.",
+          "a_en": "Yes, he says work is enjoyable.",
           "terms": [
             "v_ani",
             "p_wa",
@@ -1437,7 +1438,7 @@
             "のに",
             "ので",
             "から",
-            "けど"
+            "たり"
           ],
           "answer": "のに",
           "terms": [

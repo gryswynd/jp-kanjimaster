@@ -380,7 +380,7 @@
       "context": "Rikizo meets Tanaka at school and they talk about getting around.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "田中さんは 車の 運転が できますか。",
           "en": "Mr. Tanaka, can you drive a car?",
           "terms": [
@@ -399,7 +399,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "田中",
           "jp": "いいえ、できません。いつも 自転車に 乗ります。",
           "en": "No, I cannot. I always ride a bicycle.",
           "terms": [
@@ -418,7 +418,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "自転車は 楽しいですね。転んだことが ありますか。",
           "en": "Bicycles are fun, aren't they. Have you ever fallen?",
           "terms": [
@@ -443,9 +443,9 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "先週 雨で 一回 転びました。自転車で 乗り回すの は むずかしいです。",
-          "en": "I fell once last week because of the rain. Riding around on a bicycle is difficult.",
+          "spk": "田中",
+          "jp": "先週 雨で 一回 転びました。雨の 日に 自転車を 乗り回すのは むずかしいです。",
+          "en": "I fell once last week because of the rain. Riding a bicycle around on rainy days is difficult.",
           "terms": [
             "v_senshuu",
             "v_ame",
@@ -455,8 +455,12 @@
               "id": "v_korobu",
               "form": "polite_mashita"
             },
+            "v_ame",
+            "p_no",
+            "v_hi",
+            "p_ni",
             "v_jitensha",
-            "p_de",
+            "p_wo",
             {
               "id": "v_norimawasu",
               "form": "plain_form"
@@ -479,10 +483,10 @@
       "lines": [
         {
           "spk": "A",
-          "jp": "海外へ 行ったことが ありますか。",
-          "en": "Have you ever been overseas?",
+          "jp": "北海道へ 行ったことが ありますか。",
+          "en": "Have you ever been to Hokkaido?",
           "terms": [
-            "v_kaigai",
+            "v_hokkaidou",
             "p_e",
             {
               "id": "v_iku",
@@ -499,8 +503,8 @@
         },
         {
           "spk": "B",
-          "jp": "はい。二回 あります。先月は 北海道に 行きました。",
-          "en": "Yes. I have twice. Last month I went to Hokkaido.",
+          "jp": "はい。二回 あります。先月も 北海道に 行きました。",
+          "en": "Yes. I have twice. Last month too, I went to Hokkaido.",
           "terms": [
             "p_hai",
             "v_nikai",
@@ -509,7 +513,7 @@
               "form": "polite_masu"
             },
             "v_sengetsu",
-            "p_wa",
+            "p_mo",
             "v_hokkaidou",
             "p_ni",
             {
@@ -568,7 +572,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ken",
+        "B": "yuki"
+      }
     },
     {
       "type": "conversation",

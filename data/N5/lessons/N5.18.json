@@ -286,8 +286,8 @@
         },
         {
           "spk": "やまかわ",
-          "jp": "目が いたいですか。社長は まだ 来ません。少し 見てください。",
-          "en": "Do your eyes hurt? The company president has not arrived yet. Please look for a bit.",
+          "jp": "目が いたいですか。社長は まだ 来ません。少し 休んでください。",
+          "en": "Do your eyes hurt? The company president has not arrived yet. Please rest a little.",
           "terms": [
             "v_me",
             "p_ga",
@@ -303,7 +303,7 @@
             },
             "v_sukoshi",
             {
-              "id": "v_miru",
+              "id": "v_yasumu",
               "form": "te_form"
             },
             "v_kudasai"
@@ -311,19 +311,11 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "目で 読んでいます。社長も 新聞を 見ますか。",
-          "en": "I am reading with my eyes. Will the company president also see the newspaper?",
+          "jp": "だいじょうぶです。社長も 新聞を 見ますか。",
+          "en": "I'm all right. Will the company president also look at the newspaper?",
           "terms": [
-            "v_me",
-            "p_de",
-            {
-              "id": "v_yomu",
-              "form": "te_form"
-            },
-            {
-              "id": "v_iru",
-              "form": "polite_masu"
-            },
+            "v_daijoubu",
+            "g_desu",
             "v_shachou",
             "p_mo",
             "v_shinbun",
@@ -436,8 +428,8 @@
         },
         {
           "spk": "やまもと",
-          "jp": "川の 右に 大きい 山が 見えますね。耳で よく 聞いてください。",
-          "en": "To the right of the river, you can see a large mountain. Please listen carefully with your ears.",
+          "jp": "川の 右に 大きい 山が 見えますね。山の 上も よく 見てください。",
+          "en": "To the right of the river, you can see a large mountain. Look carefully at the top of the mountain, too.",
           "terms": [
             "v_kawa",
             "p_no",
@@ -451,14 +443,16 @@
               "form": "polite_masu"
             },
             "p_ne",
-            "v_mimi",
-            "p_de",
+            "v_yama",
+            "p_no",
+            "v_ue",
+            "p_mo",
             {
               "id": "v_ii",
               "form": "adverbial"
             },
             {
-              "id": "v_kiku",
+              "id": "v_miru",
               "form": "te_form"
             },
             "v_kudasai"
@@ -466,21 +460,18 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "はい、聞きました。川が きれいそうです。",
-          "en": "Yes, I listened. The river looks beautiful.",
+          "jp": "はい、見ました。とても きれいですね。",
+          "en": "Yes, I looked. It's very beautiful.",
           "terms": [
             "p_hai",
             {
-              "id": "v_kiku",
+              "id": "v_miru",
               "form": "polite_mashita"
             },
-            "v_kawa",
-            "p_ga",
-            {
-              "id": "v_kirei",
-              "form": "appearance_sou_stem"
-            },
-            "g_desu"
+            "v_totemo",
+            "v_kirei",
+            "g_desu",
+            "p_ne"
           ]
         },
         {
@@ -504,8 +495,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "はい、見たいです！足が 少し いたいですが、立って 見ます。",
-          "en": "Yes, I want to see it! My feet hurt a little, but I will stand and look.",
+          "jp": "はい、見たいです！足が 少し いたいですが、行きます。",
+          "en": "Yes, I want to see it! My feet hurt a little, but I'll go.",
           "terms": [
             "p_hai",
             {
@@ -520,11 +511,7 @@
             "g_desu",
             "p_ga_but",
             {
-              "id": "v_tatsu",
-              "form": "te_form"
-            },
-            {
-              "id": "v_miru",
+              "id": "v_iku",
               "form": "polite_masu"
             }
           ]
@@ -577,16 +564,20 @@
         },
         {
           "spk": "ゆき",
-          "jp": "はい、見せます。耳で よく 聞いてください。",
-          "en": "Yes, I will show you. Please listen carefully with your ears.",
+          "jp": "はい、見せます。本を 読みます。よく 聞いてください。",
+          "en": "Yes, I'll show you. I'll read the book aloud. Please listen carefully.",
           "terms": [
             "p_hai",
             {
               "id": "v_miseru",
               "form": "polite_masu"
             },
-            "v_mimi",
-            "p_de",
+            "v_hon",
+            "p_wo",
+            {
+              "id": "v_yomu",
+              "form": "polite_masu"
+            },
             {
               "id": "v_ii",
               "form": "adverbial"
@@ -618,8 +609,8 @@
         },
         {
           "spk": "ゆき",
-          "jp": "かなしい ことも ありました。耳で 聞きましたか。",
-          "en": "There were also sad things. Did you hear them?",
+          "jp": "かなしい ことも ありました。聞きましたか。",
+          "en": "There were sad parts, too. Did you hear them?",
           "terms": [
             "v_kanashii",
             "v_koto",
@@ -628,8 +619,6 @@
               "id": "v_aru",
               "form": "polite_mashita"
             },
-            "v_mimi",
-            "p_de",
             {
               "id": "v_kiku",
               "form": "polite_mashita"
@@ -687,10 +676,13 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "うん、聞いた。こわかったね。",
-          "en": "Yeah, I heard. It was scary, wasn't it?",
+          "jp": "うん、やまもと先生に 聞いた。こわかったね。",
+          "en": "Yeah, I heard it from Yamamoto-sensei. It was scary, huh.",
           "terms": [
             "v_un",
+            "char_yamamoto",
+            "v_sensei",
+            "p_ni",
             {
               "id": "v_kiku",
               "form": "plain_past"
@@ -719,17 +711,14 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "うん。耳で 聞いたけど、かなしかったんだよ。",
-          "en": "Yeah. I heard it, but it was really sad.",
+          "jp": "うん。聞いて、かなしかったんだよ。",
+          "en": "Yeah. When I heard it, it was really sad.",
           "terms": [
             "v_un",
-            "v_mimi",
-            "p_de",
             {
               "id": "v_kiku",
-              "form": "plain_past"
+              "form": "te_form"
             },
-            "p_kedo",
             {
               "id": "v_kanashii",
               "form": "plain_past_adj"
@@ -740,8 +729,8 @@
         },
         {
           "spk": "けん",
-          "jp": "新聞も 見た？足が いたかった？",
-          "en": "Did you also see the newspaper? Did your feet hurt?",
+          "jp": "新聞も 見た？",
+          "en": "Did you see the newspaper too?",
           "terms": [
             "v_shinbun",
             "p_mo",
@@ -749,30 +738,24 @@
               "id": "v_miru",
               "form": "plain_past"
             },
-            "v_ashi",
-            "p_ga",
-            {
-              "id": "v_itai",
-              "form": "plain_past_adj"
-            },
             "p_ka"
           ]
         },
         {
           "spk": "りきぞう",
-          "jp": "うん。かなしかったけど、また 聞きたいよ。",
-          "en": "Yeah. It was sad, but I want to hear more.",
+          "jp": "うん、見た。新聞も かなしかったよ。",
+          "en": "Yeah, I saw it. The newspaper was sad too.",
           "terms": [
             "v_un",
             {
+              "id": "v_miru",
+              "form": "plain_past"
+            },
+            "v_shinbun",
+            "p_mo",
+            {
               "id": "v_kanashii",
               "form": "plain_past_adj"
-            },
-            "p_kedo",
-            "v_mata",
-            {
-              "id": "v_kiku",
-              "form": "plain_desire_tai"
             },
             "p_yo"
           ]
@@ -812,8 +795,8 @@
           ]
         },
         {
-          "jp": "外に 立って、山と 川を 見ています。大きい 山が 見えます。きれいそうです。",
-          "en": "Standing outside, he watches the mountains and river. A large mountain is visible. It looks beautiful.",
+          "jp": "外に 立って、山と 川を 見ています。大きい 山が 見えます。とても きれいです。",
+          "en": "Standing outside, he watches the mountains and river. A large mountain is visible. It is very beautiful.",
           "terms": [
             "v_soto",
             "p_ni",
@@ -840,10 +823,8 @@
               "id": "v_mieru",
               "form": "polite_masu"
             },
-            {
-              "id": "v_kirei",
-              "form": "appearance_sou_stem"
-            },
+            "v_totemo",
+            "v_kirei",
             "g_desu"
           ]
         },
@@ -876,8 +857,8 @@
           ]
         },
         {
-          "jp": "りきぞうさんは 新聞を 友だちに 見せます。友だちは 少し こわそうです。かなしい ことも 聞きました。",
-          "en": "Rikizo shows the newspaper to his friend. The friend looks a little scared. He also heard sad things.",
+          "jp": "りきぞうさんは 新聞を 友だちに 見せます。友だちは 少し こわそうです。かなしい ことも 聞きます。",
+          "en": "Rikizo shows the newspaper to his friend. The friend looks a little scared. He also hears sad things.",
           "terms": [
             "char_rikizo",
             "v_san",
@@ -903,7 +884,7 @@
             "p_mo",
             {
               "id": "v_kiku",
-              "form": "polite_mashita"
+              "form": "polite_masu"
             }
           ]
         }
@@ -911,9 +892,9 @@
       "questions": [
         {
           "q": "りきぞうさんは 毎日 何を 見ますか。",
-          "q_en": "What does Rikizo read every day?",
+          "q_en": "What does Rikizo look at every day?",
           "a": "毎日 新聞を 見ます。",
-          "a_en": "They read the newspaper every day.",
+          "a_en": "He looks at the newspaper every day.",
           "terms": [
             "char_rikizo",
             "v_san",
@@ -1391,7 +1372,7 @@
             },
             "g_desu"
           ],
-          "explanation": "Correct: きのう こわい 本を 読みました。本は こわかったです 。（I read a scary book yesterday. The book was ___）"
+          "explanation": "Correct: きのう こわい 本を 読みました。本は こわかったです 。（I read a scary book yesterday. The book was scary.）"
         },
         {
           "kind": "mcq",

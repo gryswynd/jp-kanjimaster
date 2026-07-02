@@ -278,9 +278,9 @@
           ]
         },
         {
-          "spk": "A",
-          "jp": "主に 車や 電気の 産物です。工場では 毎日 たくさんの 産物を 産んで います。",
-          "en": "Mainly automotive and electronics products. Every day we produce many products in the factories.",
+          "spk": "係員",
+          "jp": "主に 車や 電気の 産物です。工場では 毎日 たくさんの 産物を 作って います。",
+          "en": "Mainly automotive and electronics products. The factories make many products every day.",
           "terms": [
             "v_omoni",
             "v_kuruma",
@@ -297,7 +297,7 @@
             "v_sanbutsu",
             "p_wo",
             {
-              "id": "v_umu",
+              "id": "v_tsukuru",
               "form": "te_form"
             },
             {
@@ -336,7 +336,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "係員",
           "jp": "三十年 ほど 前からです。今は 前より 工場が 多く なりましたし、産業も 有名に なりました。",
           "en": "It's been about 30 years. Now there are more factories than before, and the industry has become famous too.",
           "terms": [
@@ -410,7 +410,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "係員",
           "jp": "もちろんです。来る 日を 前に 知らせて おいてください。",
           "en": "Of course. Please let us know the day you're coming in advance.",
           "terms": [
@@ -603,7 +603,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "taro",
+        "B": "suzuki"
+      }
     },
     {
       "type": "conversation",
@@ -865,12 +869,14 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "不運な ことだけど、もっと よく 考えて いかないと ね。",
-          "en": "It's an unfortunate situation, but we need to think about it more carefully.",
+          "jp": "むずかしい ことだけど、もっと よく 考えて いかないと ね。",
+          "en": "It's a difficult issue, but we have to keep thinking about it, huh.",
           "terms": [
             "char_rikizo",
-            "v_fuun",
-            "p_na",
+            {
+              "id": "v_muzukashii",
+              "form": "plain_form"
+            },
             "v_koto",
             "g_da",
             "p_kedo",
@@ -1245,37 +1251,24 @@
           ]
         },
         {
-          "jp": "不便な 所に 住んで みたいと 思う 人が いると いいです。",
-          "en": "I hope there are people who want to try living in an inconvenient place.",
+          "jp": "不便でも、いい 町は たくさん あると 思います。",
+          "en": "Even if a place is inconvenient, I think there are many good towns.",
           "terms": [
+            "v_fuben",
+            "p_demo",
+            "v_ii",
+            "v_machi",
+            "p_wa",
+            "v_takusan",
             {
-              "id": "v_fuben",
-              "form": "attributive_na"
-            },
-            "v_tokoro",
-            "p_ni",
-            {
-              "id": "v_sumu",
-              "form": "te_form"
-            },
-            {
-              "id": "v_miru",
-              "form": "plain_desire_tai"
+              "id": "v_aru",
+              "form": "plain_form"
             },
             "p_to_quote",
             {
               "id": "v_omou",
-              "form": "plain_form"
-            },
-            "v_hito",
-            "p_ga",
-            {
-              "id": "v_iru",
-              "form": "plain_form"
-            },
-            "p_to_conditional",
-            "v_ii",
-            "g_desu"
+              "form": "polite_masu"
+            }
           ]
         }
       ],
@@ -1540,7 +1533,7 @@
             },
             "g_desu"
           ],
-          "explanation": "Correct: 電車の 便 / 不便が 少なくて、町が とても ______です。"
+          "explanation": "Correct: 電車の 便が 少なくて、町が とても 不便です。"
         },
         {
           "kind": "mcq",

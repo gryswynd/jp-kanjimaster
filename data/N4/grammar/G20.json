@@ -118,11 +118,8 @@
               "gloss": "didn't pass (plain negative past)",
               "tokens": [
                 {
-                  "k": "合",
-                  "r": "あ"
-                },
-                {
-                  "k": "格"
+                  "k": "合格",
+                  "r": "ごうかく"
                 },
                 {
                   "k": "しなかった",
@@ -339,7 +336,13 @@
               "gloss": "stomach (が)",
               "tokens": [
                 {
-                  "k": "お腹"
+                  "k": "お",
+                  "g": "v_onaka"
+                },
+                {
+                  "k": "腹",
+                  "r": "なか",
+                  "g": "v_onaka"
                 },
                 {
                   "k": "が"
@@ -380,11 +383,11 @@
                 {
                   "k": "難",
                   "r": "むずか",
-                  "g": "v_muzukashii_adverbial"
+                  "g": "v_muzukashii"
                 },
                 {
                   "k": "しく",
-                  "g": "v_muzukashii_adverbial"
+                  "g": "v_muzukashii"
                 }
               ]
             },
@@ -394,7 +397,10 @@
               "gloss": "even if",
               "tokens": [
                 {
-                  "k": "ても"
+                  "k": "て"
+                },
+                {
+                  "k": "も"
                 },
                 {
                   "k": "、"
@@ -686,11 +692,11 @@
                 {
                   "k": "早",
                   "r": "はや",
-                  "g": "v_hayai_adverbial"
+                  "g": "v_hayai"
                 },
                 {
                   "k": "く",
-                  "g": "v_hayai_adverbial"
+                  "g": "v_hayai"
                 },
                 {
                   "k": "帰",
@@ -989,11 +995,11 @@
                   {
                     "k": "難",
                     "r": "むずか",
-                    "g": "v_muzukashii_adverbial"
+                    "g": "v_muzukashii"
                   },
                   {
                     "k": "しく",
-                    "g": "v_muzukashii_adverbial"
+                    "g": "v_muzukashii"
                   }
                 ]
               },
@@ -1003,7 +1009,10 @@
                 "gloss": "even if",
                 "tokens": [
                   {
-                    "k": "ても"
+                    "k": "て"
+                  },
+                  {
+                    "k": "も"
                   },
                   {
                     "k": "、"
@@ -1063,10 +1072,13 @@
                 "gloss": "sit (te-form of 座る)",
                 "tokens": [
                   {
-                    "k": "座"
+                    "k": "座",
+                    "r": "すわ",
+                    "g": "v_suwaru_2_te_form"
                   },
                   {
-                    "k": "って"
+                    "k": "って",
+                    "g": "v_suwaru_2_te_form"
                   }
                 ]
               },
@@ -1161,7 +1173,10 @@
               "gloss": "the whole time",
               "tokens": [
                 {
-                  "k": "ずっと"
+                  "k": "ずっ"
+                },
+                {
+                  "k": "と"
                 }
               ]
             },
@@ -1207,11 +1222,11 @@
                 {
                   "k": "難",
                   "r": "むずか",
-                  "g": "v_muzukashii_adverbial"
+                  "g": "v_muzukashii"
                 },
                 {
                   "k": "しく",
-                  "g": "v_muzukashii_adverbial"
+                  "g": "v_muzukashii"
                 }
               ]
             },
@@ -1221,7 +1236,10 @@
               "gloss": "even if",
               "tokens": [
                 {
-                  "k": "ても"
+                  "k": "て"
+                },
+                {
+                  "k": "も"
                 },
                 {
                   "k": "、"
@@ -1331,7 +1349,8 @@
               "gloss": "service too (も)",
               "tokens": [
                 {
-                  "k": "サービス"
+                  "k": "サービス",
+                  "r": "さーびす"
                 },
                 {
                   "k": "も"

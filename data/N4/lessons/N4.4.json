@@ -251,7 +251,7 @@
       "context": "Rikizo is at a clothing store and asks a shop assistant about shirt colors.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "何色の シャツが 好きですか。",
           "en": "What color shirt do you like?",
           "terms": [
@@ -266,7 +266,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "青い シャツが 好きです。赤い シャツも 見たいです。",
           "en": "I like blue shirts. I also want to see red shirts.",
           "terms": [
@@ -286,7 +286,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "この 青い シャツは どうですか。色々な 色が あります。",
           "en": "How about this blue shirt? We have various colors.",
           "terms": [
@@ -310,7 +310,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "りきぞう",
           "jp": "きれいですね。この 青い シャツを 着られますか。",
           "en": "It's pretty. Can I try on this blue shirt?",
           "terms": [
@@ -329,7 +329,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "店員",
           "jp": "はい。あちらで 着てみてください。",
           "en": "Yes. Please try it on over there.",
           "terms": [
@@ -408,16 +408,21 @@
         },
         {
           "spk": "B",
-          "jp": "やまかわさんは 何色の シャツが 好きですか。",
-          "en": "Yamakawa, what color shirt do you like?",
+          "jp": "お茶の 色は きれいですね。やまかわさんは 何色が 好きですか。",
+          "en": "The color of the tea is pretty. Yamakawa, what color do you like?",
           "terms": [
+            "v_ocha",
+            "p_no",
+            "v_iro",
+            "p_wa",
+            "v_kirei",
+            "g_desu",
+            "p_ne",
             "char_yamakawa",
             "v_san",
             "p_wa",
             "v_nan",
             "v_iro",
-            "p_no",
-            "v_shatsu",
             "p_ga",
             "v_suki",
             "g_desu",
@@ -426,28 +431,30 @@
         },
         {
           "spk": "A",
-          "jp": "黒い シャツが 好きです。茶色い シャツも いいですね。",
-          "en": "I like black shirts. Brown shirts are nice too.",
+          "jp": "茶色が 好きです。お茶の 色ですね。",
+          "en": "I like brown — the color of tea!",
           "terms": [
-            "v_kuroi",
-            "v_shatsu",
+            "v_chairo",
             "p_ga",
             "v_suki",
             "g_desu",
-            "v_chairoi",
-            "v_shatsu",
-            "p_mo",
-            "v_ii",
+            "v_ocha",
+            "p_no",
+            "v_iro",
             "g_desu",
             "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation Practice 3（会話）: Which Color?",
-      "context": "Miku and Rikizo browse a store together and compare color preferences.",
+      "context": "Miki and Rikizo browse a store together and compare color preferences.",
       "lines": [
         {
           "spk": "A",
@@ -518,19 +525,14 @@
         },
         {
           "spk": "A",
-          "jp": "はい、茶色の シャツも できますよ。",
-          "en": "Yes, brown shirts are also available.",
+          "jp": "茶色も いいですね。",
+          "en": "Brown is nice too.",
           "terms": [
-            "p_hai",
             "v_chairo",
-            "p_no",
-            "v_shatsu",
             "p_mo",
-            {
-              "id": "v_dekiru",
-              "form": "polite_masu"
-            },
-            "p_yo"
+            "v_ii",
+            "g_desu",
+            "p_ne"
           ]
         },
         {
@@ -560,7 +562,11 @@
             "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -584,7 +590,7 @@
         {
           "spk": "B",
           "jp": "今日 新しく 買ったよ。赤い シャツも 着られるけど、黒が 好きだから。",
-          "en": "I just bought it today. I can wear red shirts too, but because I like black.",
+          "en": "I bought it today. I could wear a red shirt too, but I chose this because I like black.",
           "terms": [
             "v_kyou",
             {
@@ -660,7 +666,11 @@
             "p_ka"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "ken"
+      }
     },
     {
       "type": "reading",
@@ -921,11 +931,11 @@
           ]
         },
         {
-          "jp": "今朝 は 赤い シャツを 着て 学校に 来られました。",
-          "en": "This morning she put on her red shirt and was able to come to school.",
+          "jp": "今朝 も 赤い シャツを 着て、学校へ 行きました。",
+          "en": "This morning too, she wore a red shirt to school.",
           "terms": [
             "v_kesa",
-            "p_wa",
+            "p_mo",
             "v_akai",
             "v_shatsu",
             "p_wo",
@@ -934,10 +944,10 @@
               "form": "te_form"
             },
             "v_gakkou",
-            "p_ni",
+            "p_e",
             {
-              "id": "v_kuru",
-              "form": "polite_potential_past"
+              "id": "v_iku",
+              "form": "polite_mashita"
             }
           ]
         }
@@ -1155,7 +1165,7 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "青い シャツを ______。",
+          "q": "青い シャツを ______。（I can wear a blue shirt.）",
           "choices": [
             "着られます",
             "着ます",
@@ -1172,7 +1182,7 @@
               "form": "polite_potential"
             }
           ],
-          "explanation": "Correct: 青い シャツを 着られます。"
+          "explanation": "Correct: 青い シャツを 着られます。（I can wear a blue shirt.）"
         },
         {
           "kind": "mcq",

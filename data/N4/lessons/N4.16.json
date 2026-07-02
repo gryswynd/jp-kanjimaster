@@ -327,8 +327,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "じつは、小さくて かわいい 動物です。走るの が 大好きですし、元気ですよ。",
-          "en": "Actually, she is a small, cute animal. She loves running, and she is energetic too.",
+          "jp": "じつは、小さくて かわいい 犬です。走るの が 大好きですし、元気ですよ。",
+          "en": "Actually, she is a small, cute dog. She loves running, and she is energetic too.",
           "terms": [
             "char_rikizo",
             "v_jitsuwa",
@@ -337,7 +337,7 @@
               "form": "te_form"
             },
             "v_kawaii",
-            "v_doubutsu",
+            "v_inu",
             "g_desu",
             {
               "id": "v_hashiru",
@@ -377,7 +377,10 @@
             "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "suzuki"
+      }
     },
     {
       "type": "conversation",
@@ -457,25 +460,29 @@
         },
         {
           "spk": "B",
-          "jp": "つまり、手動で お金を 運びますので、ゆっくり して ください。",
-          "en": "In other words, we move the money manually, so please take your time.",
+          "jp": "つまり、ATM が 動かない 時は、銀行の 人が 手動で お金を 出します。",
+          "en": "In other words, when the ATM isn't working, the bank staff take out the money manually.",
           "terms": [
             "v_tsumari",
+            "p_ga",
+            {
+              "id": "v_ugoku",
+              "form": "plain_negative"
+            },
+            "v_toki",
+            "p_wa",
+            "v_ginkou",
+            "p_no",
+            "v_hito",
+            "p_ga",
             "v_shudou",
             "p_de",
             "v_okane",
             "p_wo",
             {
-              "id": "v_hakobu",
+              "id": "v_dasu",
               "form": "polite_masu"
-            },
-            "p_node",
-            "v_yukkuri",
-            {
-              "id": "v_suru",
-              "form": "te_form"
-            },
-            "v_kudasai"
+            }
           ]
         }
       ]
@@ -576,7 +583,10 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "suzuki"
+      }
     },
     {
       "type": "conversation",
@@ -932,19 +942,20 @@
           ]
         },
         {
-          "jp": "去年の 楽しい 日は 去ったのに、ポチは とても 元気に なりました。",
-          "en": "Even though last year's fun days have passed, Pochi became very energetic.",
+          "jp": "楽しい 時間は はやく 去りました。ポチは とても 元気に なりました。",
+          "en": "The fun times passed quickly. Pochi became very energetic.",
           "terms": [
-            "v_kyonen",
-            "p_no",
             "v_tanoshii",
-            "v_hi",
+            "v_jikan",
             "p_wa",
             {
-              "id": "v_saru",
-              "form": "plain_past"
+              "id": "v_hayai",
+              "form": "adverbial"
             },
-            "p_noni",
+            {
+              "id": "v_saru",
+              "form": "polite_mashita"
+            },
             "char_pochi",
             "p_wa",
             "v_totemo",
@@ -1280,7 +1291,7 @@
         },
         {
           "kind": "mcq",
-          "q": "ATM が 動かない 時は、______ で 運びます。",
+          "q": "ATM が 動かない 時は、______ で お金を 出します。",
           "choices": [
             "手動",
             "自動",
@@ -1303,7 +1314,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "Correct: ATM が 動かない 時は、手動 で 運びます。 — 「手動」 (しゅどう) means \"manual (operation)\"."
+          "explanation": "Correct: ATM が 動かない 時は、手動 で お金を 出します。 — 「手動」 (しゅどう) means \"manual (operation)\"."
         }
       ]
     },

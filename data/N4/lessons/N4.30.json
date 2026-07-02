@@ -355,7 +355,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -413,28 +417,19 @@
         },
         {
           "spk": "A",
-          "jp": "いい 思いを 書きましたね。でも、思い上がらない ように しましょう。問答 しながら 考えると もっと いいですよ。",
-          "en": "You wrote nice feelings. But let's be careful not to get conceited. It's even better to think while doing Q&A.",
+          "jp": "いい 思いですね。書く 前に、問答 しながら 考えると もっと いいですよ。",
+          "en": "That's a nice sentiment. Before you write, it's even better to think it through in question-and-answer.",
           "terms": [
             "v_ii",
             "v_omoi_feel",
-            "p_wo",
+            "g_desu",
+            "p_ne",
             {
               "id": "v_kaku",
-              "form": "polite_mashita"
+              "form": "plain_form"
             },
-            "p_ne",
-            "p_demo_but",
-            {
-              "id": "v_omoiagaru",
-              "form": "plain_negative"
-            },
-            "v_you_manner",
+            "v_mae",
             "p_ni",
-            {
-              "id": "v_suru",
-              "form": "polite_volitional_mashou"
-            },
             "v_mondou",
             {
               "id": "v_suru",
@@ -472,7 +467,11 @@
             "p_ne"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "nana",
+        "B": "lee"
+      }
     },
     {
       "type": "conversation",
@@ -567,7 +566,11 @@
             "p_na"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "yuki"
+      }
     },
     {
       "type": "conversation",
@@ -575,7 +578,7 @@
       "context": "Two siblings at home talking about a stamp collection.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "姉",
           "jp": "これ、切手の 特集 だね。いつから 集めているの？",
           "en": "This is a stamp special collection, right. Since when have you been collecting?",
           "terms": [
@@ -600,7 +603,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "弟",
           "jp": "前から 集めているよ。特に 古い 切手と 特急の 切手が 好きなんだ。",
           "en": "I've been collecting for a while. I especially like old stamps and express train stamps.",
           "terms": [
@@ -631,7 +634,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "姉",
           "jp": "いくつ 集めたの？",
           "en": "How many have you collected?",
           "terms": [
@@ -645,7 +648,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "弟",
           "jp": "学校や 図書館に 行ったり、友だちに 聞いたり して、百 ぐらい 集めてきたよ。",
           "en": "I went to school and libraries, asked friends, and things like that — I've collected about a hundred.",
           "terms": [
@@ -734,8 +737,8 @@
           ]
         },
         {
-          "jp": "私も 写真 集を 作ったり、みんなの 答えを 集めたり しました。",
-          "en": "I also made a photo collection, gathered everyone's answers, and things like that.",
+          "jp": "私も 写真集を 作ったり、みんなの 意見を 集めたり しました。",
+          "en": "I also made a photo album and collected everyone's opinions.",
           "terms": [
             "v_watashi",
             "p_mo",
@@ -748,7 +751,7 @@
             },
             "v_minna",
             "p_no",
-            "v_kotae",
+            "v_iken",
             "p_wo",
             {
               "id": "v_atsumeru",
@@ -969,30 +972,6 @@
           ]
         },
         {
-          "jp": "答えを 集めてから、また 考えるように しました。",
-          "en": "After gathering answers, the student made an effort to think again.",
-          "terms": [
-            "v_kotae",
-            "p_wo",
-            {
-              "id": "v_atsumeru",
-              "form": "te_form"
-            },
-            "p_tekara",
-            "v_mata",
-            {
-              "id": "v_kangaeru",
-              "form": "plain_form"
-            },
-            "v_you_manner",
-            "p_ni",
-            {
-              "id": "v_suru",
-              "form": "polite_mashita"
-            }
-          ]
-        },
-        {
           "jp": "学生は 「分かりません」と 答えて、口答えは しませんでした。",
           "en": "The student answered \"I don't know\" and did not talk back.",
           "terms": [
@@ -1012,6 +991,33 @@
             {
               "id": "v_suru",
               "form": "polite_past_negative"
+            }
+          ]
+        },
+        {
+          "jp": "試験の 後で、答えを 集めて、また 考える ように しました。",
+          "en": "After the exam, the student collected the answers and made a point of thinking them through again.",
+          "terms": [
+            "v_shiken",
+            "p_no",
+            "v_ato",
+            "p_de",
+            "v_kotae",
+            "p_wo",
+            {
+              "id": "v_atsumeru",
+              "form": "te_form"
+            },
+            "v_mata",
+            {
+              "id": "v_kangaeru",
+              "form": "plain_form"
+            },
+            "v_you_manner",
+            "p_ni",
+            {
+              "id": "v_suru",
+              "form": "polite_mashita"
             }
           ]
         }

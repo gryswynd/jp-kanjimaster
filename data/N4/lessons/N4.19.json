@@ -254,7 +254,7 @@
       "context": "A university student visits the library and asks a librarian for help finding a section.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "ナナ",
           "jp": "すみません。小説は どこに ありますか。",
           "en": "Excuse me. Where are the novels?",
           "terms": [
@@ -271,9 +271,9 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "地図を 見て ください。図書館の 上に あります。",
-          "en": "Please look at the map. It is upstairs in the library.",
+          "spk": "図書館の人",
+          "jp": "地図を 見て ください。小説は 上に あります。",
+          "en": "Please look at the map. The novels are upstairs.",
           "terms": [
             "v_chizu",
             "p_wo",
@@ -282,8 +282,8 @@
               "form": "te_form"
             },
             "v_kudasai",
-            "v_toshokan",
-            "p_no",
+            "v_shousetsu",
+            "p_wa",
             "v_ue",
             "p_ni",
             {
@@ -293,14 +293,17 @@
           ]
         },
         {
-          "spk": "A",
-          "jp": "地図に 地名が 書いて ありますね。",
-          "en": "Place names are written on the map, aren't they.",
+          "spk": "ナナ",
+          "jp": "本当ですね。地図に 何でも 書いて ありますね。",
+          "en": "You're right. Everything is written on the map.",
           "terms": [
+            "p_hontou",
+            "g_desu",
+            "p_ne",
             "v_chizu",
             "p_ni",
-            "v_chimei",
-            "p_ga",
+            "v_nani",
+            "p_demo",
             {
               "id": "v_kaku",
               "form": "te_form"
@@ -313,10 +316,11 @@
           ]
         },
         {
-          "spk": "B",
-          "jp": "小説は 地下にも あります。地上にも 本が あります。",
-          "en": "Novels are also in the basement. There are also books above ground.",
+          "spk": "図書館の人",
+          "jp": "古い 小説は 地下にも ありますよ。",
+          "en": "Older novels are also in the basement.",
           "terms": [
+            "v_furui",
             "v_shousetsu",
             "p_wa",
             "v_chika",
@@ -326,19 +330,11 @@
               "id": "v_aru",
               "form": "polite_masu"
             },
-            "v_chijou",
-            "p_ni",
-            "p_mo",
-            "v_hon",
-            "p_ga",
-            {
-              "id": "v_aru",
-              "form": "polite_masu"
-            }
+            "p_yo"
           ]
         },
         {
-          "spk": "A",
+          "spk": "ナナ",
           "jp": "ありがとうございます。本を 借りに 来ました。",
           "en": "Thank you very much. I came to borrow a book.",
           "terms": [
@@ -425,22 +421,28 @@
         },
         {
           "spk": "B",
-          "jp": "はい、どうぞ。先生だけが 説明できます。",
-          "en": "Yes, please do. Only the teacher can explain it.",
+          "jp": "はい、どうぞ。先生は 何でも 説明できますよ。",
+          "en": "Yes, go ahead. The teacher can explain anything.",
           "terms": [
             "p_hai",
             "p_douzo",
             "v_sensei",
-            "p_dake",
-            "p_ga",
+            "p_wa",
+            "v_nani",
+            "p_demo",
             "v_setsumei",
             {
               "id": "v_dekiru",
               "form": "polite_masu"
-            }
+            },
+            "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "taro",
+        "B": "lee"
+      }
     },
     {
       "type": "conversation",
@@ -505,32 +507,31 @@
         },
         {
           "spk": "B",
-          "jp": "私も 同じです。本を 読んだり、地図を 見たりしましょう。",
-          "en": "Me too. Let's read books and look at maps.",
+          "jp": "私も 同じです。いっしょに 図書館で 楽しい 物語を 読みましょう。",
+          "en": "Me too. Let's read fun stories together at the library.",
           "terms": [
             "v_watashi",
             "p_mo",
             "v_onaji",
             "g_desu",
-            "v_hon",
+            "v_issho",
+            "p_ni",
+            "v_toshokan",
+            "p_de",
+            "v_tanoshii",
+            "v_monogatari",
             "p_wo",
             {
               "id": "v_yomu",
-              "form": "tari_form"
-            },
-            "v_chizu",
-            "p_wo",
-            {
-              "id": "v_miru",
-              "form": "tari_form"
-            },
-            {
-              "id": "v_suru",
               "form": "polite_volitional_mashou"
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "miki"
+      }
     },
     {
       "type": "conversation",
@@ -634,7 +635,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "ren",
+        "B": "sakura"
+      }
     },
     {
       "type": "reading",

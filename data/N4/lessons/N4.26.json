@@ -352,7 +352,7 @@
     {
       "type": "conversation",
       "title": "Conversation 2: Correcting a Bad Way（悪い方を正す）",
-      "context": "りきぞう asks やまかわ whether it is okay to proceed with a questionable approach; やまかわ warns him it is not, and guides him to correct it.",
+      "context": "りきぞう wonders aloud if his plan to copy a friend's homework is really a problem; やまかわ warns him that a bad approach only makes things worse.",
       "lines": [
         {
           "spk": "りきぞう",
@@ -463,7 +463,7 @@
     {
       "type": "conversation",
       "title": "Conversation 3: Talking About Viewpoints（Casual）",
-      "context": "りきぞう and けん, close friends, chat casually about New Year's resolutions and plans.",
+      "context": "けん pushes back on りきぞう's take on a recent disagreement, and りきぞう reconsiders.",
       "lines": [
         {
           "spk": "けん",
@@ -797,10 +797,10 @@
       ],
       "questions": [
         {
-          "q": "正しい 考え方は 何ですか。",
-          "q_en": "What is correct thinking?",
-          "a": "毎日 とても 大切です。",
-          "a_en": "It is very important every day.",
+          "q": "毎日 何が 大切ですか。",
+          "q_en": "What is important every day?",
+          "a": "正しい 考え方が 大切です。",
+          "a_en": "A correct way of thinking is important.",
           "terms": [
             "v_tadashii",
             "v_kangaekata",
@@ -810,12 +810,14 @@
             "p_ka"
           ],
           "a_terms": [
-            "v_mainichi",
-            "v_totemo",
+            "v_tadashii",
+            "v_kangaekata",
+            "p_ga",
             {
               "id": "v_taisetsu",
               "form": "polite_adj"
-            }
+            },
+            "g_desu"
           ]
         },
         {
@@ -1494,7 +1496,7 @@
           ]
         },
         {
-          "q": "りきぞうは 自分の 見方を 正そうと ______。",
+          "q": "りきぞうは 自分の 見方を 正そうと ______。（Rikizo SAID he would correct his viewpoint.）",
           "answer": "言いました",
           "choices": [
             "言いました",

@@ -278,7 +278,7 @@
       "context": "Rikizo is shopping at the supermarket and asks a staff member where to find vegetables and beef.",
       "lines": [
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "すみません、野菜は どこに ありますか。",
           "en": "Excuse me, where are the vegetables?",
           "terms": [
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "野菜は あそこに あります。牛肉も 近くに ありますよ。",
           "en": "The vegetables are over there. The beef is also nearby.",
           "terms": [
@@ -322,7 +322,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "ありがとうございます。料理に 野菜と 牛肉を よく 使いますか。",
           "en": "Thank you very much. Do you often use vegetables and beef in cooking?",
           "terms": [
@@ -342,7 +342,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "はい、野菜の 料理が 大好きです。おいしい 食べ物が 作れますよ。",
           "en": "Yes, I love vegetable dishes. You can make delicious food.",
           "terms": [
@@ -364,7 +364,7 @@
           ]
         },
         {
-          "spk": "A",
+          "spk": "りきぞう",
           "jp": "野菜より 牛肉のほうが 高いですか。",
           "en": "Is beef more expensive than vegetables?",
           "terms": [
@@ -383,7 +383,7 @@
           ]
         },
         {
-          "spk": "B",
+          "spk": "店員",
           "jp": "牛肉は 高いですが、野菜くらい おいしいですよ。",
           "en": "Beef is expensive, but it is about as delicious as vegetables.",
           "terms": [
@@ -499,8 +499,8 @@
         },
         {
           "spk": "A",
-          "jp": "はい、作れますよ。牛肉と 野菜の 料理は おいしいですね。",
-          "en": "Yes, I can. Beef and vegetable dishes are delicious.",
+          "jp": "はい、作れますよ。おいしい お茶が ありますよ。",
+          "en": "Yes, I can. I have some nice tea.",
           "terms": [
             "p_hai",
             {
@@ -508,18 +508,14 @@
               "form": "polite_potential"
             },
             "p_yo",
-            "v_gyuuniku",
-            "p_to",
-            "v_yasai",
-            "p_no",
-            "v_ryouri",
-            "p_wa",
+            "v_oishii",
+            "v_ocha",
+            "p_ga",
             {
-              "id": "v_oishii",
-              "form": "polite_adj"
+              "id": "v_aru",
+              "form": "polite_masu"
             },
-            "g_desu",
-            "p_ne"
+            "p_yo"
           ]
         },
         {
@@ -557,7 +553,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -656,10 +656,12 @@
         },
         {
           "spk": "A",
-          "jp": "ありがとうございます。今日 母が 野菜を くれました。",
-          "en": "Thank you very much. Today my mother gave me vegetables.",
+          "jp": "いいですね。今日 母が 野菜を くれました。使いましょう。",
+          "en": "Nice. My mother gave me vegetables today. Let's use them.",
           "terms": [
-            "p_arigatou_gozaimasu",
+            "v_ii",
+            "g_desu",
+            "p_ne",
             "v_kyou",
             "v_haha",
             "p_ga",
@@ -668,6 +670,10 @@
             {
               "id": "v_kureru",
               "form": "polite_mashita"
+            },
+            {
+              "id": "v_tsukau",
+              "form": "polite_volitional_mashou"
             }
           ]
         },
@@ -691,12 +697,16 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation Practice 4（会話）: Supermarket Shopping (Casual)",
-      "context": "Rikizo and Miku are at the supermarket casually shopping for dinner ingredients.",
+      "context": "Rikizo and Miki casually plan what to buy for tonight's dinner.",
       "lines": [
         {
           "spk": "A",
@@ -778,7 +788,11 @@
             "p_kara_because"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "rikizo"
+      }
     },
     {
       "type": "reading",
@@ -883,21 +897,21 @@
           ]
         },
         {
-          "jp": "りきぞうは 食べ物の 物語が とても 好きです。",
-          "en": "Rikizo really likes food stories.",
+          "jp": "晩ごはんの 後で、食べ物の 物語を 読みました。",
+          "en": "After dinner, he read a story about food.",
           "terms": [
-            "char_rikizo",
-            "p_wa",
+            "v_bangohan",
+            "p_no",
+            "v_ato",
+            "p_de",
             "v_tabemono",
             "p_no",
             "v_monogatari",
-            "p_ga",
-            "v_totemo",
+            "p_wo",
             {
-              "id": "v_suki",
-              "form": "polite_adj"
-            },
-            "g_desu"
+              "id": "v_yomu",
+              "form": "polite_mashita"
+            }
           ]
         }
       ],
@@ -1313,11 +1327,11 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "この 店では おいしい 料理が ______。",
+          "q": "この 店では おいしい 料理が ______。（At this shop, I can make delicious dishes.）",
           "choices": [
             "作れます",
             "作ります",
-            "作られます",
+            "作ってください",
             "作りましょう"
           ],
           "answer": "作れます",
@@ -1333,7 +1347,7 @@
               "form": "polite_potential"
             }
           ],
-          "explanation": "Correct: この 店では おいしい 料理が 作れます。"
+          "explanation": "Correct: この 店では おいしい 料理が 作れます。（At this shop, I can make delicious dishes.）"
         },
         {
           "kind": "mcq",

@@ -409,20 +409,15 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "太字も 書いても いいですか。",
-          "en": "Is it also okay to write in bold type?",
+          "jp": "太字も 書けますか。",
+          "en": "Can it write bold characters too?",
           "terms": [
             "char_rikizo",
             "v_futoji",
             "p_mo",
             {
               "id": "v_kaku",
-              "form": "te_form"
-            },
-            "p_mo",
-            {
-              "id": "v_ii",
-              "form": "polite_adj"
+              "form": "polite_potential"
             },
             "p_ka"
           ]
@@ -559,25 +554,16 @@
           ]
         },
         {
-          "spk": "ナナ",
-          "jp": "はい。紙に 書いて ありますよ。見て ください。",
-          "en": "Yes. (A sample) has been written on the paper. Please take a look.",
+          "spk": "すずきせんせい",
+          "jp": "いいですね。ゆっくり 進んで ください。",
+          "en": "That's good. Please progress at your own pace.",
           "terms": [
-            "char_nana",
-            "p_hai",
-            "v_kami",
-            "p_ni",
+            "v_ii",
+            "g_desu",
+            "p_ne",
+            "v_yukkuri",
             {
-              "id": "v_kaku",
-              "form": "te_form"
-            },
-            {
-              "id": "v_aru",
-              "form": "polite_masu"
-            },
-            "p_yo",
-            {
-              "id": "v_miru",
+              "id": "v_susumu",
               "form": "te_form"
             },
             "v_kudasai"
@@ -624,8 +610,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "うん、少し 重くなったよ。重大な 問題だけど。",
-          "en": "Yeah, I've become a little heavier. Though it's a serious problem.",
+          "jp": "うん、少し 重くなったよ。でも、重大な 問題では ないよ。",
+          "en": "Yeah, I've become a little heavier. But it's not a serious problem.",
           "terms": [
             "char_rikizo",
             "v_un",
@@ -639,13 +625,18 @@
               "form": "plain_past"
             },
             "p_yo",
+            "p_demo_but",
             {
               "id": "v_juudai",
               "form": "attributive_na"
             },
             "v_mondai",
-            "g_da",
-            "p_kedo"
+            "p_dewa",
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "p_yo"
           ]
         },
         {
@@ -809,11 +800,11 @@
           ]
         },
         {
-          "jp": "体が 強く なって きたのが 見えます。",
-          "en": "You can see that his body has been getting stronger.",
+          "jp": "体も 強く なって きました。",
+          "en": "His body has been getting stronger too.",
           "terms": [
             "v_karada",
-            "p_ga",
+            "p_mo",
             {
               "id": "v_tsuyoi",
               "form": "adverbial"
@@ -824,13 +815,7 @@
             },
             {
               "id": "v_kuru",
-              "form": "plain_past"
-            },
-            "p_no",
-            "p_ga",
-            {
-              "id": "v_mieru",
-              "form": "polite_masu"
+              "form": "polite_mashita"
             }
           ]
         },

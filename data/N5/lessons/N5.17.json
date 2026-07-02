@@ -247,7 +247,7 @@
     {
       "type": "conversation",
       "title": "Conversation 1: Finding the Entrance",
-      "context": "Rikizo visits a company for the first time and asks Lee about the entrance and exit.",
+      "context": "Rikizo visits the company where Lee works and asks about the entrance and exit.",
       "lines": [
         {
           "spk": "りきぞう",
@@ -346,8 +346,8 @@
         },
         {
           "spk": "リー",
-          "jp": "はい。午前は 社長と 会います。午後に 出口から 出てください。",
-          "en": "Yes. In the morning you will meet the company president. In the afternoon, please exit through the exit.",
+          "jp": "はい。午前は 社長と 会いますね。午後は 左の 出口から 出てください。",
+          "en": "Yes. You're meeting the company president this morning, right? In the afternoon, please leave through the exit on the left.",
           "terms": [
             "p_hai",
             "v_gozen",
@@ -358,8 +358,11 @@
               "id": "v_au",
               "form": "polite_masu"
             },
+            "p_ne",
             "v_gogo",
-            "p_ni",
+            "p_wa",
+            "v_hidari",
+            "p_no",
             "v_deguchi",
             "p_kara",
             {
@@ -501,8 +504,8 @@
       "lines": [
         {
           "spk": "けん",
-          "jp": "午後の 会話は 長かったですね。社長は とても 上手でした。",
-          "en": "The afternoon conversation was long, wasn't it. The company president was very skilled.",
+          "jp": "午後の 会話は 長かったですね。社長は 会話が とても 上手でした。",
+          "en": "The afternoon conversation was long, wasn't it. The company president was very good at conversation.",
           "terms": [
             "v_gogo",
             "p_no",
@@ -516,6 +519,8 @@
             "p_ne",
             "v_shachou",
             "p_wa",
+            "v_kaiwa",
+            "p_ga",
             "v_totemo",
             "v_jouzu",
             {
@@ -543,8 +548,8 @@
         },
         {
           "spk": "けん",
-          "jp": "本を 出してください。中に 入れましょう。",
-          "en": "Please take out the books. Let's put them inside.",
+          "jp": "本を 出してください。車の 中に 入れましょう。",
+          "en": "Please bring out the books. Let's put them in the car.",
           "terms": [
             "v_hon",
             "p_wo",
@@ -553,6 +558,8 @@
               "form": "te_form"
             },
             "v_kudasai",
+            "v_kuruma",
+            "p_no",
             "v_naka",
             "p_ni",
             {
@@ -563,8 +570,8 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "はい、本を 出して、中に 入れました。",
-          "en": "Yes, I took out the books and put them inside.",
+          "jp": "はい、本を 出して、車の 中に 入れました。",
+          "en": "Yes, I brought out the books and put them in the car.",
           "terms": [
             "p_hai",
             "v_hon",
@@ -573,6 +580,8 @@
               "id": "v_dasu",
               "form": "te_form"
             },
+            "v_kuruma",
+            "p_no",
             "v_naka",
             "p_ni",
             {
@@ -624,7 +633,7 @@
     {
       "type": "conversation",
       "title": "Conversation 4: After the Part-time Job (Casual)",
-      "context": "Close friends Rikizo and Ken chat casually after finishing their afternoon part-time job shift.",
+      "context": "Close friends Rikizo and Ken chat casually about Rikizo's new part-time job.",
       "lines": [
         {
           "spk": "けん",
@@ -659,23 +668,24 @@
         },
         {
           "spk": "けん",
-          "jp": "アルバイトは いい？",
-          "en": "Is the part-time job good?",
+          "jp": "アルバイトは どこ？",
+          "en": "Where's the part-time job?",
           "terms": [
             "v_arubaito",
             "p_wa",
-            "v_ii",
-            "p_ka"
+            "v_doko"
           ]
         },
         {
           "spk": "りきぞう",
-          "jp": "うん、いいんだよ。右の 入り口から 入って、左の 出口から 出るよ。",
-          "en": "Yeah, it's good, you know. I enter from the right entrance and exit through the left exit.",
+          "jp": "駅の 中に あるよ。右の 入り口から 入って、左の 出口から 出るよ。",
+          "en": "It's inside the station. You go in through the right entrance and out through the left exit.",
           "terms": [
-            "v_un",
-            "v_ii",
-            "p_nda",
+            "v_eki",
+            "p_no",
+            "v_naka",
+            "p_ni",
+            "v_aru",
             "p_yo",
             "v_migi",
             "p_no",
@@ -767,8 +777,8 @@
           ]
         },
         {
-          "jp": "午後に 社会の ことを たくさん 話しました。社長の 日本語は とても 上手でした。",
-          "en": "In the afternoon, they spoke a lot about things related to society. The company president's Japanese was very skilled.",
+          "jp": "午後に 社会の ことを たくさん 話しました。社長は 会話が とても 上手でした。",
+          "en": "In the afternoon, they spoke a lot about society. The company president was very good at conversation.",
           "terms": [
             "v_gogo",
             "p_ni",
@@ -782,9 +792,9 @@
               "form": "polite_mashita"
             },
             "v_shachou",
-            "p_no",
-            "v_nihongo",
             "p_wa",
+            "v_kaiwa",
+            "p_ga",
             "v_totemo",
             "v_jouzu",
             {
@@ -794,8 +804,8 @@
           ]
         },
         {
-          "jp": "りきぞうさんは 左の 出口から 出ました。会社の 外は きれいでした。また 会社に 来たいです。",
-          "en": "Rikizo exited through the left exit. The outside of the company was beautiful. He wants to come to the company again.",
+          "jp": "りきぞうさんは 左の 出口から 出ました。会社の 外は きれいでした。また 会社に 行きたいです。",
+          "en": "Rikizo exited through the left exit. The outside of the company was beautiful. He wants to go to the company again.",
           "terms": [
             "char_rikizo",
             "v_san",
@@ -821,7 +831,7 @@
             "v_kaisha",
             "p_ni",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "plain_desire_tai"
             },
             "g_desu"
@@ -884,8 +894,8 @@
         {
           "q": "また 何を したいですか。",
           "q_en": "What does Rikizo want to do again?",
-          "a": "また 会社に 来たいです。",
-          "a_en": "They want to come to the company again.",
+          "a": "また 会社に 行きたいです。",
+          "a_en": "They want to go to the company again.",
           "terms": [
             "v_mata",
             "v_nani",
@@ -902,7 +912,7 @@
             "v_kaisha",
             "p_ni",
             {
-              "id": "v_kuru",
+              "id": "v_iku",
               "form": "plain_desire_tai"
             },
             "g_desu"
@@ -1257,7 +1267,7 @@
         },
         {
           "kind": "mcq",
-          "q": "本を ___ 、中に 入れました。（I took out the books and put them inside.）",
+          "q": "本を ___ 、車の 中に 入れました。（I brought out the books and put them in the car.）",
           "choices": [
             "出して",
             "入れて",
@@ -1279,7 +1289,7 @@
               "form": "polite_mashita"
             }
           ],
-          "explanation": "Correct: 本を 出して 、中に 入れました。（I took out the books and put them inside.）"
+          "explanation": "Correct: 本を 出して 、車の 中に 入れました。（I brought out the books and put them in the car.）"
         }
       ]
     },
@@ -1312,7 +1322,7 @@
         },
         {
           "kind": "mcq",
-          "q": "社長は とても ___ 。（The company president was very skilled.）",
+          "q": "社長は 会話が とても ___ 。（The president was very good at conversation.）",
           "choices": [
             "上手でした",
             "上手です",
@@ -1330,7 +1340,7 @@
               "form": "polite_past_copula"
             }
           ],
-          "explanation": "Correct: 社長は とても 上手でした 。（The company president was very skilled.）"
+          "explanation": "Correct: 社長は 会話が とても 上手でした 。（The president was very good at conversation.）"
         },
         {
           "kind": "mcq",

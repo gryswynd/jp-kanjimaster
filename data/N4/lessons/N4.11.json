@@ -248,7 +248,7 @@
     {
       "type": "conversation",
       "title": "Conversation Practice 1（会話）: Travel Interests",
-      "context": "Yamakawa-sensei asks Rikizo about his travel interests before class.",
+      "context": "Yamakawa asks Rikizo about his travel interests before class.",
       "lines": [
         {
           "spk": "A",
@@ -289,21 +289,16 @@
         },
         {
           "spk": "A",
-          "jp": "りきぞうさん、家を 出て、カメラを 出しますか。",
-          "en": "Rikizo, do you leave home and take out your camera?",
+          "jp": "旅先で いつも カメラを 使いますか。",
+          "en": "Do you always use your camera at travel destinations?",
           "terms": [
-            "char_rikizo",
-            "v_san",
-            "v_ie",
-            "p_wo",
-            {
-              "id": "v_deru",
-              "form": "te_form"
-            },
+            "v_tabisaki",
+            "p_de",
+            "v_itsumo",
             "v_kamera",
             "p_wo",
             {
-              "id": "v_dasu",
+              "id": "v_tsukau",
               "form": "polite_masu"
             },
             "p_ka"
@@ -311,16 +306,10 @@
         },
         {
           "spk": "B",
-          "jp": "はい！旅行が 始まります。旅先で 写真を たくさん とります。",
-          "en": "Yes! The trip is starting. At travel destinations I take lots of photos.",
+          "jp": "はい！旅先で 写真を たくさん とります。",
+          "en": "Yes! I take lots of photos at travel destinations.",
           "terms": [
             "p_hai",
-            "v_ryokou",
-            "p_ga",
-            {
-              "id": "v_hajimaru",
-              "form": "polite_masu"
-            },
             "v_tabisaki",
             "p_de",
             "v_shashin",
@@ -332,7 +321,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -341,27 +334,25 @@
       "lines": [
         {
           "spk": "A",
-          "jp": "けんさん、カメラを 中に 入れて、旅先で 写真を とりました。",
-          "en": "Ken, I put my camera inside and took photos at the travel destination.",
+          "jp": "けんさん、旅先で 写真を たくさん とりました。見てください。",
+          "en": "Ken, I took lots of photos on my trip. Please take a look.",
           "terms": [
             "char_ken",
             "v_san",
-            "v_kamera",
-            "p_wo",
-            "v_naka",
-            "p_ni",
-            {
-              "id": "v_ireru",
-              "form": "te_form"
-            },
             "v_tabisaki",
             "p_de",
             "v_shashin",
             "p_wo",
+            "v_takusan",
             {
               "id": "v_toru",
               "form": "polite_mashita"
-            }
+            },
+            {
+              "id": "v_miru",
+              "form": "te_form"
+            },
+            "v_kudasai"
           ]
         },
         {
@@ -429,7 +420,11 @@
             "g_desu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "rikizo",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
@@ -438,17 +433,14 @@
       "lines": [
         {
           "spk": "A",
-          "jp": "りきぞうさんは、旅行の 前に、何が したいですか。",
-          "en": "Rikizo, what do you want to do before your trip?",
+          "jp": "りきぞうさんは、どんな 旅行が したいですか。",
+          "en": "Rikizo, what kind of trip do you want to take?",
           "terms": [
             "char_rikizo",
             "v_san",
             "p_wa",
+            "v_donna",
             "v_ryokou",
-            "p_no",
-            "v_mae",
-            "p_ni",
-            "v_nani",
             "p_ga",
             {
               "id": "v_suru",
@@ -505,17 +497,14 @@
         },
         {
           "spk": "B",
-          "jp": "はい！旅行の ために、写真を たくさん とりたいです。",
-          "en": "Yes! For my trip, I want to take lots of photos.",
+          "jp": "はい！世界中で 写真を とりたいです。",
+          "en": "Yes! I want to take photos all over the world.",
           "terms": [
             "p_hai",
-            "v_ryokou",
-            "p_no",
-            "v_tame",
-            "p_ni",
+            "v_sekaijuu",
+            "p_de",
             "v_shashin",
             "p_wo",
-            "v_takusan",
             {
               "id": "v_toru",
               "form": "plain_desire_tai"
@@ -523,7 +512,11 @@
             "g_desu"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "miki",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -597,20 +590,25 @@
         },
         {
           "spk": "B",
-          "jp": "来週、旅行を 始めるよ。",
-          "en": "Next week, I'm starting the trip!",
+          "jp": "じゃあ、写真を たくさん 送るよ。",
+          "en": "Then I'll send you lots of photos!",
           "terms": [
-            "v_raishuu",
-            "v_ryokou",
+            "p_jaa",
+            "v_shashin",
             "p_wo",
+            "v_takusan",
             {
-              "id": "v_hajimeru",
+              "id": "v_okuru",
               "form": "plain_form"
             },
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "rikizo"
+      }
     },
     {
       "type": "reading",
@@ -646,7 +644,7 @@
         },
         {
           "jp": "先月、やまかわさんと 旅館へ 行きました。",
-          "en": "Last month, he went to a ryokan with Yamakawa-sensei.",
+          "en": "Last month, he went to a ryokan with Yamakawa.",
           "terms": [
             "v_sengetsu",
             "char_yamakawa",
@@ -1275,7 +1273,7 @@
         },
         {
           "kind": "mcq",
-          "q": "自分 ______ 旅行したいです。",
+          "q": "自分 ______ 旅行したいです。（I want to travel by myself.）",
           "choices": [
             "で",
             "が",
@@ -1293,7 +1291,7 @@
             },
             "g_desu"
           ],
-          "explanation": "Correct: 自分 で 旅行したいです。"
+          "explanation": "Correct: 自分 で 旅行したいです。（I want to travel by myself.）"
         }
       ]
     }

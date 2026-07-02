@@ -324,11 +324,8 @@
               "gloss": "ticket (を — object)",
               "tokens": [
                 {
-                  "k": "切",
-                  "r": "き"
-                },
-                {
-                  "k": "符"
+                  "k": "切符",
+                  "r": "きっぷ"
                 },
                 {
                   "k": "を",
@@ -378,7 +375,8 @@
               "gloss": "window (を — object)",
               "tokens": [
                 {
-                  "k": "窓"
+                  "k": "窓",
+                  "r": "まど"
                 },
                 {
                   "k": "を",
@@ -667,11 +665,8 @@
               "gloss": "homework (を — object)",
               "tokens": [
                 {
-                  "k": "宿"
-                },
-                {
-                  "k": "題",
-                  "r": "だい"
+                  "k": "宿題",
+                  "r": "しゅくだい"
                 },
                 {
                   "k": "を",
@@ -771,10 +766,12 @@
               "tokens": [
                 {
                   "k": "飲",
-                  "r": "の"
+                  "r": "の",
+                  "g": "v_nomu"
                 },
                 {
-                  "k": "み"
+                  "k": "み",
+                  "g": "v_nomu"
                 }
               ]
             },
@@ -836,7 +833,8 @@
               "tokens": [
                 {
                   "k": "高",
-                  "r": "たか"
+                  "r": "たか",
+                  "g": "v_takai"
                 }
               ]
             },
@@ -887,10 +885,13 @@
               "gloss": "quiet (な-adjective stem 静か)",
               "tokens": [
                 {
-                  "k": "静"
+                  "k": "静",
+                  "r": "しず",
+                  "g": "v_shizuka_2"
                 },
                 {
-                  "k": "か"
+                  "k": "か",
+                  "g": "v_shizuka_2"
                 }
               ]
             },
@@ -973,13 +974,13 @@
               "gloss": "go out (masu-stem of 出かける)",
               "tokens": [
                 {
-                  "k": "出"
+                  "k": "出",
+                  "r": "で",
+                  "g": "v_dekakeru_2"
                 },
                 {
-                  "k": "か"
-                },
-                {
-                  "k": "け"
+                  "k": "かけ",
+                  "g": "v_dekakeru_2"
                 }
               ]
             },
@@ -1068,7 +1069,8 @@
               "gloss": "door (を — object)",
               "tokens": [
                 {
-                  "k": "ドア"
+                  "k": "ドア",
+                  "r": "どあ"
                 },
                 {
                   "k": "を",
@@ -1082,7 +1084,13 @@
               "gloss": "open (masu-stem of 開ける)",
               "tokens": [
                 {
-                  "k": "開け"
+                  "k": "開",
+                  "r": "あ",
+                  "g": "v_akeru"
+                },
+                {
+                  "k": "け",
+                  "g": "v_akeru"
                 }
               ]
             },
@@ -1129,7 +1137,8 @@
               "gloss": "key/lock (が — subject)",
               "tokens": [
                 {
-                  "k": "鍵"
+                  "k": "鍵",
+                  "r": "かぎ"
                 },
                 {
                   "k": "が"
@@ -1393,10 +1402,12 @@
                 "tokens": [
                   {
                     "k": "食",
-                    "r": "た"
+                    "r": "た",
+                    "g": "v_taberu"
                   },
                   {
-                    "k": "べ"
+                    "k": "べ",
+                    "g": "v_taberu"
                   }
                 ]
               },
@@ -1483,7 +1494,16 @@
               "gloss": "to the party (に — direction/target)",
               "tokens": [
                 {
-                  "k": "パーティーに"
+                  "k": "パーティ",
+                  "r": "ぱーてぃ",
+                  "g": "lw_paatii"
+                },
+                {
+                  "k": "ー",
+                  "g": "lw_paatii"
+                },
+                {
+                  "k": "に"
                 }
               ]
             },
@@ -1578,7 +1598,8 @@
                   "k": " "
                 },
                 {
-                  "k": "歴史"
+                  "k": "歴史",
+                  "r": "れきし"
                 },
                 {
                   "k": "に"
@@ -1823,10 +1844,8 @@
               "gloss": "documents/materials (を — object)",
               "tokens": [
                 {
-                  "k": "資"
-                },
-                {
-                  "k": "料"
+                  "k": "資料",
+                  "r": "しりょう"
                 },
                 {
                   "k": "を",
@@ -1887,11 +1906,8 @@
               "gloss": "oversleep (te-form of 寝坊する — sleep in)",
               "tokens": [
                 {
-                  "k": "寝",
-                  "r": "ね"
-                },
-                {
-                  "k": "坊"
+                  "k": "寝坊",
+                  "r": "ねぼう"
                 },
                 {
                   "k": "して",
@@ -1946,7 +1962,9 @@
               "gloss": "light (軽い → stem 軽)",
               "tokens": [
                 {
-                  "k": "軽"
+                  "k": "軽",
+                  "r": "かる",
+                  "g": "v_karui"
                 }
               ]
             },
@@ -1967,11 +1985,8 @@
               "gloss": "I'm worried (心配 + です — na-adjective predicate)",
               "tokens": [
                 {
-                  "k": "心",
-                  "r": "こころ"
-                },
-                {
-                  "k": "配"
+                  "k": "心配",
+                  "r": "しんぱい"
                 },
                 {
                   "k": " "
@@ -1998,10 +2013,12 @@
               "tokens": [
                 {
                   "k": "逃",
-                  "r": "に"
+                  "r": "に",
+                  "g": "v_nigeru"
                 },
                 {
-                  "k": "げ"
+                  "k": "げ",
+                  "g": "v_nigeru"
                 }
               ]
             },
@@ -2048,19 +2065,13 @@
               "gloss": "didn't make it in time (間に合う → plain past negative)",
               "tokens": [
                 {
-                  "k": "間"
-                },
-                {
-                  "k": "に"
-                },
-                {
-                  "k": "合",
-                  "r": "あ",
-                  "g": "v_au_2_plain_past_negative"
+                  "k": "間に合",
+                  "r": "まにあ",
+                  "g": "v_maniau_plain_past_negative"
                 },
                 {
                   "k": "わなかった",
-                  "g": "v_au_2_plain_past_negative"
+                  "g": "v_maniau_plain_past_negative"
                 },
                 {
                   "k": "。"
@@ -2162,7 +2173,8 @@
               "gloss": "environmental issues (環境 + 問題 + に)",
               "tokens": [
                 {
-                  "k": "環境"
+                  "k": "環境",
+                  "r": "かんきょう"
                 },
                 {
                   "k": " "
@@ -2194,10 +2206,12 @@
               "tokens": [
                 {
                   "k": "話",
-                  "r": "はなし"
+                  "r": "はな",
+                  "g": "v_hanasu"
                 },
                 {
-                  "k": "し"
+                  "k": "し",
+                  "g": "v_hanasu"
                 },
                 {
                   "k": "合",

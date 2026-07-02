@@ -370,12 +370,16 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yamakawa",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
       "title": "Conversation Practice 2（会話）: Making Dinner",
-      "context": "りきぞう is helping a neighbour prepare a fish dish at home.",
+      "context": "Sakura, Rikizo's neighbour, is preparing a fish dish at home with his help.",
       "lines": [
         {
           "spk": "A",
@@ -451,7 +455,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "sakura",
+        "B": "rikizo"
+      }
     },
     {
       "type": "conversation",
@@ -554,7 +562,11 @@
             }
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "yuki",
+        "B": "ken"
+      }
     },
     {
       "type": "conversation",
@@ -563,9 +575,11 @@
       "lines": [
         {
           "spk": "A",
-          "jp": "借金が あるよ。",
-          "en": "I have a debt.",
+          "jp": "友だちに 借金が あるよ。",
+          "en": "I owe a friend money.",
           "terms": [
+            "v_tomodachi_hybrid",
+            "p_ni",
             "v_shakkin",
             "p_ga",
             {
@@ -577,29 +591,24 @@
         },
         {
           "spk": "B",
-          "jp": "いくら？ 大切な ことだね。",
-          "en": "How much? That's an important matter.",
+          "jp": "いくら？だいじょうぶ？",
+          "en": "How much? Are you okay?",
           "terms": [
             "v_ikura",
-            {
-              "id": "v_taisetsu",
-              "form": "attributive_na"
-            },
-            "v_koto",
-            "p_ne",
-            "g_da"
+            "v_daijoubu"
           ]
         },
         {
           "spk": "A",
-          "jp": "五万円か。たくさん 働くよ！",
-          "en": "50,000 yen? I'd better work a lot!",
+          "jp": "五万円だよ。たくさん 働くよ！",
+          "en": "50,000 yen. I'll work a lot!",
           "terms": [
             {
               "counter": "en",
               "n": 50000
             },
-            "p_ka",
+            "g_da",
+            "p_yo",
             "v_takusan",
             {
               "id": "v_hataraku",
@@ -637,7 +646,11 @@
             "p_yo"
           ]
         }
-      ]
+      ],
+      "speakers": {
+        "A": "taro",
+        "B": "rikizo"
+      }
     },
     {
       "type": "reading",
@@ -934,8 +947,8 @@
           ]
         },
         {
-          "jp": "駅に 着いて、切手を 買いました。",
-          "en": "I arrived at the station and bought the stamps.",
+          "jp": "駅に 着いて、切手を 買います。",
+          "en": "I will arrive at the station and buy the stamps.",
           "terms": [
             "v_eki",
             "p_ni",
@@ -947,7 +960,7 @@
             "p_wo",
             {
               "id": "v_kau",
-              "form": "polite_mashita"
+              "form": "polite_masu"
             }
           ]
         }

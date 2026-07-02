@@ -293,25 +293,20 @@
         },
         {
           "spk": "リー",
-          "jp": "右の 店は 大きそうですよ。また 来てください。",
-          "en": "The shop to the right looks large. Please come again.",
+          "jp": "右の 店は 大きくて いいですよ。",
+          "en": "The shop on the right is large and nice.",
           "terms": [
             "v_migi",
-            "p_wa",
-            "v_mise",
             "p_no",
+            "v_mise",
+            "p_wa",
             {
               "id": "v_ookii",
-              "form": "appearance_sou_stem"
-            },
-            "g_desu",
-            "p_yo",
-            "v_mata",
-            {
-              "id": "v_kuru",
               "form": "te_form"
             },
-            "v_kudasai"
+            "v_ii",
+            "g_desu",
+            "p_yo"
           ]
         }
       ]
@@ -788,8 +783,8 @@
           ]
         },
         {
-          "jp": "下の 道は 古いですが、毎日 電車で 行っています。電車は 右から 左まで 行きます。",
-          "en": "The road below is old, but I go by train every day. The train goes from right to left.",
+          "jp": "下の 道は 古いですが、毎日 電車で 行っています。電車は 東から 西まで 行きます。",
+          "en": "The road below is old, but I go by train every day. The train goes from east to west.",
           "terms": [
             "v_shita",
             "p_wa",
@@ -811,9 +806,9 @@
             },
             "v_densha",
             "p_de",
-            "v_migi",
+            "v_higashi",
             "p_kara",
-            "v_hidari",
+            "v_nishi",
             "p_made",
             {
               "id": "v_iku",
@@ -1035,8 +1030,8 @@
           ]
         },
         {
-          "jp": "毎日 少し 上手に なっています。上手に 日本語を 話したいです。",
-          "en": "I am getting a little better every day. I want to speak Japanese skillfully.",
+          "jp": "毎日 少し 上手に なっています。いつか 上手に 日本語を 話したいです。",
+          "en": "He is getting a little better every day. Someday he wants to speak Japanese skillfully.",
           "terms": [
             "v_mainichi",
             "v_sukoshi",
@@ -1052,6 +1047,7 @@
               "id": "v_iru",
               "form": "polite_masu"
             },
+            "v_itsuka",
             {
               "id": "v_jouzu",
               "form": "adverbial"
@@ -1296,7 +1292,7 @@
         },
         {
           "kind": "mcq",
-          "q": "日本語は ___ に 読みます。（Japanese is read from right to left.）",
+          "q": "日本語の 本は ___ 読みます。（Japanese books are read from right to left.）",
           "choices": [
             "右から 左まで",
             "左から 右まで",
@@ -1316,7 +1312,7 @@
               "form": "polite_masu"
             }
           ],
-          "explanation": "Correct: 日本語は 右から 左まで に 読みます。（Japanese is read from right to left.）"
+          "explanation": "Correct: 日本語の 本は 右から 左まで 読みます。（Japanese books are read from right to left.） — traditional Japanese books read right to left."
         },
         {
           "kind": "mcq",
@@ -1360,7 +1356,7 @@
             "上手です",
             "上手な",
             "上手に",
-            "上手だ"
+            "上手の"
           ],
           "answer": "上手です",
           "terms": [
