@@ -1831,7 +1831,7 @@ window.PracticeModule = {
             opts.innerHTML =
                 '<div style="grid-column:1/-1;text-align:center;padding:8px 4px;">' +
                     '<div style="font-size:1.05rem;font-weight:700;color:var(--ink,#2f3542);">' + s.correct + ' / ' + s.total + ' first try</div>' +
-                    (willPay ? '<div style="font-size:0.9rem;color:var(--vermilion,#c0392b);font-weight:600;margin-top:4px;">+' + ((window.JPShared.srs && window.JPShared.srs.KEIKO_CLEAR) || 5) + ' けいこ</div>' : '') +
+                    (willPay ? '<div style="font-size:0.9rem;color:var(--vermilion,#c0392b);font-weight:600;margin-top:4px;">+' + ((window.JPShared.srs && window.JPShared.srs.KEIKO_CLEAR) || 5) + ' 文</div>' : '') +
                     (counts.items > 0
                         ? '<div style="font-size:0.85rem;color:#747d8c;margin-top:8px;">' + counts.items + ' more waiting — take a break or keep going.</div>' +
                           '<button class="k-btn" style="margin-top:8px;" onclick="KanjiApp.srsStart()">Review ' + Math.min(counts.items, (window.JPShared.srs && window.JPShared.srs.DAILY_CAP) || 20) + ' more</button>'

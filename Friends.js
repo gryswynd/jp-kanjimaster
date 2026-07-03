@@ -127,7 +127,7 @@ window.FriendsModule = (function () {
         '<div class="fr-rname">' + esc(entry.name || 'Friend') + (entry.isSelf ? '<span class="fr-you">you</span>' : '') + '</div>' +
         '<div class="fr-fstats">🔥 ' + (entry.streak || 0) + ' · ' + (entry.lessonsCompleted || 0) + ' lessons · 🏆 ' + (entry.achievementCount || 0) + '</div>' +
       '</div>' +
-      '<div class="fr-week">' + (week > 0 ? week : '—') + '<span class="u">けいこ this week</span></div>' +
+      '<div class="fr-week">' + (week > 0 ? week : '—') + '<span class="u">文 this week</span></div>' +
     '</button>';
   }
 
@@ -135,7 +135,7 @@ window.FriendsModule = (function () {
     var week = effectiveWeek(entry, weekStart);
     var stage = stageOf(entry.streak);
     var activity = week > 0
-      ? '<div style="font-size:0.95rem;font-weight:700;color:var(--vermilion,#c0392b);">' + week + ' けいこ earned this week</div>'
+      ? '<div style="font-size:0.95rem;font-weight:700;color:var(--vermilion,#c0392b);">' + week + ' 文 earned this week</div>'
       : '<div style="font-size:0.9rem;color:var(--ink-3,#8b8480);">No training yet this week' +
         (entry.lastActive ? '<br><span style="font-size:0.78rem;">Last trained ' + esc(entry.lastActive) + '</span>' : '') + '</div>';
     var removeBtn = entry.isSelf ? '' :

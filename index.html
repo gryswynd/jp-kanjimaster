@@ -474,7 +474,7 @@ window.JPApp = {
     //   • The OTA updater compares this bundled buildNumber to the hosted one.
     // appVersion is the human-facing label (keep ~in sync with Xcode MARKETING_VERSION).
     appVersion: "1.3.2",
-    buildNumber: 5,
+    buildNumber: 6,
     // Where the OTA updater looks for newer builds. Empty = OTA disabled (app just
     // runs its bundled copy, fully offline). Set to the Firebase Hosting URL once
     // hosting is live, e.g. "https://rikizo-app.web.app".
@@ -1565,7 +1565,7 @@ window.JPApp = {
       var price = (cos && cos.BIO_PRICE) || 15;
       return '<div style="background:var(--washi-2);border:1px dashed var(--hairline);border-radius:12px;padding:12px;margin-bottom:16px;">' +
         '<div style="font-size:0.75rem;color:var(--ink-3);margin-bottom:8px;">🔒 ' + this._esc(c.meaning) + '’s full story, likes, and a secret are sealed away…</div>' +
-        '<button onclick="JPApp._unlockCastBio(\'' + this._esc(c.id) + '\')" style="background:var(--ink);color:var(--washi);border:none;padding:8px 18px;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">Unlock full story · ' + price + ' けいこ</button>' +
+        '<button onclick="JPApp._unlockCastBio(\'' + this._esc(c.id) + '\')" style="background:var(--ink);color:var(--washi);border:none;padding:8px 18px;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">Unlock full story · ' + price + ' 文</button>' +
       '</div>';
     }
     var art = c.rewardArt
@@ -1594,7 +1594,7 @@ window.JPApp = {
     var res = cos.unlockCast(charId);
     if (!res.ok) {
       var bal = window.JPShared.keiko ? window.JPShared.keiko.getBalance() : 0;
-      this._toast('Not enough keiko yet (' + bal + ' / ' + cos.BIO_PRICE + ')');
+      this._toast('Not enough mon yet (' + bal + ' / ' + cos.BIO_PRICE + ')');
       return;
     }
     try { window.JPShared.sfx && window.JPShared.sfx.stamp(); } catch (e) {}
@@ -1636,7 +1636,7 @@ window.JPApp = {
     // Keiko chip: mon-coin (circle with a square hole — pure SVG, no font risk).
     var coin = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>';
     var chip = '<button onclick="JPApp._openKeikoSheet()" class="mono rk-press" style="display:inline-flex;align-items:center;gap:5px;border:1px solid var(--hairline);border-radius:999px;background:var(--washi-2);color:var(--ink-2);font-size:11px;font-weight:600;padding:5px 10px;cursor:pointer;">' +
-      coin + (keikoApi ? keikoApi.getBalance() : 0) + ' けいこ</button>';
+      coin + (keikoApi ? keikoApi.getBalance() : 0) + ' 文</button>';
 
     var checkDone = '<svg width="20" height="20" viewBox="0 0 20 20" style="flex-shrink:0;"><circle cx="10" cy="10" r="9" fill="var(--vermilion)"/><path d="M6 10.2l2.6 2.6L14 7.5" stroke="var(--washi)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var checkTodo = '<svg width="20" height="20" viewBox="0 0 20 20" style="flex-shrink:0;"><circle cx="10" cy="10" r="8.6" fill="none" stroke="var(--hairline-2, var(--hairline))" stroke-width="1.8"/></svg>';
@@ -1660,7 +1660,7 @@ window.JPApp = {
     var allDoneLine = state.allDone
       ? '<div style="padding:10px 0 2px;border-top:1px solid var(--hairline);display:flex;align-items:baseline;gap:8px;">' +
           '<span class="jp-serif" style="font-size:15px;color:var(--ink);">よくできました</span>' +
-          '<span style="font-size:12px;color:var(--ink-3);">Training complete · +' + q.KEIKO_TABLE.dailyBonus + ' keiko bonus</span>' +
+          '<span style="font-size:12px;color:var(--ink-3);">Training complete · +' + q.KEIKO_TABLE.dailyBonus + ' 文 bonus</span>' +
         '</div>'
       : '';
 
@@ -1828,19 +1828,19 @@ window.JPApp = {
     if (freezes >= 2) {
       btn = '<button disabled style="padding:9px 18px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--ink-3);font-size:13px;font-weight:600;">Full (2/2)</button>';
     } else if (bal < price) {
-      btn = '<button disabled style="padding:9px 14px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--ink-3);font-size:12.5px;font-weight:600;white-space:nowrap;">' + bal + ' / ' + price + ' けいこ</button>';
+      btn = '<button disabled style="padding:9px 14px;border-radius:999px;border:1px solid var(--hairline);background:transparent;color:var(--ink-3);font-size:12.5px;font-weight:600;white-space:nowrap;">' + bal + ' / ' + price + ' 文</button>';
     } else {
-      btn = '<button onclick="JPApp._buyFreeze()" style="padding:9px 18px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Buy · ' + price + ' けいこ</button>';
+      btn = '<button onclick="JPApp._buyFreeze()" style="padding:9px 18px;border-radius:999px;border:none;background:var(--vermilion);color:var(--washi);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Buy · ' + price + ' 文</button>';
     }
     var coin = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="vertical-align:-2px;"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>';
     return '<div class="jp-return-card" style="text-align:left;">' +
-      '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;">けいこ · Keiko points</div>' +
+      '<div class="mono" style="font-size:10.5px;color:var(--ink-3);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;">もん · Mon coins</div>' +
       '<div style="font-size:26px;font-weight:700;color:var(--ink);margin-bottom:2px;">' + coin + ' ' + bal + '</div>' +
       '<div style="font-size:12px;color:var(--ink-3);margin-bottom:16px;">Earned from daily training goals.</div>' +
       '<div style="border:1px solid var(--hairline);border-radius:var(--r-md);padding:12px 14px;display:flex;align-items:center;gap:12px;">' +
         '<div style="font-size:24px;flex-shrink:0;">❄️</div>' +
         '<div style="flex:1;min-width:0;">' +
-          '<div style="font-size:14px;font-weight:600;color:var(--ink);">Streak freeze · <span class="mono" style="font-size:12px;color:var(--ink-2);">' + price + ' けいこ</span></div>' +
+          '<div style="font-size:14px;font-weight:600;color:var(--ink);">Streak freeze · <span class="mono" style="font-size:12px;color:var(--ink-2);">' + price + ' 文</span></div>' +
           '<div style="font-size:11.5px;color:var(--ink-3);margin-top:1px;">Protects your streak for a missed day · ' + freezes + '/2 held</div>' +
         '</div>' + btn +
       '</div>' +
@@ -1859,7 +1859,7 @@ window.JPApp = {
       try { window.JPShared.haptics && window.JPShared.haptics.success(); } catch (e) {}
       this._toast('Streak freeze added ❄');
     } else {
-      this._toast(res.reason === 'max' ? 'Freezes are full (2/2)' : 'Not enough keiko yet');
+      this._toast(res.reason === 'max' ? 'Freezes are full (2/2)' : 'Not enough mon yet');
     }
     var sheet = document.getElementById('rk-keiko-sheet');
     if (sheet) sheet.innerHTML = this._keikoSheetHtml();

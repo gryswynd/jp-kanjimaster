@@ -801,7 +801,7 @@
           var sel = c.id === selectedId ? ' selected' : '';
           var lock = owned ? '' : ' locked';
           var price = (cosmetics && cosmetics.STAMP_PRICE) || 20;
-          return '<div class="jp-stamp-option' + sel + lock + '" data-char-id="' + c.id + '" data-owned="' + (owned ? '1' : '0') + '" title="' + c.meaning + (owned ? '' : ' · ' + price + ' けいこ') + '">' +
+          return '<div class="jp-stamp-option' + sel + lock + '" data-char-id="' + c.id + '" data-owned="' + (owned ? '1' : '0') + '" title="' + c.meaning + (owned ? '' : ' · ' + price + ' 文') + '">' +
             '<img src="' + resolveUrl(c.portrait) + '" alt="' + c.meaning + '">' +
             '<div class="jp-stamp-name">' + (owned ? c.meaning : '🔒 ' + price) + '</div>' +
           '</div>';
@@ -1744,7 +1744,7 @@
             stampGrid.querySelectorAll('.jp-stamp-option').forEach(function (o) { delete o.dataset.confirm; });
             option.dataset.confirm = '1';
             if (ch && previewImg) previewImg.src = resolveFn(ch.portrait);
-            if (ch && previewText) previewText.textContent = 'Unlock ' + ch.meaning + ' · ' + price + ' けいこ — tap again to buy';
+            if (ch && previewText) previewText.textContent = 'Unlock ' + ch.meaning + ' · ' + price + ' 文 — tap again to buy';
             setTimeout(function () { delete option.dataset.confirm; }, 4000);
             return;
           }
@@ -1752,7 +1752,7 @@
           var res = cosmetics ? cosmetics.buyStamp(charId) : { ok: false };
           if (!res.ok) {
             var bal = window.JPShared.keiko ? window.JPShared.keiko.getBalance() : 0;
-            if (previewText) previewText.textContent = 'Not enough keiko yet (' + bal + ' / ' + price + ')';
+            if (previewText) previewText.textContent = 'Not enough mon yet (' + bal + ' / ' + price + ')';
             return;
           }
           try { window.JPShared.sfx && window.JPShared.sfx.stamp(); } catch (err) {}
@@ -1900,6 +1900,36 @@
 
   function close() {
     if (!isOpen) return;
+
+    // A first name is REQUIRED before leaving Settings — friends see it on
+    // the dojo roster, and an unnamed account renders as "Friend" for
+    // everyone. If neither the input nor the store has one, bounce back to
+    // the main panel (sub-panels remove the input), highlight the field,
+    // and keep the modal open.
+    var upGate = window.JPShared.userProfile;
+    if (upGate) {
+      var fGate = document.getElementById('jp-set-first');
+      var typed = fGate ? fGate.value.trim() : '';
+      if (!typed && !upGate.getFirst()) {
+        var bodyGate = overlay && overlay.querySelector('.jp-set-body');
+        if (bodyGate && !fGate) {
+          bodyGate.innerHTML = buildModalBody();
+          bodyGate.scrollTop = 0;
+          rewireBody();
+          fGate = document.getElementById('jp-set-first');
+        }
+        if (fGate) {
+          try { fGate.scrollIntoView({ block: 'center' }); } catch (e) {}
+          fGate.focus();
+          var helpGate = document.getElementById('jp-set-name-help');
+          if (helpGate) helpGate.innerHTML = '<strong style="color:var(--vermilion,#c0392b);">Please enter your first name before closing — it’s how friends see you on the dojo roster.</strong>';
+          try { window.JPShared.haptics && window.JPShared.haptics.warning(); } catch (e) {}
+          return; // keep Settings open until a name is set
+        }
+        // Input unbuildable (shouldn't happen) — fall through rather than trap.
+      }
+    }
+
     isOpen = false;
 
     // Ensure any unsaved input is committed (blur often fires automatically on

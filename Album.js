@@ -135,7 +135,7 @@ window.AlbumModule = {
           const owned = cos.ownsInk(ink.id);
           const cls = 'jp-album-ink' + (ink.id === active ? ' active' : '');
           const lock = owned ? '' : '<span class="lk">🔒</span>';
-          return '<button class="' + cls + '" style="background:' + ink.color + ';" data-ink="' + ink.id + '" title="' + esc(ink.label) + (owned ? '' : ' · ' + ink.price + ' けいこ') + '">' + lock + '</button>';
+          return '<button class="' + cls + '" style="background:' + ink.color + ';" data-ink="' + ink.id + '" title="' + esc(ink.label) + (owned ? '' : ' · ' + ink.price + ' 文') + '">' + lock + '</button>';
         }).join('') +
         '<span id="jp-album-ink-msg" style="font-size:11px;color:var(--ink-3);flex:1;"></span>' +
       '</div>';
@@ -205,7 +205,7 @@ window.AlbumModule = {
           '<div style="flex:1;"></div>' +
           '<button onclick="JPApp._openKeikoSheet()" class="mono" style="display:inline-flex;align-items:center;gap:5px;border:1px solid var(--hairline);border-radius:999px;background:var(--washi);color:var(--ink-2);font-size:11px;font-weight:600;padding:5px 10px;cursor:pointer;">' +
             '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>' +
-            keikoBal + ' けいこ</button>' +
+            keikoBal + ' 文</button>' +
         '</div>' +
         '<div class="jp-album-h">' +
           '<div class="jp-album-title">いんちょう <span style="font-size:16px;color:var(--ink-3);">· Stamp Album</span></div>' +
@@ -233,7 +233,7 @@ window.AlbumModule = {
           const ink = cos.INKS.find(x => x.id === id);
           if (msg && !btn.dataset.confirm) {
             btn.dataset.confirm = '1';
-            msg.innerHTML = 'Unlock ' + esc(ink.label) + ' · ' + ink.price + ' けいこ — tap again to buy';
+            msg.innerHTML = 'Unlock ' + esc(ink.label) + ' · ' + ink.price + ' 文 — tap again to buy';
             setTimeout(() => { delete btn.dataset.confirm; if (msg.textContent.includes('tap again')) msg.textContent = ''; }, 3500);
           } else {
             const r = cos.buyInk(id);
@@ -243,7 +243,7 @@ window.AlbumModule = {
               if (window.JPApp) window.JPApp._toast('Seal ink unlocked: ' + ink.label);
               rerenderInks();
             } else if (msg) {
-              msg.textContent = 'Not enough keiko yet (' + (S.keiko ? S.keiko.getBalance() : 0) + ' / ' + ink.price + ')';
+              msg.textContent = 'Not enough mon yet (' + (S.keiko ? S.keiko.getBalance() : 0) + ' / ' + ink.price + ')';
             }
           }
         }

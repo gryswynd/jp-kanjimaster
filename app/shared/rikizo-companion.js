@@ -879,7 +879,7 @@
       var pool = (data && data.questsComplete) || [];
       // Fallback line works before the JSON pool is authored. Any Japanese in
       // this celebration stays in KANA — kanji here would bypass the font gate.
-      var line = pick(pool) || { text: 'きょうのけいこ、ぜんぶかんりょう！ All of today’s training done — +{KEIKO} keiko!' };
+      var line = pick(pool) || { text: 'きょうのけいこ、ぜんぶかんりょう！ All of today’s training done — +{KEIKO} mon!' };
       var text = String(line.text || '').replace('{KEIKO}', String(payload.keiko || ''));
       place(offscreenLeft(), restY());
       show();

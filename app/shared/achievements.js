@@ -198,7 +198,7 @@
       check: function () { return allIdsCompleted(levelIds('N5')); } },
     { id: 'n4-complete', title: 'N4 Conquered', sub: 'Every N4 lesson, grammar point, and review', icon: '四',
       check: function () { return allIdsCompleted(levelIds('N4')); } },
-    { id: 'keiko-500', title: 'Rich in Practice', sub: 'Earn 500 lifetime keiko', icon: '🪙',
+    { id: 'keiko-500', title: 'Rich in Practice', sub: 'Earn 500 lifetime mon', icon: '🪙',
       check: function () { return readInt('k-keiko-earned') >= 500; } }
   ];
 
@@ -229,11 +229,11 @@
     };
     if (defs.length > STORM_THRESHOLD) {
       // Veteran retro-scan: one summary instead of a toast storm.
-      toast('🏆 ' + defs.length + ' stamps added to your album · +' + (defs.length * KEIKO_PER) + ' けいこ', 1300);
+      toast('🏆 ' + defs.length + ' stamps added to your album · +' + (defs.length * KEIKO_PER) + ' 文', 1300);
     } else {
       defs.forEach(function (def, i) {
         // Staggered, and delayed behind any same-moment quest toast.
-        toast('🏆 Stamp earned: ' + def.title + ' · +' + KEIKO_PER + ' けいこ', 1300 + i * 1600);
+        toast('🏆 Stamp earned: ' + def.title + ' · +' + KEIKO_PER + ' 文', 1300 + i * 1600);
       });
     }
     try { window.dispatchEvent(new CustomEvent('jp-achievements-changed')); } catch (e) {}

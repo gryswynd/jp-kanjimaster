@@ -417,7 +417,7 @@
     // Tell the user WHAT happened — the haptic alone reads as a mystery buzz.
     try {
       if (window.JPApp && window.JPApp._toast) {
-        window.JPApp._toast('✓ Goal complete: ' + ((def && def.title) || 'training goal') + ' · +' + KEIKO_TABLE.quest + ' けいこ');
+        window.JPApp._toast('✓ Goal complete: ' + ((def && def.title) || 'training goal') + ' · +' + KEIKO_TABLE.quest + ' 文');
       }
     } catch (e) {}
   }
@@ -431,7 +431,7 @@
     try {
       setTimeout(function () {
         if (window.JPApp && window.JPApp._toast) {
-          window.JPApp._toast('今日のけいこ complete! +' + KEIKO_TABLE.dailyBonus + ' けいこ bonus');
+          window.JPApp._toast('今日のけいこ complete! +' + KEIKO_TABLE.dailyBonus + ' 文 bonus');
         }
       }, 2600);
     } catch (e) {}
