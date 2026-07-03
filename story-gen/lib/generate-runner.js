@@ -6,19 +6,43 @@
  */
 import { readFile } from 'node:fs/promises';
 import { buildGateContext, parseLessonId } from '../vendor/lib/story-gates.mjs';
-import { generateStory } from '../vendor/lib/generate-story.mjs';
+import { generateStory, reviseStory, collectUnglossaried } from '../vendor/lib/generate-story.mjs';
 import { anthropicCall, authorSystem } from './anthropic.js';
 import { computeCost } from './cost-meter.js';
 import { judgeStory } from './quality-judge.js';
-import { env, DEFAULT_FLAGS } from './config.js';
+import { env, DEFAULT_FLAGS, COSTS, JUDGE_COSTS } from './config.js';
 import { updateJob, saveStory, recordCost, recordGeneration, releaseGeneration, getPricingFlags, getPushTokens, prunePushTokens } from './store.js';
 import { sendPush } from './firebase.js';
 
+const emptyUsage = () => ({ inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0, outputTokens: 0 });
 const addUsage = (a, b) => ({
   inputTokens: (a.inputTokens || 0) + (b.inputTokens || 0),
+  cacheReadTokens: (a.cacheReadTokens || 0) + (b.cacheReadTokens || 0),
+  cacheCreationTokens: (a.cacheCreationTokens || 0) + (b.cacheCreationTokens || 0),
   outputTokens: (a.outputTokens || 0) + (b.outputTokens || 0),
 });
 const round2 = (c) => Math.round((c || 0) * 100) / 100;
+
+// Author usage is Sonnet-priced, judge usage Haiku-priced — meter each at its own
+// rate, then combine into the single {claudeInputCents,claudeOutputCents} the
+// dashboard reads. (claudeInputCents already folds in the correctly-priced cache
+// reads/writes, so the per-service line is accurate again.)
+function billing(authorUsage, judgeUsage) {
+  const a = computeCost(authorUsage, COSTS);
+  const j = computeCost(judgeUsage, JUDGE_COSTS);
+  return {
+    totalCents: a.totalCents + j.totalCents,
+    breakdown: {
+      claudeInputCents: a.breakdown.claudeInputCents + j.breakdown.claudeInputCents,
+      claudeOutputCents: a.breakdown.claudeOutputCents + j.breakdown.claudeOutputCents,
+    },
+  };
+}
+// The dimensions the revision should target (inScope is already gate-guaranteed).
+function weakDims(q) {
+  const map = [['coherence', 'coherence'], ['naturalness', 'naturalness'], ['themeFit', 'theme fit'], ['castUsage', 'character use']];
+  return map.filter(([k]) => (q[k] || 5) <= 2).map(([, label]) => label);
+}
 
 // Turn a thrown API/transport error into a clean, legible report reason.
 function classifyError(e) {
@@ -52,7 +76,9 @@ export function toParams(body, storyId, maxParagraphs) {
     id: storyId,
     castIds: Array.isArray(body.castIds) ? body.castIds.slice(0, 5) : [],
     themes: Array.isArray(body.themes) ? body.themes.slice(0, 3) : [],
-    tone: typeof body.tone === 'string' ? body.tone.slice(0, 80) : '',
+    // Free text → prompt: strip newlines / structural chars so it can't inject a
+    // new instruction line, collapse whitespace, cap length.
+    tone: typeof body.tone === 'string' ? body.tone.replace(/[\r\n<>{}]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 80) : '',
     vocabLevel,
     level: gates.furthestLesson || vocabLevel,   // human-readable, for the report
     ceiling,
@@ -77,41 +103,46 @@ export async function runJob(uid, email, jobId, params) {
     await updateJob(uid, jobId, { status: 'running' });
     const [ctx, sys] = await warm();
     let res = await generateStory({ params, ctx, anthropicCall, authorSystem: sys, log: () => {} });
-    let usage = res.usage || {};
+    let authorUsage = res.usage || emptyUsage();
+    let judgeUsage = emptyUsage();
 
     if (!res.ok) {
-      const cost = computeCost(usage);
-      await recordCost(uid, email, cost.totalCents, cost.breakdown);
+      const { totalCents, breakdown } = billing(authorUsage, judgeUsage);
+      await recordCost(uid, email, totalCents, breakdown);
       await releaseGeneration(uid);
       await updateJob(uid, jobId, { status: 'failed', error: 'scope_unmet', rounds: res.rounds, violations: (res.violations || []).slice(0, 8) });
-      await recordGeneration(genRecord({ uid, email, params, res, status: 'failed', error: 'scope_unmet', costCents: cost.totalCents, t0 }));
+      const unglossaried = res.story ? collectUnglossaried(res.story, ctx, params.vocabLevel) : [];
+      await recordGeneration(genRecord({ uid, email, params, res, status: 'failed', error: 'scope_unmet', costCents: totalCents, unglossaried, t0 }));
       await notifyFailure(uid);
       return;
     }
 
-    // Silent quality judge (best-effort) + at-most-one auto-regeneration if the
-    // story scores below threshold. The better-scoring story is the one shipped.
+    // Silent quality judge (best-effort) + at-most-one TARGETED revision if the
+    // story scores below threshold. The revision is guided by the judge's own note
+    // + weak dimensions and reuses the in-scope story as its starting point
+    // (cheaper and more effective than a from-scratch regen). Ship the better one.
     let quality = null, regenerated = false;
     if (flags.qualityJudge !== false) {
       const j = await judgeStory({ story: res.story, params });
-      usage = addUsage(usage, j.usage); quality = j.scores;
+      judgeUsage = addUsage(judgeUsage, j.usage); quality = j.scores;
       if (flags.autoRegen !== false && quality && quality.overall < (flags.qualityThreshold || 3)) {
-        const res2 = await generateStory({ params, ctx, anthropicCall, authorSystem: sys, log: () => {} });
-        usage = addUsage(usage, res2.usage || {});
+        const rev = await reviseStory({ params, ctx, anthropicCall, authorSystem: sys, story: res.story, judgeNote: quality.note, weakDimensions: weakDims(quality), log: () => {} });
+        authorUsage = addUsage(authorUsage, rev.usage || emptyUsage());
         regenerated = true;
-        if (res2.ok) {
-          const j2 = await judgeStory({ story: res2.story, params });
-          usage = addUsage(usage, j2.usage);
-          if (j2.scores && (!quality || j2.scores.overall > quality.overall)) { res = res2; quality = j2.scores; }
+        if (rev.ok) {
+          const j2 = await judgeStory({ story: rev.story, params });
+          judgeUsage = addUsage(judgeUsage, j2.usage);
+          if (j2.scores && j2.scores.overall >= quality.overall) { res = { ...res, story: rev.story, violations: rev.violations }; quality = j2.scores; }
         }
       }
     }
 
-    const cost = computeCost(usage);
-    await recordCost(uid, email, cost.totalCents, cost.breakdown);
+    const { totalCents, breakdown } = billing(authorUsage, judgeUsage);
+    await recordCost(uid, email, totalCents, breakdown);
     const storyId = await saveStory(uid, res.story);
-    await updateJob(uid, jobId, { status: 'done', storyId, rounds: res.rounds, costCents: round2(cost.totalCents), quality });
-    await recordGeneration(genRecord({ uid, email, params, res, status: 'done', storyId, quality, regenerated, costCents: cost.totalCents, t0 }));
+    const unglossaried = collectUnglossaried(res.story, ctx, params.vocabLevel);
+    await updateJob(uid, jobId, { status: 'done', storyId, rounds: res.rounds, costCents: round2(totalCents), quality });
+    await recordGeneration(genRecord({ uid, email, params, res, status: 'done', storyId, quality, regenerated, costCents: totalCents, unglossaried, t0 }));
 
     // Notify the device(s) the story is ready (no-op if no tokens / no push set up).
     try {
@@ -135,7 +166,7 @@ export async function runJob(uid, email, jobId, params) {
 }
 
 // Build the rich per-generation report row (success OR failure).
-function genRecord({ uid, email, params, res, status, storyId, error, quality, regenerated, costCents, t0 }) {
+function genRecord({ uid, email, params, res, status, storyId, error, quality, regenerated, costCents, unglossaried, t0 }) {
   const story = (res && res.story) || {};
   return {
     createdAt: Date.now(),
@@ -150,9 +181,12 @@ function genRecord({ uid, email, params, res, status, storyId, error, quality, r
     actualParagraphs: Array.isArray(story.paragraphs) ? story.paragraphs.length : 0,
     status,
     error: error || null,
-    rounds: (res && res.rounds) || 0,
+    rounds: (res && res.rounds) || 0,             // finishing-repair rounds (effort, not para count)
+    paraRetries: (res && res.paraRetries) || 0,   // extra per-paragraph attempts
+    lastResort: !!(res && res.lastResort),        // did the sentence-delete pass fire?
     residualViolations: (res && Array.isArray(res.violations)) ? res.violations.length : 0,
     residualMessages: (res && Array.isArray(res.violations)) ? res.violations.slice(0, 8) : [],
+    unglossaried: Array.isArray(unglossaried) ? unglossaried.slice(0, 20) : [],   // soft-gate slips to watch
     regenerated: !!regenerated,
     quality: quality || null,
     costCents: round2(costCents),

@@ -67,7 +67,7 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
     const q = await reservePressAsk(deviceId, tier);
     reserved = true;
 
-    const usage = { sttSeconds: 0, inputTokens: 0, outputTokens: 0 };
+    const usage = { sttSeconds: 0, inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0, outputTokens: 0 };
     let transcript = text || '';
 
     // Resolve the on-screen Japanese once (cheap, cached). Used both to bias STT
@@ -124,6 +124,8 @@ pressToAskRouter.post('/v1/press-to-ask', async (req, res, next) => {
 
     const { answer, usage: llm, lookups } = await answerPressToAsk(transcript, fullHint, flags.pressAsk);
     usage.inputTokens = llm.inputTokens;
+    usage.cacheReadTokens = llm.cacheReadTokens;
+    usage.cacheCreationTokens = llm.cacheCreationTokens;
     usage.outputTokens = llm.outputTokens;
 
     const { totalCents: cents, breakdown } = computeCost(usage);

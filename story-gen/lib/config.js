@@ -10,6 +10,9 @@ export const env = {
   // Authoring is a constrained-vocab task — Sonnet converges in fewer repair
   // rounds than Haiku. Configurable so we can tune cost/quality.
   model: process.env.STORYGEN_MODEL || 'claude-sonnet-4-6',
+  // The silent quality judge runs on a cheaper, independent model — lower cost
+  // and less correlated with the author's blind spots.
+  judgeModel: process.env.STORYGEN_JUDGE_MODEL || 'claude-haiku-4-5',
   // Where the staged curriculum/content lives in the container (see scripts/stage.mjs).
   contentRoot: process.env.CONTENT_ROOT || new URL('../content', import.meta.url).pathname,
   gcloudProject: process.env.GCLOUD_PROJECT || '',
@@ -33,8 +36,21 @@ export const DEFAULT_FLAGS = {
   qualityThreshold: 3,     // overall (1–5) below this triggers one regeneration
 };
 
-/** Per-token cost (USD) for the authoring model. Sonnet 4.6 list pricing. */
-export const COSTS = {
+/**
+ * Per-token cost (USD). Prompt-cached input is priced very differently from
+ * fresh input — cache READS are 0.1× the input rate, cache WRITES 1.25× — and the
+ * incremental loop is ~90% cache reads, so lumping them at the full rate overstated
+ * cost by up to ~10×. The meter now prices the three input classes separately.
+ */
+export const COSTS = {   // authoring model — Sonnet 4.6 list pricing
   claudeInputPerToken: 3.0 / 1e6,
   claudeOutputPerToken: 15.0 / 1e6,
+  cacheReadMultiplier: 0.1,
+  cacheWriteMultiplier: 1.25,
+};
+export const JUDGE_COSTS = {   // judge model — Haiku 4.5 list pricing (tune if it moves)
+  claudeInputPerToken: 1.0 / 1e6,
+  claudeOutputPerToken: 5.0 / 1e6,
+  cacheReadMultiplier: 0.1,
+  cacheWriteMultiplier: 1.25,
 };

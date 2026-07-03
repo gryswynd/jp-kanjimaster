@@ -15,6 +15,7 @@ import { requireUid } from '../lib/auth.js';
 import { reserveGeneration, createJob, getJob, listStories, getStory, saveStory, getPricingFlags, savePushToken, listFriendUids, friendSummary, getPushTokens, prunePushTokens } from '../lib/store.js';
 import { sendPush } from '../lib/firebase.js';
 import { toParams, runJob } from '../lib/generate-runner.js';
+import { checkGates } from '../lib/story-gen-gates.js';
 import { httpError } from '../lib/errors.js';
 
 export const storiesRouter = express.Router();
@@ -22,6 +23,15 @@ export const storiesRouter = express.Router();
 storiesRouter.post('/v1/stories/generate', requireUid, async (req, res, next) => {
   try {
     const flags = await getPricingFlags();
+    const body = req.body || {};
+    // Enforce theme/length unlocks server-side (client locks are bypassable) —
+    // before reserving a quota slot or spending any Claude call.
+    const gate = await checkGates({
+      themes: Array.isArray(body.themes) ? body.themes : [],
+      targetParagraphs: parseInt(body.targetParagraphs, 10) || 12,
+      furthestLesson: (body.gates && body.gates.furthestLesson) || null,
+    });
+    if (!gate.ok) throw httpError(403, gate.reason);
     await reserveGeneration(req.uid);              // throws 429/503 on caps/kill-switch
     const storyId = (await import('node:crypto')).randomUUID();
     const params = toParams(req.body || {}, storyId, flags.maxParagraphs);

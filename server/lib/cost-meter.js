@@ -15,11 +15,17 @@ function round2(n) { return Math.round((n || 0) * 100) / 100; }
  * Returns { totalCents, breakdown:{ claudeInputCents, claudeOutputCents, sttCents,
  * firestoreCents } } — all in cents.
  */
-export function computeCost({ sttSeconds = 0, inputTokens = 0, outputTokens = 0,
+export function computeCost({ sttSeconds = 0, inputTokens = 0, cacheReadTokens = 0,
+                              cacheCreationTokens = 0, outputTokens = 0,
                               firestoreReads, firestoreWrites } = {}) {
   const reads = firestoreReads ?? FIRESTORE_OPS_PER_PRESSASK.reads;
   const writes = firestoreWrites ?? FIRESTORE_OPS_PER_PRESSASK.writes;
-  const claudeInputCents = inputTokens * COSTS.claudeInputPerToken * 100;
+  // Fresh input at 1×, cache reads at 0.1×, cache writes at 1.25× (see COSTS).
+  const claudeInputCents = (
+    inputTokens * COSTS.claudeInputPerToken +
+    cacheReadTokens * COSTS.claudeInputPerToken * (COSTS.cacheReadMultiplier ?? 0.1) +
+    cacheCreationTokens * COSTS.claudeInputPerToken * (COSTS.cacheWriteMultiplier ?? 1.25)
+  ) * 100;
   const claudeOutputCents = outputTokens * COSTS.claudeOutputPerToken * 100;
   const sttCents = sttSeconds * COSTS.sttPerSecond * 100;
   const firestoreCents = (reads * COSTS.firestoreReadPer + writes * COSTS.firestoreWritePer) * 100;
@@ -41,6 +47,8 @@ export function logCost(route, deviceId, usage, costCents, breakdown = {}) {
     deviceId,
     sttSeconds: usage.sttSeconds || 0,
     inputTokens: usage.inputTokens || 0,
+    cacheReadTokens: usage.cacheReadTokens || 0,
+    cacheCreationTokens: usage.cacheCreationTokens || 0,
     outputTokens: usage.outputTokens || 0,
     costCents: round2(costCents),
     // Per-service split (cents) — Cloud Monitoring log-based metrics key on these.

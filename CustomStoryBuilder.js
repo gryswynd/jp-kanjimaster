@@ -9,7 +9,13 @@
 window.CustomStoryBuilderModule = (function () {
   'use strict';
 
-  var THEMES = ['Adventure', 'Slice of life', 'Sci-Fi', 'Horror', 'Mystery', 'Period Piece', 'Fantasy', 'Comedy', 'Travel'];
+  // Ordered by unlock (earliest first) so a learner's available chips cluster at
+  // the top. Gate lesson per theme lives in shared/story-gen-gates.json.
+  var THEMES = [
+    'Slice of life', 'Animals', 'Comedy', 'School', 'Food',
+    'Adventure', 'Travel', 'Sports', 'Mystery', 'Sci-Fi', 'Fantasy',
+    'Horror', 'Period Piece', 'Folktale'
+  ];
   // n = target paragraphs. Pages depend on the reader (≈3 paras/page); the
   // service enforces ~85% of n as a floor so the page count is reliable.
   // Short 2-3pp · Medium 4-5pp · Long 7-8pp · Extra long 9-10pp (first-pass; tune from real page counts).
@@ -38,6 +44,16 @@ window.CustomStoryBuilderModule = (function () {
     Object.keys(completed).forEach(function (id) { var m = /^G(\d+)$/.exec(id); if (m && completed[id]) gnum = Math.max(gnum, +m[1]); });
     return { level: level, furthestLesson: furthest || null, grammarGate: gnum ? ('G' + gnum) : 'G1' };
   }
+
+  // ── Theme/length gating (mirrors story-gen/lib/story-gen-gates.js) ──────────
+  // rank = (5 - Nlevel)*1000 + index → N5.1=1, N4.1=1001, N3.1=2001 (monotonic).
+  function lessonRank(id) { var m = /^N([345])\.(\d+)$/.exec(id || ''); return m ? (5 - +m[1]) * 1000 + (+m[2]) : 0; }
+  function learnerRank() { return Math.max(lessonRank(deriveGates().furthestLesson), 1); }  // floor N5.1
+  function gatesData() { return CustomStoryBuilderModule._gates || { themes: {}, lengths: {} }; }
+  // Return the unlock lesson id if locked, else null.
+  function themeLocked(t) { var need = gatesData().themes[t]; return (need && lessonRank(need) > learnerRank()) ? need : null; }
+  function lenLocked(n) { var need = gatesData().lengths[String(n)]; return (need && lessonRank(need) > learnerRank()) ? need : null; }
+  function defaultLen() { return lenLocked(14) ? 8 : 14; }  // 8 (N5.1) is never locked
 
   function flaggedSurfaces() {
     var active = parseObj('k-active-flags'), out = [];
@@ -89,6 +105,8 @@ window.CustomStoryBuilderModule = (function () {
       '.csb-chips{display:flex;flex-wrap:wrap;gap:8px;}',
       '.csb-chip{padding:9px 13px;border-radius:999px;border:1px solid var(--hairline,rgba(0,0,0,.16));background:#fff;color:var(--ink-2,#5d5852);font:inherit;font-size:.9rem;cursor:pointer;}',
       '.csb-chip.on{background:var(--ink,#323029);color:var(--washi,#f5f3f0);border-color:var(--ink,#323029);}',
+      '.csb-chip.locked{opacity:.45;cursor:not-allowed;border-style:dashed;}',
+      '.csb-lock{font-size:.68rem;opacity:.85;margin-left:2px;white-space:nowrap;}',
       '.csb-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;}',
       '.csb-btn{display:block;width:100%;margin-top:24px;padding:14px;border-radius:999px;border:none;background:var(--ink,#323029);color:var(--washi,#f5f3f0);font:inherit;font-weight:700;font-size:1rem;cursor:pointer;}',
       '.csb-back{background:none;border:none;font:inherit;color:var(--ink-3,#8b8480);cursor:pointer;padding:0;margin-bottom:8px;}',
@@ -138,11 +156,21 @@ window.CustomStoryBuilderModule = (function () {
     html += '</div>';
 
     html += '<div class="sec">Theme</div><div class="csb-chips" id="csb-themes">';
-    THEMES.forEach(function (t) { html += '<button class="csb-chip" data-theme="' + esc(t) + '">' + esc(t) + '</button>'; });
+    THEMES.forEach(function (t) {
+      var lock = themeLocked(t);
+      html += '<button class="csb-chip' + (lock ? ' locked' : (selThemes[t] ? ' on' : '')) + '" data-theme="' + esc(t) + '"' +
+        (lock ? ' data-lock="' + esc(lock) + '"' : '') + '>' + esc(t) +
+        (lock ? ' <span class="csb-lock">🔒 ' + esc(lock) + '</span>' : '') + '</button>';
+    });
     html += '</div>';
 
     html += '<div class="sec">Length</div><div class="csb-chips" id="csb-len">';
-    LENGTHS.forEach(function (l) { html += '<button class="csb-chip' + (l.n === selLen ? ' on' : '') + '" data-len="' + l.n + '">' + esc(l.label) + '</button>'; });
+    LENGTHS.forEach(function (l) {
+      var lock = lenLocked(l.n);
+      html += '<button class="csb-chip' + (lock ? ' locked' : (l.n === selLen ? ' on' : '')) + '" data-len="' + l.n + '"' +
+        (lock ? ' data-lock="' + esc(lock) + '"' : '') + '>' + esc(l.label) +
+        (lock ? ' <span class="csb-lock">🔒 ' + esc(lock) + '</span>' : '') + '</button>';
+    });
     html += '</div>';
 
     html += '<div class="sec">Focus</div>';
@@ -188,13 +216,15 @@ window.CustomStoryBuilderModule = (function () {
     container.querySelector('#csb-themes').onclick = function (e) {
       var b = e.target.closest('[data-theme]'); if (!b) return;
       var t = b.getAttribute('data-theme');
+      if (b.classList.contains('locked')) { err('🔒 "' + t + '" unlocks at ' + b.getAttribute('data-lock') + '.'); return; }
       var n = Object.keys(selThemes).filter(function (k) { return selThemes[k]; }).length;
       if (!selThemes[t] && n >= 3) return;
-      selThemes[t] = !selThemes[t]; b.classList.toggle('on', selThemes[t]);
+      selThemes[t] = !selThemes[t]; b.classList.toggle('on', selThemes[t]); err('');
     };
     container.querySelector('#csb-len').onclick = function (e) {
       var b = e.target.closest('[data-len]'); if (!b) return;
-      selLen = +b.getAttribute('data-len');
+      if (b.classList.contains('locked')) { err('🔒 That length unlocks at ' + b.getAttribute('data-lock') + '.'); return; }
+      selLen = +b.getAttribute('data-len'); err('');
       container.querySelectorAll('#csb-len .csb-chip').forEach(function (x) { x.classList.toggle('on', +x.getAttribute('data-len') === selLen); });
     };
     container.querySelector('#csb-flags').onclick = function () { useFlags = !useFlags; this.classList.toggle('on', useFlags); };
@@ -250,6 +280,8 @@ window.CustomStoryBuilderModule = (function () {
       pollJob(gen.jobId);
     } catch (e) {
       if (e && e.code === 'user_daily_cap') return fail('You\'ve reached today\'s story limit. Try again tomorrow!');
+      if (e && e.code === 'theme_locked') return fail('That theme isn\'t unlocked yet — keep going in your lessons to reach it!');
+      if (e && e.code === 'length_locked') return fail('That story length unlocks a bit further along — try a shorter one for now.');
       if (e && (e.code === 'kill_switch' || e.code === 'daily_cost_cap')) return fail('Story generation is paused right now. Please try again later.');
       if (e && e.code === 'login_required') return fail('Please sign in and try again.');
       fail('Could not start generation: ' + ((e && e.message) || 'error'));
@@ -308,6 +340,13 @@ window.CustomStoryBuilderModule = (function () {
     if (!CustomStoryBuilderModule._manifest && window.getManifest) {
       try { CustomStoryBuilderModule._manifest = await window.getManifest(config); } catch (e) { CustomStoryBuilderModule._manifest = null; }
     }
+    if (!CustomStoryBuilderModule._gates) {
+      try {
+        var gurl = (window.getAssetUrl ? window.getAssetUrl(config, 'shared/story-gen-gates.json') : 'shared/story-gen-gates.json') + '?t=' + Date.now();
+        CustomStoryBuilderModule._gates = await (await fetch(gurl)).json();
+      } catch (e) { CustomStoryBuilderModule._gates = { themes: {}, lengths: {} }; }
+    }
+    selLen = defaultLen();   // don't default to a length the learner hasn't unlocked
     render();
   }
 

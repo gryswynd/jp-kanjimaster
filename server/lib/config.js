@@ -65,8 +65,13 @@ export const DEFAULT_FLAGS = {
 /** Per-request cost model (USD), Stack A. Used by the cost meter. */
 export const COSTS = {
   sttPerSecond: 0.016 / 60,        // Google streaming STT ~ $0.016/min
-  claudeInputPerToken: 0.80 / 1e6, // Haiku input  ~$0.80/M  (adjust to live pricing)
-  claudeOutputPerToken: 4.0 / 1e6, // Haiku output ~$4.0/M
+  claudeInputPerToken: 1.00 / 1e6, // Haiku 4.5 input  $1.00/M (Anthropic list)
+  claudeOutputPerToken: 5.0 / 1e6, // Haiku 4.5 output $5.00/M (Anthropic list)
+  // Prompt-cached input is priced apart from fresh input: cache reads 0.1×, cache
+  // writes 1.25×. The persona/system prompt is cached and reused every turn, so most
+  // input is cache reads — billing them at the full rate overstated cost ~10× there.
+  cacheReadMultiplier: 0.1,
+  cacheWriteMultiplier: 1.25,
   firestoreReadPer: 0.06 / 1e5,    // Firestore doc read  ~$0.06 / 100k (us-west1)
   firestoreWritePer: 0.18 / 1e5,   // Firestore doc write ~$0.18 / 100k
 };

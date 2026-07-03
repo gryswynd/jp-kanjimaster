@@ -80,7 +80,7 @@ export async function answerPressToAsk(question, hint, flags) {
   }
 
   const messages = [{ role: 'user', content: question }];
-  const usage = { inputTokens: 0, outputTokens: 0 };
+  const usage = { inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0, outputTokens: 0 };
   const lookups = [];
   let answer = '';
 
@@ -94,7 +94,10 @@ export async function answerPressToAsk(question, hint, flags) {
     });
 
     const u = res.usage || {};
-    usage.inputTokens += (u.input_tokens || 0) + (u.cache_read_input_tokens || 0) + (u.cache_creation_input_tokens || 0);
+    // Keep the three input classes separate — priced 1× / 0.1× / 1.25× by the cost meter.
+    usage.inputTokens += u.input_tokens || 0;
+    usage.cacheReadTokens += u.cache_read_input_tokens || 0;
+    usage.cacheCreationTokens += u.cache_creation_input_tokens || 0;
     usage.outputTokens += u.output_tokens || 0;
 
     const textPart = (res.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('').trim();

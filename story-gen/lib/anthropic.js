@@ -28,9 +28,9 @@ export async function authorSystem() {
   return authorCache;
 }
 
-export async function anthropicCall({ system, messages, maxTokens }) {
+export async function anthropicCall({ system, messages, maxTokens, model }) {
   const res = await anthropic().messages.create({
-    model: env.model,
+    model: model || env.model,
     max_tokens: maxTokens || 4000,
     // Cache the system prompt (author rules + per-story scope + vocab palette) —
     // the incremental loop reuses it across ~30 small calls, so this slashes cost.
@@ -39,10 +39,13 @@ export async function anthropicCall({ system, messages, maxTokens }) {
   });
   const text = (res.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
   const u = res.usage || {};
+  // Keep the three input classes SEPARATE — they're priced 1× / 0.1× / 1.25×.
   return {
     text,
     usage: {
-      inputTokens: (u.input_tokens || 0) + (u.cache_read_input_tokens || 0) + (u.cache_creation_input_tokens || 0),
+      inputTokens: u.input_tokens || 0,
+      cacheReadTokens: u.cache_read_input_tokens || 0,
+      cacheCreationTokens: u.cache_creation_input_tokens || 0,
       outputTokens: u.output_tokens || 0,
     },
   };

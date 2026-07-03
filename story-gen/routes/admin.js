@@ -40,10 +40,11 @@ function summarize(gens, threshold) {
   const low = withQ.filter((g) => g.quality.overall < threshold).length;
   const failReasons = {};
   failed.forEach((g) => { const k = g.error || 'error'; failReasons[k] = (failReasons[k] || 0) + 1; });
-  const themePop = {}, castPop = {};
+  const themePop = {}, castPop = {}, unglossPop = {};
   gens.forEach((g) => {
     (g.themes || []).forEach((t) => { themePop[t] = (themePop[t] || 0) + 1; });
     (g.castIds || []).forEach((c) => { castPop[c] = (castPop[c] || 0) + 1; });
+    (g.unglossaried || []).forEach((w) => { unglossPop[w] = (unglossPop[w] || 0) + 1; });
   });
   const lenAcc = done.filter((g) => g.targetParagraphs).map((g) => g.actualParagraphs / g.targetParagraphs);
   const avgLenAcc = lenAcc.length ? lenAcc.reduce((s, x) => s + x, 0) / lenAcc.length : null;
@@ -51,7 +52,7 @@ function summarize(gens, threshold) {
   const regen = done.filter((g) => g.regenerated).length;
   return {
     total: gens.length, done: done.length, failed: failed.length,
-    avgQ, low, withQ: withQ.length, failReasons, themePop, castPop,
+    avgQ, low, withQ: withQ.length, failReasons, themePop, castPop, unglossPop,
     avgLenAcc, regen,
     latP50: percentile(lat, 50), latP95: percentile(lat, 95),
   };
@@ -97,14 +98,21 @@ adminRouter.get('/v1/admin/storygen-dashboard', async (req, res, next) => {
       const len = g.targetParagraphs ? `${g.actualParagraphs}/${g.targetParagraphs}` : (g.actualParagraphs || '—');
       const resid = (g.residualMessages && g.residualMessages.length) ? esc(g.residualMessages.join(' | ')) : '';
       const st = g.status === 'done' ? '<span class="ok">done</span>' : `<span class="bad"${resid ? ` title="${resid}"` : ''}>${esc(g.error || 'failed')}${g.residualViolations ? ' (' + g.residualViolations + ')' : ''}</span>`;
+      // Repair effort: finishing rounds (+ per-paragraph retries), ✂ if the
+      // last-resort sentence-delete fired, ↻ if a quality revision ran.
+      const repair = `${g.rounds || 0}${g.paraRetries ? '+' + g.paraRetries : ''}` +
+        `${g.lastResort ? ' <span class="cut" title="last-resort sentence delete fired">✂</span>' : ''}` +
+        `${g.regenerated ? ' <span class="rg" title="quality revision ran">↻</span>' : ''}`;
+      const ug = (g.unglossaried && g.unglossaried.length)
+        ? ` <span class="ug" title="unglossaried (soft-gate slips): ${esc(g.unglossaried.join('  '))}">•${g.unglossaried.length}</span>` : '';
       return `<tr>
         <td>${t}</td>
         <td>${esc((g.email || g.uid || '').slice(0, 22))}</td>
-        <td>${esc((g.title || '').slice(0, 28))}</td>
+        <td>${esc((g.title || '').slice(0, 28))}${ug}</td>
         <td>${esc((g.themes || []).join(', ').slice(0, 18))}</td>
         <td>${esc(g.level || '')}</td>
         <td>${len}</td>
-        <td>${g.rounds || 0}${g.regenerated ? ' <span class="rg">↻</span>' : ''}</td>
+        <td>${repair}</td>
         <td>${q}</td>
         <td>${cents(g.costCents)}</td>
         <td>${st}</td></tr>`;
@@ -129,7 +137,7 @@ adminRouter.get('/v1/admin/storygen-dashboard', async (req, res, next) => {
 table{border-collapse:collapse;width:100%;font-size:13px}td,th{text-align:left;padding:4px 8px;border-bottom:1px solid #f0f0f0;white-space:nowrap}
 th{color:#888;font-weight:600}
 .q{letter-spacing:-1px}.q1,.q2{color:#d33}.q3{color:#e69500}.q4,.q5{color:#2a9d2a}
-.ok{color:#2a9d2a}.bad{color:#d33}.rg{color:#7a5af0}
+.ok{color:#2a9d2a}.bad{color:#d33}.rg{color:#7a5af0}.cut{color:#c0392b}.ug{color:#c07a00;font-size:.72rem;cursor:help}
 .day{border:1px solid #eee;border-radius:10px;padding:10px 14px;margin:8px 0}.svc{color:#666;font-size:12px;margin-bottom:4px}
 .pop{color:#555;font-size:13px}</style>
 <h1>Custom Story Generator — report</h1>
@@ -148,9 +156,10 @@ th{color:#888;font-weight:600}
 <div class="pop"><b>themes:</b> ${topList(s.themePop)}</div>
 <div class="pop"><b>cast:</b> ${topList(s.castPop)}</div>
 <div class="pop"><b>failures:</b> ${topList(s.failReasons)}</div>
+<div class="pop"><b>unglossaried (soft-gate slips to watch):</b> ${topList(s.unglossPop)}</div>
 
 <h2>Recent generations</h2>
-<table><tr><th>time</th><th>user</th><th>title</th><th>theme</th><th>level</th><th>len</th><th>rnds</th><th>quality</th><th>cost</th><th>status</th></tr>
+<table><tr><th>time</th><th>user</th><th>title</th><th>theme</th><th>level</th><th>len</th><th>repair</th><th>quality</th><th>cost</th><th>status</th></tr>
 ${genRows || '<tr><td colspan=10>No generations yet.</td></tr>'}</table>
 
 <h2>Daily cost</h2>

@@ -1,0 +1,28 @@
+{
+  "_note": "Single source of truth for custom-story theme + length gating. An option unlocks only when the learner's furthest completed lesson rank >= the gate's rank, where rank = (5 - Nlevel) * 1000 + index (so N5.1=1, N4.1=1001, N3.1=2001; monotonic across levels). A learner's rank is floored at 1 (N5.1) — everyone can read that far. Consumed by BOTH CustomStoryBuilder.js (client greys locked chips) and story-gen/lib/story-gen-gates.js (server rejects locked requests before spending Claude calls). Theme keys MUST match CustomStoryBuilder.js THEMES strings exactly; length keys are the target-paragraph counts (LENGTHS n) and are ALSO the only targetParagraphs values the server accepts — an unlisted length is rejected as locked (crafted request), so keep these keys in sync with LENGTHS. Keys 6/9/12 are the legacy pre-rebalance client menu, kept so old installed bundles (and the server's missing-length default of 12) still generate at the equivalent tier.",
+  "themes": {
+    "Slice of life": "N5.1",
+    "Animals": "N5.1",
+    "Comedy": "N5.9",
+    "School": "N5.9",
+    "Food": "N5.9",
+    "Adventure": "N4.1",
+    "Travel": "N4.1",
+    "Sports": "N4.1",
+    "Mystery": "N4.10",
+    "Sci-Fi": "N4.19",
+    "Fantasy": "N4.19",
+    "Horror": "N3.1",
+    "Period Piece": "N3.1",
+    "Folktale": "N3.1"
+  },
+  "lengths": {
+    "6": "N5.1",
+    "8": "N5.1",
+    "9": "N5.1",
+    "12": "N4.1",
+    "14": "N4.1",
+    "22": "N4.19",
+    "28": "N3.1"
+  }
+}

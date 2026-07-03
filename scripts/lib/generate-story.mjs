@@ -241,6 +241,29 @@ function buildSystem(authorSystem, params, ctx) {
   return authorSystem + '\n\n=== THIS STORY — STAY STRICTLY IN SCOPE ===\n' + buildScope(params, ctx);
 }
 
+// Token-usage accumulator — keeps the three input classes separate so the cost
+// meter can price cache reads (0.1×) / writes (1.25×) apart from fresh input (1×).
+function newUsage() { return { inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0, outputTokens: 0 }; }
+
+// A single Claude call bound to the cached system prompt, summing usage. A throw
+// HERE is a real API/transport failure (auth, billing/credits, rate limit,
+// network) — NOT retryable bad-JSON — so tag it fatal: call-site catches re-throw
+// it and the job aborts fast with the true reason instead of burning every retry
+// and surfacing a misleading "scope_unmet".
+function makeCall(sys, anthropicCall, usage) {
+  return async (msgs, maxTokens) => {
+    let r;
+    try { r = await anthropicCall({ system: sys, messages: msgs, maxTokens }); }
+    catch (e) { if (e && typeof e === 'object') e.fatal = true; throw e; }
+    const u = r.usage || {};
+    usage.inputTokens += u.inputTokens || 0;
+    usage.cacheReadTokens += u.cacheReadTokens || 0;
+    usage.cacheCreationTokens += u.cacheCreationTokens || 0;
+    usage.outputTokens += u.outputTokens || 0;
+    return r.text;
+  };
+}
+
 // Violations for ONE paragraph (reuses collectViolations on a 1-paragraph pseudo-
 // story; keeps only paragraph-scope problems). The benign title 'x' is filtered out.
 function paragraphViolations(para, ctx, vopts) {
@@ -291,19 +314,9 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
     ? { level: params.ceiling.lvl, unlocksAfter: `${params.ceiling.lvl}.${params.ceiling.idx}` }
     : { level: 'custom', unlocksAfter: null };
   const vopts = { vocabLevel: params.vocabLevel, ceiling: params.ceiling, gateMeta, ceilingStr: params.ceilingStr, minParagraphs: params.minParagraphs };
-  const usage = { inputTokens: 0, outputTokens: 0 };
+  const usage = newUsage();
   const sys = buildSystem(authorSystem, params, ctx);
-  const call = async (msgs, maxTokens) => {
-    let r;
-    // A throw HERE is a real API/transport failure (auth, billing/credits, rate
-    // limit, network) — NOT retryable bad-JSON. Tag it fatal so the call-site
-    // catches re-throw it and the job aborts fast with the true reason, instead
-    // of silently burning every retry and surfacing a misleading "scope_unmet".
-    try { r = await anthropicCall({ system: sys, messages: msgs, maxTokens }); }
-    catch (e) { if (e && typeof e === 'object') e.fatal = true; throw e; }
-    usage.inputTokens += r.usage?.inputTokens || 0; usage.outputTokens += r.usage?.outputTokens || 0;
-    return r.text;
-  };
+  const call = makeCall(sys, anthropicCall, usage);
   const total = Math.max(2, params.targetParagraphs || 8);
 
   // 1) Outline (beats) for coherence.
@@ -314,14 +327,19 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   } catch (e) { if (e && e.fatal) throw e; log(`outline parse failed (${e.message})`); }
   while (beats.length < total) beats.push(`Continue the story (paragraph ${beats.length + 1}).`);
   beats = beats.slice(0, total);
+  // The whole arc, supplied to every paragraph call so continuity holds across
+  // long stories where the prose "story so far" is truncated to the last 6.
+  const arc = beats.map((b, i) => `${i + 1}. ${b}`).join('\n');
 
   // 2) Author each paragraph; gate + repair it in place before moving on.
   const story = { schemaVersion: '2.0.0', id: params.id, title: '', englishTitle: '', category: 'custom', level: null, unlocksAfter: null, paragraphs: [], vocabUsed: [], grammarUsed: [], comprehension: { intro: 'Did you follow the story?', questions: [] } };
+  let paraRetries = 0;   // extra attempts spent getting paragraphs in scope (repair-effort signal)
   for (let i = 0; i < beats.length; i++) {
     const soFar = story.paragraphs.slice(-6).map(p => p.jp).join('\n') || '(none — this is the opening)';
-    const basePrompt = `STORY SO FAR:\n${soFar}\n\nWrite paragraph ${i + 1} of ${total}. BEAT: ${beats[i]}\n2–4 sentences, flowing naturally from the story so far, STRICTLY in scope. Return ONLY {"jp":"…","en":"…"}.`;
-    let para = null, msgs = [{ role: 'user', content: basePrompt }];
+    const basePrompt = `FULL OUTLINE (the whole arc — keep continuity with all of it, don't repeat earlier beats):\n${arc}\n\nSTORY SO FAR (most recent):\n${soFar}\n\nWrite paragraph ${i + 1} of ${total}. BEAT: ${beats[i]}\n2–4 sentences, flowing naturally from the story so far, STRICTLY in scope. Return ONLY {"jp":"…","en":"…"}.`;
+    let para = null, msgs = [{ role: 'user', content: basePrompt }], used = 0;
     for (let attempt = 1; attempt <= 3; attempt++) {
+      used = attempt;
       let obj;
       try { obj = parseJsonObject(await call(msgs, 800)); }
       catch (e) { if (e && e.fatal) throw e; msgs = [{ role: 'user', content: basePrompt }, { role: 'user', content: 'Return ONLY {"jp":"…","en":"…"} — valid JSON, no prose.' }]; continue; }
@@ -332,6 +350,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
       if (attempt < 3) msgs = [{ role: 'user', content: basePrompt }, { role: 'assistant', content: JSON.stringify({ jp: cand.jp, en: cand.en }) },
         { role: 'user', content: 'This paragraph is out of scope:\n' + v.map(m => '• ' + m).join('\n') + '\nRewrite ONLY this paragraph fixing every issue, same beat, strictly in scope. Return ONLY {"jp":"…","en":"…"}.' }];
     }
+    paraRetries += Math.max(0, used - 1);
     if (para && para.jp) {
       story.paragraphs.push(para);
       const rem = paragraphViolations(para, ctx, vopts).length;
@@ -343,11 +362,27 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   await writeTitle(story, call, params, ctx, vopts);
   if (params.includeComprehension !== false) await writeComprehension(story, call, params, ctx, vopts);
 
-  // 5) Finishing pass — targeted splice repair to clean residual paragraph
-  // stragglers + cross-paragraph issues (e.g. 時/とき orthography) the per-paragraph
-  // gate can't see. Fixes only flagged pieces, never regenerates the whole story.
+  // 5+6) Finishing repair to scope (targeted splice rounds + last-resort delete).
+  const finish = await repairToScope(story, call, params, ctx, vopts, log);
+  const violations = finish.violations;
+  const ok = violations.length === 0;
+  log(`final: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
+  // `rounds` = finishing-repair rounds actually run (repair effort), NOT paragraph
+  // count. paraRetries + lastResort round out the convergence-difficulty picture.
+  return { ok, story, usage, rounds: finish.rounds, paraRetries, lastResort: finish.lastResort, violations: ok ? [] : violations.map(v => v.msg) };
+}
+
+// Drive a baked story to 0 violations: targeted splice-repair rounds for residual
+// stragglers + cross-paragraph issues (e.g. 時/とき orthography) the per-paragraph
+// gate can't see, then a last-resort sentence-delete for words with no in-scope
+// synonym. Only ever rewrites flagged pieces — never regenerates the whole story,
+// and preserves paragraph count (so the length floor holds). Returns the final
+// violation list. Shared by generateStory and reviseStory.
+async function repairToScope(story, call, params, ctx, vopts, log) {
   let violations = collectViolations(story, ctx, vopts);
+  let roundsRun = 0, lastResort = false;
   for (let round = 1; round <= 7 && violations.length; round++) {
+    roundsRun = round;
     const byPara = new Map(); const titleMsgs = []; const compMsgs = []; const generalMsgs = [];
     for (const v of violations) {
       if (v.scope === 'title') titleMsgs.push(v.msg);
@@ -373,12 +408,11 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
     log(`finish ${round}: ${violations.length} violation(s)`);
   }
 
-  // 6) Last resort — a stubborn word that survived repeated rewording has no
-  // in-scope synonym. Rather than bin a near-perfect story over it, instruct a
-  // DELETE/replace of the offending sentence (guaranteed removal). Paragraph
-  // count is preserved (we rewrite, not drop, the paragraph), so the length
-  // floor still holds.
+  // Last resort — a stubborn word that survived repeated rewording has no in-scope
+  // synonym. Rather than bin a near-perfect story over it, DELETE/replace the
+  // offending sentence (guaranteed removal), preserving paragraph count.
   if (violations.length) {
+    lastResort = true;
     const byPara = new Map();
     for (const v of violations) if (v.scope === 'paragraph' && v.index) { if (!byPara.has(v.index)) byPara.set(v.index, []); byPara.get(v.index).push(v.msg); }
     for (const [idx, msgs] of byPara) {
@@ -393,8 +427,48 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
     violations = collectViolations(story, ctx, vopts);
     log(`last-resort: ${violations.length} violation(s)`);
   }
+  return { violations, rounds: roundsRun, lastResort };
+}
 
-  const ok = violations.length === 0;
-  log(`final: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
-  return { ok, story, usage, rounds: beats.length, violations: ok ? [] : violations.map(v => v.msg) };
+// Content words in the final story that the glossary simply LACKS (the soft
+// "unglossaried" bucket — the class that let やる slip). Surfaced in the report so
+// recurring slips self-announce. Filters natural kana (interjections/て-helpers).
+export function collectUnglossaried(story, ctx, vocabLevel) {
+  const rank = LEVELS.indexOf(vocabLevel) >= 0 ? LEVELS.indexOf(vocabLevel) : 1;
+  const a = auditStory(story, ctx, rank);
+  const out = [];
+  for (const [surface] of a.unglossaried) if (!isOkKana(surface)) out.push(surface);
+  return [...new Set(out)];
+}
+
+/**
+ * Fix #2 — targeted quality revision. Cheaper + smarter than a from-scratch regen:
+ * the already-in-scope story is a strong starting point, and the judge's own
+ * diagnosis (`judgeNote` + weak dimensions) is fed back so the model fixes the
+ * ACTUAL problem instead of re-rolling the dice. One guided rewrite, then re-gate
+ * to guarantee scope is preserved. Returns { ok, story, usage, violations }.
+ */
+export async function reviseStory({ params, ctx, anthropicCall, authorSystem, story, judgeNote = '', weakDimensions = [], log = () => {} }) {
+  const gateMeta = (params.ceiling && params.ceiling.idx !== Number.MAX_SAFE_INTEGER)
+    ? { level: params.ceiling.lvl, unlocksAfter: `${params.ceiling.lvl}.${params.ceiling.idx}` }
+    : { level: 'custom', unlocksAfter: null };
+  const vopts = { vocabLevel: params.vocabLevel, ceiling: params.ceiling, gateMeta, ceilingStr: params.ceilingStr, minParagraphs: params.minParagraphs };
+  const usage = newUsage();
+  const sys = buildSystem(authorSystem, params, ctx);
+  const call = makeCall(sys, anthropicCall, usage);
+  const n = story.paragraphs.length;
+  const body = story.paragraphs.map((p, i) => (i + 1) + '. ' + p.jp).join('\n');
+  const focus = weakDimensions.length ? ` Prioritize improving: ${weakDimensions.join(', ')}.` : '';
+  const req = `This ${n}-paragraph story is already in scope, but an editor flagged the biggest issue: "${judgeNote || 'the prose feels flat — make it more natural and coherent'}".${focus}\n` +
+    `Revise it to fix that while staying STRICTLY in scope (introduce NO new out-of-scope words or kanji). Keep the SAME ${n} paragraphs, the same cast and plot — improve the writing, don't restart. ` +
+    `Return ONLY {"title":"…","paragraphs":[{"index":N,"jp":"…","en":"…"}]} with ALL ${n} paragraphs.\n\nCURRENT STORY:\nTitle: ${story.title}\n${body}`;
+  const revised = { ...story, paragraphs: story.paragraphs.map(p => ({ ...p })), comprehension: { ...story.comprehension, questions: (story.comprehension.questions || []).slice() } };
+  try {
+    const o = parseJsonObject(await call([{ role: 'user', content: req }], Math.min(8000, 1200 + n * 360)));
+    if (o.title) revised.title = String(o.title);
+    for (const fp of (o.paragraphs || [])) { const i = (parseInt(fp.index, 10) || 0) - 1; if (i >= 0 && i < revised.paragraphs.length && fp.jp) revised.paragraphs[i] = bakeParagraph(fp.jp, fp.en || revised.paragraphs[i].en, params, ctx); }
+  } catch (e) { if (e && e.fatal) throw e; log(`revise: parse failed (${e.message})`); return { ok: false, story, usage, violations: ['revise_parse_failed'] }; }
+  const { violations } = await repairToScope(revised, call, params, ctx, vopts, log);
+  log(`revise: ${revised.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
+  return { ok: violations.length === 0, story: revised, usage, violations: violations.map(v => v.msg) };
 }

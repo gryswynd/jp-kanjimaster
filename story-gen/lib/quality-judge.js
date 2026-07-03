@@ -6,6 +6,7 @@
  * Best-effort: any failure returns null scores (the story still ships).
  */
 import { anthropicCall } from './anthropic.js';
+import { env } from './config.js';
 
 const JUDGE_SYSTEM = [
   'You are a strict editor reviewing a Japanese graded-reader story written for a',
@@ -33,12 +34,13 @@ export async function judgeStory({ story, params }) {
     `Title: ${story.title || ''}\n\n` +
     `Story (${(story.paragraphs || []).length} paragraphs):\n${paras}`;
 
-  let usage = { inputTokens: 0, outputTokens: 0 };
+  let usage = { inputTokens: 0, cacheReadTokens: 0, cacheCreationTokens: 0, outputTokens: 0 };
   try {
     const res = await anthropicCall({
       system: JUDGE_SYSTEM,
       messages: [{ role: 'user', content: user }],
       maxTokens: 400,
+      model: env.judgeModel,   // independent, cheaper judge
     });
     usage = res.usage || usage;
     return { scores: parseScores(res.text), usage };
