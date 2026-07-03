@@ -1442,10 +1442,13 @@
     var esc   = function (s) { return String(s || '').replace(/</g, '&lt;'); };
 
     function commit() {
-      up.set({
-        first: first ? first.value : undefined,
-        last:  last  ? last.value  : undefined
-      });
+      // Only commit fields whose input is actually in the DOM — an absent
+      // input must be a no-op, never a clear (user-profile.set also ignores
+      // non-string values as a second line of defense).
+      var patch = {};
+      if (first) patch.first = first.value;
+      if (last) patch.last = last.value;
+      up.set(patch);
       if (help) {
         var f = (first && first.value || '').trim();
         help.innerHTML = f
@@ -1901,14 +1904,19 @@
 
     // Ensure any unsaved input is committed (blur often fires automatically on
     // remove, but being explicit avoids losing a typed name on backdrop tap).
+    // CRITICAL: only commit fields whose input is IN THE DOM. Sub-panels
+    // (Tutor plans / Custom content) replace the modal body, so these inputs
+    // can be absent at close — an absent input is a no-op, never a clear.
+    // (This was the "my name resets" bug: {first: undefined} used to delete
+    // the saved name, and sync then replicated the wipe to the server.)
     var up = window.JPShared.userProfile;
     if (up) {
       var f = document.getElementById('jp-set-first');
       var l = document.getElementById('jp-set-last');
-      up.set({
-        first: f ? f.value : undefined,
-        last:  l ? l.value : undefined
-      });
+      var patch = {};
+      if (f) patch.first = f.value;
+      if (l) patch.last = l.value;
+      up.set(patch);
     }
 
     if (window.JPShared.tts) window.JPShared.tts.cancel();

@@ -187,15 +187,25 @@ export async function recordCost(uid, email, totalCents, breakdown) {
   }
   const { FieldValue } = await import('@google-cloud/firestore');
   const ref = (await db()).doc(`storygen-cost-rollup/${day}`);
+  // NOTE: set({merge:true}) treats dotted keys as LITERAL field names (not nested
+  // paths — that's update()'s behaviour). Nest the maps as real objects so the
+  // dashboard's r.svc.* / r.byUser[uid].* reads resolve; increment sentinels and
+  // deep-merge both work at any depth, so sibling users aren't clobbered.
   await ref.set({
     day,
     generations: FieldValue.increment(1),
     costSumCents: FieldValue.increment(totalCents),
-    [`svc.claudeInputCents`]: FieldValue.increment(breakdown.claudeInputCents || 0),
-    [`svc.claudeOutputCents`]: FieldValue.increment(breakdown.claudeOutputCents || 0),
-    [`byUser.${uid}.generations`]: FieldValue.increment(1),
-    [`byUser.${uid}.costCents`]: FieldValue.increment(totalCents),
-    [`byUser.${uid}.email`]: email || null,
+    svc: {
+      claudeInputCents: FieldValue.increment(breakdown.claudeInputCents || 0),
+      claudeOutputCents: FieldValue.increment(breakdown.claudeOutputCents || 0),
+    },
+    byUser: {
+      [uid]: {
+        generations: FieldValue.increment(1),
+        costCents: FieldValue.increment(totalCents),
+        email: email || null,
+      },
+    },
   }, { merge: true });
 }
 
@@ -298,11 +308,10 @@ export async function listFriendUids(uid) {
   return snap.docs.map(d => d.id);
 }
 
-// Coarse progress for a friend (no raw scores / flags). Reads the friend's synced
-// users/{uid} doc (learning + streak + profile written by the tutor's progress sync).
-export async function friendSummary(uid) {
-  let data = null;
-  if (!MEMORY) { const s = await (await db()).doc(`users/${uid}`).get(); data = s.exists ? s.data() : null; }
+// Coarse progress for a friend (no raw scores / flags). Pure so it's testable
+// without Firestore — friendSummary fetches the synced users/{uid} doc
+// (written by the tutor's progress sync; same Firestore project) and delegates.
+export function summarizeUserDoc(uid, data) {
   const learning = (data && data.learning) || {};
   const completed = learning.lessonCompleted || {};
   const rank = (id) => { const m = /^N([345])\.(\d+)$/.exec(id); return m ? (5 - +m[1]) * 1000 + +m[2] : -1; };
@@ -310,11 +319,30 @@ export async function friendSummary(uid) {
   for (const id of Object.keys(completed)) if (completed[id] && rank(id) > best) { best = rank(id); furthest = id; }
   const level = /^N4\./.test(furthest) ? 'N4' : (furthest ? 'N5' : (learning.n4Unlocked ? 'N4' : 'N5'));
   const profile = (data && data.profile) || {};
+  const streak = (data && data.streak) || {};
+  const gamify = (data && data.gamify) || {};
+  const srsItems = (data && data.srs && data.srs.items) || {};
+  const kw = gamify.keikoWeek;
   return {
     uid,
     name: (profile.first || '').trim() || 'Friend',
     level,
     lessonsCompleted: Object.values(completed).filter(Boolean).length,
-    streak: (data && data.streak && data.streak.current) || 0,
+    streak: streak.current || 0,
+    streakBest: streak.best || 0,
+    lastActive: streak.lastActive || '',
+    // {weekStart, earned} | null — the dojo-roster ranking metric. Clients
+    // compare weekStart against their own current week (stale → ranks as 0).
+    weekKeiko: (kw && typeof kw.weekStart === 'string' && kw.weekStart)
+      ? { weekStart: kw.weekStart, earned: +kw.earned || 0 }
+      : null,
+    achievementCount: Object.keys(gamify.achievements || {}).length,
+    masteredCount: Object.values(srsItems).filter((it) => it && it.r === 5).length,
   };
+}
+
+export async function friendSummary(uid) {
+  let data = null;
+  if (!MEMORY) { const s = await (await db()).doc(`users/${uid}`).get(); data = s.exists ? s.data() : null; }
+  return summarizeUserDoc(uid, data);
 }

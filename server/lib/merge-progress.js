@@ -14,8 +14,10 @@
  *   streak.history                            → union (deduped, sorted)
  *   streak.current / lastActive               → the side with the later lastActive
  *   gamify.keikoEarned / keikoSpent           → max (monotonic lifetime counters)
+ *   gamify.keikoWeek {weekStart, earned}      → later week wins; same week → max; missing side never wins
  *   srs.items                                 → per-key later-lastReviewed-ts wins; srs.seeded → OR
- *   composeDrafts / profile                   → last-write (side with newer updatedAt)
+ *   composeDrafts                             → last-write (side with newer updatedAt)
+ *   profile                                   → per-field: newer side preferred, but empty never replaces non-empty
  *
  * Shape (both stored + incoming):
  *   { learning:{ lessonScores, lessonCompleted, reviewScores, flags, activeFlags,
@@ -106,6 +108,30 @@ function mergeSrs(a, b) {
   };
 }
 
+// Profile: per-field, non-empty-preferring. The newer side wins a field only
+// when it actually has a value — an empty/missing name must never replace a
+// real one (protects against a shipped-client bug that pushed empty profiles,
+// and against client/server clock skew). Known limitation: an intentional
+// cross-device clear won't propagate; retype on the other device.
+function mergeProfile(a, b, bNewer) {
+  a = a || {}; b = b || {};
+  const pick = (x, y) => (String(x || '').trim() ? x : (y || ''));
+  return bNewer
+    ? { first: pick(b.first, a.first), last: pick(b.last, a.last), email: pick(b.email, a.email) }
+    : { first: pick(a.first, b.first), last: pick(a.last, b.last), email: pick(a.email, b.email) };
+}
+
+// Weekly keiko {weekStart, earned}: a missing/invalid side never wins (old
+// clients can't erase it); different weeks → later week wholesale; same week
+// → max(earned). Mirror of app/shared/sync.js.
+function mergeKeikoWeek(a, b) {
+  const ok = (x) => x && typeof x.weekStart === 'string' && x.weekStart;
+  if (!ok(a)) return ok(b) ? b : null;
+  if (!ok(b)) return a;
+  if (a.weekStart !== b.weekStart) return a.weekStart > b.weekStart ? a : b;
+  return { weekStart: a.weekStart, earned: Math.max(num(a.earned), num(b.earned)) };
+}
+
 // Achievement grants: union of ids, earliest positive grant timestamp wins.
 function minTsMap(a, b) {
   const out = { ...(a || {}) };
@@ -127,6 +153,7 @@ function mergeGamify(a, b) {
   return {
     keikoEarned: Math.max(num(a.keikoEarned), num(b.keikoEarned)),
     keikoSpent:  Math.max(num(a.keikoSpent), num(b.keikoSpent)),
+    keikoWeek:   mergeKeikoWeek(a.keikoWeek, b.keikoWeek),
     achievements: minTsMap(a.achievements, b.achievements),
     inksOwned:    orMap(a.inksOwned, b.inksOwned),
     stampsOwned:  orMap(a.stampsOwned, b.stampsOwned),
@@ -163,15 +190,13 @@ export function mergeProgress(stored, incoming, now) {
       streak:   mergeStreak(null, incoming.streak),
       gamify:   mergeGamify(null, incoming.gamify),
       srs:      mergeSrs(null, incoming.srs),
-      profile:  incoming.profile || {},
+      profile:  mergeProfile(null, incoming.profile, true),
       updatedAt: now,
       schemaVersion: 2,
     };
   }
   const incomingNewer = num(incoming.updatedAt) >= num(stored.updatedAt);
-  // last-write sections pick the newer side wholesale
-  const profile = incomingNewer ? (incoming.profile || stored.profile || {})
-                                 : (stored.profile || {});
+  const profile = mergeProfile(stored.profile, incoming.profile, incomingNewer);
   const merged = {
     learning: mergeLearning(stored.learning, incoming.learning),
     streak:   mergeStreak(stored.streak, incoming.streak),

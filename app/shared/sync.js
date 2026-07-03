@@ -20,7 +20,7 @@
     'k-flags', 'k-active-flags', 'k-n4-unlocked',
     'k-streak-current', 'k-streak-best', 'k-streak-last-active',
     'k-streak-history', 'k-streak-freezes',
-    'k-keiko-earned', 'k-keiko-spent',
+    'k-keiko-earned', 'k-keiko-spent', 'k-keiko-week',
     'k-srs-items', 'k-srs-seeded',
     'k-achievements', 'k-seal-ink', 'k-seal-ink-ts',
     'k-inks-owned', 'k-stamps-owned', 'k-cast-unlocked',
@@ -164,6 +164,12 @@
       gamify: {
         keikoEarned: numOf('k-keiko-earned'),
         keikoSpent: numOf('k-keiko-spent'),
+        // This week's earnings {weekStart, earned} — the friend-roster metric.
+        keikoWeek: (function () {
+          var w = null;
+          try { w = JSON.parse(lsGet('k-keiko-week') || 'null'); } catch (e) {}
+          return (w && typeof w.ws === 'string' && w.ws) ? { weekStart: w.ws, earned: +w.earned || 0 } : null;
+        })(),
         // Phase 3: achievement grants (earliest ts wins per id) + cosmetic
         // ownership (OR) + active seal ink (later selection wins).
         achievements: parseObj('k-achievements'),
@@ -193,6 +199,15 @@
   function maxMap(a, b) { var o = Object.assign({}, a || {}); var s = b || {}; for (var k in s) o[k] = Math.max(+o[k] || 0, +s[k] || 0); return o; }
   // Achievement grants: union of ids, earliest positive grant timestamp wins.
   function minTsMap(a, b) { var o = Object.assign({}, a || {}); var s = b || {}; for (var k in s) { var av = +o[k] || 0, bv = +s[k] || 0; o[k] = (av > 0 && bv > 0) ? Math.min(av, bv) : (av || bv); } return o; }
+  // Weekly keiko: a missing/invalid side never wins (old clients can't erase
+  // it); different weeks → later week wholesale; same week → max(earned).
+  function mergeKeikoWeek(a, b) {
+    var ok = function (x) { return x && typeof x.weekStart === 'string' && x.weekStart; };
+    if (!ok(a)) return ok(b) ? b : null;
+    if (!ok(b)) return a;
+    if (a.weekStart !== b.weekStart) return a.weekStart > b.weekStart ? a : b;
+    return { weekStart: a.weekStart, earned: Math.max(+a.earned || 0, +b.earned || 0) };
+  }
   function orMap(a, b) { var o = Object.assign({}, a || {}); var s = b || {}; for (var k in s) o[k] = !!o[k] || !!s[k]; return o; }
   function unionSorted(a, b) { var set = {}; (a || []).concat(b || []).forEach(function (x) { set[x] = 1; }); return Object.keys(set).sort(); }
 
@@ -229,6 +244,7 @@
         return {
           keikoEarned: Math.max(+lg.keikoEarned || 0, +rg.keikoEarned || 0),
           keikoSpent: Math.max(+lg.keikoSpent || 0, +rg.keikoSpent || 0),
+          keikoWeek: mergeKeikoWeek(lg.keikoWeek, rg.keikoWeek),
           achievements: minTsMap(lg.achievements, rg.achievements),
           inksOwned: orMap(lg.inksOwned, rg.inksOwned),
           stampsOwned: orMap(lg.stampsOwned, rg.stampsOwned),
@@ -241,7 +257,17 @@
         items: mergeSrsItems((local.srs || {}).items, (remote.srs || {}).items),
         seeded: !!(local.srs || {}).seeded || !!(remote.srs || {}).seeded,
       },
-      profile: remoteNewer ? (remote.profile || local.profile || {}) : (local.profile || {}),
+      // Per-field, non-empty-preferring: the newer side wins a field only when
+      // it actually HAS a value — an empty/missing name never replaces a real
+      // one (protects against the old close()-wipe bug + clock skew). Known
+      // limitation: an intentional cross-device clear won't propagate.
+      profile: (function () {
+        var lp = local.profile || {}, rp = remote.profile || {};
+        var pick = function (pref, alt) { return String(pref || '').trim() ? pref : (alt || ''); };
+        return remoteNewer
+          ? { first: pick(rp.first, lp.first), last: pick(rp.last, lp.last), email: pick(rp.email, lp.email) }
+          : { first: pick(lp.first, rp.first), last: pick(lp.last, rp.last), email: pick(lp.email, rp.email) };
+      })(),
       updatedAt: Math.max(+local.updatedAt || 0, +remote.updatedAt || 0),
     };
   }
@@ -278,6 +304,9 @@
       var G = merged.gamify || {};
       lsSet('k-keiko-earned', String(+G.keikoEarned || 0));
       lsSet('k-keiko-spent', String(+G.keikoSpent || 0));
+      if (G.keikoWeek && G.keikoWeek.weekStart) {
+        lsSet('k-keiko-week', JSON.stringify({ ws: G.keikoWeek.weekStart, earned: +G.keikoWeek.earned || 0 }));
+      }
       if (G.achievements && Object.keys(G.achievements).length) lsSet('k-achievements', JSON.stringify(G.achievements));
       if (G.inksOwned && Object.keys(G.inksOwned).length) lsSet('k-inks-owned', JSON.stringify(G.inksOwned));
       if (G.stampsOwned && Object.keys(G.stampsOwned).length) lsSet('k-stamps-owned', JSON.stringify(G.stampsOwned));

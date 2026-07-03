@@ -22,6 +22,40 @@
 
   var LEDGER_CAP = 40;
 
+  // ── Week tracking (feeds the friend leaderboard) ────────────────────────
+  // k-keiko-week = {ws:'YYYY-MM-DD' (Monday of the current week), earned:N}.
+  // Rolls over inside earn(); reads normalize without writing so home renders
+  // never trigger sync pushes.
+
+  function todayStr() {
+    try {
+      var qa = localStorage.getItem('k-qa-date');
+      if (qa && /^\d{4}-\d{2}-\d{2}$/.test(qa)) return qa;
+    } catch (e) {}
+    return new Date().toLocaleDateString('en-CA');
+  }
+
+  function weekStartOf(dateStr) {
+    var d = new Date(dateStr + 'T12:00:00');
+    d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); // back to Monday
+    return d.toLocaleDateString('en-CA');
+  }
+
+  function readWeek() {
+    try { return JSON.parse(localStorage.getItem('k-keiko-week') || 'null'); }
+    catch (e) { return null; }
+  }
+
+  function bumpWeek(amount) {
+    try {
+      var ws = weekStartOf(todayStr());
+      var w = readWeek();
+      if (!w || w.ws !== ws) w = { ws: ws, earned: 0 };
+      w.earned = (+w.earned || 0) + amount;
+      localStorage.setItem('k-keiko-week', JSON.stringify(w));
+    } catch (e) {}
+  }
+
   function getInt(key) {
     try {
       var v = parseInt(localStorage.getItem(key) || '0', 10);
@@ -54,9 +88,21 @@
       amount = Math.max(0, Math.floor(amount || 0));
       if (amount > 0) {
         setInt('k-keiko-earned', getInt('k-keiko-earned') + amount);
+        bumpWeek(amount);
         appendLedger(amount, reason);
       }
       return this.getBalance();
+    },
+
+    /**
+     * This week's earnings {weekStart, earned}. Normalized at READ time — a
+     * stale stored week reports 0 for the current week without writing (so
+     * renders can't trigger sync pushes).
+     */
+    getWeekly: function () {
+      var ws = weekStartOf(todayStr());
+      var w = readWeek();
+      return (w && w.ws === ws) ? { weekStart: ws, earned: +w.earned || 0 } : { weekStart: ws, earned: 0 };
     },
 
     /** Spend keiko. Returns false (and spends nothing) if insufficient. */

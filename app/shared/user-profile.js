@@ -41,20 +41,24 @@
     return { first: getFirst(), last: getLast(), email: getEmail() };
   }
 
-  // Partial update — only keys present on the patch are written.
+  // Partial update — only STRING-valued keys are processed. A key that is
+  // absent, undefined, or null is a no-op, NEVER a clear: callers that read
+  // inputs from the DOM (Settings close()) can race a sub-panel that removed
+  // the input, and `{first: undefined}` must not delete a saved name. An
+  // intentional clear still works — a present-but-emptied input submits ''.
   function set(patch) {
     if (!patch || typeof patch !== 'object') return;
     var changed = false;
-    if (Object.prototype.hasOwnProperty.call(patch, 'first')) {
-      var nf = (patch.first || '').trim();
+    if (typeof patch.first === 'string') {
+      var nf = patch.first.trim();
       if (nf !== getFirst()) { _safeSet(KEY_FIRST, nf); changed = true; }
     }
-    if (Object.prototype.hasOwnProperty.call(patch, 'last')) {
-      var nl = (patch.last || '').trim();
+    if (typeof patch.last === 'string') {
+      var nl = patch.last.trim();
       if (nl !== getLast()) { _safeSet(KEY_LAST, nl); changed = true; }
     }
-    if (Object.prototype.hasOwnProperty.call(patch, 'email')) {
-      var ne = (patch.email || '').trim();
+    if (typeof patch.email === 'string') {
+      var ne = patch.email.trim();
       if (ne !== getEmail()) { _safeSet(KEY_EMAIL, ne); changed = true; }
     }
     if (changed) {
