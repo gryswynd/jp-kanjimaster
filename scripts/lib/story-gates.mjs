@@ -279,7 +279,7 @@ export function auditStory(data, ctx, storyRank) {
 
 // ── qaStory (← qa-story.mjs) ─────────────────────────────────────────────────
 const QA_KANA_ONLY = /^[぀-ヿー]+$/;
-const QA_PUNCT_ONLY = /^[、。！？「」『』（）：；・…\s「」\-—()『』]+$/;
+const QA_PUNCT_ONLY = /^[、。！？「」『』（）：；・…\s「」\-—()『』.]+$/;
 const SPLIT_UNITS = { 'とき': 'use 時', 'もの': 'use 物' };
 const ORTHO_PAIRS = [['次', 'つぎ'], ['時', 'とき']];
 

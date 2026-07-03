@@ -607,23 +607,33 @@ window.StoriesModule = (function () {
     // (type:"kanji") are taught-kanji metadata, NOT sentence words. A tapped
     // word in prose must resolve to the vocab entry (後→v_ato あと), never the
     // card's context-blind on/kun sheet. Cards stay in the index only as a
-    // last resort for surfaces no vocab entry covers.
-    const setSurface = (k, e) => {
-      const prev = surfaceIdx.get(k);
-      if (!prev || (prev.type === 'kanji' && e.type !== 'kanji')) surfaceIdx.set(k, e);
+    // last resort for surfaces no vocab entry covers — and are NEVER indexed
+    // by reading (a card's on/kun kana is not a prose word: reading-indexing
+    // made every ungrouped は chip to 歯, か to 買, ね to 値).
+    // Explicit priority tiers (higher wins the surface):
+    //   1 kanji-card surface · 2 vocab/loanword reading · 3 vocab/loanword
+    //   surface · 4 character name/variant · 5 particle. Ungrouped tokens in
+    //   baked prose are overwhelmingly function words, so particles outrank
+    //   reading-spellings (は=topic beats 歯/葉); real vocab occurrences come
+    //   through grouped `g` tokens and never hit this fallback.
+    const surfacePri = new Map();
+    const setSurface = (k, e, pri) => {
+      if (!k) return;
+      if (pri > (surfacePri.get(k) || 0)) { surfaceIdx.set(k, e); surfacePri.set(k, pri); }
     };
     for (const g of glossaries) {
       for (const e of (g.entries || [])) {
         if (e.id) termMapData[e.id] = e;
-        if (e.surface) setSurface(e.surface, e);
+        if (e.type === 'kanji') { setSurface(e.surface, e, 1); continue; }
+        setSurface(e.surface, e, 3);
         // ALSO index by reading so kana-form spellings of kanji words (わたし
         // for 私, かぞく for 家族) get tagged via the renderer.
-        if (e.reading && e.reading !== e.surface) setSurface(e.reading, e);
+        if (e.reading && e.reading !== e.surface) setSurface(e.reading, e, 2);
       }
     }
     for (const p of (particles.particles || [])) {
       termMapData[p.id] = { id: p.id, surface: p.particle, reading: p.reading, meaning: p.role, notes: p.explanation, type: 'particle', tokens: p.tokens };
-      if (p.particle && !surfaceIdx.has(p.particle)) surfaceIdx.set(p.particle, termMapData[p.id]);
+      setSurface(p.particle, termMapData[p.id], 5);
     }
     for (const c of (characters.characters || [])) {
       termMapData[c.id] = Object.assign({}, c, { portraitUrl: getCdnUrl(c.portrait) });
@@ -633,9 +643,7 @@ window.StoriesModule = (function () {
       if (c.surface) variants.add(c.surface);
       if (c.name) variants.add(c.name);
       if (Array.isArray(c.matches)) for (const m of c.matches) variants.add(m);
-      for (const k of variants) {
-        if (k && !surfaceIdx.has(k)) surfaceIdx.set(k, termMapData[c.id]);
-      }
+      for (const k of variants) setSurface(k, termMapData[c.id], 4);
     }
     // Always-allowed loanword pool — folded into BOTH maps so bare loanword
     // tokens in prose ({k:"コンサート"} with no g) chip via surfaceIdx AND the
@@ -643,8 +651,8 @@ window.StoriesModule = (function () {
     for (const w of ((loanwordData && loanwordData.loanwords) || [])) {
       const e = Object.assign({ type: 'loanword' }, w);
       if (e.id) termMapData[e.id] = e;
-      if (e.surface && !surfaceIdx.has(e.surface)) surfaceIdx.set(e.surface, e);
-      if (e.reading && e.reading !== e.surface && !surfaceIdx.has(e.reading)) surfaceIdx.set(e.reading, e);
+      setSurface(e.surface, e, 3);
+      if (e.reading && e.reading !== e.surface) setSurface(e.reading, e, 2);
     }
     if (window.JPShared && window.JPShared.termModal) {
       window.JPShared.termModal.setTermMap(termMapData);

@@ -646,18 +646,9 @@
       ]
     },
     {
-      "jp": "しかたなく、たかしさんは近所に新しい業者がいるかどうか聞いてみました。新しい業者が来ましたが、その業者は不正でした。代金が正しい代金以上に高すぎたのです。「高すぎる」とたかしさんは小さい声で言いました。「これは不味い」と思いました。業者は工場の中をすこし見て、「すぐに止めてしまった方がいい」と言いました。たかしさんは「これは正しい話ではない」と思いました。",
-      "en": true,
+      "jp": "たかしさんは近所に新しい業者がいるかどうか聞いてみました。新しい業者が来ましたが、その業者は不正でした。代金が正しい代金以上にとても高かったのです。「とても高い」とたかしさんは小さい声で言いました。「これは不味い」と思いました。業者は工場の中を少し見て、「すぐに止めてしまった方がいい」と言いました。たかしさんは「これは正しい話ではない」と思いました。",
+      "en": "Takashi asked around the neighborhood whether there was a new contractor. A new contractor came, but that contractor was dishonest. The fee was far higher than a fair fee. \"That is really expensive,\" Takashi said in a small voice. \"This is bad,\" he thought. The contractor looked around the factory a little and said, \"You should just shut it down right away.\" Takashi thought, \"This is not an honest story.\"",
       "tokens": [
-        {
-          "k": "しか"
-        },
-        {
-          "k": "たなく"
-        },
-        {
-          "k": "、"
-        },
         {
           "k": "たかしさん"
         },
@@ -790,13 +781,16 @@
           "k": "に"
         },
         {
-          "k": "高",
-          "r": "たか",
-          "g": "v_takai"
+          "k": "とても"
         },
         {
-          "k": "すぎた",
-          "g": "v_sugiru_plain_past"
+          "k": "高",
+          "r": "たか",
+          "g": "v_takai_plain_past_adj"
+        },
+        {
+          "k": "かった",
+          "g": "v_takai_plain_past_adj"
         },
         {
           "k": "のです",
@@ -809,12 +803,16 @@
           "k": "「"
         },
         {
+          "k": "とても"
+        },
+        {
           "k": "高",
           "r": "たか",
           "g": "v_takai"
         },
         {
-          "k": "すぎる"
+          "k": "い",
+          "g": "v_takai"
         },
         {
           "k": "」"
@@ -918,10 +916,13 @@
           "r": "お"
         },
         {
-          "k": "すこ"
+          "k": "少",
+          "r": "すこ",
+          "g": "v_sukoshi"
         },
         {
-          "k": "し"
+          "k": "し",
+          "g": "v_sukoshi"
         },
         {
           "k": "見",
@@ -1419,8 +1420,8 @@
       ]
     },
     {
-      "jp": "田中さんはたかしさんの工場に来て、問題を一つずつ見てみました。「ここが少しおかしくなっています。よくしてみますね」と田中さんが言った。「よくしておけば、工場はまた動き始めますよ」とも言いました。たかしさんは田中さんがすごく上手なので、びっくりしてしまいました。「田中さんがいなかったら、工場は止まっていたでしょう」と心の中で言いました。",
-      "en": "Tanaka came to Takashi’s factory and looked at the problems one by one. \"This part has gone a little wrong. I’ll make it better,\" Tanaka said. \"If I get it working well, the factory will start running again,\" he also said. Takashi was so amazed at how skilled Tanaka was that he was startled. \"If Tanaka had not been here, the factory would have stayed stopped,\" he thought.",
+      "jp": "田中さんはたかしさんの工場に来て、問題を一つずつ見てみました。「ここが少し悪くなっています。よくしてみますね」と田中さんが言った。「よくしておけば、工場はまた動き始めますよ」とも言いました。たかしさんは田中さんがすごく上手なので、おどろいてしまいました。「田中さんがいなかったら、工場は止まっていたでしょう」と心の中で言いました。",
+      "en": "Tanaka came to Takashi’s factory and looked at the problems one by one. \"This part has gone a little wrong. I’ll make it better,\" Tanaka said. \"If I get it working well, the factory will start running again,\" he also said. Takashi was so amazed at how skilled Tanaka was that he was amazed. \"If Tanaka had not been here, the factory would have stayed stopped,\" he thought.",
       "tokens": [
         {
           "k": "田中",
@@ -1513,7 +1514,13 @@
           "g": "v_sukoshi"
         },
         {
-          "k": "おかしく"
+          "k": "悪",
+          "r": "わる",
+          "g": "v_warui"
+        },
+        {
+          "k": "く",
+          "g": "v_warui"
         },
         {
           "k": "なって",
@@ -1674,11 +1681,8 @@
           "k": "、"
         },
         {
-          "k": "びっくり"
-        },
-        {
-          "k": "して",
-          "g": "v_suru_te_form"
+          "k": "おどろいて",
+          "g": "v_odoroku_te_form"
         },
         {
           "k": "しまいました",
@@ -1766,8 +1770,8 @@
       ]
     },
     {
-      "jp": "田中さんと近所の人たちがいっしょに問題を考えて、工場の仕事をまた始めました。みんなで力を合わせて、工場をよくしていきました。手洗いで手を洗いながら、たかしさんはみんなに「ほんとうにありがとうございます」と言いました。「みなさんのおかげで、工場がよくなってきた」とも言いました。工場の食堂でみんなと食事をして、これからの計画を話しました。「みなさんがいなくても、自分一人でやっていきます」とは言いませんでした。「みなさんの力を借りて、もっといい工場にしていきたい」と言いました。",
-      "en": "Tanaka and the neighbors thought about the problems together and got the factory working again. Joining their strength, everyone made the factory better. Washing his hands at the sink, Takashi said to everyone, \"Thank you so much.\" \"Thanks to all of you, the factory has gotten better,\" he also said. They ate together in the factory cafeteria and talked about plans ahead. He did not say, \"Even without you, I’ll manage on my own.\" \"With everyone’s help, I want to make it an even better factory,\" he said.",
+      "jp": "田中さんと近所の人たちがいっしょに問題を考えて、工場の仕事をまた始めました。みんなで力を合わせて、工場をよくしていきました。手洗いで手を洗いながら、たかしさんはみんなに「ほんとうにありがとうございます」と言いました。「みなさんの力で、工場がよくなってきた」とも言いました。工場の食堂でみんなと食事をして、これからの計画を話しました。「みなさんがいなくても、自分一人でしていきます」とは言いませんでした。「みなさんの力を借りて、もっといい工場にしていきたい」と言いました。",
+      "en": "Tanaka and the neighbors thought about the problems together and got the factory working again. Joining their strength, everyone made the factory better. Washing his hands at the sink, Takashi said to everyone, \"Thank you so much.\" \"With everyone's strength, the factory has gotten better,\" he also said. They ate together in the factory cafeteria and talked about plans ahead. He did not say, \"Even without you, I’ll manage on my own.\" \"With everyone’s help, I want to make it an even better factory,\" he said.",
       "tokens": [
         {
           "k": "田中",
@@ -1980,7 +1984,8 @@
           "k": "の"
         },
         {
-          "k": "おかげ"
+          "k": "力",
+          "r": "ちから"
         },
         {
           "k": "で"
@@ -2124,10 +2129,8 @@
           "k": "で"
         },
         {
-          "k": "や"
-        },
-        {
-          "k": "って"
+          "k": "して",
+          "g": "v_suru_te_form"
         },
         {
           "k": "いきます",
@@ -2226,8 +2229,8 @@
       ]
     },
     {
-      "jp": "工場がまた動くようになってから、たかしさんは洗車のサービスも工場の近くで始めてみました。これも地区の産業の産物でした。「新しいことをやってみるのは大切だ」と心の中で言いました。国民のための工業を主に考えて、たかしさんは中止していた注文もまた始めました。「むずかしくても、新しいことを始めてみるべきだ」とも考えました。",
-      "en": "After the factory came to run again, Takashi tried starting a car wash service near the factory. This too was a product of the district's industry. \"It's important to try new things,\" he said in his heart. Thinking mainly about manufacturing for the citizens, Takashi also restarted orders he had cancelled. \"Even if it's difficult, you should try starting new things,\" he also thought.",
+      "jp": "工場がまた動くようになってから、たかしさんは洗車のサービスも工場の近くで始めてみました。これも地区の産業の産物でした。「新しいことをしてみるのは大切だ」と心の中で言いました。国民のための工業を主に考えて、たかしさんは中止していた注文もまた始めました。「むずかしくても、新しいことを始めてみよう」とも考えました。",
+      "en": "After the factory came to run again, Takashi tried starting a car wash service near the factory. This too was a product of the district's industry. \"It's important to try new things,\" he said in his heart. Thinking mainly about manufacturing for the citizens, Takashi also restarted orders he had cancelled. \"Even if it's difficult, let's try starting new things,\" he also thought.",
       "tokens": [
         {
           "k": "工場",
@@ -2367,8 +2370,8 @@
           "r": "お"
         },
         {
-          "k": "やってみる",
-          "g": "v_yaru_te_miru"
+          "k": "してみる",
+          "g": "v_suru_te_miru"
         },
         {
           "k": "の"
@@ -2529,17 +2532,15 @@
         {
           "k": "始",
           "r": "はじ",
-          "g": "v_hajimeru_te_miru"
+          "g": "v_hajimeru_te_form"
         },
         {
-          "k": "めてみる",
-          "g": "v_hajimeru_te_miru"
+          "k": "めて",
+          "g": "v_hajimeru_te_form"
         },
         {
-          "k": "べき"
-        },
-        {
-          "k": "だ"
+          "k": "みよう",
+          "g": "v_miru_plain_volitional"
         },
         {
           "k": "」"
@@ -2982,8 +2983,8 @@
       ]
     },
     {
-      "jp": "家に帰って、たかしさんは父のことを思い出しました。「父はいつも、大切なことは一人ではできないと言っていた」と心の中で言いました。「今日のことで、父の言葉がよく分かるようになりました」とも思いました。父のように、たかしさんも地区の人たちといっしょに工場を大切にしていきたい、と心の中で言いました。",
-      "en": "When he got home, Takashi thought of his father. \"Father always used to say that important things can't be done alone,\" he said in his heart. \"From today's events, I've come to understand my father's words well,\" he also thought. He thought to himself that, like his father, he wanted to take care of the factory together with the district people.",
+      "jp": "家に帰って、たかしさんは父のことを思い出しました。「父はいつも、大切なことは一人ではできないと言っていた」と心の中で言いました。「今日のことで、父の話がよく分かるようになりました」とも思いました。父のように、たかしさんも地区の人たちといっしょに工場を大切にしていきたい、と心の中で言いました。",
+      "en": "When he got home, Takashi thought of his father. \"Father always used to say that important things can't be done alone,\" he said in his heart. \"From today's events, I've come to understand my father's story well,\" he also thought. He thought to himself that, like his father, he wanted to take care of the factory together with the district people.",
       "tokens": [
         {
           "k": "家",
@@ -3156,8 +3157,8 @@
           "k": "の"
         },
         {
-          "k": "言葉",
-          "r": "ことば"
+          "k": "話",
+          "r": "はなし"
         },
         {
           "k": "が"
@@ -3299,7 +3300,7 @@
       ]
     },
     {
-      "jp": "今も、たかしさんは毎朝工場に通っています。近所の人たちは今でも工場の食堂でよく話しています。たかしさんは新しい産物についてのアイデアも、みんなと話し合うようにしています。不運なことから、たかしさんは人々の力は大切だと知りました。一人でやろうとするのは、もうしません。みんなといっしょに、地区の工業を大きくしていきたいと思っています。",
+      "jp": "今も、たかしさんは毎朝工場に通っています。近所の人たちは今でも工場の食堂でよく話しています。たかしさんは新しい産物についてのアイデアも、みんなと話し合うようにしています。不運なことから、たかしさんは人々の力は大切だと知りました。一人でしようとするのは、もうしません。みんなといっしょに、地区の工業を大きくしていきたいと思っています。",
       "en": "Even now, Takashi commutes to the factory every morning. The neighbors still often chat in the factory cafeteria. Takashi makes a point of discussing ideas for new products with everyone too. From that unlucky event, Takashi learned that people’s strength is precious. He no longer tries to do everything alone. Together with everyone, he hopes to grow the district’s industry.",
       "tokens": [
         {
@@ -3545,8 +3546,8 @@
           "k": "で"
         },
         {
-          "k": "やろうとする",
-          "g": "v_yaru_tosuru"
+          "k": "しようとする",
+          "g": "v_suru_tosuru"
         },
         {
           "k": "の"

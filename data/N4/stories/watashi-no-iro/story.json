@@ -8,8 +8,8 @@
   "unlocksAfter": "N4.4",
   "paragraphs": [
     {
-      "jp": "今朝、りきぞうは早く起きました。外の空がとても明るかったです。空は青くてきれいでした。",
-      "en": "This morning, Rikizo woke up early. The sky outside was very bright. The sky was blue and beautiful.",
+      "jp": "今朝、りきぞうは六時に起きました。外の空がとても明るかったです。空は青くてきれいでした。",
+      "en": "This morning, Rikizo woke up at six. The sky outside was very bright. The sky was blue and beautiful.",
       "tokens": [
         {
           "k": "今朝",
@@ -26,13 +26,17 @@
           "r": "わ"
         },
         {
-          "k": "早",
-          "r": "はや",
-          "g": "v_hayai"
+          "k": "六",
+          "r": "ろく",
+          "g": "v_rokuji"
         },
         {
-          "k": "く",
-          "g": "v_hayai"
+          "k": "時",
+          "r": "じ",
+          "g": "v_rokuji"
+        },
+        {
+          "k": "に"
         },
         {
           "k": "起",
@@ -158,8 +162,8 @@
       ]
     },
     {
-      "jp": "今朝の朝ごはんは母が作ってくれました。茶色いカレーでした。",
-      "en": "This morning's breakfast was made for him by his mother. It was brown curry.",
+      "jp": "今朝の朝ごはんは母が作りました。茶色いカレーでした。",
+      "en": "This morning's breakfast was made by his mother. It was brown curry.",
       "tokens": [
         {
           "k": "今朝",
@@ -191,15 +195,11 @@
         {
           "k": "作",
           "r": "つく",
-          "g": "v_tsukuru_te_form"
+          "g": "v_tsukuru_polite_mashita"
         },
         {
-          "k": "って",
-          "g": "v_tsukuru_te_form"
-        },
-        {
-          "k": "くれました",
-          "g": "v_kureru_polite_mashita"
+          "k": "りました",
+          "g": "v_tsukuru_polite_mashita"
         },
         {
           "k": "。"
@@ -231,7 +231,7 @@
       ]
     },
     {
-      "jp": "「おいしい！でも、青いカレーも食べたいな。」",
+      "jp": "「おいしい！けど、青いカレーも食べたいな。」",
       "en": "\"Delicious! But I want to eat blue curry too.\"",
       "tokens": [
         {
@@ -244,7 +244,7 @@
           "k": "！"
         },
         {
-          "k": "でも"
+          "k": "けど"
         },
         {
           "k": "、"
@@ -870,8 +870,8 @@
       ]
     },
     {
-      "jp": "二人は走って学校に着きました。",
-      "en": "The two of them ran and arrived at school.",
+      "jp": "二人はすぐに学校に着きました。",
+      "en": "The two of them arrived at school in no time.",
       "tokens": [
         {
           "k": "二人",
@@ -882,13 +882,10 @@
           "r": "わ"
         },
         {
-          "k": "走",
-          "r": "はし",
-          "g": "v_hashiru_te_form"
+          "k": "すぐ"
         },
         {
-          "k": "って",
-          "g": "v_hashiru_te_form"
+          "k": "に"
         },
         {
           "k": "学校",
@@ -1037,8 +1034,8 @@
       ]
     },
     {
-      "jp": "その日の晩、りきぞうは家に帰りました。母が晩ごはんを作ってくれました。今晩も茶色いカレーでした。",
-      "en": "That evening, Rikizo went home. His mother had made dinner. Tonight was brown curry again.",
+      "jp": "その日の晩、りきぞうは家に帰りました。母が晩ごはんを作りました。今晩も茶色いカレーでした。",
+      "en": "That evening, Rikizo went home. His mother made dinner. Tonight was brown curry again.",
       "tokens": [
         {
           "k": "その"
@@ -1106,15 +1103,11 @@
         {
           "k": "作",
           "r": "つく",
-          "g": "v_tsukuru_te_form"
+          "g": "v_tsukuru_polite_mashita"
         },
         {
-          "k": "って",
-          "g": "v_tsukuru_te_form"
-        },
-        {
-          "k": "くれました",
-          "g": "v_kureru_polite_mashita"
+          "k": "りました",
+          "g": "v_tsukuru_polite_mashita"
         },
         {
           "k": "。"
@@ -1274,20 +1267,20 @@
       ]
     },
     {
-      "jp": "「うん、でも、おいしいから大好きだよ！」",
-      "en": "\"Yeah, but I love it because it's delicious!\"",
+      "jp": "「そうだね。けど、おいしいから大好きだよ！」",
+      "en": "\"True. But I love it because it's delicious!\"",
       "tokens": [
         {
           "k": "「"
         },
         {
-          "k": "うん"
+          "k": "そうだね"
         },
         {
-          "k": "、"
+          "k": "。"
         },
         {
-          "k": "でも"
+          "k": "けど"
         },
         {
           "k": "、"
@@ -1322,7 +1315,7 @@
       ]
     },
     {
-      "jp": "母はお茶も作ってくれました。お茶の色も茶色でした。",
+      "jp": "母はお茶も作りました。お茶の色も茶色でした。",
       "en": "His mother made green tea too. The color of the tea was also brown.",
       "tokens": [
         {
@@ -1348,15 +1341,11 @@
         {
           "k": "作",
           "r": "つく",
-          "g": "v_tsukuru_te_form"
+          "g": "v_tsukuru_polite_mashita"
         },
         {
-          "k": "って",
-          "g": "v_tsukuru_te_form"
-        },
-        {
-          "k": "くれました",
-          "g": "v_kureru_polite_mashita"
+          "k": "りました",
+          "g": "v_tsukuru_polite_mashita"
         },
         {
           "k": "。"
@@ -1548,7 +1537,7 @@
       ]
     },
     {
-      "jp": "「私は青がいちばん好きだ。でも、カレーも、お茶も茶色だ。」",
+      "jp": "「私は青がいちばん好きだ。けど、カレーも、お茶も茶色だ。」",
       "en": "\"I like blue best. But curry and green tea are both brown.\"",
       "tokens": [
         {
@@ -1588,7 +1577,7 @@
           "k": "。"
         },
         {
-          "k": "でも"
+          "k": "けど"
         },
         {
           "k": "、"
@@ -2017,13 +2006,13 @@
       },
       {
         "type": "written",
-        "q": "今朝の 朝ごはんは だれが 作ってくれましたか。",
+        "q": "今朝の 朝ごはんは だれが 作りましたか。",
         "q_en": "Who made this morning's breakfast?",
-        "answer": "母が作ってくれました。",
+        "answer": "母が作りました。",
         "accept": [
           "母"
         ],
-        "explanation": "「今朝の朝ごはんは母が作ってくれました。」と書いてあります。",
+        "explanation": "「今朝の朝ごはんは母が作りました。」と書いてあります。",
         "terms": [],
         "paraIdx": 2,
         "aTerms": [

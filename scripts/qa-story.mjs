@@ -169,7 +169,7 @@ for (const p of GLOSSARY_PATHS) {
 const KANA_ONLY = /^[぀-ヿー]+$/;
 const HAS_CJK = /[一-鿿㐀-䶿]/;
 const HAS_KANA = /[぀-ヿー]/;
-const PUNCT_ONLY = /^[、。！？「」『』（）：；・…\s「」\-—()『』]+$/;
+const PUNCT_ONLY = /^[、。！？「」『』（）：；・…\s「」\-—()『』.]+$/;
 
 // Decide whether a no-g token is "untagged" or is just a particle/punctuation
 // that doesn't need a chip. We flag CJK tokens and any kana word ≥2 chars

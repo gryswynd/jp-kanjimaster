@@ -938,8 +938,8 @@
       ]
     },
     {
-      "jp": "山の上に小さい店がありました。その店に切手がありました。りきぞうはペンを使って、今日の遠足のことを書きました。切手を使って、うちに送りました。「うちに送りましたか？」けんが聞きました。「はい！山の上からですよ！」",
-      "en": "At the top of the mountain, there was a small shop. The shop had stamps. Rikizo used a pen to write about today's field trip. He used a stamp to send it home. \"Did you send it to your house?\" asked Ken. \"Yes! From the top of the mountain!\"",
+      "jp": "山の上に小さい店がありました。その店に切手がありました。りきぞうはペンを使って、『今日の遠足はよかったです』と書きました。切手を使って、うちに送りました。「うちに送りましたか？」けんが聞きました。「はい！山の上からですよ！」",
+      "en": "At the top of the mountain, there was a small shop. The shop had stamps. Rikizo used a pen and wrote, \"Today's field trip was great.\" He used a stamp to send it home. \"Did you send it to your house?\" asked Ken. \"Yes! From the top of the mountain!\"",
       "tokens": [
         {
           "k": "山",
@@ -1028,6 +1028,9 @@
           "k": "、"
         },
         {
+          "k": "『"
+        },
+        {
           "k": "今日",
           "r": "きょう"
         },
@@ -1039,14 +1042,21 @@
           "r": "えんそく"
         },
         {
-          "k": "の"
+          "k": "は",
+          "r": "わ"
         },
         {
-          "k": "こと"
+          "k": "よかった",
+          "g": "v_ii_plain_past_adj"
         },
         {
-          "k": "を",
-          "r": "お"
+          "k": "です"
+        },
+        {
+          "k": "』"
+        },
+        {
+          "k": "と"
         },
         {
           "k": "書",
@@ -1181,17 +1191,21 @@
       ]
     },
     {
-      "jp": "帰りに、二人は電車に乗りました。帰り道は長かったですが、いい気分でした。",
-      "en": "On the way back, the two rode the train. The way home was long, but it felt great.",
+      "jp": "帰る時、二人は電車に乗りました。帰り道は長かったですが、いい気分でした。",
+      "en": "When it was time to go home, the two rode the train. The way home was long, but it felt great.",
       "tokens": [
         {
           "k": "帰",
           "r": "かえ",
-          "g": "v_kaeru_purpose_ni"
+          "g": "v_kaeru"
         },
         {
-          "k": "りに",
-          "g": "v_kaeru_purpose_ni"
+          "k": "る",
+          "g": "v_kaeru"
+        },
+        {
+          "k": "時",
+          "r": "とき"
         },
         {
           "k": "、"

@@ -2,6 +2,38 @@
   "contentVersion": "1.0.0",
   "entries": [
     {
+      "id": "v_watashi_kana",
+      "surface": "わたし",
+      "reading": "わたし",
+      "meaning": "I / me",
+      "type": "vocab",
+      "gtype": "pronoun",
+      "lesson_ids": "N5.1",
+      "notes": "First-person pronoun, kana form. Kanji 私 is taught at N4.3 (v_watashi) — use kana before then.",
+      "example": {
+        "jp": "わたしは りきぞうです。",
+        "en": "I am Rikizo.",
+        "lessonId": "N5.1",
+        "sectionType": "conversation"
+      }
+    },
+    {
+      "id": "v_kazoku_kana",
+      "surface": "かぞく",
+      "reading": "かぞく",
+      "meaning": "family",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.1",
+      "notes": "Kana form. Kanji 家族 is taught at N4.7 (v_kazoku) — use kana before then.",
+      "example": {
+        "jp": "わたしのかぞくは四人です。",
+        "en": "My family has four people.",
+        "lessonId": "N5.1",
+        "sectionType": "conversation"
+      }
+    },
+    {
       "id": "g_da",
       "surface": "だ",
       "reading": "だ",
@@ -8718,6 +8750,23 @@
           "k": "きました"
         }
       ]
+    },
+    {
+      "id": "v_suki_kana",
+      "surface": "すき",
+      "reading": "すき",
+      "meaning": "like / liked (na-adj.)",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "verb_class": "na_adj",
+      "lesson_ids": "N5.7",
+      "notes": "Kana form. Kanji 好き is taught at N4.4 (v_suki) — use kana before then.",
+      "example": {
+        "jp": "わたしは サラダが すきです。",
+        "en": "I like salad.",
+        "lessonId": "N5.7",
+        "sectionType": "conversation"
+      }
     },
     {
       "id": "aux_mashita",
