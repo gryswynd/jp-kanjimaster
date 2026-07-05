@@ -993,36 +993,13 @@
     );
   }
 
-  // Practice Helpers — opt-in companion modules. The section is structured to
-  // host more toggles over time; future helpers should add a row here, persist
-  // via window.JPShared.practiceHelpers, and rely on its onChange pubsub so the
-  // surfaces that conditionally render them re-evaluate without a remount.
+  // Practice Helpers — the section is gone: Kana Writing Practice became a
+  // core always-on feature (practice-helpers.js getKanaWriting() → true), so
+  // there is nothing left to toggle. If a future opt-in helper arrives,
+  // rebuild the section here and persist via window.JPShared.practiceHelpers
+  // with its onChange pubsub (see git history for the row markup).
   function buildPracticeHelpersSection() {
-    var ph = window.JPShared && window.JPShared.practiceHelpers;
-    if (!ph) return '';
-    var kanaOn = ph.getKanaWriting();
-    function row(id, label, sub, checked) {
-      return (
-        '<label class="jp-set-toggle-row" for="' + id + '">' +
-          '<div>' +
-            '<span class="jp-set-toggle-label">' + label + '</span>' +
-            '<span class="jp-set-toggle-sub">' + sub + '</span>' +
-          '</div>' +
-          '<span class="jp-set-switch">' +
-            '<input type="checkbox" id="' + id + '"' + (checked ? ' checked' : '') + '>' +
-            '<span class="jp-set-switch-slider"></span>' +
-          '</span>' +
-        '</label>'
-      );
-    }
-    return (
-      '<div class="jp-set-section-label">Practice Helpers</div>' +
-      '<div class="jp-set-card" data-tour-set="helpers">' +
-        row('jp-set-kana-writing', 'Kana Writing Practice',
-            'Practice writing hiragana &amp; katakana, stroke by stroke.', kanaOn) +
-        // Future helpers: add more row(...) calls here.
-      '</div>'
-    );
+    return '';
   }
 
   // Tiny credits line at the bottom of the modal body. Currently only carries
@@ -1836,11 +1813,12 @@
 
     rewireBody();
 
-    // First time Settings is opened, Rikizo walks through the (now sizeable)
-    // panel. No-ops on later opens (seen-key) or when tutorials are skipped.
+    // Staged Settings tours: first open → the essentials (name/account/aids),
+    // second open → the paid-features tour. No-ops after both are seen or
+    // when tutorials are skipped (runSettingsTours dispatches).
     var rc = window.JPShared && window.JPShared.rikizoCompanion;
-    if (rc && rc.runSettingsTutorial) {
-      setTimeout(function () { rc.runSettingsTutorial(); }, 350);
+    if (rc && rc.runSettingsTours) {
+      setTimeout(function () { rc.runSettingsTours(); }, 350);
     }
   }
 
@@ -1861,14 +1839,7 @@
   }
 
   function wirePracticeHelpers() {
-    var ph = window.JPShared && window.JPShared.practiceHelpers;
-    if (!ph) return;
-    var kana = document.getElementById('jp-set-kana-writing');
-    if (kana) {
-      kana.addEventListener('change', function () {
-        ph.setKanaWriting(kana.checked);
-      });
-    }
+    // No-op: Kana Writing Practice is always on; the toggle row was removed.
   }
 
   function wireTextSize() {

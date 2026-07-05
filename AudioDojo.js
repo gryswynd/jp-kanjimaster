@@ -224,6 +224,8 @@ window.AudioDojoModule = (function () {
       const res = await fetch(url);
       const data = await res.json();
       list = (data.audiostories || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
+      const u0 = window.JPShared && window.JPShared.unlock;
+      if (u0 && u0.setAudioIndex) u0.setAudioIndex(list);
     } catch (e) {
       list = [];
     }
@@ -237,6 +239,11 @@ window.AudioDojoModule = (function () {
   function renderSelector() {
     if (window.JPApp) window.JPApp.showTabBar();
     stopAudio();
+    // Opening the hub clears its "new unlock" dot (passage dots clear per-open).
+    {
+      const u = window.JPShared && window.JPShared.unlock;
+      if (u && u.markSeen) u.markSeen('audiodojo:audiodojo');
+    }
     let html = '<div class="ad-container">' +
       '<header class="ad-header"><div class="ad-title">🎧 Audio Practice</div>' +
       '<div class="ad-nav"><button id="ad-exit">Exit</button></div></header>' +
@@ -267,12 +274,22 @@ window.AudioDojoModule = (function () {
     container.querySelectorAll('.ad-card[data-idx]').forEach((c) => {
       c.onclick = function () { currentIndex = parseInt(this.dataset.idx, 10); loadPassage(list[currentIndex]); };
     });
+
+    // First-ever visit: Rikizo introduces the module (one-shot, seen-gated).
+    const rc = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rc && rc.runModuleIntro) {
+      setTimeout(function () { rc.runModuleIntro('audiodojo'); }, 350);
+    }
   }
 
   async function loadPassage(info) {
     stopAudio();
     currentInfo = info;
     completedOnce = false;
+    {
+      const u = window.JPShared && window.JPShared.unlock;
+      if (u && u.markSeen && info && info.id) u.markSeen('audiostory:' + info.id);
+    }
     container.innerHTML = '<div class="ad-container"><div class="ad-loading">聴 · loading…</div></div>';
     try {
       const url = getCdnUrl(info.dir + '/' + (info.file || 'audiostory.json')) + '?t=' + Date.now();

@@ -933,6 +933,12 @@ window.StoriesModule = (function () {
     container.querySelectorAll('.jp-shelf').forEach(shelf => {
       shelf.onclick = () => renderStoriesInGroup(shelf.dataset.group, grouped[shelf.dataset.group]);
     });
+
+    // First-ever visit: Rikizo introduces the module (one-shot, seen-gated).
+    const rc = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rc && rc.runModuleIntro) {
+      setTimeout(function () { rc.runModuleIntro('stories'); }, 350);
+    }
   }
 
   function renderStoriesInGroup(groupKey, stories) {

@@ -149,6 +149,49 @@
     catch (e) { /* ignore */ }
   }
 
+  // ---- Adjacent-repeat spacing ----
+  // A shuffled (vocab × form) queue can land the same verb (different form) or
+  // the same form (different verb) back to back, which reads as a repeat to the
+  // learner. Greedy pass: when an item conflicts with its predecessor on either
+  // axis, swap in the next non-conflicting item. Best-effort — a session drilled
+  // on a single form (or a single verb) has no conflict-free ordering, so any
+  // leftover conflict is left in place rather than looping forever.
+  function conflicts(a, b) {
+    if (!a || !b) return false;
+    return a.term.surface === b.term.surface || a.ruleKey === b.ruleKey;
+  }
+  function spaceOut(arr) {
+    for (var i = 1; i < arr.length; i++) {
+      if (!conflicts(arr[i - 1], arr[i])) continue;
+      for (var j = i + 1; j < arr.length; j++) {
+        if (!conflicts(arr[i - 1], arr[j]) &&
+            (i + 1 >= arr.length || !conflicts(arr[j], arr[i + 1]))) {
+          var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+          break;
+        }
+      }
+    }
+    return arr;
+  }
+  function countConflicts(arr) {
+    var c = 0;
+    for (var i = 1; i < arr.length; i++) if (conflicts(arr[i - 1], arr[i])) c++;
+    return c;
+  }
+  // Shuffle + space, a few attempts, keep the best ordering found. The greedy
+  // pass can strand a conflict at the tail; a fresh shuffle usually clears it.
+  function orderQueue(arr) {
+    var best = null, bestC = Infinity;
+    for (var k = 0; k < 8; k++) {
+      shuffle(arr);
+      spaceOut(arr);
+      var c = countConflicts(arr);
+      if (c < bestC) { bestC = c; best = arr.slice(); }
+      if (bestC === 0) break;
+    }
+    return best || arr;
+  }
+
   // ---- Fisher-Yates shuffle ----
   function shuffle(arr) {
     for (var i = arr.length - 1; i > 0; i--) {
@@ -556,7 +599,7 @@
         }
       });
     });
-    shuffle(pairs);
+    pairs = orderQueue(pairs);
     return sessionLength > 0 ? pairs.slice(0, sessionLength) : pairs;
   }
 
@@ -950,8 +993,7 @@
 
     if (mistakes.length > 0) {
       document.getElementById('dojo-retry-btn').addEventListener('click', function () {
-        var retryQueue = mistakes.map(function (m) { return Object.assign({}, m); });
-        shuffle(retryQueue);
+        var retryQueue = orderQueue(mistakes.map(function (m) { return Object.assign({}, m); }));
         startDrillWithQueue(retryQueue);
       });
     }

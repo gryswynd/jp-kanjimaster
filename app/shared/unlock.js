@@ -45,7 +45,7 @@
   // Audio Dojo entry appears once this N5 lesson is passed (≥60%) — aligned with
   // the first audiostory's unlocksAfter. Individual passages gate per their own
   // unlocksAfter (see isAudioStoryUnlocked).
-  var AUDIO_DOJO_UNLOCK_AFTER = 'N5.3';
+  var AUDIO_DOJO_UNLOCK_AFTER = 'N5.2';
 
   // ── New-unlock badge state ──────────────────────────────────────────────────
   // k-unlock-unseen: flat array of leaf keys ("<type>:<id>", or bare "linkup"/
@@ -53,6 +53,20 @@
   // Seeded once (SEEDED_KEY) so pre-existing unlocks never retroactively badge.
   var UNSEEN_KEY = 'k-unlock-unseen';
   var SEEDED_KEY = 'k-unlock-seen-seeded';
+
+  // Audio Dojo passage index ({id,title,englishTitle,unlocksAfter}[]) —
+  // registered via setAudioIndex() by whoever fetches audiostories.index.json
+  // (quests.js at boot, AudioDojo.js on open). Until registered, audio items
+  // simply don't participate in unlock snapshots (graceful).
+  var _audioEntries = null;
+  function _audioTitle(id) {
+    var e = null;
+    if (_audioEntries) for (var i = 0; i < _audioEntries.length; i++) {
+      if (_audioEntries[i].id === id) { e = _audioEntries[i]; break; }
+    }
+    if (!e) return 'Listening practice';
+    return 'Listening: ' + (e.title || e.englishTitle || id);
+  }
 
   var MODULE_META = {
     grammar:  { icon: '🌿', label: 'Grammar Garden' },
@@ -132,6 +146,16 @@
     if (api.isLinkUpUnlocked())   snap.practice.add('linkup');
     if (api.isScrambleUnlocked()) snap.practice.add('scramble');
 
+    // Audio Dojo — the hub itself plus per-passage unlocks (one passage per two
+    // lessons). Passages need the registered index; the hub gate is index-free.
+    snap.audio = new Set();
+    if (api.isModuleVisible('audiodojo')) snap.audio.add('__hub__');
+    if (_audioEntries) {
+      _audioEntries.forEach(function (entry) {
+        if (api.isAudioStoryUnlocked(entry)) snap.audio.add(entry.id);
+      });
+    }
+
     var d = manifest && manifest.data;
     if (!d) return snap;
 
@@ -198,6 +222,18 @@
     addItems('compose', before.compose, after.compose, '✏️');
     addItems('game',    before.game,    after.game,    '🎮');
 
+    // Audio Dojo — hub + passages; both badge the Dojo tile (MODULE_FOR_TYPE).
+    if (before.audio && after.audio) {
+      if (!before.audio.has('__hub__') && after.audio.has('__hub__')) {
+        items.push({ type: 'audiodojo', id: 'audiodojo', icon: '🎧', label: 'Audio Dojo' });
+      }
+      after.audio.forEach(function (id) {
+        if (id !== '__hub__' && !before.audio.has(id)) {
+          items.push({ type: 'audiostory', id: id, icon: '🎧', label: _audioTitle(id) });
+        }
+      });
+    }
+
     return items;
   }
 
@@ -217,7 +253,14 @@
     // map to X directly (handled in the helpers below).
     MODULE_FOR_TYPE: {
       lesson: 'lesson', grammar: 'grammar', review: 'review', story: 'story',
-      compose: 'compose', game: 'game', linkup: 'practice', scramble: 'practice'
+      compose: 'compose', game: 'game', linkup: 'practice', scramble: 'practice',
+      audiodojo: 'practice', audiostory: 'practice'
+    },
+
+    // Register the Audio Dojo passage index so unlock snapshots can diff
+    // per-passage unlocks. Called by quests.js (boot fetch) and AudioDojo.js.
+    setAudioIndex: function (entries) {
+      if (Array.isArray(entries) && entries.length) _audioEntries = entries;
     },
 
     _getUnseen: function () {
@@ -421,7 +464,7 @@
         // an empty room otherwise.
         case 'story':    return _prereqMet('G4', true);    // any completion
         case 'review':   return _prereqMet('G4', true);    // any completion
-        case 'audiodojo': return _prereqMet(AUDIO_DOJO_UNLOCK_AFTER, false); // ≥60% on N5.3
+        case 'audiodojo': return _prereqMet(AUDIO_DOJO_UNLOCK_AFTER, false); // ≥60% on N5.2
         // Writing modules are reached through the Dojo's Writing hub. The Dojo
         // tile is already gated as 'practice'; once inside, writing is free.
         case 'writing-kanji': return true;

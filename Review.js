@@ -170,6 +170,12 @@
       stage.querySelectorAll('.jp-review-level-card').forEach(card => {
         card.onclick = () => this.renderReviewMenu(card.dataset.level, byLevel[card.dataset.level]);
       });
+
+      // First-ever visit: Rikizo introduces the module (one-shot, seen-gated).
+      const rc = window.JPShared && window.JPShared.rikizoCompanion;
+      if (rc && rc.runModuleIntro) {
+        setTimeout(function () { rc.runModuleIntro('review'); }, 350);
+      }
     },
 
     renderReviewMenu: function(level, reviews) {

@@ -189,6 +189,7 @@
 
   function wireDrag() {
     var startX = 0, startY = 0, baseL = 0, baseT = 0, moved = false, dragging = false;
+    var lastPointerHandled = 0; // guards the click fallback against double-fire
 
     faceBtn.addEventListener('pointerdown', function (e) {
       dragging = true; moved = false;
@@ -214,6 +215,7 @@
     function end(e) {
       if (!dragging) return;
       dragging = false;
+      lastPointerHandled = Date.now();
       faceBtn.classList.remove('rk-tutor-dragging');
       try { faceBtn.releasePointerCapture(e.pointerId); } catch (err) {}
       if (moved) {
@@ -223,7 +225,21 @@
       }
     }
     faceBtn.addEventListener('pointerup', end);
-    faceBtn.addEventListener('pointercancel', function () { dragging = false; faceBtn.classList.remove('rk-tutor-dragging'); });
+    // Android WebViews can cancel the pointer stream mid-tap (gesture arbitration)
+    // even with touch-action:none. A cancel with no movement WAS a tap — honor it
+    // instead of eating it.
+    faceBtn.addEventListener('pointercancel', function () {
+      var wasTap = dragging && !moved;
+      dragging = false;
+      faceBtn.classList.remove('rk-tutor-dragging');
+      if (wasTap) { lastPointerHandled = Date.now(); openAsk(); }
+    });
+    // Last-resort fallback for WebViews with flaky pointer-event delivery: a
+    // click that no pointerup/cancel just handled still opens the sheet.
+    faceBtn.addEventListener('click', function () {
+      if (Date.now() - lastPointerHandled < 600) return;
+      openAsk();
+    });
   }
 
   // ---------------------------------------------------------------- quota
@@ -233,9 +249,20 @@
 
   // ---------------------------------------------------------------- ask sheet
   function openAsk() {
+    // Already open — don't stack a second sheet (tap fallbacks can double-fire).
+    if (document.getElementById('rk-tutor-sheet')) return;
     // Gate: a real account is required to ask Rikizo. Send unsigned users to
     // sign-in instead of opening the sheet (the server enforces this too).
     if (authConfigured() && !isLoggedIn()) { promptSignIn(); return; }
+    try {
+      openAskSheet();
+    } catch (e) {
+      // A silent throw here reads as "tapping does nothing" on device — say so.
+      toast('Tutor error: ' + ((e && e.message) || e));
+    }
+  }
+
+  function openAskSheet() {
     clearBubble();
     injectStyles();
     var tc = S().tutorContext;

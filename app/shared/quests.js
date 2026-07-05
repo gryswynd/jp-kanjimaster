@@ -117,7 +117,13 @@
         : 'data/audiostories.index.json';
       fetch(url + '?t=' + Date.now())
         .then(function (r) { return r.json(); })
-        .then(function (data) { audioIndex = (data && data.audiostories) || []; })
+        .then(function (data) {
+          audioIndex = (data && data.audiostories) || [];
+          // Also register with the unlock engine so lesson-completion unlock
+          // diffs can call out newly-unlocked listening passages.
+          var u = window.JPShared && window.JPShared.unlock;
+          if (u && u.setAudioIndex) u.setAudioIndex(audioIndex);
+        })
         .catch(function () { audioIndex = null; });
     } catch (e) { audioIndex = null; }
   }

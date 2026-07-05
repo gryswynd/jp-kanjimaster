@@ -7,19 +7,6 @@
   'use strict';
   window.JPShared = window.JPShared || {};
 
-  var KEYS = {
-    kanaWriting: 'k-helper-kana-writing'
-  };
-
-  // Default = false for every helper. Opt-in only — see Plan: "Off by default".
-  function read(key) {
-    try { return localStorage.getItem(key) === '1'; }
-    catch (e) { return false; }
-  }
-  function write(key, val) {
-    try { localStorage.setItem(key, val ? '1' : '0'); } catch (e) {}
-  }
-
   var listeners = [];
   function emit() {
     for (var i = 0; i < listeners.length; i++) {
@@ -28,14 +15,12 @@
   }
 
   window.JPShared.practiceHelpers = {
-    getKanaWriting: function () { return read(KEYS.kanaWriting); },
-    setKanaWriting: function (v) {
-      var cur = read(KEYS.kanaWriting);
-      var next = !!v;
-      if (cur === next) return;
-      write(KEYS.kanaWriting, next);
-      emit();
-    },
+    // Kana Writing Practice is a core feature now — always on. The Settings
+    // toggle was removed (2026-07); the getter stays so gating call-sites
+    // (Practice.js, WritingKana.js) keep working unchanged. The old
+    // k-helper-kana-writing localStorage key is simply ignored.
+    getKanaWriting: function () { return true; },
+    setKanaWriting: function () {},
     onChange: function (cb) {
       if (typeof cb !== 'function') return function () {};
       listeners.push(cb);

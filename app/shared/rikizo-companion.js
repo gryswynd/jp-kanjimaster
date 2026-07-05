@@ -512,81 +512,62 @@
     layer.style.zIndex       = on ? '10002' : '';
   }
 
-  // Open the Settings panel, loading it lazily if needed (it's a deferred
-  // module not present during first-launch onboarding). Resolves true once the
-  // overlay is in the DOM, false if Settings is unavailable.
-  function _ensureSettingsOpen() {
-    return new Promise(function (resolve) {
-      var afterOpen = function () {
-        var tries = 0;
-        (function poll() {
-          if (document.querySelector('.jp-set-overlay')) return resolve(true);
-          if (tries++ > 40) return resolve(false); // ~2s ceiling
-          setTimeout(poll, 50);
-        })();
-      };
-      var s = window.JPShared && window.JPShared.ttsSettings;
-      if (s && s.open) { Promise.resolve(s.open()).then(afterOpen, afterOpen); return; }
-      // Fall back to JPApp's lazy loader (pulls in tts/stamp deps, then opens).
-      if (window.JPApp && window.JPApp.openTtsSettings) {
-        Promise.resolve(window.JPApp.openTtsSettings()).then(afterOpen, afterOpen);
-        return;
-      }
-      resolve(false);
-    });
-  }
-
-  // NO-branch of onboarding: open Settings and walk the user through the three
-  // reading aids (furigana, romaji, kana practice). Spotlights the visible
-  // toggle rows (the <input>s themselves are 0×0). Always restores z + closes.
-  function _runSettingsHelp() {
-    var msgs = messages();
-    var ob = (msgs && msgs.onboarding) || {};
-    var txt = function (k, fallback) { var m = ob[k]; return (m && m.text) || fallback; };
-    var SCOPE = '.jp-set-overlay';
-    var restore = function () {
-      clearHighlight();
-      _liftAboveSettings(false);
-      var s = window.JPShared && window.JPShared.ttsSettings;
-      if (s && s.close && (!s.isOpen || s.isOpen())) { try { s.close(); } catch (e) {} }
-    };
-    return _ensureSettingsOpen().then(function (opened) {
-      if (!opened) return;
-      _liftAboveSettings(true);
-      return wait(400).then(function () {
-        return tourStep('label[for="jp-set-furigana"]',
-          txt('settingsFurigana', 'Furigana shows tiny hiragana above each kanji.'), { scope: SCOPE });
-      }).then(function () {
-        return tourStep('label[for="jp-set-romaji"]',
-          txt('settingsRomaji', 'Romaji spells the Japanese out in the Latin alphabet.'), { scope: SCOPE });
-      }).then(function () {
-        return tourStep('label[for="jp-set-kana-writing"]',
-          txt('settingsKana', 'Kana Writing Practice drills hiragana & katakana, stroke by stroke.'), { scope: SCOPE });
-      }).then(restore);
-    }).catch(restore);
-  }
-
-  // ----------------------------------------------- first-open Settings tour
-  // Settings has grown into many sections; the first time the panel is opened
-  // (fired by tts-settings open()), Rikizo walks through each one. Gated by a
-  // seen-key + the global skip-tutorials switch. The panel is already open and
-  // sits at z-9999, so we lift our layers above it (as _runSettingsHelp does)
-  // and lock the screen so taps step the tour forward. Leaves Settings open.
-  var SETTINGS_TUT_SEEN_KEY = 'k-rikizo-settings-tutorial-seen';
+  // ----------------------------------------------- Settings tours (staged)
+  // Two short tours, both fired by tts-settings open() via runSettingsTours():
+  //   1st open  → runSettingsTutorial: only what's worth doing first
+  //               (required first name, account sign-in, reading aids).
+  //   2nd open  → runSettingsUpsell: the paid features (AI Tutor, Custom
+  //               Content) — deferred so the user has context for them.
+  // The panel sits at z-9999, so we lift our layers above it and lock the
+  // screen so taps step the tour forward. Leaves Settings open.
+  var SETTINGS_TUT_SEEN_KEY    = 'k-rikizo-settings-tutorial-seen';
+  var SETTINGS_UPSELL_SEEN_KEY = 'k-rikizo-settings-upsell-seen';
   function settingsTutorialSeen() {
     try { return localStorage.getItem(SETTINGS_TUT_SEEN_KEY) === '1'; } catch (e) { return false; }
   }
+  function settingsUpsellSeen() {
+    try { return localStorage.getItem(SETTINGS_UPSELL_SEEN_KEY) === '1'; } catch (e) { return false; }
+  }
   function resetSettingsTutorial() {
     try { localStorage.removeItem(SETTINGS_TUT_SEEN_KEY); } catch (e) {}
+    try { localStorage.removeItem(SETTINGS_UPSELL_SEEN_KEY); } catch (e) {}
     _tutorialSeq++;
   }
 
+  // Dispatcher: first unseen tour wins; at most one tour per panel open
+  // (the first tour marks itself seen up front, so the upsell waits for the
+  // NEXT open rather than piling onto the same one).
+  function runSettingsTours() {
+    if (!settingsTutorialSeen()) return runSettingsTutorial();
+    if (!settingsUpsellSeen())   return runSettingsUpsell();
+    return Promise.resolve();
+  }
+
   function runSettingsTutorial() {
+    return _runSettingsTour(SETTINGS_TUT_SEEN_KEY, 'settingsTutorial', [
+      { msg: 'intro',   sel: null, walkIn: true },
+      { msg: 'profile', sel: '[data-tour-set="profile"]' },
+      { msg: 'account', sel: '#jp-set-account-field' },
+      { msg: 'aids',    sel: '[data-tour-set="aids"]' },
+      { msg: 'outro',   sel: null }
+    ]);
+  }
+
+  function runSettingsUpsell() {
+    return _runSettingsTour(SETTINGS_UPSELL_SEEN_KEY, 'settingsUpsell', [
+      { msg: 'intro',  sel: null, walkIn: true },
+      { msg: 'tutor',  sel: '#jp-set-tutor-drill' },
+      { msg: 'custom', sel: '#jp-set-custom-drill' }
+    ]);
+  }
+
+  function _runSettingsTour(seenKey, sectionName, steps) {
     var SCOPE = '.jp-set-overlay';
-    if (state.busy || tutorialsSkipped() || settingsTutorialSeen()) return Promise.resolve();
+    if (state.busy || tutorialsSkipped()) return Promise.resolve();
+    try { if (localStorage.getItem(seenKey) === '1') return Promise.resolve(); } catch (e) {}
     if (!document.querySelector(SCOPE)) return Promise.resolve();
     // Mark seen up front so an abort mid-tour (panel closed) still records it.
-    try { localStorage.setItem(SETTINGS_TUT_SEEN_KEY, '1'); } catch (e) {}
+    try { localStorage.setItem(seenKey, '1'); } catch (e) {}
     var mySeq = ++_tutorialSeq;
     var current = function () { return mySeq === _tutorialSeq; };
     ensureLayer(); clearBubble(); cancelLoop();
@@ -601,25 +582,8 @@
 
     return loadMessages().then(function (data) {
       if (!current() || !document.querySelector(SCOPE)) { restore(); return; }
-      var st = (data && data.settingsTutorial) || {};
-      var txt = function (k, fb) { var m = st[k]; return (m && m.text) || fb; };
-
-      // [messageKey, targetSelector] — null target = Rikizo speaks from center
-      // (intro walks in; outro steps back to center).
-      var steps = [
-        { msg: 'intro',     sel: null, walkIn: true },
-        { msg: 'profile',   sel: '[data-tour-set="profile"]' },
-        { msg: 'account',   sel: '#jp-set-account-field' },
-        { msg: 'companion', sel: '[data-tour-set="companion"]' },
-        { msg: 'tutorials', sel: '[data-tour-set="tutorials"]' },
-        { msg: 'voice',     sel: '[data-tour-set="voice"]' },
-        { msg: 'sound',     sel: '[data-tour-set="sound"]' },
-        { msg: 'aids',      sel: '[data-tour-set="aids"]' },
-        { msg: 'helpers',   sel: '[data-tour-set="helpers"]' },
-        { msg: 'upgrades',  sel: '[data-tour-set="upgrades"]' },
-        { msg: 'about',     sel: '[data-tour-set="about"]' },
-        { msg: 'outro',     sel: null }
-      ];
+      var st = (data && data[sectionName]) || {};
+      var txt = function (k) { var m = st[k]; return (m && m.text) || ''; };
 
       state.busy = true;
       lockScreen();
@@ -629,7 +593,7 @@
       steps.forEach(function (step) {
         chain = chain.then(function () {
           if (!current() || !document.querySelector(SCOPE)) return;
-          var line = txt(step.msg, '');
+          var line = txt(step.msg);
           if (!line) return;
           if (step.sel) {
             return tourStep(step.sel, line, { scope: SCOPE });
@@ -684,50 +648,28 @@
       return ask(q, [{ label: 'はい', value: true }, { label: 'いいえ', value: false }]);
     }).then(function (ans) {
       understood = !!ans;
+      if (!understood) {
+        // Turn the reading aids on FOR them — no mid-onboarding Settings
+        // detour. praiseNo's copy tells them what happened + where to adjust.
+        var jt = window.JPShared && window.JPShared.jpText;
+        if (jt) {
+          try {
+            if (jt.setFurigana) jt.setFurigana(true);
+            if (jt.setRomaji)   jt.setRomaji(true);
+          } catch (e) {}
+        }
+      }
       var line = understood ? (ob.praiseYes && ob.praiseYes.text) : (ob.praiseNo && ob.praiseNo.text);
       return speak(line);
     }).then(function () {
-      return speak((ob.getSetUp && ob.getSetUp.text) || "Let's get you set up.");
-    }).then(function () {
-      return tourStep('[data-tour="notify"]',   ob.tourNotify   && ob.tourNotify.text);
-    }).then(function () {
-      // Settings step branches on the comprehension answer:
-      //  - understood → just point out the gear and mention help is in there.
-      //  - didn't     → open Settings and walk through the reading aids.
-      if (understood) {
-        return tourStep('[data-tour="settings"]', ob.tourSettingsYes && ob.tourSettingsYes.text);
-      }
-      return tourStep('[data-tour="settings"]', ob.tourSettingsNo && ob.tourSettingsNo.text)
-        .then(_runSettingsHelp);
-    }).then(function () {
       return tourStep('[data-tour="streak"]',   ob.tourStreak   && ob.tourStreak.text);
     }).then(function () {
-      // Next Up — what to tackle next (grammar / lesson / review).
+      // Next Up — the one card that always shows the next step. Everything
+      // else on the home screen gets introduced by the staged micro-tours
+      // (post-lesson waves, home callouts) at the moment it first appears.
       return tourStep('[data-tour="lesson"]',   ob.tourNextUp   && ob.tourNextUp.text);
     }).then(function () {
-      // All practice modules — more unlock as lessons/reviews are cleared at 60%+.
-      return tourStep('[data-tour="modules"]',  ob.tourModules  && ob.tourModules.text);
-    }).then(function () {
-      // Progress bars.
-      return tourStep('[data-tour="progress"]', ob.tourProgress && ob.tourProgress.text);
-    }).then(function () {
-      // Cast — unlocks as you meet friends & family in the adventure.
-      return tourStep('[data-tour="cast"]',     ob.tourCast     && ob.tourCast.text);
-    }).then(function () {
-      // Daily challenge.
-      return tourStep('[data-tour="daily"]',    ob.tourDaily    && ob.tourDaily.text);
-    }).then(function () {
-      // Bottom navigation bar.
-      return tourStep('[data-tour="nav"]',      ob.tourNav      && ob.tourNav.text);
-    }).then(function () {
-      // "Phew — that was a lot." Drop the spotlight and step back to center.
-      clearHighlight();
-      return moveTo(centerX(), restY(), { duration: 700 });
-    }).then(function () {
-      state.facing = 'down'; idle();
-      return speak((ob.tourPhew && ob.tourPhew.text) || 'Phew — that was a lot! 😅');
-    }).then(function () {
-      // Back to Next Up for the call to action.
+      // Call to action — same card, so the spotlight just holds.
       return tourStep('[data-tour="lesson"]',   (ob.tourDone && ob.tourDone.text) || "Let's do your first lesson!");
     }).then(finishOnboarding, finishOnboarding);
   }
@@ -740,6 +682,111 @@
     state.onboarding = false;
     state.busy = false;
     applyPresence();
+  }
+
+  // -------------------------------------------- staged micro-tour storage
+  // Generic per-step seen maps for the staged tutorials (post-N5.1 wave, home
+  // callouts, module intros). Same shape as the lesson/grammar/dojo maps.
+  var WAVE_N51_SEEN_KEY      = 'k-rikizo-tour-wave-n51-seen';
+  var HOME_CALLOUTS_SEEN_KEY = 'k-rikizo-tour-home-callouts-seen';
+
+  function _loadSeenMap(key) {
+    try {
+      var raw = localStorage.getItem(key);
+      if (raw) return JSON.parse(raw) || {};
+    } catch (e) {}
+    return {};
+  }
+  function _saveSeenMap(key, seen) {
+    try { localStorage.setItem(key, JSON.stringify(seen)); } catch (e) {}
+  }
+
+  // ------------------------------------------------------- home callouts
+  // One-line "this just appeared" spotlights for home widgets that show up
+  // over time (SRS review card, real Kanji of the Day, first album stamp,
+  // first cast unlock). The home BUILDERS decide when a widget qualifies and
+  // stamp it with data-callout="<key>" (conditions live where the data lives);
+  // this runner fires AT MOST ONE unseen callout per home render — never a
+  // chain — so returning home always costs the user at most one tap.
+  // Called by index.html _rikizoGreet after the greeting/celebration resolve.
+  function runHomeCallouts() {
+    if (state.busy || state.onboarding || tutorialsSkipped()) return Promise.resolve();
+    if (!isOnboarded() || !onHomeScreen()) return Promise.resolve();
+    var seen = _loadSeenMap(HOME_CALLOUTS_SEEN_KEY);
+    var nodes = document.querySelectorAll('[data-callout]');
+    var key = null;
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute('data-callout');
+      if (k && !seen[k]) { key = k; break; }
+    }
+    if (!key) return Promise.resolve();
+    ensureLayer(); clearBubble(); cancelLoop();
+    var mySeq = ++_tutorialSeq;
+    var current = function () { return mySeq === _tutorialSeq; };
+    return loadMessages().then(function (data) {
+      if (!current() || !onHomeScreen()) return;
+      var hc = (data && data.homeCallouts) || {};
+      var line = hc[key] && hc[key].text;
+      if (!line) return;
+      seen[key] = true;
+      _saveSeenMap(HOME_CALLOUTS_SEEN_KEY, seen);
+      state.busy = true;
+      lockScreen();
+      place(offscreenLeft(), restY());
+      show();
+      return tourStep('[data-callout="' + key + '"]', line).then(function () {
+        if (!current()) return;
+        clearBubble(); clearHighlight(); unlockScreen();
+        state.busy = false;
+        applyPresence();
+      });
+    }).catch(function () { unlockScreen(); if (current()) state.busy = false; });
+  }
+
+  // ------------------------------------------------------- module intros
+  // Short first-entry intros for modules that grew up without one (Stories,
+  // Review, Audio Dojo). Center-speak lines — no anchors needed, so the
+  // module files only add the one trigger call. name → messages section:
+  var MODULE_INTRO_SECTIONS = {
+    stories:   'storiesTutorial',
+    review:    'reviewTutorial',
+    audiodojo: 'audioDojoTutorial'
+  };
+  function runModuleIntro(name) {
+    var sectionName = MODULE_INTRO_SECTIONS[name];
+    if (!sectionName || state.busy || tutorialsSkipped()) return Promise.resolve();
+    var seenKey = 'k-rikizo-tour-' + name + '-seen';
+    var seen = _loadSeenMap(seenKey);
+    if (seen.intro) return Promise.resolve();
+    var mySeq = ++_tutorialSeq;
+    var current = function () { return mySeq === _tutorialSeq; };
+    ensureLayer(); clearBubble(); cancelLoop();
+    return loadMessages().then(function (data) {
+      if (!current()) return;
+      var lines = ((data && data[sectionName]) || {}).intro;
+      if (!lines || !lines.length) return;
+      seen.intro = true;
+      _saveSeenMap(seenKey, seen);
+      state.busy = true;
+      lockScreen();
+      place(offscreenLeft(), restY());
+      show();
+      var chain = walkTo(centerX(), { speed: 180 }).then(function () {
+        if (!current()) return;
+        state.facing = 'down'; idle();
+      });
+      lines.forEach(function (line) {
+        chain = chain.then(function () {
+          if (!current()) return;
+          return speak(line && line.text);
+        });
+      });
+      return chain.then(function () {
+        if (!current()) return;
+        clearBubble(); hide();
+        state.busy = false;
+      });
+    }).catch(function () { unlockScreen(); if (current()) state.busy = false; });
   }
 
   // Build the "what's next" hint Rikizo says at the end of a celebration.
@@ -969,6 +1016,24 @@
         });
       }
 
+      // Post-N5.1 wave — the first staged micro-tour. Now that they've passed
+      // their first lesson, the daily-habit talk is relevant: quest goals + mon,
+      // and the notification bell. One-shot; honors the skip switch.
+      chain = chain.then(function () {
+        if (!payload.passed || payload.lessonId !== 'N5.1') return;
+        if (tutorialsSkipped() || !onHomeScreen()) return;
+        try {
+          if (localStorage.getItem(WAVE_N51_SEEN_KEY) === '1') return;
+          localStorage.setItem(WAVE_N51_SEEN_KEY, '1');
+        } catch (e) { return; }
+        var wv = data.waveN51 || {};
+        return tourStep('[data-tour="daily"]', wv.quests && wv.quests.text)
+          .then(function () {
+            return tourStep('[data-tour="notify"]', wv.bell && wv.bell.text);
+          })
+          .then(clearHighlight);
+      });
+
       // "What's next to unlock?" — survey still-locked modules and tell the
       // user which lesson opens them. Skipped if everything is already visible.
       chain = chain.then(function () {
@@ -1186,26 +1251,21 @@
     var current = function () { return mySeq === _tutorialSeq; };
 
     var seen = _loadDojoTutorialSeen();
-    var stepOrder = ['intro','stats','kanjiPractice','vocabPractice','writingPractice','audioPractice','games','flagged'];
+    var stepOrder = ['intro', 'stats'];
     if (stepOrder.every(function (k) { return seen[k]; })) return Promise.resolve();
 
     return loadMessages().then(function (data) {
       if (!current()) return;
       var dt = (data && data.dojoTutorial) || {};
 
-      // [seenKey, messageKey, targetSelector] per step. null target = no spotlight,
-      // Rikizo just walks to center and speaks (used for the "intro" step).
-      // Mirrors the Dojo's current tiles: Kanji, Vocab (incl. Conjugation Station),
-      // Writing, Audio, Games (Scramble + Link Up), and Flags.
+      // First-open intro only — the per-tile explanations moved to
+      // runDojoTileTip, fired the first time each individual tile is opened
+      // (the old 8-step walk described tiles the user couldn't touch yet).
+      // Existing users' seen maps already mark the old per-tile keys, so
+      // they won't be re-told anything.
       var steps = [
-        { seen: 'intro',           msg: 'intro',           sel: null },
-        { seen: 'stats',           msg: 'stats',           sel: '[data-tour-dojo="stats"]' },
-        { seen: 'kanjiPractice',   msg: 'kanjiPractice',   sel: '[data-tour-dojo="kanjiPractice"]' },
-        { seen: 'vocabPractice',   msg: 'vocabPractice',   sel: '[data-tour-dojo="vocabPractice"]' },
-        { seen: 'writingPractice', msg: 'writingPractice', sel: '[data-tour-dojo="writingPractice"]' },
-        { seen: 'audioPractice',   msg: 'audioPractice',   sel: '[data-tour-dojo="audioPractice"]' },
-        { seen: 'games',           msg: 'games',           sel: '[data-tour-dojo="games"]' },
-        { seen: 'flagged',         msg: 'flagged',         sel: '[data-tour-dojo="flagged"]' }
+        { seen: 'intro', msg: 'intro', sel: null },
+        { seen: 'stats', msg: 'stats', sel: '[data-tour-dojo="stats"]' }
       ];
 
       state.busy = true;
@@ -1237,6 +1297,42 @@
       return chain.then(function () {
         if (!current()) return;
         clearBubble(); clearHighlight(); hide();
+        state.busy = false;
+      });
+    }).catch(function () { unlockScreen(); if (current()) state.busy = false; });
+  }
+
+  // One-liner the first time each individual Dojo tile is opened. Shares the
+  // dojo seen map (so users who sat through the old 8-step walk aren't
+  // re-told) — keys match the tile ids in messages.dojoTiles. Audio Practice
+  // has no entry here: Audio Dojo runs its own runModuleIntro('audiodojo').
+  // Fires as a center-speak in whatever view the tile opened, so it needs no
+  // anchor and doesn't delay entry.
+  function runDojoTileTip(tileKey) {
+    if (!tileKey || state.busy || tutorialsSkipped()) return Promise.resolve();
+    var seen = _loadDojoTutorialSeen();
+    if (seen[tileKey]) return Promise.resolve();
+    var mySeq = ++_tutorialSeq;
+    var current = function () { return mySeq === _tutorialSeq; };
+    ensureLayer(); clearBubble(); cancelLoop();
+    return loadMessages().then(function (data) {
+      if (!current()) return;
+      var dt = (data && data.dojoTiles) || {};
+      var line = dt[tileKey] && dt[tileKey].text;
+      if (!line) return;
+      seen[tileKey] = true;
+      _saveDojoTutorialSeen(seen);
+      state.busy = true;
+      lockScreen();
+      place(offscreenLeft(), restY());
+      show();
+      return walkTo(centerX(), { speed: 200 }).then(function () {
+        if (!current()) return;
+        state.facing = 'down'; idle();
+        return speak(line);
+      }).then(function () {
+        if (!current()) return;
+        clearBubble(); hide();
         state.busy = false;
       });
     }).catch(function () { unlockScreen(); if (current()) state.busy = false; });
@@ -1421,11 +1517,16 @@
     runGrammarTutorialStep: runGrammarTutorialStep,
     resetGrammarTutorial: resetGrammarTutorial,
     runDojoTutorial: runDojoTutorial,
+    runDojoTileTip: runDojoTileTip,
     resetDojoTutorial: resetDojoTutorial,
     runComposeTutorialStep: runComposeTutorialStep,
     resetComposeTutorial: resetComposeTutorial,
+    runSettingsTours: runSettingsTours,
     runSettingsTutorial: runSettingsTutorial,
+    runSettingsUpsell: runSettingsUpsell,
     resetSettingsTutorial: resetSettingsTutorial,
+    runHomeCallouts: runHomeCallouts,
+    runModuleIntro: runModuleIntro,
     // True while a tutorial/onboarding is mid-run — callers (JPApp.launch) use
     // this to ignore stray taps on highlighted modules so the tour can't break.
     isBusy: function () { return !!(state.busy || state.onboarding); },

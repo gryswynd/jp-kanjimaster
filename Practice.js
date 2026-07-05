@@ -1459,7 +1459,7 @@ window.PracticeModule = {
                 '⚡ Conjugation Station');
         });
 
-        // Audio Practice dojo-home tile — locked until Audio Dojo unlocks (N5.3).
+        // Audio Practice dojo-home tile — locked until Audio Dojo unlocks (N5.2).
         const audioTile = document.getElementById('k-dojo-tile-audio');
         const audioFoot = document.getElementById('k-dojo-tile-audio-foot');
         if (audioTile) {
@@ -1493,6 +1493,23 @@ window.PracticeModule = {
         }
         setUnseenDot('button[data-gate="linkup"]', 'linkup');
         setUnseenDot('button[data-gate="scramble"]', 'scramble');
+
+        // Audio Practice tile — dot while the hub or ANY passage is unseen
+        // (leaves 'audiodojo:audiodojo' / 'audiostory:<id>', cleared by
+        // AudioDojo.js on open).
+        const audioDotTile = document.getElementById('k-dojo-tile-audio');
+        if (audioDotTile && u && u.getUnseen) {
+            const oldAudioDot = audioDotTile.querySelector('.k-unseen-dot'); if (oldAudioDot) oldAudioDot.remove();
+            const hasAudioUnseen = u.getUnseen().some(function (k) {
+                return k === 'audiodojo:audiodojo' || k.indexOf('audiostory:') === 0;
+            });
+            if (hasAudioUnseen) {
+                if (!audioDotTile.style.position) audioDotTile.style.position = 'relative';
+                const d = document.createElement('span'); d.className = 'k-unseen-dot';
+                d.style.cssText = 'position:absolute;top:6px;right:8px;width:9px;height:9px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px #fff;z-index:6;pointer-events:none;';
+                audioDotTile.appendChild(d);
+            }
+        }
     }
 
     KanjiApp.showMenu = function() {
@@ -1560,6 +1577,22 @@ window.PracticeModule = {
         }
         if (hubId === 'k-view-hub-writing') {
             renderWritingKanaSlot();
+        }
+
+        // First time each tile's hub is opened, Rikizo explains it (one-shot,
+        // shares the dojo tutorial seen map). Audio has no entry here — the
+        // Audio Dojo runs its own runModuleIntro when its selector renders.
+        const TILE_TIP_FOR_HUB = {
+            'k-view-hub-kanji':   'kanjiPractice',
+            'k-view-hub-vocab':   'vocabPractice',
+            'k-view-hub-writing': 'writingPractice',
+            'k-view-hub-games':   'games',
+            'k-view-hub-flags':   'flagged'
+        };
+        const tipKey = TILE_TIP_FOR_HUB[hubId];
+        if (tipKey && window.JPShared && window.JPShared.rikizoCompanion &&
+            window.JPShared.rikizoCompanion.runDojoTileTip) {
+            setTimeout(function () { window.JPShared.rikizoCompanion.runDojoTileTip(tipKey); }, 350);
         }
     };
 

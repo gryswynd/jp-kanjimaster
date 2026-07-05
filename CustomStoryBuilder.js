@@ -26,6 +26,10 @@ window.CustomStoryBuilderModule = (function () {
 
   var container, config, onExit;
   var selCast = {}, selThemes = {}, selLen = 14, useFlags = true;
+  // Set at submit when "Use my flagged words" is on and flags were actually
+  // sent; consumed on successful generation — building a story from your
+  // flags clears them (they've served their purpose).
+  var pendingFlagClear = false;
   var selLessons = {}, selGrammar = {};
   var pollTimer = null;
 
@@ -274,6 +278,7 @@ window.CustomStoryBuilderModule = (function () {
       numQuestions: 3,
       includeComprehension: true,
     };
+    pendingFlagClear = useFlags && params.focusWords.length > 0;
     buildState('Asking Rikizo to write your story…');
     try {
       var gen = await s.generate(params);
@@ -297,7 +302,7 @@ window.CustomStoryBuilderModule = (function () {
       try {
         var j = await s.pollJob(jobId);
         var stat = container.querySelector('#csb-bstat');
-        if (j.status === 'done' && j.storyId) { clearTimeout(pollTimer); return openGenerated(j.storyId); }
+        if (j.status === 'done' && j.storyId) { clearTimeout(pollTimer); clearUsedFlags(); return openGenerated(j.storyId); }
         if (j.status === 'failed') { clearTimeout(pollTimer); return fail('The story didn\'t come out right — please try again (maybe simpler choices).'); }
         if (stat) stat.textContent = j.status === 'running' ? 'Writing and checking your story…' : 'Starting…';
       } catch (e) { /* transient — keep polling */ }
@@ -305,6 +310,20 @@ window.CustomStoryBuilderModule = (function () {
       pollTimer = setTimeout(tick, 2500);
     };
     tick();
+  }
+
+  // Building a story from your flagged words is the payoff — the flags have
+  // done their job, so a successful build clears the active set (flag history
+  // in k-flags is kept, mirroring progress.clearFlag semantics). Only fires
+  // when the submit actually sent flags.
+  function clearUsedFlags() {
+    if (!pendingFlagClear) return;
+    pendingFlagClear = false;
+    var p = window.JPShared && window.JPShared.progress;
+    if (!p || !p.getAllActiveFlags || !p.clearFlag) return;
+    try {
+      Object.keys(p.getAllActiveFlags()).forEach(function (k) { p.clearFlag(k); });
+    } catch (e) { /* private mode */ }
   }
 
   async function openGenerated(storyId) {
