@@ -154,15 +154,31 @@ export async function saveProfile(deviceId, profile) {
 
 // uid -> merged progress doc
 const progress = new Map();
+// uid -> [{ ts, doc }] previous revisions, newest last (mirrors the Firestore
+// users/{uid}/history/{ts} recovery net; capped like HISTORY_KEEP there).
+const progressHistory = new Map();
+const HISTORY_KEEP = 20;
 
 export async function getProgress(uid) {
   return progress.get(uid) || null;
 }
 
 export async function saveProgress(uid, incoming) {
-  const merged = mergeProgress(progress.get(uid) || null, incoming, Date.now());
+  const prev = progress.get(uid) || null;
+  const merged = mergeProgress(prev, incoming, Date.now());
+  if (prev) {
+    const hist = progressHistory.get(uid) || [];
+    hist.push({ ts: Date.now(), doc: prev });
+    while (hist.length > HISTORY_KEEP) hist.shift();
+    progressHistory.set(uid, hist);
+  }
   progress.set(uid, merged);
   return merged;
+}
+
+/** Test hook — previous revisions for a uid (memory store only). */
+export function getProgressHistory(uid) {
+  return progressHistory.get(uid) || [];
 }
 
 // Bug reports — in memory store just logs + counts them (no console to read, but

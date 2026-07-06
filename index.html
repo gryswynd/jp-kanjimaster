@@ -344,6 +344,32 @@ window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
   var remove = function (keys) {
     keys.forEach(function (k) { try { localStorage.removeItem(k); } catch (e) {} });
   };
+
+  // ── QA-fabrication guards (2026-07-06 progress-poisoning post-mortem) ──
+  // The scopes 'grammar' / 'n52' / 'all-content' FABRICATE completions into
+  // the same keys real progress uses. Merge-max sync makes fabricated data
+  // permanent on the account, so:
+  //   Guard A: refuse to fabricate while a real account is signed in
+  //            (k-auth-real is mirrored by auth.js — this block runs before
+  //            Firebase exists, so the mirror is the only signal available).
+  //   Guard B: when fabrication DOES run (signed-out QA), stamp
+  //            k-qa-fabricated — sync.js refuses to push while it's set, so
+  //            fake data is structurally unable to reach the server. The
+  //            marker clears only via ?reset=all (full wipe).
+  var FABRICATING = { grammar: 1, n52: 1, 'all-content': 1 };
+  if (FABRICATING[scope]) {
+    var signedIn = false;
+    try { signedIn = localStorage.getItem('k-auth-real') === '1'; } catch (e) {}
+    if (signedIn) {
+      alert('QA reset "' + scope + '" refused: a real account is signed in on this browser.\n\n' +
+            'Fabricated progress would sync to the live account permanently (merge-max). ' +
+            'Sign out first (Settings → Account), then re-run the reset.');
+      location.replace(location.pathname);
+      return;
+    }
+    try { localStorage.setItem('k-qa-fabricated', '1'); } catch (e) {}
+  }
+
   if (scope === '1' || scope === 'all') {
     var toRemove = [];
     for (var i = 0; i < localStorage.length; i++) {

@@ -39,6 +39,14 @@
   }
 
   function dispatch(user) {
+    // Mirror "a REAL (non-anonymous) account is signed in" into localStorage.
+    // The QA-reset block in index.html runs before any module/Firebase loads,
+    // so this marker is the only auth signal it can consult (Guard A of the
+    // 2026-07-06 progress-poisoning post-mortem). Never synced.
+    try {
+      if (user && !user.isAnonymous) localStorage.setItem('k-auth-real', '1');
+      else localStorage.removeItem('k-auth-real');
+    } catch (e) {}
     try {
       window.dispatchEvent(new CustomEvent('jp-auth-changed', { detail: { user: user || null } }));
     } catch (e) {}

@@ -346,7 +346,34 @@
     } catch (e) { /* offline: stay local, try again later */ }
   }
 
+  // ── QA-fabrication hard wall (2026-07-06 post-mortem) ─────────────────────
+  // A fabricating QA reset (?reset=all-content / n52 / grammar) stamps
+  // k-qa-fabricated. While it's set, this device must NEVER push: merge-max
+  // means fabricated completions would poison the account permanently.
+  // pull() stays allowed — down-merging into a QA device is harmless because
+  // nothing here goes back up. The marker clears only via ?reset=all.
+  // DO NOT remove or bypass this guard to make a test pass.
+  var _qaWarned = false;
+  function qaFabricated() {
+    try { return localStorage.getItem('k-qa-fabricated') === '1'; } catch (e) { return false; }
+  }
+  function qaBlockNotice() {
+    console.warn('[sync] push disabled: QA-fabricated progress on this device (k-qa-fabricated). ?reset=all to clear.');
+    if (_qaWarned) return;
+    _qaWarned = true;
+    try {
+      var t = document.createElement('div');
+      t.textContent = 'QA data on this device — cloud sync is OFF';
+      t.style.cssText = 'position:fixed;left:50%;bottom:96px;transform:translateX(-50%);z-index:9999;' +
+        'background:#2a2520;color:#f7f4ee;padding:9px 16px;border-radius:999px;font-size:0.82rem;' +
+        'font-weight:600;font-family:system-ui,sans-serif;pointer-events:none;';
+      document.body.appendChild(t);
+      setTimeout(function () { t.remove(); }, 4000);
+    } catch (e) {}
+  }
+
   async function push() {
+    if (qaFabricated()) { pendingPush = false; qaBlockNotice(); return; }
     if (!ready()) { pendingPush = false; return; }
     if (pushing) { pendingPush = true; return; }
     pushing = true;
@@ -366,6 +393,7 @@
   }
 
   function schedulePush(delay) {
+    if (qaFabricated()) { qaBlockNotice(); return; }
     if (!ready()) return;
     if (pushTimer) clearTimeout(pushTimer);
     pushTimer = setTimeout(function () { pushTimer = null; push(); }, delay == null ? 4000 : delay);

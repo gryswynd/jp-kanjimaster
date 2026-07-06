@@ -18,6 +18,26 @@ Read before editing.
 
 ---
 
+## Device testing & QA resets (protects PRODUCTION data)
+
+Full protocol: `docs/device-testing.md`. Incident that created these rules:
+`docs/postmortem-2026-07-06-progress-poisoning.md`. The short version:
+
+- **Never QA signed in to a real account.** Progress sync is merge-max
+  (monotonic): fabricated completions that reach the server are permanent.
+- The fabricating reset scopes (`?reset=all-content` / `n52` / `grammar`)
+  refuse to run signed-in (`k-auth-real` mirror) and stamp `k-qa-fabricated`,
+  which disables sync push until a full `?reset=all`.
+- ❌ **Never remove or bypass the `k-qa-fabricated` sync guard** (in
+  `app/shared/sync.js`) — not even to make a test pass. Any new QA tool that
+  fabricates progress MUST set the same marker before writing.
+- Server keeps `users/{uid}/history/{ts}` revisions on every save — that is
+  the recovery path if data is ever damaged (see the protocol doc).
+- After `pm install`, a cold boot briefly renders home as if progress were
+  wiped — it isn't; wait for manifest + sync to settle.
+
+---
+
 ## Reading aids (furigana + romaji)
 
 - Renderer: `app/shared/jp-text.js` (consumed via `window.JPShared.jpText`).

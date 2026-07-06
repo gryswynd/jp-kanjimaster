@@ -221,15 +221,35 @@ export async function getProgress(uid) {
 }
 
 /** Merge the client's snapshot onto the stored doc in a transaction; return merged. */
+// Every save first snapshots the PREVIOUS doc to users/{uid}/history/{ts}.
+// Merge is monotonic (max/OR — see merge-progress.js), so a bad merge (e.g.
+// QA-fabricated completions, 2026-07-06 post-mortem) is otherwise permanent;
+// history is the recovery path. Pruned best-effort to the newest revisions.
+const HISTORY_KEEP = 20;
+
 export async function saveProgress(uid, incoming) {
   const ref = client().doc(`users/${uid}`);
-  return client().runTransaction(async (tx) => {
+  const merged = await client().runTransaction(async (tx) => {
     const snap = await tx.get(ref);
     const stored = snap.exists ? snap.data() : null;
-    const merged = mergeProgress(stored, incoming, Date.now());
-    tx.set(ref, merged);
-    return merged;
+    const out = mergeProgress(stored, incoming, Date.now());
+    if (stored) tx.set(client().doc(`users/${uid}/history/${Date.now()}`), stored);
+    tx.set(ref, out);
+    return out;
   });
+  pruneProgressHistory(uid).catch(() => {}); // best-effort, never blocks the save
+  return merged;
+}
+
+async function pruneProgressHistory(uid) {
+  const col = client().collection(`users/${uid}/history`);
+  // Doc ids are ms timestamps — zero-padding isn't needed for our horizon
+  // (13-digit ids until year 2286), so id order == chronological order.
+  const snap = await col.orderBy('__name__', 'desc').offset(HISTORY_KEEP).get();
+  if (snap.empty) return;
+  const batch = client().batch();
+  snap.docs.forEach((d) => batch.delete(d.ref));
+  await batch.commit();
 }
 
 // ── Bug reports (beta) ──────────────────────────────────────────────────────
