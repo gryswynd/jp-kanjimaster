@@ -750,7 +750,10 @@
   var MODULE_INTRO_SECTIONS = {
     stories:   'storiesTutorial',
     review:    'reviewTutorial',
-    audiodojo: 'audioDojoTutorial'
+    audiodojo: 'audioDojoTutorial',
+    custom:    'customTutorial',
+    friends:   'friendsTutorial',
+    glossary:  'dictionaryTutorial'
   };
   function runModuleIntro(name) {
     var sectionName = MODULE_INTRO_SECTIONS[name];

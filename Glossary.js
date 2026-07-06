@@ -74,6 +74,12 @@ window.GlossaryModule = (function () {
       buildLearnedView();
       if (deepLinkTermId && byId[deepLinkTermId]) { renderIndex(); openTerm(deepLinkTermId); return; }
       renderBook();
+      // First-ever visit: Rikizo introduces the Dictionary + Gairaigo shelf
+      // (one-shot, seen-gated; skipped on deep-link entries).
+      var rc = window.JPShared && window.JPShared.rikizoCompanion;
+      if (rc && rc.runModuleIntro) {
+        setTimeout(function () { rc.runModuleIntro('glossary'); }, 350);
+      }
     } catch (err) {
       console.error('[Glossary] init error:', err);
       container.innerHTML =

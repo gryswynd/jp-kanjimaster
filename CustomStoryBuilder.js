@@ -146,6 +146,11 @@ window.CustomStoryBuilderModule = (function () {
   }
 
   function render() {
+    // First-ever visit: Rikizo introduces the module (one-shot, seen-gated).
+    var rcIntro = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rcIntro && rcIntro.runModuleIntro) {
+      setTimeout(function () { rcIntro.runModuleIntro('custom'); }, 350);
+    }
     var gates = deriveGates();
     var flags = flaggedSurfaces();
     var cat = focusCatalog();

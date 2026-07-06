@@ -183,6 +183,12 @@ window.FriendsModule = (function () {
       return;
     }
 
+    // First-ever (signed-in) visit: Rikizo introduces the module (one-shot).
+    var rc = window.JPShared && window.JPShared.rikizoCompanion;
+    if (rc && rc.runModuleIntro) {
+      setTimeout(function () { rc.runModuleIntro('friends'); }, 350);
+    }
+
     var code = '', friends = [];
     try { code = (await s.myFriendCode()).code || ''; } catch (e) {}
     try { friends = (await s.listFriends()).friends || []; } catch (e) {}
