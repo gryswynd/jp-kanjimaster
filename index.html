@@ -676,6 +676,8 @@ window.JPApp = {
     await this.loadModule('app/shared/tutor-curriculum.js');
     await this.loadModule('app/shared/audio-capture.js');
     await this.loadModule('app/shared/tutor-overlay.js');
+    // 説明 mode (select text → explain) — tapping the tutor face toggles it.
+    await this.loadModule('app/shared/select-explain.js');
     await this.loadModule('app/shared/bug-report.js');
     if (window.JPShared && window.JPShared.tutorCurriculum) {
       // Preload manifest + glossary for curriculum awareness (non-blocking).
@@ -683,6 +685,9 @@ window.JPApp = {
     }
     if (window.JPShared && window.JPShared.tutorOverlay) {
       window.JPShared.tutorOverlay.init(this.config);
+    }
+    if (window.JPShared && window.JPShared.selectExplain) {
+      window.JPShared.selectExplain.init(this.config);
     }
     try {
       this._manifest = await window.getManifest(this.config);
@@ -1648,7 +1653,7 @@ window.JPApp = {
 
     // Keiko chip: mon-coin (circle with a square hole — pure SVG, no font risk).
     var coin = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.6"/></svg>';
-    var chip = '<button onclick="JPApp._openKeikoSheet()" class="mono rk-press" style="display:inline-flex;align-items:center;gap:5px;border:1px solid var(--hairline);border-radius:999px;background:var(--washi-2);color:var(--ink-2);font-size:11px;font-weight:600;padding:5px 10px;cursor:pointer;">' +
+    var chip = '<button onclick="JPApp._openKeikoSheet()" data-tour="keiko" class="mono rk-press" style="display:inline-flex;align-items:center;gap:5px;border:1px solid var(--hairline);border-radius:999px;background:var(--washi-2);color:var(--ink-2);font-size:11px;font-weight:600;padding:5px 10px;cursor:pointer;">' +
       coin + (keikoApi ? keikoApi.getBalance() : 0) + ' 文</button>';
 
     var checkDone = '<svg width="20" height="20" viewBox="0 0 20 20" style="flex-shrink:0;"><circle cx="10" cy="10" r="9" fill="var(--vermilion)"/><path d="M6 10.2l2.6 2.6L14 7.5" stroke="var(--washi)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -1927,7 +1932,7 @@ window.JPApp = {
       var dimStyle = locked ? 'opacity:0.42;' : '';
       var newDot = (!locked && t.mod && self._hasUnseen(t.mod)) ? '<span style="position:absolute;right:-7px;top:-4px;width:8px;height:8px;border-radius:999px;background:var(--vermilion);box-shadow:0 0 0 2px var(--washi);"></span>' : '';
       // Locked tabs still wire the action — JPApp.launch's guard will toast the reason.
-      return '<button class="rk-tab' + (on ? ' active' : '') + '" style="' + dimStyle + '" onclick="' + t.action + '">' +
+      return '<button class="rk-tab' + (on ? ' active' : '') + '" data-tour="tab-' + t.key + '" style="' + dimStyle + '" onclick="' + t.action + '">' +
         '<div style="position:relative;display:inline-flex;">' +
           '<svg width="22" height="22" viewBox="0 0 24 24">' + t.glyph + '</svg>' +
           (locked ? '<span style="position:absolute;right:-6px;top:-3px;font-size:9px;line-height:1;">🔒</span>' : '') +

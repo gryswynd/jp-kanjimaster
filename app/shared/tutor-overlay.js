@@ -60,6 +60,20 @@
     toast('Sign in to ask Rikizo.');
     try { if (S().auth && S().auth.openAccountUI) S().auth.openAccountUI(); } catch (e) {}
   }
+  // Shared gate for every tutor entry point (ask sheet, 説明-mode explain).
+  // True = allowed to proceed; false = user was routed to sign-in.
+  function requireAuth() {
+    if (authConfigured() && !isLoggedIn()) { promptSignIn(); return false; }
+    return true;
+  }
+
+  // Student-progress hint shipped with every tutor request — the one piece of
+  // context that lives on the device (completed lessons, kanji taught) and the
+  // server can't derive. Shared by the ask sheet and 説明-mode explains.
+  function progressHint() {
+    if (!S().tutorCurriculum) return '';
+    try { return S().tutorCurriculum.describe() || ''; } catch (e) { return ''; }
+  }
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -80,6 +94,12 @@
       '#rk-tutor-face:active{transform:scale(0.94);}',
       '#rk-tutor-face.rk-tutor-dragging{transform:scale(1.08);box-shadow:0 8px 22px rgba(0,0,0,0.34);}',
       '#rk-tutor-face.rk-tutor-thinking{animation:rkTutorPulse 1s ease-in-out infinite;}',
+      /* 説明 mode ON — vermilion ring so the switch state is unmistakable */
+      '#rk-tutor-face.rk-tutor-mode-on{border-color:var(--vermilion,#c8472a);',
+      '  box-shadow:0 0 0 3px rgba(200,71,42,0.35),0 4px 14px rgba(0,0,0,0.28);}',
+      /* picked tokens in the Stories tap-to-build flow */
+      '.jp-token-picked{background:rgba(200,71,42,0.22)!important;border-radius:4px;',
+      '  box-shadow:0 0 0 1.5px var(--vermilion,#c8472a);}',
       '@keyframes rkTutorPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}',
       '#rk-tutor-face .rk-tutor-badge{position:absolute;right:-3px;top:-3px;width:20px;height:20px;',
       '  border-radius:50%;background:var(--vermilion,#c8472a);color:#fff;font-size:12px;font-weight:700;',
@@ -96,6 +116,18 @@
       '  font-size:0.68rem;color:var(--ink-3,#8a8178);font-weight:600;}',
       '#rk-tutor-bubble .rk-tutor-heard{font-size:0.8rem;color:var(--ink-3,#8a8178);font-style:italic;',
       '  margin:-2px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--hairline,rgba(40,35,30,0.12));}',
+      /* "Ask a follow-up →" — the road from a 説明 answer into the ask sheet.
+         Full-width + roomy so it can't be missed; the bubble it sits in is
+         NOT tap-to-dismiss (explicit ✕ instead) to avoid fat-finger eats. */
+      '#rk-tutor-bubble .rk-tutor-followup{display:block;width:100%;margin:12px 0 2px;',
+      '  padding:12px 14px;border:none;border-radius:999px;',
+      '  background:var(--vermilion,#c8472a);color:#fff;',
+      '  font-family:inherit;font-size:0.88rem;font-weight:700;cursor:pointer;}',
+      '#rk-tutor-bubble .rk-tutor-close{position:absolute;top:2px;right:2px;width:34px;height:34px;',
+      '  border:none;background:transparent;color:var(--ink-3,#8a8178);font-size:15px;',
+      '  font-weight:700;cursor:pointer;padding:0;line-height:1;}',
+      /* keep the first answer line clear of the ✕ */
+      '#rk-tutor-bubble.rk-tutor-bubble--fu .rk-tutor-answer{padding-right:26px;}',
       '#rk-tutor-bubble .rk-tutor-link{color:var(--vermilion,#c8472a);font-weight:700;cursor:pointer;',
       '  text-decoration:underline;text-underline-offset:2px;}',
       '#rk-tutor-bubble .rk-tutor-link-soon{color:var(--ink-3,#8a8178);text-decoration:underline dotted;}',
@@ -221,7 +253,7 @@
       if (moved) {
         savePos({ left: parseInt(faceBtn.style.left, 10), top: parseInt(faceBtn.style.top, 10) });
       } else {
-        openAsk(); // it was a tap, not a drag
+        faceTap(); // it was a tap, not a drag
       }
     }
     faceBtn.addEventListener('pointerup', end);
@@ -232,14 +264,26 @@
       var wasTap = dragging && !moved;
       dragging = false;
       faceBtn.classList.remove('rk-tutor-dragging');
-      if (wasTap) { lastPointerHandled = Date.now(); openAsk(); }
+      if (wasTap) { lastPointerHandled = Date.now(); faceTap(); }
     });
     // Last-resort fallback for WebViews with flaky pointer-event delivery: a
-    // click that no pointerup/cancel just handled still opens the sheet.
+    // click that no pointerup/cancel just handled still counts as a tap.
     faceBtn.addEventListener('click', function () {
       if (Date.now() - lastPointerHandled < 600) return;
-      openAsk();
+      faceTap();
     });
+  }
+
+  // Tapping the face is the 説明-mode switch (select text → explain). The ask
+  // sheet is reached from the answer bubble's "Ask a follow-up". If the
+  // select-explain module isn't loaded (old bundles), fall back to the sheet
+  // so the face is never a dead button.
+  function faceTap() {
+    // A tap while the ask sheet is open just closes it.
+    if (document.getElementById('rk-tutor-sheet')) { closeAsk(); return; }
+    var se = S().selectExplain;
+    if (se && se.toggleMode) { se.toggleMode(); return; }
+    openAsk();
   }
 
   // ---------------------------------------------------------------- quota
@@ -253,7 +297,7 @@
     if (document.getElementById('rk-tutor-sheet')) return;
     // Gate: a real account is required to ask Rikizo. Send unsigned users to
     // sign-in instead of opening the sheet (the server enforces this too).
-    if (authConfigured() && !isLoggedIn()) { promptSignIn(); return; }
+    if (!requireAuth()) return;
     try {
       openAskSheet();
     } catch (e) {
@@ -372,16 +416,9 @@
 
     var busy = false;
 
-    // The on-screen content is now resolved SERVER-side from the tiny `ctx`
-    // identifiers (tutorContext.forRequest()), so the client only ships the
-    // student-progress block here — the one piece of context that lives on the
-    // device (completed lessons, kanji taught) and the server can't derive.
-    function progressHint() {
-      if (!S().tutorCurriculum) return '';
-      try { return S().tutorCurriculum.describe() || ''; } catch (e) { return ''; }
-    }
-
-    // Shared send for both text and audio payloads.
+    // Shared send for both text and audio payloads. The on-screen content is
+    // resolved SERVER-side from the tiny `ctx` identifiers; progressHint()
+    // (module-level) ships the device-only student-progress block.
     function send(payload) {
       busy = true;
       sendBtn.disabled = true;
@@ -451,8 +488,13 @@
   }
 
   // ---------------------------------------------------------------- answer bubble
-  function showBubble(answer, heard) {
+  // opts.followUp adds an "Ask a follow-up" button that opens the ask sheet
+  // (this is how the typed-question box is reached from 説明 mode).
+  // anchorRect (a selection's bounding rect) positions the bubble by the text
+  // that was explained instead of by the face.
+  function showBubble(answer, heard, opts, anchorRect) {
     if (!answer) return;
+    opts = opts || {};
     ensureFace();
     clearBubble();
     var rendered = answer;
@@ -463,19 +505,51 @@
     }
     bubbleEl = document.createElement('div');
     bubbleEl.id = 'rk-tutor-bubble';
+    if (opts.followUp) bubbleEl.className = 'rk-tutor-bubble--fu';
     // "I heard …" line for voice questions, so a mis-hear is visible at a glance.
     var heardLine = heard
       ? '<div class="rk-tutor-heard">🎤 I heard: "' + esc(heard) + '"</div>'
       : '';
+    // With a follow-up button present, the bubble is NOT tap-anywhere-to-
+    // dismiss — a fat-fingered dismiss right next to the button eats the
+    // follow-up. Instead it gets an explicit ✕ and only that closes it.
+    var followUpBtn = opts.followUp
+      ? '<button class="rk-tutor-followup" type="button">Ask a follow-up →</button>' +
+        '<button class="rk-tutor-close" type="button" aria-label="Dismiss">✕</button>'
+      : '';
     bubbleEl.innerHTML = heardLine + '<div class="rk-tutor-answer">' + rendered + '</div>' +
-      '<div class="rk-tutor-bubble-tap">tap to dismiss</div>';
+      followUpBtn +
+      (opts.followUp ? '' : '<div class="rk-tutor-bubble-tap">tap to dismiss</div>');
     // Turn lesson/grammar ids in the answer ("G25", "N4.1") into tappable links
     // that jump straight to that lesson. Best-effort — never break the answer.
     try { linkifyIds(bubbleEl.querySelector('.rk-tutor-answer')); } catch (e) {}
     document.body.appendChild(bubbleEl);
     bubbleEl.style.display = 'block';
-    positionBubble();
-    bubbleEl.addEventListener('click', clearBubble);
+    positionBubble(anchorRect);
+    if (opts.followUp) {
+      bubbleEl.querySelector('.rk-tutor-close').addEventListener('click', function (e) {
+        e.stopPropagation();
+        clearBubble();
+      });
+      bubbleEl.querySelector('.rk-tutor-followup').addEventListener('click', function (e) {
+        e.stopPropagation();
+        clearBubble();
+        openAsk();
+      });
+      // Tapping anywhere OUTSIDE the bubble also dismisses it — far from the
+      // follow-up button, so no fat-finger conflict. Attached on the next tick
+      // so the pill-tap that spawned the bubble doesn't instantly close it.
+      var myBubble = bubbleEl;
+      var outside = function (e) {
+        if (bubbleEl === myBubble && !myBubble.contains(e.target)) clearBubble();
+      };
+      myBubble._outsideDismiss = outside;
+      setTimeout(function () {
+        if (bubbleEl === myBubble) document.addEventListener('pointerdown', outside, true);
+      }, 0);
+    } else {
+      bubbleEl.addEventListener('click', clearBubble);
+    }
   }
 
   // Wrap real curriculum ids in the rendered answer with tappable links. Walks
@@ -538,9 +612,9 @@
     return span;
   }
 
-  function positionBubble() {
+  function positionBubble(anchorRect) {
     if (!bubbleEl || !faceBtn) return;
-    var fr = faceBtn.getBoundingClientRect();
+    var fr = anchorRect || faceBtn.getBoundingClientRect();
     var br = bubbleEl.getBoundingClientRect();
     // Prefer above the face; if not enough room, place below.
     var top = fr.top - br.height - 10;
@@ -553,6 +627,9 @@
   }
 
   function clearBubble() {
+    if (bubbleEl && bubbleEl._outsideDismiss) {
+      document.removeEventListener('pointerdown', bubbleEl._outsideDismiss, true);
+    }
     if (bubbleEl && bubbleEl.parentNode) bubbleEl.parentNode.removeChild(bubbleEl);
     bubbleEl = null;
   }
@@ -626,6 +703,14 @@
     disable: disable,
     isEnabled: isEnabled,
     applyVisibility: applyVisibility,
-    openAsk: openAsk
+    openAsk: openAsk,
+    // Shared UI pipeline consumed by select-explain.js (説明 mode) — one face,
+    // one bubble, one auth gate, one toast across both tutor interactions.
+    showBubble: showBubble,
+    clearBubble: clearBubble,
+    setThinking: setThinking,
+    requireAuth: requireAuth,
+    progressHint: progressHint,
+    toast: toast
   };
 })();

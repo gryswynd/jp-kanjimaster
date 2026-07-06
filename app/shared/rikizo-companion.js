@@ -975,6 +975,16 @@
       // shown in their own modules. So the on-home tour focuses on modules.
       var newMods = (payload.newItems || []).filter(function (it) { return it.type === 'module'; });
 
+      // First N5.1 pass → the FULL top-to-bottom home tour (replaces the
+      // generic unlock walk). This is where the orientation the day-zero
+      // onboarding no longer does happens — now that the widgets/tiles are
+      // actually unlocked. One-shot; honors the skip switch. A pass on a
+      // later retake (after an earlier fail) still triggers it.
+      var firstTour = payload.passed && payload.lessonId === 'N5.1' && !tutorialsSkipped();
+      try {
+        if (firstTour && localStorage.getItem(WAVE_N51_SEEN_KEY) === '1') firstTour = false;
+      } catch (e) { firstTour = false; }
+
       place(offscreenLeft(), restY());
       show();
       var chain = walkTo(centerX(), { speed: 160 }).then(function () {
@@ -982,64 +992,56 @@
         return speak(openingText);
       });
 
-      if (newMods.length) {
+      if (firstTour) {
         chain = chain.then(function () {
-          return speak((lc.unlockIntro && lc.unlockIntro.text) || 'And look — you unlocked some new things!');
+          if (!onHomeScreen()) return;
+          try { localStorage.setItem(WAVE_N51_SEEN_KEY, '1'); } catch (e) {}
+          return speak((lc.unlockIntro && lc.unlockIntro.text) || 'And look — you unlocked some new things!')
+            .then(function () { return _runFirstLessonTour(data); });
         });
-        newMods.forEach(function (mod) {
+      } else {
+        if (newMods.length) {
           chain = chain.then(function () {
-            // Skip silently if the home isn't rendered (user navigated away).
-            if (!onHomeScreen()) return;
-            var desc = (mods[mod.id] && mods[mod.id].text) || ((mod.label || mod.id) + ' is now unlocked.');
-            return tourStep('[data-mod="' + mod.id + '"]', desc);
+            return speak((lc.unlockIntro && lc.unlockIntro.text) || 'And look — you unlocked some new things!');
           });
-        });
-        if (payload.passed) {
+          newMods.forEach(function (mod) {
+            chain = chain.then(function () {
+              // Skip silently if the home isn't rendered (user navigated away).
+              if (!onHomeScreen()) return;
+              var desc = (mods[mod.id] && mods[mod.id].text) || ((mod.label || mod.id) + ' is now unlocked.');
+              return tourStep('[data-mod="' + mod.id + '"]', desc);
+            });
+          });
+          if (payload.passed) {
+            chain = chain.then(function () {
+              clearHighlight();
+              var closing = lc.passedClosing && lc.passedClosing.text;
+              if (closing) return speak(closing);
+            });
+          }
+        } else if (payload.passed) {
+          // Passed but nothing new opened up (mid-progression). Soft reassurance.
           chain = chain.then(function () {
-            clearHighlight();
-            var closing = lc.passedClosing && lc.passedClosing.text;
-            if (closing) return speak(closing);
+            return speak((lc.noUnlocksPassed && lc.noUnlocksPassed.text) || 'Keep going — more unlocks ahead!');
           });
         }
-      } else if (payload.passed) {
-        // Passed but nothing new opened up (mid-progression). Soft reassurance.
+
+        if (!payload.passed) {
+          // Failed path: practice + try again. (Per the lock cycle, Grammar and
+          // Dojo unlock on any completion, so this lands right after they appear.)
+          chain = chain.then(function () {
+            return speak((lc.tryAgainPrompt && lc.tryAgainPrompt.text) || 'Practice a bit, then try the lesson again — you\'ve got this.');
+          });
+        }
+
+        // "What's next to unlock?" — survey still-locked modules and tell the
+        // user which lesson opens them. Skipped if everything is already
+        // visible. (The first-lesson tour speaks its own anchored hint.)
         chain = chain.then(function () {
-          return speak((lc.noUnlocksPassed && lc.noUnlocksPassed.text) || 'Keep going — more unlocks ahead!');
+          var hint = _nextUnlockHint();
+          if (hint) return speak(hint);
         });
       }
-
-      if (!payload.passed) {
-        // Failed path: practice + try again. (Per the lock cycle, Grammar and
-        // Dojo unlock on any completion, so this lands right after they appear.)
-        chain = chain.then(function () {
-          return speak((lc.tryAgainPrompt && lc.tryAgainPrompt.text) || 'Practice a bit, then try the lesson again — you\'ve got this.');
-        });
-      }
-
-      // Post-N5.1 wave — the first staged micro-tour. Now that they've passed
-      // their first lesson, the daily-habit talk is relevant: quest goals + mon,
-      // and the notification bell. One-shot; honors the skip switch.
-      chain = chain.then(function () {
-        if (!payload.passed || payload.lessonId !== 'N5.1') return;
-        if (tutorialsSkipped() || !onHomeScreen()) return;
-        try {
-          if (localStorage.getItem(WAVE_N51_SEEN_KEY) === '1') return;
-          localStorage.setItem(WAVE_N51_SEEN_KEY, '1');
-        } catch (e) { return; }
-        var wv = data.waveN51 || {};
-        return tourStep('[data-tour="daily"]', wv.quests && wv.quests.text)
-          .then(function () {
-            return tourStep('[data-tour="notify"]', wv.bell && wv.bell.text);
-          })
-          .then(clearHighlight);
-      });
-
-      // "What's next to unlock?" — survey still-locked modules and tell the
-      // user which lesson opens them. Skipped if everything is already visible.
-      chain = chain.then(function () {
-        var hint = _nextUnlockHint();
-        if (hint) return speak(hint);
-      });
 
       return chain.then(function () {
         clearBubble(); clearHighlight();
@@ -1047,6 +1049,67 @@
         applyPresence();
       });
     }).catch(function () { state.busy = false; });
+  }
+
+  // The full home tour played once, right after the first N5.1 pass — walks
+  // the screen strictly top-to-bottom. Selectors that aren't on screen
+  // (custom/friends tiles hidden, SRS card not seeded yet) skip silently via
+  // tourStep. Ends on the closing line, then jumps back up to Next Up for
+  // the anchored "what's next" hint.
+  function _runFirstLessonTour(data) {
+    var wv   = data.waveN51 || {};
+    var mods = data.moduleDescriptions || {};
+    var lc   = data.lessonComplete || {};
+    var t = function (o) { return (o && o.text) || ''; };
+    var steps = [
+      { sel: '[data-tour="notify"]',                  text: t(wv.bell) },
+      { sel: '[aria-label="Open your stamp album"]',  text: t(wv.album), callout: 'album' },
+      { sel: '[data-tour="daily"]',                   text: t(wv.quests) },
+      { sel: '[data-tour="keiko"]',                   text: t(wv.mon) },
+      { sel: '[data-callout="srs"]',                  text: t(wv.srs), callout: 'srs' },
+      { sel: '[data-mod="practice"]',                 text: t(mods.practice) },
+      { sel: '[data-mod="grammar"]',                  text: t(mods.grammar) },
+      { sel: '[data-mod="compose"]',                  text: t(mods.compose) },
+      { sel: '[data-mod="game"]',                     text: t(mods.game) },
+      { sel: '[data-mod="custom"]',                   text: t(wv.custom) },
+      { sel: '[data-mod="friends"]',                  text: t(wv.friends) },
+      { sel: '[data-tour="progress"]',                text: t(wv.progress) },
+      { sel: '[data-tour="cast"]',                    text: t(wv.cast) },
+      { sel: '[data-tour="tab-dict"]',                text: t(wv.dictionary) },
+      { sel: '[data-tour="tab-atlas"]',               text: t(wv.map) }
+    ];
+    var chain = Promise.resolve();
+    steps.forEach(function (step) {
+      chain = chain.then(function () {
+        if (!onHomeScreen() || !step.text) return;
+        // Steps that cover the same ground as a later home callout mark that
+        // callout seen (only when actually shown) so it doesn't repeat.
+        if (step.callout && document.querySelector(step.sel)) {
+          var seenC = _loadSeenMap(HOME_CALLOUTS_SEEN_KEY);
+          if (!seenC[step.callout]) {
+            seenC[step.callout] = true;
+            _saveSeenMap(HOME_CALLOUTS_SEEN_KEY, seenC);
+          }
+        }
+        return tourStep(step.sel, step.text);
+      });
+    });
+    // Closing from center, then back up to Next Up with the live hint.
+    chain = chain.then(function () {
+      clearHighlight();
+      if (!onHomeScreen()) return;
+      return moveTo(centerX(), restY(), { duration: 600 }).then(function () {
+        state.facing = 'down'; idle();
+        var closing = lc.passedClosing && lc.passedClosing.text;
+        if (closing) return speak(closing);
+      });
+    });
+    chain = chain.then(function () {
+      if (!onHomeScreen()) return;
+      var hint = _nextUnlockHint();
+      if (hint) return tourStep('[data-tour="lesson"]', hint);
+    });
+    return chain;
   }
 
   // ------------------------------------------------ in-lesson tutorial
