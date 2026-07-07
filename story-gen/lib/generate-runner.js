@@ -58,7 +58,7 @@ function classifyError(e) {
 let _ctxPromise = null;
 let _authorPromise = null;
 export function warm() {
-  if (!_ctxPromise) _ctxPromise = buildGateContext({ readFile: (p, e) => readFile(p, e), root: env.contentRoot });
+  if (!_ctxPromise) _ctxPromise = buildGateContext({ readFile: (p, e) => readFile(p, e), root: env.contentRoot, storyPool: true });
   if (!_authorPromise) _authorPromise = authorSystem();
   return Promise.all([_ctxPromise, _authorPromise]);
 }

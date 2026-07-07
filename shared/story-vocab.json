@@ -1,0 +1,827 @@
+{
+  "contentVersion": 1,
+  "note": "Reader vocabulary for GENERATED custom stories only (loanwords-pattern pool). Not taught in any lesson, not SRS-enrolled, never approved for bundled/lesson stories. Kana-only by policy — zero kanji exposure. allowEarly lists kana-only CURRICULUM ids the custom-story gate approves below their taught lesson (いや must not kill a story).",
+  "allowEarly": [
+    "v_iya",
+    "v_motto",
+    "v_saifu",
+    "v_kantan",
+    "v_yappari"
+  ],
+  "entries": [
+    {
+      "id": "v_sakki",
+      "surface": "さっき",
+      "reading": "さっき",
+      "meaning": "a moment ago / just now",
+      "type": "vocab",
+      "gtype": "adverb",
+      "pool": "story"
+    },
+    {
+      "id": "v_boushi",
+      "surface": "ぼうし",
+      "reading": "ぼうし",
+      "meaning": "hat / cap",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji 帽子 is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kasa",
+      "surface": "かさ",
+      "reading": "かさ",
+      "meaning": "umbrella",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji 傘 is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_sawaru",
+      "surface": "さわる",
+      "reading": "さわる",
+      "meaning": "to touch",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kanji 触る is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kutsu_kana",
+      "surface": "くつ",
+      "reading": "くつ",
+      "meaning": "shoes (kana spelling of 靴)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 靴 (v_kutsu) arrives at N3.36.",
+      "pool": "story"
+    },
+    {
+      "id": "v_fuku_kana",
+      "surface": "ふく",
+      "reading": "ふく",
+      "meaning": "clothes (kana spelling of 服)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 服 (v_fuku) arrives at N3.49.",
+      "pool": "story"
+    },
+    {
+      "id": "v_yobu_kana",
+      "surface": "よぶ",
+      "reading": "よぶ",
+      "meaning": "to call / call out to (kana spelling of 呼ぶ)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 呼ぶ (v_yobu) arrives at N3.21.",
+      "pool": "story"
+    },
+    {
+      "id": "v_onaka_kana",
+      "surface": "おなか",
+      "reading": "おなか",
+      "meaning": "stomach / belly (kana spelling of お腹)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form お腹 (v_onaka) arrives at N3.64.",
+      "pool": "story"
+    },
+    {
+      "id": "v_sushi",
+      "surface": "すし",
+      "reading": "すし",
+      "meaning": "sushi",
+      "type": "vocab",
+      "gtype": "noun",
+      "matches": [
+        "おすし"
+      ],
+      "notes": "Kanji 寿司 is not taught ≤N4 — always kana here. おすし (polite) matches too.",
+      "pool": "story"
+    },
+    {
+      "id": "v_uso",
+      "surface": "うそ",
+      "reading": "うそ",
+      "meaning": "lie / \"no way!\"",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji 嘘 is not taught ≤N4 — always kana here. Pairs with 本当.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kitto",
+      "surface": "きっと",
+      "reading": "きっと",
+      "meaning": "surely / definitely",
+      "type": "vocab",
+      "gtype": "adverb",
+      "pool": "story"
+    },
+    {
+      "id": "v_chanto",
+      "surface": "ちゃんと",
+      "reading": "ちゃんと",
+      "meaning": "properly / neatly",
+      "type": "vocab",
+      "gtype": "adverb",
+      "pool": "story"
+    },
+    {
+      "id": "v_zehi",
+      "surface": "ぜひ",
+      "reading": "ぜひ",
+      "meaning": "by all means / definitely (with invitations and requests)",
+      "type": "vocab",
+      "gtype": "adverb",
+      "pool": "story"
+    },
+    {
+      "id": "v_mazu",
+      "surface": "まず",
+      "reading": "まず",
+      "meaning": "first of all / to begin with",
+      "type": "vocab",
+      "gtype": "adverb",
+      "pool": "story"
+    },
+    {
+      "id": "v_yatto",
+      "surface": "やっと",
+      "reading": "やっと",
+      "meaning": "finally / at last",
+      "type": "vocab",
+      "gtype": "adverb",
+      "pool": "story"
+    },
+    {
+      "id": "v_kirai",
+      "surface": "きらい",
+      "reading": "きらい",
+      "meaning": "disliked / hated",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "verb_class": "na_adj",
+      "notes": "Kanji 嫌い is not taught ≤N4 — always kana here. Opposite of 好き.",
+      "pool": "story"
+    },
+    {
+      "id": "v_tamago",
+      "surface": "たまご",
+      "reading": "たまご",
+      "meaning": "egg",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji 卵 is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_gyuunyuu",
+      "surface": "ぎゅうにゅう",
+      "reading": "ぎゅうにゅう",
+      "meaning": "milk",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji 牛乳: 牛 is taught at N4.5 but 乳 is not ≤N4 — kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_amai",
+      "surface": "あまい",
+      "reading": "あまい",
+      "meaning": "sweet (taste)",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kanji 甘い is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_karai",
+      "surface": "からい",
+      "reading": "からい",
+      "meaning": "spicy / hot (taste)",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kanji 辛い is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_ohashi",
+      "surface": "おはし",
+      "reading": "おはし",
+      "meaning": "chopsticks (polite お-form)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Taught as おはし: the bare surface はし would collide with the particle sequence は+し in ordinary sentences (これはします), and kanji 箸 is not taught ≤N4.",
+      "pool": "story"
+    },
+    {
+      "id": "v_atatakai",
+      "surface": "あたたかい",
+      "reading": "あたたかい",
+      "meaning": "warm",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kanji 暖かい is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kitanai",
+      "surface": "きたない",
+      "reading": "きたない",
+      "meaning": "dirty / messy",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kanji 汚い is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_nigiyaka",
+      "surface": "にぎやか",
+      "reading": "にぎやか",
+      "meaning": "lively / bustling",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "verb_class": "na_adj",
+      "pool": "story"
+    },
+    {
+      "id": "v_hima",
+      "surface": "ひま",
+      "reading": "ひま",
+      "meaning": "free (time) / not busy",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "verb_class": "na_adj",
+      "notes": "Kanji 暇 is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_omiyage",
+      "surface": "おみやげ",
+      "reading": "おみやげ",
+      "meaning": "souvenir / gift from a trip",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji お土産 is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_todoku",
+      "surface": "とどく",
+      "reading": "とどく",
+      "meaning": "to arrive / be delivered (letters, packages)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kanji 届く is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_hirou",
+      "surface": "ひろう",
+      "reading": "ひろう",
+      "meaning": "to pick up (from the ground)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kanji 拾う is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_suteru",
+      "surface": "すてる",
+      "reading": "すてる",
+      "meaning": "to throw away",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kanji 捨てる is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_narabu",
+      "surface": "ならぶ",
+      "reading": "ならぶ",
+      "meaning": "to line up / stand in a row",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kanji 並ぶ is not taught ≤N4 — always kana here.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kaesu_kana",
+      "surface": "かえす",
+      "reading": "かえす",
+      "meaning": "to give back / return something (kana spelling of 返す)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 返す (v_kaesu) arrives at N3.27.",
+      "pool": "story"
+    },
+    {
+      "id": "v_osoi_kana",
+      "surface": "おそい",
+      "reading": "おそい",
+      "meaning": "late / slow (kana spelling of 遅い)",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kana-first entry — the kanji form 遅い (v_osoi) arrives at N3.37.",
+      "pool": "story"
+    },
+    {
+      "id": "v_erabu_kana",
+      "surface": "えらぶ",
+      "reading": "えらぶ",
+      "meaning": "to choose (kana spelling of 選ぶ)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 選ぶ (v_erabu) arrives at N3.10.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kimeru_kana",
+      "surface": "きめる",
+      "reading": "きめる",
+      "meaning": "to decide (kana spelling of 決める)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 決める (v_kimeru) arrives at N3.29.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kudamono_kana",
+      "surface": "くだもの",
+      "reading": "くだもの",
+      "meaning": "fruit (kana spelling of 果物)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 果物 (v_kudamono) arrives at N3.84.",
+      "pool": "story"
+    },
+    {
+      "id": "v_heya_kana",
+      "surface": "へや",
+      "reading": "へや",
+      "meaning": "room (kana spelling of 部屋)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 部屋 (v_heya) arrives at N3.7.",
+      "pool": "story"
+    },
+    {
+      "id": "v_mado_kana",
+      "surface": "まど",
+      "reading": "まど",
+      "meaning": "window (kana spelling of 窓)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 窓 (v_mado) arrives at N3.66.",
+      "pool": "story"
+    },
+    {
+      "id": "v_niwa_kana",
+      "surface": "にわ",
+      "reading": "にわ",
+      "meaning": "garden / yard (kana spelling of 庭)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 庭 (v_niwa) arrives at N3.65.",
+      "pool": "story"
+    },
+    {
+      "id": "v_warau_kana",
+      "surface": "わらう",
+      "reading": "わらう",
+      "meaning": "to laugh / smile (kana spelling of 笑う)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 笑う (v_warau) arrives at N3.23.",
+      "pool": "story"
+    },
+    {
+      "id": "v_okoru_kana",
+      "surface": "おこる",
+      "reading": "おこる",
+      "meaning": "to get angry (kana spelling of 怒る)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 怒る (v_okoru) arrives at N3.30.",
+      "pool": "story"
+    },
+    {
+      "id": "v_katachi_kana",
+      "surface": "かたち",
+      "reading": "かたち",
+      "meaning": "shape / form (kana spelling of 形)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 形 (v_katachi) arrives at N3.59.",
+      "pool": "story"
+    },
+    {
+      "id": "v_tetsudau_kana",
+      "surface": "てつだう",
+      "reading": "てつだう",
+      "meaning": "to help / lend a hand (kana spelling of 手伝う)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 手伝う (v_tetsudau) arrives at N3.52.",
+      "pool": "story"
+    },
+    {
+      "id": "v_taihen_kana",
+      "surface": "たいへん",
+      "reading": "たいへん",
+      "meaning": "tough / hard / serious (kana spelling of 大変)",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "verb_class": "na_adj",
+      "notes": "Kana-first entry — the kanji form 大変 (v_taihen) arrives at N3.35.",
+      "pool": "story"
+    },
+    {
+      "id": "v_netsu_kana",
+      "surface": "ねつ",
+      "reading": "ねつ",
+      "meaning": "fever (kana spelling of 熱)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 熱 (v_netsu) arrives at N3.40.",
+      "pool": "story"
+    },
+    {
+      "id": "v_abunai_kana",
+      "surface": "あぶない",
+      "reading": "あぶない",
+      "meaning": "dangerous (kana spelling of 危ない)",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kana-first entry — the kanji form 危ない (v_abunai) arrives at N3.9.",
+      "pool": "story"
+    },
+    {
+      "id": "v_asobu_kana",
+      "surface": "あそぶ",
+      "reading": "あそぶ",
+      "meaning": "to play / hang out (kana spelling of 遊ぶ)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 遊ぶ (v_asobu) arrives at N3.39.",
+      "pool": "story"
+    },
+    {
+      "id": "v_ochiru_kana",
+      "surface": "おちる",
+      "reading": "おちる",
+      "meaning": "to fall / drop (kana spelling of 落ちる)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 落ちる (v_ochiru) arrives at N3.38.",
+      "pool": "story"
+    },
+    {
+      "id": "v_otosu_kana",
+      "surface": "おとす",
+      "reading": "おとす",
+      "meaning": "to drop something (kana spelling of 落とす)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 落とす (v_otosu) arrives at N3.38.",
+      "pool": "story"
+    },
+    {
+      "id": "v_nageru_kana",
+      "surface": "なげる",
+      "reading": "なげる",
+      "meaning": "to throw (kana spelling of 投げる)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 投げる (v_nageru) arrives at N3.47.",
+      "pool": "story"
+    },
+    {
+      "id": "v_osu_kana",
+      "surface": "おす",
+      "reading": "おす",
+      "meaning": "to push / press (kana spelling of 押す)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 押す (v_osu) arrives at N3.46.",
+      "pool": "story"
+    },
+    {
+      "id": "v_sanpo_kana",
+      "surface": "さんぽ",
+      "reading": "さんぽ",
+      "meaning": "a walk / stroll (〜する) (kana spelling of 散歩)",
+      "type": "vocab",
+      "gtype": "noun_suru",
+      "notes": "Kana-first entry — the kanji form 散歩 (v_sanpo) arrives at N3.39.",
+      "pool": "story"
+    },
+    {
+      "id": "v_sagasu_kana",
+      "surface": "さがす",
+      "reading": "さがす",
+      "meaning": "to look for / search (kana spelling of 探す)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 探す (v_sagasu) arrives at N3.48.",
+      "pool": "story"
+    },
+    {
+      "id": "v_mitsukeru_kana",
+      "surface": "みつける",
+      "reading": "みつける",
+      "meaning": "to find (kana spelling of 見付ける)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 見付ける (v_mitsukeru) arrives at N3.26.",
+      "pool": "story"
+    },
+    {
+      "id": "v_wataru_kana",
+      "surface": "わたる",
+      "reading": "わたる",
+      "meaning": "to cross (a road, bridge) (kana spelling of 渡る)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 渡る (v_wataru) arrives at N3.70.",
+      "pool": "story"
+    },
+    {
+      "id": "v_magaru_kana",
+      "surface": "まがる",
+      "reading": "まがる",
+      "meaning": "to turn (a corner) (kana spelling of 曲がる)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 曲がる (v_magaru) arrives at N3.72.",
+      "pool": "story"
+    },
+    {
+      "id": "v_oriru_kana",
+      "surface": "おりる",
+      "reading": "おりる",
+      "meaning": "to get off / go down (kana spelling of 降りる)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 降りる (v_oriru) arrives at N3.38.",
+      "pool": "story"
+    },
+    {
+      "id": "v_tobu_kana",
+      "surface": "とぶ",
+      "reading": "とぶ",
+      "meaning": "to fly / jump (kana spelling of 飛ぶ)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 飛ぶ (v_tobu) arrives at N3.44.",
+      "pool": "story"
+    },
+    {
+      "id": "v_oyogu_kana",
+      "surface": "およぐ",
+      "reading": "およぐ",
+      "meaning": "to swim (kana spelling of 泳ぐ)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 泳ぐ (v_oyogu) arrives at N3.69.",
+      "pool": "story"
+    },
+    {
+      "id": "v_tatoeba_kana",
+      "surface": "たとえば",
+      "reading": "たとえば",
+      "meaning": "for example (kana spelling of 例えば)",
+      "type": "vocab",
+      "gtype": "adverb",
+      "notes": "Kana-first entry — the kanji form 例えば (v_tatoeba) arrives at N3.19.",
+      "pool": "story"
+    },
+    {
+      "id": "v_neru_kana",
+      "surface": "ねる",
+      "reading": "ねる",
+      "meaning": "to sleep / go to bed (kana spelling of 寝る)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 寝る (v_neru) arrives at N3.28.",
+      "pool": "story"
+    },
+    {
+      "id": "v_nemui_kana",
+      "surface": "ねむい",
+      "reading": "ねむい",
+      "meaning": "sleepy (kana spelling of 眠い)",
+      "type": "vocab",
+      "gtype": "adjective",
+      "verb_class": "i_adj",
+      "notes": "Kana-first entry — the kanji form 眠い (v_nemui) arrives at N3.36.",
+      "pool": "story"
+    },
+    {
+      "id": "v_tsukeru_2_kana",
+      "surface": "つける",
+      "reading": "つける",
+      "meaning": "to turn on / attach (kana spelling of 付ける)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 付ける (v_tsukeru_2) arrives at N3.26.",
+      "pool": "story"
+    },
+    {
+      "id": "v_kesu_kana",
+      "surface": "けす",
+      "reading": "けす",
+      "meaning": "to turn off / erase (kana spelling of 消す)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 消す (v_kesu) arrives at N3.40.",
+      "pool": "story"
+    },
+    {
+      "id": "v_nedan_kana",
+      "surface": "ねだん",
+      "reading": "ねだん",
+      "meaning": "price (kana spelling of 値段)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 値段 (v_nedan) arrives at N3.61.",
+      "pool": "story"
+    },
+    {
+      "id": "v_tanomu_kana",
+      "surface": "たのむ",
+      "reading": "たのむ",
+      "meaning": "to ask / order / request (kana spelling of 頼む)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 頼む (v_tanomu) arrives at N3.21.",
+      "pool": "story"
+    },
+    {
+      "id": "v_watasu_kana",
+      "surface": "わたす",
+      "reading": "わたす",
+      "meaning": "to hand over (kana spelling of 渡す)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 渡す (v_watasu) arrives at N3.70.",
+      "pool": "story"
+    },
+    {
+      "id": "v_wasureru_kana",
+      "surface": "わすれる",
+      "reading": "わすれる",
+      "meaning": "to forget (kana spelling of 忘れる)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 忘れる (v_wasureru) arrives at N3.1.",
+      "pool": "story"
+    },
+    {
+      "id": "v_oboeru_kana",
+      "surface": "おぼえる",
+      "reading": "おぼえる",
+      "meaning": "to remember / memorize (kana spelling of 覚える)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 覚える (v_oboeru) arrives at N3.1.",
+      "pool": "story"
+    },
+    {
+      "id": "v_machigaeru_kana",
+      "surface": "まちがえる",
+      "reading": "まちがえる",
+      "meaning": "to make a mistake (kana spelling of 間違える)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 間違える (v_machigaeru) arrives at N3.2.",
+      "pool": "story"
+    },
+    {
+      "id": "v_shimeru_kana",
+      "surface": "しめる",
+      "reading": "しめる",
+      "meaning": "to close / shut (kana spelling of 閉める)",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "ichidan",
+      "notes": "Kana-first entry — the kanji form 閉める (v_shimeru) arrives at N3.49.",
+      "pool": "story"
+    },
+    {
+      "id": "v_benri_kana",
+      "surface": "べんり",
+      "reading": "べんり",
+      "meaning": "convenient / handy (kana spelling of 便利)",
+      "type": "vocab",
+      "gtype": "na-adjective",
+      "verb_class": "na_adj",
+      "notes": "Kana-first entry — the kanji form 便利 (v_benri) arrives at N3.41.",
+      "pool": "story"
+    },
+    {
+      "id": "v_niwatori",
+      "surface": "にわとり",
+      "reading": "にわとり",
+      "meaning": "chicken (the bird)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kanji 鶏 is not taught ≤N4 — always kana. Whole-word entry also prevents にわ+とり mis-chipping.",
+      "pool": "story"
+    },
+    {
+      "id": "v_yattekuru",
+      "surface": "やって来る",
+      "reading": "やってくる",
+      "meaning": "to come along / show up / arrive",
+      "type": "vocab",
+      "gtype": "verb",
+      "matches": [
+        "やってくる",
+        "やってきます",
+        "やってきました",
+        "やってきて",
+        "やってきた",
+        "やって来ます",
+        "やって来ました",
+        "やって来て",
+        "やって来た"
+      ],
+      "notes": "Lexicalized compound (not casual やる). Explicit matches because the conjugation engine does not chain くる-compounds; also keeps へ+やって来る from mis-chipping as へや (room).",
+      "tokens": [
+        {
+          "k": "やって"
+        },
+        {
+          "k": "来",
+          "r": "く"
+        },
+        {
+          "k": "る"
+        }
+      ],
+      "pool": "story"
+    },
+    {
+      "id": "v_neko_kana",
+      "surface": "ねこ",
+      "reading": "ねこ",
+      "meaning": "cat (kana spelling of 猫)",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Kana-first entry — the kanji form 猫 (v_neko) arrives at N3.44.",
+      "pool": "story"
+    },
+    {
+      "id": "v_hajimete_kana",
+      "surface": "はじめて",
+      "reading": "はじめて",
+      "meaning": "for the first time (kana spelling of 初めて)",
+      "type": "vocab",
+      "gtype": "adverb",
+      "notes": "Kana-first entry — the kanji form 初めて (v_hajimete) arrives at N3.3 (kanji 初 is not taught ≤N4). Not the te-form of 始める (different kanji/lexeme).",
+      "pool": "story"
+    }
+  ]
+}

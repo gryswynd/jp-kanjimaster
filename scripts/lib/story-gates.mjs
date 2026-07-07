@@ -47,7 +47,12 @@ export function ceilingForStory(level, unlocksAfter, storyUnlocksAfter) {
 }
 
 // ── Context (load everything the gates need, ONCE) ───────────────────────────
-export async function buildGateContext({ readFile, root }) {
+// `storyPool: true` (the story-gen service ONLY) additionally indexes
+// shared/story-vocab.json — the reader-vocabulary pool for GENERATED custom
+// stories (loanwords-pattern: chips + always-approved, taught in no lesson).
+// Repo-side callers (bundled-story baking/QA) omit it, so lesson stories stay
+// restricted to curriculum vocab and pool words simply don't resolve there.
+export async function buildGateContext({ readFile, root, storyPool }) {
   const R = root;
   const load = async (p) => JSON.parse(await readFile(path.join(R, p), 'utf8'));
   const entriesOf = (g) => Array.isArray(g)
@@ -59,7 +64,8 @@ export async function buildGateContext({ readFile, root }) {
 
   const GLOSSARY_PATHS = [
     'data/N5/glossary.N5.json', 'data/N4/glossary.N4.json', 'data/N3/glossary.N3.json',
-    'shared/particles.json', 'shared/characters.json', 'shared/loanwords.json'
+    'shared/particles.json', 'shared/characters.json', 'shared/loanwords.json',
+    ...(storyPool ? ['shared/story-vocab.json'] : []),
   ].map(p => path.join(R, p));
 
   const surfaceIdx = await buildGlossaryIndex(
@@ -83,7 +89,8 @@ export async function buildGateContext({ readFile, root }) {
   // matching validate-stories.mjs exactly).
   const glossaryIds = new Set();
   for (const gf of ['data/N5/glossary.N5.json', 'data/N4/glossary.N4.json',
-                    'data/N3/glossary.N3.json', 'shared/particles.json', 'shared/loanwords.json']) {
+                    'data/N3/glossary.N3.json', 'shared/particles.json', 'shared/loanwords.json',
+                    ...(storyPool ? ['shared/story-vocab.json'] : [])]) {
     let data; try { data = await load(gf); } catch { continue; }
     for (const e of (data.entries || data.particles || data.loanwords || [])) if (e.id) glossaryIds.add(e.id);
   }
@@ -120,7 +127,8 @@ export async function buildGateContext({ readFile, root }) {
   for (const [key, e] of surfaceIdx) {
     if (e && e.type === 'counter' && e.reading) noteReading(e.reading, e.surface || key, 0);
   }
-  for (const f of ['shared/particles.json', 'shared/characters.json', 'shared/loanwords.json']) {
+  for (const f of ['shared/particles.json', 'shared/characters.json', 'shared/loanwords.json',
+                   ...(storyPool ? ['shared/story-vocab.json'] : [])]) {
     try {
       for (const e of entriesOf(await load(f))) {
         if (!e) continue;
@@ -128,6 +136,19 @@ export async function buildGateContext({ readFile, root }) {
         noteSurface(e.surface || e.particle || e.name, -1);
         if (Array.isArray(e.tokens)) noteSurface(e.tokens.map(t => t.k).join(''), -1);
       }
+    } catch {}
+  }
+
+  // Story pool (custom-generated stories only): pool surfaces for the author
+  // palette + the allowEarly set — kana-only CURRICULUM words (いや N4.25 once
+  // hard-failed a whole story) the custom gate approves below their lesson.
+  let storyPoolWords = [];
+  let allowEarly = new Set();
+  if (storyPool) {
+    try {
+      const pool = await load('shared/story-vocab.json');
+      storyPoolWords = (pool.entries || []).map(e => e.surface).filter(Boolean);
+      allowEarly = new Set(pool.allowEarly || []);
     } catch {}
   }
   const ALL_IDS = [...Object.keys(idRank), ...approvedIds].sort((a, b) => b.length - a.length);
@@ -168,7 +189,8 @@ export async function buildGateContext({ readFile, root }) {
   }
 
   return { surfaceIdx, idIdx, glossaryIds, idRank, approvedIds, surfaceRank, readingToEntry, vocabEntries,
-           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, loanwords, lessonVocab, grammarTitles };
+           ALL_IDS, baseIds, ruleKeys, manifest, conjugationRules, characters, loanwords, lessonVocab, grammarTitles,
+           storyPoolWords, allowEarly };
 }
 
 // ── validateStory (← validate-stories.mjs) ───────────────────────────────────
@@ -307,6 +329,10 @@ export function qaStory(story, ctx, meta) {
   const ceiling = ceilingForStory(meta.level, meta.unlocksAfter, story.unlocksAfter);
   const taughtKanji = buildTaughtKanji(manifest, ceiling);
   const violations = emptyV();
+  // Custom-generated stories only (ctx built with storyPool): kana-only
+  // curriculum words the pool allows below their taught lesson (いや N4.25).
+  const allowEarly = (ctx.allowEarly && ctx.allowEarly.size) ? ctx.allowEarly : null;
+  const earlyOk = (id) => !!(allowEarly && id && allowEarly.has(id));
 
   const classifyToken = (t) => {
     const k = t.k || '';
@@ -381,11 +407,11 @@ export function qaStory(story, ctx, meta) {
         const f = synthFormScope(entry);
         if (f && f.violation) violations.form.push({ p: pi + 1, k: t.k, id: entry.id, form: f.formKey, intro: conjugationRules[f.formKey]?.introducedIn, ceiling: uA });
         const root = idIdx.get(entry.original_id);
-        if (root) { const rid = entryLessonId(root); if (rid && !inScope(rid, ceiling)) violations.vocab.push({ p: pi + 1, k: t.k, id: root.id, lesson: root.lesson_ids || root.lesson, ceiling: uA }); }
+        if (root) { const rid = entryLessonId(root); if (rid && !inScope(rid, ceiling) && !earlyOk(root.id)) violations.vocab.push({ p: pi + 1, k: t.k, id: root.id, lesson: root.lesson_ids || root.lesson, ceiling: uA }); }
         continue;
       }
       const lid = entryLessonId(entry);
-      if (lid && !inScope(lid, ceiling)) violations.vocab.push({ p: pi + 1, k: t.k, id: entry.id, lesson: entry.lesson_ids || entry.lesson, ceiling: uA });
+      if (lid && !inScope(lid, ceiling) && !earlyOk(entry.id)) violations.vocab.push({ p: pi + 1, k: t.k, id: entry.id, lesson: entry.lesson_ids || entry.lesson, ceiling: uA });
     }
   });
 
@@ -418,11 +444,11 @@ export function qaStory(story, ctx, meta) {
         const f = synthFormScope(entry);
         if (f && f.violation) violations.form.push({ p: 'Q', k: t.k, id: entry.id, form: f.formKey, intro: conjugationRules[f.formKey]?.introducedIn, ceiling: uA });
         const root = idIdx.get(entry.original_id);
-        if (root) { const rid = entryLessonId(root); if (rid && !inScope(rid, ceiling)) violations.vocab.push({ p: 'Q', k: t.k, id: root.id, lesson: root.lesson_ids || root.lesson, ceiling: uA }); }
+        if (root) { const rid = entryLessonId(root); if (rid && !inScope(rid, ceiling) && !earlyOk(root.id)) violations.vocab.push({ p: 'Q', k: t.k, id: root.id, lesson: root.lesson_ids || root.lesson, ceiling: uA }); }
         continue;
       }
       const lid = entryLessonId(entry);
-      if (lid && !inScope(lid, ceiling)) violations.vocab.push({ p: 'Q', k: t.k, id: entry.id, lesson: entry.lesson_ids || entry.lesson, ceiling: uA });
+      if (lid && !inScope(lid, ceiling) && !earlyOk(entry.id)) violations.vocab.push({ p: 'Q', k: t.k, id: entry.id, lesson: entry.lesson_ids || entry.lesson, ceiling: uA });
     }
   }
 

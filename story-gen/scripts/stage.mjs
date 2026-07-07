@@ -18,7 +18,7 @@ const CONTENT_FILES = [
   'manifest.json', 'conjugation_rules.json', 'counter_rules.json',
   'data/N5/glossary.N5.json', 'data/N4/glossary.N4.json', 'data/N3/glossary.N3.json',
   'shared/particles.json', 'shared/characters.json', 'shared/loanwords.json',
-  'shared/story-gen-gates.json',
+  'shared/story-vocab.json', 'shared/story-gen-gates.json',
 ];
 
 async function cp(srcAbs, dstAbs) {

@@ -99,10 +99,15 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
   if (minParagraphs && np < minParagraphs) add('length', null, `Only ${np} paragraphs; needs at least ${minParagraphs}.`);
 
   // Title scope (the qa gate skips titles).
+  const earlyOkSurface = (surface) => {
+    if (!ctx.allowEarly || !ctx.allowEarly.size) return false;
+    const e = ctx.surfaceIdx.get(surface);
+    return !!(e && e.id && ctx.allowEarly.has(e.id));
+  };
   if (story.title) {
     const tStory = { paragraphs: [{ jp: story.title, tokens: tokenizeText(story.title, ctx.surfaceIdx, { ceiling: ceilingStr }) }] };
     const ta = auditStory(tStory, ctx, vocabRank);
-    for (const [surface] of ta.outOfLevel) add('title', null, `out-of-level word "${surface}" — use ${vocabLevel}-or-below vocab`);
+    for (const [surface] of ta.outOfLevel) if (!earlyOkSurface(surface)) add('title', null, `out-of-level word "${surface}" — use ${vocabLevel}-or-below vocab`);
     for (const [surface] of ta.unglossaried) add('title', null, `"${surface}" isn't in the curriculum — use taught vocabulary`);
     for (const [word, fix] of Object.entries(TITLE_STOPLIST)) if (story.title.includes(word)) add('title', null, `uses "${word}" (out of scope) — use ${fix}`);
     for (const ch of story.title) if (/[一-鿿㐀-䶿]/.test(ch) && !taughtKanji.has(ch)) add('title', null, `kanji 「${ch}」 isn't taught — use kana or a different word`);
@@ -117,7 +122,7 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
 
   // Out-of-level vocab (audit) — attributed to each paragraph it appears in.
   const a = auditStory(story, ctx, vocabRank);
-  for (const [surface, m] of a.outOfLevel) for (const pi of m.paras) add('paragraph', pi, `out-of-level word "${surface}" — use a ${vocabLevel}-or-below word`);
+  for (const [surface, m] of a.outOfLevel) { if (earlyOkSurface(surface)) continue; for (const pi of m.paras) add('paragraph', pi, `out-of-level word "${surface}" — use a ${vocabLevel}-or-below word`); }
 
   // qa: untaught kanji / out-of-scope / split / orthography (at the student ceiling).
   const q = qaStory(story, ctx, gateMeta);
@@ -323,7 +328,16 @@ function buildScope(params, ctx) {
   const focus = allFocus.slice(0, 50).join('、');
   const focusGrammar = (params.focusGrammar || [])
     .map(id => (ctx.grammarTitles && ctx.grammarTitles[id]) ? `${id} (${ctx.grammarTitles[id]})` : id).join('; ');
-  const palette = [...new Set((ctx.vocabEntries || []).filter(e => e.surface && inScope(e.lesson, ceiling)).map(e => e.surface))];
+  // Palette = curriculum words at the learner's ceiling + the story-vocab pool
+  // (reader helpers: kana-only, always allowed for generated stories) + the
+  // pool's allowEarly curriculum words (いや-class). Merged so the single
+  // "if it's not here, don't use it" rule keeps holding.
+  const earlySurfaces = [...(ctx.allowEarly || [])].map(id => (ctx.idIdx.get(id) || {}).surface).filter(Boolean);
+  const palette = [...new Set([
+    ...(ctx.vocabEntries || []).filter(e => e.surface && inScope(e.lesson, ceiling)).map(e => e.surface),
+    ...(ctx.storyPoolWords || []),
+    ...earlySurfaces,
+  ])];
   const genre = (params.themes || []).filter(t => /fantasy|sci-?fi|horror|adventure|period/i.test(t));
   const gairaigo = ['ヒーロー', 'モンスター', 'レベル', 'ゲーム', 'ロボット', 'エネルギー', 'チーム', 'パワー', 'ドア', 'ベル'].filter(w => (ctx.loanwords || []).indexOf(w) >= 0);
   // High-frequency words the model defaults to even when out of scope. Forbid them

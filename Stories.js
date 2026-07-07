@@ -588,14 +588,16 @@ window.StoriesModule = (function () {
     const levelGlossaryUrls = (manifest.levels || []).map(lvl => getCdnUrl(manifest.data[lvl].glossary));
     const loanwordUrl = manifest.shared.loanwords ? getCdnUrl(manifest.shared.loanwords) : null;
     const originsUrl = manifest.shared.loanwordOrigins ? getCdnUrl(manifest.shared.loanwordOrigins) : null;
+    const storyVocabUrl = manifest.shared.storyVocab ? getCdnUrl(manifest.shared.storyVocab) : null;
 
-    const [conjRules, counterRules, particles, characters, loanwordData, originsData, ...glossaries] = await Promise.all([
+    const [conjRules, counterRules, particles, characters, loanwordData, originsData, storyVocabData, ...glossaries] = await Promise.all([
       fetch(conjUrl + bust).then(r => r.json()),
       counterUrl ? fetch(counterUrl + bust).then(r => r.json()) : Promise.resolve(null),
       fetch(particleUrl + bust).then(r => r.json()),
       fetch(characterUrl + bust).then(r => r.json()),
       loanwordUrl ? fetch(loanwordUrl + bust).then(r => r.json()).catch(() => null) : Promise.resolve(null),
       originsUrl ? fetch(originsUrl + bust).then(r => r.json()).catch(() => null) : Promise.resolve(null),
+      storyVocabUrl ? fetch(storyVocabUrl + bust).then(r => r.json()).catch(() => null) : Promise.resolve(null),
       ...levelGlossaryUrls.map(u => fetch(u + bust).then(r => r.json()))
     ]);
     CONJUGATION_RULES = conjRules;
@@ -650,6 +652,15 @@ window.StoriesModule = (function () {
     // modal resolves them by id. (Migrated out of the leveled glossaries.)
     for (const w of ((loanwordData && loanwordData.loanwords) || [])) {
       const e = Object.assign({ type: 'loanword' }, w);
+      if (e.id) termMapData[e.id] = e;
+      setSurface(e.surface, e, 3);
+      if (e.reading && e.reading !== e.surface) setSurface(e.reading, e, 2);
+    }
+    // Story-vocab pool (shared/story-vocab.json) — reader vocabulary for
+    // GENERATED custom stories, same wiring as loanwords: chips resolve by id
+    // (server-baked g) and by surface. Never appears in bundled/lesson content.
+    for (const w of ((storyVocabData && storyVocabData.entries) || [])) {
+      const e = Object.assign({}, w);
       if (e.id) termMapData[e.id] = e;
       setSurface(e.surface, e, 3);
       if (e.reading && e.reading !== e.surface) setSurface(e.reading, e, 2);

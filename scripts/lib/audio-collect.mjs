@@ -150,6 +150,17 @@ export function collectKeys(root) {
     }
   }
 
+  // Story-vocab pool (reader vocabulary for generated custom stories) — voiced
+  // like glossary words so pool chips get word audio in the term popup.
+  const storyVocab = readJson(join(root, 'shared', 'story-vocab.json'));
+  if (storyVocab && Array.isArray(storyVocab.entries)) {
+    for (const e of storyVocab.entries) {
+      if (!e) continue;
+      if (e.surface) emit(norm.normalizeKey(e.surface, null), 'story-vocab:surface', e.surface);
+      for (const r of splitReadings(e.reading)) emit(norm.readingKey(r), 'story-vocab:reading', r);
+    }
+  }
+
   // Particles.
   const particles = readJson(join(root, 'shared', 'particles.json'));
   const plist = particles && (particles.particles || particles);
