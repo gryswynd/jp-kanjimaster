@@ -206,7 +206,8 @@
     if (!entry.verb_class || (entry.id && entry.id.includes('__'))) return false;
     // Entries with no/empty lesson_ids are excluded — every conjugatable word must belong to a lesson
     if (!entry.lesson_ids) return false;
-    return cfg.activeLessons.has(entry.lesson_ids);
+    // First id only: multi-id entries ("N5.5, N4.27") unlock at their first lesson.
+    return cfg.activeLessons.has(String(entry.lesson_ids).split(/[,\s]+/)[0]);
   }
 
   // ---- Pool scanning — detect what's available from active lessons ----

@@ -81,7 +81,10 @@
         if (activeKanjiSet && activeKanjiSet.has(chars[i])) { hasActiveKanji = true; break; }
       }
     }
-    var lessonMatch = !!(entry.lesson_ids && activeLessons && activeLessons.has(entry.lesson_ids));
+    // First id only: multi-id entries ("N5.13, N4.25") are introduced at the
+    // first lesson; progression is monotonic so later ids never match earlier.
+    var firstLesson = String(entry.lesson_ids || '').split(/[,\s]+/)[0];
+    var lessonMatch = !!(firstLesson && activeLessons && activeLessons.has(firstLesson));
     return { eligible: hasActiveKanji || lessonMatch, display: display };
   }
 

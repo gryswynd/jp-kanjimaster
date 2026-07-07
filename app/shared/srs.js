@@ -130,8 +130,11 @@
         part.entries.forEach(function (e) {
           if (!e || !e.id) return;
           var lessonId = null;
+          // Multi-id entries ("N5.13, N4.25" — word introduced early, revisited
+          // later) enroll at their FIRST (introducing) lesson.
+          var firstVocabLesson = String(e.lesson_ids || '').split(/[,\s]+/)[0] || '';
           if (e.type === 'kanji' && LESSON_RE.test(e.lesson || '')) lessonId = e.lesson;
-          else if (e.type === 'vocab' && LESSON_RE.test(e.lesson_ids || '') && e.id.indexOf('__') === -1) lessonId = e.lesson_ids;
+          else if (e.type === 'vocab' && LESSON_RE.test(firstVocabLesson) && e.id.indexOf('__') === -1) lessonId = firstVocabLesson;
           if (!lessonId) return;
           if (!byLesson[lessonId]) byLesson[lessonId] = [];
           byLesson[lessonId].push(part.lvl + ':' + e.id);
