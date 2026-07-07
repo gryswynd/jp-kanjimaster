@@ -9202,6 +9202,213 @@
       "lesson_ids": "N5.10",
       "reading": "どうやって",
       "readingAlign": "どうやって"
+    },
+    {
+      "id": "v_sakki",
+      "surface": "さっき",
+      "reading": "さっき",
+      "meaning": "a moment ago / just now",
+      "type": "vocab",
+      "gtype": "adverb",
+      "lesson_ids": "N5.4"
+    },
+    {
+      "id": "v_boushi",
+      "surface": "ぼうし",
+      "reading": "ぼうし",
+      "meaning": "hat / cap",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.8",
+      "notes": "Kanji 帽子 is not taught ≤N4 — always kana here."
+    },
+    {
+      "id": "v_kasa",
+      "surface": "かさ",
+      "reading": "かさ",
+      "meaning": "umbrella",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.11",
+      "notes": "Kanji 傘 is not taught ≤N4 — always kana here."
+    },
+    {
+      "id": "v_sawaru",
+      "surface": "さわる",
+      "reading": "さわる",
+      "meaning": "to touch",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5.18",
+      "verb_class": "godan",
+      "notes": "Kanji 触る is not taught ≤N4 — always kana here."
+    },
+    {
+      "id": "v_kutsu_kana",
+      "surface": "くつ",
+      "reading": "くつ",
+      "meaning": "shoes (kana spelling of 靴)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.8",
+      "notes": "Kana-first entry — the kanji form 靴 (v_kutsu) arrives at N3.36."
+    },
+    {
+      "id": "v_fuku_kana",
+      "surface": "ふく",
+      "reading": "ふく",
+      "meaning": "clothes (kana spelling of 服)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.8",
+      "notes": "Kana-first entry — the kanji form 服 (v_fuku) arrives at N3.49."
+    },
+    {
+      "id": "v_yobu_kana",
+      "surface": "よぶ",
+      "reading": "よぶ",
+      "meaning": "to call / call out to (kana spelling of 呼ぶ)",
+      "type": "vocab",
+      "gtype": "verb",
+      "lesson_ids": "N5.13",
+      "verb_class": "godan",
+      "notes": "Kana-first entry — the kanji form 呼ぶ (v_yobu) arrives at N3.21."
+    },
+    {
+      "id": "v_onaka_kana",
+      "surface": "おなか",
+      "reading": "おなか",
+      "meaning": "stomach / belly (kana spelling of お腹)",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.18",
+      "notes": "Kana-first entry — the kanji form お腹 (v_onaka) arrives at N3.64."
+    },
+    {
+      "id": "v_iya",
+      "surface": "いや",
+      "meaning": "no / well / hmm (self-correction interjection)",
+      "type": "vocab",
+      "gtype": "interjection",
+      "notes": "Used to self-correct or walk back a statement. Different from いいえ (polite no).",
+      "lesson_ids": "N5.13, N4.25",
+      "reading": "いや",
+      "example": {
+        "jp": "ひどかった。いや、正しくは 読めなかった。",
+        "en": "It was terrible. Well — more accurately, it was unreadable.",
+        "lessonId": "N4.25",
+        "sectionType": "reading"
+      }
+    },
+    {
+      "id": "v_matsu",
+      "surface": "待つ",
+      "reading": "まつ",
+      "meaning": "to wait",
+      "type": "vocab",
+      "gtype": "verb",
+      "verb_class": "godan",
+      "lesson_ids": "N5.5, N4.27",
+      "readingAlign": "待(ま)つ",
+      "example": {
+        "jp": "駅の 待ち合い室で 待ちましょう。いい 所ですよ。",
+        "en": "Let's wait in the station waiting room. It's a nice place.",
+        "lessonId": "N4.27",
+        "sectionType": "conversation"
+      },
+      "tokens": [
+        {
+          "k": "待",
+          "r": "ま"
+        },
+        {
+          "k": "つ"
+        }
+      ],
+      "matches": [
+        "まつ"
+      ]
+    },
+    {
+      "id": "v_motto",
+      "surface": "もっと",
+      "reading": "もっと",
+      "meaning": "more / even more / further",
+      "type": "vocab",
+      "gtype": "adverb",
+      "lesson_ids": "N5.14, N4.24",
+      "notes": "",
+      "example": {
+        "jp": "もっと 上手に なりたいです。どんな 試みが いいですか。",
+        "en": "I want to become better. What kind of attempts are good?",
+        "lessonId": "N4.24",
+        "sectionType": "conversation"
+      }
+    },
+    {
+      "id": "v_warui",
+      "surface": "悪い",
+      "reading": "わるい",
+      "meaning": "bad",
+      "type": "vocab",
+      "gtype": "adjective",
+      "lesson_ids": "N5.8, N4.26",
+      "verb_class": "i_adj",
+      "readingAlign": "悪(わる)い",
+      "example": {
+        "jp": "考え方が 悪ければ、見方も 悪く なります。",
+        "en": "If your way of thinking is bad, your viewpoint will also become bad.",
+        "lessonId": "N4.26",
+        "sectionType": "reading"
+      },
+      "tokens": [
+        {
+          "k": "悪",
+          "r": "わる"
+        },
+        {
+          "k": "い"
+        }
+      ],
+      "matches": [
+        "わるい"
+      ]
+    },
+    {
+      "id": "v_hanashi",
+      "surface": "話",
+      "meaning": "talk / story / conversation / speech",
+      "type": "vocab",
+      "gtype": "noun",
+      "notes": "Noun form of 話す (to speak). 話 = a talk, a story, a conversation.",
+      "lesson_ids": "N5.13, N4.25",
+      "reading": "はなし",
+      "readingAlign": "話(はなし)",
+      "example": {
+        "jp": "先生の 話を 聞いた。",
+        "en": "I listened to the teacher's talk.",
+        "lessonId": "N4.25",
+        "sectionType": "reading"
+      },
+      "tokens": [
+        {
+          "k": "話",
+          "r": "はなし"
+        }
+      ]
+    },
+    {
+      "id": "v_sushi",
+      "surface": "すし",
+      "reading": "すし",
+      "meaning": "sushi",
+      "type": "vocab",
+      "gtype": "noun",
+      "lesson_ids": "N5.7",
+      "matches": [
+        "おすし"
+      ],
+      "notes": "Kanji 寿司 is not taught ≤N4 — always kana here. おすし (polite) matches too."
     }
   ]
 }

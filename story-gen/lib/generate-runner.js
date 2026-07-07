@@ -6,7 +6,7 @@
  */
 import { readFile } from 'node:fs/promises';
 import { buildGateContext, parseLessonId } from '../vendor/lib/story-gates.mjs';
-import { generateStory, reviseStory, collectUnglossaried } from '../vendor/lib/generate-story.mjs';
+import { generateStory, reviseStory, collectUnglossaried, collectRepetition } from '../vendor/lib/generate-story.mjs';
 import { anthropicCall, authorSystem } from './anthropic.js';
 import { computeCost } from './cost-meter.js';
 import { judgeStory } from './quality-judge.js';
@@ -125,8 +125,20 @@ export async function runJob(uid, email, jobId, params) {
     if (flags.qualityJudge !== false) {
       const j = await judgeStory({ story: res.story, params });
       judgeUsage = addUsage(judgeUsage, j.usage); quality = j.scores;
-      if (flags.autoRegen !== false && quality && quality.overall < (flags.qualityThreshold || 3)) {
-        const rev = await reviseStory({ params, ctx, anthropicCall, authorSystem: sys, story: res.story, judgeNote: quality.note, weakDimensions: weakDims(quality), log: () => {} });
+      // Revise when the judge is unhappy overall, when ANY dimension craters
+      // (naturalness 2 once shipped inside an overall 3), or when the
+      // deterministic repetition counter fires (うれしそうに ×15).
+      const repetition = collectRepetition(res.story, ctx);
+      const minSub = quality
+        ? Math.min(...['coherence', 'naturalness', 'inScope', 'themeFit', 'castUsage'].map(k => quality[k] || 5))
+        : 5;
+      const needsRevision = quality && (quality.overall < (flags.qualityThreshold || 3) || minSub <= 2 || repetition.length > 0);
+      if (flags.autoRegen !== false && needsRevision) {
+        const judgeNote = [
+          quality.note,
+          repetition.length ? `Overused phrasing — vary the wording: ${repetition.map(r => `「${r.text}」 appears ${r.count}×`).join(', ')}.` : '',
+        ].filter(Boolean).join(' Also: ');
+        const rev = await reviseStory({ params, ctx, anthropicCall, authorSystem: sys, story: res.story, judgeNote, weakDimensions: weakDims(quality), log: () => {} });
         authorUsage = addUsage(authorUsage, rev.usage || emptyUsage());
         regenerated = true;
         if (rev.ok) {

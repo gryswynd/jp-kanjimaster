@@ -84,7 +84,7 @@ function parseJsonObject(text) {
 // { scope:'paragraph'|'title'|'comprehension'|'length'|'schema', index, msg }
 // so the repair can target ONLY the affected pieces (no whole-story regen).
 // `index` is a 1-based paragraph number for scope 'paragraph', else null.
-function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingStr, minParagraphs }) {
+export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingStr, minParagraphs }) {
   const out = [];
   const add = (scope, index, msg) => out.push({ scope, index, msg });
   const vocabRank = LEVELS.indexOf(vocabLevel) >= 0 ? LEVELS.indexOf(vocabLevel) : 1;
@@ -141,6 +141,118 @@ function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingS
   for (const x of q.violations.form.slice(0, 10)) { const [s, i] = paraOrComp(x.p); add(s, i, `grammar form "${x.k}" is taught later — use a simpler form`); }
   for (const x of q.violations.particle.slice(0, 10)) { const [s, i] = paraOrComp(x.p); add(s, i, `particle "${x.k}" is taught later — rephrase (e.g. 〜って → 〜と)`); }
   for (const x of q.violations.orthography) add('paragraph', null, `spelling inconsistency ${x.pair} — pick one spelling throughout`);
+
+  // ── Chip-level QA (generator-only) ──────────────────────────────────────────
+  // The renderer chips a token by its group id (g) or by surface lookup; anything
+  // resolving to neither renders as dead text. And a kana spelling of a word whose
+  // taught kanji form exists passes the vocab audits (it IS in-scope vocab) even
+  // though the author rules require the kanji. Both classes shipped in real
+  // stories (わたし/にく/品名/はし) — gate them here, where only generated
+  // stories pay the stricter bar.
+  const KANA_RUN = /^[぀-ヿー]+$/;
+  const tokenHasKanji = (s) => /[一-鿿㐀-䶿]/.test(s || '');
+  const SMALL_KANA_OK = new Set(['っ', 'ー', 'ん']);
+  const resolveGRoot = (g) => {
+    if (!g || g.startsWith('count_')) return null;
+    let e = ctx.idIdx.get(g);
+    if (!e) {
+      // Suffixed conjugation/homograph ids (v_omou_kana_polite_mashita) —
+      // resolve by longest known-id prefix, like qaStory does.
+      const parts = g.split('_');
+      for (let n = parts.length - 1; n >= 1; n--) {
+        const root = ctx.idIdx.get(parts.slice(0, n).join('_'));
+        if (root) { e = { ...root, original_id: root.id }; break; }
+      }
+    }
+    if (!e) return null;
+    return e.type === 'inflected' ? (ctx.idIdx.get(e.original_id) || e) : e;
+  };
+  const seenChip = new Set();
+  const chipAdd = (pi, key, msg) => {
+    const kk = pi + ':' + key;
+    if (!seenChip.has(kk)) { seenChip.add(kk); add('paragraph', pi, msg); }
+  };
+  // Nominalizers stay kana per house orthography (こと/ところ are NOT pushed to
+  // 事/所 — see CLAUDE.md); other style-legit kana is covered by isOkKana.
+  const KANA_STYLE_OK = new Set(['こと', 'ところ']);
+  const kanjiTarget = (root) => {
+    // Target = the entry's own kanji surface (わたし → 私), or its kanji twin
+    // for authored kana siblings (v_omou_kana → v_omou 思う). Never a mere
+    // homophone from the reading index (いる must not become 要る).
+    if (tokenHasKanji(root.surface)) return root.surface;
+    if (String(root.id || '').endsWith('_kana')) {
+      const twin = ctx.idIdx.get(String(root.id).slice(0, -'_kana'.length));
+      if (twin && tokenHasKanji(twin.surface)) return twin.surface;
+    }
+    return null;
+  };
+  paras.forEach((p, i) => {
+    const ts = p.tokens || [];
+    // Auxiliary position: ～てくる/～ていく/～てはいけません… stay kana.
+    const auxContext = (j) => {
+      const p1 = j > 0 ? (ts[j - 1].k || '') : '';
+      if (p1.endsWith('て') || p1.endsWith('で')) return true;
+      const p2 = j > 1 ? (ts[j - 2].k || '') : '';
+      return (p1 === 'は' || p1 === 'も') && (p2.endsWith('て') || p2.endsWith('で'));
+    };
+    const pushKanjiCheck = (j, text, entry) => {
+      if (text.length < 2 || isOkKana(text) || KANA_STYLE_OK.has(text) || auxContext(j)) return;
+      // どういう/そういう/こういう are set phrases — their いう stays kana.
+      const p1 = j > 0 ? (ts[j - 1].k || '') : '';
+      if (/^い(う|った|います|いました)$/.test(text) && ['どう', 'そう', 'こう', 'ああ'].includes(p1)) return;
+      const root = entry.type === 'inflected' ? (ctx.idIdx.get(entry.original_id) || entry) : entry;
+      if (!root || root.particle || String(root.id || '').startsWith('p_')) return;
+      if (root.type === 'character' || root.type === 'counter' || String(root.id || '').startsWith('lw_')) return;
+      const target = kanjiTarget(root);
+      if (target && allKanjiTaught(target)) {
+        chipAdd(i + 1, text, `write "${text}" in its taught KANJI form (${target}) — don't write a taught-kanji word in kana`);
+      }
+    };
+    for (let j = 0; j < ts.length; j++) {
+      const t = ts[j];
+      const k = t.k || '';
+      if (t.g && !String(t.g).startsWith('count_')) {
+        // (a1) grouped kana spelling of a word whose taught KANJI form exists.
+        if (j > 0 && ts[j - 1].g === t.g) continue;             // group start only
+        let end = j; while (end + 1 < ts.length && ts[end + 1].g === t.g) end++;
+        const text = ts.slice(j, end + 1).map(x => x.k || '').join('');
+        if (KANA_RUN.test(text)) {
+          const root = resolveGRoot(t.g);
+          if (root) pushKanjiCheck(j, text, root);
+        }
+        j = end;
+        continue;
+      }
+      if (t.g) continue;
+      // (b) kanji-bearing tokens that resolve to nothing → dead text (品名, 太字).
+      if (tokenHasKanji(k)) {
+        if (!ctx.surfaceIdx.get(k)) chipAdd(i + 1, k, `"${k}" isn't a curriculum word (it won't chip) — use taught vocabulary instead`);
+        continue;
+      }
+      if (!KANA_RUN.test(k)) continue;
+      // (c') a kana word torn into ALL-particle chips leaves no unresolvable
+      // token to flag (はし → は+し+に). Grammar tell: the clause-linking
+      // particle し never directly follows a bare case particle.
+      const e = ctx.surfaceIdx.get(k);
+      if (k === 'し' && e && (e.particle || String(e.id || '').startsWith('p_')) && j > 0) {
+        const pk = ts[j - 1].k || '';
+        const pe = ctx.surfaceIdx.get(pk);
+        if (!ts[j - 1].g && pe && (pe.particle || String(pe.id || '').startsWith('p_')) && ['の', 'は', 'が', 'を', 'へ', 'に', 'と'].includes(pk)) {
+          const around = ts.slice(Math.max(0, j - 2), j + 3).map(x => x.k || '').join('');
+          chipAdd(i + 1, 'frag:' + around, `"${around}" doesn't parse into curriculum words ("${pk}${k}" reads as stray particles) — reword this phrase`);
+          continue;
+        }
+      }
+      // (a2) plain kana token the renderer resolves by surface (わたし → v_watashi).
+      if (e && e.id && !e.particle && !String(e.id || '').startsWith('p_')) { pushKanjiCheck(j, k, e); continue; }
+      if (e) continue;                                          // particle/etc without id
+      // (c) short kana fragments that resolve to nothing — a kana word the
+      // tokenizer tore into particles (にく → に+く, はし → は+し).
+      if (k.length > 2 || SMALL_KANA_OK.has(k) || isOkKana(k)) continue;
+      const around = ts.slice(Math.max(0, j - 2), j + 3).map(x => x.k || '').join('');
+      chipAdd(i + 1, 'frag:' + around, `"${around}" doesn't parse into curriculum words ("${k}" is unrecognized) — reword this phrase`);
+    }
+  });
 
   // Out-of-level words the ceiling-biased tokenizer hid by splitting (ことば=N3 → こと+ば).
   const seenOOL = new Set();
@@ -439,6 +551,32 @@ export function collectUnglossaried(story, ctx, vocabLevel) {
   const out = [];
   for (const [surface] of a.unglossaried) if (!isOkKana(surface)) out.push(surface);
   return [...new Set(out)];
+}
+
+// Cross-paragraph phrase overuse — deterministic. うれしそうに ×15 shipped once:
+// the judge SAW it (naturalness 2) but overall 3 didn't trigger a revision. The
+// runner feeds these into the judge-guided revise pass; they are NOT scope
+// violations (repetition is a style problem, not a curriculum leak).
+export function collectRepetition(story, ctx, { minLen = 3, factor = 0.5, floor = 8 } = {}) {
+  const paras = story.paragraphs || [];
+  const counts = new Map();
+  const skip = (text) => {
+    // Names and particles repeat legitimately in dialogue-heavy stories.
+    const e = ctx && ctx.surfaceIdx ? ctx.surfaceIdx.get(text) : null;
+    return !!(e && (e.type === 'character' || e.particle || String(e.id || '').startsWith('p_') || String(e.id || '').startsWith('char_')));
+  };
+  for (const p of paras) {
+    const ts = p.tokens || [];
+    for (let j = 0; j < ts.length; j++) {
+      const t = ts[j];
+      let text = t.k || '';
+      if (t.g) { let e = j; while (e + 1 < ts.length && ts[e + 1].g === t.g) e++; text = ts.slice(j, e + 1).map(x => x.k || '').join(''); j = e; }
+      if (text.length < minLen || skip(text)) continue;
+      counts.set(text, (counts.get(text) || 0) + 1);
+    }
+  }
+  const cap = Math.max(floor, Math.ceil(paras.length * factor));
+  return [...counts].filter(([, n]) => n > cap).map(([text, count]) => ({ text, count, cap }));
 }
 
 /**

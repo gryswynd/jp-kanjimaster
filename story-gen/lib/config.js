@@ -42,15 +42,18 @@ export const DEFAULT_FLAGS = {
  * incremental loop is ~90% cache reads, so lumping them at the full rate overstated
  * cost by up to ~10×. The meter now prices the three input classes separately.
  */
-export const COSTS = {   // authoring model — Sonnet 4.6 list pricing
-  claudeInputPerToken: 3.0 / 1e6,
-  claudeOutputPerToken: 15.0 / 1e6,
-  cacheReadMultiplier: 0.1,
-  cacheWriteMultiplier: 1.25,
+// List pricing per model FAMILY (matched by id prefix so dated snapshots
+// resolve too). The meter must follow whatever STORYGEN_MODEL /
+// STORYGEN_JUDGE_MODEL actually run — a hardcoded Sonnet table would
+// over-report a Haiku author 3×.
+const MODEL_COSTS = {
+  'claude-sonnet-4-6': { claudeInputPerToken: 3.0 / 1e6, claudeOutputPerToken: 15.0 / 1e6, cacheReadMultiplier: 0.1, cacheWriteMultiplier: 1.25 },
+  'claude-haiku-4-5':  { claudeInputPerToken: 1.0 / 1e6, claudeOutputPerToken: 5.0 / 1e6,  cacheReadMultiplier: 0.1, cacheWriteMultiplier: 1.25 },
 };
-export const JUDGE_COSTS = {   // judge model — Haiku 4.5 list pricing (tune if it moves)
-  claudeInputPerToken: 1.0 / 1e6,
-  claudeOutputPerToken: 5.0 / 1e6,
-  cacheReadMultiplier: 0.1,
-  cacheWriteMultiplier: 1.25,
-};
+function priceFor(model, fallbackKey) {
+  for (const key of Object.keys(MODEL_COSTS)) if (String(model || '').startsWith(key)) return MODEL_COSTS[key];
+  console.warn(JSON.stringify({ kind: 'cost-meter', warn: 'no pricing for model, using ' + fallbackKey, model }));
+  return MODEL_COSTS[fallbackKey];
+}
+export const COSTS = priceFor(env.model, 'claude-sonnet-4-6');            // authoring model
+export const JUDGE_COSTS = priceFor(env.judgeModel, 'claude-haiku-4-5');  // silent quality judge

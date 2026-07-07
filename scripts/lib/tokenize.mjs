@@ -300,11 +300,19 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
       adverbial:        ['く']
     };
 
+    // Curated kana-surface suppressions: synth surfaces that hijack prose.
+    // しに (v_suru purpose-に) absorbed 屋上の「はし」に → は+しに[bogus chip]
+    // in a generated story. Kana purpose-しに has 0 baked usages (the kanji-stem
+    // path 話しに is a different surface and is unaffected); suppressing it lets
+    // the fragment gate steer authors to reword instead of shipping a wrong chip.
+    const SURFACE_INDEX_BLOCKLIST = new Set(['しに']);
+
     let conjugated = 0;
     for (const { entry, forms } of roots) {
       for (const form of forms) {
         const synth = conjugate(entry, form, opts.conjugationRules);
         if (!synth || !synth.surface) continue;
+        if (SURFACE_INDEX_BLOCKLIST.has(synth.surface)) continue;
         const tokens = deriveTokens(synth.surface, synth.reading) || [{ k: synth.surface }];
         synth.tokens = tokens;
         synth.type = 'inflected';
@@ -336,7 +344,10 @@ export async function buildGlossaryIndex(jsonPaths, readFile, opts) {
         // particle sequence in prose. でなければ (copula で + なければ) must
         // NOT be claimed by v_deru's 出なければ reading — the copula split is
         // the correct chip for kana prose.
-        const READING_INDEX_BLOCKLIST = new Set(['でなければ']);
+        // つけ~ forms: v_tsuku potential 着ける/着けました/着けた would claim the
+        // kana readings and mis-chip 見つけました/気をつけて/電気をつける prose
+        // as 着く. (A future v_tsukeru entry would own these surfaces instead.)
+        const READING_INDEX_BLOCKLIST = new Set(['でなければ', 'つけました', 'つけた', 'つける', 'つけて']);
         if (opts.includeReadings && synth.reading && synth.reading !== synth.surface && !idx.has(synth.reading) && !isMultiStep(form) && !READING_INDEX_BLOCKLIST.has(synth.reading)) {
           idx.set(synth.reading, synth);
           readingOnlyKeys.add(synth.reading);
