@@ -225,6 +225,18 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
           const root = resolveGRoot(t.g);
           if (root) pushKanjiCheck(j, text, root);
         }
+        // Untaught noun compounds built from taught pieces (生き物 = 生き[v_ikiru
+        // stem] + 物): every piece chips legally, so no other gate sees them —
+        // but the COMPOUND was never taught (use 動物, not 生き物). ONLY the
+        // continuative-STEM + 物 shape is a compound — full conjugated forms +
+        // 物 (食べた物 / 食べる物) are legitimate relative clauses, don't flag.
+        const after = ts[end + 1];
+        if (after && !after.g && after.k === '物' && !ctx.surfaceIdx.get(text + '物')) {
+          const raw = ctx.surfaceIdx.get(text);
+          if (raw && raw.type === 'inflected' && /_stem$/.test(raw._ruleKey || '')) {
+            chipAdd(i + 1, text + '物', `"${text}物" isn't a taught word — reword with taught vocabulary (e.g. 動物 for creatures)`);
+          }
+        }
         j = end;
         continue;
       }
@@ -346,6 +358,10 @@ function buildScope(params, ctx) {
   const forbid = HF_FORBID
     .filter(f => { const e = (ctx.vocabEntries || []).find(x => x.surface === f.s); return e && !inScope(e.lesson, ceiling); })
     .map(f => `「${f.s}」(${f.why}) → use 「${f.use}」`);
+  // Compounds the model builds from taught pieces that are themselves untaught
+  // (生き物 reads as 生き+物 chips and slips every per-piece gate).
+  const UNTAUGHT_COMPOUNDS = [{ s: '生き物', use: '動物' }];
+  forbid.push(...UNTAUGHT_COMPOUNDS.filter(f => !ctx.surfaceIdx.get(f.s)).map(f => `「${f.s}」(never taught as a word) → use 「${f.use}」`));
 
   return [
     `THEME(S): ${(params.themes || []).join(', ') || 'slice of life'}.` + (params.tone ? ` TONE: ${params.tone}.` : ''),
