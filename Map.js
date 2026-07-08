@@ -277,6 +277,13 @@ window.MapModule = (function () {
     var back = _container.querySelector('[data-map-back]');
     if (back) back.addEventListener('click', function () { if (_onExit) _onExit(); });
 
+    // Open the map at the learner's frontier (the ringed "current" node)
+    // instead of always starting at stop 1.
+    var cur = _container.querySelector('.jp-map-node.status-current');
+    if (cur && cur.scrollIntoView) {
+      requestAnimationFrame(function () { cur.scrollIntoView({ block: 'center' }); });
+    }
+
     // Bottom (N5→N4) and top (N4→N5) level-switch teasers. Locked taps toast.
     _container.querySelectorAll('[data-map-level]').forEach(function (el) {
       el.addEventListener('click', function () {

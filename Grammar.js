@@ -649,7 +649,12 @@ window.GrammarModule = {
       if (score !== undefined) progressSet('grammar_' + id + '_drill_score', score);
     }
     function isGrammarComplete(id) {
-      return !!progressGet('grammar_' + id + '_complete');
+      if (progressGet('grammar_' + id + '_complete')) return true;
+      // Synced fallback: finishing a grammar point records lesson-completion
+      // (k-lesson-completed, synced merge-max across devices) while the gr_*
+      // flag above is DEVICE-LOCAL only. Without this, a fresh install or a
+      // restored device shows completed points unlit (the G24 bug).
+      try { return !!JSON.parse(localStorage.getItem('k-lesson-completed') || '{}')[id]; } catch (e) { return false; }
     }
 
     // --- Celebration ---
@@ -1984,7 +1989,12 @@ window.GrammarModule = {
         }
 
         const done = isGrammarComplete(g.id);
-        const score = done ? progressGet('grammar_' + g.id + '_drill_score') : null;
+        let score = done ? progressGet('grammar_' + g.id + '_drill_score') : null;
+        if (done && (score === undefined || score === null)) {
+          // Device-local drill score missing (fresh install) — fall back to the
+          // synced lesson score so the lantern still shows a number.
+          try { const s = JSON.parse(localStorage.getItem('k-lesson-scores') || '{}')[g.id]; if (s !== undefined) score = s; } catch (e) {}
+        }
         const hasScore = score !== undefined && score !== null;
 
         const lantern = el('div', 'gr-lantern' + (done ? ' lit' : ''));
@@ -2032,6 +2042,13 @@ window.GrammarModule = {
         lantern.onclick = () => { if (u && u.markSeen) u.markSeen('grammar:' + g.id); if (sk) sk.tapFeedback(lantern); loadGrammarLesson(g.file, g.id); };
         garden.appendChild(lantern);
       });
+
+      // Open the garden at the up-next lantern instead of the trail head —
+      // double rAF so the scroll runs after the garden is attached and laid out.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const next = garden.querySelector('.gr-lantern--next');
+        if (next && next.scrollIntoView) next.scrollIntoView({ block: 'center' });
+      }));
     }
 
     // --- Modal ---
