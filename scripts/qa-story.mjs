@@ -30,6 +30,13 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildGlossaryIndex, tokenizeText } from './lib/tokenize.mjs';
+import {
+  parseLessonId, inScope,
+  buildTaughtKanji as buildTaughtKanjiFrom,
+  entryLessonId,
+  synthFormScope as synthFormScopeWith,
+  makeClassifyToken
+} from './lib/scope.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
@@ -45,24 +52,8 @@ const flags = Object.fromEntries(
 const positional = args.filter(a => !a.startsWith('--'));
 
 // ── Lesson-id parsing + ordering ─────────────────────────────────────────────
-// "N5.7" → { lvl: 'N5', idx: 7 }; level rank N5=0 < N4=1 < N3=2 (taught earliest first).
-const LEVEL_RANK = { N5: 0, N4: 1, N3: 2 };
-function parseLessonId(s) {
-  if (!s || typeof s !== 'string') return null;
-  const m = s.match(/^(N[345])\.(\d+)$/);
-  if (!m) return null;
-  return { lvl: m[1], idx: Number(m[2]) };
-}
-// True if `a` is taught no later than `ceiling`.
-function inScope(a, ceiling) {
-  if (!a) return true;            // untagged ids aren't a scope violation
-  if (!ceiling) return true;      // no ceiling = level wildcard, accept all
-  const ra = LEVEL_RANK[a.lvl] ?? 99;
-  const rc = LEVEL_RANK[ceiling.lvl] ?? 99;
-  if (ra < rc) return true;
-  if (ra > rc) return false;
-  return a.idx <= ceiling.idx;
-}
+// parseLessonId / inScope / buildTaughtKanji / entryLessonId / synthFormScope /
+// classifyToken now live in scripts/lib/scope.mjs, shared with qa-content.mjs.
 
 // ── Manifest data ────────────────────────────────────────────────────────────
 const MANIFEST = JSON.parse(await fs.readFile(path.join(ROOT, 'manifest.json'), 'utf8'));
@@ -110,20 +101,7 @@ function emptyV() {
 }
 
 // Cumulative kanji taught through ceiling (N5 all + N4.1..idx if ceiling is N4).
-function buildTaughtKanji(ceiling) {
-  const set = new Set();
-  for (const lvl of ['N5', 'N4', 'N3']) {
-    const data = MANIFEST.data && MANIFEST.data[lvl];
-    if (!data) continue;
-    for (const lesson of data.lessons || []) {
-      const lid = parseLessonId(lesson.id);
-      if (!lid) continue;
-      if (!inScope(lid, ceiling)) continue;
-      for (const k of lesson.kanji || []) set.add(k);
-    }
-  }
-  return set;
-}
+const buildTaughtKanji = (ceiling) => buildTaughtKanjiFrom(MANIFEST, ceiling);
 
 // ── Build glossary index + reverse id-map ────────────────────────────────────
 const GLOSSARY_PATHS = [
@@ -165,87 +143,9 @@ for (const p of GLOSSARY_PATHS) {
 // Particles also have an `id` but their surface is keyed under `particle`.
 // They're already in surfaceIdx via the buildGlossaryIndex particle branch.
 
-// ── Per-token classification ─────────────────────────────────────────────────
-const KANA_ONLY = /^[぀-ヿー]+$/;
-const HAS_CJK = /[一-鿿㐀-䶿]/;
-const HAS_KANA = /[぀-ヿー]/;
-const PUNCT_ONLY = /^[、。！？「」『』（）：；・…\s「」\-—()『』.]+$/;
-
-// Decide whether a no-g token is "untagged" or is just a particle/punctuation
-// that doesn't need a chip. We flag CJK tokens and any kana word ≥2 chars
-// that doesn't resolve via surfaceIdx. Single-kana particles and punctuation
-// pass through.
-function classifyToken(t) {
-  const k = t.k || '';
-  if (!k) return { kind: 'empty' };
-  if (PUNCT_ONLY.test(k)) return { kind: 'punct' };
-  // 1) Explicit group id?
-  if (t.g) {
-    const entry = idIdx.get(t.g);
-    if (!entry) {
-      // A synth id that lost its surface slot to a homograph sibling
-      // (v_hiraku_te_form loses 開いて to v_aku_2_te_form) is still a legal
-      // tag. Parse as <root>_<formKey> by trying every prefix that is a
-      // known id, longest first (ids themselves contain underscores).
-      const parts = t.g.split('_');
-      for (let n = parts.length - 1; n >= 1; n--) {
-        const rootId = parts.slice(0, n).join('_');
-        const root = idIdx.get(rootId);
-        if (root) {
-          const formKey = parts.slice(n).join('_');
-          return { kind: 'g', g: t.g, entry: { ...root, _ruleKey: formKey, original_id: rootId } };
-        }
-      }
-      return { kind: 'g-unknown', g: t.g, root: null };
-    }
-    return { kind: 'g', g: t.g, entry };
-  }
-  // 2) Surface lookup (what the renderer's surfaceIdx does at runtime).
-  const entry = surfaceIdx.get(k);
-  if (entry && entry.id) return { kind: 'surface', g: entry.id, entry };
-  // 3) Bare kana of length 1 — assume particle/sound (passes silently here;
-  //    out-of-scope check below catches anything unindexed).
-  if (k.length === 1 && KANA_ONLY.test(k)) return { kind: 'bare-kana' };
-  // 4) Anything else: content token that doesn't resolve.
-  return { kind: 'untagged', k };
-}
-
-// Look up an entry's level rank for scope checks.
-function entryLessonId(e) {
-  if (!e) return null;
-  // Vocab entries: lesson_ids "N5.3" (string)
-  if (typeof e.lesson_ids === 'string') {
-    const first = e.lesson_ids.split(/[,;\s]+/)[0];
-    const parsed = parseLessonId(first);
-    if (parsed) return parsed;
-  }
-  // Kanji entries: lesson "N5.1"
-  if (typeof e.lesson === 'string') {
-    const p = parseLessonId(e.lesson);
-    if (p) return p;
-  }
-  // Particle / character / inflected: introducedIn
-  if (typeof e.introducedIn === 'string') {
-    const p = parseLessonId(e.introducedIn);
-    if (p) return p;
-  }
-  return null;
-}
-
-// Parse an inflected synth id → form key + check against rules.
-function synthFormScope(entry, ceiling) {
-  if (!entry || entry.type !== 'inflected') return null;
-  const formKey = entry._ruleKey;
-  if (!formKey) return null;
-  const rule = CONJUGATION_RULES[formKey];
-  if (!rule) return { formKey, intro: null, violation: false };
-  const intro = parseLessonId(rule.introducedIn);
-  return {
-    formKey,
-    intro,
-    violation: intro && !inScope(intro, ceiling)
-  };
-}
+// ── Per-token classification (shared classifier bound to this index) ────────
+const classifyToken = makeClassifyToken({ surfaceIdx, idIdx });
+const synthFormScope = (entry, ceiling) => synthFormScopeWith(entry, ceiling, CONJUGATION_RULES);
 
 // ── Per-story QA pass ────────────────────────────────────────────────────────
 async function qaStory(slug, opts = {}) {
