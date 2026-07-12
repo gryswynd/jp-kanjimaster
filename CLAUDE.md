@@ -460,6 +460,11 @@ npm run vendor:fonts     # re-subset Noto JP to the content's characters
 # Build + sync to iOS (gates: stories, audio, fonts)
 npm run sync:ios
 
+# On EVERY ship: redeploy hosting so Settings → "Check for updates" sees the
+# new build (it compares the bundled buildNumber to the hosted version.json).
+# Bump config.buildNumber in index.html first.
+npm run build:www && npx firebase-tools deploy --only hosting
+
 # Activate pre-commit hook (one-time per clone)
 npm run init:hooks
 ```

@@ -975,15 +975,16 @@
     return '';
   }
 
-  // Tiny credits line at the bottom of the modal body. Currently only carries
-  // the KanjiVG attribution required by CC-BY-SA 4.0.
-  // Beta: report-a-bug + app version. (The "Check for updates" action is wired in
-  // Phase 3 once Firebase Hosting is live; for now it shows the bundled build.)
+  // Beta: report-a-bug + app version + update check. The check compares the
+  // bundled buildNumber against the hosted version.json (updateBaseUrl) and
+  // tells the user whether a newer build is available — updates themselves
+  // ship via TestFlight/App Store (no bundle swapping).
   function buildAboutSection() {
     var ver = window.JPShared && window.JPShared.diagnostics && window.JPShared.diagnostics.version();
     var verLabel = ver && ver.buildNumber != null
       ? ('v' + (ver.appVersion || '?') + ' · Build ' + ver.buildNumber)
       : '';
+    var updateBase = (window.JPApp && window.JPApp.config && window.JPApp.config.updateBaseUrl) || '';
     return (
       '<div class="jp-set-section-label">App</div>' +
       '<div class="jp-set-card" data-tour-set="about">' +
@@ -992,6 +993,14 @@
           '<span class="jp-set-account-state">🐞 Report a bug</span>' +
           '<span class="jp-set-account-action jp-set-account-action-cta">Report</span>' +
         '</button>' +
+        (updateBase
+          ? '<button class="jp-set-account-btn" id="jp-set-update-btn" type="button" ' +
+                'style="justify-content:space-between;margin-top:8px;">' +
+              '<span class="jp-set-account-state">🔄 Check for updates</span>' +
+              '<span class="jp-set-account-action jp-set-account-action-cta">Check</span>' +
+            '</button>' +
+            '<div class="jp-set-help" id="jp-set-update-status" style="text-align:center;min-height:1.2em;"></div>'
+          : '') +
         (verLabel
           ? '<div class="jp-set-help" style="text-align:center;margin-top:10px;">' + verLabel + '</div>'
           : '') +
@@ -1379,6 +1388,49 @@
     if (bug && br && br.open) {
       bug.addEventListener('click', function () { br.open(); });
     }
+    wireUpdateCheck();
+  }
+
+  // "Check for updates": fetch the hosted version.json and compare build numbers.
+  // Notify-only — pointing the user at TestFlight/App Store; no bundle swapping.
+  function wireUpdateCheck() {
+    var btn = document.getElementById('jp-set-update-btn');
+    var status = document.getElementById('jp-set-update-status');
+    if (!btn) return;
+
+    function say(msg, ok) {
+      if (!status) return;
+      status.textContent = msg;
+      status.style.color = ok === false ? 'var(--vermilion, #c2410c)'
+        : ok === true ? 'var(--moss, #5f8a4e)' : '';
+    }
+
+    btn.addEventListener('click', function () {
+      var base = (window.JPApp && window.JPApp.config && window.JPApp.config.updateBaseUrl) || '';
+      var ver = window.JPShared && window.JPShared.diagnostics && window.JPShared.diagnostics.version();
+      var localBuild = ver && typeof ver.buildNumber === 'number' ? ver.buildNumber : null;
+      if (!base || localBuild == null) { say('Update check isn’t available in this build.', false); return; }
+
+      say('Checking…');
+      var url = base.replace(/\/+$/, '') + '/version.json?ts=' + Date.now();
+      fetch(url, { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (remote) {
+          var remoteBuild = remote && typeof remote.buildNumber === 'number' ? remote.buildNumber : null;
+          if (remoteBuild == null) { say('Couldn’t read the update info — try again later.', false); return; }
+          if (remoteBuild > localBuild) {
+            var label = remote.appVersion ? ('v' + remote.appVersion + ' (Build ' + remoteBuild + ')') : ('Build ' + remoteBuild);
+            var needsStore = typeof remote.minNativeBuild === 'number' && remote.minNativeBuild > localBuild;
+            say(label + ' is available — update via ' + (needsStore ? 'the App Store' : 'TestFlight or the App Store') + '.'
+              + (remote.notes ? ' ' + remote.notes : ''), true);
+          } else {
+            say('You’re up to date (Build ' + localBuild + ').', true);
+          }
+        })
+        .catch(function () {
+          say('Couldn’t reach the update server — check your connection and try again.', false);
+        });
+    });
   }
 
   // ---- Wire interactions ----

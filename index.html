@@ -511,10 +511,11 @@ window.JPApp = {
     // appVersion is the human-facing label (keep ~in sync with Xcode MARKETING_VERSION).
     appVersion: "1.3.2",
     buildNumber: 7,
-    // Where the OTA updater looks for newer builds. Empty = OTA disabled (app just
-    // runs its bundled copy, fully offline). Set to the Firebase Hosting URL once
-    // hosting is live, e.g. "https://rikizo-app.web.app".
-    updateBaseUrl: "",
+    // Where "Check for updates" looks for newer builds (Firebase Hosting serves
+    // www/version.json). Empty = check disabled (app just runs its bundled copy,
+    // fully offline). NOTE: every ship must redeploy hosting so the hosted
+    // version.json matches: npm run build:www && npx firebase-tools deploy --only hosting
+    updateBaseUrl: "https://project-9c65f87c-e8c8-409b-843.web.app",
     // Progress-sync server (Cloud Run). Used by app/shared/sync.js only — the AI
     // tutor stays off until tutorBaseUrl is set separately.
     apiBaseUrl: "https://rikizo-tutor-979574126888.us-west1.run.app",
