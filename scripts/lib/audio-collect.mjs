@@ -14,8 +14,26 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { loadTtsNormalize } from './load-normalize.mjs';
+import { loadVoiceResolver } from './load-characters.mjs';
 
 const norm = loadTtsNormalize();
+
+// The narrator speaks everything that isn't a conversation line. Kept in sync
+// with build-audio-manifest.mjs via shared/chirp-voices.json (see resolver).
+export const NARRATOR = 'Fenrir';
+
+// A conversation block: `lines[]` whose entries carry a `spk` label. Exported so
+// the collector and scripts/validate-voices.mjs agree on what a conversation is.
+export function isConversation(node) {
+  return !!node && Array.isArray(node.lines) &&
+    node.lines.some((l) => l && typeof l === 'object' && 'spk' in l);
+}
+
+// Only these kinds have per-character voices. Story/audiostory narration and
+// compose are narrator-only. (Final Review renders conversations without a 🔊
+// button today, but it lives under reviews/ and its ~32 lines cost ~$0.02 to
+// bake — cheaper than the trap of a speak button appearing later with no clips.)
+const VOICED_KINDS = new Set(['lessons', 'grammar', 'reviews']);
 
 // The literal sentence the Settings "Test voice" button speaks.
 const TEST_SENTENCE = 'こんにちは、元気ですか。今日はいい天気ですね。';
@@ -76,12 +94,24 @@ const SPOKEN_FIELDS = {
 };
 
 // Recursively walk a parsed JSON node, emitting keys via emit(key, source).
-function walkNode(node, termMap, emit, source, kind) {
+function walkNode(node, termMap, emit, source, kind, voiceFor) {
   if (node == null) return;
-  if (Array.isArray(node)) { for (const x of node) walkNode(x, termMap, emit, source, kind); return; }
+  if (Array.isArray(node)) { for (const x of node) walkNode(x, termMap, emit, source, kind, voiceFor); return; }
   if (typeof node !== 'object') return;
 
   const fields = SPOKEN_FIELDS[kind] || ['jp'];
+
+  // Conversation lines are ALSO spoken in their speaker's voice. Emit the voiced
+  // key here; the generic `jp` walk below still emits the narrator key, which is
+  // what tts.js falls back to when a voiced clip is missing.
+  if (voiceFor && VOICED_KINDS.has(kind) && isConversation(node)) {
+    for (const line of node.lines) {
+      if (!line || typeof line.jp !== 'string' || !line.jp.trim()) continue;
+      const { voice } = voiceFor(String(line.spk == null ? '' : line.spk), node.speakers);
+      if (voice === NARRATOR) continue;   // already covered by the narrator key
+      emit(norm.normalizeKey(line.jp, null), source + ':spk', line.jp, voice);
+    }
+  }
 
   // terms→kana layer dropped: every spoken unit is keyed by normalizeKey(jp, null)
   // (kanji kept; ambiguous readings handled by the static override table). This
@@ -109,26 +139,38 @@ function walkNode(node, termMap, emit, source, kind) {
 
   for (const key of Object.keys(node)) {
     if (key === 'terms' || key === 'parts' || key === 'newKanji') continue;
-    walkNode(node[key], termMap, emit, source, kind);
+    walkNode(node[key], termMap, emit, source, kind, voiceFor);
   }
 }
 
 /**
- * Collect every normalized key. Returns a Map: key → Set(sources).
+ * The identity of a clip: its normalized text AND the voice speaking it. The
+ * narrator's id is the bare key, mirroring keyHash() — so every pre-existing
+ * narrator entry keeps its name.
+ */
+export function voiceKeyId(key, voice) {
+  return voice && voice !== NARRATOR ? `${voice}\u0000${key}` : key;
+}
+
+/**
+ * Collect every (key, voice) pair the runtime might look up.
+ * @returns {Map<string, {key, voice, sources:Set, text}>} keyed by voiceKeyId
  */
 export function collectKeys(root) {
   const termMap = buildTermMap(root);
+  const { voiceFor } = loadVoiceResolver(root);
   const keys = new Map();
-  // value: { sources:Set, text } — text is a representative ORIGINAL string
-  // (pre-normalization) for display in the QA page.
-  const emit = (key, source, original) => {
+  // value: { key, voice, sources:Set, text } — text is a representative ORIGINAL
+  // string (pre-normalization) for display in the QA page.
+  const emit = (key, source, original, voice = NARRATOR) => {
     if (!key || !key.trim()) return;
-    // Fenrir is a JAPANESE voice — never synthesize English/romaji/symbol-only
+    // These are JAPANESE voices — never synthesize English/romaji/symbol-only
     // strings (e.g. grammar `answer` fields that hold English meanings). English
     // narration will use a separate English voice later. Require ≥1 Japanese char.
     if (!/[぀-ヿ一-鿿]/.test(key)) return;
-    if (!keys.has(key)) keys.set(key, { sources: new Set(), text: '' });
-    const rec = keys.get(key);
+    const id = voiceKeyId(key, voice);
+    if (!keys.has(id)) keys.set(id, { key, voice, sources: new Set(), text: '' });
+    const rec = keys.get(id);
     rec.sources.add(source);
     if (!rec.text && original) rec.text = String(original).trim();
   };
@@ -176,7 +218,7 @@ export function collectKeys(root) {
     for (const kind of ['lessons', 'stories', 'grammar', 'reviews', 'audiostories', 'compose']) {
       for (const file of listJson(join(root, 'data', lvl, kind))) {
         const data = readJson(file);
-        walkNode(data, termMap, emit, `${lvl}/${kind}`, kind);
+        walkNode(data, termMap, emit, `${lvl}/${kind}`, kind, voiceFor);
       }
     }
   }

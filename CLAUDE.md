@@ -311,6 +311,62 @@ node scripts/migrate-stories-to-json.mjs --force   # if you need to re-tokenize 
 
 ---
 
+## Conversations — one voice per character
+
+Conversations break format from the rest of the app: **every character speaks in
+their own Chirp 3 HD voice**, so a dialogue plays back as a real back-and-forth.
+Everything else — story narration, glossary words, kanji readings, Audio Dojo
+passages — is the **narrator** (`Fenrir`).
+
+A "conversation" is any block with `lines[]` whose entries carry a `spk` label,
+in `lessons/`, `grammar/`, or `reviews/`.
+
+### The two files that decide who sounds like what
+
+- `shared/characters.json` — a `voice` field per cast member, plus a top-level
+  `roleVoices` map for bystander `spk` labels that are nobody in the cast
+  (`店員`, `姉`, `駅員`, …). **This is the source of truth.**
+- `shared/chirp-voices.json` — the 30-voice Chirp 3 HD roster. A voice not listed
+  here fails the gate. Refresh with `npm run voices:verify-roster` (needs the API
+  key); never hand-add a name you haven't seen `voices.list` return.
+
+Resolution lives in **one** place, `app/shared/characters.js` → `voiceFor()`, which
+Node loads through `scripts/lib/load-characters.mjs`. The build-time generator and
+the runtime clip resolver both call it, so they cannot disagree.
+
+### Authoring a conversation (N3 and beyond)
+
+1. Every `spk` must resolve to a voice — via a cast name (`けん`), the block's own
+   `speakers` map (`"speakers": { "A": "yuki", "B": "ken" }`), or a `roleVoices`
+   label. Anonymous `A`/`B` **always** needs a `speakers` map.
+2. New cast member? Give them a `voice` from `shared/chirp-voices.json` before
+   they speak a line.
+3. `npm run validate:voices` → must be clean. `build:www` runs it for you.
+4. `npm run gen:audio` — bakes the new lines in their speakers' voices.
+
+### The gate
+
+`scripts/validate-voices.mjs` (wired into `build:www`) fails when a `spk` doesn't
+resolve, when a voice isn't in the roster, or when a speaking character has no
+voice. **It has to**: at runtime `tts.js` falls back to the narrator's clip when a
+voiced clip is missing, so a miscast character doesn't error — they just quietly
+sound like Rikizo. Nothing else catches that.
+
+The rule is **resolution success, not `voice !== 'Fenrir'`** — Rikizo's voice
+legitimately *is* the narrator.
+
+### The clip hash (do not "fix" this)
+
+```js
+keyHash(key, voice) = voice === NARRATOR ? sha1(key) : sha1(voice + '\0' + key)
+```
+
+The asymmetry is deliberate: it grandfathers the ~10k narrator clips baked before
+voices existed. Making it symmetric renames every one of them (~282 MB of churn)
+and re-synthesizes the lot. Same for changing the `NARRATOR` sentinel.
+
+---
+
 ## After ANY content change — regenerate audio + fonts (REQUIRED)
 
 Whenever you **add new** Japanese content **or edit existing** content — stories,
@@ -326,9 +382,9 @@ npm run gen:audio          # build-audio-manifest + generate-audio (Chirp 3 HD)
 # npm run gen:audio -- --force   # regenerate ALL clips (rarely needed)
 ```
 
-- Incremental: clips are content-addressed (`sha1` of the normalized key), so
-  **new text → new clip**, **edited text → a new clip** (the old one is orphaned
-  but harmless — committed clips keep the app offline).
+- Incremental: clips are content-addressed (`sha1` of the normalized key **+ its
+  voice**), so **new text → new clip**, **edited text → a new clip** (the old one
+  is orphaned but harmless — committed clips keep the app offline).
 - Needs `GOOGLE_TTS_API_KEY` + `ffmpeg`/`ffprobe` on the build machine.
 - **Gate:** `validate-audio.mjs` re-derives the key set and fails the build if any
   content line lacks a clip.
@@ -376,6 +432,15 @@ npm run vendor:fonts       # re-subsets Noto Sans/Serif JP to the current conten
 - ❌ Don't ship new/edited content without re-running `npm run gen:audio` AND
   `npm run vendor:fonts`. `build:www` gates both (validate-audio / validate-fonts)
   — a missing clip or uncovered glyph fails the build.
+- ❌ Don't author a conversation whose `spk` has no voice. Give it a `speakers`
+  map, or add the label to `roleVoices` in `shared/characters.json`.
+  `validate-voices.mjs` gates it — and the runtime can't, because it silently
+  falls back to the narrator.
+- ❌ Don't make `keyHash` symmetric or change the `NARRATOR` sentinel — either
+  renames all ~10k narrator clips (~282 MB) and re-bills the whole TTS run.
+- ❌ Don't reintroduce a `VOICE=` env override on `generate-audio.mjs`. It would
+  synthesize narrator clips in another voice while hashing them as the narrator's,
+  silently poisoning the committed cache.
 
 ---
 

@@ -78,6 +78,9 @@ node scripts/validate-audiostories.mjs
 ```bash
 npm run gen:audio && npm run vendor:fonts && npm run build:www
 ```
+Audiostory passages are **always the narrator** (Fenrir) — a passage is narration,
+not a conversation, so it has no `spk` and gets no per-character voices. (Those are
+for `type:"conversation"` blocks in lessons/grammar/reviews; see CLAUDE.md.)
 
 ### 6-MANUAL — the TTS-misread override loop (device-verified)
 Chirp synthesizes raw kanji with NO reading hints, so on/kun-ambiguous kanji get

@@ -12,7 +12,7 @@
  * Public API is unchanged from the Web Speech version so every callsite
  * (Lesson.js, Review.js, Stories.js, Grammar.js, Compose.js) and tts-settings.js
  * keep working:
- *   speak(text, {terms, termMap, rate})       speakLines(lines, {termMap, onFinish})
+ *   speak(text, {terms, termMap, rate, voice})  speakLines(lines, {termMap, onFinish})
  *   cancel()  isSpeaking()
  *   getVoices()  getSelectedVoice()  setVoice(uri)  getRate()  setRate(r)
  *   preprocess(text, pairs)  buildReadings(terms, termMap)  isSupported()
@@ -30,15 +30,18 @@
   var PREFS_KEY = 'jp-tts-prefs';
   var MANIFEST_PATH = 'data/audio/manifest.audio.json';
 
-  // Curated Chirp 3 HD voices. Milestone 1 ships Fenrir only; the picker + the
-  // download manager for the other three land in a later phase.
+  // Curated Chirp 3 HD voices. This is the NARRATOR picker — everything except a
+  // conversation line is spoken by the narrator, and only Fenrir is baked for it.
+  // Conversation lines pass their speaker's voice into speak()/speakLines()
+  // instead; those clips live in manifest.voices (see clipFor).
   var VOICES = [
     { uri: 'Fenrir', name: 'Fenrir', label: 'Fenrir', gender: 'male', locale: 'ja-JP' }
   ];
+  var NARRATOR = 'Fenrir';
 
   // --- State ---
   var repoConfig = null;
-  var manifest = null;          // { basePath, clips: { key: {file, dur} } }
+  var manifest = null;          // { basePath, clips: {key:{file,dur}}, voices: {voice:{key:{file,dur}}} }
   var manifestPromise = null;
   var selectedVoiceURI = VOICES[0].uri;
   var selectedRate = 0.9;
@@ -93,14 +96,23 @@
     return manifestPromise;
   }
 
-  function clipFor(text, termPairs, reading) {
+  function clipFor(text, termPairs, reading, voice) {
     if (!manifest) return null;
     var nz = norm();
     if (!nz) return null;
     // Isolated readings (kun/on chips) use readingKey (katakana for は/へ/を) so
     // Chirp doesn't misread them as particles; sentences use normalizeKey.
     var key = reading ? nz.readingKey(text) : nz.normalizeKey(text, termPairs);
-    var rec = manifest.clips[key];
+
+    // A conversation line resolves against its speaker's voice; everything else
+    // (and any voiced clip that somehow wasn't baked) falls back to the narrator,
+    // so a gap degrades to the wrong voice rather than to silence. Only
+    // scripts/validate-audio.mjs can catch that gap — keep it strict.
+    var rec = null;
+    if (voice && voice !== NARRATOR && manifest.voices && manifest.voices[voice]) {
+      rec = manifest.voices[voice][key];
+    }
+    if (!rec) rec = manifest.clips[key];
     if (!rec) return null;
     // Server-delivered clips (addClips) carry an absolute url; bundled clips
     // resolve against the local manifest basePath.
@@ -121,7 +133,7 @@
 
   // Play one clip on the shared element. onDone fires on end, error, or miss.
   // token guards against a cancel()/new playback landing mid-flight.
-  function playOne(text, termPairs, rate, token, onDone, reading) {
+  function playOne(text, termPairs, rate, token, onDone, reading, voice) {
     var done = false;
     function finishLocal() {
       if (done) return;
@@ -129,7 +141,7 @@
       if (token === cancelToken && onDone) onDone();
     }
 
-    var clip = clipFor(text, termPairs, reading);
+    var clip = clipFor(text, termPairs, reading, voice);
     if (!clip) {
       if (typeof console !== 'undefined' && console.debug) {
         console.debug('[tts] no clip for key:', (norm() && (reading ? norm().readingKey(text) : norm().normalizeKey(text, termPairs))) || text);
@@ -211,8 +223,10 @@
     /**
      * Speak a single Japanese string (one pre-baked clip).
      * @param {string} text
-     * @param {Object} [options] {rate, terms, termMap, reading}
+     * @param {Object} [options] {rate, terms, termMap, reading, voice}
      *   options.reading=true → isolated kun/on reading (katakana-keyed).
+     *   options.voice → a conversation speaker's Chirp voice
+     *                   (JPShared.characters.voiceFor); omit for the narrator.
      */
     speak: function (text, options) {
       this.cancel();
@@ -229,16 +243,17 @@
         if (token !== cancelToken) return;
         playOne(text.trim(), termPairs, opts.rate, token, function () {
           if (token === cancelToken) playing = false;
-        }, isReading);
+        }, isReading, opts.voice);
       };
       if (manifest) go(); else ensureManifest().then(go);
     },
 
     /**
      * Speak multiple lines sequentially (conversations / play-all).
-     * Lines may be plain strings or {jp, terms} objects; with options.termMap
-     * each line's terms resolve to glossary readings.
-     * @param {string[]|{jp:string,terms:Array}[]} lines
+     * Lines may be plain strings or {jp, terms, voice} objects; a line's `voice`
+     * makes it play in that character's voice, so a conversation reads back as a
+     * real exchange rather than one narrator doing both halves.
+     * @param {string[]|{jp:string,terms:Array,voice:string}[]} lines
      * @param {Object} [options] {termMap, onFinish}
      */
     speakLines: function (lines, options) {
@@ -250,12 +265,12 @@
       var queue = [];
       for (var i = 0; i < lines.length; i++) {
         var line = lines[i];
-        var jp;
+        var jp, voice;
         if (typeof line === 'string') jp = line;
-        else if (line && line.jp) jp = line.jp;   // terms ignored — kanji synthesis
+        else if (line && line.jp) { jp = line.jp; voice = line.voice; }  // terms ignored — kanji synthesis
         else continue;
         if (!jp || !jp.trim()) continue;
-        queue.push({ jp: jp.trim(), pairs: null });
+        queue.push({ jp: jp.trim(), pairs: null, voice: voice });
       }
       if (!queue.length) { fireFinish(); return; }
 
@@ -269,7 +284,7 @@
         playOne(item.jp, item.pairs, undefined, token, function () {
           if (token !== cancelToken) return;
           setTimeout(next, 120);                    // small inter-line gap
-        });
+        }, false, item.voice);
       }
 
       if (manifest) next(); else ensureManifest().then(next);

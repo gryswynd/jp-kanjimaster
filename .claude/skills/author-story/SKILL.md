@@ -76,13 +76,24 @@ Checks schemaVersion `2.0.0`, required fields, token→jp reconstruction (token
 drift is the easiest mistake), vocabUsed/grammarUsed resolve, and
 comprehension.correct is a valid index.
 
+## Authoring a CONVERSATION block (lessons / grammar / reviews only)
+Story narration is always the narrator (Fenrir). But if this task also touches a
+`type: "conversation"` block — `lines[]` with `spk` labels — every speaker gets
+their own voice, and an unvoiced `spk` is a **hard stop**:
+- Cast each `spk` via a cast name (`けん`), the block's `"speakers": { "A": "yuki",
+  "B": "ken" }` map, or a `roleVoices` label in `shared/characters.json`.
+  Anonymous `A`/`B` **always** needs a `speakers` map.
+- A new cast member needs a `voice` from `shared/chirp-voices.json` before they speak.
+- **Gate:** `npm run validate:voices` → 0 problems. The runtime can't catch this —
+  a miscast character silently falls back to sounding like Rikizo.
+
 ## After the story passes all gates — regenerate derived artifacts (REQUIRED)
 Any new/edited Japanese the app displays or speaks must regenerate two artifacts
 (both are `build:www` gates — the build FAILS if you skip them):
 ```bash
 npm run gen:audio        # Chirp 3 HD clips for new/changed lines (needs GOOGLE_TTS_API_KEY + ffmpeg)
 npm run vendor:fonts     # re-subset Noto JP to the content's characters (needs python3 + fonttools)
-npm run build:www        # gates: validate-stories, validate-audio, validate-fonts
+npm run build:www        # gates: validate-stories, validate-voices, validate-audio, validate-fonts
 ```
 
 ## Hard rules — never
@@ -94,6 +105,7 @@ npm run build:www        # gates: validate-stories, validate-audio, validate-fon
   やる is always kana; the glossary entry `v_yaru` (N3.22) gates it.
 - ❌ Ship with out-of-level vocab — agent 3 must be 0.
 - ❌ Ship without re-running `gen:audio` + `vendor:fonts`.
+- ❌ Author a conversation whose `spk` has no voice — `validate:voices` must be 0.
 
 ## Done when
 `audit-story-vocab` = 0 out-of-level · `qa-story` = 0 violations · `validate-stories`

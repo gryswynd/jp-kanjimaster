@@ -5,8 +5,11 @@
 // (concatenated paragraph audio + breakpoints + waveform peaks).
 //
 // Incremental: a clip whose <hash>.m4a already exists is skipped (the hash is
-// sha1 of the normalized key, so unchanged text = cache hit). Use --force to
-// regenerate everything.
+// sha1 of the normalized key + its voice, so unchanged text = cache hit). Use
+// --force to regenerate everything.
+//
+// Conversation lines are synthesized in their speaker's voice; everything else
+// (narration, glossary, kanji readings, Audio Dojo passages) uses the narrator.
 //
 // Requirements (build machine only — clips are committed, so the app stays
 // offline):
@@ -18,19 +21,23 @@
 //   - ffmpeg + ffprobe on PATH.
 //
 // Run: GOOGLE_TTS_API_KEY=... npm run gen:audio
-//      VOICE=Fenrir GOOGLE_TTS_API_KEY=... node scripts/generate-audio.mjs --force
+//      GOOGLE_TTS_API_KEY=... node scripts/generate-audio.mjs --force
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { keyHash } from './build-audio-manifest.mjs';
+import { keyHash, NARRATOR } from './build-audio-manifest.mjs';
+import { voiceKeyId } from './lib/audio-collect.mjs';
 import { loadTtsNormalize } from './lib/load-normalize.mjs';
 
 const norm = loadTtsNormalize();   // same reading overrides the key path uses (月よう日→げつようび)
 const ROOT = new URL('..', import.meta.url).pathname;
 const FORCE = process.argv.includes('--force');
-const VOICE = process.env.VOICE || 'Fenrir';
-const VOICE_NAME = `ja-JP-Chirp3-HD-${VOICE}`;   // confirm exact id against the live API
-const CONCURRENCY = Number(process.env.AUDIO_CONCURRENCY || 6);
+// Each work-list item carries its own voice (the narrator for everything except
+// conversation lines). There is deliberately no VOICE env override: it would
+// synthesize narrator clips in another voice while still hashing them as the
+// narrator's, silently poisoning every cached clip. Voices live in
+// shared/characters.json; the roster is shared/chirp-voices.json.
+const CONCURRENCY = Number(process.env.AUDIO_CONCURRENCY || 6);   // Chirp3 quota: 200 req/min
 const API_KEY = process.env.GOOGLE_TTS_API_KEY || '';
 const TTS_ENDPOINT = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 
@@ -47,10 +54,10 @@ function ensureTools() {
 
 // Synthesize one string → MP3 bytes via Cloud TTS Chirp 3 HD (REST + API key).
 // Retries transient 429/5xx/network errors with exponential backoff.
-async function synthMp3(text) {
+async function synthMp3(text, voice) {
   const body = {
     input: { text },
-    voice: { languageCode: 'ja-JP', name: VOICE_NAME },
+    voice: { languageCode: 'ja-JP', name: `ja-JP-Chirp3-HD-${voice || NARRATOR}` },
     audioConfig: { audioEncoding: 'MP3' }
   };
   let lastErr;
@@ -158,21 +165,76 @@ async function pool(items, worker, limit) {
   return results;
 }
 
+// Keys whose literal text Chirp can't voice well. The clip stays keyed/hashed
+// by the ORIGINAL key — only the text sent to the synthesizer is substituted:
+//   • bare small glides (ゃゅょ) come out as ~50ms of silence → speak the
+//     full-size twin (same sound);
+//   • some bare kana get clipped or mumbled → a trailing 。 fixes the prosody.
+// (Ported from KanaMaster QA — standalone-kana clips there were audited by ear.)
+const SYNTH_TEXT_OVERRIDES = {
+  'ゃ': 'や', 'ゅ': 'ゆ', 'ょ': 'よ',
+  'ャ': 'ヤ', 'ュ': 'ユ', 'ョ': 'ヨ',
+  'す': 'す。', 'ス': 'ス。',
+  'ず': 'ず。', 'ズ': 'ズ。',
+  'ラ': 'ラ。',
+  'わたし': '私',
+  'さん': 'サン。', // katakana — phonetically unambiguous (kanji 三 got misread)
+  'え': 'え？',      // "huh?" — the rising intonation IS the word
+  'あっ': 'あっ！'
+};
+
+// Keys whose CLIP is borrowed wholesale from another key — KanaMaster QA found
+// one script's synthesis reliably better than the other for the SAME sound
+// (e.g. Chirp mangles bare あ but nails ア). The alias key's manifest entry
+// points at the donor's clip file; no extra synthesis happens.
+const CLIP_ALIASES = {
+  // hiragana → katakana donors
+  'あ': 'ア', 'い': 'イ', 'う': 'ウ', 'え': 'エ',
+  'か': 'カ', 'き': 'キ',
+  'せ': 'セ', 'そ': 'ソ',
+  'じ': 'ジ',
+  'た': 'タ', 'ち': 'チ', 'つ': 'ツ',
+  'ぢ': 'ヂ',
+  'な': 'ナ', 'に': 'ニ', 'ぬ': 'ヌ', 'ね': 'ネ', 'の': 'ノ',
+  'は': 'ハ', 'ひ': 'ヒ', 'ふ': 'フ', 'へ': 'ヘ', 'ほ': 'ホ',
+  'ば': 'バ', 'び': 'ビ', 'ぶ': 'ブ', 'べ': 'ベ', 'ぼ': 'ボ',
+  'ら': 'ラ',
+  'ん': 'ン',
+  'ぴゃ': 'ピャ',
+  // katakana → hiragana donors (the reverse cases)
+  'シ': 'し',
+  'ゼ': 'ぜ', 'ゾ': 'ぞ',
+  // を is pronounced exactly like お
+  'を': 'お', 'ヲ': 'お'
+};
+
+// Dedupe concurrent ensureClip calls for the same key+voice (donor + alias can
+// land in different pool workers at the same moment).
+const _inflight = new Map();
+function ensureClipOnce(key, voice) {
+  const id = voiceKeyId(key, voice);
+  if (!_inflight.has(id)) _inflight.set(id, ensureClip(key, voice));
+  return _inflight.get(id);
+}
+
 // Synthesize a single key into clips/<hash>.m4a (idempotent). Returns dur.
 // Long keys are chunked + concatenated into one clip (see splitForTts).
-async function ensureClip(key) {
-  const hash = keyHash(key);
+async function ensureClip(key, voice = NARRATOR) {
+  const hash = keyHash(key, voice);
   const out = join(CLIPS_DIR, `${hash}.m4a`);
   if (!FORCE && existsSync(out)) return { hash, dur: probeDuration(out), cached: true };
 
-  const chunks = splitForTts(key);
+  // SYNTH_TEXT_OVERRIDES fixes isolated kana chips, which only the narrator ever
+  // speaks — never let it rewrite a character's conversation line.
+  const text = (voice === NARRATOR && SYNTH_TEXT_OVERRIDES[key]) || key;
+  const chunks = splitForTts(text);
   if (chunks.length === 1) {
-    const mp3 = await synthMp3(chunks[0]);
+    const mp3 = await synthMp3(chunks[0], voice);
     mp3ToM4a(mp3, out, hash);
   } else {
     const partPaths = [];
     for (let i = 0; i < chunks.length; i++) {
-      const mp3 = await synthMp3(chunks[i]);
+      const mp3 = await synthMp3(chunks[i], voice);
       const pp = join(TMP_DIR, `${hash}_${i}.mp3`);
       writeFileSync(pp, mp3);
       partPaths.push(pp);
@@ -216,7 +278,8 @@ async function buildPassage(story) {
     // Synthesize the NORMALIZED text (reading overrides applied) so the passage
     // matches the keyed clips — e.g. 月よう日 reads げつようび, not "…ひ".
     const synthText = norm.normalizeKey(paras[i], null);
-    const { hash, cached } = await ensureClip(synthText);  // reuse the per-paragraph clip
+    // Audio Dojo passages are single-narrator narration — never per-character.
+    const { hash, cached } = await ensureClip(synthText, NARRATOR);  // reuse the per-paragraph clip
     if (!cached) synthChars += synthText.length;
     const seg = join(CLIPS_DIR, `${hash}.m4a`);
     segPaths.push(seg);
@@ -243,7 +306,7 @@ async function buildPassage(story) {
 // nothing. This is a build-time/developer cost — kept separate from runtime tutor
 // cost on the admin dashboard. ~$30 per 1M chars for Chirp 3 HD.
 const TTS_PRICE_PER_MILLION = 30;
-function appendTtsLedger({ chars, voice, newClips, cachedClips }) {
+function appendTtsLedger({ chars, voice, newClips, cachedClips, charsByVoice }) {
   if (!chars) return; // nothing synthesized → no cost to record
   const ledgerPath = join(AUDIO_DIR, 'cost-ledger.json');
   let ledger = { schemaVersion: '1.0.0', pricePerMillionChars: TTS_PRICE_PER_MILLION, runs: [] };
@@ -255,6 +318,9 @@ function appendTtsLedger({ chars, voice, newClips, cachedClips }) {
   ledger.runs.push({
     date: new Date().toISOString().slice(0, 10),
     chars, estUSD, voice, newClips, cachedClips,
+    // Per-voice breakdown of what this run actually paid to synthesize. Absent
+    // on runs that only touched the narrator.
+    ...(charsByVoice && Object.keys(charsByVoice).length > 1 ? { charsByVoice } : {})
   });
   writeFileSync(ledgerPath, JSON.stringify(ledger, null, 2));
   console.log(`Ledger: +${chars} chars (~$${estUSD.toFixed(2)}) → data/audio/cost-ledger.json`);
@@ -273,19 +339,36 @@ async function main() {
   const worklistPath = join(AUDIO_DIR, 'keys.audio.json');
   if (!existsSync(worklistPath)) throw new Error('Run scripts/build-audio-manifest.mjs first.');
   const { items } = JSON.parse(readFileSync(worklistPath, 'utf8'));
-  console.log(`Synthesizing ${items.length} clips with ${VOICE_NAME} (concurrency ${CONCURRENCY})...`);
+  const voiceCount = new Set(items.map((it) => it.voice || NARRATOR)).size;
+  console.log(`Synthesizing ${items.length} clips across ${voiceCount} voice(s) (concurrency ${CONCURRENCY})...`);
 
   let made = 0, cached = 0, synthChars = 0;
   const failures = [];
-  const clips = {};
+  const clips = {};          // narrator: key → {file, dur}
+  const voices = {};         // voice → key → {file, dur}
+  const charsByVoice = {};   // voice → chars actually synthesized (cost ledger)
   await pool(items, async (it) => {
+    const voice = it.voice || NARRATOR;
     try {
-      const { hash, dur, cached: wasCached } = await ensureClip(it.key);
-      clips[it.key] = { file: `${hash}.m4a`, dur };
-      if (wasCached) cached++; else { made++; synthChars += it.key.length; if (made % 200 === 0) console.log(`  ${made} synthesized...`); }
+      // Aliased keys reuse their donor's clip file outright. The donor table maps
+      // isolated kana to a better-synthesized twin — narrator-only, like
+      // SYNTH_TEXT_OVERRIDES; a character's line must never borrow another clip.
+      const donor = voice === NARRATOR ? CLIP_ALIASES[it.key] : null;
+      const { hash, dur, cached: wasCached } = await ensureClipOnce(donor || it.key, voice);
+      const rec = { file: `${hash}.m4a`, dur };
+      if (voice === NARRATOR) clips[it.key] = rec;
+      else (voices[voice] = voices[voice] || {})[it.key] = rec;
+
+      if (wasCached) cached++;
+      else {
+        made++;
+        synthChars += it.key.length;
+        charsByVoice[voice] = (charsByVoice[voice] || 0) + it.key.length;
+        if (made % 200 === 0) console.log(`  ${made} synthesized...`);
+      }
     } catch (e) {
       // Non-fatal: log and keep going so one bad input never aborts the batch.
-      failures.push({ key: it.key, error: String(e && e.message || e).slice(0, 160) });
+      failures.push({ key: `${voice}: ${it.key}`, error: String(e && e.message || e).slice(0, 160) });
     }
   }, CONCURRENCY);
 
@@ -300,17 +383,20 @@ async function main() {
   }
 
   const manifest = {
-    schemaVersion: '1.0.0',
-    voice: VOICE,
-    voiceName: VOICE_NAME,
+    schemaVersion: '2.0.0',
+    voice: NARRATOR,               // the narrator; `voices` holds the cast
+    voiceName: `ja-JP-Chirp3-HD-${NARRATOR}`,
     basePath: 'data/audio/clips',
     format: 'm4a',
-    clips
+    clips,
+    voices
   };
   writeFileSync(join(AUDIO_DIR, 'manifest.audio.json'), JSON.stringify(manifest));
   rmSync(TMP_DIR, { recursive: true, force: true });
-  appendTtsLedger({ chars: synthChars, voice: VOICE, newClips: made, cachedClips: cached });
-  console.log(`Done. ${made} new, ${cached} cached. manifest.audio.json written (${Object.keys(clips).length} clips).`);
+  appendTtsLedger({ chars: synthChars, voice: NARRATOR, newClips: made, cachedClips: cached, charsByVoice });
+  const voicedClips = Object.values(voices).reduce((n, m) => n + Object.keys(m).length, 0);
+  console.log(`Done. ${made} new, ${cached} cached. manifest.audio.json written ` +
+    `(${Object.keys(clips).length} narrator + ${voicedClips} voiced clips).`);
   if (failures.length) {
     console.warn(`\n⚠ ${failures.length} clip(s) failed (re-run to retry — successful clips are cached):`);
     for (const f of failures.slice(0, 20)) console.warn(`  ${JSON.stringify(f.key).slice(0, 80)} — ${f.error}`);

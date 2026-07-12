@@ -17,23 +17,46 @@
  * precomputed `portraitUrl`), so this module fetches nothing of its own.
  *
  * Returned descriptor:
- *   { id, name, portraitUrl, initial, known }
+ *   { id, name, portraitUrl, initial, known, voice }
  *   - id          normalized character id without the "char_" prefix ('' if none)
  *   - name        display name (character `meaning`, e.g. "Yamamoto-sensei")
  *   - portraitUrl resolved headshot URL, or null when the character has no art
  *                 yet (→ initial circle); also null for unresolved speakers
  *   - initial     first character of the name/label, for the fallback circle
  *   - known       true when the speaker resolved to a real character entry
+ *   - voice       the character's Chirp 3 HD voice ('' when it has none)
+ *
+ * VOICES — this module also owns speaker → TTS voice (`voiceFor`). Conversations
+ * play back with one voice per character, so the build-time audio generator and
+ * the runtime clip resolver BOTH call `voiceFor()` to decide which voice a line
+ * is synthesized/looked-up under. That is why this file is a dual module (Node
+ * loads it through scripts/lib/load-characters.mjs): if the two sides ever fork,
+ * a line silently falls back to the narrator's clip instead of erroring.
+ *
+ * Call configureVoices(roleVoices, narrator) once before voiceFor() — with the
+ * `roleVoices` map from shared/characters.json, which voices the bystander `spk`
+ * labels (店員, 姉, 駅員, …) that are nobody in the cast.
  */
 
-(function () {
+(function (root, factory) {
+  var mod = factory();
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = mod;                        // Node (build scripts + gates)
+  }
+  if (typeof root !== 'undefined') {
+    root.JPShared = root.JPShared || {};
+    root.JPShared.characters = mod;              // browser
+  }
+})(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
-
-  window.JPShared = window.JPShared || {};
 
   // termMap object → built name-index. WeakMap so each renderer's map is
   // indexed once and garbage-collected with it.
   var idxCache = new WeakMap();
+
+  // Set by configureVoices(). Until then voiceFor() resolves cast voices only.
+  var roleVoices = {};
+  var narrator = 'Fenrir';
 
   function norm(id) {
     return String(id == null ? '' : id).replace(/^char_/, '');
@@ -101,7 +124,39 @@
     }
 
     var initial = (name || spk || '?').trim().slice(0, 1) || '?';
-    return { id: nid, name: name, portraitUrl: portraitUrl, initial: initial, known: !!entry };
+    return {
+      id: nid, name: name, portraitUrl: portraitUrl, initial: initial,
+      known: !!entry, voice: (entry && entry.voice) || ''
+    };
+  }
+
+  /**
+   * Register the bystander role → voice map and the narrator voice. Call once,
+   * with shared/characters.json's `roleVoices` object.
+   */
+  function configureVoices(roles, narratorVoice) {
+    roleVoices = roles || {};
+    if (narratorVoice) narrator = narratorVoice;
+  }
+
+  /**
+   * Which Chirp voice speaks this line?
+   *   1. the resolved character's `voice`   (cast: rikizo → Fenrir, ken → Puck)
+   *   2. roleVoices[spk]                    (bystanders: 店員 → Kore)
+   *   3. the narrator                       — `known:false`, which the gate fails on
+   *
+   * `known` reports whether the speaker was actually voiced, NOT whether the
+   * voice differs from the narrator: Rikizo's voice legitimately IS the narrator.
+   * @returns {{voice: string, known: boolean}}
+   */
+  function voiceFor(spk, speakersMap, termMap) {
+    var who = resolve(spk, speakersMap, termMap);
+    if (who.voice) return { voice: who.voice, known: true };
+
+    var role = roleVoices[String(spk == null ? '' : spk)];
+    if (role) return { voice: role, known: true };
+
+    return { voice: narrator, known: false };
   }
 
   // Pick which speaker label sits on the right ("you") side of the thread:
@@ -115,10 +170,12 @@
     return (list[0] && String(list[0].spk || '')) || 'A';
   }
 
-  window.JPShared.characters = {
+  return {
     resolve: resolve,
     rightSpeaker: rightSpeaker,
+    configureVoices: configureVoices,
+    voiceFor: voiceFor,
     _buildIndex: buildIndex
   };
 
-})();
+});

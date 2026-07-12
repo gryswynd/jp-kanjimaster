@@ -3,6 +3,7 @@
     {
       "id": "char_rikizo",
       "type": "character",
+      "voice": "Fenrir",
       "surface": "りきぞう",
       "reading": "りきぞう",
       "meaning": "Rikizo",
@@ -12,18 +13,19 @@
         "りきぞう",
         "りきぞうさん"
       ],
-      "bioLong": "Rikizo grew up flipping through his grandfather's old kanji notebooks, convinced each character was a tiny locked door. Now he keeps a brush pen behind his ear and a vocabulary list in every pocket, treating daily life in Japan as one big open-book exam. He fails cheerfully, retries stubbornly, and celebrates every small win like a festival. His dream is to one day read those notebooks cover to cover without a dictionary.",
+      "bioLong": "A high-schooler who's lived in this same town his whole life, Rikizo has just taken a part-time job tutoring foreign students in Japanese — patient, earnest, and never without the worn pocket dictionary he keeps on him. He greets every neighbor by name and takes even small things seriously. Lately he can't quite shake the feeling that the more he teaches, the more the town itself seems to wake up.",
       "likes": [
-        "brush pens",
-        "festival food stalls",
-        "finishing a review streak"
+        "his pocket dictionary",
+        "the moment a word finally clicks for a student",
+        "quiet mornings before class"
       ],
-      "funFact": "The 力 on his headband was his grandfather's seal — he re-inks it every New Year.",
+      "funFact": "He's started to notice that people 'remember' things that only appeared today — and no one else finds it strange but him.",
       "rewardArt": "assets/characters/rikizo/rikizo_convo.png"
     },
     {
       "id": "char_yamakawa",
       "type": "character",
+      "voice": "Orus",
       "surface": "やまかわ",
       "reading": "やまかわ",
       "meaning": "Yamakawa",
@@ -31,11 +33,19 @@
       "portrait": "assets/characters/yamakawa/yamakawa_head.png",
       "matches": [
         "やまかわさん"
-      ]
+      ],
+      "bioLong": "Rikizo's friend since they were kids — the two were inseparable right up until middle school ended and Yamakawa took a job to help his family instead of heading to high school alongside Rikizo. He plays it off with an easy grin and a permanent onigiri, but that gap stings more than he ever lets on. Loyal, laid-back, and somehow always right where you need him.",
+      "likes": [
+        "the convenience store",
+        "a good onigiri",
+        "an afternoon off with Rikizo"
+      ],
+      "funFact": "Ask how long he's been at the convenience store and he'll just shrug — \"always.\" Even though it only opened this morning. Somehow, wherever Rikizo goes, Yamakawa has already been there."
     },
     {
       "id": "char_suzuki",
       "type": "character",
+      "voice": "Callirrhoe",
       "surface": "すずき",
       "reading": "すずき",
       "meaning": "Suzuki-sensei",
@@ -45,18 +55,19 @@
         "すずき先生",
         "すずきせんせい"
       ],
-      "bioLong": "Suzuki-sensei believes there is no such thing as a wrong answer — only an interesting first draft. Students who dread tests somehow leave her classroom asking for extra reading. She keeps a shelf of well-worn picture books she still swears by for teaching grammar, and she has never once raised her voice. Rumor says she once explained particle は so gently that the whole class understood it on the first try.",
+      "bioLong": "Suzuki-sensei is Rikizo's homeroom teacher and his Japanese teacher both — warm, patient, and genuinely in her students' corner. She stays late, remembers the small things, and always seems to catch the kid having a rough week. Kind and endlessly helpful, she's the steady presence that makes the whole classroom feel safe.",
       "likes": [
-        "picture books",
-        "seasonal stationery",
-        "students who ask why"
+        "green tea between classes",
+        "a lesson that finally clicks",
+        "her students' small victories"
       ],
-      "funFact": "She grades with a pale pink pen because red 'looks like shouting'.",
+      "funFact": "Behind that composed, professional smile, Suzuki-sensei is hopelessly devoted to scandalously trashy romance novels — and keeps the raciest one tucked inside a very serious-looking textbook cover.",
       "rewardArt": "assets/characters/suzuki/suzuki_convo.png"
     },
     {
       "id": "char_yamamoto",
       "type": "character",
+      "voice": "Charon",
       "surface": "やまもと",
       "reading": "やまもと",
       "meaning": "Yamamoto-sensei",
@@ -66,18 +77,19 @@
         "やまもと先生",
         "やまもとせんせい"
       ],
-      "bioLong": "Yamamoto-sensei has taught for thirty years and claims he has seen every possible kanji mistake — twice. His patience is glacial and his handwriting is museum-grade, and he will happily re-explain a stroke order for the tenth time as if it were the first. After school he tends a tiny bonsai on the staffroom windowsill that predates most of his students. Nothing delights him more than a learner who shows up again the day after failing.",
+      "bioLong": "Yamamoto-sensei is the school's gym teacher, and he's exactly the tracksuit-and-whistle powerhouse every sports anime promised you — booming voice, boundless energy, and a bone-deep conviction that any problem can be solved with one more lap. Loud, hot-blooded, and secretly a total softie for any student who gives it their all, he coaches every warm-up like it's the national finals.",
       "likes": [
-        "bonsai",
-        "fountain pens",
-        "the smell of chalk"
+        "morning laps",
+        "a good sharp whistle",
+        "a student who refuses to quit"
       ],
-      "funFact": "He writes the date on the board in perfect brush style every single morning.",
+      "funFact": "That intensity doesn't clock out after practice — Yamamoto-sensei has money riding on every match in every league, and checks the scores far more obsessively than he'd ever let the faculty room find out.",
       "rewardArt": "assets/characters/yamamoto/yamamoto_convo.png"
     },
     {
       "id": "char_ken",
       "type": "character",
+      "voice": "Puck",
       "surface": "けん",
       "reading": "けん",
       "meaning": "Ken",
@@ -87,18 +99,19 @@
         "ケン",
         "けんさん"
       ],
-      "bioLong": "Ken treats every minor victory as a national holiday: passed a quiz? Party. Learned a new word? Bigger party. He is the first to volunteer for karaoke and the last to leave, and he somehow knows every food stall owner in town by name. Beneath the confetti, he is fiercely loyal — when Rikizo wants to give up, Ken is already at the door with snacks and flashcards.",
+      "bioLong": "Rikizo met Ken in high school and within a week they were inseparable — the kind of friendship that just clicks and never un-clicks. Loud, upbeat, and endlessly supportive, Ken is the friend who has Rikizo's back no matter what, no questions asked. Whenever they can steal the time, you'll find the two of them side by side, controllers in hand, losing all track of the hours.",
       "likes": [
-        "karaoke",
-        "ramen challenges",
-        "making toasts"
+        "gaming with Rikizo",
+        "hyping up his friends",
+        "a wide-open evening with nothing to do"
       ],
-      "funFact": "He has a personal fanfare he hums whenever anyone finishes a lesson.",
+      "funFact": "Under all the noise and the jokes, Ken means it completely — there's nothing he wouldn't drop to help Rikizo. He'd just never say it that seriously out loud.",
       "rewardArt": "assets/characters/ken/ken_convo.png"
     },
     {
       "id": "char_yuki",
       "type": "character",
+      "voice": "Sulafat",
       "surface": "ゆき",
       "reading": "ゆき",
       "meaning": "Yuki",
@@ -107,18 +120,19 @@
       "matches": [
         "ゆきさん"
       ],
-      "bioLong": "Yuki is the classmate who always seems to be in the right conversation at the right time — mostly because she starts them. She collects interesting sentences the way other people collect stickers, writing her favorites in a small notebook with a snowflake on the cover. New students gravitate to her because she asks easy questions out loud so nobody else has to. She insists winter is the best season and will debate anyone on it.",
+      "bioLong": "Quiet and a little dreamy, Yuki drifts toward the edges of things — a garden, a rain-streaked window, the hush right before a storm. She's gentle and easy to overlook, until you realize she's the only one who ever stops to ask whether something is quite right. Where everyone else shrugs and moves on, Yuki notices.",
       "likes": [
-        "first snow",
-        "sentence notebooks",
-        "warm vending-machine drinks"
+        "quiet gardens",
+        "the first snow of the year",
+        "the sound of rain"
       ],
-      "funFact": "Her notebook of favorite sentences is on volume seven.",
+      "funFact": "She's the only one who seems to feel it — that faint wrongness the whole town waves away. She doesn't press. She just wonders, quietly, and watches a little longer than everyone else.",
       "rewardArt": "assets/characters/yuki/yuki_convo.png"
     },
     {
       "id": "char_lee",
       "type": "character",
+      "voice": "Rasalgethi",
       "surface": "リー",
       "reading": "りー",
       "meaning": "Lee",
@@ -126,11 +140,19 @@
       "portrait": "assets/characters/lee/lee_head.png",
       "matches": [
         "リーさん"
-      ]
+      ],
+      "bioLong": "An exchange student from China, Lee threw himself into life in Japan with both hands and an enormous grin. His enthusiasm for the language knows no limit — he'll attempt any word, any phrase, any time, cheerfully mangling a few along the way and laughing it off. Friendly, earnest, and always giving it everything he's got, he's impossible not to root for.",
+      "likes": [
+        "nailing a tricky new phrase",
+        "making friends everywhere he goes",
+        "trying every local dish at least once"
+      ],
+      "funFact": "He swears he's \"still just learning,\" but he's quietly become the classmate everyone turns to when they're stuck — and it quietly makes his whole week, every time."
     },
     {
       "id": "char_taro",
       "type": "character",
+      "voice": "Algenib",
       "surface": "たろう",
       "reading": "たろう",
       "meaning": "Taro",
@@ -138,11 +160,19 @@
       "portrait": "assets/characters/taro/taro_head.png",
       "matches": [
         "たろうさん"
-      ]
+      ],
+      "bioLong": "Rikizo's father holds the household together in a business-casual shirt he never quite changes out of, radiating the calm of a man quietly certain everything is fine. He's practical, dryly funny, and devoted to his family — though you'd have to read between the gruff lines to hear him admit it. When the void first appeared outside the window, he shrugged and said it had \"always\" been there.",
+      "likes": [
+        "a quiet evening at home",
+        "the TV after dinner",
+        "his chunk of gold (do not touch it)"
+      ],
+      "funFact": "He keeps a chunk of pure gold and guards it like a dragon on its hoard — try so much as to examine it and you'll get an instant, thunderous 「だめ！」"
     },
     {
       "id": "char_sakura",
       "type": "character",
+      "voice": "Aoede",
       "surface": "さくら",
       "reading": "さくら",
       "meaning": "Sakura",
@@ -151,46 +181,56 @@
       "matches": [
         "さくらさん"
       ],
-      "bioLong": "Sakura runs the family kitchen like a friendly dojo: everyone helps, everyone tastes, and nobody leaves hungry. She quietly slips vocabulary cards under Rikizo's rice bowl when he forgets to study, then denies everything with a smile. Neighbors trade her homegrown vegetables for gossip, and she always comes out ahead on both. Her miso soup is legendary within a three-block radius.",
+      "bioLong": "The warm center the whole household orbits — apron on, something always simmering, a kind word ready for whoever walks through the door. Loving and endlessly supportive, Sakura notices the moment your mood shifts and fixes it before you've admitted anything's wrong. She's gentle as they come — but she has zero patience for Rikizo making things up, and she always catches him at it. Make no mistake: she runs this house.",
       "likes": [
-        "morning markets",
-        "her vegetable garden",
-        "quiet cups of tea"
+        "a full table at dinner",
+        "fresh flowers by the window",
+        "long chats over tea"
       ],
-      "funFact": "She can tell what mood Rikizo is in by how he says ただいま.",
+      "funFact": "On the morning the world felt blank and wrong, hers was the first voice to call Rikizo down to breakfast — as if she'd been there all along, and always would be.",
       "rewardArt": "assets/characters/sakura/sakura_convo.png"
     },
     {
       "id": "char_miki",
       "type": "character",
+      "voice": "Leda",
       "surface": "ミキ",
       "reading": "みき",
       "meaning": "Miki",
       "description": "A classmate of Rikizo — studious and thoughtful, often seen reading or studying Japanese.",
       "portrait": "assets/characters/miki/miki_head.png",
       "matches": [],
-      "bioLong": "Miki reads the way other people breathe — constantly and without noticing. She keeps three bookmarks going at once and can quote the exact page where she learned any word she knows. Quiet in a crowd but unstoppable in a study session, she is the friend everyone wants the night before a test. Her secret ambition is to write a story of her own someday, in Japanese, cover to cover.",
+      "bioLong": "You'll rarely catch Miki without a book open. Sharp, thoughtful, and endlessly curious, she reads everything she can get her hands on and quietly files it all away. She keeps her conclusions to herself — for now — but there's the distinct sense she's already piecing together something the rest of the class hasn't even noticed.",
       "likes": [
-        "library corners",
-        "matcha lattes",
-        "perfectly sharpened pencils"
+        "a thick book",
+        "a genuinely good mystery",
+        "the quiet corners of the library"
       ],
-      "funFact": "She alphabetizes her flashcards for fun and refuses to apologize for it.",
+      "funFact": "She's begun keeping notes on all the little things around town that don't quite add up. One day those notes are going to matter far more than anyone expects.",
       "rewardArt": "assets/characters/miki/miki_convo.png"
     },
     {
       "id": "char_nana",
       "type": "character",
+      "voice": "Despina",
       "surface": "ナナ",
       "reading": "なな",
       "meaning": "Nana",
       "description": "A diligent student who loves writing and never seems to rest.",
       "portrait": "assets/characters/nana/nana_head.png",
-      "matches": []
+      "matches": [],
+      "bioLong": "Nana is never without a notebook, a camera, a scrap of paper — anything to get it all down. She records conversations, meals, the weather, the exact way the light fell this afternoon, all with a quiet urgency she can't quite explain. \"Before I forget,\" she says, every single time. She isn't sure why it matters so much. She only knows that it does.",
+      "likes": [
+        "a fresh notebook",
+        "capturing a perfect moment",
+        "lists of absolutely everything"
+      ],
+      "funFact": "She can't say where the dread comes from — only that if she doesn't write it all down, some part of her is certain it will simply vanish. She may be far more right than anyone knows."
     },
     {
       "id": "char_ren",
       "type": "character",
+      "voice": "Enceladus",
       "surface": "レン",
       "reading": "れん",
       "meaning": "Ren",
@@ -198,11 +238,19 @@
       "portrait": "assets/characters/ren/ren_head.png",
       "matches": [
         "れん"
-      ]
+      ],
+      "bioLong": "Ren somehow works every job in town at once — barista at dawn, delivery runs by afternoon, some other shift by night. Perpetually exhausted and perpetually grinning, he greets everyone like an old friend because by now he basically is. The concept of rest is genuinely foreign to him; slowing down simply isn't in his vocabulary.",
+      "likes": [
+        "free coffee",
+        "a rare five-minute break",
+        "his trusty scooter"
+      ],
+      "funFact": "Suggest he take a day off and he'll stare at you like you've spoken a language he's never heard. He isn't being tough about it — he honestly does not understand the question."
     },
     {
       "id": "char_joel",
       "type": "character",
+      "voice": "Sadachbia",
       "surface": "ジョエル",
       "reading": "じょえる",
       "meaning": "Joel",
@@ -211,11 +259,19 @@
       "matches": [
         "ジョエルせんせい",
         "ジョエル先生"
-      ]
+      ],
+      "bioLong": "The school's English teacher — a tall American who brought a slice of the Pacific Northwest with him, grey-streaked hair worn up in a bun, a mug of good coffee never far from reach, and a mellow, mountain-town calm about pretty much everything. He smiles through absolutely anything, which makes it a genuine mystery what he's actually feeling underneath. Somehow both the most laid-back and the most quietly observant adult in the room.",
+      "likes": [
+        "strong coffee",
+        "rainy grey mornings",
+        "a good long tangent that somehow lands its point"
+      ],
+      "funFact": "The bigger the disaster, the wider he smiles — nobody has yet found the top of that scale, or worked out what's really going on behind it."
     },
     {
       "id": "char_conor",
       "type": "character",
+      "voice": "Umbriel",
       "surface": "コナー",
       "reading": "こなー",
       "meaning": "Conor",
@@ -223,7 +279,14 @@
       "portrait": "assets/characters/conor/conor_head.png",
       "matches": [
         "コナーさん"
-      ]
+      ],
+      "bioLong": "A tall, earnest American in Japan to learn the language, Conor and Rikizo hit it off almost the moment they meet — two people on very different paths who just click. His Japanese is honestly pretty good; he simply deploys the most painstakingly polite version of it in every situation, thanking the convenience-store clerk like a visiting dignitary. A little anxious, unfailingly courteous, and the kind of friend worth holding onto.",
+      "likes": [
+        "getting the grammar exactly right",
+        "following every rule to the letter",
+        "collecting local snacks"
+      ],
+      "funFact": "He physically cannot bring himself to use casual speech. Even yelling for help he'd manage it in flawless keigo — and very likely apologize for the interruption."
     },
     {
       "id": "char_pochi",
@@ -233,7 +296,14 @@
       "meaning": "Pochi",
       "description": "Rikizo's family shiba-inu — an energetic, cheerful dog who loves running and meeting people.",
       "portrait": "",
-      "matches": []
+      "matches": [],
+      "bioLong": "Pochi is pure joy on four legs — a shiba who greets the mail, the wind, and total strangers with the same full-body delight. He's convinced every walk is the best walk and every person a brand-new best friend. Fiercely loyal to Rikizo, in a way that mostly looks like tripping him at the door.",
+      "likes": [
+        "walks",
+        "new smells",
+        "belly rubs from literally anyone"
+      ],
+      "funFact": "He has a favorite spot on every route and refuses to pass a single one without a full inspection."
     },
     {
       "id": "char_takashi",
@@ -246,7 +316,14 @@
       "matches": [
         "たかしさん",
         "Takashi"
-      ]
+      ],
+      "bioLong": "Takashi runs a small factory in the industrial district with the gruff pride of a man who built it from nothing. He grumbles about 'kids these days,' then quietly hires every one who asks. Under the oil-stained apron and the permanent scowl is someone who'd give you the shirt off his back — and then complain about the cold.",
+      "likes": [
+        "the hum of the machines",
+        "canned coffee",
+        "a job done right"
+      ],
+      "funFact": "He named every machine on the floor. The oldest, 'Grandpa,' has outlived three of its replacements."
     },
     {
       "id": "char_tree",
@@ -256,7 +333,14 @@
       "meaning": "Tree-san",
       "description": "A wise old tree Rikizo befriends and chats with — he's convinced 木さん is part of the family. Quiet, patient, and always listening.",
       "portrait": "assets/characters/tree/tree_head.png",
-      "matches": []
+      "matches": [],
+      "bioLong": "木-さん appeared in the yard one morning as if he'd always been there — and Rikizo, being Rikizo, walked right up, asked his name, and declared them friends on the spot. Now Rikizo greets him every single day and counts him as the fifth member of the family. 木-さん never says a word back. He doesn't need to. Quiet, patient, and always listening, he may be the most steadfast friend Rikizo has.",
+      "likes": [
+        "the morning greeting",
+        "birdsong in the branches",
+        "long, unhurried silences"
+      ],
+      "funFact": "He wasn't there the day before Rikizo met him — and yet, now and then, he presses a small treasure into Rikizo's hands: a leaf-wrapped charm, a little trinket, from who-knows-where. He's a tree. Rikizo long ago stopped asking how, and simply bows his thanks."
     },
     {
       "id": "char_goldfish",
@@ -268,7 +352,32 @@
       "portrait": "assets/characters/goldfish/goldfish_head.png",
       "matches": [
         "金魚"
-      ]
+      ],
+      "bioLong": "Goldfish-san only turns up when it's raining, surfacing in the pond to blink at Rikizo and offer a solemn \"glub glub\" — which, technically, makes him more talkative than Tree-san. One of the odd little friends Rikizo collects around town, he's cheerful, curious, and weirdly generous. Rikizo adores him, and remains genuinely baffled that a fish keeps giving him presents.",
+      "likes": [
+        "rainy days",
+        "a good long glub",
+        "catching Rikizo off guard with a gift"
+      ],
+      "funFact": "Every so often Goldfish-san presses some small treasure on Rikizo — a charm, a trinket — and Rikizo cannot for the life of him figure out how. He's a fish. He has no pockets. And yet."
     }
-  ]
+  ],
+  "roleVoices": {
+    "店員": "Kore",
+    "みせのひと": "Kore",
+    "主人": "Kore",
+    "店": "Kore",
+    "姉": "Autonoe",
+    "妹": "Erinome",
+    "弟": "Achird",
+    "医者": "Schedar",
+    "駅員": "Alnilam",
+    "えきいん": "Alnilam",
+    "係員": "Alnilam",
+    "校長": "Sadaltager",
+    "田中": "Algieba",
+    "外人": "Zephyr",
+    "大工": "Zubenelgenubi",
+    "図書館の人": "Vindemiatrix"
+  }
 }

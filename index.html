@@ -311,7 +311,10 @@ window.RIKIZO_FIREBASE = window.RIKIZO_FIREBASE || {
   projectId: 'project-9c65f87c-e8c8-409b-843',
   appId: '1:979574126888:web:d0ccc19e53465c9914b81d',
   messagingSenderId: '979574126888',
-  storageBucket: 'project-9c65f87c-e8c8-409b-843.firebasestorage.app'
+  storageBucket: 'project-9c65f87c-e8c8-409b-843.firebasestorage.app',
+  // Show Google/Apple buttons in the WEB account sheet too (popup OAuth).
+  // Native builds ignore this and use the Capacitor plugin instead.
+  webOAuth: true
 };
 </script>
 

@@ -617,9 +617,9 @@ window.GrammarModule = {
     function getCdnUrl(fp) { return window.getAssetUrl(REPO_CONFIG, fp); }
 
     // --- TTS ---
-    function speakText(text) {
+    function speakText(text, voice) {
       if (window.JPShared && window.JPShared.tts && window.JPShared.tts.speak) {
-        window.JPShared.tts.speak(text);
+        window.JPShared.tts.speak(text, voice ? { voice } : undefined);
       }
     }
     function speakParts(parts) {
@@ -744,6 +744,9 @@ window.GrammarModule = {
       (characterData.characters || []).forEach(c => {
         map[c.id] = Object.assign({}, c, { portraitUrl: getCdnUrl(c.portrait) });
       });
+      // Teach the resolver which voice speaks the bystander `spk` labels
+      // (店員, 姉, 駅員 …) that are nobody in the cast.
+      window.JPShared.characters.configureVoices(characterData.roleVoices, 'Fenrir');
       ((loanwordData && loanwordData.loanwords) || []).forEach(w => { map[w.id] = Object.assign({ type: 'loanword' }, w); });
       const loanwordOrigins = (originsData && originsData.origins) || {};
       // Preload portrait images in the background so they appear instantly on first tap
@@ -1424,6 +1427,7 @@ window.GrammarModule = {
         (sec.lines || []).forEach((line, idx) => {
             const spk = String(line.spk || '');
             const who = window.JPShared.characters.resolve(spk, speakers, termMapData, getCdnUrl);
+            const voice = window.JPShared.characters.voiceFor(spk, speakers, termMapData).voice;
             const isRight = spk === rightSpk;
             const prevSpk = idx > 0 ? String(sec.lines[idx - 1].spk || '') : null;
             const sameAsPrev = prevSpk === spk;
@@ -1460,7 +1464,7 @@ window.GrammarModule = {
             const tts = el('button', '');
             tts.innerHTML = '🔊';
             tts.style.cssText = 'background:none;border:none;color:inherit;cursor:pointer;font-size:13px;padding:2px 4px;opacity:0.75;position:absolute;' + (isRight ? 'left:-26px' : 'right:-26px') + ';bottom:4px;';
-            tts.onclick = () => speakText(line.jp);
+            tts.onclick = () => speakText(line.jp, voice);
             bubble.appendChild(tts);
 
             row.appendChild(bubble);

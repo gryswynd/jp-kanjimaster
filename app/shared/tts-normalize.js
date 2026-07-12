@@ -217,6 +217,11 @@
     // NOTE: ambiguous kana words like はなし (話 vs は+なし "wa nashi") and はる
     // (春 vs わる) are intentionally NOT restored — the safe fix is to author them
     // in kanji (the kanji form never triggers は→わ).
+    // Compound particle では ("de wa"): the topic-は rule turns it into でわ, which
+    // Chirp doesn't recognize as the compound and reads with an unnatural で|わ
+    // pause. Restore it — Chirp says では smoothly. (Covers copula ではない and
+    // sentence-initial では "well then".)
+    text = text.replace(/でわ/g, 'では');
     text = text.replace(/はわ/g, 'はは');       // 母 (はは)
     text = text.replace(/ごわん/g, 'ごはん');    // ご飯 / 朝ご飯 / 昼ご飯 / 晩ご飯
     text = text.replace(/おわよう/g, 'おはよう');  // おはよう(ございます)

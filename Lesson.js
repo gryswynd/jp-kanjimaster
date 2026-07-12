@@ -341,6 +341,9 @@ window.LessonModule = {
         (characterData.characters || []).forEach(c => {
             map[c.id] = Object.assign({}, c, { portraitUrl: getCdnUrl(c.portrait) });
         });
+        // Teach the resolver which voice speaks the bystander `spk` labels
+        // (店員, 姉, 駅員 …) that are nobody in the cast.
+        window.JPShared.characters.configureVoices(characterData.roleVoices, 'Fenrir');
         // Fold the always-allowed loanword pool into the term map so loanwords in
         // lesson PROSE still tokenize + open their modal — but record their ids so
         // renderVocab can drop them from the vocab LIST (drilled in the dojo).
@@ -724,9 +727,11 @@ window.LessonModule = {
         const msgWrap = el("div", "");
         msgWrap.style.cssText = "padding:18px 14px 0;display:flex;flex-direction:column;gap:6px;";
         (sec.lines || []).forEach((line, idx) => {
-            allLines.push({ jp: line.jp, terms: line.terms });
             const spk = String(line.spk || '');
             const who = window.JPShared.characters.resolve(spk, speakers, termMapData, getCdnUrl);
+            // Each line plays in its speaker's voice, so play-all reads as a real exchange.
+            const voice = window.JPShared.characters.voiceFor(spk, speakers, termMapData).voice;
+            allLines.push({ jp: line.jp, terms: line.terms, voice });
             const isRight = spk === rightSpk;
             const prevSpk = idx > 0 ? String(sec.lines[idx - 1].spk || '') : null;
             const sameAsPrev = prevSpk === spk;
@@ -758,7 +763,7 @@ window.LessonModule = {
                 '<div class="lh-bubble-jp">' + proc(line.jp, line.terms) + '</div>' +
                 (showEN ? '<div class="lh-bubble-en">' + esc(line.en) + '</div>' : '') +
                 '<button class="lh-speak-line" style="background:none;border:none;color:inherit;cursor:pointer;font-size:13px;padding:2px 4px;opacity:0.75;position:absolute;' + (isRight ? 'left:-26px' : 'right:-26px') + ';bottom:4px;">🔊</button>';
-            bubble.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData });
+            bubble.querySelector('.lh-speak-line').onclick = () => window.JPShared.tts.speak(line.jp, { terms: line.terms, termMap: termMapData, voice });
             row.appendChild(bubble);
             msgWrap.appendChild(row);
         });

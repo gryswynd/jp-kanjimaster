@@ -5,7 +5,7 @@
   "description": "Rikizo \u2014 Japanese learning app (Capacitor native shell).",
   "type": "module",
   "scripts": {
-    "build:www": "node scripts/validate-manifest.mjs && node scripts/validate-lessons.mjs && node scripts/validate-stories.mjs && node scripts/validate-tokens.mjs && node scripts/qa-story.mjs --level=custom && node scripts/validate-audiostories.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/validate-particle-senses.mjs && node scripts/build-www.mjs",
+    "build:www": "node scripts/validate-manifest.mjs && node scripts/validate-lessons.mjs && node scripts/validate-stories.mjs && node scripts/validate-tokens.mjs && node scripts/qa-story.mjs --level=custom && node scripts/validate-audiostories.mjs && node scripts/validate-voices.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/validate-particle-senses.mjs && node scripts/build-www.mjs",
     "qa:custom": "node scripts/qa-story.mjs --level=custom",
     "validate:lessons": "node scripts/validate-lessons.mjs",
     "validate:particles": "node scripts/validate-particle-senses.mjs",
@@ -21,6 +21,8 @@
     "dist:android": "npm run sync:android && cd android && ./gradlew assembleRelease && npx firebase-tools appdistribution:distribute app/build/outputs/apk/release/app-release.apk --app 1:979574126888:android:7ccbd0840f5412a714b81d --groups beta",
     "assets": "capacitor-assets generate --ios --android",
     "validate:audio": "node scripts/validate-audio.mjs",
+    "validate:voices": "node scripts/validate-voices.mjs",
+    "voices:verify-roster": "node scripts/verify-voice-roster.mjs",
     "gen:audio": "node scripts/build-audio-manifest.mjs && node scripts/generate-audio.mjs",
     "validate:audiostories": "node scripts/validate-audiostories.mjs",
     "validate:manifest": "node scripts/validate-manifest.mjs",

@@ -479,6 +479,9 @@
         (characterData.characters || []).forEach(c => {
             this.state.termMap[c.id] = Object.assign({}, c, { portraitUrl: this.getUrl(c.portrait) });
         });
+        // Teach the resolver which voice speaks the bystander `spk` labels
+        // (店員, 姉, 駅員 …) that are nobody in the cast.
+        window.JPShared.characters.configureVoices(characterData.roleVoices, 'Fenrir');
         ((loanwordData && loanwordData.loanwords) || []).forEach(w => { this.state.termMap[w.id] = Object.assign({ type: 'loanword' }, w); });
         this._loanwordOrigins = (originsData && originsData.origins) || {};
         // Preload portrait images in the background so they appear instantly on first tap
@@ -1092,7 +1095,12 @@
 
       // Conversation Render
       if (q.type === 'conversation_quiz') {
-        var convLines = q.lines.map(l => ({ jp: l.jp, terms: l.terms }));
+        // Each line carries its speaker's voice, so play-all reads as a real exchange.
+        var convLines = q.lines.map(l => ({
+          jp: l.jp,
+          terms: l.terms,
+          voice: window.JPShared.characters.voiceFor(l.spk, q.speakers, this.state.termMap).voice
+        }));
         html += `<button class="jp-speak-all-btn" data-tts-play-all="conversation">\uD83D\uDD0A Play Conversation</button>`;
         this._ttsLines = convLines;
         html += `<div class="jp-passage">`;
@@ -1156,7 +1164,7 @@
           if (typeof entry === 'string') {
             window.JPShared.tts.speak(entry);
           } else {
-            window.JPShared.tts.speak(entry.jp, { terms: entry.terms, termMap: reviewTermMap });
+            window.JPShared.tts.speak(entry.jp, { terms: entry.terms, termMap: reviewTermMap, voice: entry.voice });
           }
         };
       });
