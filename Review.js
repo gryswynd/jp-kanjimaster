@@ -113,7 +113,6 @@
           });
         });
 
-        console.log('[Review] Levels with reviews:', Object.keys(byLevel));
         this._reviewsByLevel = byLevel;
         if (deepLinkReviewId) {
           let match = null;
@@ -406,11 +405,6 @@
 
     // --- INITIALIZATION ---
     init: async function() {
-      console.log('[Review] Initializing...');
-      console.log('[Review] Current DOM state:');
-      console.log('  - jp-stage exists:', !!document.getElementById('jp-stage'));
-      console.log('  - jp-header-title exists:', !!document.getElementById('jp-header-title'));
-      console.log('  - jp-start-btn exists:', !!document.getElementById('jp-start-btn'));
 
       try {
         const manifest = await window.getManifest(this.config);
@@ -426,9 +420,6 @@
         const originsUrl = manifest.shared.loanwordOrigins ? this.getUrl(manifest.shared.loanwordOrigins) : null;
         const glossaryUrls = manifest.levels.map(lvl => this.getUrl(manifest.data[lvl].glossary));
 
-        console.log('[Review] Quiz URL:', quizUrl);
-        console.log('[Review] Conjugation URL:', conjUrl);
-        console.log('[Review] Counter URL:', counterUrl);
 
         // 1. Fetch Quiz Data + Glossary + Conjugations + Counter Rules in parallel
         const [quizRes, conjRes, counterRes, particleRes, characterRes, loanwordRes, originsRes, ...glossResponses] = await Promise.all([
@@ -443,20 +434,11 @@
         ]);
 
         const glossOk = glossResponses.every(r => r.ok);
-        console.log('[Review] Fetch responses:', {
-          quiz: quizRes.ok,
-          glossary: glossOk,
-          conjugations: conjRes.ok,
-          counters: counterRes.ok,
-          particles: particleRes.ok,
-          characters: characterRes.ok
-        });
 
         if (!quizRes.ok || !glossOk || !conjRes.ok || !counterRes.ok || !particleRes.ok || !characterRes.ok) {
           throw new Error(`Failed to fetch resources: Quiz(${quizRes.status}) Glossary(${glossResponses.map(r => r.status)}) Conjugations(${conjRes.status}) Counters(${counterRes.status}) Particles(${particleRes.status}) Characters(${characterRes.status})`);
         }
 
-        console.log('[Review] Parsing JSON...');
         const quizData = await quizRes.json();
         const glossParts = await Promise.all(glossResponses.map(r => r.json()));
         this.state.conjugations = await conjRes.json();
@@ -467,8 +449,6 @@
         const originsData = (originsRes && originsRes.ok) ? await originsRes.json().catch(() => null) : null;
 
         const glossData = { entries: glossParts.flatMap(g => g.entries) };
-        console.log('[Review] Quiz title:', quizData.title);
-        console.log('[Review] Glossary entries:', glossData.entries.length);
 
         // 2. Map Glossary + Particles + Characters
         this.state.termMap = {};
@@ -493,9 +473,7 @@
         }
 
         // 3. Inject Styles & Modal
-        console.log('[Review] Injecting styles...');
         this.injectStyles();
-        console.log('[Review] Injecting modal...');
         window.JPShared.termModal.setTermMap(this.state.termMap);
         if (window.JPShared.termModal.setOriginMap) window.JPShared.termModal.setOriginMap(this._loanwordOrigins || {});
         window.JPShared.termModal.inject();
@@ -513,9 +491,7 @@
         };
 
         // 4. Process Quiz
-        console.log('[Review] Processing quiz data...');
         this.processData(quizData);
-        console.log('[Review] Initialization complete!');
 
       } catch (e) {
         console.error('[Review] Error during initialization:', e);
@@ -945,7 +921,6 @@
     // --- QUIZ LOGIC ---
 
     processData: function(data) {
-      console.log('[Review] Processing data...');
       if(data.title) {
         const headerTitle = this.el('jp-header-title');
         const introTitle = this.el('jp-intro-title');
@@ -961,7 +936,6 @@
         btn.style.opacity = "1";
         btn.style.pointerEvents = "all";
         btn.innerText = "Start Review";
-        console.log('[Review] Start button enabled');
       }
 
       this.state.questions = [];

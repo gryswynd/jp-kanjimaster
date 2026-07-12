@@ -665,34 +665,7 @@
             : 'Set a first name to be greeted by it on the home screen instead of <strong>Rikizo-san</strong>.') +
         '</div>' +
       '</div>' +
-      buildUnlockCodeCard() +
-      buildImportCard()
-    );
-  }
-
-  // ---- TEMP: one-time progress importer ----
-  // Migrates a student's progress out of the OLD Webflow app and into this one.
-  // The student exports a code there (Export button / console snippet), pastes it
-  // here, and we OVERWRITE this app's progress keys with it. Remove this card once
-  // the handful of existing students are migrated. Tracked by REMOVE-AFTER-MIGRATION.
-  function buildImportCard() {
-    return (
-      '<div class="jp-set-section-label">Import old progress</div>' +
-      '<div class="jp-set-card">' +
-        '<div class="jp-set-help" style="margin-top:0;">' +
-          'Moving from the old web app? Paste the progress code you exported there. ' +
-          'This <strong>merges</strong> with your progress here — it never lowers ' +
-          'a score or removes an unlock.' +
-        '</div>' +
-        '<div class="jp-set-field" style="margin-top:10px;">' +
-          '<textarea class="jp-set-input" id="jp-set-import-code" rows="3" ' +
-            'placeholder="Paste your progress code here" ' +
-            'style="resize:vertical;font-family:var(--font-mono,ui-monospace,Menlo,monospace);font-size:0.8rem;"></textarea>' +
-        '</div>' +
-        '<button class="jp-set-account-btn" id="jp-set-import-btn" type="button" ' +
-            'style="justify-content:center;font-weight:700;">Import progress</button>' +
-        '<div class="jp-set-help" id="jp-set-import-status" style="min-height:1.2em;"></div>' +
-      '</div>'
+      buildUnlockCodeCard()
     );
   }
 
@@ -1450,7 +1423,6 @@
     });
 
     wireAccount();
-    wireImport();
     wireUnlockCode();
   }
 
@@ -1492,172 +1464,6 @@
     input.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') { e.preventDefault(); applyNow(); }
     });
-  }
-
-  // ---- TEMP: import wiring (REMOVE-AFTER-MIGRATION) ----
-  // Synced progress keys we accept from the old app. Mirrors sync.js EXACT/PREFIXES
-  // so an import flows straight up to the cloud on next push.
-  var IMPORT_EXACT = [
-    'k-lesson-scores', 'k-lesson-completed', 'k-review-scores',
-    'k-flags', 'k-active-flags', 'k-n4-unlocked',
-    'k-streak-current', 'k-streak-best', 'k-streak-last-active',
-    'k-streak-history', 'k-streak-freezes',
-    'k-user-first', 'k-user-last',
-  ];
-  // k-best-* = Dojo quiz bests. The game result/stamp prefixes (scramble k-scr-,
-  // link-up k-conn-/k-conn4-, marathon k-mara-) carry per-puzzle completion +
-  // stamps — included so those migrate too. (These are local-only by design and
-  // don't cloud-sync; importing restores them into localStorage.)
-  var IMPORT_PREFIXES = ['k-best-', 'compose-draft-', 'k-scr-', 'k-conn-', 'k-conn4-', 'k-mara-'];
-
-  function importKeyAllowed(k) {
-    if (!k) return false;
-    if (IMPORT_EXACT.indexOf(k) >= 0) return true;
-    for (var i = 0; i < IMPORT_PREFIXES.length; i++) {
-      if (k.indexOf(IMPORT_PREFIXES[i]) === 0) return true;
-    }
-    return false;
-  }
-
-  function wireImport() {
-    var btn = document.getElementById('jp-set-import-btn');
-    var ta = document.getElementById('jp-set-import-code');
-    var status = document.getElementById('jp-set-import-status');
-    if (!btn || !ta) return;
-
-    function say(msg, ok) {
-      if (!status) return;
-      status.innerHTML = msg;
-      status.style.color = ok === false ? 'var(--vermilion, #c2410c)'
-        : ok === true ? 'var(--moss, #5f8a4e)'
-        : '';
-      status.style.fontStyle = 'normal';
-    }
-
-    btn.addEventListener('click', function () {
-      var raw = (ta.value || '').trim();
-      if (!raw) { say('Paste your progress code first.', false); return; }
-
-      var data;
-      try {
-        data = JSON.parse(raw);
-      } catch (e) {
-        say('That code isn’t valid — copy it again from the old app.', false);
-        return;
-      }
-      if (!data || typeof data !== 'object' || Array.isArray(data)) {
-        say('That code doesn’t look like exported progress.', false);
-        return;
-      }
-
-      // Keep only recognized k-*/compose-draft- keys; ignore anything else.
-      var keys = Object.keys(data).filter(importKeyAllowed);
-      if (!keys.length) {
-        say('No progress found in that code.', false);
-        return;
-      }
-
-      // MERGE-MAX (not overwrite): combine imported progress with what's already
-      // here, keeping the HIGHER value per key. This makes import coexist safely
-      // with unlock codes in ANY order — neither can wipe the other. Mirrors the
-      // cloud-sync merge semantics (max score / OR completion / union arrays).
-      try {
-        keys.forEach(function (k) {
-          mergeImportedKey(k, data[k]);
-        });
-        // Re-apply any unlock codes so an import can never drop their floor.
-        if (window.JPShared.unlockCodes && window.JPShared.unlockCodes.reapplyAll) {
-          window.JPShared.unlockCodes.reapplyAll();
-        }
-      } catch (e) {
-        say('Import failed: ' + (e && e.message ? e.message : 'unknown error') + '.', false);
-        return;
-      }
-
-      // Count what landed, for a confident confirmation.
-      var lessons = countObj(data['k-lesson-completed']) || countObj(data['k-lesson-scores']);
-      var flags = countObj(data['k-flags']) || countObj(data['k-active-flags']);
-      say('✓ Imported — ' + lessons + ' lessons, ' + flags + ' flags merged. ' +
-          (isSignedInForSync() ? 'Backing up to your account…' : 'Sign in to back it up.'), true);
-
-      // Push to the cloud if signed in; refresh Home so unlocks/greeting reflect it.
-      try { if (window.JPShared.sync && window.JPShared.sync.push) window.JPShared.sync.push(); } catch (e) {}
-      try {
-        if (window.JPApp && window.JPApp._view === 'home' && window.JPApp.renderMenu) {
-          window.JPApp.renderMenu();
-        }
-      } catch (e) {}
-    });
-  }
-
-  // Merge one imported key into localStorage, keeping the higher/combined value.
-  // Object maps of numbers → per-key max (scores). Object maps of bools → OR
-  // (completion/active-flags). Arrays → union. 'true'/'false' flags → OR-true.
-  // Plain numbers → max. Anything else (e.g. compose-draft strings) → keep the
-  // imported value only if there's nothing local (don't clobber a newer draft).
-  function mergeImportedKey(k, incoming) {
-    function lsGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
-    function lsSet(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
-    var rawLocal = lsGet(k);
-
-    // Boolean-ish flag (e.g. k-n4-unlocked).
-    if (incoming === true || incoming === false || incoming === 'true' || incoming === 'false') {
-      var on = (incoming === true || incoming === 'true') || rawLocal === 'true';
-      lsSet(k, on ? 'true' : 'false');
-      return;
-    }
-
-    // Object map: decide number-max vs bool-OR by sampling values.
-    if (incoming && typeof incoming === 'object' && !Array.isArray(incoming)) {
-      var localObj = {};
-      try { localObj = JSON.parse(rawLocal || '{}') || {}; } catch (e) { localObj = {}; }
-      var merged = {};
-      var key2;
-      for (key2 in localObj) if (Object.prototype.hasOwnProperty.call(localObj, key2)) merged[key2] = localObj[key2];
-      for (key2 in incoming) {
-        if (!Object.prototype.hasOwnProperty.call(incoming, key2)) continue;
-        var iv = incoming[key2], lv = merged[key2];
-        if (typeof iv === 'number' || typeof lv === 'number') {
-          merged[key2] = Math.max(+iv || 0, +lv || 0);            // scores
-        } else if (typeof iv === 'boolean' || typeof lv === 'boolean') {
-          merged[key2] = !!iv || !!lv;                            // completion flags
-        } else {
-          merged[key2] = (lv !== undefined ? lv : iv);            // keep existing
-        }
-      }
-      lsSet(k, JSON.stringify(merged));
-      return;
-    }
-
-    // Array (e.g. streak history) → union.
-    if (Array.isArray(incoming)) {
-      var localArr = [];
-      try { localArr = JSON.parse(rawLocal || '[]') || []; } catch (e) { localArr = []; }
-      var set = {};
-      localArr.concat(incoming).forEach(function (x) { set[x] = 1; });
-      lsSet(k, JSON.stringify(Object.keys(set)));
-      return;
-    }
-
-    // Plain number (e.g. streak-current/best) → max.
-    if (typeof incoming === 'number') {
-      var ln = parseFloat(rawLocal); if (!isFinite(ln)) ln = 0;
-      lsSet(k, String(Math.max(incoming, ln)));
-      return;
-    }
-
-    // String / other: only write if there's no local value (don't clobber).
-    if (rawLocal == null) lsSet(k, typeof incoming === 'string' ? incoming : JSON.stringify(incoming));
-  }
-
-  function countObj(o) {
-    if (!o || typeof o !== 'object') return 0;
-    return Object.keys(o).length;
-  }
-  function isSignedInForSync() {
-    var a = window.JPShared && window.JPShared.auth;
-    var u = a && a.currentUser && a.currentUser();
-    return !!(u && !u.isAnonymous);
   }
 
   // Wire the Account field: tapping it opens the existing auth.js account modal,

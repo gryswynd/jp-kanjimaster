@@ -31,7 +31,8 @@
 
   var PASS_THRESHOLD = 60; // minimum percentage to "pass" a lesson
 
-  // localStorage key for the explicit N4 unlock (paid gateway placeholder).
+  // localStorage key for the explicit N4 unlock. N4 is free at launch — the
+  // flag exists so a future gateway could be added without a data migration.
   var N4_UNLOCK_KEY = 'k-n4-unlocked';
 
   // Practice activity unlock thresholds — the N5 lesson the user must have
@@ -332,7 +333,7 @@
      * Returns true when the student has explicitly unlocked N4 content
      * (by tapping the unlock button on the N5 Final Review completion screen).
      * Free mode always returns true.
-     * This is a placeholder for a future paid gateway.
+     * N4 is free at launch; the flag is kept for a possible future gateway.
      */
     isN4Unlocked: function () {
       if (this.isFree()) return true;
