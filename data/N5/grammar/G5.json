@@ -64,7 +64,7 @@
       "notes": [
         "Destination (motion): 駅に行きます — going TO the station. に marks the endpoint.",
         "Existence location: ここにいます — I am HERE (at this spot). に marks where the person is.",
-        "Time point: 月曜日に来ます — coming ON Monday. に pins the event to a calendar point.",
+        "Time point: 月よう日に来ます — coming ON Monday. に pins the event to a calendar point.",
         "に does NOT mark relative time words (毎日, 今日, 今週). Those float without a particle.",
         "に has further uses not taught here (indirect object: 'giving TO someone'). They share the same 'arrival at a point' logic."
       ],
@@ -432,7 +432,7 @@
         "駅へ行きます = going in the direction of the station (emphasis on heading that way).",
         "駅に行きます = going to the station (emphasis on arriving there).",
         "In everyday conversation both are often interchangeable for simple destinations. See the comparison section for the key distinction.",
-        "へ cannot replace に for time expressions or existence: 月曜日へ is NOT correct."
+        "へ cannot replace に for time expressions or existence: 月よう日へ is NOT correct."
       ],
       "examples": [
         {
@@ -532,7 +532,7 @@
             }
           ],
           "en": "(Someone) is coming to my house.",
-          "breakdown": "へ with 来る — someone else heading toward the speaker's home. (For going home yourself, use 帰ります.)"
+          "breakdown": "へ with 来る — someone else heading toward the speaker's home."
         }
       ]
     },
@@ -819,20 +819,20 @@
         {
           "label": "ANIMATE",
           "color": "verb",
-          "text": "猫がいる"
+          "text": "子どもがいる"
         },
         {
           "label": "INANIMATE",
           "color": "modifier",
-          "text": "本がある"
+          "text": "お金がある"
         }
       ],
       "meaning": "いる vs ある — two existence verbs for two kinds of things",
-      "explanation": "Japanese has two verbs meaning 'to exist' or 'to be (somewhere)'. The choice depends on whether the thing that exists is **animate** (living, self-moving) or **inanimate** (non-living, stationary).\n\n**いる** — for animate beings: people, animals, insects — anything that can move on its own.\n- 先生がいます。(The teacher is here.)\n- 猫がいます。(There is a cat.)\n- だれがいますか。(Who is there?)\n\n**ある** — for inanimate objects: things, places, abstract concepts.\n- 本があります。(There is a book.)\n- 時間があります。(There is time.)\n- 何がありますか。(What is there?)\n\nBoth verbs pair with に to mark WHERE something exists: 部屋に猫がいます (The cat is in the room). 部屋に本があります (There is a book in the room).",
+      "explanation": "Japanese has two verbs meaning 'to exist' or 'to be (somewhere)'. The choice depends on whether the thing that exists is **animate** (living, self-moving) or **inanimate** (non-living, stationary).\n\n**いる** — for animate beings: people, animals, insects — anything that can move on its own.\n- 先生がいます。(The teacher is here.)\n- 子どもがいます。(There is a child.)\n- だれがいますか。(Who is there?)\n\n**ある** — for inanimate objects: things, places, abstract concepts.\n- お金があります。(There is money.)\n- 水があります。(There is water.)\n- 何がありますか。(What is there?)\n\nBoth verbs pair with に to mark WHERE something exists: 家に子どもがいます (There is a child in the house). 家にお金があります (There is money in the house).",
       "notes": [
         "Quick test: Can it move on its own? → いる. Otherwise → ある.",
-        "いる is an ichidan (RU-verb): いる → います / いた / いて / いない.",
-        "ある is a godan (U-verb) but has an irregular negative: ある → あります / あった / あって. Negative: ない (NOT あらない).",
+        "いる is an ichidan (RU-verb); its polite forms are います / いました / いません.",
+        "ある is a godan (U-verb); its polite forms are あります / ありました / ありません. (Its irregular plain negative is taught with the plain forms.)",
         "Question patterns: だれがいますか (who is there? — animate) vs 何がありますか (what is there? — inanimate).",
         "Plants are treated as inanimate — 木があります (there is a tree), not いる. They don't move on their own.",
         "The 'animated vehicle' nuance: taxis and buses occasionally use いる when viewed as having agency (タクシーがいる = 'there's a taxi [available/waiting]'), but this is casual usage. Default to ある for vehicles."
@@ -841,13 +841,13 @@
         {
           "parts": [
             {
-              "text": "部屋",
+              "text": "家",
               "role": "topic",
-              "gloss": "room",
+              "gloss": "house",
               "tokens": [
                 {
-                  "k": "部屋",
-                  "r": "へや"
+                  "k": "家",
+                  "r": "いえ"
                 }
               ]
             },
@@ -862,13 +862,18 @@
               ]
             },
             {
-              "text": "猫",
+              "text": "子ども",
               "role": "subject",
-              "gloss": "cat",
+              "gloss": "child",
               "tokens": [
                 {
-                  "k": "猫",
-                  "r": "ねこ"
+                  "k": "子",
+                  "r": "こ",
+                  "g": "v_kodomo"
+                },
+                {
+                  "k": "ども",
+                  "g": "v_kodomo"
                 }
               ]
             },
@@ -896,19 +901,19 @@
               ]
             }
           ],
-          "en": "There is a cat in the room.",
-          "breakdown": "Cat = animate → いる. に marks the location of existence."
+          "en": "There is a child in the house.",
+          "breakdown": "Child = animate → いる. に marks the location of existence."
         },
         {
           "parts": [
             {
-              "text": "部屋",
+              "text": "家",
               "role": "topic",
-              "gloss": "room",
+              "gloss": "house",
               "tokens": [
                 {
-                  "k": "部屋",
-                  "r": "へや"
+                  "k": "家",
+                  "r": "いえ"
                 }
               ]
             },
@@ -923,13 +928,18 @@
               ]
             },
             {
-              "text": "本",
+              "text": "お金",
               "role": "subject",
-              "gloss": "book",
+              "gloss": "money",
               "tokens": [
                 {
-                  "k": "本",
-                  "r": "ほん"
+                  "k": "お",
+                  "g": "v_okane"
+                },
+                {
+                  "k": "金",
+                  "r": "かね",
+                  "g": "v_okane"
                 }
               ]
             },
@@ -957,8 +967,8 @@
               ]
             }
           ],
-          "en": "There is a book in the room.",
-          "breakdown": "Book = inanimate → ある. Same location (部屋に), different existence verb."
+          "en": "There is money in the house.",
+          "breakdown": "Money = inanimate → ある. Same location (家に), different existence verb."
         },
         {
           "parts": [
@@ -1012,10 +1022,10 @@
           "color": "verb",
           "points": [
             "Used for people, animals, insects — anything that moves on its own",
-            "部屋に猫がいます (There is a cat in the room)",
+            "家に子どもがいます (There is a child in the house)",
             "先生がいません (The teacher is not here)",
             "だれがいますか？ (Who is there?)",
-            "Negative: いません / いない"
+            "Negative: いません"
           ],
           "example": {
             "parts": [
@@ -1080,21 +1090,26 @@
           "color": "modifier",
           "points": [
             "Used for objects, places, abstract things — anything that does NOT move on its own",
-            "部屋に本があります (There is a book in the room)",
-            "時間がありません (There is no time)",
+            "家にお金があります (There is money in the house)",
+            "水がありません (There is no water)",
             "何がありますか？ (What is there?)",
-            "Negative: ありません / ない (irregular — NOT あらない)"
+            "Negative: ありません"
           ],
           "example": {
             "parts": [
               {
-                "text": "本",
+                "text": "お金",
                 "role": "subject",
-                "gloss": "book",
+                "gloss": "money",
                 "tokens": [
                   {
-                    "k": "本",
-                    "r": "ほん"
+                    "k": "お",
+                    "g": "v_okane"
+                  },
+                  {
+                    "k": "金",
+                    "r": "かね",
+                    "g": "v_okane"
                   }
                 ]
               },
@@ -1109,13 +1124,13 @@
                 ]
               },
               {
-                "text": "部屋に",
+                "text": "家に",
                 "role": "topic",
-                "gloss": "in the room",
+                "gloss": "in the house",
                 "tokens": [
                   {
-                    "k": "部屋",
-                    "r": "へや"
+                    "k": "家",
+                    "r": "いえ"
                   },
                   {
                     "k": "に"
@@ -1136,7 +1151,7 @@
                 ]
               }
             ],
-            "en": "There is a book in the room."
+            "en": "There is money in the house."
           }
         }
       ],
@@ -1600,7 +1615,7 @@
           "jp": "わたしは タクシーで 行きます。バスでは 行きません。",
           "en": "I will go by taxi. I won't go by bus.",
           "terms": [
-            "v_watashi",
+            "v_watashi_kana",
             "p_wa",
             "v_takushii",
             "p_de",
@@ -1796,7 +1811,7 @@
             "駅に います。"
           ],
           "answer": "月よう日へ 来ます。",
-          "explanation": "へ cannot mark time expressions — it is only for direction of movement toward a physical place. 月曜日へ is incorrect. The correct form for a specific day is 月曜日に (pin a calendar point)."
+          "explanation": "へ cannot mark time expressions — it is only for direction of movement toward a physical place. 月よう日へ is incorrect. The correct form for a specific day is 月よう日に (pin a calendar point)."
         },
         {
           "kind": "mcq",

@@ -2,10 +2,10 @@
   "name": "rikizo",
   "version": "0.1.0",
   "private": true,
-  "description": "Rikizo \u2014 Japanese learning app (Capacitor native shell).",
+  "description": "Rikizo — Japanese learning app (Capacitor native shell).",
   "type": "module",
   "scripts": {
-    "build:www": "node scripts/validate-manifest.mjs && node scripts/validate-lessons.mjs && node scripts/validate-stories.mjs && node scripts/validate-tokens.mjs && node scripts/qa-story.mjs --level=custom && node scripts/validate-audiostories.mjs && node scripts/validate-voices.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/validate-particle-senses.mjs && node scripts/build-www.mjs",
+    "build:www": "node scripts/validate-manifest.mjs && node scripts/validate-lessons.mjs && node scripts/qa-content.mjs && node scripts/validate-stories.mjs && node scripts/validate-tokens.mjs && node scripts/qa-story.mjs --level=custom && node scripts/validate-audiostories.mjs && node scripts/validate-voices.mjs && node scripts/validate-audio.mjs && node scripts/validate-fonts.mjs && node scripts/validate-particle-senses.mjs && node scripts/build-www.mjs",
     "qa:custom": "node scripts/qa-story.mjs --level=custom",
     "validate:lessons": "node scripts/validate-lessons.mjs",
     "validate:particles": "node scripts/validate-particle-senses.mjs",
@@ -26,7 +26,8 @@
     "gen:audio": "node scripts/build-audio-manifest.mjs && node scripts/generate-audio.mjs",
     "validate:audiostories": "node scripts/validate-audiostories.mjs",
     "validate:manifest": "node scripts/validate-manifest.mjs",
-    "validate:tokens": "node scripts/validate-tokens.mjs"
+    "validate:tokens": "node scripts/validate-tokens.mjs",
+    "qa:content": "node scripts/qa-content.mjs"
   },
   "dependencies": {
     "@capacitor-firebase/app": "^8.3.0",

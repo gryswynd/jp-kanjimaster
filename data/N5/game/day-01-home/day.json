@@ -17,7 +17,7 @@
   "playerStart": { "x": 325, "y": 260 },
   "objects": [
     { "name": "Bed",          "nameJp": "ベッド",     "x": 194, "y": 189, "width": 114, "height": 146, "isDoor": false, "message": { "jp": "いいベッドです。",             "en": "A comfortable bed. Time to get up.",         "terms": ["v_ii", "v_beddo", "g_desu"] } },
-    { "name": "Laptop",       "nameJp": "パソコン",   "x": 315, "y": 158, "width": 121, "height":  86, "isDoor": false, "message": { "jp": "わたしのパソコンです。",         "en": "My laptop. For preparing lessons.",           "terms": ["v_watashi", "p_no", "v_pasokon", "g_desu"] } },
+    { "name": "Laptop",       "nameJp": "パソコン",   "x": 315, "y": 158, "width": 121, "height":  86, "isDoor": false, "message": { "jp": "わたしのパソコンです。",         "en": "My laptop. For preparing lessons.",           "terms": ["v_watashi_kana", "p_no", "v_pasokon", "g_desu"] } },
     { "name": "Toilet",       "nameJp": "トイレ",     "x": 714, "y": 134, "width":  34, "height": 110, "isDoor": false, "message": { "jp": "トイレです。",                   "en": "The toilet.",                                 "terms": ["v_toire", "g_desu"] } },
     { "name": "Fridge",       "nameJp": "れいぞうこ", "x": 849, "y": 135, "width":  71, "height": 116, "isDoor": false, "message": { "jp": "お母さんのれいぞうこです。",     "en": "Mom's fridge. Always well stocked.",          "terms": ["v_okaasan", "p_no", "g_desu"] } },
     { "name": "Bed_Door",     "nameJp": "ドア",       "x": 311, "y": 440, "width":  90, "height": 122, "isDoor": true },
@@ -54,7 +54,7 @@
       "convoBackground": "living",
       "conversation": [
         { "speaker": "dad",     "jp": "よ、りきぞう！先生ですか？",                   "en": "Hey, Rikizo! Are you a teacher?",              "terms": ["char_rikizo", "v_sensei", "g_desu", "p_ka"] },
-        { "speaker": "りきぞう", "jp": "はい！わたしは先生です。",                     "en": "Yes! I am a teacher.",                         "terms": ["p_hai", "v_watashi", "p_wa", "v_sensei", "g_desu"] },
+        { "speaker": "りきぞう", "jp": "はい！わたしは先生です。",                     "en": "Yes! I am a teacher.",                         "terms": ["p_hai", "v_watashi_kana", "p_wa", "v_sensei", "g_desu"] },
         { "speaker": "dad",     "jp": "やさしい先生ですか？",                         "en": "Are you a kind teacher?",                      "terms": ["v_yasashii", "v_sensei", "g_desu", "p_ka"] },
         { "speaker": "りきぞう", "jp": "はい、とてもやさしい先生です！",               "en": "Yes, a very kind teacher!",                    "terms": ["p_hai", "v_totemo", "v_yasashii", "v_sensei", "g_desu"] },
         { "speaker": "dad",     "jp": "そうか。りきぞうはいちばんいい先生です。",     "en": "Is that so. Rikizo is the best teacher.",      "terms": ["p_ka", "char_rikizo", "p_wa", "v_ichiban", "v_ii", "v_sensei", "g_desu"] }

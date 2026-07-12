@@ -92,7 +92,7 @@
           ]
         },
         {
-          "jp": "大きい 建物が 建てられた 後で、近所は どう 変わりましたか。",
+          "jp": "大きい 建物が 建てられた 後で、近所は どう かわりましたか。",
           "en": "After the big building was built, how did the neighborhood change?",
           "terms": [
             "v_ookii",
@@ -285,7 +285,7 @@
         },
         {
           "spk": "りきぞう",
-          "jp": "野菜が 安すぎると 思いましたが、大丈夫ですか。",
+          "jp": "野菜が 安すぎると 思いましたが、だいじょうぶですか。",
           "en": "I thought the vegetables were too cheap — is that okay?",
           "terms": [
             "char_rikizo",
@@ -308,7 +308,7 @@
         },
         {
           "spk": "主人",
-          "jp": "はい、大丈夫です。町の 皆さんに いい 野菜を 食べてもらいたい んです。",
+          "jp": "はい、だいじょうぶです。町の みなさんに いい 野菜を 食べてもらいたい んです。",
           "en": "Yes, it's fine. I want everyone in town to eat good vegetables, you see.",
           "terms": [
             "p_hai",
@@ -513,7 +513,7 @@
       "lines": [
         {
           "spk": "けん",
-          "jp": "今日、車を 洗おうと 思っている けど、一緒に しない？",
+          "jp": "今日、車を 洗おうと 思っている けど、いっしょに しない？",
           "en": "I'm thinking of washing the car today — want to do it together?",
           "terms": [
             "char_ken",
@@ -1075,7 +1075,7 @@
           ]
         },
         {
-          "jp": "次は いい 天気の 日に 試合を したいと 思います。",
+          "jp": "つぎは いい 天気の 日に 試合を したいと 思います。",
           "en": "Next time, I think I want to hold the match on a nice weather day.",
           "terms": [
             "v_tsugi",
@@ -1310,7 +1310,7 @@
               "id": "v_arau",
               "form": "te_form"
             },
-            "g_kudasai"
+            "v_kudasai"
           ],
           "explanation": "Correct: 食事の 前に 手を 洗ってください。"
         },
@@ -1338,7 +1338,7 @@
         },
         {
           "kind": "mcq",
-          "q": "日本の ______は 一億 人以上 います。",
+          "q": "日本の ______は とても 多いです。",
           "choices": [
             "国民",
             "主人",
@@ -1351,18 +1351,11 @@
             "p_no",
             "v_kokumin",
             "p_wa",
-            {
-              "counter": "oku",
-              "n": 1
-            },
-            "v_hito",
-            "v_ijou",
-            {
-              "id": "v_iru",
-              "form": "polite_masu"
-            }
+            "v_totemo",
+            "v_ooi",
+            "g_desu"
           ],
-          "explanation": "Correct: 日本の 国民は 一億 人以上 います。 — 「国民」 (こくみん) means \"citizen / national / the people of a nation\"."
+          "explanation": "Correct: 日本の 国民は とても 多いです。 — 「国民」 (こくみん) means \"citizen / national / the people of a nation\"."
         }
       ]
     },
@@ -1454,7 +1447,7 @@
         },
         {
           "kind": "mcq",
-          "q": "面白くて、本を たくさん 読んで ______。",
+          "q": "おもしろくて、本を たくさん 読んで ______。",
           "choices": [
             "しまいました",
             "おきました",
@@ -1477,7 +1470,7 @@
               "form": "polite_mashita"
             }
           ],
-          "explanation": "Correct: 面白くて、本を たくさん 読んで しまいました。"
+          "explanation": "Correct: おもしろくて、本を たくさん 読んで しまいました。"
         },
         {
           "kind": "mcq",

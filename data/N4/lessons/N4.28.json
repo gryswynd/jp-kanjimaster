@@ -760,15 +760,13 @@
           ]
         },
         {
-          "jp": "夕方に なると、村人は 家族と 一緒に 夕食を 食べます。",
+          "jp": "夕方に なると、村人は 家族と いっしょに 夕食を 食べます。",
           "en": "When evening comes, the villagers eat dinner together with their families.",
           "terms": [
             "v_yuugata",
             "p_ni",
-            {
-              "id": "v_naru",
-              "form": "to_conditional"
-            },
+            "v_naru",
+            "p_to_conditional",
             "v_murabito",
             "p_wa",
             "v_kazoku",

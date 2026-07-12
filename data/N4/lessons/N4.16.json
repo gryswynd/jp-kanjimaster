@@ -155,7 +155,7 @@
     },
     {
       "type": "kanjiGrid",
-      "title": "New Kanji（新しい 漢字）",
+      "title": "New Kanji（あたらしい かんじ）",
       "items": [
         {
           "kanji": "動",
@@ -386,7 +386,9 @@
       "type": "conversation",
       "title": "Conversation 2（会話）: Going to the Bank",
       "context": "Rikizo goes to the bank to take out money and asks a staff member for help.",
-      "speakers": { "B": "ren" },
+      "speakers": {
+        "B": "ren"
+      },
       "lines": [
         {
           "spk": "りきぞう",
@@ -1109,8 +1111,8 @@
           "choices": [
             "いぬ",
             "けん",
-            "ねこ",
-            "うし"
+            "とり",
+            "さかな"
           ],
           "answer": "いぬ",
           "explanation": "「犬」 is read 「いぬ」 — dog."
