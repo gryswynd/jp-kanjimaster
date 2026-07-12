@@ -28,6 +28,9 @@ window.LessonModule = {
     let currentLevelLessons = null;
     let manifestData = null;
     let kanjiSel = 0; // selected kanji index in the kanji panel
+    let kwSel = 0;         // selected kanji tab on the Write page
+    let kwStrokes = null;  // cached data/strokes/kanji.json (fetched on first Write page)
+    let kwCanvas = null;   // live strokeCanvas instance — destroyed on every step render
     let readingFnCache = null; // cached kanji→reading resolver for written-answer grading (per lesson)
     let coverLoad = null; // prefetched { file, p:Promise<{data,resources}|null> } for the cover→lesson open
     let coverTabs = '';   // cached progress-strip HTML so the swing overlay's folder matches the cover
@@ -275,6 +278,26 @@ window.LessonModule = {
           .jp-unlock-card--module { border-left-color: var(--vermilion); }
           .jp-unlock-card-icon { font-size: 1.3rem; flex-shrink: 0; }
           .jp-unlock-card-label { font-size: 0.9rem; font-weight: 700; color: var(--ink); }
+
+          /* Write the Kanji (kanjiWrite page) — pill tabs match the kana dojo look */
+          .lh-kw-tabs { display: flex; gap: 6px; padding: 18px 22px 0; overflow-x: auto; }
+          .lh-kw-tab { flex-shrink: 0; min-width: 52px; padding: 9px 14px; border: 1px solid var(--hairline); background: var(--washi); color: var(--ink-2); border-radius: 999px; font-family: var(--font-jp-display); font-size: 20px; line-height: 1; font-weight: 500; cursor: pointer; position: relative; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+          .lh-kw-tab.is-active { background: var(--ink); color: var(--washi); border-color: var(--ink); }
+          .lh-kw-seal { position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; border-radius: 50%; background: var(--gold); color: #fff; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--font-ui); }
+          .lh-kw-drill { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 18px 22px 0; }
+          .lh-kw-meta { text-align: center; min-height: 20px; }
+          .lh-kw-meta .read { font-size: 13px; color: var(--ink-3); font-weight: 600; letter-spacing: 0.04em; }
+          .lh-kw-meta .meaning { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--vermilion); font-weight: 700; margin-top: 4px; }
+          .lh-kw-stage { width: min(340px, 82vw); aspect-ratio: 1; border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 8px 28px rgba(0,0,0,0.10), 0 0 0 1px var(--hairline); }
+          .lh-kw-counter { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-2); font-weight: 600; text-transform: uppercase; }
+          .lh-kw-counter .num { color: var(--vermilion); font-size: 13px; }
+          .lh-kw-fb { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-3); min-height: 14px; text-align: center; }
+          .lh-kw-fb.is-warn { color: var(--vermilion); }
+          .lh-kw-fb.is-ok { color: var(--moss); }
+          .lh-kw-actions { display: flex; gap: 10px; margin-top: 2px; }
+          .lh-kw-btn { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--washi); color: var(--ink); font-family: inherit; font-weight: 600; font-size: 13px; cursor: pointer; }
+          .lh-kw-note { font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); margin-top: 16px; text-align: center; letter-spacing: 0.05em; }
+          @keyframes lhKwBloom { 0% { transform: scale(0.6); opacity: 0; } 30% { opacity: 1; } 100% { transform: scale(1.05); opacity: 1; } }
         `;
         document.head.appendChild(style);
     }
@@ -312,8 +335,8 @@ window.LessonModule = {
     const SVG_PLAY = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
 
     const SECTION_LABELS = {
-        intro: 'Intro', warmup: 'Warmup', kanjiGrid: 'Kanji', vocabList: 'Vocab',
-        conversation: 'Conversation', reading: 'Reading', drills: 'Drill'
+        intro: 'Intro', warmup: 'Warmup', kanjiGrid: 'Kanji', kanjiWrite: 'Write',
+        vocabList: 'Vocab', conversation: 'Conversation', reading: 'Reading', drills: 'Drill'
     };
 
     async function loadResources() {
@@ -592,6 +615,166 @@ window.LessonModule = {
         hint.style.cssText = "text-align:center;margin-top:20px;";
         hint.textContent = "Tap a character above";
         div.appendChild(hint);
+        return div;
+    }
+
+    // ---- Write the Kanji (synthetic kanjiWrite page) ----
+    // Trace drills for the lesson's new kanji, right after the New-Kanji page.
+    // Reuses the shared stroke-canvas engine and the dojo's k-writing-mastered
+    // map, so mastery here and in Dojo → Kanji Writing stay one record.
+    function kwMastered() {
+        try { return JSON.parse(localStorage.getItem('k-writing-mastered') || '{}'); }
+        catch (e) { return {}; }
+    }
+    function kwSaveMastered(map) {
+        try { localStorage.setItem('k-writing-mastered', JSON.stringify(map)); } catch (e) {}
+    }
+
+    function kwGoldFlash() {
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'position:fixed;inset:0;background:oklch(0.22 0.012 60 / 0.55);z-index:1000;' +
+            'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;';
+        overlay.innerHTML =
+            '<div style="width:min(80vw,420px);aspect-ratio:1;border-radius:50%;' +
+              'background:radial-gradient(circle at center,oklch(0.78 0.10 85 / 0.85),oklch(0.78 0.10 85 / 0) 65%);' +
+              'display:flex;align-items:center;justify-content:center;animation:lhKwBloom 1.2s ease-out forwards;">' +
+              '<div style="font-family:\'Noto Serif JP\',serif;font-size:80px;color:oklch(0.97 0.008 80);text-shadow:0 4px 24px rgba(0,0,0,0.4);">✓</div>' +
+            '</div>' +
+            '<div style="font-family:\'Noto Serif JP\',serif;color:oklch(0.97 0.008 80);font-size:22px;font-weight:600;">Well drawn.</div>';
+        document.body.appendChild(overlay);
+        setTimeout(() => { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }, 1500);
+    }
+
+    function renderKanjiWrite(sec) {
+        const gridSec = lessonData.sections.find(s => s.type === 'kanjiGrid');
+        const items = ((gridSec && gridSec.items) || []).filter(k => k && k.kanji);
+        const div = el("div", "");
+        div.style.cssText = "padding:24px 0 32px;";
+        div.innerHTML = sectionIntroBlock('Write the Kanji · ' + items.length + ' characters',
+            'かいてみよう', 'Trace each kanji in stroke order. A perfect first try earns the gold seal.');
+
+        function note(msg) {
+            const n = el("div", "lh-kw-note", esc(msg));
+            n.style.padding = '30px 22px';
+            div.appendChild(n);
+            return div;
+        }
+        if (!window.JPShared.strokeCanvas) return note("Writing practice isn't available right now.");
+        if (!items.length) return note("This lesson has no new kanji to write.");
+
+        // Stroke data loads once per session, on the first Write page visited.
+        if (!kwStrokes) {
+            note('Loading stroke data…');
+            fetch(getCdnUrl('data/strokes/kanji.json'))
+                .then(r => r.json())
+                .then(json => { kwStrokes = json || {}; })
+                .catch(() => { kwStrokes = {}; })
+                .then(() => {
+                    // Only re-render if the user is still on this page.
+                    if (lessonData && lessonData.sections[currentStep] === sec) renderCurrentStep();
+                });
+            return div;
+        }
+
+        const writable = items.filter(k => kwStrokes[k.kanji]);
+        if (!writable.length) return note("Stroke data for these kanji isn't bundled yet.");
+        if (kwSel >= writable.length) kwSel = 0;
+        const mastered = kwMastered();
+
+        // Pill-tab row — one tab per kanji, gold seal once written perfectly.
+        const tabs = el("div", "lh-kw-tabs noscroll");
+        writable.forEach((k, i) => {
+            const m = mastered[k.kanji];
+            const b = el("button", "lh-kw-tab" + (i === kwSel ? " is-active" : ""),
+                esc(k.kanji) + (m && m.perfect ? '<span class="lh-kw-seal">✓</span>' : ''));
+            b.onclick = () => { kwSel = i; renderCurrentStep(); };
+            tabs.appendChild(b);
+        });
+        div.appendChild(tabs);
+
+        const item = writable[kwSel];
+        const glyph = kwStrokes[item.kanji];
+        const drill = el("div", "lh-kw-drill");
+        drill.innerHTML =
+            '<div class="lh-kw-meta">' +
+                ((item.kun || item.on)
+                    ? '<div class="read">' + esc([item.kun, item.on].filter(Boolean).join(' · ')) + '</div>' : '') +
+                (item.meaning ? '<div class="meaning">' + esc(item.meaning) + '</div>' : '') +
+            '</div>' +
+            '<div class="lh-kw-stage" id="lh-kw-stage"></div>' +
+            '<div class="lh-kw-counter">stroke <span class="num" id="lh-kw-cur">1</span> / ' + glyph.strokes.length + '</div>' +
+            '<div class="lh-kw-fb" id="lh-kw-fb">&nbsp;</div>' +
+            '<div class="lh-kw-actions">' +
+                '<button class="lh-kw-btn" id="lh-kw-show" type="button">Show me</button>' +
+                '<button class="lh-kw-btn" id="lh-kw-reset" type="button">Reset</button>' +
+            '</div>';
+        div.appendChild(drill);
+        const missing = items.length - writable.length;
+        if (missing > 0) div.appendChild(el("div", "lh-kw-note",
+            missing + ' kanji in this lesson have no stroke data yet.'));
+
+        // Mount after this element is attached — strokeCanvas measures its host.
+        requestAnimationFrame(() => {
+            const stage = drill.querySelector('#lh-kw-stage');
+            if (!stage || !stage.isConnected) return;
+            const cur = drill.querySelector('#lh-kw-cur');
+            const fb = drill.querySelector('#lh-kw-fb');
+            function feedback(msg, kind) {
+                fb.textContent = msg || ' ';
+                fb.classList.remove('is-warn', 'is-ok');
+                if (kind) fb.classList.add('is-' + kind);
+            }
+            kwCanvas = window.JPShared.strokeCanvas.create({
+                mount: stage,
+                glyph: glyph,
+                onStrokeResult: (ok, strokeIdx, info) => {
+                    if (ok) { cur.textContent = Math.min(strokeIdx + 2, glyph.strokes.length); feedback('', 'ok'); return; }
+                    const reason = info && info.reason;
+                    let msg = 'Try that stroke again';
+                    if (reason === 'direction') msg = 'Wrong direction — start from the other end';
+                    else if (reason === 'shape') msg = 'Not quite the shape — follow the watermark';
+                    else if (reason === 'too-short') msg = 'A bit too short';
+                    else if (reason === 'dot-misplaced') msg = 'Dot is off';
+                    feedback(msg, 'warn');
+                },
+                onComplete: (info) => {
+                    const map = kwMastered();
+                    const prev = map[item.kanji];
+                    map[item.kanji] = {
+                        perfect: !!info.perfectFirstTry || !!(prev && prev.perfect),
+                        ts: Date.now()
+                    };
+                    kwSaveMastered(map);
+                    try { if (window.JPShared.haptics) window.JPShared.haptics.success(); } catch (e) {}
+                    try { if (window.JPShared.sfx) window.JPShared.sfx.success(); } catch (e) {}
+                    try { if (window.JPShared.streak && window.JPShared.streak.recordActivity) window.JPShared.streak.recordActivity(); } catch (e) {}
+                    try { if (window.JPShared.events) window.JPShared.events.emit('writing-complete', { kind: 'kanji' }); } catch (e) {}
+                    kwGoldFlash();
+                    // Once the flash clears, advance to the next unmastered kanji
+                    // (or just refresh the seals if everything's written).
+                    setTimeout(() => {
+                        if (!lessonData || lessonData.sections[currentStep] !== sec) return;
+                        const fresh = kwMastered();
+                        for (let i = 1; i <= writable.length; i++) {
+                            const cand = (kwSel + i) % writable.length;
+                            const cm = fresh[writable[cand].kanji];
+                            if (!(cm && cm.perfect)) { kwSel = cand; break; }
+                        }
+                        renderCurrentStep();
+                    }, 1600);
+                }
+            });
+            drill.querySelector('#lh-kw-show').onclick = () => {
+                if (kwCanvas) kwCanvas.showOrderDemo();
+                feedback('Showing stroke order (counts as a hint)', 'warn');
+            };
+            drill.querySelector('#lh-kw-reset').onclick = () => {
+                if (kwCanvas) kwCanvas.reset();
+                cur.textContent = '1';
+                feedback('');
+            };
+        });
+
         return div;
     }
 
@@ -1557,7 +1740,14 @@ window.LessonModule = {
           }
           const resources = payload.resources;
           lessonData = payload.data;
-          drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0;
+          // Inject the Write-the-Kanji practice page right after the New-Kanji
+          // page. Synthetic — never authored in lesson JSON — so every kanji
+          // lesson (current and future) gets it without data churn.
+          const kwIdx = lessonData.sections.findIndex(s => s.type === 'kanjiGrid');
+          if (kwIdx >= 0 && !lessonData.sections.some(s => s.type === 'kanjiWrite')) {
+              lessonData.sections.splice(kwIdx + 1, 0, { type: 'kanjiWrite', title: 'Write the Kanji' });
+          }
+          drillCorrect = 0; drillTotal = 0; drillAnswered.clear(); kanjiSel = 0; kwSel = 0;
           readingFnCache = null;
           Object.keys(drillResults).forEach(k => delete drillResults[k]);
           drillStats = [];
@@ -1666,6 +1856,8 @@ window.LessonModule = {
 
     function renderCurrentStep() {
         if (window.JPApp) window.JPApp.hideTabBar();
+        // A live stroke canvas never survives a re-render (its mount is replaced).
+        if (kwCanvas) { try { kwCanvas.destroy(); } catch (e) {} kwCanvas = null; }
         const isSummary = currentStep >= lessonData.sections.length;
         const idx = Math.min(currentStep, totalSteps - 1);
         const sec = isSummary ? null : lessonData.sections[currentStep];
@@ -1719,6 +1911,7 @@ window.LessonModule = {
         let content = null;
         if (sec.type === "intro") content = renderIntro(lessonData);
         else if (sec.type === "kanjiGrid") content = renderKanjiFlip(sec);
+        else if (sec.type === "kanjiWrite") content = renderKanjiWrite(sec);
         else if (sec.type === "conversation") content = renderConversation(sec);
         else if (sec.type === "vocabList") content = renderVocab(sec);
         else if (sec.type === "drills") content = renderDrills(sec);

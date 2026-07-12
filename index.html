@@ -2352,7 +2352,8 @@ window.JPApp = {
     var onExit = (function(self) { return function() { self.renderMenu(); }; })(this);
 
     var map = {
-      lesson:         { global: 'LessonModule',              file: 'Lesson.js' },
+      lesson:         { global: 'LessonModule',              file: 'Lesson.js',
+                        deps: ['app/shared/stroke-canvas.js'] },
       practice:       { global: 'PracticeModule',            file: 'Practice.js' },
       review:         { global: 'ReviewModule',              file: 'Review.js' },
       compose:        { global: 'ComposeModule',             file: 'Compose.js' },
