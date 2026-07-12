@@ -773,7 +773,7 @@
           var owned = stampApi.isOwned ? stampApi.isOwned(c.id) : true;
           var sel = c.id === selectedId ? ' selected' : '';
           var lock = owned ? '' : ' locked';
-          var price = (cosmetics && cosmetics.STAMP_PRICE) || 20;
+          var price = (cosmetics && cosmetics.STAMP_PRICE) || 35;
           return '<div class="jp-stamp-option' + sel + lock + '" data-char-id="' + c.id + '" data-owned="' + (owned ? '1' : '0') + '" title="' + c.meaning + (owned ? '' : ' · ' + price + ' 文') + '">' +
             '<img src="' + resolveUrl(c.portrait) + '" alt="' + c.meaning + '">' +
             '<div class="jp-stamp-name">' + (owned ? c.meaning : '🔒 ' + price) + '</div>' +
@@ -1522,7 +1522,7 @@
         // Locked stamp → two-tap purchase: first tap arms the confirm in the
         // preview row, second tap (within 4s) buys via keiko.
         if (option.dataset.owned === '0') {
-          var price = (cosmetics && cosmetics.STAMP_PRICE) || 20;
+          var price = (cosmetics && cosmetics.STAMP_PRICE) || 35;
           if (option.dataset.confirm !== '1') {
             stampGrid.querySelectorAll('.jp-stamp-option').forEach(function (o) { delete o.dataset.confirm; });
             option.dataset.confirm = '1';

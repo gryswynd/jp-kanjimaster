@@ -24,14 +24,16 @@
   if (window.JPShared.cosmetics) return;
 
   var INKS = [
-    { id: 'vermilion', label: '朱 · Vermilion', color: 'var(--vermilion)', price: 0 },
-    { id: 'ink',       label: 'すみ · Sumi',    color: 'var(--ink)',       price: 25 },
-    { id: 'moss',      label: 'こけ · Moss',    color: 'var(--moss)',      price: 25 },
-    { id: 'indigo',    label: 'あい · Indigo',  color: 'var(--indigo)',    price: 25 },
-    { id: 'gold',      label: 'きん · Gold',    color: 'var(--gold)',      price: 25 }
+    { id: 'vermilion', label: '朱 · Vermilion',   color: 'var(--vermilion)', price: 0 },
+    { id: 'ink',       label: 'すみ · Sumi',      color: 'var(--ink)',       price: 40 },
+    { id: 'moss',      label: 'こけ · Moss',      color: 'var(--moss)',      price: 50 },
+    { id: 'indigo',    label: 'あい · Indigo',    color: 'var(--indigo)',    price: 60 },
+    { id: 'sakura',    label: 'さくら · Sakura',  color: 'var(--sakura)',    price: 75 },
+    { id: 'gold',      label: 'きん · Gold',      color: 'var(--gold)',      price: 100 },
+    { id: 'murasaki',  label: 'むらさき · Murasaki', color: 'var(--murasaki)', price: 125 }
   ];
-  var STAMP_PRICE = 20;
-  var BIO_PRICE = 15;
+  var STAMP_PRICE = 35;
+  var BIO_PRICE = 25;
 
   function readMap(key) {
     try { return JSON.parse(localStorage.getItem(key) || '{}') || {}; }

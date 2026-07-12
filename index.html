@@ -51,6 +51,8 @@
   --moss:       oklch(0.58 0.09 140);
   --indigo:     oklch(0.42 0.08 250);
   --gold:       oklch(0.78 0.10 85);
+  --sakura:     oklch(0.76 0.10 15);
+  --murasaki:   oklch(0.45 0.12 305);
 
   --font-ui:         "Schibsted Grotesk", "Work Sans", system-ui, sans-serif;
   --font-jp:         "Noto Sans JP", system-ui, sans-serif;
@@ -1611,7 +1613,7 @@ window.JPApp = {
     var cos = window.JPShared && window.JPShared.cosmetics;
     var unlocked = cos ? cos.isCastUnlocked(c.id) : false;
     if (!unlocked) {
-      var price = (cos && cos.BIO_PRICE) || 15;
+      var price = (cos && cos.BIO_PRICE) || 25;
       return '<div style="background:var(--washi-2);border:1px dashed var(--hairline);border-radius:12px;padding:12px;margin-bottom:16px;">' +
         '<div style="font-size:0.75rem;color:var(--ink-3);margin-bottom:8px;">🔒 ' + this._esc(c.meaning) + '’s full story, likes, and a secret are sealed away…</div>' +
         '<button onclick="JPApp._unlockCastBio(\'' + this._esc(c.id) + '\')" style="background:var(--ink);color:var(--washi);border:none;padding:8px 18px;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">Unlock full story · ' + price + ' 文</button>' +
