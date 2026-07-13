@@ -140,8 +140,13 @@
       c.height = size * DPR;
       c.style.position = 'absolute';
       c.style.inset = '0';
-      c.style.width = size + 'px';
-      c.style.height = size + 'px';
+      // Fill the mount instead of a fixed px box: with an ancestor CSS `zoom`
+      // (the --font-scale accessibility rule on .lh-body) a px-sized canvas
+      // renders larger than the mount and gets cropped, and touch mapping
+      // drifts. 100% keeps the canvas exactly the mount's visual size; the
+      // pointer mapping below scales through the live rect.
+      c.style.width = '100%';
+      c.style.height = '100%';
       c.style.zIndex = String(z);
       c.style.touchAction = 'none';
       mount.appendChild(c);
@@ -378,9 +383,14 @@
 
     function pointerToCanvas(ev) {
       var r = active.canvas.getBoundingClientRect();
+      // Map viewport px → canvas logical px through the LIVE rect, so ancestor
+      // CSS zoom (--font-scale) or transforms can never skew where the ink
+      // lands relative to the finger.
+      var sx = r.width ? size / r.width : 1;
+      var sy = r.height ? size / r.height : 1;
       // Third element is a time offset (ms) since pointerdown — feeds the
       // velocity-based brush-width calculation.
-      return [ev.clientX - r.left, ev.clientY - r.top, performance.now() - strokeStartT];
+      return [(ev.clientX - r.left) * sx, (ev.clientY - r.top) * sy, performance.now() - strokeStartT];
     }
 
     function onDown(ev) {
