@@ -1598,7 +1598,12 @@
           ],
           "answer": "なら",
           "explanation": "なら responds to context already established — e.g., someone just said they want to watch a movie. 見るなら (if you're going to watch one, as you mentioned) → recommendation. と would require an automatic result; ば is for new hypotheticals; たら implies after watching.",
-          "terms": []
+          "terms": [
+            "v_eiga",
+            "v_kono",
+            "v_eigakan",
+            "v_kou"
+          ]
         },
         {
           "kind": "mcq",
@@ -1637,7 +1642,9 @@
           ],
           "answer": "The more you read, the more interesting it becomes.",
           "explanation": "読めば 読むほど is the ば〜ほど pattern: the verb repeats (ば form + plain form + ほど) to express proportional escalation. おもしろくなる = becomes interesting. The whole sentence means: as reading increases, interestingness increases proportionally.",
-          "terms": []
+          "terms": [
+            "v_naru"
+          ]
         },
         {
           "kind": "mcq",
@@ -1650,7 +1657,9 @@
           ],
           "answer": "ば is for general hypotheticals and advice; たら is for completed-event triggers and allows requests",
           "explanation": "ば expresses open, general conditions (毎日 話せば、上手になる = if you speak every day, you'll improve — general advice). たら links to a specific event completing and allows requests/intentions in the result (仕事が 終わったら、電話して = when work is done, call me — specific trigger + request). たら is the most versatile conditional.",
-          "terms": []
+          "terms": [
+            "aux_tara"
+          ]
         }
       ]
     }

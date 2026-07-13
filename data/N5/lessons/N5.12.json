@@ -1405,7 +1405,8 @@
             {
               "id": "v_iru",
               "form": "polite_masu"
-            }
+            },
+            "v_watashi_kana"
           ],
           "explanation": "Correct: わたしは 日本語の クラスで 学んで います。（I am learning in Japanese class.）"
         }
@@ -1428,7 +1429,9 @@
           "answer": "おもしろい",
           "terms": [
             "v_omoshiroi",
-            "g_desu"
+            "g_desu",
+            "v_kono",
+            "v_hon"
           ],
           "explanation": "Correct: この 本は おもしろい です。（This book is interesting.） — 「おもしろい」 (おもしろい) means \"interesting / funny\"."
         },
@@ -1446,7 +1449,9 @@
             {
               "id": "v_omoshiroi",
               "form": "plain_past_negative"
-            }
+            },
+            "v_tesuto",
+            "g_desu"
           ],
           "explanation": "Correct: テストは おもしろくなかった です。（The test wasn't interesting.）"
         },
@@ -1466,7 +1471,8 @@
               "form": "te_form"
             },
             "v_tsumaranai",
-            "g_desu"
+            "g_desu",
+            "v_tesuto"
           ],
           "explanation": "Correct: テストは 長くて、つまらないです。（The test is long and boring.）"
         },
@@ -1488,7 +1494,8 @@
             {
               "id": "v_naru",
               "form": "polite_mashita"
-            }
+            },
+            "v_nihongo"
           ],
           "explanation": "Correct: 日本語は おもしろく なりました。（Japanese became interesting.）"
         }

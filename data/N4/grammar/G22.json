@@ -1143,7 +1143,8 @@
               "form": "plain_form"
             },
             "p_sou_da_hearsay",
-            "p_yo"
+            "p_yo",
+            "v_oishii"
           ]
         },
         {
@@ -1230,7 +1231,8 @@
               "form": "plain_form"
             },
             "p_sou_da_hearsay",
-            "p_kara_because"
+            "p_kara_because",
+            "v_oishii"
           ]
         }
       ]
@@ -1328,7 +1330,9 @@
             "おいしくてなさそう"
           ],
           "answer": "おいしくなさそう",
-          "terms": [],
+          "terms": [
+            "v_oishii"
+          ],
           "explanation": "Appearance negative for い-adjectives: drop い → add くなさそう. おいしい → drop い → おいし + くなさそう = おいしくなさそう. おいしくないそうだ is the HEARSAY negative form ('I heard it's not delicious') — completely different. おいしなさそう is incorrect (missing the く connector)."
         },
         {
@@ -1341,7 +1345,9 @@
             "おいしいそうです is more formal."
           ],
           "answer": "おいしそうです means 'it looks delicious'; おいしいそうです means 'I heard it's delicious'.",
-          "terms": [],
+          "terms": [
+            "v_oishii"
+          ],
           "explanation": "おいしそうです uses the STEM (drop い → おいし) + そうです = appearance, based on direct observation. おいしいそうです uses the full PLAIN FORM (keep い → おいしい) + そうです = hearsay, based on reported information. One い is the difference between 'looking at the food' and 'being told about the food'."
         }
       ]

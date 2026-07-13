@@ -307,7 +307,9 @@
       "type": "conversation",
       "title": "Conversation Practice 2（会話）: Neighbourhood Walk",
       "context": "りきぞう is visiting his father's town and asks about the neighbourhood.",
-      "speakers": { "お父さん": "taro" },
+      "speakers": {
+        "お父さん": "taro"
+      },
       "lines": [
         {
           "spk": "りきぞう",
@@ -488,7 +490,8 @@
               "form": "plain_desire_tai"
             },
             "g_desu",
-            "p_yo"
+            "p_yo",
+            "v_betsu"
           ]
         }
       ],
@@ -559,7 +562,8 @@
               "id": "v_omou",
               "form": "plain_negative"
             },
-            "p_ka"
+            "p_ka",
+            "v_betsu"
           ]
         },
         {
@@ -1116,7 +1120,10 @@
           ],
           "answer": "去年",
           "terms": [
-            "v_kyonen"
+            "v_kyonen",
+            "v_kotoshi",
+            "v_mae",
+            "g_desu"
           ],
           "explanation": "Correct: 今年の 前の 年は 去年 です。 — 「去年」 (きょねん) means \"last year\"."
         },
@@ -1252,7 +1259,8 @@
             "g_desu",
             "p_kara_because",
             "v_suki",
-            "g_desu"
+            "g_desu",
+            "v_kono"
           ],
           "explanation": "Correct: この まちは しずかですから、好き です。 — 「好き」 (すき) means \"like\"."
         }

@@ -1207,7 +1207,8 @@
             {
               "id": "v_iku",
               "form": "plain_form"
-            }
+            },
+            "v_iku"
           ]
         },
         {
@@ -1351,7 +1352,10 @@
           ],
           "answer": "が",
           "explanation": "The affected object in a てある sentence takes が, not を: お茶が もう 入れてある。",
-          "terms": []
+          "terms": [
+            "v_mou",
+            "v_aru"
+          ]
         },
         {
           "kind": "mcq",
@@ -1364,7 +1368,9 @@
           ],
           "answer": "The tea has been prepared (result of intentional action)",
           "explanation": "てある expresses a resultant state from intentional action — the tea was put in/prepared and the effect remains.",
-          "terms": []
+          "terms": [
+            "v_aru"
+          ]
         },
         {
           "kind": "mcq",
@@ -1377,7 +1383,9 @@
           ],
           "answer": "I will take food (along with me)",
           "explanation": "持っていく means to carry something away from the speaker's location: 持って (て-form of 持つ) + 行く (to go)。",
-          "terms": []
+          "terms": [
+            "v_tabemono"
+          ]
         },
         {
           "kind": "mcq",

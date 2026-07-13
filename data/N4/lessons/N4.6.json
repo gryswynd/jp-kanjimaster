@@ -372,7 +372,7 @@
           "jp": "では、いっしょに 同じ 料理に しましょう。ありがとうございます。",
           "en": "Then let's both have the same dish. Thank you very much.",
           "terms": [
-            "p_dewa",
+            "p_dewa_then",
             "v_issho",
             "v_onaji",
             "v_ryouri",
@@ -1280,7 +1280,9 @@
             "food"
           ],
           "answer": "chicken meat",
-          "terms": [],
+          "terms": [
+            "v_toriniku"
+          ],
           "explanation": "「鳥肉」 (とりにく) means \"chicken meat\"."
         },
         {
@@ -1293,7 +1295,9 @@
             "lunch break"
           ],
           "answer": "lunch",
-          "terms": [],
+          "terms": [
+            "v_hirugohan"
+          ],
           "explanation": "「昼ご飯」 (ひるごはん) means \"lunch\"."
         },
         {
@@ -1306,7 +1310,9 @@
             "same"
           ],
           "answer": "taste / flavor",
-          "terms": [],
+          "terms": [
+            "v_aji"
+          ],
           "explanation": "「味」 (あじ) means \"taste / flavor\"."
         },
         {

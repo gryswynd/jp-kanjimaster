@@ -1056,7 +1056,8 @@
               "id": "v_ageru",
               "form": "te_form"
             },
-            "v_kudasai"
+            "v_kudasai",
+            "v_iru"
           ]
         },
         {
@@ -1090,7 +1091,8 @@
             {
               "id": "v_naru",
               "form": "polite_mashita"
-            }
+            },
+            "v_kudasaru"
           ]
         }
       ]
@@ -1446,7 +1448,11 @@
           ],
           "answer": "Mom made the child eat vegetables.",
           "explanation": "母は (causer) + 子どもに (causee) + 野菜を (object: vegetables) + 食べさせた (plain past causative of 食べる). The 'make' reading is natural here — children typically don't choose to eat vegetables; the mother is compelling the action. 食べる → causative: drop る + させる = 食べさせる → plain past: 食べさせた.",
-          "terms": []
+          "terms": [
+            "v_haha",
+            "v_ko",
+            "v_yasai"
+          ]
         },
         {
           "kind": "mcq",
@@ -1472,7 +1478,9 @@
           ],
           "answer": "話させる",
           "explanation": "U-verb す-ending causative rule: す → さ + せる = 話させる. 話される = passive (話す → 話される: す→さ+れる). 話させられる = causative-passive (being made to speak — a different form). The causative always uses せる (not れる). Remember: passive=れる, causative=せる.",
-          "terms": []
+          "terms": [
+            "v_hanashi"
+          ]
         },
         {
           "kind": "mcq",
@@ -1485,7 +1493,11 @@
           ],
           "answer": "I was made to eat vegetables every day.",
           "explanation": "食べさせられた is the causative-passive of 食べる. Formation: 食べ (stem) + させ (causative) + られた (passive past) = 食べさせられた. The causative-passive always means 'was made to do something (against one's will)'. 私は is the subject — I am the one who was compelled. Compare: 食べさせた = made someone eat (active causative); 食べさせられた = was made to eat (causative-passive).",
-          "terms": []
+          "terms": [
+            "v_watashi",
+            "v_mainichi",
+            "v_yasai"
+          ]
         },
         {
           "kind": "mcq",

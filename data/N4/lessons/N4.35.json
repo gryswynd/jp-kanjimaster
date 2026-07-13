@@ -539,7 +539,8 @@
             {
               "id": "v_suru",
               "form": "plain_negative"
-            }
+            },
+            "v_iru"
           ]
         },
         {
@@ -675,7 +676,8 @@
               "form": "plain_form"
             },
             "p_no_question",
-            "p_ka"
+            "p_ka",
+            "v_iru"
           ]
         },
         {
@@ -720,7 +722,8 @@
             {
               "id": "v_ii",
               "form": "plain_past_adj"
-            }
+            },
+            "v_iru"
           ]
         },
         {
@@ -740,7 +743,7 @@
               "id": "v_tomaru",
               "form": "plain_form"
             },
-            "p_no",
+            "p_no_question",
             "p_ka"
           ]
         },
@@ -1261,7 +1264,8 @@
             "v_yasai",
             "p_to",
             "v_sakana",
-            "g_desu"
+            "g_desu",
+            "v_iru__polite"
           ],
           "explanation": "Correct: この 店では、主に 野菜と 魚を 売って います。 — 「主に」 (おもに) means \"mainly / primarily\"."
         },
@@ -1441,7 +1445,8 @@
             {
               "id": "v_oku",
               "form": "polite_mashita"
-            }
+            },
+            "aux_mashita"
           ],
           "explanation": "Correct: 試合の 前に ノートを 書いておきました。"
         },

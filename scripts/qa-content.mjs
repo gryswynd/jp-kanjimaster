@@ -70,7 +70,7 @@ const KINDS = flags.kind ? [flags.kind] : ['lessons', 'grammar', 'reviews'];
 const ONLY = flags.only ? String(flags.only).split(',') : null;
 const BUCKET_FILTER = flags.bucket ? new Set(String(flags.bucket).split(',')) : null;
 
-const HARD_BUCKETS = ['kanji', 'vocab', 'particle', 'form', 'unknownId', 'storyLeak'];
+const HARD_BUCKETS = ['kanji', 'vocab', 'particle', 'form', 'unknownId', 'storyLeak', 'particleSense'];
 const WARN_BUCKETS = ['unglossaried', 'chipCoverage', 'distractor', 'formEdge'];
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -123,6 +123,13 @@ for (const p of GLOSSARY_PATHS) {
 for (const [, e] of surfaceIdx) {
   if (e && e.id && !idIdx.has(e.id)) idIdx.set(e.id, e);
 }
+
+// Shared homograph particle resolver (same shim as validate-particle-senses.mjs)
+const senseSrc = await fs.readFile(path.join(ROOT, 'app/shared/particle-sense.js'), 'utf8');
+const shimWindow = {};
+new Function('window', 'module', senseSrc)(shimWindow, undefined);
+const PS = shimWindow.JPShared.particleSense;
+const SENTENCE_ENDERS = new Set(['\u3002', '\uff01', '\uff1f', '!', '?', '\u300d', '\u300f', '\n']);
 
 const classifyToken = makeClassifyToken({ surfaceIdx, idIdx });
 const synthFormScope = (entry, ceiling) => synthFormScopeWith(entry, ceiling, CONJUGATION_RULES);
@@ -507,6 +514,61 @@ function chipCoverage(text, terms, where, v) {
   }
 }
 
+// Mis-chipped homograph particles: the renderer wraps EVERY occurrence of an
+// authored particle's surface with that one id, with no context resolution
+// (unlike stories). For each hazard surface authored in `terms`, resolve each
+// occurrence in the tokenized sentence with the runtime's own resolver and
+// flag occurrences whose sense isn't among the authored ids (e.g. a quoting
+// と in a line whose only と ref is p_to "and" — the chip would gloss the
+// wrong sense).
+// Punctuation-preserving runs — the resolver's rules key on 、。」 neighbours.
+const JP_RUN_PUNCT = /[぀-ヿ一-鿿㐀-䶿々〆ー、。！？「」『』：；・…]+/g;
+// Each hazard's context-blind fallback sense: the resolver returns these when
+// it CAN'T tell (e.g. conditional と). Only a non-default (confident) verdict
+// may contradict the authored id — the author often knows what the resolver
+// can't distinguish.
+const DEFAULT_SENSE = { 'でも': 'p_demo', 'と': 'p_to', 'から': 'p_kara', 'が': 'p_ga', 'の': 'p_no', 'では': 'p_dewa', 'そうだ': 'p_sou_da' };
+
+function particleSenseCheck(text, terms, where, v) {
+  if (!text || !Array.isArray(terms) || !terms.length) return;
+  const authoredBySurface = new Map();   // surface -> Set(authored particle ids)
+  for (const ref of terms) {
+    if (typeof ref !== 'string') continue;
+    const e = idIdx.get(ref);
+    if (!e || e.type !== 'particle') continue;
+    const surf = e.surface || e.particle;
+    if (!surf || !PS.isHazard(surf) || !PS.hasRule(surf)) continue;
+    if (!authoredBySurface.has(surf)) authoredBySurface.set(surf, new Set());
+    authoredBySurface.get(surf).add(ref);
+  }
+  if (!authoredBySurface.size) return;
+  for (const run of (text.match(JP_RUN_PUNCT) || [])) {
+    // A run that starts mid-sentence (after an MCQ blank ______ or English) is
+    // NOT a sentence start — only trust position when the run opens the text.
+    const runOpensText = text.trimStart().startsWith(run);
+    const toks = tokenizeText(run, surfaceIdx);
+    toks.forEach((t, i) => {
+      const k = t && t.k;
+      if (!k || !authoredBySurface.has(k)) return;
+      const prevK = i > 0 ? (toks[i - 1].k || '') : '';
+      const nextK = i + 1 < toks.length ? (toks[i + 1].k || '') : '';
+      const atSentenceStart = (i === 0 && runOpensText) || SENTENCE_ENDERS.has(prevK);
+      const expected = PS.resolveParticleSense(k, { prevK, nextK, atSentenceStart });
+      if (!expected || expected === DEFAULT_SENSE[k]) return;   // fallback verdicts can't overrule the author
+      // The runtime resolver's PREDICATE_RE is loose (any つ/う/い-final kana
+      // matches, so nouns like いつ/ほう trip it). For flagging purposes only
+      // trust because/but verdicts behind an unambiguous predicate ending.
+      if ((expected === 'p_kara_because' || expected === 'p_ga_but') &&
+          !/(です|ます|ました|でした|ません|ない|なかった|だった|ている|ていた)$/.test(prevK)) return;
+      const authored = authoredBySurface.get(k);
+      if (!authored.has(expected)) {
+        const at = Math.max(0, run.indexOf(k) - 12);
+        v.particleSense.push({ where, k, authored: [...authored].join('+'), expected, sample: run.slice(at, at + 28) });
+      }
+    });
+  }
+}
+
 async function qaFile(kind, level, file) {
   const p = path.join(ROOT, 'data', level, kind, file);
   const doc = JSON.parse(await fs.readFile(p, 'utf8'));
@@ -591,6 +653,7 @@ async function qaFile(kind, level, file) {
         }
       }
       chipCoverage(text, terms, where, v);
+      particleSenseCheck(text, terms, where, v);
     }
   }
 
@@ -636,7 +699,7 @@ function dedupe(rows, keyFn) {
 
 const BUCKET_LABELS = {
   kanji: 'UNTAUGHT KANJI', vocab: 'UNTAUGHT VOCAB', particle: 'UNTAUGHT PARTICLES',
-  form: 'UNTAUGHT FORMS', unknownId: 'UNKNOWN TERM IDS', storyLeak: 'STORY-VOCAB LEAKS',
+  form: 'UNTAUGHT FORMS', unknownId: 'UNKNOWN TERM IDS', storyLeak: 'STORY-VOCAB LEAKS', particleSense: 'MIS-CHIPPED PARTICLE SENSE',
   unglossaried: 'UNGLOSSARIED (warn)', chipCoverage: 'CHIP COVERAGE (warn)', distractor: 'UNTAUGHT DISTRACTORS (warn)', formEdge: 'FORM ONE-LESSON-EDGE (warn)'
 };
 const BUCKET_COLS = {
@@ -646,6 +709,7 @@ const BUCKET_COLS = {
   form: ['k', 'form', 'intro', 'where'],
   unknownId: ['ref', 'reason', 'where'],
   storyLeak: ['k', 'id', 'where'],
+  particleSense: ['k', 'authored', 'expected', 'sample', 'where'],
   unglossaried: ['k', 'where'],
   chipCoverage: ['k', 'id', 'where'],
   distractor: ['k', 'where'],
@@ -653,7 +717,7 @@ const BUCKET_COLS = {
 };
 const BUCKET_KEY = {
   kanji: f => f.ch, vocab: f => f.id, particle: f => f.id, form: f => f.form,
-  unknownId: f => f.ref, storyLeak: f => f.id, unglossaried: f => f.k,
+  unknownId: f => f.ref, storyLeak: f => f.id, particleSense: f => f.k + '|' + f.authored + '|' + f.expected, unglossaried: f => f.k,
   chipCoverage: f => f.k, distractor: f => f.k, formEdge: f => f.form
 };
 

@@ -1349,7 +1349,13 @@
           ],
           "answer": "家族",
           "terms": [
-            "v_kazoku"
+            "v_kazoku",
+            "v_watashi",
+            "v_yonin",
+            "g_desu",
+            "v_chichi",
+            "v_haha",
+            "v_ani"
           ],
           "explanation": "Correct: 私の 家族 は 四人です。父と 母と 兄と 私です。 — 「家族」 (かぞく) means \"family\"."
         },
@@ -1364,7 +1370,11 @@
           ],
           "answer": "親",
           "terms": [
-            "v_oya"
+            "v_oya",
+            "v_chichi",
+            "v_haha",
+            "v_watashi",
+            "g_desu"
           ],
           "explanation": "Correct: 父と 母は 私の 親 です。 — 「親」 (おや) means \"parent(s)\"."
         },
@@ -1379,7 +1389,13 @@
           ],
           "answer": "お姉",
           "terms": [
-            "v_oneesan"
+            "v_oneesan",
+            "v_san",
+            "v_donna",
+            "v_hito",
+            "g_desu",
+            "v_dare",
+            "v_ane"
           ],
           "explanation": "Correct: お姉 さんは どんな 人ですか。（だれかの 姉について 聞く）"
         },
@@ -1397,7 +1413,10 @@
             {
               "id": "v_shinsetsu",
               "form": "attributive_na"
-            }
+            },
+            "v_totemo",
+            "v_hito",
+            "g_desu"
           ],
           "explanation": "Correct: やまかわさんは とても 親切 な 人です。 — 「親切」 (しんせつ) means \"kind\"."
         }
@@ -1489,7 +1508,8 @@
             "v_gohan",
             "p_hodo",
             "v_suki",
-            "g_desu"
+            "g_desu",
+            "v_aru__polite_neg"
           ],
           "explanation": "Correct: カレーは ご飯 ほど 好きじゃありません。（I don't like curry as much as rice.） — ほど is used with a negative to say \"not as ... as\"."
         }

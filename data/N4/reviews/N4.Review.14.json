@@ -6,7 +6,16 @@
     "phase": 4,
     "type": "assessment",
     "focus": "Review of Kanji, Vocabulary, and Grammar from Lessons 27-28.",
-    "kanji": ["待", "合", "夕", "度", "池", "林", "門", "村"]
+    "kanji": [
+      "待",
+      "合",
+      "夕",
+      "度",
+      "池",
+      "林",
+      "門",
+      "村"
+    ]
   },
   "sections": [
     {
@@ -17,7 +26,10 @@
         {
           "title": "Conversation 1",
           "context": "Two colleagues arranging where to meet before an evening conference.",
-          "speakers": { "A": "yamakawa", "B": "rikizo" },
+          "speakers": {
+            "A": "yamakawa",
+            "B": "rikizo"
+          },
           "lines": [
             {
               "spk": "A",
@@ -29,11 +41,17 @@
                 "p_wa",
                 "v_yuugata",
                 "p_ni",
-                { "id": "v_aru", "form": "polite_masu" },
+                {
+                  "id": "v_aru",
+                  "form": "polite_masu"
+                },
                 "v_doko",
                 "p_de",
                 "v_machiawase",
-                { "id": "v_suru", "form": "polite_volitional_mashou" },
+                {
+                  "id": "v_suru",
+                  "form": "polite_volitional_mashou"
+                },
                 "p_ka"
               ]
             },
@@ -45,7 +63,10 @@
                 "p_no",
                 "v_machiaishitsu",
                 "p_ni",
-                { "id": "v_suru", "form": "polite_volitional_mashou" },
+                {
+                  "id": "v_suru",
+                  "form": "polite_volitional_mashou"
+                },
                 "v_ii",
                 "v_tokoro",
                 "g_desu",
@@ -56,26 +77,44 @@
               "spk": "A",
               "jp": "分かりました。夕方の 六時に 着いたら、すぐに 電話 します。",
               "terms": [
-                { "id": "v_wakaru", "form": "polite_mashita" },
+                {
+                  "id": "v_wakaru",
+                  "form": "polite_mashita"
+                },
                 "v_yuugata",
                 "p_no",
-                { "counter": "ji", "n": 6 },
+                {
+                  "counter": "ji",
+                  "n": 6
+                },
                 "p_ni",
-                { "id": "v_tsuku", "form": "conditional_tara" },
+                {
+                  "id": "v_tsuku",
+                  "form": "conditional_tara"
+                },
                 "v_sugu",
                 "p_ni",
                 "v_denwa",
-                { "id": "v_suru", "form": "polite_masu" }
+                {
+                  "id": "v_suru",
+                  "form": "polite_masu"
+                }
               ]
             },
             {
               "spk": "B",
               "jp": "急ぐ ように して ください。",
               "terms": [
-                { "id": "v_isogu", "form": "plain_form" },
+                {
+                  "id": "v_isogu",
+                  "form": "plain_form"
+                },
                 "v_you_manner",
                 "p_ni",
-                { "id": "v_suru", "form": "te_form" },
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
                 "v_kudasai"
               ]
             }
@@ -93,7 +132,10 @@
         {
           "title": "Conversation 2 (Casual)",
           "context": "Two close friends talking about a mountain village one of them visited.",
-          "speakers": { "A": "miki", "B": "nana" },
+          "speakers": {
+            "A": "miki",
+            "B": "nana"
+          },
           "lines": [
             {
               "spk": "A",
@@ -114,9 +156,15 @@
                 "p_ya",
                 "v_ike",
                 "p_ga",
-                { "id": "v_aru", "form": "te_form" },
+                {
+                  "id": "v_aru",
+                  "form": "te_form"
+                },
                 "v_totemo",
-                { "id": "v_kirei", "form": "attributive_na" },
+                {
+                  "id": "v_kirei",
+                  "form": "attributive_na"
+                },
                 "v_tokoro",
                 "p_yo",
                 "g_da"
@@ -131,8 +179,14 @@
                 "v_mainichi",
                 "v_nani",
                 "p_wo",
-                { "id": "v_suru", "form": "te_form" },
-                { "id": "v_iru", "form": "plain_form" },
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "plain_form"
+                },
                 "p_ka"
               ]
             },
@@ -144,14 +198,26 @@
                 "p_de",
                 "v_shigoto",
                 "p_wo",
-                { "id": "v_suru", "form": "tari_form" },
+                {
+                  "id": "v_suru",
+                  "form": "tari_form"
+                },
                 "v_hayashi",
                 "p_no",
                 "v_naka",
                 "p_wo",
-                { "id": "v_aruku", "form": "tari_form" },
-                { "id": "v_suru", "form": "te_form" },
-                { "id": "v_iru", "form": "plain_form" },
+                {
+                  "id": "v_aruku",
+                  "form": "tari_form"
+                },
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "plain_form"
+                },
                 "p_yo"
               ]
             }
@@ -169,7 +235,10 @@
         {
           "title": "Conversation 3 (Casual)",
           "context": "Two close friends making plans for the Tanabata festival evening.",
-          "speakers": { "A": "yuki", "B": "ken" },
+          "speakers": {
+            "A": "yuki",
+            "B": "ken"
+          },
           "lines": [
             {
               "spk": "A",
@@ -180,7 +249,10 @@
                 "v_tanabata",
                 "p_wa",
                 "v_issho",
-                { "id": "v_iku", "form": "plain_negative" },
+                {
+                  "id": "v_iku",
+                  "form": "plain_negative"
+                },
                 "p_ka"
               ]
             },
@@ -188,14 +260,23 @@
               "spk": "B",
               "jp": "行くよ！ 夕べから 心待ちに して いたよ。",
               "terms": [
-                { "id": "v_iku", "form": "plain_form" },
+                {
+                  "id": "v_iku",
+                  "form": "plain_form"
+                },
                 "p_yo",
                 "v_yuube",
                 "p_kara",
                 "v_kokoromachi",
                 "p_ni",
-                { "id": "v_suru", "form": "te_form" },
-                { "id": "v_iru", "form": "plain_past" },
+                {
+                  "id": "v_suru",
+                  "form": "te_form"
+                },
+                {
+                  "id": "v_iru",
+                  "form": "plain_past"
+                },
                 "p_yo"
               ]
             },
@@ -206,7 +287,10 @@
                 "v_yuugata",
                 "p_ni",
                 "v_machiawase",
-                { "id": "v_suru", "form": "plain_volitional" },
+                {
+                  "id": "v_suru",
+                  "form": "plain_volitional"
+                },
                 "p_yo",
                 "v_hayashi",
                 "p_no",
@@ -223,11 +307,20 @@
                 "v_ii",
                 "p_ne",
                 "v_ichido",
-                { "id": "v_miru", "form": "conditional_tara" },
+                {
+                  "id": "v_miru",
+                  "form": "conditional_tara"
+                },
                 "v_mata",
-                { "id": "v_iku", "form": "plain_desire_tai" },
+                {
+                  "id": "v_iku",
+                  "form": "plain_desire_tai"
+                },
                 "p_tte_quote",
-                { "id": "v_naru", "form": "plain_form" },
+                {
+                  "id": "v_naru",
+                  "form": "plain_form"
+                },
                 "p_yo"
               ]
             }
@@ -252,36 +345,85 @@
         {
           "kind": "scramble",
           "q": "Let's arrange to meet at the station waiting room.",
-          "segments": ["駅の", "待ち合い室で", "待ち合わせ", "しましょう"],
-          "distractors": ["正門で", "会合が", "林の中を"],
+          "segments": [
+            "駅の",
+            "待ち合い室で",
+            "待ち合わせ",
+            "しましょう"
+          ],
+          "distractors": [
+            "正門で",
+            "会合が",
+            "林の中を"
+          ],
           "explanation": "Station (Eki) + no + waiting room (Machiaishitsu) + de + Machiawase + Shimashou."
         },
         {
           "kind": "scramble",
           "q": "When you get near the main gate, please call right away.",
-          "segments": ["正門の", "近くに", "来たら", "すぐに", "電話して", "ください"],
-          "distractors": ["待ち合わせを", "夕方から", "池の"],
+          "segments": [
+            "正門の",
+            "近くに",
+            "来たら",
+            "すぐに",
+            "電話して",
+            "ください"
+          ],
+          "distractors": [
+            "待ち合わせを",
+            "夕方から",
+            "池の"
+          ],
           "explanation": "Seimon no + chikaku ni + kitara (conditional) + sugu ni + denwa shite + kudasai."
         },
         {
           "kind": "scramble",
           "q": "Please make an effort to walk through the grove.",
-          "segments": ["林の中を", "歩く", "ように", "して", "ください"],
-          "distractors": ["会合の", "村人が", "夕飯を"],
+          "segments": [
+            "林の中を",
+            "歩く",
+            "ように",
+            "して",
+            "ください"
+          ],
+          "distractors": [
+            "会合の",
+            "村人が",
+            "夕飯を"
+          ],
           "explanation": "Hayashi no naka wo + aruku + you ni + shite + kudasai."
         },
         {
           "kind": "scramble",
           "q": "There are mountain forests and ponds near the village.",
-          "segments": ["村の", "近くに", "山林や", "池が", "あります"],
-          "distractors": ["正門で", "待ち合わせを", "夕方の"],
+          "segments": [
+            "村の",
+            "近くに",
+            "山林や",
+            "池が",
+            "あります"
+          ],
+          "distractors": [
+            "正門で",
+            "待ち合わせを",
+            "夕方の"
+          ],
           "explanation": "Mura no + chikaku ni + sanrin ya + ike ga + arimasu."
         },
         {
           "kind": "scramble",
           "q": "If you go to the grove, you can also see the pond.",
-          "segments": ["林に", "行ったら", "池も", "見られます"],
-          "distractors": ["正門から", "待合で", "夕方に"],
+          "segments": [
+            "林に",
+            "行ったら",
+            "池も",
+            "見られます"
+          ],
+          "distractors": [
+            "正門から",
+            "待合で",
+            "夕方に"
+          ],
           "explanation": "Hayashi ni + ittara (conditional) + ike mo + miraremasu (potential)."
         }
       ]
@@ -300,7 +442,10 @@
             "p_no",
             "v_kaigou",
             "p_ga",
-            { "id": "v_aru", "form": "polite_masu" }
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -313,7 +458,10 @@
             "p_no",
             "v_machiaishitsu",
             "p_de",
-            { "id": "v_aru", "form": "polite_masu" }
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -324,9 +472,15 @@
             "p_wa",
             "v_yuugata",
             "p_no",
-            { "counter": "ji", "n": 7 },
+            {
+              "counter": "ji",
+              "n": 7
+            },
             "p_ni",
-            { "id": "v_kuru", "form": "plain_form" },
+            {
+              "id": "v_kuru",
+              "form": "plain_form"
+            },
             "p_sou_da_hearsay"
           ]
         },
@@ -336,23 +490,42 @@
           "terms": [
             "v_yuugata",
             "p_ni",
-            { "id": "v_naru", "form": "plain_form" },
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
             "p_to_conditional",
             "v_sensei",
             "p_ga",
             "v_seimon",
             "p_de",
-            { "id": "v_matsu", "form": "te_form" },
-            { "id": "v_iru", "form": "polite_masu" }
+            {
+              "id": "v_matsu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
+            "v_naru"
           ]
         },
         {
           "jp": "早く 来なければ いけません。",
           "en": "You must come early.",
           "terms": [
-            { "id": "v_hayai", "form": "adverbial" },
-            { "id": "v_kuru", "form": "nakereba" },
-            { "id": "v_ikeru", "form": "polite_negative" }
+            {
+              "id": "v_hayai",
+              "form": "adverbial"
+            },
+            {
+              "id": "v_kuru",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
           ]
         }
       ],
@@ -371,7 +544,10 @@
             "p_wa",
             "v_doko",
             "p_de",
-            { "id": "v_aru", "form": "polite_masu" },
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_eki",
             "p_no",
@@ -392,11 +568,17 @@
             "p_wa",
             "v_nanji",
             "p_ni",
-            { "id": "v_kuru", "form": "polite_masu" },
+            {
+              "id": "v_kuru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_yuugata",
             "p_no",
-            { "counter": "ji", "n": 7 }
+            {
+              "counter": "ji",
+              "n": 7
+            }
           ]
         },
         {
@@ -411,17 +593,27 @@
           "terms": [
             "v_yuugata",
             "p_ni",
-            { "id": "v_naru", "form": "plain_form" },
+            {
+              "id": "v_naru",
+              "form": "plain_form"
+            },
             "p_to_conditional",
             "v_sensei",
             "p_wa",
             "v_doko",
             "p_ni",
-            { "id": "v_iru", "form": "polite_masu" },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_seimon",
             "p_de",
-            { "id": "v_matsu", "form": "te_form" }
+            {
+              "id": "v_matsu",
+              "form": "te_form"
+            },
+            "v_naru"
           ]
         }
       ]
@@ -442,8 +634,14 @@
             "p_to",
             "v_murabito",
             "p_ga",
-            { "id": "v_sumu", "form": "te_form" },
-            { "id": "v_iru", "form": "polite_masu" }
+            {
+              "id": "v_sumu",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -452,7 +650,10 @@
           "terms": [
             "v_mura",
             "p_no",
-            { "id": "v_chikai", "form": "adverbial" },
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
             "p_ni",
             "v_sanrin",
             "p_ya",
@@ -460,7 +661,10 @@
             "p_ya",
             "v_ike",
             "p_ga",
-            { "id": "v_aru", "form": "polite_masu" }
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -472,13 +676,19 @@
             "v_maiasa",
             "v_seimon",
             "p_wo",
-            { "id": "v_deru", "form": "te_form" },
+            {
+              "id": "v_deru",
+              "form": "te_form"
+            },
             "p_tekara",
             "v_sanrin",
             "p_no",
             "v_naka",
             "p_wo",
-            { "id": "v_aruku", "form": "polite_masu" }
+            {
+              "id": "v_aruku",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -489,11 +699,17 @@
             "p_no",
             "v_mizu",
             "p_wa",
-            { "id": "v_kirei", "form": "te_form" },
+            {
+              "id": "v_kirei",
+              "form": "te_form"
+            },
             "v_ki",
             "p_mo",
             "v_takusan",
-            { "id": "v_aru", "form": "polite_masu" }
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -504,13 +720,19 @@
             "p_wa",
             "v_ike",
             "p_no",
-            { "id": "v_chikai", "form": "adverbial" },
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
             "p_no",
             "v_mise",
             "p_de",
             "v_denchi",
             "p_wo",
-            { "id": "v_kau", "form": "polite_masu" }
+            {
+              "id": "v_kau",
+              "form": "polite_masu"
+            }
           ]
         }
       ],
@@ -527,11 +749,17 @@
           "terms": [
             "v_mura",
             "p_no",
-            { "id": "v_chikai", "form": "adverbial" },
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
             "p_ni",
             "v_nani",
             "p_ga",
-            { "id": "v_aru", "form": "polite_masu" },
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_sanrin",
             "p_ya",
@@ -554,15 +782,24 @@
             "v_maiasa",
             "v_nani",
             "p_wo",
-            { "id": "v_suru", "form": "polite_masu" },
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_seimon",
-            { "id": "v_deru", "form": "te_form" },
+            {
+              "id": "v_deru",
+              "form": "te_form"
+            },
             "p_tekara",
             "v_sanrin",
             "p_no",
             "v_naka",
-            { "id": "v_aruku", "form": "polite_masu" }
+            {
+              "id": "v_aruku",
+              "form": "polite_masu"
+            }
           ]
         },
         {
@@ -579,11 +816,17 @@
             "p_wa",
             "v_doko",
             "p_de",
-            { "id": "v_kau", "form": "polite_masu" },
+            {
+              "id": "v_kau",
+              "form": "polite_masu"
+            },
             "p_ka",
             "v_ike",
             "p_no",
-            { "id": "v_chikai", "form": "adverbial" },
+            {
+              "id": "v_chikai",
+              "form": "adverbial"
+            },
             "v_mise"
           ]
         }
@@ -597,56 +840,96 @@
         {
           "kind": "mcq",
           "q": "[待ち合わせ]を します。",
-          "choices": ["まちあわせ", "たちあわせ", "まちあいせ", "うちあわせ"],
+          "choices": [
+            "まちあわせ",
+            "たちあわせ",
+            "まちあいせ",
+            "うちあわせ"
+          ],
           "answer": "まちあわせ",
           "explanation": "待ち合わせ (meeting arrangement) is read as <b>machiawase</b>."
         },
         {
           "kind": "mcq",
           "q": "[夕方]に 帰ります。",
-          "choices": ["ゆうがた", "せきほう", "ゆうほう", "せきがた"],
+          "choices": [
+            "ゆうがた",
+            "せきほう",
+            "ゆうほう",
+            "せきがた"
+          ],
           "answer": "ゆうがた",
           "explanation": "夕方 (evening) is read as <b>yuugata</b>."
         },
         {
           "kind": "mcq",
           "q": "[何度]も 来ました。",
-          "choices": ["なんど", "なんたく", "いくど", "なにど"],
+          "choices": [
+            "なんど",
+            "なんたく",
+            "いくど",
+            "なにど"
+          ],
           "answer": "なんど",
           "explanation": "何度 (how many times) is read as <b>nando</b>."
         },
         {
           "kind": "mcq",
           "q": "[今度]の 会合です。",
-          "choices": ["こんど", "いまど", "こうど", "こんたく"],
+          "choices": [
+            "こんど",
+            "いまど",
+            "こうど",
+            "こんたく"
+          ],
           "answer": "こんど",
           "explanation": "今度 (this time / next time) is read as <b>kondo</b>."
         },
         {
           "kind": "mcq",
           "q": "[池]が あります。",
-          "choices": ["いけ", "ちょ", "ため", "うみ"],
+          "choices": [
+            "いけ",
+            "ちょ",
+            "ため",
+            "うみ"
+          ],
           "answer": "いけ",
           "explanation": "池 (pond) is read as <b>ike</b>."
         },
         {
           "kind": "mcq",
           "q": "[山林]を 歩きます。",
-          "choices": ["さんりん", "やまはやし", "さんもり", "やまりん"],
+          "choices": [
+            "さんりん",
+            "やまはやし",
+            "さんもり",
+            "やまりん"
+          ],
           "answer": "さんりん",
           "explanation": "山林 (mountain forest) is read as <b>sanrin</b>."
         },
         {
           "kind": "mcq",
           "q": "学校の [正門]。",
-          "choices": ["せいもん", "しょうもん", "ただもん", "まさかど"],
+          "choices": [
+            "せいもん",
+            "しょうもん",
+            "ただもん",
+            "まさかど"
+          ],
           "answer": "せいもん",
           "explanation": "正門 (main gate) is read as <b>seimon</b>."
         },
         {
           "kind": "mcq",
           "q": "[村人]が います。",
-          "choices": ["むらびと", "むらひと", "そんにん", "むらじん"],
+          "choices": [
+            "むらびと",
+            "むらひと",
+            "そんにん",
+            "むらじん"
+          ],
           "answer": "むらびと",
           "explanation": "村人 (villager) is read as <b>murabito</b>."
         }
@@ -660,7 +943,12 @@
         {
           "kind": "mcq",
           "q": "明日 駅の ______ で 待ち合わせ します。",
-          "choices": ["待ち合い室", "林", "池", "正門"],
+          "choices": [
+            "待ち合い室",
+            "林",
+            "池",
+            "正門"
+          ],
           "answer": "待ち合い室",
           "explanation": "You arrange to meet at the station waiting room (待ち合い室).",
           "terms": [
@@ -669,13 +957,21 @@
             "p_no",
             "p_de",
             "v_machiawase",
-            { "id": "v_suru", "form": "polite_masu" }
+            {
+              "id": "v_suru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
           "kind": "mcq",
           "q": "カメラで 写真を とりたいですが、______ が ありません。",
-          "choices": ["電池", "村人", "会合", "夕方"],
+          "choices": [
+            "電池",
+            "村人",
+            "会合",
+            "夕方"
+          ],
           "answer": "電池",
           "explanation": "I want to take a photo with my camera, but I have no battery (電池).",
           "terms": [
@@ -683,17 +979,29 @@
             "p_de",
             "v_shashin",
             "p_wo",
-            { "id": "v_toru", "form": "plain_desire_tai" },
+            {
+              "id": "v_toru",
+              "form": "plain_desire_tai"
+            },
             "g_desu",
             "p_ga_but",
             "p_ga",
-            { "id": "v_aru", "form": "plain_negative" }
+            {
+              "id": "v_aru",
+              "form": "plain_negative"
+            },
+            "v_aru__polite_neg"
           ]
         },
         {
           "kind": "mcq",
           "q": "林の 中に 小さい ______ が あります。",
-          "choices": ["池", "会合", "夕方", "電池"],
+          "choices": [
+            "池",
+            "会合",
+            "夕方",
+            "電池"
+          ],
           "answer": "池",
           "explanation": "There is a small pond (池) in the grove.",
           "terms": [
@@ -703,13 +1011,21 @@
             "p_ni",
             "v_chiisai",
             "p_ga",
-            { "id": "v_aru", "form": "polite_masu" }
+            {
+              "id": "v_aru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
           "kind": "mcq",
           "q": "学校の ______ の 前に 来て ください。",
-          "choices": ["校門", "池", "夕方", "度合い"],
+          "choices": [
+            "校門",
+            "池",
+            "夕方",
+            "度合い"
+          ],
           "answer": "校門",
           "explanation": "Please come in front of the school gate (校門).",
           "terms": [
@@ -718,7 +1034,10 @@
             "p_no",
             "v_mae",
             "p_ni",
-            { "id": "v_kuru", "form": "te_form" },
+            {
+              "id": "v_kuru",
+              "form": "te_form"
+            },
             "v_kudasai"
           ]
         }
@@ -732,20 +1051,36 @@
         {
           "kind": "mcq",
           "q": "夕飯までに 帰ら ______ いけません。",
-          "choices": ["なければ", "なくて", "ないで", "ないから"],
+          "choices": [
+            "なければ",
+            "なくて",
+            "ないで",
+            "ないから"
+          ],
           "answer": "なければ",
           "explanation": "Nakereba + ikemasen = 'must return by dinnertime' (なければいけない).",
           "terms": [
             "v_yuuhan",
             "p_made_ni",
-            { "id": "v_kaeru", "form": "nakereba" },
-            { "id": "v_ikeru", "form": "polite_negative" }
+            {
+              "id": "v_kaeru",
+              "form": "nakereba"
+            },
+            {
+              "id": "v_ikeru",
+              "form": "polite_negative"
+            }
           ]
         },
         {
           "kind": "mcq",
           "q": "毎日 林の 中を 歩く ______ して います。",
-          "choices": ["ように", "ために", "のに", "てから"],
+          "choices": [
+            "ように",
+            "ために",
+            "のに",
+            "てから"
+          ],
           "answer": "ように",
           "explanation": "You ni + shite iru = 'making an effort to walk through the grove every day'.",
           "terms": [
@@ -754,40 +1089,71 @@
             "p_no",
             "v_naka",
             "p_wo",
-            { "id": "v_aruku", "form": "plain_form" },
-            { "id": "v_suru", "form": "te_form" },
-            { "id": "v_iru", "form": "polite_masu" }
+            {
+              "id": "v_aruku",
+              "form": "plain_form"
+            },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
+            {
+              "id": "v_iru",
+              "form": "polite_masu"
+            }
           ]
         },
         {
           "kind": "mcq",
           "q": "正門に 来 ______ 電話 して ください。",
-          "choices": ["たら", "てから", "ないで", "ながら"],
+          "choices": [
+            "たら",
+            "てから",
+            "ないで",
+            "ながら"
+          ],
           "answer": "たら",
           "explanation": "Kitara = 'when/if you come to the main gate, please call' (conditional たら).",
           "terms": [
             "v_seimon",
             "p_ni",
-            { "id": "v_kuru", "form": "conditional_tara" },
+            {
+              "id": "v_kuru",
+              "form": "conditional_tara"
+            },
             "v_denwa",
-            { "id": "v_suru", "form": "te_form" },
+            {
+              "id": "v_suru",
+              "form": "te_form"
+            },
             "v_kudasai"
           ]
         },
         {
           "kind": "mcq",
           "q": "何度も 運動 ______ 上手に なります。",
-          "choices": ["すれば", "したから", "するのに", "するため"],
+          "choices": [
+            "すれば",
+            "したから",
+            "するのに",
+            "するため"
+          ],
           "answer": "すれば",
           "explanation": "Sureba = 'if you exercise many times, you will become skilled' (conditional ば).",
           "terms": [
             "v_nando",
             "p_mo",
             "v_undou",
-            { "id": "v_suru", "form": "conditional_ba" },
+            {
+              "id": "v_suru",
+              "form": "conditional_ba"
+            },
             "v_jouzu",
             "p_ni",
-            { "id": "v_naru", "form": "polite_masu" }
+            {
+              "id": "v_naru",
+              "form": "polite_masu"
+            }
           ]
         }
       ]

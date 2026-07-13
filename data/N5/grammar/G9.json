@@ -1848,7 +1848,9 @@
             "I want to eat"
           ],
           "answer": "I am eating",
-          "terms": [],
+          "terms": [
+            "v_iru__polite"
+          ],
           "explanation": "ている = て-form + います. Expresses an ongoing action: 食べて + います = 'is eating'. The て-form connects to いる which carries the tense."
         },
         {
@@ -1887,7 +1889,9 @@
             "Let's not drink coffee."
           ],
           "answer": "I don't want to drink coffee.",
-          "terms": [],
+          "terms": [
+            "g_desu"
+          ],
           "explanation": "たくないです is the negative of たいです. 飲む → 飲み (stem) + たくないです. たい conjugates like an い-adjective: たい → たく + ない = たくない."
         },
         {
@@ -1900,7 +1904,9 @@
             "行くています"
           ],
           "answer": "行っています",
-          "terms": [],
+          "terms": [
+            "aux_teiru"
+          ],
           "explanation": "行く is the famous て-form exception: 行く → 行って (not 行いて!). Then + います = 行っています. The 行く exception from G8 applies here too."
         },
         {
@@ -1913,7 +1919,10 @@
             "An ongoing action of going"
           ],
           "answer": "A polite suggestion or invitation to go together",
-          "terms": [],
+          "terms": [
+            "v_issho",
+            "aux_mashou"
+          ],
           "explanation": "ましょう makes a polite suggestion or invitation: 'Let's go together with a friend.' It proposes a shared action. Adding か (行きましょうか) makes it a softer question: 'Shall we go?'"
         },
         {
@@ -1926,7 +1935,10 @@
             "Is it a gift?"
           ],
           "answer": "It's probably a gift.",
-          "terms": [],
+          "terms": [
+            "v_purezento",
+            "g_deshou"
+          ],
           "explanation": "でしょう attaches to a noun directly (no だ before it) to express polite conjecture: 'probably is'. プレゼント + でしょう = 'It's probably a gift.' Compare: プレゼントです (certain) vs プレゼントでしょう (guessing)."
         },
         {
@@ -1939,7 +1951,9 @@
             "行くだです。"
           ],
           "answer": "行くでしょう。",
-          "terms": [],
+          "terms": [
+            "g_deshou"
+          ],
           "explanation": "でしょう attaches to the PLAIN (dictionary) form of the verb. 行く is the plain form of 行きます. 行く + でしょう = 行くでしょう. ✗ 行きますでしょう is wrong — never attach でしょう to the ます-form."
         }
       ]

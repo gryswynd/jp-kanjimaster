@@ -1328,7 +1328,12 @@
             "You may not come today."
           ],
           "answer": "You don't have to come today.",
-          "terms": [],
+          "terms": [
+            "v_kyou",
+            "aux_nakute",
+            "v_ii",
+            "g_desu"
+          ],
           "explanation": "なくてもいい removes obligation — it says an action is NOT required. 来なくてもいい = 'don't have to come.' It does NOT mean forbidden (that would be 来てはいけない) or required (来なければいけない)."
         },
         {
@@ -1354,7 +1359,10 @@
             "masu-stem + くてもいい"
           ],
           "answer": "plain negative stem (ない → なく) + てもいい",
-          "terms": [],
+          "terms": [
+            "aux_nakute",
+            "v_ii"
+          ],
           "explanation": "Formation: (1) make the plain negative form (行く → 行かない), (2) remove the final い (行かない → 行かなく), (3) add てもいい → 行かなくてもいい. The key is taking the plain negative as the base, not the te-form."
         },
         {
@@ -1367,7 +1375,9 @@
             "Please use your smartphone."
           ],
           "answer": "You must not use your smartphone.",
-          "terms": [],
+          "terms": [
+            "v_sumaho"
+          ],
           "explanation": "使ってはいけません = te-form of 使う (to use) + はいけません = prohibition. This is a common school or workplace rule. The polite いけません form is appropriate for formal notices and signs."
         }
       ]

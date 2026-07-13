@@ -28,7 +28,10 @@
         {
           "title": "Conversation 1",
           "context": "Rikizo and Yamakawa chat at the office before work about their morning routines.",
-          "speakers": { "A": "rikizo", "B": "yamakawa" },
+          "speakers": {
+            "A": "rikizo",
+            "B": "yamakawa"
+          },
           "lines": [
             {
               "spk": "A",
@@ -125,7 +128,10 @@
         {
           "title": "Conversation 2",
           "context": "Rikizo is at a clothing store asking a staff member about shirt colors.",
-          "speakers": { "A": "rikizo", "B": "ren" },
+          "speakers": {
+            "A": "rikizo",
+            "B": "ren"
+          },
           "lines": [
             {
               "spk": "A",
@@ -223,7 +229,10 @@
         {
           "title": "Conversation 3 (Casual)",
           "context": "Two close friends chat casually at a café about their morning habits.",
-          "speakers": { "A": "miki", "B": "nana" },
+          "speakers": {
+            "A": "miki",
+            "B": "nana"
+          },
           "lines": [
             {
               "spk": "A",
@@ -437,8 +446,8 @@
           ]
         },
         {
-          "jp": "朝ごはんを 食べてから、会社に 行きます。",
-          "en": "After eating breakfast, I go to work.",
+          "jp": "朝ごはんを 食べて、会社に 行きます。",
+          "en": "I eat breakfast and go to work.",
           "terms": [
             "v_asagohan",
             "p_wo",
@@ -446,7 +455,6 @@
               "id": "v_taberu",
               "form": "te_form"
             },
-            "p_kara",
             "v_kaisha",
             "p_ni",
             {
@@ -734,7 +742,7 @@
       "items": [
         {
           "kind": "mcq",
-          "q": "毎朝 ______を 食べてから、会社に 行きます。",
+          "q": "毎朝 ______を 食べて、会社に 行きます。",
           "choices": [
             "朝ごはん",
             "晩ごはん",
@@ -757,7 +765,6 @@
               "id": "v_iku",
               "form": "polite_masu"
             },
-            "p_kara",
             "v_maiasa",
             "p_ni",
             "p_wo"

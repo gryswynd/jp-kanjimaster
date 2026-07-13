@@ -1324,7 +1324,8 @@
               "id": "v_iru",
               "form": "plain_form"
             },
-            "p_ka"
+            "p_ka",
+            "v_iru"
           ]
         },
         {
@@ -1361,7 +1362,8 @@
             {
               "id": "v_omou",
               "form": "plain_form"
-            }
+            },
+            "v_iru"
           ]
         },
         {
@@ -1432,7 +1434,8 @@
               "id": "v_omou",
               "form": "plain_form"
             },
-            "p_yo"
+            "p_yo",
+            "v_naru"
           ]
         }
       ]
@@ -1529,7 +1532,10 @@
           ],
           "answer": "思っている",
           "explanation": "思っている = ongoing/sustained belief. ずっと (always/continuously) confirms this is not a flash thought but a conviction Ken holds over time. 思う alone would express a current-moment opinion rather than an established conviction. 思った would place the thought in the past only.",
-          "terms": []
+          "terms": [
+            "v_nihongo",
+            "v_taisetsu"
+          ]
         },
         {
           "kind": "mcq",
@@ -1555,7 +1561,10 @@
           ],
           "answer": "ことが ある。",
           "explanation": "食べない (plain negative = dictionary form of a negative) + ことがある = 'there are times I don't eat breakfast' — an occasional occurrence. たことがある would require た-form: 食べなかったことがある — grammatically possible but less natural for a current habit. The dictionary-form pattern ことがある best expresses something that recurs.",
-          "terms": []
+          "terms": [
+            "v_maiasa",
+            "v_asagohan"
+          ]
         },
         {
           "kind": "mcq",
@@ -1568,7 +1577,9 @@
           ],
           "answer": "田中さんは 日本語の 先生に なりたいと 思っている。",
           "explanation": "田中さん (a third person) + と思っている = reporting someone else's held belief or aspiration. This is the classic use of と思っている for third-person inner states. 今日は雨が多いと思っている is possible but と思う is more natural for an in-the-moment weather observation. すしはおいしいと思っているか？ is grammatically possible in casual speech, but unnatural — you would not ask someone whether they hold an ongoing belief about a food's taste; と思う is the natural form for a direct opinion question.",
-          "terms": []
+          "terms": [
+            "v_iru"
+          ]
         }
       ]
     }
