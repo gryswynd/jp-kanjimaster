@@ -92,7 +92,10 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
   const taughtKanji = buildTaughtKanji(ctx.manifest, ceiling);
   const allKanjiTaught = (s) => [...String(s || '')].every(ch => !/[一-鿿]/.test(ch) || taughtKanji.has(ch));
   const paras = story.paragraphs || [];
-  const paraOfKanji = (ch) => { const i = paras.findIndex(p => (p.jp || '').includes(ch)); return i >= 0 ? i + 1 : null; };
+  // ALL paragraphs containing the char (capped) — attributing an untaught kanji
+  // only to its first paragraph made repair whack-a-mole: one round per
+  // paragraph, 7-round cap, story-wide habits (と思いました ×9) never converged.
+  const parasOfKanji = (ch) => { const out = []; paras.forEach((p, i) => { if ((p.jp || '').includes(ch)) out.push(i + 1); }); return out.slice(0, 6); };
 
   // Length floor — pages drive pricing, so too-short must reliably expand.
   const np = paras.length;
@@ -128,7 +131,11 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
   const q = qaStory(story, ctx, gateMeta);
   for (const k of dedupe(q.violations.kanji, x => x.ch).slice(0, 16)) {
     if (/^\[Q/.test(k.paragraph)) add('comprehension', null, `untaught kanji 「${k.ch}」 — write that word in kana`);
-    else add('paragraph', paraOfKanji(k.ch), `untaught kanji 「${k.ch}」 — write that word in kana`);
+    else {
+      const ps = parasOfKanji(k.ch);
+      if (!ps.length) add('paragraph', null, `untaught kanji 「${k.ch}」 — write that word in kana`);
+      else for (const pi of ps) add('paragraph', pi, `untaught kanji 「${k.ch}」 — write that word in kana`);
+    }
   }
   const paraOrComp = (p) => (p === 'Q' ? ['comprehension', null] : ['paragraph', p]);
   for (const x of dedupe(q.violations.vocab, x => x.p + x.id).slice(0, 16)) { const [s, i] = paraOrComp(x.p); add(s, i, `out-of-scope word "${x.k}" — use a simpler in-level word`); }
@@ -354,7 +361,10 @@ function buildScope(params, ctx) {
   const gairaigo = ['ヒーロー', 'モンスター', 'レベル', 'ゲーム', 'ロボット', 'エネルギー', 'チーム', 'パワー', 'ドア', 'ベル'].filter(w => (ctx.loanwords || []).indexOf(w) >= 0);
   // High-frequency words the model defaults to even when out of scope. Forbid them
   // explicitly — level-aware: only when the entry is ABOVE the learner's ceiling.
-  const HF_FORBID = [{ s: 'やる', use: 'する', why: 'casual する, not taught until N3.22' }];
+  const HF_FORBID = [
+    { s: 'やる', use: 'する', why: 'casual する, not taught until N3.22' },
+    { s: '思う', use: 'おもう (kana)', why: 'kanji 思 is taught later — the kana spelling おもう is always allowed' },
+  ];
   const forbid = HF_FORBID
     .filter(f => { const e = (ctx.vocabEntries || []).find(x => x.surface === f.s); return e && !inScope(e.lesson, ceiling); })
     .map(f => `「${f.s}」(${f.why}) → use 「${f.use}」`);
@@ -486,6 +496,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
       try { obj = parseJsonObject(await call(msgs, 800)); }
       catch (e) { if (e && e.fatal) throw e; msgs = [{ role: 'user', content: basePrompt }, { role: 'user', content: 'Return ONLY {"jp":"…","en":"…"} — valid JSON, no prose.' }]; continue; }
       const cand = bakeParagraph(obj.jp, obj.en, params, ctx);
+      kanaizeUntaughtKanji({ paragraphs: [cand] }, ctx, vopts);   // 思いました→おもいました before gating
       para = cand;
       const v = paragraphViolations(cand, ctx, vopts);
       if (!v.length) break;
@@ -520,9 +531,47 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
 // synonym. Only ever rewrites flagged pieces — never regenerates the whole story,
 // and preserves paragraph count (so the length floor holds). Returns the final
 // violation list. Shared by generateStory and reviseStory.
+// Mechanical kana-ize — the zero-cost repair for the author's kanji habit.
+// An untaught kanji inside a token group that (a) carries furigana and (b) has
+// an IN-SCOPE kana spelling is fixable without the model: 思いました at N4.24
+// becomes おもいました (v_omou_kana, N5). This exact class burned 84¢ on
+// 2026-07-13: 思 across many paragraphs, one repair round each, 7-round cap.
+export function kanaizeUntaughtKanji(story, ctx, vopts) {
+  const taughtKanji = buildTaughtKanji(ctx.manifest, vopts.ceiling);
+  const KJ = /[一-鿿㐀-䶿]/;
+  let changed = 0;
+  for (const p of story.paragraphs || []) {
+    const ts = p.tokens || [];
+    let jp = '', mutated = false;
+    for (let j = 0; j < ts.length; j++) {
+      const t = ts[j];
+      let end = j;
+      if (t.g) while (end + 1 < ts.length && ts[end + 1].g === t.g) end++;
+      const group = ts.slice(j, end + 1);
+      const text = group.map(x => x.k || '').join('');
+      const hasUntaught = [...text].some(ch => KJ.test(ch) && !taughtKanji.has(ch));
+      if (hasUntaught) {
+        const kana = group.map(x => x.r || x.k || '').join('');
+        const e = !KJ.test(kana) ? ctx.surfaceIdx.get(kana) : null;
+        let ok = false;
+        if (e) {
+          const lid = parseLessonId(String(e.lesson_ids || e.lesson || '').split(/[,;\s]+/)[0]);
+          ok = !lid || inScope(lid, vopts.ceiling);
+        }
+        if (ok) { jp += kana; mutated = true; changed++; j = end; continue; }
+      }
+      jp += text; j = end;
+    }
+    if (mutated) Object.assign(p, bakeParagraph(jp, p.en, { ceilingStr: vopts.ceilingStr }, ctx));
+  }
+  return changed;
+}
+
 async function repairToScope(story, call, params, ctx, vopts, log) {
+  kanaizeUntaughtKanji(story, ctx, vopts);
   let violations = collectViolations(story, ctx, vopts);
   let roundsRun = 0, lastResort = false;
+  let prevSig = '';
   for (let round = 1; round <= 7 && violations.length; round++) {
     roundsRun = round;
     const byPara = new Map(); const titleMsgs = []; const compMsgs = []; const generalMsgs = [];
@@ -546,8 +595,14 @@ async function repairToScope(story, call, params, ctx, vopts, log) {
       for (const fp of (fix.paragraphs || [])) { const i = (parseInt(fp.index, 10) || 0) - 1; if (i >= 0 && i < story.paragraphs.length && fp.jp) story.paragraphs[i] = bakeParagraph(fp.jp, fp.en || story.paragraphs[i].en, params, ctx); }
       if (compMsgs.length && Array.isArray(fix.comprehension) && fix.comprehension.length) story.comprehension.questions = fix.comprehension.map(q => bakeQuestion(q, params, ctx));
     } catch (e) { if (e && e.fatal) throw e; log(`finish ${round}: parse failed (${e.message})`); }
+    kanaizeUntaughtKanji(story, ctx, vopts);   // catch re-introduced kanji mechanically
     violations = collectViolations(story, ctx, vopts);
     log(`finish ${round}: ${violations.length} violation(s)`);
+    // No progress between rounds = the model can't fix this class — stop
+    // burning rounds (25¢+ on a doomed run) and go straight to last resort.
+    const sig = violations.map(v => v.scope + ':' + v.index + ':' + v.msg).sort().join('|');
+    if (sig && sig === prevSig) { log(`finish ${round}: no progress — bailing to last resort`); break; }
+    prevSig = sig;
   }
 
   // Last resort — a stubborn word that survived repeated rewording has no in-scope

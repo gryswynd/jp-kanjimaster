@@ -282,7 +282,12 @@ export function auditStory(data, ctx, storyRank) {
       if (auditIsKana(k) && k.length === 1) continue;
       if (t.g && GRAMMAR_SUFFIX_IDS.has(baseId(t.g))) continue;
       if (t.g && /^count_/.test(t.g)) continue;
-      const gRank = t.g ? ctx.idRank[baseId(t.g)] : undefined;
+      const gBase = t.g ? baseId(t.g) : null;
+      // Approved-pool bases (particles/characters/loanwords/story-vocab) carry no
+      // level rank — without this skip their CONJUGATED forms (やって来ました,
+      // わたしました) were reported "unglossaried" in every generation report.
+      if (gBase && ctx.approvedIds.has(gBase)) continue;
+      const gRank = gBase ? ctx.idRank[gBase] : undefined;
       const sRank = ctx.surfaceRank[k];
       const ranks = [gRank, sRank].filter(r => r != null);
       const known = ranks.length ? Math.min(...ranks) : undefined;
