@@ -86,7 +86,10 @@ function parseJsonObject(text) {
 // `index` is a 1-based paragraph number for scope 'paragraph', else null.
 export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, ceilingStr, minParagraphs }) {
   const out = [];
-  const add = (scope, index, msg) => out.push({ scope, index, msg });
+  // `soft` = orthography/style preference (kana spelling of a taught-kanji word):
+  // repair rounds address it, but it must NEVER fail a story — a kana spelling
+  // is always readable. (なに vs 何 killed a 63¢ generation on 2026-07-14.)
+  const add = (scope, index, msg, soft) => out.push({ scope, index, msg, soft: !!soft });
   const vocabRank = LEVELS.indexOf(vocabLevel) >= 0 ? LEVELS.indexOf(vocabLevel) : 1;
   const ceilingRank = ceiling ? (LEVEL_RANK[ceiling.lvl] != null ? LEVEL_RANK[ceiling.lvl] : 1) : 1;
   const taughtKanji = buildTaughtKanji(ctx.manifest, ceiling);
@@ -180,9 +183,9 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
     return e.type === 'inflected' ? (ctx.idIdx.get(e.original_id) || e) : e;
   };
   const seenChip = new Set();
-  const chipAdd = (pi, key, msg) => {
+  const chipAdd = (pi, key, msg, soft) => {
     const kk = pi + ':' + key;
-    if (!seenChip.has(kk)) { seenChip.add(kk); add('paragraph', pi, msg); }
+    if (!seenChip.has(kk)) { seenChip.add(kk); add('paragraph', pi, msg, soft); }
   };
   // Nominalizers stay kana per house orthography (こと/ところ are NOT pushed to
   // 事/所 — see CLAUDE.md); other style-legit kana is covered by isOkKana.
@@ -217,7 +220,7 @@ export function collectViolations(story, ctx, { vocabLevel, ceiling, gateMeta, c
       if (root.type === 'character' || root.type === 'counter' || String(root.id || '').startsWith('lw_')) return;
       const target = kanjiTarget(root);
       if (target && allKanjiTaught(target)) {
-        chipAdd(i + 1, text, `write "${text}" in its taught KANJI form (${target}) — don't write a taught-kanji word in kana`);
+        chipAdd(i + 1, text, `write "${text}" in its taught KANJI form (${target}) — don't write a taught-kanji word in kana`, true);
       }
     };
     for (let j = 0; j < ts.length; j++) {
@@ -497,6 +500,7 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
       catch (e) { if (e && e.fatal) throw e; msgs = [{ role: 'user', content: basePrompt }, { role: 'user', content: 'Return ONLY {"jp":"…","en":"…"} — valid JSON, no prose.' }]; continue; }
       const cand = bakeParagraph(obj.jp, obj.en, params, ctx);
       kanaizeUntaughtKanji({ paragraphs: [cand] }, ctx, vopts);   // 思いました→おもいました before gating
+      kanjiizeTaughtKana({ paragraphs: [cand] }, ctx, vopts);      // なに→何 / わたし→私 before gating
       para = cand;
       const v = paragraphViolations(cand, ctx, vopts);
       if (!v.length) break;
@@ -518,11 +522,13 @@ export async function generateStory({ params, ctx, anthropicCall, authorSystem, 
   // 5+6) Finishing repair to scope (targeted splice rounds + last-resort delete).
   const finish = await repairToScope(story, call, params, ctx, vopts, log);
   const violations = finish.violations;
-  const ok = violations.length === 0;
+  // Only HARD violations block delivery; residual soft (orthography) slips ship
+  // and surface in the report's residualMessages for review.
+  const ok = violations.every(v => v.soft);
   log(`final: ${story.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
   // `rounds` = finishing-repair rounds actually run (repair effort), NOT paragraph
   // count. paraRetries + lastResort round out the convergence-difficulty picture.
-  return { ok, story, usage, rounds: finish.rounds, paraRetries, lastResort: finish.lastResort, violations: ok ? [] : violations.map(v => v.msg) };
+  return { ok, story, usage, rounds: finish.rounds, paraRetries, lastResort: finish.lastResort, violations: violations.map(v => v.msg) };
 }
 
 // Drive a baked story to 0 violations: targeted splice-repair rounds for residual
@@ -567,12 +573,61 @@ export function kanaizeUntaughtKanji(story, ctx, vopts) {
   return changed;
 }
 
+// Mechanical kanji-ize — the REVERSE respell: an exact dictionary-form kana
+// spelling of a word whose taught kanji form exists (なに→何, わたし→私) is
+// deterministic too. Conjugated spellings (かるくて) stay model-repaired; the
+// corresponding violations are SOFT so they can never fail a story either way.
+export function kanjiizeTaughtKana(story, ctx, vopts) {
+  const taughtKanji = buildTaughtKanji(ctx.manifest, vopts.ceiling);
+  const KJ = /[一-鿿㐀-䶿]/;
+  const KANA = /^[぀-ヿー]+$/;
+  const allTaught = (t) => [...t].every(ch => !KJ.test(ch) || taughtKanji.has(ch));
+  const STYLE_OK = new Set(['こと', 'ところ']);
+  let changed = 0;
+  for (const p of story.paragraphs || []) {
+    const ts = p.tokens || [];
+    let jp = '', mutated = false;
+    for (let j = 0; j < ts.length; j++) {
+      const t = ts[j];
+      let end = j;
+      if (t.g) while (end + 1 < ts.length && ts[end + 1].g === t.g) end++;
+      const group = ts.slice(j, end + 1);
+      const text = group.map(x => x.k || '').join('');
+      let out = text;
+      if (KANA.test(text) && text.length >= 2 && !isOkKana(text) && !STYLE_OK.has(text)) {
+        const prev = j > 0 ? (ts[j - 1].k || '') : '';
+        const setPhrase = /^い(う|った|います|いました)$/.test(text) && ['どう', 'そう', 'こう', 'ああ'].includes(prev);
+        const aux = prev.endsWith('て') || prev.endsWith('で');
+        let e = t.g ? ctx.idIdx.get(t.g) : ctx.surfaceIdx.get(text);
+        if (e && e.type === 'inflected') e = ctx.idIdx.get(e.original_id) || e;
+        const bad = !e || e.particle || String(e.id || '').startsWith('p_') ||
+          e.type === 'character' || e.type === 'counter' || String(e.id || '').startsWith('lw_');
+        if (!setPhrase && !aux && !bad) {
+          let target = KJ.test(e.surface || '') ? e.surface : null;
+          let reading = e.reading;
+          if (!target && String(e.id || '').endsWith('_kana')) {
+            const twin = ctx.idIdx.get(String(e.id).slice(0, -'_kana'.length));
+            if (twin && KJ.test(twin.surface || '')) { target = twin.surface; reading = twin.reading; }
+          }
+          // EXACT dictionary-form spelling only: text === the entry's reading.
+          if (target && reading === text && allTaught(target)) { out = target; mutated = true; changed++; }
+        }
+      }
+      jp += out; j = end;
+    }
+    if (mutated) Object.assign(p, bakeParagraph(jp, p.en, { ceilingStr: vopts.ceilingStr }, ctx));
+  }
+  return changed;
+}
+
 async function repairToScope(story, call, params, ctx, vopts, log) {
-  kanaizeUntaughtKanji(story, ctx, vopts);
+  const mechanical = () => { kanaizeUntaughtKanji(story, ctx, vopts); kanjiizeTaughtKana(story, ctx, vopts); };
+  mechanical();
   let violations = collectViolations(story, ctx, vopts);
+  const hard = () => violations.filter(v => !v.soft);
   let roundsRun = 0, lastResort = false;
   let prevSig = '';
-  for (let round = 1; round <= 7 && violations.length; round++) {
+  for (let round = 1; round <= 7 && hard().length; round++) {
     roundsRun = round;
     const byPara = new Map(); const titleMsgs = []; const compMsgs = []; const generalMsgs = [];
     for (const v of violations) {
@@ -595,7 +650,7 @@ async function repairToScope(story, call, params, ctx, vopts, log) {
       for (const fp of (fix.paragraphs || [])) { const i = (parseInt(fp.index, 10) || 0) - 1; if (i >= 0 && i < story.paragraphs.length && fp.jp) story.paragraphs[i] = bakeParagraph(fp.jp, fp.en || story.paragraphs[i].en, params, ctx); }
       if (compMsgs.length && Array.isArray(fix.comprehension) && fix.comprehension.length) story.comprehension.questions = fix.comprehension.map(q => bakeQuestion(q, params, ctx));
     } catch (e) { if (e && e.fatal) throw e; log(`finish ${round}: parse failed (${e.message})`); }
-    kanaizeUntaughtKanji(story, ctx, vopts);   // catch re-introduced kanji mechanically
+    mechanical();   // catch re-introduced kanji / kana spellings deterministically
     violations = collectViolations(story, ctx, vopts);
     log(`finish ${round}: ${violations.length} violation(s)`);
     // No progress between rounds = the model can't fix this class — stop
@@ -608,10 +663,10 @@ async function repairToScope(story, call, params, ctx, vopts, log) {
   // Last resort — a stubborn word that survived repeated rewording has no in-scope
   // synonym. Rather than bin a near-perfect story over it, DELETE/replace the
   // offending sentence (guaranteed removal), preserving paragraph count.
-  if (violations.length) {
+  if (hard().length) {
     lastResort = true;
     const byPara = new Map();
-    for (const v of violations) if (v.scope === 'paragraph' && v.index) { if (!byPara.has(v.index)) byPara.set(v.index, []); byPara.get(v.index).push(v.msg); }
+    for (const v of hard()) if (v.scope === 'paragraph' && v.index) { if (!byPara.has(v.index)) byPara.set(v.index, []); byPara.get(v.index).push(v.msg); }
     for (const [idx, msgs] of byPara) {
       const i = idx - 1;
       if (i < 0 || i >= story.paragraphs.length) continue;
@@ -693,5 +748,5 @@ export async function reviseStory({ params, ctx, anthropicCall, authorSystem, st
   } catch (e) { if (e && e.fatal) throw e; log(`revise: parse failed (${e.message})`); return { ok: false, story, usage, violations: ['revise_parse_failed'] }; }
   const { violations } = await repairToScope(revised, call, params, ctx, vopts, log);
   log(`revise: ${revised.paragraphs.length} paragraphs, ${violations.length} violation(s)`);
-  return { ok: violations.length === 0, story: revised, usage, violations: violations.map(v => v.msg) };
+  return { ok: violations.every(v => v.soft), story: revised, usage, violations: violations.map(v => v.msg) };
 }
