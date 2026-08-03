@@ -43,7 +43,7 @@ gcloud run deploy rikizo-tutor \
   --region "$REGION" \
   --project "$PROJ" \
   --allow-unauthenticated \
-  --min-instances 1 --max-instances 1 \
+  --min-instances 0 --max-instances 1 \
   --set-env-vars "GCLOUD_PROJECT=${PROJ},CURRICULUM_ROOT=/app/curriculum,ATTEST_BYPASS=true,ADMIN_UIDS=${ADMIN_UIDS}" \
   --set-secrets "$SECRETS"
 

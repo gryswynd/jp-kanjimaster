@@ -30,16 +30,20 @@ if gcloud secrets describe ADMIN_TOKEN --project "$PROJ" >/dev/null 2>&1; then
   SECRETS="${SECRETS},ADMIN_TOKEN=ADMIN_TOKEN:latest"
   echo "    ADMIN_TOKEN secret found — mounting it for the cost dashboard."
 fi
-# Generation can take a few minutes (Claude + repair rounds) and runs in the
-# background after responding — keep the instance warm (min 1) and a long timeout.
+# COST: scale-to-zero + default CPU throttling (Aug 2026). This service now
+# exists for the Friends API (both apps); custom-story GENERATION is mothballed —
+# its post-response background work needs an always-on unthrottled instance
+# (~$50/mo idle, the July 2026 bill). Rearchitect first (generate inside the
+# request window, or a Cloud Run Job) before re-adding --min-instances 1 /
+# --no-cpu-throttling.
 gcloud run deploy rikizo-story-gen \
   --source . \
   --region "$REGION" \
   --project "$PROJ" \
   --allow-unauthenticated \
-  --min-instances 1 --max-instances 2 \
+  --min-instances 0 --max-instances 1 \
   --memory 1Gi --cpu 1 --timeout 600 \
-  --no-cpu-throttling \
+  --cpu-throttling \
   --set-env-vars "GCLOUD_PROJECT=${PROJ},CONTENT_ROOT=/app/content,ADMIN_UIDS=${ADMIN_UIDS}" \
   --set-secrets "$SECRETS"
 
